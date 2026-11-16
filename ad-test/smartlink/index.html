@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ad Test 4 — Smartlink | Funtasha</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fdf2f8;color:#1e293b;line-height:1.65}
+.wrap{max-width:640px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:26px;margin:8px 0 10px}
+p{margin:10px 0;font-size:16px}
+a{color:#db2777;font-weight:700}
+button{min-height:52px;padding:13px 24px;border:none;border-radius:999px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer;background:#ea580c;color:#fff}
+#taplog{font-size:14px;color:#64748b}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Test 4 — Smartlink only</h1>
+<p>This page has NO ad script at all. Tapping the link or the button opens the Smartlink ad in a new tab — exactly like the downloader's Download button does.</p>
+<p>Tap the link and the button. A new tab with an ad SHOULD open while THIS page stays open. If THIS page itself jumps to the ad site, the Smartlink is the hijacker.</p>
+<p><a href="../">← Back to ad test index</a></p>
+<p><button id="tbtn" type="button">Test button — tap me</button></p>
+<p id="taplog">Taps: 0</p>
+</div>
+<script>
+var SMARTLINK_URL = "https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb";
+var n = 0;
+document.getElementById("tbtn").addEventListener("click", function () {
+  n++;
+  document.getElementById("taplog").textContent = "Taps: " + n + " — page still here, good.";
+  window.open(SMARTLINK_URL, "_blank", "noopener");
+});
+document.querySelector(".wrap a").addEventListener("click", function () {
+  window.open(SMARTLINK_URL, "_blank", "noopener");
+});
+</script>
+</body>
+</html>

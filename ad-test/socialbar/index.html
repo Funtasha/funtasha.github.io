@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ad Test 3 — Social Bar | Funtasha</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fdf2f8;color:#1e293b;line-height:1.65}
+.wrap{max-width:640px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:26px;margin:8px 0 10px}
+p{margin:10px 0;font-size:16px}
+a{color:#db2777;font-weight:700}
+button{min-height:52px;padding:13px 24px;border:none;border-radius:999px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer;background:#ea580c;color:#fff}
+#taplog{font-size:14px;color:#64748b}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Test 3 — Social Bar only</h1>
+<p>This page carries ONE ad format only: the Social Bar script. Nothing else — no banner, no native widget, no popunder link.</p>
+<p>Scroll, tap the link and the button, wait 20 seconds. If this page suddenly jumps to another site or a full-screen ad takes over, the Social Bar is the hijacker.</p>
+<p><a href="../">← Back to ad test index</a></p>
+<p><button id="tbtn" type="button">Test button — tap me</button></p>
+<p id="taplog">Taps: 0</p>
+</div>
+<script>
+var n = 0;
+document.getElementById("tbtn").addEventListener("click", function () {
+  n++;
+  document.getElementById("taplog").textContent = "Taps: " + n + " — page still here, good.";
+});
+</script>
+<script data-cfasync="false" src="https://bellnewyork.org/14/385dbe2bd15a5e4d828ec644fc878913"></script>
+</body>
+</html>
