@@ -322,7 +322,10 @@ downloadBtn.addEventListener("click", function () {
   if (!currentVideoUrl) return;
   if (!currentIsHls && currentSourceUrl) {
     window.open(SMARTLINK_URL, "_blank", "noopener");
-    window.location.href = WORKER_URL + "/?url=" + encodeURIComponent(currentSourceUrl) + "&download=1";
+    var ifr = document.createElement("iframe");
+    ifr.style.display = "none";
+    ifr.src = WORKER_URL + "/?url=" + encodeURIComponent(currentSourceUrl) + "&download=1";
+    document.body.appendChild(ifr);
   } else {
     window.open(currentVideoUrl, "_blank", "noopener");
   }
