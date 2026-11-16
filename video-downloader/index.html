@@ -66,6 +66,8 @@ h2.sec{font-size:21px;margin:34px 0 12px}
 .back{text-align:center;margin-top:30px}
 .back a{color:#db2777;font-weight:700}
 footer{margin-top:36px;font-size:13.5px;color:#64748b;text-align:center}
+.ad-slot{margin:22px auto 0;text-align:center}
+.ad-label{font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
 @media(min-width:560px){
   .hero{padding:36px 28px 28px}
   .hero h1{font-size:38px}
@@ -109,7 +111,19 @@ footer{margin-top:36px;font-size:13.5px;color:#64748b;text-align:center}
 </div>
 <p class="yt-note">YouTube links open our partner download site.</p>
 </section>
-<!-- AD-ZONE-HOOK -->
+<div class="ad-slot">
+<p class="ad-label">Advertisement</p>
+<script>
+  atOptions = {
+    'key' : 'e20e1e6290f4c44ca541c648438aec5e',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://bellnewyork.org/22/e20e1e6290f4c44ca541c648438aec5e"></script>
+</div>
 
 <section id="result" class="result" hidden>
 <img id="result-thumb" src="" alt="Video thumbnail" onerror="this.style.display='none'">
@@ -145,6 +159,12 @@ footer{margin-top:36px;font-size:13.5px;color:#64748b;text-align:center}
 <div class="plat"><h3>Vimeo video downloader</h3><p>Open Vimeo videos from their watch link. Paste a Vimeo link and get a stream link you can play in your browser or a video player app — free, no sign-up.</p></div>
 <div class="plat"><h3>Dailymotion video downloader</h3><p>Open Dailymotion videos from their watch link. Paste a Dailymotion or dai.ly link and get a stream link you can play in your browser or a video player app.</p></div>
 <div class="plat"><h3>YouTube video downloader</h3><p>YouTube links open our partner download site, where you can paste your YouTube link and download the video. This page fetches video files directly for Pinterest, Facebook, Instagram, X, Vimeo and Dailymotion.</p></div>
+
+<div class="ad-slot">
+<p class="ad-label">Advertisement</p>
+<script async="async" data-cfasync="false" src="https://bellnewyork.org/21/6dd1624947069c13d6cc74bf98510db7"></script>
+<div id="container-6dd1624947069c13d6cc74bf98510db7"></div>
+</div>
 
 <h2 class="sec">Questions people ask</h2>
 <div class="faq"><h3>Which sites does the downloader work with?</h3><p>Pinterest, Facebook, Instagram, X, Vimeo and Dailymotion. Paste a link from any of those and we'll fetch the video file for you. YouTube links open our partner download site, where you can paste your link to download the video.</p></div>
@@ -197,7 +217,8 @@ let currentSourceUrl = "";
 let currentIsHls = false;
 
 /* Funtasha Adsterra Smartlink (zone 32317423) — opens in a new tab on
-   each Download click for mp4 videos; the download never waits for it.
+   each click on the page's own links and action buttons (see the
+   binding at the end of this script); the download never waits for it.
    (The Popunder script tag was tried first and broke the download: its
    overlay covered the button and the navigation never completed.) */
 const SMARTLINK_URL = "https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb";
@@ -321,7 +342,6 @@ form.addEventListener("submit", async function (e) {
 downloadBtn.addEventListener("click", function () {
   if (!currentVideoUrl) return;
   if (!currentIsHls && currentSourceUrl) {
-    window.open(SMARTLINK_URL, "_blank", "noopener");
     var ifr = document.createElement("iframe");
     ifr.style.display = "none";
     ifr.src = WORKER_URL + "/?url=" + encodeURIComponent(currentSourceUrl) + "&download=1";
@@ -350,6 +370,17 @@ copyBtn.addEventListener("click", async function () {
     setTimeout(function () { copyBtn.textContent = "Copy link"; }, 2000);
   }
 });
+
+/* Smartlink popunder on every own-link click (owner order 2026-11-17):
+   one ad tab per deliberate click on the brand link, the back link,
+   Download or Copy. Ad widgets' own links are untouched, and the
+   Get-video submit is not a link, so it never opens an ad tab. */
+document.querySelectorAll(".brand a, .back a, #download-btn, #copy-btn").forEach(function (el) {
+  el.addEventListener("click", function () {
+    window.open(SMARTLINK_URL, "_blank", "noopener");
+  });
+});
 </script>
+<script data-cfasync="false" src="https://bellnewyork.org/14/385dbe2bd15a5e4d828ec644fc878913"></script>
 </body>
 </html>
