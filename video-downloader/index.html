@@ -196,6 +196,18 @@ let currentVideoUrl = "";
 let currentSourceUrl = "";
 let currentIsHls = false;
 
+/* Funtasha Adsterra popunder (zone 32317376) — loads only from the
+   Download click, once per page load; the download itself never waits. */
+let popunderLoaded = false;
+window.__funtashaPopunder = function () {
+  if (popunderLoaded) return;
+  popunderLoaded = true;
+  const s = document.createElement("script");
+  s.setAttribute("data-cfasync", "false");
+  s.src = "https://accountut.com/1/a3d13a48b9e4c2132c855735428924c5";
+  document.body.appendChild(s);
+};
+
 function hostMatches(host, allowed) {
   return host === allowed || host.endsWith("." + allowed);
 }
