@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Did the Moon Look Like on Your Birthday? | Funtasha</title>
+<meta name="description" content="Enter any date and see the moon phase for that day — phase name, illumination, moon age, and a picture of the Moon, worked out from the mean lunar cycle.">
+<link rel="canonical" href="https://funtasha.github.io/moon-on-your-birthday/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What Did the Moon Look Like on Your Birthday?">
+<meta property="og:description" content="Enter any date and see the moon phase for that day, with its name, illumination, and age.">
+<meta property="og:url" content="https://funtasha.github.io/moon-on-your-birthday/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>.moonpic{text-align:center;margin-top:14px}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is the moon phase worked out?","acceptedAnswer":{"@type":"Answer","text":"The page uses the mean synodic model. It counts the days since a known new moon on 6 January 2000 at 18:14 UTC, divides by the average lunar month of 29.530588853 days, and takes the remainder as the moon's age. The phase name, illumination, and picture all follow from that age, evaluated at noon UTC on the date you pick."}},{"@type":"Question","name":"Why is the phase only approximate?","acceptedAnswer":{"@type":"Answer","text":"The real lunar orbit is elliptical, so the Moon does not move at a perfectly steady speed. This page uses an average cycle, which means the exact instant of a phase can differ by a few hours from an astronomical almanac. For exact phase times, check an almanac."}},{"@type":"Question","name":"What does the illuminated percentage mean?","acceptedAnswer":{"@type":"Answer","text":"It is the share of the Moon's face lit by the Sun as seen from Earth: 0 percent at new moon, 50 percent at the quarter phases, and 100 percent at full moon."}},{"@type":"Question","name":"What is the moon's age?","acceptedAnswer":{"@type":"Answer","text":"The moon's age is the number of days since the last new moon. It runs from 0 at new moon to about 29.5 just before the next new moon, and it tells you where the Moon is in its cycle."}},{"@type":"Question","name":"Can I check a future date?","acceptedAnswer":{"@type":"Answer","text":"Yes. Any date works, past or future. The model counts forward or backward from the reference new moon, so you can look up a birthday long ago or a party date still to come."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>What Did the Moon Look Like on Your Birthday?</h1>
+<p class="answer">Enter any date and this page shows you the Moon as it looked that day — its phase name, how much of it was lit, and its age in days. The phase is worked out from the Moon's average cycle, so it is a close picture rather than an exact almanac reading.</p>
+<div class="calc">
+<label for="moonDate">Pick a date</label>
+<input type="date" id="moonDate">
+<button id="moonBtn" type="button">Show the Moon</button>
+<div class="moonpic" id="moonVisual"></div>
+<div class="out" id="moonResult"></div>
+<div class="steps" id="moonSteps"></div>
+</div>
+<div class="warn">This is a mean-phase approximation — the real orbit is elliptical, so the exact instant of a phase can differ by a few hours. For exact phase times, check an astronomical almanac.</div>
+<h2>How the calculation works</h2>
+<p>The Moon goes through the same cycle again and again, from new moon to full moon and back. This page uses the mean synodic model: it starts from a known new moon on 6 January 2000 at 18:14 UTC, counts the days from there to your date, and divides by the average lunar month of 29.530588853 days. The remainder is the moon's age — the number of days since the last new moon.</p>
+<p>From the age, everything else follows. The phase fraction is the age divided by the month length: 0 means new moon, 0.25 means first quarter, 0.5 means full moon, and 0.75 means last quarter. The illuminated share comes from the formula (1 − cos(2 × pi × phase fraction)) / 2. The date you pick is evaluated at noon UTC, so the picture shows the Moon around the middle of that day.</p>
+<p>Phase names use the primary phases as anchors. Within one day either side of a primary phase — new, first quarter, full, or last quarter — the page uses the primary name. Between those windows, it uses the crescent or gibbous name for the stretch in between.</p>
+<h2>What the 8 phases mean</h2>
+<ul>
+<li><strong>New Moon</strong> — the Moon sits between the Earth and the Sun, so the face we see is dark. The cycle starts here.</li>
+<li><strong>Waxing Crescent</strong> — a thin sliver of light appears and grows a little each night. Waxing means the lit part is growing.</li>
+<li><strong>First Quarter</strong> — half the Moon's face is lit, and the lit half is still growing.</li>
+<li><strong>Waxing Gibbous</strong> — more than half is lit, and the light keeps spreading toward full.</li>
+<li><strong>Full Moon</strong> — the whole face we see is lit, the brightest night of the cycle.</li>
+<li><strong>Waning Gibbous</strong> — the light starts to shrink again, but more than half is still lit. Waning means the lit part is shrinking.</li>
+<li><strong>Last Quarter</strong> — half the face is lit again, now on the shrinking side of the cycle.</li>
+<li><strong>Waning Crescent</strong> — only a thin sliver of light is left before the cycle returns to new moon.</li>
+</ul>
+<h2>Fun ways to use your moon phase</h2>
+<p>A birthday moon phase makes a lovely detail for a party. Print the picture on the invitations, use it on a birthday card, or build the party decor around it — a full moon suits a bright, starry evening, and a crescent suits a quiet, dreamy one. The phase also makes a thoughtful personalised gift: a framed picture of the Moon on the day someone was born, with the date and the phase name written underneath.</p>
+<p>People enjoy sharing a "born under a full moon" note, and the phase gives you something real to say about the day. Check the moons of everyone at the table and see who shares a phase — it is a gentle, happy conversation starter that needs nothing but a date.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How is the moon phase worked out?</h3><p>The page uses the mean synodic model. It counts the days since a known new moon on 6 January 2000 at 18:14 UTC, divides by the average lunar month of 29.530588853 days, and takes the remainder as the moon's age. The phase name, illumination, and picture all follow from that age, evaluated at noon UTC on the date you pick.</p></div>
+<div class="faq"><h3>Why is the phase only approximate?</h3><p>The real lunar orbit is elliptical, so the Moon does not move at a perfectly steady speed. This page uses an average cycle, which means the exact instant of a phase can differ by a few hours from an astronomical almanac. For exact phase times, check an almanac.</p></div>
+<div class="faq"><h3>What does the illuminated percentage mean?</h3><p>It is the share of the Moon's face lit by the Sun as seen from Earth: 0 percent at new moon, 50 percent at the quarter phases, and 100 percent at full moon.</p></div>
+<div class="faq"><h3>What is the moon's age?</h3><p>The moon's age is the number of days since the last new moon. It runs from 0 at new moon to about 29.5 just before the next new moon, and it tells you where the Moon is in its cycle.</p></div>
+<div class="faq"><h3>Can I check a future date?</h3><p>Yes. Any date works, past or future. The model counts forward or backward from the reference new moon, so you can look up a birthday long ago or a party date still to come.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../what-day-were-you-born/">What Day of the Week Were You Born?</a> · <a href="../life-path-number-calculator/">Life Path Number Calculator</a> · <a href="../birthstone-by-month/">Birthstones by Month</a> · <a href="../zodiac-compatibility-checker/">Zodiac Compatibility Checker</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+var SYNODIC = 29.530588853;
+var REF_MS = Date.UTC(2000, 0, 6, 18, 14);
+function moonAge(dateMs) {
+  var days = (dateMs - REF_MS) / 86400000;
+  return ((days % SYNODIC) + SYNODIC) % SYNODIC;
+}
+function phaseName(age) {
+  var q = SYNODIC / 4;
+  function near(target) { return Math.abs(age - target) <= 1; }
+  if (age <= 1 || age >= SYNODIC - 1) return "New Moon";
+  if (near(q)) return "First Quarter";
+  if (near(2 * q)) return "Full Moon";
+  if (near(3 * q)) return "Last Quarter";
+  if (age < q) return "Waxing Crescent";
+  if (age < 2 * q) return "Waxing Gibbous";
+  if (age < 3 * q) return "Waning Gibbous";
+  return "Waning Crescent";
+}
+function moonPhase(dateMs) {
+  var age = moonAge(dateMs);
+  var frac = age / SYNODIC;
+  var illum = (1 - Math.cos(2 * Math.PI * frac)) / 2;
+  return {age: age, fraction: frac, illumination: illum, name: phaseName(age)};
+}
+function moonSVG(frac) {
+  var dark = "#1e293b", lit = "#fef3c7";
+  var s = '<svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Moon phase diagram">';
+  s += '<circle cx="60" cy="60" r="50" fill="' + dark + '" stroke="#94a3b8" stroke-width="1"/>';
+  if (frac < 0.02 || frac > 0.98) {
+    // new moon: dark disc only
+  } else if (Math.abs(frac - 0.5) < 0.02) {
+    s += '<circle cx="60" cy="60" r="50" fill="' + lit + '"/>';
+  } else {
+    var rx = Math.abs(Math.cos(2 * Math.PI * frac)) * 50;
+    var waxing = frac < 0.5;
+    var outerSweep = waxing ? 1 : 0;
+    var termSweep;
+    if (waxing) termSweep = (frac < 0.25) ? 0 : 1;
+    else termSweep = (frac < 0.75) ? 0 : 1;
+    s += '<path d="M 60 10 A 50 50 0 0 ' + outerSweep + ' 60 110 A ' + rx.toFixed(2) + ' 50 0 0 ' + termSweep + ' 60 10 Z" fill="' + lit + '"/>';
+  }
+  s += '</svg>';
+  return s;
+}
+function parseDateInput(v) {
+  var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v || "");
+  if (!m) return null;
+  var y = +m[1], mo = +m[2], d = +m[3];
+  var dt = new Date(Date.UTC(y, mo - 1, d));
+  if (dt.getUTCFullYear() !== y || dt.getUTCMonth() !== mo - 1 || dt.getUTCDate() !== d) return null;
+  return {y: y, m: mo, d: d};
+}
+function onShowMoon() {
+  var input = document.getElementById("moonDate");
+  var parsed = parseDateInput(input.value);
+  var result = document.getElementById("moonResult");
+  var steps = document.getElementById("moonSteps");
+  var visual = document.getElementById("moonVisual");
+  if (!parsed) {
+    result.textContent = "";
+    steps.textContent = "";
+    visual.innerHTML = "";
+    result.textContent = "Please pick a date first — any date works.";
+    return;
+  }
+  var ms = Date.UTC(parsed.y, parsed.m - 1, parsed.d, 12, 0);
+  var p = moonPhase(ms);
+  var pct = (p.illumination * 100).toFixed(1);
+  visual.innerHTML = moonSVG(p.fraction);
+  result.textContent = p.name + " — " + pct + "% lit, moon age " + p.age.toFixed(1) + " days.";
+  var days = (ms - REF_MS) / 86400000;
+  steps.textContent = "Days since the reference new moon (6 January 2000, 18:14 UTC): " + days.toFixed(2) + ".\nMoon age: " + days.toFixed(2) + " modulo 29.530588853 = " + p.age.toFixed(2) + " days.\nPhase fraction: " + p.fraction.toFixed(3) + " (0 = new, 0.25 = first quarter, 0.5 = full, 0.75 = last quarter).\nIllumination: (1 - cos(2 x pi x " + p.fraction.toFixed(3) + ")) / 2 = " + pct + "%.";
+}
+if (typeof document !== "undefined") {
+  document.getElementById("moonBtn").addEventListener("click", onShowMoon);
+}
+</script>
+</body>
+</html>

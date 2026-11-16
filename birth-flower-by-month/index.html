@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birth Flowers by Month: Find Your Birth Flower | Funtasha</title>
+<meta name="description" content="Find the birth flower for any month, with its traditional meaning — from January's carnation to December's narcissus — plus the full 12-month table.">
+<link rel="canonical" href="https://funtasha.github.io/birth-flower-by-month/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Birth Flowers by Month: Find Your Birth Flower">
+<meta property="og:description" content="Find the birth flower for any month, with its traditional meaning.">
+<meta property="og:url" content="https://funtasha.github.io/birth-flower-by-month/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+th,td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:rgba(255,255,255,.7)}
+@media(max-width:480px){table{font-size:14px}th,td{padding:6px 8px}}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I find my birth flower?","acceptedAnswer":{"@type":"Answer","text":"Pick your birth month in the finder above. It shows the month's primary flower and its secondary flower, with the traditional meaning of each."}},{"@type":"Question","name":"Why does my birth month have two flowers?","acceptedAnswer":{"@type":"Answer","text":"Most months on this list have a primary flower and a secondary one. Either one counts as the month's flower, so you can choose the one you like best."}},{"@type":"Question","name":"Do birth flowers follow my star sign?","acceptedAnswer":{"@type":"Answer","text":"No. Birth flowers follow the calendar month you were born in, not your star sign. A person born on 15 March has the March flowers whatever their sign."}},{"@type":"Question","name":"Are the meanings of the flowers real?","acceptedAnswer":{"@type":"Answer","text":"The meanings come from the Victorian language of flowers, a tradition of giving flowers symbolic meanings. They are folklore, not facts, so enjoy them as a story rather than a rule."}},{"@type":"Question","name":"What if my birth flower is out of season?","acceptedAnswer":{"@type":"Answer","text":"Any flower makes a fine gift, whatever the month. If your birth flower is hard to find, a florist can suggest a lookalike, or you can use the flower as a colour or a pattern on a card instead."}}]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Birth Flowers by Month: Find Your Birth Flower</h1>
+<p class="answer">Every birth month has a flower of its own, each with a traditional meaning. Pick a month below to see its flowers, or browse the full 12-month table.</p>
+<div class="calc">
+<label for="month">Birth month</label>
+<select id="month">
+<option value="0">January</option>
+<option value="1">February</option>
+<option value="2">March</option>
+<option value="3">April</option>
+<option value="4">May</option>
+<option value="5">June</option>
+<option value="6">July</option>
+<option value="7">August</option>
+<option value="8">September</option>
+<option value="9">October</option>
+<option value="10">November</option>
+<option value="11">December</option>
+</select>
+<button id="showBtn" type="button">Show my birth flower</button>
+<div class="out" id="flowerOut"></div>
+<div class="steps" id="flowerSteps"></div>
+</div>
+<div class="warn">This page follows the US list most sources use, but no official body keeps the birth flower list, so other lists differ for some months. The meanings are traditional folklore from the Victorian language of flowers — a charming custom, not a fact about anyone born in that month.</div>
+<h2>The full 12-month birth flower table</h2>
+<table>
+<tr><th>Month</th><th>Primary flower</th><th>Secondary flower</th></tr>
+<tr><td>January</td><td>Carnation (devotion, admiration)</td><td>Snowdrop (hope)</td></tr>
+<tr><td>February</td><td>Violet (loyalty, modesty)</td><td>Primrose (young love)</td></tr>
+<tr><td>March</td><td>Daffodil (new beginnings)</td><td>Jonquil (affection returned)</td></tr>
+<tr><td>April</td><td>Daisy (innocence, cheer)</td><td>Sweet Pea (gratitude, fond farewell)</td></tr>
+<tr><td>May</td><td>Lily of the Valley (sweetness, return of happiness)</td><td>Hawthorn (hope)</td></tr>
+<tr><td>June</td><td>Rose (love)</td><td>Honeysuckle (devotion)</td></tr>
+<tr><td>July</td><td>Larkspur (positivity, grace)</td><td>Water Lily (purity of heart)</td></tr>
+<tr><td>August</td><td>Gladiolus (strength of character)</td><td>Poppy (remembrance)</td></tr>
+<tr><td>September</td><td>Aster (wisdom, patience)</td><td>Morning Glory (affection)</td></tr>
+<tr><td>October</td><td>Marigold (warmth, creativity)</td><td>Cosmos (harmony)</td></tr>
+<tr><td>November</td><td>Chrysanthemum (friendship, joy, loyalty)</td><td>Peony — some lists add it as a secondary flower</td></tr>
+<tr><td>December</td><td>Narcissus / Paperwhite (hope, good wishes)</td><td>Holly (protection, foresight)</td></tr>
+</table>
+<h2>Where the list comes from</h2>
+<p>No official body keeps the birth flower list. The list on this page is the US list most sources follow, from The Old Farmer's Almanac, and it comes from the Victorian language of flowers — a fashion for giving each flower a symbolic meaning, so a bunch of flowers could carry a message. That is why every flower above has a meaning attached to it: the meanings are part of the tradition, not a discovery about the flowers themselves.</p>
+<p>Because the list is a custom rather than a rule, different lists do not always agree. UK lists differ for some months, and November is a good example of the variation: this list gives Chrysanthemum as the month's flower, while some lists add Peony as a secondary flower. If a list you have seen elsewhere names a different flower for your month, neither list is wrong — they are just different versions of the same tradition.</p>
+<h2>How to use a birth flower</h2>
+<p>A birth flower is an easy way to make a birthday gift feel personal. A small bouquet of the month's flower works on its own, and the flower's colours can set the palette for party decor — table flowers, a cake topper, or a printed pattern on invitations and cards. For a gift that lasts longer than fresh flowers, the flower can appear as a print, an embroidered motif, or a pressed flower in a frame.</p>
+<p>Birth flowers follow the calendar month, not the star sign, so the flower depends only on the month of the birthday. Fresh flowers stay at their best when kept cool and in water.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How do I find my birth flower?</h3><p>Pick your birth month in the finder above. It shows the month's primary flower and its secondary flower, with the traditional meaning of each.</p></div>
+<div class="faq"><h3>Why does my birth month have two flowers?</h3><p>Most months on this list have a primary flower and a secondary one. Either one counts as the month's flower, so you can choose the one you like best.</p></div>
+<div class="faq"><h3>Do birth flowers follow my star sign?</h3><p>No. Birth flowers follow the calendar month you were born in, not your star sign. A person born on 15 March has the March flowers whatever their sign.</p></div>
+<div class="faq"><h3>Are the meanings of the flowers real?</h3><p>The meanings come from the Victorian language of flowers, a tradition of giving flowers symbolic meanings. They are folklore, not facts, so enjoy them as a story rather than a rule.</p></div>
+<div class="faq"><h3>What if my birth flower is out of season?</h3><p>Any flower makes a fine gift, whatever the month. If your birth flower is hard to find, a florist can suggest a lookalike, or you can use the flower as a colour or a pattern on a card instead.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../birthstone-by-month/">Birthstones by Month</a> · <a href="../anniversary-gifts-by-year/">Anniversary Gifts by Year</a> · <a href="../what-day-were-you-born/">What Day of the Week Were You Born?</a> · <a href="../milestone-birthday-ideas/">Milestone Birthday Ideas</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+var FLOWERS=[
+{month:"January",primary:"Carnation",pMean:"devotion, admiration",secondary:"Snowdrop",sMean:"hope"},
+{month:"February",primary:"Violet",pMean:"loyalty, modesty",secondary:"Primrose",sMean:"young love"},
+{month:"March",primary:"Daffodil",pMean:"new beginnings",secondary:"Jonquil",sMean:"affection returned"},
+{month:"April",primary:"Daisy",pMean:"innocence, cheer",secondary:"Sweet Pea",sMean:"gratitude, fond farewell"},
+{month:"May",primary:"Lily of the Valley",pMean:"sweetness, return of happiness",secondary:"Hawthorn",sMean:"hope"},
+{month:"June",primary:"Rose",pMean:"love",secondary:"Honeysuckle",sMean:"devotion"},
+{month:"July",primary:"Larkspur",pMean:"positivity, grace",secondary:"Water Lily",sMean:"purity of heart"},
+{month:"August",primary:"Gladiolus",pMean:"strength of character",secondary:"Poppy",sMean:"remembrance"},
+{month:"September",primary:"Aster",pMean:"wisdom, patience",secondary:"Morning Glory",sMean:"affection"},
+{month:"October",primary:"Marigold",pMean:"warmth, creativity",secondary:"Cosmos",sMean:"harmony"},
+{month:"November",primary:"Chrysanthemum",pMean:"friendship, joy, loyalty",secondary:"Peony",sMean:"",note:"Some lists add Peony as a secondary flower."},
+{month:"December",primary:"Narcissus / Paperwhite",pMean:"hope, good wishes",secondary:"Holly",sMean:"protection, foresight"}
+];
+function getBirthFlower(i){return FLOWERS[i];}
+function describeBirthFlower(i){
+  var f=FLOWERS[i];
+  var title=f.month+"'s birth flower: "+f.primary;
+  var detail="Primary flower: "+f.primary+" ("+f.pMean+").";
+  if(f.secondary&&f.sMean){detail+="\nSecondary flower: "+f.secondary+" ("+f.sMean+").";}
+  if(f.note){detail+="\n"+f.note;}
+  return {title:title,detail:detail};
+}
+if(typeof document!=="undefined"){
+  var sel=document.getElementById("month");
+  var out=document.getElementById("flowerOut");
+  var steps=document.getElementById("flowerSteps");
+  function show(){
+    var d=describeBirthFlower(parseInt(sel.value,10));
+    out.textContent=d.title;
+    steps.textContent=d.detail;
+  }
+  document.getElementById("showBtn").addEventListener("click",show);
+  sel.addEventListener("change",show);
+  sel.value=String(new Date().getMonth());
+  show();
+}
+</script>
+</body>
+</html>

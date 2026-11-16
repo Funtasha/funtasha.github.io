@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birthday Party Budget Calculator: Plan the Party, Control the Cost | Funtasha</title>
+<meta name="description" content="Enter your guest count and what you plan to spend in each category, and see your party total, cost per guest, and a simple breakdown of where it all goes.">
+<link rel="canonical" href="https://funtasha.github.io/birthday-party-budget-calculator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Birthday Party Budget Calculator: Plan the Party, Control the Cost">
+<meta property="og:description" content="Add up a birthday party budget by category and see the total, the cost per guest, and each share.">
+<meta property="og:url" content="https://funtasha.github.io/birthday-party-budget-calculator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.bar{height:14px;background:#fce7f3;border-radius:999px;overflow:hidden;margin:2px 0 10px}
+.bar i{display:block;height:100%;background:#db2777;border-radius:999px}
+.brow{display:flex;justify-content:space-between;font-size:15px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I have to fill in every amount?","acceptedAnswer":{"@type":"Answer","text":"No. Leave any category blank and it counts as zero. Fill in only the categories you plan to spend on, and the total still adds up correctly."}},{"@type":"Question","name":"What currency does the calculator use?","acceptedAnswer":{"@type":"Answer","text":"None at all. It adds up the numbers you type, so it works in whatever currency you think in. The results show plain numbers with no currency symbol."}},{"@type":"Question","name":"How is the cost per guest worked out?","acceptedAnswer":{"@type":"Answer","text":"The total is divided by the number of guests you enter. If you leave the guest count blank, you still see the total and the breakdown, just not the per-guest figure."}},{"@type":"Question","name":"My total is higher than I hoped. What now?","acceptedAnswer":{"@type":"Answer","text":"Look at the biggest slice of the breakdown first, because that is where a small change saves the most. Try lowering one category at a time and watch the total move."}},{"@type":"Question","name":"Does the calculator save my numbers?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs in your browser, and nothing you type is sent anywhere or stored. Close the page and your numbers are gone."}}]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Birthday Party Budget Calculator: Plan the Party, Control the Cost</h1>
+<p class="answer">Enter the guest count and what you plan to spend in each category, and this calculator adds it all up for you. You get the party total, the cost per guest, and a clear breakdown showing where the money goes.</p>
+<div class="calc">
+<label for="guests">Number of guests</label>
+<input id="guests" type="number" min="1" step="1" placeholder="e.g. 12">
+<label for="amt0">Venue</label>
+<input id="amt0" type="number" min="0" step="any" placeholder="Leave blank if nothing">
+<label for="amt1">Cake</label>
+<input id="amt1" type="number" min="0" step="any" placeholder="Leave blank if nothing">
+<label for="amt2">Food</label>
+<input id="amt2" type="number" min="0" step="any" placeholder="Leave blank if nothing">
+<label for="amt3">Drinks</label>
+<input id="amt3" type="number" min="0" step="any" placeholder="Leave blank if nothing">
+<label for="amt4">Decorations</label>
+<input id="amt4" type="number" min="0" step="any" placeholder="Leave blank if nothing">
+<label for="amt5">Entertainment</label>
+<input id="amt5" type="number" min="0" step="any" placeholder="Leave blank if nothing">
+<label for="amt6">Invitations</label>
+<input id="amt6" type="number" min="0" step="any" placeholder="Leave blank if nothing">
+<label for="amt7">Party favours</label>
+<input id="amt7" type="number" min="0" step="any" placeholder="Leave blank if nothing">
+<label for="amt8">Other</label>
+<input id="amt8" type="number" min="0" step="any" placeholder="Leave blank if nothing">
+<button id="calcBtn" type="button">Work out my budget</button>
+<div class="out" id="totalOut"></div>
+<div class="steps" id="perGuestOut"></div>
+<div id="bars"></div>
+</div>
+<div class="warn">This calculator adds up the amounts you enter, and nothing else. It cannot know local prices or guess costs you have not entered, so treat the total as your plan rather than a promise, and leave a little room for the small things that turn up near the end.</div>
+<h2>How to use the breakdown</h2>
+<p>Start by setting the total you are comfortable with, then fill in the categories one at a time. The breakdown shows each category as a share of the whole, so you can see at a glance where the money is going.</p>
+<p>The biggest slice is where savings hide. If one category takes up much more than the rest, that is the first place to look for a simpler option. Small trims in the biggest category matter far more than careful cuts in the smallest ones.</p>
+<p>Use the per-guest figure to keep the plan honest as the guest list grows. Every extra guest adds a little to food, drinks, and favours, and the per-guest number shows that change straight away.</p>
+<h2>Costs that are easy to forget</h2>
+<p>Some costs only appear at the last minute, and they are the ones that push a careful plan over the top. Run down this list before you call the budget finished:</p>
+<ul>
+<li>Candles for the cake, and something to light them with.</li>
+<li>Plates, cups, and napkins for every guest, plus a few spares.</li>
+<li>Ice to keep the drinks cold, and something to carry it in.</li>
+<li>Thank-you notes for guests who bring a gift or help out on the day.</li>
+</ul>
+<p>If any of these apply to your party, add them to the other field so they show up in the total.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>Do I have to fill in every amount?</h3>
+<p>No. Leave any category blank and it counts as zero. Fill in only the categories you plan to spend on, and the total still adds up correctly.</p>
+</div>
+<div class="faq">
+<h3>What currency does the calculator use?</h3>
+<p>None at all. It adds up the numbers you type, so it works in whatever currency you think in. The results show plain numbers with no currency symbol.</p>
+</div>
+<div class="faq">
+<h3>How is the cost per guest worked out?</h3>
+<p>The total is divided by the number of guests you enter. If you leave the guest count blank, you still see the total and the breakdown, just not the per-guest figure.</p>
+</div>
+<div class="faq">
+<h3>My total is higher than I hoped. What now?</h3>
+<p>Look at the biggest slice of the breakdown first, because that is where a small change saves the most. Try lowering one category at a time and watch the total move.</p>
+</div>
+<div class="faq">
+<h3>Does the calculator save my numbers?</h3>
+<p>No. Everything runs in your browser, and nothing you type is sent anywhere or stored. Close the page and your numbers are gone.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../party-drinks-calculator/">Party Drinks Calculator</a> · <a href="../birthday-party-theme-generator/">Birthday Party Theme Generator</a> · <a href="../helium-balloon-calculator/">Helium Balloon Calculator</a> · <a href="../first-birthday-party-guide/">First Birthday Party Guide</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+var CATEGORIES = ["Venue", "Cake", "Food", "Drinks", "Decorations", "Entertainment", "Invitations", "Party favours", "Other"];
+function computeBudget(amounts, guests) {
+  var clean = amounts.map(function (a) { var n = parseFloat(a); return (isNaN(n) || n < 0) ? 0 : n; });
+  var total = clean.reduce(function (s, n) { return s + n; }, 0);
+  var g = parseInt(guests, 10);
+  var perGuest = (total > 0 && g > 0) ? total / g : null;
+  var shares = clean.map(function (n, i) {
+    return { label: CATEGORIES[i], amount: n, pct: total > 0 ? (n / total) * 100 : 0 };
+  });
+  return { total: total, perGuest: perGuest, shares: shares };
+}
+function fmt(n) { return Number(n.toFixed(2)).toLocaleString("en-US"); }
+function calculate() {
+  var amounts = [], i, raw;
+  for (i = 0; i < 9; i++) { raw = document.getElementById("amt" + i).value; amounts.push(raw); }
+  var guests = document.getElementById("guests").value;
+  var hasNegative = amounts.some(function (a) { var n = parseFloat(a); return !isNaN(n) && n < 0; });
+  var out = document.getElementById("totalOut");
+  var pg = document.getElementById("perGuestOut");
+  var bars = document.getElementById("bars");
+  if (hasNegative) { out.textContent = "Please enter zero or more for every amount."; pg.textContent = ""; bars.innerHTML = ""; return; }
+  var r = computeBudget(amounts, guests);
+  if (r.total <= 0) { out.textContent = "Enter at least one amount to see your budget."; pg.textContent = ""; bars.innerHTML = ""; return; }
+  out.textContent = "Total: " + fmt(r.total);
+  var g = parseInt(guests, 10);
+  pg.textContent = (r.perGuest === null) ? "Add a guest count to see the cost per guest." : ("Cost per guest: " + fmt(r.perGuest) + " (" + g + " guests)");
+  var html = "";
+  r.shares.forEach(function (s) {
+    if (s.amount <= 0) return;
+    html += '<div class="brow"><span>' + s.label + '</span><span>' + fmt(s.amount) + ' \u2014 ' + s.pct.toFixed(1) + '%</span></div>';
+    html += '<div class="bar"><i style="width:' + s.pct.toFixed(1) + '%"></i></div>';
+  });
+  bars.innerHTML = html;
+}
+document.getElementById("calcBtn").addEventListener("click", calculate);
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Love Calculator: Check Your Name Match | Funtasha</title>
+<meta name="description" content="Type in two names and get a playful love score from 0 to 100, with a kind message to match. Pure party fun — the score comes from the letters of the names only.">
+<link rel="canonical" href="https://funtasha.github.io/love-calculator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Love Calculator: Check Your Name Match">
+<meta property="og:description" content="Two names in, one playful love score out — for fun only.">
+<meta property="og:url" content="https://funtasha.github.io/love-calculator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is the love score real?","acceptedAnswer":{"@type":"Answer","text":"No. The score comes only from the letters of the two names, run through a simple number hash. It says nothing about a real relationship, and it is meant purely as a bit of fun."}},{"@type":"Question","name":"Why do the same two names always get the same score?","acceptedAnswer":{"@type":"Answer","text":"The calculator uses a fixed recipe: it lowercases both names, sorts them alphabetically, and turns their letters into a number. The same names always go through the same steps, so they always land on the same score."}},{"@type":"Question","name":"Does it matter which name I type first?","acceptedAnswer":{"@type":"Answer","text":"No. The names are sorted alphabetically before the score is worked out, so swapping them around changes nothing."}},{"@type":"Question","name":"What does a low score mean?","acceptedAnswer":{"@type":"Answer","text":"Nothing at all about the people involved. A low score only means the letters of those two names landed on a low number. Real compatibility is built on kindness, time and honesty, not on letters."}},{"@type":"Question","name":"Can I use the love calculator at a party?","acceptedAnswer":{"@type":"Answer","text":"Yes, that is what it is for. Let guests pair up names and compare scores, and treat every result as a joke to laugh about together, never as a judgement."}}]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Love Calculator: Check Your Name Match</h1>
+<p class="answer">Type in two names and this calculator gives you a playful love score from 0 to 100, plus a short message to match. The score is worked out from the letters of the names alone, so it is a party game, not a verdict — enjoy it, laugh about it, and take it with a pinch of salt.</p>
+<div class="calc">
+<label for="name1">First name</label>
+<input id="name1" type="text" placeholder="Type the first name" autocomplete="off">
+<label for="name2">Second name</label>
+<input id="name2" type="text" placeholder="Type the second name" autocomplete="off">
+<button type="button" onclick="calculateLove()">Check the match</button>
+<p class="out" id="loveOut"></p>
+<p class="steps" id="loveSteps"></p>
+</div>
+<div class="warn">This calculator is for fun only. The score comes from the letters of the two names and means nothing about a real relationship. Names do not decide compatibility — kindness, time and honesty do, and no number on a screen can measure those.</div>
+<h2>How the love score is made</h2>
+<p>The recipe is simple, and there is no secret to it. First, both names are tidied up: any extra spaces are trimmed away and every letter is made lowercase, so "Ana" and "ana" count as the same name. Then the two names are sorted alphabetically, which means the order you type them in makes no difference at all. Finally, the letters of the sorted names are fed into a simple character-code hash — each letter contributes its code number to a running total — and that total is mapped onto a score from 0 to 100.</p>
+<p>Because the recipe never changes, the same two names always give the same score, today, tomorrow, or next year. There is no randomness in it and nothing is sent anywhere: the whole thing happens in your browser, and the names you type never leave the page.</p>
+<p>The score comes with a short message that matches its band. Scores from 0 to 20 get a gentle nudge, scores from 81 to 100 get the biggest cheer, and everything in between gets a warm word of its own. Every message is written to be playful and kind, because a party game should never make anyone feel bad.</p>
+<h2>Fun ways to use your score</h2>
+<p>The love calculator works best as a shared joke. At a party, let guests pair up names and compare scores, then read the messages aloud and enjoy the reactions. On Valentine's Day, it makes a light-hearted addition to a card or a message — a little giggle to go with the real words. It also works as an icebreaker: two people who have just met can run their names through it and laugh about whatever number comes out.</p>
+<p>Try it with friends, family members, or even fictional characters and celebrities. The calculator does not know who the names belong to, so any pair of names is fair game. The fun is in the comparing and the teasing, not in the number itself.</p>
+<p>One thing to remember: a score is only ever a starting point for a laugh. If the number is high, enjoy the cheer. If it is low, enjoy the joke just as much. Either way, the real story between two people is written by what they do for each other, not by the letters in their names.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>Is the love score real?</h3><p>No. The score comes only from the letters of the two names, run through a simple number hash. It says nothing about a real relationship, and it is meant purely as a bit of fun.</p></div>
+<div class="faq"><h3>Why do the same two names always get the same score?</h3><p>The calculator uses a fixed recipe: it lowercases both names, sorts them alphabetically, and turns their letters into a number. The same names always go through the same steps, so they always land on the same score.</p></div>
+<div class="faq"><h3>Does it matter which name I type first?</h3><p>No. The names are sorted alphabetically before the score is worked out, so swapping them around changes nothing.</p></div>
+<div class="faq"><h3>What does a low score mean?</h3><p>Nothing at all about the people involved. A low score only means the letters of those two names landed on a low number. Real compatibility is built on kindness, time and honesty, not on letters.</p></div>
+<div class="faq"><h3>Can I use the love calculator at a party?</h3><p>Yes, that is what it is for. Let guests pair up names and compare scores, and treat every result as a joke to laugh about together, never as a judgement.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../zodiac-compatibility-checker/">Zodiac Compatibility Checker</a> · <a href="../days-together-calculator/">Days Together Calculator</a> · <a href="../wedding-hashtag-generator/">Wedding Hashtag Generator</a> · <a href="../magic-8-ball/">Magic 8 Ball</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+function loveScore(nameA, nameB) {
+  var a = String(nameA).trim().toLowerCase();
+  var b = String(nameB).trim().toLowerCase();
+  var pair = [a, b].sort();
+  var s = pair[0] + "|" + pair[1];
+  var h = 0;
+  for (var i = 0; i < s.length; i++) {
+    h = (h * 31 + s.charCodeAt(i)) >>> 0;
+  }
+  return h % 101;
+}
+function loveMessage(score) {
+  if (score <= 20) return "A slow-burn spark — the best stories often start quietly, and this one is just warming up.";
+  if (score <= 40) return "A friendly flicker — worth a good conversation, a shared laugh, and a little more time together.";
+  if (score <= 60) return "A cheerful middle ground — the letters say you click nicely, with plenty of room to grow.";
+  if (score <= 80) return "A warm glow — the letters are clearly fond of this pairing, so a shared adventure would suit you both.";
+  return "A sparkling match — the letters are doing a happy little dance, so enjoy the moment and celebrate it.";
+}
+function calculateLove() {
+  var a = document.getElementById("name1").value;
+  var b = document.getElementById("name2").value;
+  var out = document.getElementById("loveOut");
+  var steps = document.getElementById("loveSteps");
+  if (!a.trim() || !b.trim()) {
+    out.textContent = "Please type in both names first.";
+    steps.textContent = "";
+    return;
+  }
+  var score = loveScore(a, b);
+  out.textContent = a.trim() + " and " + b.trim() + ": " + score + "% — " + loveMessage(score);
+  steps.textContent = "How it was worked out: both names were lowercased, sorted alphabetically, and turned into a number from their letters, mapped to 0-100. The same two names always give the same score.";
+}
+</script>
+</body>
+</html>

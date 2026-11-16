@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Never Have I Ever Question Generator: Clean Questions for Everyone | Funtasha</title>
+<meta name="description" content="Never Have I Ever with clean, family-safe questions for everyone. Pick a category, press Next Question, and play with no repeats until the category runs out.">
+<link rel="canonical" href="https://funtasha.github.io/never-have-i-ever-generator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Never Have I Ever Question Generator: Clean Questions for Everyone">
+<meta property="og:description" content="Clean Never Have I Ever questions for the whole family, with no repeats.">
+<meta property="og:url" content="https://funtasha.github.io/never-have-i-ever-generator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc .filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.calc .filter-btn{margin-top:0;border:1px solid #f9a8d4;background:#fff;color:#be185d;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer;font-size:14.5px}
+.calc .filter-btn.active{background:#db2777;color:#fff;border-color:#db2777}
+.question-box{background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin-top:14px;box-shadow:0 8px 18px rgba(30,41,59,.08)}
+.question-text{font-size:19px;font-weight:700}
+.question-cat{font-size:14.5px;color:#64748b;margin-top:6px}
+.count-line{font-size:14.5px;color:#64748b;margin-top:10px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What happens when a category runs out of questions?","acceptedAnswer":{"@type":"Answer","text":"The generator tells you the category is finished. Press the category button again to start it fresh, or press Shuffle to mix every category together and keep playing."}},{"@type":"Question","name":"Can younger children play?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every statement is written to be comfortable for a mixed group of kids, parents, and grandparents. If a question does not fit the room, anyone may skip it."}},{"@type":"Question","name":"How many players do we need?","acceptedAnswer":{"@type":"Answer","text":"Two players are enough, and the game works just as well with a large group. With more players, the stories get better, so a party table is the perfect size."}},{"@type":"Question","name":"Do we have to keep score?","acceptedAnswer":{"@type":"Answer","text":"No. The game is about the stories the questions bring out, not about winning. Count fingers if you like, or just enjoy the answers and move on."}},{"@type":"Question","name":"Can I skip a question?","acceptedAnswer":{"@type":"Answer","text":"Yes, anyone may skip any question, no reason needed. If a question does not suit the group, press Next Question and carry on."}}]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Never Have I Ever Question Generator: Clean Questions for Everyone</h1>
+<p class="answer">Pick a category and press Next Question for a clean, family-safe prompt. Every question appears once before any repeat, and Shuffle mixes all six categories together.</p>
+<div class="calc">
+<label>Choose a category</label>
+<div class="filter-bar" id="filterBar">
+<button type="button" class="filter-btn active" data-cat="all">All categories</button>
+<button type="button" class="filter-btn" data-cat="Funny">Funny</button>
+<button type="button" class="filter-btn" data-cat="Family">Family</button>
+<button type="button" class="filter-btn" data-cat="Food">Food</button>
+<button type="button" class="filter-btn" data-cat="School">School</button>
+<button type="button" class="filter-btn" data-cat="Travel">Travel</button>
+<button type="button" class="filter-btn" data-cat="Animals and Nature">Animals and Nature</button>
+</div>
+<button type="button" id="nextBtn">Next Question</button>
+<button type="button" id="shuffleBtn">Shuffle</button>
+<div class="question-box" id="questionBox">
+<div class="question-text" id="questionText">Press Next Question to start the game.</div>
+<div class="question-cat" id="questionCat"></div>
+</div>
+<p class="count-line" id="countLine"></p>
+</div>
+<div class="warn">The generator is a prompt machine — the game lives in the stories players tell. Skip anything that does not fit the room, and keep the game friendly for everyone at the table.</div>
+<h2>How to play Never Have I Ever</h2>
+<p>Everyone holds up 10 fingers. One statement is read aloud, and anyone who HAS done it puts one finger down. Anyone may skip any question, no reason needed, and the fun is in the stories, not in winning.</p>
+<p>Take turns reading the statements out loud, and pause after each one so anyone with a story can tell it. The best rounds are the ones where a simple question turns into a tale nobody at the table had heard before.</p>
+<h2>Tips for mixed-age groups</h2>
+<p>Let the youngest player read the questions. Reading aloud gives younger children a clear job in the game, and it keeps the pace relaxed for everyone.</p>
+<p>Skip anything that does not fit the room. If a question falls flat or suits nobody at the table, press Next Question and move on without a second thought. A short game with good stories beats a long game that drags, so stop while everyone is still laughing.</p>
+<h2>How the generator works</h2>
+<p>Pick a category to play from that set of questions, or play from all six categories at once. The generator deals each question once before any repeat, so a category never serves the same prompt twice in one round.</p>
+<p>When a category runs out, the generator tells you it is finished. Press the category button again to start that category fresh, or press Shuffle to mix every category together into one long shuffled deck and keep playing.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>What happens when a category runs out of questions?</h3>
+<p>The generator tells you the category is finished. Press the category button again to start it fresh, or press Shuffle to mix every category together and keep playing.</p>
+</div>
+<div class="faq">
+<h3>Can younger children play?</h3>
+<p>Yes. Every statement is written to be comfortable for a mixed group of kids, parents, and grandparents. If a question does not fit the room, anyone may skip it.</p>
+</div>
+<div class="faq">
+<h3>How many players do we need?</h3>
+<p>Two players are enough, and the game works just as well with a large group. With more players, the stories get better, so a party table is the perfect size.</p>
+</div>
+<div class="faq">
+<h3>Do we have to keep score?</h3>
+<p>No. The game is about the stories the questions bring out, not about winning. Count fingers if you like, or just enjoy the answers and move on.</p>
+</div>
+<div class="faq">
+<h3>Can I skip a question?</h3>
+<p>Yes, anyone may skip any question, no reason needed. If a question does not suit the group, press Next Question and carry on.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links">
+<a href="../spin-the-wheel/">Spin the Wheel</a> · <a href="../magic-8-ball/">Magic 8 Ball</a> · <a href="../birthday-party-theme-generator/">Birthday Party Theme Generator</a> · <a href="../love-calculator/">Love Calculator</a>
+</div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+var CATEGORIES = ["Funny","Family","Food","School","Travel","Animals and Nature"];
+var STATEMENTS = {
+"Funny": [
+"Never have I ever laughed so hard that milk came out of my nose.",
+"Never have I ever tripped over my own feet in front of a crowd.",
+"Never have I ever waved back at someone who was waving at the person behind me.",
+"Never have I ever walked into a glass door I did not see.",
+"Never have I ever worn my shirt inside out all day without noticing.",
+"Never have I ever tried to push a door that clearly said pull.",
+"Never have I ever laughed at a joke I did not understand just to fit in.",
+"Never have I ever talked to my pet as if it could answer back.",
+"Never have I ever danced in my room when I thought nobody was watching.",
+"Never have I ever sent a text message to the wrong person.",
+"Never have I ever called my teacher Mum or Dad by mistake.",
+"Never have I ever snorted while laughing.",
+"Never have I ever worn two different shoes to school or work.",
+"Never have I ever tried to use my phone with wet hands and dropped it.",
+"Never have I ever sneezed so loudly that everyone turned around.",
+"Never have I ever practised a funny face in the mirror.",
+"Never have I ever got my sleeve caught on a door handle.",
+"Never have I ever tried to be quiet and knocked something over instead."
+],
+"Family": [
+"Never have I ever helped cook a family meal from start to finish.",
+"Never have I ever stayed up late telling stories with my cousins.",
+"Never have I ever made a birthday card by hand for a family member.",
+"Never have I ever played a board game with my whole family.",
+"Never have I ever helped a grandparent learn to use a phone.",
+"Never have I ever sung a song together with my family in the car.",
+"Never have I ever had a picnic with my family in the park.",
+"Never have I ever built a blanket fort with a brother or sister.",
+"Never have I ever looked through old family photo albums.",
+"Never have I ever taught a younger cousin how to ride a bike.",
+"Never have I ever shared a bedroom with a sibling.",
+"Never have I ever woken up early to surprise someone on their birthday.",
+"Never have I ever planted something in the garden with my family.",
+"Never have I ever made up a secret handshake with a family member.",
+"Never have I ever watched the same family movie more than five times.",
+"Never have I ever helped wrap presents for a family celebration.",
+"Never have I ever had a pillow fight with my siblings.",
+"Never have I ever written a letter to a relative who lives far away."
+],
+"Food": [
+"Never have I ever eaten a whole pizza by myself.",
+"Never have I ever tried a fruit I had never heard of before.",
+"Never have I ever eaten ice cream for breakfast.",
+"Never have I ever baked a cake from scratch.",
+"Never have I ever put ketchup on something unusual.",
+"Never have I ever eaten so much at a party that I needed a nap.",
+"Never have I ever tried to eat with chopsticks.",
+"Never have I ever made a sandwich with more than five fillings.",
+"Never have I ever tasted a food just because it looked funny.",
+"Never have I ever eaten dinner with my fingers on purpose.",
+"Never have I ever grown my own herbs or vegetables.",
+"Never have I ever eaten a lemon and kept a straight face.",
+"Never have I ever had a food fight at the dinner table.",
+"Never have I ever tried a spicy food and regretted it at once.",
+"Never have I ever eaten breakfast foods for dinner.",
+"Never have I ever made popcorn and eaten it all before the film started.",
+"Never have I ever tried to flip a pancake and dropped it.",
+"Never have I ever eaten the same meal three days in a row."
+],
+"School": [
+"Never have I ever forgotten my homework at home.",
+"Never have I ever fallen asleep during a lesson.",
+"Never have I ever raised my hand and then forgotten what I wanted to say.",
+"Never have I ever been the first one to finish a test.",
+"Never have I ever lost my pencil case at school.",
+"Never have I ever sat next to my best friend in class.",
+"Never have I ever read a whole book in one day.",
+"Never have I ever drawn a doodle in the margins of my notebook.",
+"Never have I ever forgotten my lunch box at home.",
+"Never have I ever won a prize at school.",
+"Never have I ever helped a classmate understand a hard question.",
+"Never have I ever been picked to answer a question I did not know.",
+"Never have I ever carried a school bag so heavy it hurt my shoulders.",
+"Never have I ever made a poster for a school project.",
+"Never have I ever stayed after school for a club or practice.",
+"Never have I ever traded snacks with a friend at lunchtime.",
+"Never have I ever written a story and read it out loud to the class.",
+"Never have I ever worn my school uniform on a day off by mistake."
+],
+"Travel": [
+"Never have I ever been on an aeroplane.",
+"Never have I ever travelled to another country.",
+"Never have I ever got lost in a new city.",
+"Never have I ever slept on a train journey.",
+"Never have I ever taken a photo of a famous landmark.",
+"Never have I ever tried street food in a new place.",
+"Never have I ever packed my suitcase the night before a trip.",
+"Never have I ever forgotten something important at home when travelling.",
+"Never have I ever watched the sunrise on holiday.",
+"Never have I ever ridden a boat or a ferry.",
+"Never have I ever visited a museum on a school trip.",
+"Never have I ever collected a souvenir from every place I visited.",
+"Never have I ever asked a stranger for directions.",
+"Never have I ever been on a road trip with my family.",
+"Never have I ever seen the sea for the first time and run straight to it.",
+"Never have I ever stayed in a tent overnight.",
+"Never have I ever taken a selfie at the top of a hill.",
+"Never have I ever travelled somewhere just to try the local food."
+],
+"Animals and Nature": [
+"Never have I ever fed ducks at a pond.",
+"Never have I ever held a frog in my hands.",
+"Never have I ever watched a butterfly land on a flower.",
+"Never have I ever been woken up by birds singing.",
+"Never have I ever planted a tree.",
+"Never have I ever seen a rainbow after the rain.",
+"Never have I ever built a snowman.",
+"Never have I ever picked wildflowers in a field.",
+"Never have I ever chased a falling leaf in autumn.",
+"Never have I ever watched a spider build a web.",
+"Never have I ever gone stargazing on a clear night.",
+"Never have I ever jumped in a puddle on purpose.",
+"Never have I ever collected seashells on a beach.",
+"Never have I ever seen a shooting star.",
+"Never have I ever had a pet fish.",
+"Never have I ever listened to the rain from a tent.",
+"Never have I ever spotted a ladybird and counted its spots.",
+"Never have I ever climbed a tree to see further."
+]
+};
+function statementsFor(cat) {
+  if (cat === "all") {
+    var out = [];
+    for (var i = 0; i < CATEGORIES.length; i++) { out = out.concat(STATEMENTS[CATEGORIES[i]]); }
+    return out;
+  }
+  return STATEMENTS[cat].slice();
+}
+function shuffle(arr, rand) {
+  rand = rand || Math.random;
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(rand() * (i + 1));
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+function makeDeck(cat, rand) {
+  return shuffle(statementsFor(cat), rand);
+}
+if (typeof document !== "undefined") {
+  var currentCat = "all";
+  var deck = makeDeck("all");
+  var questionText = document.getElementById("questionText");
+  var questionCat = document.getElementById("questionCat");
+  var countLine = document.getElementById("countLine");
+  function updateCount() {
+    var label = currentCat === "all" ? "all categories" : currentCat;
+    countLine.textContent = deck.length + " questions left in " + label + ".";
+  }
+  function showNext() {
+    if (deck.length === 0) {
+      var label = currentCat === "all" ? "every category" : "the " + currentCat + " category";
+      questionText.textContent = "That is every question in " + label + ". Press Shuffle, or pick a category again, to start fresh.";
+      questionCat.textContent = "";
+      updateCount();
+      return;
+    }
+    var q = deck.pop();
+    questionText.textContent = q;
+    var cat = "All categories";
+    for (var i = 0; i < CATEGORIES.length; i++) {
+      if (STATEMENTS[CATEGORIES[i]].indexOf(q) !== -1) { cat = CATEGORIES[i]; break; }
+    }
+    questionCat.textContent = "Category: " + cat;
+    updateCount();
+  }
+  var buttons = document.querySelectorAll("#filterBar .filter-btn");
+  for (var b = 0; b < buttons.length; b++) {
+    buttons[b].addEventListener("click", function () {
+      for (var k = 0; k < buttons.length; k++) { buttons[k].classList.remove("active"); }
+      this.classList.add("active");
+      currentCat = this.getAttribute("data-cat");
+      deck = makeDeck(currentCat);
+      questionText.textContent = "Press Next Question to start the game.";
+      questionCat.textContent = "";
+      updateCount();
+    });
+  }
+  document.getElementById("nextBtn").addEventListener("click", showNext);
+  document.getElementById("shuffleBtn").addEventListener("click", function () {
+    for (var k = 0; k < buttons.length; k++) { buttons[k].classList.remove("active"); }
+    buttons[0].classList.add("active");
+    currentCat = "all";
+    deck = makeDeck("all");
+    showNext();
+  });
+  updateCount();
+}
+</script>
+</body>
+</html>

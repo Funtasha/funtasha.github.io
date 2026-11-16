@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birthday Speech Builder: A Short Speech in Minutes | Funtasha</title>
+<meta name="description" content="Pick who the speech is for and a tone, add the birthday person's name and one favourite memory, and get a short ready-to-say speech with a toast line.">
+<link rel="canonical" href="https://funtasha.github.io/birthday-speech-builder/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Birthday Speech Builder: A Short Speech in Minutes">
+<meta property="og:description" content="Build a short birthday speech in minutes with a toast line at the end.">
+<meta property="og:url" content="https://funtasha.github.io/birthday-speech-builder/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;font-family:inherit;min-height:70px}
+.speech{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;margin-top:14px;font-size:16.5px;line-height:1.7}
+.speech p{margin:0 0 10px}
+.speech p:last-child{margin-bottom:0}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long is the speech?","acceptedAnswer":{"@type":"Answer","text":"Every speech is under 200 words, so it takes around a minute to read aloud at a relaxed pace. That is short enough to hold the room and long enough to say something real."}},{"@type":"Question","name":"What if I do not have a memory to add?","acceptedAnswer":{"@type":"Answer","text":"The memory field is optional. Leave it blank and the builder writes a warm general memory line instead, and you can still add your own detail later."}},{"@type":"Question","name":"Can I change the wording?","acceptedAnswer":{"@type":"Answer","text":"Yes, and you should. The speech is a starting draft, so swap in your own words wherever they fit better, and keep the parts that sound like you."}},{"@type":"Question","name":"Does the builder save my speech?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs in your browser, and nothing you type is sent anywhere or stored. Copy the speech before you close the page."}},{"@type":"Question","name":"Which tone should I choose?","acceptedAnswer":{"@type":"Answer","text":"Funny suits a relaxed crowd, heartfelt suits a close family gathering, and short and sweet is best when several people are speaking and time is tight."}}]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Birthday Speech Builder: A Short Speech in Minutes</h1>
+<p class="answer">Pick who the speech is for, choose a tone, add the birthday person's name and one favourite memory, and this builder writes a short speech you can read aloud. Every speech has four parts — an opening, a memory, what makes them special, and a closing toast line.</p>
+<div class="calc">
+<label for="recipient">Who is the speech for?</label>
+<select id="recipient">
+<option value="friend">Friend</option>
+<option value="parent">Parent</option>
+<option value="sibling">Sibling</option>
+<option value="child">Child</option>
+<option value="partner">Partner</option>
+<option value="colleague">Colleague</option>
+</select>
+<label for="tone">Tone</label>
+<select id="tone">
+<option value="funny">Funny</option>
+<option value="heartfelt">Heartfelt</option>
+<option value="short">Short and sweet</option>
+</select>
+<label for="personName">The birthday person's name</label>
+<input id="personName" type="text" placeholder="e.g. Sam">
+<label for="memory">One favourite memory or quality (optional)</label>
+<textarea id="memory" placeholder="e.g. the time we got lost on the way to the beach"></textarea>
+<button id="genBtn" type="button">Generate my speech</button>
+<div class="speech" id="speechOut" style="display:none"></div>
+<div class="steps" id="wordOut"></div>
+<button id="copyBtn" type="button" style="display:none">Copy speech</button>
+<button id="regenBtn" type="button" style="display:none">Regenerate</button>
+<div class="steps" id="copyOut"></div>
+</div>
+<div class="warn">This builder gives you a starting draft, not a finished speech. The best line is always a true detail only you know, so read it aloud, swap in your own words where they fit better, and keep the parts that sound like you.</div>
+<h2>How to deliver your speech</h2>
+<p>Speak slowly. Nerves make everyone rush, and a slow pace sounds confident even when you do not feel it. Look up from your notes between sentences, so the room feels included rather than read to.</p>
+<p>Keep it under two minutes. A short speech that ends on time is remembered fondly; a long one is remembered for being long. End on the toast line, raise your glass, and sit down while the applause is still going.</p>
+<p>Practise once out loud before the day. Reading it in your head is not the same — your mouth needs one run-through to find the rhythm, and you will spot any line that does not sound like you.</p>
+<h2>Making the speech your own</h2>
+<p>The memory field is the most powerful part of the builder. One true detail — a trip, a habit, a moment only the two of you remember — makes the whole speech feel personal, and it is the line people will quote back to you afterwards.</p>
+<p>If a line does not sound like something you would say, change it. Swap a word, drop a sentence, or add a detail of your own. The builder gives you the shape; your voice makes it a speech.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>How long is the speech?</h3>
+<p>Every speech is under 200 words, so it takes around a minute to read aloud at a relaxed pace. That is short enough to hold the room and long enough to say something real.</p>
+</div>
+<div class="faq">
+<h3>What if I do not have a memory to add?</h3>
+<p>The memory field is optional. Leave it blank and the builder writes a warm general memory line instead, and you can still add your own detail later.</p>
+</div>
+<div class="faq">
+<h3>Can I change the wording?</h3>
+<p>Yes, and you should. The speech is a starting draft, so swap in your own words wherever they fit better, and keep the parts that sound like you.</p>
+</div>
+<div class="faq">
+<h3>Does the builder save my speech?</h3>
+<p>No. Everything runs in your browser, and nothing you type is sent anywhere or stored. Copy the speech before you close the page.</p>
+</div>
+<div class="faq">
+<h3>Which tone should I choose?</h3>
+<p>Funny suits a relaxed crowd, heartfelt suits a close family gathering, and short and sweet is best when several people are speaking and time is tight.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../milestone-birthday-ideas/">Milestone Birthday Ideas</a> · <a href="../first-birthday-party-guide/">First Birthday Party Guide</a> · <a href="../wedding-hashtag-generator/">Wedding Hashtag Generator</a> · <a href="../birthday-party-theme-generator/">Birthday Party Theme Generator</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+var REL = {
+  friend: "my best friend",
+  parent: "my wonderful parent",
+  sibling: "my favourite sibling",
+  child: "my wonderful child",
+  partner: "my favourite person",
+  colleague: "my brilliant colleague"
+};
+var TEMPLATES = {
+  funny: {
+    opening: [
+      "Good evening, everyone — thank you for coming, and thank you to {name} for giving us all an excuse to eat cake on a perfectly ordinary day.",
+      "Hello, everyone. I promised {name} I would keep this short, so I will only say the nice things and skip the embarrassing ones — most of them, anyway.",
+      "Well, here we are again — another year, another birthday, and {name} is still pretending to be surprised that we all showed up.",
+      "Good evening, everyone. I was asked to say a few words about {name}, and since I could not find anyone better qualified, here I am.",
+      "Thank you all for being here. {name} asked me to keep this speech short and sweet, so I have hidden the long version under the table.",
+      "Hello, everyone, and happy birthday to {name} — the only person I know who can turn an ordinary Tuesday into a party.",
+      "Good evening. Before I start, I should warn you that {name} has already heard most of this before — but the rest of you are in for a treat.",
+      "Thank you for coming, everyone. I am here to talk about {name}, {rel}, and the best decision I made today was writing this down instead of winging it."
+    ],
+    memory: [
+      "One memory says it all: {memory}.",
+      "I still laugh when I think about this one: {memory}.",
+      "If you want to know what {name} is really like, here is one story: {memory}.",
+      "My favourite memory of {name} is a simple one: {memory}.",
+      "I could tell you a dozen stories, but this one is my favourite: {memory}.",
+      "There is one memory I will never stop retelling: {memory}.",
+      "Ask me about {name} and I will always end up telling you this: {memory}.",
+      "Of all the things we have got up to together, this one still makes me smile: {memory}."
+    ],
+    memoryNo: [
+      "I could fill an evening with stories about {name}, but the best ones are the ones we all remember differently — and that is half the fun.",
+      "Every time I think of {name}, I think of laughter — usually at a moment when laughter was the last thing anyone expected.",
+      "The thing about {name} is that trouble and fun tend to arrive together, and somehow it always works out in the end.",
+      "I have lost count of the times {name} has made a normal day feel like an adventure, usually without even trying.",
+      "Some people collect stamps; {name} collects ridiculous stories, and I am lucky enough to be in most of them.",
+      "If {name} ever writes a book about their life, I want the first copy — and I want the chapter about me to be flattering.",
+      "Ask anyone here for a story about {name} and you will get a different one every time, and every single one will be worth hearing.",
+      "The funniest thing about {name} is that they never seem to notice how funny they are, which only makes it better."
+    ],
+    special: [
+      "What makes {name} special is simple: they show up, they make people laugh, and they somehow make every room feel warmer than it was.",
+      "{name} has a rare talent for turning a dull plan into a good story, and a good story into a reason to meet up again.",
+      "The world needs more people like {name} — people who remember your birthday, your coffee order, and the joke you told three years ago.",
+      "What I love most about {name} is that they take people seriously and themselves lightly, which is a very good way round to have it.",
+      "{name} is the person you call when the plan falls apart, because they will laugh, make a new plan, and somehow make it better than the first one.",
+      "Being around {name} is easy in the best way — no effort, no fuss, just good company and the feeling that everything will be fine.",
+      "If kindness were a sport, {name} would win it without training, and then insist the trophy belonged to someone else.",
+      "{name} makes the ordinary days better and the hard days lighter, and that is a gift worth celebrating."
+    ],
+    closing: [
+      "So here is to {name}: may your year be full of good food, good company, and at least one story worth retelling. Happy birthday!",
+      "Please raise your glasses to {name} — to another year of laughter, questionable decisions, and excellent cake. Happy birthday!",
+      "To {name}: thank you for being exactly who you are, and for letting the rest of us tag along. Happy birthday!",
+      "Here is to {name} and the year ahead — may it be kind, may it be funny, and may the cake always be big enough. Happy birthday!",
+      "So let us raise a glass to {name}: the best company, the worst influence, and my favourite person to celebrate. Happy birthday!",
+      "To {name} — may your year have more laughter than laundry and more cake than chores. Happy birthday!",
+      "Here is to {name}: another year older, not a bit wiser, and loved more than ever. Happy birthday!",
+      "Please join me in wishing {name} the happiest of birthdays — and in hoping the candles do not set off the alarm. Happy birthday!"
+    ]
+  },
+  heartfelt: {
+    opening: [
+      "Good evening, everyone, and thank you for being here to celebrate {name} — a person who means so much to so many people in this room.",
+      "Hello, everyone. It is a privilege to stand here and say a few words about {name}, and I am grateful to everyone who came to share this day.",
+      "Thank you all for coming. Today is about {name}, and I cannot think of a better reason to gather the people who love them most.",
+      "Good evening. Some birthdays feel like any other day, but this one feels like a chance to say the things we do not say often enough about {name}.",
+      "Hello, everyone, and happy birthday to {name}. I have been thinking about what to say, and the truth is that the words are the easy part — {name} makes them easy.",
+      "Thank you for being here, everyone. We are gathered for {name}, and every face in this room is here because {name} matters to them.",
+      "Good evening, everyone. I want to begin simply, by saying how glad I am that {name} is in my life — and, I suspect, in yours too.",
+      "Hello, everyone. Today we celebrate {name}, {rel}, and I am honoured to be the one to say a few words."
+    ],
+    memory: [
+      "One memory stays with me more than any other: {memory}.",
+      "When I think of {name}, I always come back to this: {memory}.",
+      "There is a moment I carry with me, and it says everything about {name}: {memory}.",
+      "The memory I treasure most is a quiet one: {memory}.",
+      "If I had to pick one moment that shows who {name} is, it would be this: {memory}.",
+      "I will never forget this: {memory}.",
+      "One small moment tells the whole story: {memory}.",
+      "Whenever I think of {name}, this memory comes first: {memory}."
+    ],
+    memoryNo: [
+      "Some of my favourite moments with {name} are the quiet ones — the long talks, the shared silences, and the feeling that no words were needed at all.",
+      "I have lost count of the times {name} has listened without judging, helped without being asked, and stayed when staying was the harder choice.",
+      "What I remember most about {name} is not one big moment but a hundred small ones, each one proof of the same steady kindness.",
+      "Every memory I have of {name} seems to end the same way: with me feeling lucky to know them.",
+      "The best thing about {name} is how they make time for people. In a busy world, that kind of attention is rare, and I have never taken it for granted.",
+      "I think of the times {name} showed up when it mattered, and I realise that is what a good life is made of — showing up, again and again.",
+      "There are people who fill a room, and there are people who fill a life. {name} is the second kind, and I am grateful every day.",
+      "My favourite thing about {name} is the way they remember the small details — the things other people forget, {name} keeps."
+    ],
+    special: [
+      "What makes {name} special is not one big thing but the way they treat people every single day — with patience, warmth, and genuine interest.",
+      "{name} has a gift for making people feel seen. You never feel like background noise around {name}; you feel like you matter.",
+      "The thing I admire most about {name} is their steadiness. In good times and hard times, {name} is the same kind, thoughtful person.",
+      "{name} gives more than they take, listens more than they speak, and somehow still finds energy for everyone who needs it.",
+      "What makes {name} special is simple and rare: they care deeply, and they show it — not once in a while, but all the time.",
+      "Being loved by {name} is easy, because {name} makes loving easy. They meet you where you are and walk beside you from there.",
+      "{name} has the kind of character that does not need announcing. People notice it in the small things, and they remember it for years.",
+      "The world is a kinder place because {name} is in it, and everyone in this room knows exactly what I mean."
+    ],
+    closing: [
+      "So here is to {name}: may the year ahead be as kind to you as you are to everyone else. Happy birthday.",
+      "Please raise your glasses to {name} — to health, to happiness, and to many more years of being exactly who you are. Happy birthday.",
+      "To {name}: thank you for being you, for everything you give, and for every day you make better. Happy birthday.",
+      "Here is to {name} and the year to come — may it bring you everything you give to others, and then some. Happy birthday.",
+      "So let us raise a glass to {name}: loved, admired, and celebrated today and every day. Happy birthday.",
+      "To {name} — may this year be gentle with you, and may you always know how much you are loved. Happy birthday.",
+      "Here is to {name}: to the years behind you, full of good memories, and to the years ahead, full of promise. Happy birthday.",
+      "Please join me in wishing {name} a very happy birthday — and in thanking them for making all our lives a little brighter."
+    ]
+  },
+  short: {
+    opening: [
+      "Hello, everyone, and happy birthday to {name}!",
+      "Good evening, everyone. Thank you for being here to celebrate {name}.",
+      "Happy birthday, {name} — and thank you all for coming.",
+      "Hello, everyone. It is a joy to be here for {name} today.",
+      "Good evening. We are here for one reason: to celebrate {name}.",
+      "Thank you all for coming — and happy birthday to {name}!",
+      "Hello, everyone, and a very happy birthday to {name}, {rel}.",
+      "Good evening, everyone. Today is {name}'s day, and I am glad we are all here for it."
+    ],
+    memory: [
+      "One memory says it best: {memory}.",
+      "I will always remember this: {memory}.",
+      "My favourite memory is a simple one: {memory}.",
+      "This moment says it all: {memory}.",
+      "One memory stands out: {memory}.",
+      "I think of this whenever I think of {name}: {memory}.",
+      "Here is one memory I love: {memory}.",
+      "This is the memory I keep coming back to: {memory}."
+    ],
+    memoryNo: [
+      "Every memory I have of {name} makes me smile, and that says everything.",
+      "I could tell a dozen stories about {name}, and every one of them would end in laughter.",
+      "The best moments with {name} are the simple ones — good company, good talk, and time well spent.",
+      "Ask me about {name} and I will smile before I even start talking.",
+      "Some people make every day a little brighter, and {name} is one of them.",
+      "My favourite thing about {name} is how easy it is to be around them.",
+      "Every time I see {name}, I leave happier than I arrived.",
+      "Life is better with {name} in it — that is the whole story, really."
+    ],
+    special: [
+      "{name} is kind, funny, and one of a kind.",
+      "What makes {name} special is simple: a big heart and a brilliant sense of humour.",
+      "{name} makes every gathering better just by being there.",
+      "The best thing about {name} is that they make everyone feel welcome.",
+      "{name} is the kind of person you are lucky to know.",
+      "What I love about {name} is how they look after the people around them.",
+      "{name} brings warmth wherever they go, and today is no exception.",
+      "There is nobody quite like {name}, and we are all lucky for it."
+    ],
+    closing: [
+      "Happy birthday, {name}!",
+      "To {name} — happy birthday!",
+      "Here is to {name}. Happy birthday!",
+      "Happy birthday, {name} — here is to a wonderful year.",
+      "To {name}, with love. Happy birthday!",
+      "Happy birthday, {name} — may your year be as lovely as you are.",
+      "Here is to {name} and the year ahead. Happy birthday!",
+      "To {name}: happy birthday, and thank you for being you."
+    ]
+  }
+};
+var RECIPIENT_LINES = {
+  friend: [
+    "A friend like this is rare, and I do not take it for granted for a single day.",
+    "Good friends are the family we choose, and I chose well.",
+    "Through every season, this friendship has been one of the best parts of my life."
+  ],
+  parent: [
+    "Everything I know about showing up for people, I learned at home.",
+    "A parent like this is a gift that keeps giving, year after year.",
+    "I am who I am because of the love and patience I was given at home."
+  ],
+  sibling: [
+    "We have shared a lifetime of inside jokes, and I would not trade a single one.",
+    "Growing up together gave me a friend for life, and I am grateful every day.",
+    "No one else knows my whole story the way a sibling does."
+  ],
+  child: [
+    "Watching you grow has been the greatest joy of my life.",
+    "I am prouder of you than words can say, today and every day.",
+    "You have grown into someone I admire more with every passing year."
+  ],
+  partner: [
+    "Every ordinary day is better with you in it.",
+    "You make home feel like home, wherever we are.",
+    "Loving you is the easiest and best thing I do."
+  ],
+  colleague: [
+    "Working beside you makes every week easier and every project better.",
+    "A colleague like this turns a workplace into a place you actually want to be.",
+    "The team is lucky to have you, and so am I."
+  ]
+};
+function pick(arr, rng) { return arr[Math.floor(rng() * arr.length)]; }
+function fill(t, vars) { return t.replace(/\{(\w+)\}/g, function (m, k) { return vars[k] !== undefined ? vars[k] : m; }); }
+function cleanMemory(m) { return m.trim().replace(/[.\s]+$/, ""); }
+function countWords(text) { return text.split(/\s+/).filter(function (w) { return w.length > 0; }).length; }
+function buildSpeech(recipient, tone, name, memory, rng) {
+  rng = rng || Math.random;
+  var t = TEMPLATES[tone] || TEMPLATES.funny;
+  var mem = memory ? cleanMemory(memory) : "";
+  var vars = { name: name, rel: REL[recipient] || REL.friend, memory: mem };
+  var opening = fill(pick(t.opening, rng), vars);
+  var memPart = mem ? fill(pick(t.memory, rng), vars) : fill(pick(t.memoryNo, rng), vars);
+  var special = fill(pick(t.special, rng), vars) + " " + fill(pick(RECIPIENT_LINES[recipient] || RECIPIENT_LINES.friend, rng), vars);
+  var closing = fill(pick(t.closing, rng), vars);
+  var parts = [opening, memPart, special, closing];
+  var text = parts.join(" ");
+  return { text: text, words: countWords(text), parts: parts };
+}
+var lastSpeech = "";
+function showSpeech(s) {
+  lastSpeech = s.text;
+  var box = document.getElementById("speechOut");
+  box.innerHTML = s.parts.map(function (p) { return "<p>" + p + "</p>"; }).join("");
+  box.style.display = "block";
+  document.getElementById("wordOut").textContent = "Word count: " + s.words + " words (under 200).";
+  document.getElementById("copyBtn").style.display = "inline-block";
+  document.getElementById("regenBtn").style.display = "inline-block";
+  document.getElementById("copyOut").textContent = "";
+}
+function generate() {
+  var name = document.getElementById("personName").value.trim();
+  var box = document.getElementById("speechOut");
+  if (!name) {
+    box.innerHTML = "<p>Please enter the birthday person's name first, and I will build the speech around them.</p>";
+    box.style.display = "block";
+    document.getElementById("wordOut").textContent = "";
+    document.getElementById("copyBtn").style.display = "none";
+    document.getElementById("regenBtn").style.display = "none";
+    return;
+  }
+  var recipient = document.getElementById("recipient").value;
+  var tone = document.getElementById("tone").value;
+  var memory = document.getElementById("memory").value;
+  showSpeech(buildSpeech(recipient, tone, name, memory));
+}
+function copySpeech() {
+  if (!lastSpeech) return;
+  var out = document.getElementById("copyOut");
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(lastSpeech).then(function () { out.textContent = "Copied!"; }, function () { fallbackCopy(); });
+  } else { fallbackCopy(); }
+  function fallbackCopy() {
+    var ta = document.createElement("textarea");
+    ta.value = lastSpeech;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); out.textContent = "Copied!"; }
+    catch (e) { out.textContent = "Copy did not work — please select the speech and copy it by hand."; }
+    document.body.removeChild(ta);
+  }
+}
+document.getElementById("genBtn").addEventListener("click", generate);
+document.getElementById("copyBtn").addEventListener("click", copySpeech);
+document.getElementById("regenBtn").addEventListener("click", generate);
+</script>
+</body>
+</html>

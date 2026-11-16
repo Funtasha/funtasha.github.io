@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life Path Number Calculator: What Does Your Birth Date Add Up To? | Funtasha</title>
+<meta name="description" content="Enter your birth date to find your life path number, see every step of the adding, read a short reflection for your number, and pick up six lucky numbers — just for fun.">
+<link rel="canonical" href="https://funtasha.github.io/life-path-number-calculator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Life Path Number Calculator: What Does Your Birth Date Add Up To?">
+<meta property="og:description" content="Your birth date, added up step by step, with a reflection and six lucky numbers — for fun only.">
+<meta property="og:url" content="https://funtasha.github.io/life-path-number-calculator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>.reflect{font-size:15.5px;margin-top:12px}.lucky{font-size:15.5px;margin-top:10px}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a life path number?","acceptedAnswer":{"@type":"Answer","text":"It is the number you get by adding up the digits of your birth date, month by month, day by day and year by year, until one number is left. In numerology, a symbolic tradition, that number is treated as a theme for reflection — not as a fact about you."}},{"@type":"Question","name":"What are master numbers 11, 22 and 33?","acceptedAnswer":{"@type":"Answer","text":"They are the numbers that are never reduced further in this method. When 11, 22 or 33 appears at any step, the adding stops. Each master number also carries the qualities of the digit it reduces to: 11 carries 2, 22 carries 4, and 33 carries 6."}},{"@type":"Question","name":"Why does another calculator give me a different number?","acceptedAnswer":{"@type":"Answer","text":"Because methods differ. Some calculators add all the digits of the whole date together first, while this page reduces the month, the day and the year separately and then adds the three results. Different methods can give different answers, especially for master numbers, so treat any result as one version of a game, not as a settled fact."}},{"@type":"Question","name":"Are the lucky numbers really lucky?","acceptedAnswer":{"@type":"Answer","text":"No. They are picked by a fixed recipe: the numbers 1 to 49 are shuffled with a random-number generator seeded by your birth date, and the first six are taken. The same date always gives the same six numbers, and they are only for fun."}},{"@type":"Question","name":"Is numerology a science?","acceptedAnswer":{"@type":"Answer","text":"No. Numerology is a symbolic tradition, not a science, and no study shows that a birth date decides a person's character or future. Use your life path number as a reflection prompt and a bit of fun, never as a prediction or a basis for a decision."}}]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Life Path Number Calculator: What Does Your Birth Date Add Up To?</h1>
+<p class="answer">Type in your birth date and this calculator adds it up step by step to find your life path number, from 1 to 9 or a master number 11, 22 or 33. You will also get a short reflection for your number and six lucky numbers picked from your date — all for fun and reflection only.</p>
+<div class="calc">
+<label for="birthdate">Your birth date</label>
+<input id="birthdate" type="date">
+<button type="button" onclick="calculateLifePath()">Find my life path number</button>
+<p class="out" id="lifeOut"></p>
+<p class="steps" id="lifeSteps"></p>
+<p class="reflect" id="lifeReflect"></p>
+<p class="lucky" id="lifeLucky"></p>
+</div>
+<div class="warn">Numerology is a symbolic tradition, not a science. Your life path number is a reflection prompt, not a prediction — it says nothing about your future, your health, or your decisions. Different calculators can give different master numbers because methods differ; this page uses the separate-then-sum method described below.</div>
+<h2>How the life path number is worked out</h2>
+<p>This calculator uses the separate-then-sum method that most numerologists teach. First, the month, the day, and the year are each reduced on their own to a single digit, by adding their digits together and adding again if the result still has two digits. Then the three results are added together, and that total is reduced the same way.</p>
+<p>There is one special rule: the adding stops whenever 11, 22, or 33 appears at any step. These are the master numbers, and they are never reduced further. So a day of 29 becomes 2 + 9 = 11 and stays 11, and a total of 33 stays 33. The calculator shows every step line by line, so you can check the arithmetic yourself.</p>
+<h2>Three worked examples</h2>
+<p>14 July 1988: month 7, day 1 + 4 = 5, year 1 + 9 + 8 + 8 = 26 then 2 + 6 = 8, total 7 + 5 + 8 = 20 then 2 + 0 = 2, life path 2.</p>
+<p>23 August 1979: day 2 + 3 = 5, month 8, year 1 + 9 + 7 + 9 = 26 then 8, total 5 + 8 + 8 = 21 then 3, life path 3.</p>
+<p>6 April 1990: year 1 + 9 + 9 + 0 = 19 then 1 + 0 = 1, month 4, day 6, total 1 + 4 + 6 = 11, life path 11 — a master number, not reduced.</p>
+<h2>Master numbers: 11, 22 and 33</h2>
+<p>Most birth dates reduce to a number from 1 to 9, but some land on 11, 22, or 33. In numerology these are called master numbers, and the tradition treats them as carrying extra weight: 11 is the illuminator, 22 is the master builder, and 33 is the master teacher. They are also said to carry the qualities of the digit they would reduce to — 11 carries 2, the peacemaker; 22 carries 4, the practical builder; and 33 carries 6, the caring nurturer.</p>
+<p>Master numbers are also where calculators disagree most. Some methods add the whole date together first, while others — like this page — reduce the month, the day, and the year separately before adding. The two approaches can give different answers, especially for master numbers, which is one more reason to treat any result as a game rather than a verdict.</p>
+<h2>Your six lucky numbers</h2>
+<p>Along with your life path number, the calculator picks six lucky numbers from 1 to 49. They are generated with a fixed recipe: the numbers 1 to 49 are shuffled with a small random-number generator seeded by your birth date written as YYYYMMDD, the first six are taken, and they are sorted from smallest to largest. Because the seed comes only from your date, the same date always gives the same six numbers — come back tomorrow and they will be unchanged.</p>
+<p>They are called lucky numbers for fun, and that is all they are. They have no power over draws, games, or anything else; they are simply six numbers that belong to your date, nice for a birthday card, a party game, or a quiet smile.</p>
+<h2>How to use your result</h2>
+<p>Treat your life path number as a conversation starter, not a label. Read the reflection paragraph and ask yourself whether the question it ends with is worth a minute of thought. Share your number with friends at a birthday gathering and compare results — the fun is in the chat that follows, not in the number itself.</p>
+<p>You can also use it as a small birthday ritual: work out the number for a new year of your life, read the reflection, and pick one idea from it to carry into the year ahead. Whatever you do with it, keep it light — the best thing a number can do is give you a reason to pause and think.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is a life path number?</h3><p>It is the number you get by adding up the digits of your birth date, month by month, day by day and year by year, until one number is left. In numerology, a symbolic tradition, that number is treated as a theme for reflection — not as a fact about you.</p></div>
+<div class="faq"><h3>What are master numbers 11, 22 and 33?</h3><p>They are the numbers that are never reduced further in this method. When 11, 22 or 33 appears at any step, the adding stops. Each master number also carries the qualities of the digit it reduces to: 11 carries 2, 22 carries 4, and 33 carries 6.</p></div>
+<div class="faq"><h3>Why does another calculator give me a different number?</h3><p>Because methods differ. Some calculators add all the digits of the whole date together first, while this page reduces the month, the day and the year separately and then adds the three results. Different methods can give different answers, especially for master numbers, so treat any result as one version of a game, not as a settled fact.</p></div>
+<div class="faq"><h3>Are the lucky numbers really lucky?</h3><p>No. They are picked by a fixed recipe: the numbers 1 to 49 are shuffled with a random-number generator seeded by your birth date, and the first six are taken. The same date always gives the same six numbers, and they are only for fun.</p></div>
+<div class="faq"><h3>Is numerology a science?</h3><p>No. Numerology is a symbolic tradition, not a science, and no study shows that a birth date decides a person's character or future. Use your life path number as a reflection prompt and a bit of fun, never as a prediction or a basis for a decision.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../what-day-were-you-born/">What Day Were You Born?</a> · <a href="../moon-on-your-birthday/">Moon on Your Birthday</a> · <a href="../zodiac-compatibility-checker/">Zodiac Compatibility Checker</a> · <a href="../love-calculator/">Love Calculator</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+var KEYWORDS = {
+  1: "Independent leader", 2: "Peacemaker", 3: "Creative communicator",
+  4: "Practical builder", 5: "Freedom-loving adventurer", 6: "Caring nurturer",
+  7: "Thoughtful seeker", 8: "Ambitious achiever", 9: "Compassionate humanitarian",
+  11: "Illuminator", 22: "Master builder", 33: "Master teacher"
+};
+var REFLECTIONS = {
+  1: "One is the number of the independent leader — someone who likes to start things, trust their own judgement, and walk ahead of the crowd. If this is your number, you may find energy in fresh starts and in making the first move. A good question to sit with: where in your life could you step forward instead of waiting to be asked?",
+  2: "Two is the number of the peacemaker — someone who notices what others feel, smooths over rough edges, and brings people together. If this is your number, your patience and tact may be your quiet strengths. A good question to sit with: who around you could use a kind word or a careful listener today?",
+  3: "Three is the number of the creative communicator — someone with ideas to share, stories to tell, and a knack for lifting the mood of a room. If this is your number, words and imagination may be where you shine brightest. A good question to sit with: what idea of yours has been waiting to be said out loud?",
+  4: "Four is the number of the practical builder — someone who values steady work, honest effort, and foundations that last. If this is your number, you may be the person others rely on when something needs doing properly. A good question to sit with: what small, solid step could you take today that your future self will thank you for?",
+  5: "Five is the number of the freedom-loving adventurer — someone who enjoys variety, change, and new experiences. If this is your number, routine may bore you, and a fresh road may always look inviting. A good question to sit with: what is one new thing you could try this week, just for the joy of it?",
+  6: "Six is the number of the caring nurturer — someone who looks after people, keeps a home warm, and takes responsibility seriously. If this is your number, your care may be the steady centre of your family or your circle. A good question to sit with: who do you look after — and who looks after you?",
+  7: "Seven is the number of the thoughtful seeker — someone who likes to understand things deeply, asks good questions, and values quiet time to think. If this is your number, you may learn best by digging below the surface. A good question to sit with: what question has been quietly following you around lately?",
+  8: "Eight is the number of the ambitious achiever — someone who sets goals, organises well, and turns plans into results. If this is your number, you may have a natural feel for what a project needs to succeed. A good question to sit with: which goal of yours deserves your full focus right now?",
+  9: "Nine is the number of the compassionate humanitarian — someone with a wide view of the world and a generous heart. If this is your number, you may feel most yourself when you are helping someone else. A good question to sit with: what small kindness could you offer today that would matter to someone?",
+  11: "Eleven is a master number, the illuminator — someone with strong intuition and ideas that can inspire others. Because eleven also carries the qualities of two, the peacemaker, your insight may work best when it is shared gently and with care. A good question to sit with: what idea of yours could light the way for someone else?",
+  22: "Twenty-two is a master number, the master builder — someone who can turn big plans into real things that last. Because twenty-two also carries the qualities of four, the practical builder, your grand ideas may need steady, patient work to come alive. A good question to sit with: what is the biggest thing you would like to build, and what is its first brick?",
+  33: "Thirty-three is a master number, the master teacher — someone who teaches by example, with patience and genuine care. Because thirty-three also carries the qualities of six, the caring nurturer, your teaching may work best through kindness rather than lectures. A good question to sit with: what have you learned that someone else would love to hear?"
+};
+function isMaster(n) { return n === 11 || n === 22 || n === 33; }
+function digitSum(n) {
+  var s = 0;
+  String(n).split("").forEach(function (d) { s += Number(d); });
+  return s;
+}
+function reduceNum(n) {
+  var v = n;
+  while (v > 9 && !isMaster(v)) { v = digitSum(v); }
+  return v;
+}
+function reduceChain(n) {
+  var chain = [String(n)];
+  var v = n;
+  while (v > 9 && !isMaster(v)) {
+    var digits = String(v).split("");
+    var sum = digitSum(v);
+    chain.push(digits.join(" + ") + " = " + sum);
+    v = sum;
+  }
+  return chain;
+}
+function lifePath(y, m, d) {
+  var rm = reduceNum(m), rd = reduceNum(d), ry = reduceNum(y);
+  var total = rm + rd + ry;
+  var finalNum = reduceNum(total);
+  var steps = [];
+  steps.push("Month: " + reduceChain(m).join(" → "));
+  steps.push("Day: " + reduceChain(d).join(" → "));
+  steps.push("Year: " + reduceChain(y).join(" → "));
+  var totalLine = "Total: " + rm + " + " + rd + " + " + ry + " = " + total;
+  var tc = reduceChain(total);
+  if (tc.length > 1) totalLine += " → " + tc.slice(1).join(" → ");
+  steps.push(totalLine);
+  steps.push("Life path number: " + finalNum + (isMaster(finalNum) ? " (master number)" : ""));
+  return { number: finalNum, steps: steps, month: rm, day: rd, year: ry, total: total };
+}
+function mulberry32(seed) {
+  var a = seed >>> 0;
+  return function () {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    var t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function luckyNumbers(y, m, d) {
+  var seed = y * 10000 + m * 100 + d;
+  var rnd = mulberry32(seed);
+  var pool = [];
+  for (var i = 1; i <= 49; i++) pool.push(i);
+  for (var j = pool.length - 1; j > 0; j--) {
+    var k = Math.floor(rnd() * (j + 1));
+    var tmp = pool[j]; pool[j] = pool[k]; pool[k] = tmp;
+  }
+  return pool.slice(0, 6).sort(function (a, b) { return a - b; });
+}
+function parseDateInput(value) {
+  var parts = String(value || "").split("-");
+  if (parts.length !== 3) return null;
+  var y = Number(parts[0]), m = Number(parts[1]), d = Number(parts[2]);
+  if (!parts[0] || !parts[1] || !parts[2]) return null;
+  if (isNaN(y) || isNaN(m) || isNaN(d)) return null;
+  if (m < 1 || m > 12 || d < 1) return null;
+  var daysInMonth = new Date(y, m, 0).getDate();
+  if (d > daysInMonth) return null;
+  return { y: y, m: m, d: d };
+}
+function calculateLifePath() {
+  var value = document.getElementById("birthdate").value;
+  var out = document.getElementById("lifeOut");
+  var stepsEl = document.getElementById("lifeSteps");
+  var reflectEl = document.getElementById("lifeReflect");
+  var luckyEl = document.getElementById("lifeLucky");
+  var parsed = parseDateInput(value);
+  if (!parsed) {
+    out.textContent = "Please pick a real birth date first — the calendar needs a day, a month and a year.";
+    stepsEl.textContent = "";
+    reflectEl.textContent = "";
+    luckyEl.textContent = "";
+    return;
+  }
+  var res = lifePath(parsed.y, parsed.m, parsed.d);
+  var masterNote = isMaster(res.number) ? " (a master number)" : "";
+  out.textContent = "Your life path number is " + res.number + masterNote + " — " + KEYWORDS[res.number] + ".";
+  stepsEl.textContent = res.steps.join("\n");
+  reflectEl.textContent = REFLECTIONS[res.number];
+  luckyEl.textContent = "Your six lucky numbers: " + luckyNumbers(parsed.y, parsed.m, parsed.d).join(", ") + ".";
+}
+</script>
+</body>
+</html>

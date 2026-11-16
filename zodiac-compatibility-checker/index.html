@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zodiac Compatibility Checker: Do Your Signs Match? | Funtasha</title>
+<meta name="description" content="Pick two star signs and get a fun compatibility score and verdict from the four elements — fire, earth, air, and water. For fun and reflection only.">
+<link rel="canonical" href="https://funtasha.github.io/zodiac-compatibility-checker/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zodiac Compatibility Checker: Do Your Signs Match?">
+<meta property="og:description" content="Pick two star signs and see how their elements get along, with a fun score and verdict.">
+<meta property="og:url" content="https://funtasha.github.io/zodiac-compatibility-checker/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}th,td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left}th{background:#fdf2f8}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is the compatibility score worked out?","acceptedAnswer":{"@type":"Answer","text":"The score comes from the element pairing only. Two signs of the same element score 85 to 95. Fire with air and earth with water score 80 to 95. The other mixed pairs — fire with earth, fire with water, air with earth, and air with water — score 55 to 70. The exact number inside the band is fixed by the two sign names, so the same pair always gets the same score."}},{"@type":"Question","name":"What if my birthday is on the edge of two signs?","acceptedAnswer":{"@type":"Answer","text":"Sign dates can shift by a day from year to year, so a birthday on a boundary date can fall in either sign. Try both signs and see which verdict you enjoy more — this is a game, not a test, and there is no wrong answer."}},{"@type":"Question","name":"Does a low score mean two people do not get along?","acceptedAnswer":{"@type":"Answer","text":"No. The score comes from an old tradition's element pairings, and it says nothing about real people. Real relationships are built on kindness, time, and honesty, not on star signs."}},{"@type":"Question","name":"Why do some pairs score higher than others?","acceptedAnswer":{"@type":"Answer","text":"The tradition pairs elements it says work well together: fire with air, earth with water, and each element with itself. Mixed pairs get a lower band and are described as a challenging match with room to grow. The bands are part of the tradition, not measurements of anything real."}},{"@type":"Question","name":"Is this the same as a horoscope?","acceptedAnswer":{"@type":"Answer","text":"No. This checker only compares two sun signs by their elements. It does not read birth charts, and it makes no predictions of any kind."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Zodiac Compatibility Checker: Do Your Signs Match?</h1>
+<p class="answer">Pick two star signs and this checker gives you a fun compatibility score from the four elements — fire, earth, air, and water. The score and verdict come from the element pairing alone, and the result is for fun and reflection only.</p>
+<div class="calc">
+<label for="sign1">First sign</label>
+<select id="sign1">
+<option>Aries</option>
+<option>Taurus</option>
+<option>Gemini</option>
+<option>Cancer</option>
+<option>Leo</option>
+<option>Virgo</option>
+<option>Libra</option>
+<option>Scorpio</option>
+<option>Sagittarius</option>
+<option>Capricorn</option>
+<option>Aquarius</option>
+<option>Pisces</option>
+</select>
+<label for="sign2">Second sign</label>
+<select id="sign2">
+<option>Aries</option>
+<option>Taurus</option>
+<option>Gemini</option>
+<option>Cancer</option>
+<option selected>Leo</option>
+<option>Virgo</option>
+<option>Libra</option>
+<option>Scorpio</option>
+<option>Sagittarius</option>
+<option>Capricorn</option>
+<option>Aquarius</option>
+<option>Pisces</option>
+</select>
+<button id="checkBtn" type="button">Check compatibility</button>
+<div class="out" id="result"></div>
+<p id="verdict"></p>
+<div class="steps" id="steps"></div>
+</div>
+<div class="warn">Astrology is a cultural tradition, not a science. Sun signs do not predict personality or relationships, and this result is for fun and reflection only — never a real judgement about two people.</div>
+<h2>How the score works</h2>
+<p>Each of the twelve signs belongs to one of four elements: fire, earth, air, or water. This checker looks only at the two elements. Two signs of the same element score 85 to 95, which the tradition calls a great match. Fire with air and earth with water score 80 to 95, also a great match. The other mixed pairs — fire with earth, fire with water, air with earth, and air with water — score 55 to 70, which the tradition calls a challenging match with room to grow.</p>
+<p>The exact number inside the band is worked out from the two sign names, so the same pair always gives the same score. Check Aries and Leo today and again next week and you will get the same number both times. Nothing is random, and nothing is read from your birthday or your birth chart — only the two signs you pick.</p>
+<p>The sign dates on this page follow the tropical zodiac, the system most Western astrologers use. Note that the dates can shift by a day from year to year, so a birthday right on a boundary can belong to either neighbouring sign. If that is you, try both and enjoy whichever verdict makes you smile.</p>
+<h2>The 12 signs and their elements</h2>
+<table>
+<tr><th>Sign</th><th>Dates</th><th>Element</th></tr>
+<tr><td>Aries</td><td>Mar 21 – Apr 19</td><td>Fire</td></tr>
+<tr><td>Taurus</td><td>Apr 20 – May 20</td><td>Earth</td></tr>
+<tr><td>Gemini</td><td>May 21 – Jun 20</td><td>Air</td></tr>
+<tr><td>Cancer</td><td>Jun 21 – Jul 22</td><td>Water</td></tr>
+<tr><td>Leo</td><td>Jul 23 – Aug 22</td><td>Fire</td></tr>
+<tr><td>Virgo</td><td>Aug 23 – Sep 22</td><td>Earth</td></tr>
+<tr><td>Libra</td><td>Sep 23 – Oct 22</td><td>Air</td></tr>
+<tr><td>Scorpio</td><td>Oct 23 – Nov 21</td><td>Water</td></tr>
+<tr><td>Sagittarius</td><td>Nov 22 – Dec 21</td><td>Fire</td></tr>
+<tr><td>Capricorn</td><td>Dec 22 – Jan 19</td><td>Earth</td></tr>
+<tr><td>Aquarius</td><td>Jan 20 – Feb 18</td><td>Air</td></tr>
+<tr><td>Pisces</td><td>Feb 19 – Mar 20</td><td>Water</td></tr>
+</table>
+<p>Three signs share each element, and the element is the whole story here. Fire signs are described in the tradition as warm and energetic, earth signs as steady and practical, air signs as curious and talkative, and water signs as sensitive and loyal. Those are old storybook traits, not facts about anyone born under a sign — take them as the flavour of a game, nothing more.</p>
+<h2>Fun ways to use your result</h2>
+<p>This checker works best as a party game or a conversation starter. Compare signs around the dinner table, check a couple before their anniversary, or see what the tradition says about you and your best friend. The verdict paragraphs are written to be read aloud — they describe the pairing in general terms, so everyone at the table can laugh about the parts that fit and argue cheerfully about the parts that do not.</p>
+<p>You can also use the result as a small note in a birthday card or a gift tag. A high score makes a cheerful line, and a low score makes a better joke, because the tradition calls it a challenging match with room to grow. Either way, the number is a prompt for a smile, not a verdict on a real relationship.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How is the compatibility score worked out?</h3><p>The score comes from the element pairing only. Two signs of the same element score 85 to 95. Fire with air and earth with water score 80 to 95. The other mixed pairs — fire with earth, fire with water, air with earth, and air with water — score 55 to 70. The exact number inside the band is fixed by the two sign names, so the same pair always gets the same score.</p></div>
+<div class="faq"><h3>What if my birthday is on the edge of two signs?</h3><p>Sign dates can shift by a day from year to year, so a birthday on a boundary date can fall in either sign. Try both signs and see which verdict you enjoy more — this is a game, not a test, and there is no wrong answer.</p></div>
+<div class="faq"><h3>Does a low score mean two people do not get along?</h3><p>No. The score comes from an old tradition's element pairings, and it says nothing about real people. Real relationships are built on kindness, time, and honesty, not on star signs.</p></div>
+<div class="faq"><h3>Why do some pairs score higher than others?</h3><p>The tradition pairs elements it says work well together: fire with air, earth with water, and each element with itself. Mixed pairs get a lower band and are described as a challenging match with room to grow. The bands are part of the tradition, not measurements of anything real.</p></div>
+<div class="faq"><h3>Is this the same as a horoscope?</h3><p>No. This checker only compares two sun signs by their elements. It does not read birth charts, and it makes no predictions of any kind.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../love-calculator/">Love Calculator</a> · <a href="../life-path-number-calculator/">Life Path Number Calculator</a> · <a href="../moon-on-your-birthday/">What Did the Moon Look Like on Your Birthday?</a> · <a href="../magic-8-ball/">Magic 8 Ball</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+var SIGNS = [
+  {name: "Aries", dates: "Mar 21 - Apr 19", element: "Fire"},
+  {name: "Taurus", dates: "Apr 20 - May 20", element: "Earth"},
+  {name: "Gemini", dates: "May 21 - Jun 20", element: "Air"},
+  {name: "Cancer", dates: "Jun 21 - Jul 22", element: "Water"},
+  {name: "Leo", dates: "Jul 23 - Aug 22", element: "Fire"},
+  {name: "Virgo", dates: "Aug 23 - Sep 22", element: "Earth"},
+  {name: "Libra", dates: "Sep 23 - Oct 22", element: "Air"},
+  {name: "Scorpio", dates: "Oct 23 - Nov 21", element: "Water"},
+  {name: "Sagittarius", dates: "Nov 22 - Dec 21", element: "Fire"},
+  {name: "Capricorn", dates: "Dec 22 - Jan 19", element: "Earth"},
+  {name: "Aquarius", dates: "Jan 20 - Feb 18", element: "Air"},
+  {name: "Pisces", dates: "Feb 19 - Mar 20", element: "Water"}
+];
+var VERDICTS = {
+  "Fire-Fire": "Two fire signs together make a fast, loud, energetic pairing — at least in the language of this old tradition. Both partners are said to bring the same spark: enthusiasm, honesty, and a love of getting things started. The shared energy can feel exciting, and the shared impatience can spark the odd flare-up. In the story this tradition tells, the trick is giving each other room to burn bright without trying to outshine one another.",
+  "Earth-Earth": "Two earth signs are the steady pair of the zodiac tradition: practical, patient, and fond of routine. The story goes that both partners value what is solid and real — a comfortable home, a plan that works, a promise kept. Life together is described as calm and reliable, with the occasional risk of settling into a rut. A little surprise now and then keeps the ground from going stale.",
+  "Air-Air": "Two air signs are the talkers of the zodiac tradition — curious, quick, and full of ideas. The pairing is described as a meeting of minds: long conversations, shared jokes, and a love of new plans. The tradition warns that two heads in the clouds can forget the practical details, so the pair does well when one of them remembers to come back down to earth.",
+  "Water-Water": "Two water signs are the feelers of the zodiac tradition: sensitive, loyal, and tuned in to each other's moods. The story says this pairing runs deep — both partners notice the small things and value closeness. The same sensitivity can mean hurt feelings linger, so the tradition's advice is to say what is wrong out loud instead of waiting to be understood.",
+  "Fire-Air": "Fire and air are the classic complementary pair in the zodiac tradition: air feeds the flame, and the flame gives air something to lift. The fire partner brings energy and drive; the air partner brings ideas and conversation. Together the tradition describes a lively, forward-moving pair — as long as the flame does not burn through every plan before the air partner has finished explaining it.",
+  "Earth-Water": "Earth and water are the nurturing pair of the zodiac tradition: water softens the ground, and earth gives water a shape to flow in. The earth partner is said to bring steadiness and practical care, while the water partner brings warmth and feeling. The story describes a gentle, supportive pairing — one that grows slowly and lasts, like a well-tended garden.",
+  "Fire-Earth": "Fire and earth are the opposites-attract pair of the zodiac tradition: one moves fast and dreams big, the other moves slowly and builds carefully. The fire partner can find earth too cautious; the earth partner can find fire too hasty. In the tradition's telling, the pairing works when each borrows a little of the other's pace — fire learns patience, and earth learns to take a chance.",
+  "Fire-Water": "Fire and water are the steam-and-spark pair of the zodiac tradition: passion meets feeling, and the combination can be intense. The fire partner brings boldness and directness; the water partner brings depth and sensitivity. The story says this pairing asks for care — fire can scorch what water holds dear, and water can dampen fire's flame — but with gentleness on both sides, the warmth runs deep.",
+  "Air-Earth": "Air and earth are the ideas-meet-reality pair of the zodiac tradition: one partner lives in plans and possibilities, the other in facts and routines. The air partner can find earth too fixed; the earth partner can find air too scattered. The tradition's story is that the pair grows when air's ideas get earth's steady hands — and when earth lets a little fresh air into the routine.",
+  "Air-Water": "Air and water are the breeze-over-the-sea pair of the zodiac tradition: one partner thinks out loud, the other feels things quietly. The air partner brings lightness and talk; the water partner brings depth and care. The story says the pairing asks for listening — air learning to hear what is not said, and water learning to say what is felt — and when that happens, the two make a thoughtful, kind pair."
+};
+function elementOf(name) {
+  for (var i = 0; i < SIGNS.length; i++) {
+    if (SIGNS[i].name === name) return SIGNS[i].element;
+  }
+  return null;
+}
+function bandFor(e1, e2) {
+  if (e1 === e2) return [85, 95];
+  var key = [e1, e2].sort().join("|");
+  if (key === "Air|Fire" || key === "Earth|Water") return [80, 95];
+  return [55, 70];
+}
+function hashPair(a, b) {
+  var s = [a, b].sort().join("|");
+  var h = 0;
+  for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+  return h;
+}
+function compatibilityScore(a, b) {
+  var band = bandFor(elementOf(a), elementOf(b));
+  return band[0] + (hashPair(a, b) % (band[1] - band[0] + 1));
+}
+function pairKey(e1, e2) {
+  var order = ["Fire", "Air", "Earth", "Water"];
+  var pair = [e1, e2].sort(function (x, y) { return order.indexOf(x) - order.indexOf(y); });
+  return pair[0] + "-" + pair[1];
+}
+function verdictFor(e1, e2) {
+  return VERDICTS[pairKey(e1, e2)] || "";
+}
+function onCheck() {
+  var a = document.getElementById("sign1").value;
+  var b = document.getElementById("sign2").value;
+  var e1 = elementOf(a);
+  var e2 = elementOf(b);
+  var score = compatibilityScore(a, b);
+  var band = bandFor(e1, e2);
+  var label = band[0] >= 80 ? "a great match" : "a challenging match, with room to grow";
+  document.getElementById("result").textContent = a + " and " + b + ": " + score + "% — " + label + ".";
+  document.getElementById("verdict").textContent = verdictFor(e1, e2);
+  document.getElementById("steps").textContent = a + " is a " + e1 + " sign and " + b + " is a " + e2 + " sign, so the " + pairKey(e1, e2) + " pairing scores in the " + band[0] + " to " + band[1] + " band. The exact score is fixed by the two sign names, so this pair always gets " + score + "%.";
+}
+if (typeof document !== "undefined") {
+  document.getElementById("checkBtn").addEventListener("click", onCheck);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Day of the Week Were You Born? | Funtasha</title>
+<meta name="description" content="Enter any birth date from 1900 to 2100 and find the weekday you were born on, how many days old you are today, and the weekday of your next birthday.">
+<link rel="canonical" href="https://funtasha.github.io/what-day-were-you-born/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What Day of the Week Were You Born?">
+<meta property="og:description" content="Find the weekday of any birth date, your age in days, and the weekday of your next birthday.">
+<meta property="og:url" content="https://funtasha.github.io/what-day-were-you-born/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How far back can I check a birth date?","acceptedAnswer":{"@type":"Answer","text":"This tool works for dates from 1 January 1900 to 31 December 2100. Dates outside that range are not accepted, because the tool is built for birthdays people actually celebrate."}},{"@type":"Question","name":"How is my age in days counted?","acceptedAnswer":{"@type":"Answer","text":"The tool counts whole calendar days from the date you enter up to today. A date one week ago gives 7 days, and a date entered for today gives 0 days."}},{"@type":"Question","name":"What happens if I was born on 29 February?","acceptedAnswer":{"@type":"Answer","text":"In years without a leap day, this tool places your next birthday on 28 February and says so in the result. Many leap-day babies celebrate on 28 February, and some prefer 1 March."}},{"@type":"Question","name":"Does the weekday ever change for a date?","acceptedAnswer":{"@type":"Answer","text":"No. Once a date is fixed on the calendar, its weekday never changes. The 1st of January 2000 was a Saturday, and it will always have been a Saturday."}},{"@type":"Question","name":"Can I check a date in the future?","acceptedAnswer":{"@type":"Answer","text":"Yes, as long as it falls inside the range up to 31 December 2100. For a future date the tool shows its weekday and tells you how many days away it is, instead of an age."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>What Day of the Week Were You Born?</h1>
+<p class="answer">Enter any date from 1 January 1900 to 31 December 2100 and this tool tells you the weekday it fell on. It also works out how many days old that date makes you today, and the weekday of your next birthday.</p>
+<div class="calc">
+<label for="birthdate">Your birth date</label>
+<input type="date" id="birthdate" min="1900-01-01" max="2100-12-31">
+<button type="button" id="findBtn">Find my weekday</button>
+<div class="out" id="out"></div>
+<div class="steps" id="steps"></div>
+</div>
+<div class="warn">This tool uses the Gregorian calendar only, and it covers dates from 1 January 1900 to 31 December 2100. Dates before 1900 are out of scope, and leap-day birthdays in non-leap years are placed on 28 February, as explained below.</div>
+<h2>Why the weekday of a date never changes</h2>
+<p>Every date on the calendar sits on one fixed weekday, and it stays there forever. The calendar is a repeating pattern of seven-day weeks laid over the months and years, so once a date is set, its weekday is set with it. That is why a tool like this one can answer the question at all: it simply looks the date up in the calendar your browser already knows, instead of guessing.</p>
+<p>The weekday is worked out from the date itself, not from anything about the person. Two people born on the same day share the same weekday, whether they were born in the same town or on opposite sides of the world. The only thing that matters is the date, and the calendar does the rest.</p>
+<h2>Fun ways to use your weekday</h2>
+<p>Your birth weekday makes a lovely detail for a birthday party. You could hold the celebration on the same weekday you were born on, or put the weekday on the invitation as a piece of trivia for guests to guess. A "born on a Friday" note on a birthday card is a small touch that usually gets a smile, because most people have never been told which weekday they arrived on.</p>
+<p>It also works well as a party game. Ask each guest to guess their own birth weekday before anyone checks, then run the tool and see who was closest. Families enjoy comparing weekdays too: a parent and child who share a birth weekday, or a couple whose birthdays always land on the same weekday in a given year, have a ready-made talking point for the dinner table.</p>
+<p>The days-old number is fun in its own right. Round numbers make good milestones: reaching 10,000 days old is a cheerful excuse for a cake, and the days-old count shows you when a round number is coming up.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How far back can I check a birth date?</h3><p>This tool works for dates from 1 January 1900 to 31 December 2100. Dates outside that range are not accepted, because the tool is built for birthdays people actually celebrate.</p></div>
+<div class="faq"><h3>How is my age in days counted?</h3><p>The tool counts whole calendar days from the date you enter up to today. A date one week ago gives 7 days, and a date entered for today gives 0 days.</p></div>
+<div class="faq"><h3>What happens if I was born on 29 February?</h3><p>In years without a leap day, this tool places your next birthday on 28 February and says so in the result. Many leap-day babies celebrate on 28 February, and some prefer 1 March.</p></div>
+<div class="faq"><h3>Does the weekday ever change for a date?</h3><p>No. Once a date is fixed on the calendar, its weekday never changes. The 1st of January 2000 was a Saturday, and it will always have been a Saturday.</p></div>
+<div class="faq"><h3>Can I check a date in the future?</h3><p>Yes, as long as it falls inside the range up to 31 December 2100. For a future date the tool shows its weekday and tells you how many days away it is, instead of an age.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../moon-on-your-birthday/">Moon on Your Birthday</a> · <a href="../life-path-number-calculator/">Life Path Number Calculator</a> · <a href="../birthstone-by-month/">Birthstones by Month</a> · <a href="../birth-flower-by-month/">Birth Flowers by Month</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+var WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+function parseISODate(str) {
+  var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(str || "");
+  if (!m) return null;
+  var y = parseInt(m[1], 10), mo = parseInt(m[2], 10) - 1, d = parseInt(m[3], 10);
+  var dt = new Date(y, mo, d);
+  if (dt.getFullYear() !== y || dt.getMonth() !== mo || dt.getDate() !== d) return null;
+  return dt;
+}
+
+function startOfDay(dt) {
+  return new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
+}
+
+function daysBetween(a, b) {
+  return Math.round((startOfDay(b) - startOfDay(a)) / 86400000);
+}
+
+function formatDate(dt) {
+  return dt.getDate() + " " + MONTHS[dt.getMonth()] + " " + dt.getFullYear();
+}
+
+function nextBirthday(month, day, today) {
+  var year = today.getFullYear();
+  var cand = new Date(year, month, day);
+  var leapNote = false;
+  if (month === 1 && day === 29 && cand.getMonth() !== 1) {
+    cand = new Date(year, 1, 28);
+    leapNote = true;
+  }
+  if (startOfDay(cand) < startOfDay(today)) {
+    year += 1;
+    cand = new Date(year, month, day);
+    leapNote = false;
+    if (month === 1 && day === 29 && cand.getMonth() !== 1) {
+      cand = new Date(year, 1, 28);
+      leapNote = true;
+    }
+  }
+  return { date: cand, leapNote: leapNote };
+}
+
+function computeBirthdayInfo(dateStr, todayStr) {
+  var birth = parseISODate(dateStr);
+  if (!birth) return { error: "Please pick a valid date first." };
+  var min = new Date(1900, 0, 1), max = new Date(2100, 11, 31);
+  if (birth < min || birth > max) return { error: "Please pick a date between 1 January 1900 and 31 December 2100." };
+  var today = todayStr ? parseISODate(todayStr) : startOfDay(new Date());
+  if (!today) today = startOfDay(new Date());
+  var days = daysBetween(birth, today);
+  var nb = nextBirthday(birth.getMonth(), birth.getDate(), today);
+  var isToday = startOfDay(nb.date).getTime() === startOfDay(today).getTime();
+  return {
+    weekday: WEEKDAYS[birth.getDay()],
+    dateText: formatDate(birth),
+    daysOld: days,
+    nextDate: nb.date,
+    nextDateText: formatDate(nb.date),
+    nextWeekday: WEEKDAYS[nb.date.getDay()],
+    isToday: isToday,
+    leapNote: nb.leapNote
+  };
+}
+
+document.getElementById("findBtn").addEventListener("click", function () {
+  var out = document.getElementById("out");
+  var steps = document.getElementById("steps");
+  var info = computeBirthdayInfo(document.getElementById("birthdate").value);
+  if (info.error) {
+    out.textContent = info.error;
+    steps.textContent = "";
+    return;
+  }
+  var lines = [];
+  out.textContent = "You were born on a " + info.weekday + ".";
+  if (info.daysOld < 0) {
+    lines.push(info.dateText + " is still in the future — it is " + (-info.daysOld) + " days away.");
+  } else if (info.daysOld === 0) {
+    lines.push(info.dateText + " is today — you are 0 days old by this count.");
+  } else {
+    lines.push("That makes you " + info.daysOld.toLocaleString("en-US") + " days old today.");
+  }
+  if (info.isToday) {
+    lines.push("Your next birthday is today, " + info.nextDateText + " — a " + info.nextWeekday + ".");
+  } else {
+    lines.push("Your next birthday falls on " + info.nextDateText + ", a " + info.nextWeekday + ".");
+  }
+  if (info.leapNote) {
+    lines.push("Note: " + info.nextDate.getFullYear() + " has no leap day, so the next birthday is placed on 28 February.");
+  }
+  steps.textContent = lines.join("\n");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Days Together Calculator: How Long Have You Been Together? | Funtasha</title>
+<meta name="description" content="Enter the date you got together and see your total days, weeks and months together, plus the dates of your next milestone days and your next anniversary.">
+<link rel="canonical" href="https://funtasha.github.io/days-together-calculator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Days Together Calculator: How Long Have You Been Together?">
+<meta property="og:description" content="Count the days, weeks and months since you got together, and find your next milestone.">
+<meta property="og:url" content="https://funtasha.github.io/days-together-calculator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the calculator count the days?","acceptedAnswer":{"@type":"Answer","text":"It subtracts your start date from today and counts the result in whole days. If you got together today, the count is zero, and it grows by one each new day."}},{"@type":"Question","name":"What counts as a full month?","acceptedAnswer":{"@type":"Answer","text":"A full month is a completed calendar month. If you got together on 14 March, each 14th of the month adds one full month to the count."}},{"@type":"Question","name":"What is the 100th day together?","acceptedAnswer":{"@type":"Answer","text":"It is the day your count reaches 100, which falls 100 days after your start date. The same rule applies to the 500th, 1,000th, 5,000th and 10,000th days."}},{"@type":"Question","name":"What if we started on 29 February?","acceptedAnswer":{"@type":"Answer","text":"In years without a 29 February, the anniversary lands on 1 March, because that is where the calendar rolls the date. The day counts are not affected."}},{"@type":"Question","name":"Can I pick any date as our start?","acceptedAnswer":{"@type":"Answer","text":"Yes. The start date is whatever the two of you choose as your beginning, and every count on the page follows that date."}}]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Days Together Calculator: How Long Have You Been Together?</h1>
+<p class="answer">Enter the date you got together and this calculator counts how many days, weeks and months it has been, and shows the dates of your next milestone days and your next yearly anniversary. It counts in whole calendar days, starting from the date you choose.</p>
+<div class="calc">
+<label for="startDate">The date you got together</label>
+<input id="startDate" type="date">
+<button type="button" onclick="calculateTogether()">Count the days</button>
+<p class="out" id="togetherOut"></p>
+<p class="steps" id="togetherSteps"></p>
+</div>
+<div class="warn">This tool counts calendar days only. The start date is whatever the two of you choose — a first date, a first hello, or any day that feels like the beginning — and the count follows that choice.</div>
+<h2>How the counting works</h2>
+<p>The counting rule is plain: today minus your start date, in whole days. If you got together today, the count is zero, and it grows by one with each new day. The total weeks are the full weeks inside that count, and the total months are the completed calendar months — if you got together on the 14th, each 14th of the month adds one full month.</p>
+<p>The milestone dates are the days your count reaches 100, 500, 1,000, 5,000 and 10,000. The 100th day falls 100 days after your start date, the 1,000th day falls 1,000 days after it, and so on. Milestones you have already passed are marked as passed, and the ones still ahead show how many days are left to go.</p>
+<p>The next yearly anniversary is the next time your start month and day come around. If your anniversary falls today, the calculator says so. If your start date was 29 February, the anniversary lands on 1 March in years that have no 29 February, because that is where the calendar rolls the date.</p>
+<h2>Ideas for marking a milestone</h2>
+<p>A milestone day does not need a big plan. A handwritten note left where your partner will find it, a favourite photo printed and put on the fridge, or a walk to a place that means something to both of you can mark the day just as well as anything grand. The point is the pause, not the production.</p>
+<p>For a round number like the 1,000th day, a small celebration at home works nicely: cook a favourite meal together, look through old photos, or write down a few memories from the time you have shared. A shared playlist of songs from your early days together costs nothing and often starts the best conversations.</p>
+<p>Whatever you choose, keep it simple and keep it yours. The count is just a number on a screen — the celebration is the part that matters, and no spending is required to make a day feel special.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How does the calculator count the days?</h3><p>It subtracts your start date from today and counts the result in whole days. If you got together today, the count is zero, and it grows by one each new day.</p></div>
+<div class="faq"><h3>What counts as a full month?</h3><p>A full month is a completed calendar month. If you got together on 14 March, each 14th of the month adds one full month to the count.</p></div>
+<div class="faq"><h3>What is the 100th day together?</h3><p>It is the day your count reaches 100, which falls 100 days after your start date. The same rule applies to the 500th, 1,000th, 5,000th and 10,000th days.</p></div>
+<div class="faq"><h3>What if we started on 29 February?</h3><p>In years without a 29 February, the anniversary lands on 1 March, because that is where the calendar rolls the date. The day counts are not affected.</p></div>
+<div class="faq"><h3>Can I pick any date as our start?</h3><p>Yes. The start date is whatever the two of you choose as your beginning, and every count on the page follows that date.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../love-calculator/">Love Calculator</a> · <a href="../anniversary-gifts-by-year/">Anniversary Gifts by Year</a> · <a href="../zodiac-compatibility-checker/">Zodiac Compatibility Checker</a> · <a href="../wedding-hashtag-generator/">Wedding Hashtag Generator</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+function parseDateInput(v) {
+  var parts = String(v).split("-");
+  if (parts.length !== 3) return null;
+  var y = parseInt(parts[0], 10);
+  var m = parseInt(parts[1], 10) - 1;
+  var d = parseInt(parts[2], 10);
+  if (isNaN(y) || isNaN(m) || isNaN(d)) return null;
+  var dt = new Date(y, m, d);
+  if (dt.getFullYear() !== y || dt.getMonth() !== m || dt.getDate() !== d) return null;
+  return dt;
+}
+function dayCount(start, today) {
+  var msPerDay = 24 * 60 * 60 * 1000;
+  var s = Date.UTC(start.getFullYear(), start.getMonth(), start.getDate());
+  var t = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+  return Math.round((t - s) / msPerDay);
+}
+function fullMonths(start, today) {
+  var m = (today.getFullYear() - start.getFullYear()) * 12 + (today.getMonth() - start.getMonth());
+  if (today.getDate() < start.getDate()) m -= 1;
+  return m;
+}
+function addDays(date, n) {
+  var d = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  d.setDate(d.getDate() + n);
+  return d;
+}
+function nextAnniversary(start, today) {
+  var ann = new Date(today.getFullYear(), start.getMonth(), start.getDate());
+  if (ann < today) ann = new Date(today.getFullYear() + 1, start.getMonth(), start.getDate());
+  return ann;
+}
+function formatDate(d) {
+  var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  return d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear();
+}
+function computeTogether(start, today) {
+  var days = dayCount(start, today);
+  var weeks = Math.floor(days / 7);
+  var months = fullMonths(start, today);
+  var milestones = [100, 500, 1000, 5000, 10000].map(function (n) {
+    return { n: n, date: addDays(start, n), reached: days >= n };
+  });
+  var ann = nextAnniversary(start, today);
+  return { days: days, weeks: weeks, months: months, milestones: milestones, anniversary: ann, anniversaryToday: dayCount(ann, today) === 0 };
+}
+function calculateTogether() {
+  var v = document.getElementById("startDate").value;
+  var out = document.getElementById("togetherOut");
+  var steps = document.getElementById("togetherSteps");
+  var start = parseDateInput(v);
+  if (!start) {
+    out.textContent = "Please pick the date you got together first.";
+    steps.textContent = "";
+    return;
+  }
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  if (start > today) {
+    out.textContent = "That date is still in the future. Please pick today or an earlier date.";
+    steps.textContent = "";
+    return;
+  }
+  var r = computeTogether(start, today);
+  out.textContent = r.days.toLocaleString("en-US") + (r.days === 1 ? " day together" : " days together");
+  var lines = [];
+  lines.push(r.weeks.toLocaleString("en-US") + " full weeks  ·  " + r.months.toLocaleString("en-US") + " full months");
+  lines.push("Counting rule: today minus your start date, in whole days.");
+  r.milestones.forEach(function (ms) {
+    lines.push(ms.n.toLocaleString("en-US") + "th day: " + formatDate(ms.date) + (ms.reached ? " (already passed)" : " (" + dayCount(today, ms.date) + " days to go)"));
+  });
+  lines.push("Next anniversary: " + formatDate(r.anniversary) + (r.anniversaryToday ? " — that is today!" : ""));
+  steps.textContent = lines.join("\n");
+}
+</script>
+</body>
+</html>

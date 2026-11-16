@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Party Drinks Calculator: How Much Soda, Juice, and Water? | Funtasha</title>
+<meta name="description" content="Plan party drinks without the guesswork. Enter guests, hours and kids to get soda, juice, water and ice quantities for any gathering.">
+<link rel="canonical" href="https://funtasha.github.io/party-drinks-calculator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Party Drinks Calculator: How Much Soda, Juice, and Water?">
+<meta property="og:description" content="Work out how much soda, juice and water to buy for your party.">
+<meta property="og:url" content="https://funtasha.github.io/party-drinks-calculator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>.calc input[type=checkbox]{width:auto;margin-right:6px}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many drinks does each guest need at a party?","acceptedAnswer":{"@type":"Answer","text":"Adults usually need 2 drinks in the first hour and 1 drink for each hour after that, while kids need 1 drink per hour. That is the standard catering rule this calculator uses."}},{"@type":"Question","name":"What counts as one serving?","acceptedAnswer":{"@type":"Answer","text":"One serving is one 12 oz or 355 ml can, one juice box, or one 500 ml bottle of water."}},{"@type":"Question","name":"How many servings are in a 2-litre bottle?","acceptedAnswer":{"@type":"Answer","text":"One 2-litre bottle holds 8 servings, so divide the soda servings by 8 to work out how many bottles to buy."}},{"@type":"Question","name":"Should I buy extra drinks in hot weather?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tick the hot weather box and the calculator adds 30 percent to every quantity, including the ice."}},{"@type":"Question","name":"How much ice do I need for a party?","acceptedAnswer":{"@type":"Answer","text":"Plan on 1 lb of ice per guest, and a little more on a hot day."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Party Drinks Calculator: How Much Soda, Juice, and Water?</h1>
+<p class="answer">Enter your guest count, party length and number of kids, and this calculator works out how many servings of soda, juice and water you need. It plans non-alcoholic drinks only, and it uses the standard catering rule, so you can shop with confidence and still have enough for everyone.</p>
+<div class="calc">
+<label for="guests">Number of guests (adults and kids together)</label>
+<input type="number" id="guests" value="20" min="1" step="1">
+<label for="hours">Party length in hours</label>
+<input type="number" id="hours" value="3" min="1" step="0.5">
+<label for="kids">Number of kids (0 or more)</label>
+<input type="number" id="kids" value="0" min="0" step="1">
+<label><input type="checkbox" id="hot"> Hot weather — add 30% to everything</label>
+<button type="button" id="calcBtn">Work out the drinks</button>
+<div class="out" id="out"></div>
+<div class="steps" id="steps"></div>
+</div>
+<div class="warn">These are planning estimates, not exact science. A hot day, a dancing crowd or a long party drinks more than the rule expects, so round up when in doubt and keep extra water on hand.</div>
+<h2>How the catering rule works</h2>
+<p>People drink fastest at the start of a party. That is why the standard catering rule gives every adult 2 drinks in the first hour and then 1 drink for each hour after that. Kids drink more slowly and steadily, so the rule gives them 1 drink per hour for the whole party.</p>
+<p>Once the total servings are known, the rule splits them three ways: 40 percent soda, 30 percent juice and 30 percent water. One serving is one 12 oz or 355 ml can, one juice box, or one 500 ml bottle of water. If you would rather buy big bottles than cans, one 2-litre bottle of soda holds 8 servings.</p>
+<p>Hot weather changes everything, so ticking the hot weather box adds 30 percent to every quantity, including the ice. Every purchase quantity is rounded up, so the cans, boxes and bottles you buy can add up to a serving or two more than the total. That is deliberate, not a mistake: it is better to have a few drinks left over than to run out halfway through the party. Ice is planned at 1 lb per guest.</p>
+<h2>A worked example</h2>
+<p>Take a party with 20 guests, lasting 3 hours, with no kids, in mild weather. Each adult needs 4 drinks (2 in the first hour, then 1 an hour for the next two hours), which makes 80 servings in total. Split by the rule, that is 32 servings of soda (40 percent), 24 servings of juice (30 percent) and 24 servings of water (30 percent). The soda works out as 32 cans, or 4 two-litre bottles, and the ice comes to 20 lb. Try the numbers in the calculator above and you will get the same result.</p>
+<h2>Tips for serving drinks at a party</h2>
+<ul>
+<li>Keep water visible. Put a jug or a tray of water bottles where everyone can see them, not tucked behind the soda.</li>
+<li>Chill drinks early. Cans and bottles take hours to cool down properly, so get them into the fridge or the ice the night before if you can.</li>
+<li>Ask about allergies when you invite people. Some guests cannot have certain juices or fizzy drinks, and knowing early lets you plan around them.</li>
+<li>Set out cups where guests can help themselves, and keep a marker nearby so people can write their names on their cups.</li>
+<li>Keep a spare bag of ice in the freezer. Ice melts faster than you expect, especially on a warm day.</li>
+</ul>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How many drinks does each guest need at a party?</h3><p>Adults usually need 2 drinks in the first hour and 1 drink for each hour after that, while kids need 1 drink per hour. That is the standard catering rule this calculator uses.</p></div>
+<div class="faq"><h3>What counts as one serving?</h3><p>One serving is one 12 oz or 355 ml can, one juice box, or one 500 ml bottle of water.</p></div>
+<div class="faq"><h3>How many servings are in a 2-litre bottle?</h3><p>One 2-litre bottle holds 8 servings, so divide the soda servings by 8 to work out how many bottles to buy.</p></div>
+<div class="faq"><h3>Should I buy extra drinks in hot weather?</h3><p>Yes. Tick the hot weather box and the calculator adds 30 percent to every quantity, including the ice.</p></div>
+<div class="faq"><h3>How much ice do I need for a party?</h3><p>Plan on 1 lb of ice per guest, and a little more on a hot day.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../birthday-party-budget-calculator/">Birthday Party Budget Calculator</a> · <a href="../helium-balloon-calculator/">Helium Balloon Calculator</a> · <a href="../birthday-party-theme-generator/">Birthday Party Theme Generator</a> · <a href="../first-birthday-party-guide/">First Birthday Party Guide</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+function ceilUp(x) { return Math.ceil(x - 1e-9); }
+function fmt(n) { return (Math.floor(n) === n) ? String(n) : n.toFixed(1); }
+function calcDrinks(guests, hours, kids, hot) {
+  if (!isFinite(guests) || Math.floor(guests) !== guests || guests < 1) {
+    return { error: "Please enter a whole number of guests, at least 1." };
+  }
+  if (!isFinite(hours) || hours < 1) {
+    return { error: "Please enter a party length of at least 1 hour." };
+  }
+  if (!isFinite(kids) || Math.floor(kids) !== kids || kids < 0) {
+    return { error: "Please enter 0 or more kids as a whole number." };
+  }
+  if (kids > guests) {
+    return { error: "The number of kids cannot be more than the total number of guests." };
+  }
+  var adults = guests - kids;
+  var adultEach = 1 + hours;
+  var adultServings = adults * adultEach;
+  var kidServings = kids * hours;
+  var base = adultServings + kidServings;
+  var total = hot ? ceilUp(base * 1.3) : ceilUp(base);
+  var soda = ceilUp(total * 0.4);
+  var juice = ceilUp(total * 0.3);
+  var water = ceilUp(total * 0.3);
+  var bottles = ceilUp(soda / 8);
+  var ice = hot ? ceilUp(guests * 1.3) : guests;
+  return { guests: guests, hours: hours, kids: kids, hot: hot, adults: adults,
+    adultEach: adultEach, adultServings: adultServings, kidServings: kidServings,
+    base: base, total: total, soda: soda, juice: juice, water: water,
+    bottles: bottles, ice: ice };
+}
+if (typeof document !== "undefined") {
+  var outEl = document.getElementById("out");
+  var stepsEl = document.getElementById("steps");
+  function runCalc() {
+    var guests = parseFloat(document.getElementById("guests").value);
+    var hours = parseFloat(document.getElementById("hours").value);
+    var kids = parseFloat(document.getElementById("kids").value);
+    var hot = document.getElementById("hot").checked;
+    var r = calcDrinks(guests, hours, kids, hot);
+    if (r.error) {
+      outEl.textContent = r.error;
+      stepsEl.textContent = "";
+      return;
+    }
+    outEl.textContent = "You need " + r.total + " servings: " + r.soda + " cans of soda, " +
+      r.juice + " juice boxes and " + r.water + " water bottles, plus " + r.ice + " lb of ice.";
+    var lines = [];
+    lines.push("Adults: " + r.adults + " x " + fmt(r.adultEach) + " drinks each = " +
+      fmt(r.adultServings) + " servings (2 in the first hour, then 1 an hour)");
+    lines.push("Kids: " + r.kids + " x " + fmt(r.hours) + " drinks = " + fmt(r.kidServings) + " servings");
+    if (r.hot) {
+      lines.push("Total before hot weather: " + fmt(r.base) + " servings");
+      lines.push("Hot weather: " + fmt(r.base) + " x 1.3 = " + r.total + " servings");
+    } else {
+      lines.push("Total: " + r.total + " servings");
+    }
+    lines.push("Soda: 40% of " + r.total + " = " + r.soda + " cans (" + r.bottles + " two-litre bottles)");
+    lines.push("Juice: 30% of " + r.total + " = " + r.juice + " boxes");
+    lines.push("Water: 30% of " + r.total + " = " + r.water + " bottles");
+    if (r.hot) {
+      lines.push("Ice: 1 lb per guest x " + r.guests + " guests x 1.3 = " + r.ice + " lb");
+    } else {
+      lines.push("Ice: 1 lb per guest x " + r.guests + " guests = " + r.ice + " lb");
+    }
+    stepsEl.textContent = lines.join("\n");
+  }
+  document.getElementById("calcBtn").addEventListener("click", runCalc);
+  runCalc();
+}
+</script>
+</body>
+</html>

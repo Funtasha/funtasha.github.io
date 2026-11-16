@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birthday Party Theme Generator: Pick a Party Theme | Funtasha</title>
+<meta name="description" content="Pick a birthday party theme by age group, from toddlers to adults. Every theme comes with colours, activity ideas, and a food idea — plus a Surprise Me button.">
+<link rel="canonical" href="https://funtasha.github.io/birthday-party-theme-generator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Birthday Party Theme Generator: Pick a Party Theme">
+<meta property="og:description" content="Pick a party theme by age group, with colours, activities, and a food idea for each.">
+<meta property="og:url" content="https://funtasha.github.io/birthday-party-theme-generator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc .filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.calc .filter-btn{margin-top:0;border:1px solid #f9a8d4;background:#fff;color:#be185d;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer;font-size:14.5px}
+.calc .filter-btn.active{background:#db2777;color:#fff;border-color:#db2777}
+.theme-card{background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:12px 0;box-shadow:0 8px 18px rgba(30,41,59,.08)}
+.theme-card.featured{border:2px solid #db2777}
+.theme-name{font-size:18px;font-weight:700}
+.theme-desc{margin:6px 0}
+.theme-meta{font-size:15px;color:#334155;margin-top:4px}
+.count-line{font-size:14.5px;color:#64748b;margin-top:10px}
+.featured-label{font-weight:700;margin-top:14px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I choose between two themes the birthday person loves?","acceptedAnswer":{"@type":"Answer","text":"Pick the one they talk about most, then borrow one small detail from the other, such as its colours or one game. One clear theme with a single borrowed detail looks planned, while two full themes side by side usually look muddled."}},{"@type":"Question","name":"Can I use a theme from a different age group?","acceptedAnswer":{"@type":"Answer","text":"Yes. The age groups are a starting guide, not a rule. A theme works when it fits the birthday person and the guests, so borrow freely and adjust the activities to suit the ages in the room."}},{"@type":"Question","name":"How many activities does a party need?","acceptedAnswer":{"@type":"Answer","text":"Two planned activities are usually plenty for a two-hour party, with free time and food filling the rest. One main activity and one quiet backup cover most parties without making the day feel rushed."}},{"@type":"Question","name":"What if my party space is small?","acceptedAnswer":{"@type":"Answer","text":"Choose a theme whose games fit the room you have. Craft, baking, movie, and board game themes work well in a small space, while sports and treasure hunts need room to run."}},{"@type":"Question","name":"Do the invitations, decorations, and cake all have to match?","acceptedAnswer":{"@type":"Answer","text":"No. Matching one thing, such as the colours, is enough to tie the party together. Repeat the theme's colours in the invitations, the table, and the cake, and the theme will read clearly without extra work."}}]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Birthday Party Theme Generator: Pick a Party Theme</h1>
+<p class="answer">Pick an age group to see party themes that fit, or press Surprise Me and let the generator choose. Every theme comes with colours, two activity ideas, and a food idea to get your party started.</p>
+<div class="calc">
+<label>Choose an age group</label>
+<div class="filter-bar" id="filterBar">
+<button type="button" class="filter-btn active" data-group="all">All themes</button>
+<button type="button" class="filter-btn" data-group="toddlers">Toddlers 1–3</button>
+<button type="button" class="filter-btn" data-group="kids">Kids 4–9</button>
+<button type="button" class="filter-btn" data-group="tweens">Tweens 10–12</button>
+<button type="button" class="filter-btn" data-group="teens">Teens 13–17</button>
+<button type="button" class="filter-btn" data-group="adults">Adults</button>
+</div>
+<button type="button" id="surpriseBtn">Surprise Me</button>
+<p class="count-line" id="countLine"></p>
+<div id="featured"></div>
+<div id="themeList"></div>
+</div>
+<div class="warn">These themes are starting ideas, not a finished plan. Check that each activity suits your guests and your space, and keep small decorations and small food items away from very young children.</div>
+<h2>How to choose a party theme</h2>
+<p>Start from what the birthday person loves. A theme built on a favourite animal, game, film, or hobby already has the guest of honour excited before the party begins, and it gives you a ready answer every time you wonder what to put on the invitations.</p>
+<p>Next, match the theme to the space and the guest list. A treasure hunt needs room to hide things, a baking party needs a table and an oven, and a movie night needs a screen and somewhere soft to sit. A theme that fits the room you actually have will always feel better than a grand idea squeezed into the wrong space.</p>
+<p>Repeat the theme in the invitations, the decorations, and the cake, and it will read clearly even with simple supplies. One theme done well beats three done thin: a single strong idea, carried through the colours, one or two activities, and the food, feels planned and welcoming without extra work.</p>
+<h2>Making the theme work on the day</h2>
+<p>Let the colours do most of the decorating. Balloons, table covers, and napkins in the theme's colours turn an ordinary room into the party's world in minutes, and they cost less effort than elaborate props.</p>
+<p>Plan one main activity and one quiet backup. The main activity gives the party its shape, and the backup keeps early finishers and shy guests busy without needing your attention. Let guests join in at their own pace: a craft table or a snack station gives anyone who needs a breather a natural place to go.</p>
+<p>Tie the food to the theme with one simple idea, such as shaped sandwiches or a coloured drink, and keep the rest of the food easy and familiar. Guests remember the fun, not the menu, so a single themed dish is plenty.</p>
+<h2>Themes for every age</h2>
+<p>The generator sorts themes into five age groups, from toddlers to adults, so you can start with ideas that suit the birthday person's age. The groups are a starting guide rather than a strict rule: a theme listed for tweens can work for younger children with simpler activities, and many adult themes work just as well for teenagers. Borrow freely, adjust the activities to the ages in the room, and keep the parts that fit your party.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>How do I choose between two themes the birthday person loves?</h3>
+<p>Pick the one they talk about most, then borrow one small detail from the other, such as its colours or one game. One clear theme with a single borrowed detail looks planned, while two full themes side by side usually look muddled.</p>
+</div>
+<div class="faq">
+<h3>Can I use a theme from a different age group?</h3>
+<p>Yes. The age groups are a starting guide, not a rule. A theme works when it fits the birthday person and the guests, so borrow freely and adjust the activities to suit the ages in the room.</p>
+</div>
+<div class="faq">
+<h3>How many activities does a party need?</h3>
+<p>Two planned activities are usually plenty for a two-hour party, with free time and food filling the rest. One main activity and one quiet backup cover most parties without making the day feel rushed.</p>
+</div>
+<div class="faq">
+<h3>What if my party space is small?</h3>
+<p>Choose a theme whose games fit the room you have. Craft, baking, movie, and board game themes work well in a small space, while sports and treasure hunts need room to run.</p>
+</div>
+<div class="faq">
+<h3>Do the invitations, decorations, and cake all have to match?</h3>
+<p>No. Matching one thing, such as the colours, is enough to tie the party together. Repeat the theme's colours in the invitations, the table, and the cake, and the theme will read clearly without extra work.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links">
+<a href="../birthday-party-budget-calculator/">Birthday Party Budget Calculator</a> · <a href="../first-birthday-party-guide/">First Birthday Party Guide</a> · <a href="../milestone-birthday-ideas/">Milestone Birthday Ideas</a> · <a href="../never-have-i-ever-generator/">Never Have I Ever Generator</a>
+</div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+var AGE_GROUPS = {"toddlers":"Toddlers 1–3","kids":"Kids 4–9","tweens":"Tweens 10–12","teens":"Teens 13–17","adults":"Adults"};
+var THEMES = [
+{name:"Dinosaur Dig",groups:["toddlers","kids"],desc:"Turn the party into a prehistoric dig site where little explorers hunt for buried treasure. Footprint trails, roaring games, and a dig pit keep small hands busy all afternoon. It works best with simple decorations and plenty of room to stomp around.",colours:["Green","Brown","Sandy yellow"],activities:["Fossil hunt in a sand tray","Dinosaur egg hunt with hidden toy dinosaurs"],food:"Dinosaur-shaped sandwiches"},
+{name:"Superhero Training",groups:["kids","tweens"],desc:"Every guest arrives as a hero in training and leaves with a cape and a mission completed. Set up training challenges that test speed, balance, and teamwork rather than strength. The theme suits active children who love to run, jump, and save the day.",colours:["Red","Blue","Yellow"],activities:["Obstacle course hero training","Design-your-own cape station"],food:"Power-up fruit skewers"},
+{name:"Princess and Knight",groups:["toddlers","kids"],desc:"A castle party where every guest can choose to be a princess, a knight, or both at once. Crowns, shields, and a gentle quest give the day a story without any scary parts. Keep the games short and the dressing-up box full.",colours:["Pink","Gold","Purple"],activities:["Crown and shield decorating","Royal treasure quest"],food:"Royal crown cupcakes"},
+{name:"Safari / Wild One",groups:["toddlers","kids"],desc:"Bring the wild indoors with animal masks, leafy decorations, and a gentle safari trail. Little guests love spotting toy animals hidden around the party space. The theme is a natural fit for a first or second birthday.",colours:["Khaki green","Orange","Brown"],activities:["Animal mask parade","Safari animal hunt around the room"],food:"Animal-face biscuits"},
+{name:"Under the Sea",groups:["kids","tweens"],desc:"Turn the room into an ocean with flowing blue fabric, paper fish, and bubbles floating through the air. Water games work well outdoors, while craft tables keep the theme going inside. It is a calm, pretty theme that suits a wide range of ages.",colours:["Blue","Turquoise","Coral"],activities:["Fishing game with magnetic fish","Seashell treasure hunt"],food:"Blue jelly cups with gummy fish"},
+{name:"Space Adventure",groups:["kids","tweens"],desc:"Blast off with a space party full of rockets, stars, and alien friends. Cardboard rockets and glow-in-the-dark stars turn any room into a launch pad. Add a countdown to the cake for a moment everyone remembers.",colours:["Navy","Silver","Purple"],activities:["Rocket building from cardboard tubes","Moon rock hunt with painted stones"],food:"Star-shaped cheese and crackers"},
+{name:"Pirate Treasure Hunt",groups:["kids","tweens"],desc:"Hand every guest a map and send them hunting for buried treasure around the party space. Eye patches, striped shirts, and a chest of prizes set the scene without any fuss. The hunt itself is the entertainment, so the day plans itself.",colours:["Black","Gold","Red"],activities:["Map-based treasure hunt","Walk-the-plank balance game"],food:"Gold coin chocolates"},
+{name:"Science Lab",groups:["kids","tweens"],desc:"Turn the party into a laboratory where guests mix, fizz, and discover something new. Simple kitchen experiments give everyone something to watch and talk about. Keep the mess in one area and have aprons ready for every scientist.",colours:["White","Green","Blue"],activities:["Baking soda volcano experiment","Slime-making station"],food:"Test-tube jelly cups"},
+{name:"Glow in the Dark",groups:["tweens","teens"],desc:"Dim the lights and let glow sticks, neon colours, and black light do the decorating. A glow dance floor and glowing games keep older children and teenagers happily busy. It works best in a room you can darken properly.",colours:["Neon pink","Neon green","Black"],activities:["Glow stick dance party","Glow ring toss"],food:"Bright jelly cups in neon colours"},
+{name:"Gaming",groups:["tweens","teens"],desc:"Set up a few screens, a tournament bracket, and let the games begin. A gaming party works best with short rounds so everyone gets a turn and nobody waits too long. Add a quiz round for guests who would rather watch than play.",colours:["Purple","Black","Electric blue"],activities:["Video game tournament","Gaming trivia quiz"],food:"Pizza slices and popcorn buckets"},
+{name:"Baking Party",groups:["kids","tweens","teens"],desc:"Give every guest an apron, a piping bag, and a cupcake to make their own. Baking parties are calm, creative, and every guest takes home something they made. Keep the recipes simple and the toppings plentiful.",colours:["Pastel pink","Mint","Cream"],activities:["Decorate-your-own cupcakes","Cookie decorating contest"],food:"The cupcakes guests decorate themselves"},
+{name:"Art Party",groups:["kids","tweens"],desc:"Cover the tables, hand out brushes, and let everyone make something worth taking home. An art party suits guests who like to create at their own pace. Choose one main project and a free-drawing corner for early finishers.",colours:["Rainbow brights","White"],activities:["Canvas painting station","Tie-dye t-shirts"],food:"Paint palette fruit platter"},
+{name:"Ice Cream Sundae",groups:["toddlers","kids","tweens"],desc:"A sundae bar is a party and a dessert in one, with scoops, sauces, and sprinkles for every taste. Guests build their own bowls, so nobody ends up with a flavour they dislike. Add paper cones and stickers for a craft that doubles as decoration.",colours:["Pink","Mint","Chocolate brown"],activities:["Build-your-own sundae bar","Ice cream cone craft"],food:"The sundae bar itself"},
+{name:"Teddy Bear Picnic",groups:["toddlers","kids"],desc:"Every guest brings a favourite teddy to a picnic on the lawn or the living room floor. Blankets, baskets, and a short story make the day gentle and unhurried. It is one of the easiest themes for very young children.",colours:["Honey yellow","Gingham red","Green"],activities:["Teddy bear parade","Teddy picnic blanket story time"],food:"Bear-shaped sandwiches"},
+{name:"Rainbow / Unicorn",groups:["toddlers","kids"],desc:"Fill the room with rainbow colours, clouds, and a friendly unicorn or two. The theme is bright and cheerful without needing much more than coloured paper and balloons. It works beautifully for younger children who love colour.",colours:["Rainbow pastels","Gold"],activities:["Rainbow pin-the-tail game","Unicorn horn decorating"],food:"Rainbow fruit skewers"},
+{name:"Camping Adventure",groups:["kids","tweens","teens"],desc:"Pitch a tent in the garden or the living room and let the adventure begin. A scavenger hunt and a marshmallow station give the party its shape. Add torches and a story corner for a cosy finish.",colours:["Forest green","Orange","Brown"],activities:["Tent building challenge","Nature scavenger hunt"],food:"Campfire-style toasted marshmallows"},
+{name:"Sports Day",groups:["kids","tweens","teens"],desc:"Turn the party into a friendly sports day with races, relays, and team games. Keep the teams mixed and the races short so everyone gets a win somewhere. A medal ceremony at the end makes every guest feel like a champion.",colours:["Red","Blue","White"],activities:["Relay races","Penalty shootout"],food:"Sports bottles of fruit juice and snack boxes"},
+{name:"Carnival",groups:["kids","tweens","teens","adults"],desc:"Bring the fairground home with game stalls, bright bunting, and prizes for every player. Carnival games are easy to set up and suit guests of any age. Give every guest a few tokens so everyone can try every stall.",colours:["Red","Yellow","Turquoise"],activities:["Ring toss and tin-can knockdown","Face painting stall"],food:"Popcorn and candy floss"},
+{name:"Beach / Luau",groups:["tweens","teens","adults"],desc:"Lay out beach towels, hang paper flowers, and let the party feel like a holiday. A limbo contest and a sandcastle challenge keep the energy up. The theme suits warm weather and a relaxed afternoon.",colours:["Turquoise","Coral","Sunny yellow"],activities:["Limbo contest","Sandcastle building contest with a sand tray"],food:"Tropical fruit platter"},
+{name:"Movie Night",groups:["tweens","teens","adults"],desc:"Turn the living room into a cinema with tickets, a red carpet entrance, and rows of cushions. Let the birthday person pick the film and add a short trivia round before the screening. It is a relaxed theme that suits a quieter celebration.",colours:["Black","Red","Gold"],activities:["Film screening with popcorn","Movie trivia quiz"],food:"Popcorn buckets and nachos"},
+{name:"Karaoke",groups:["teens","adults"],desc:"Hand over the microphone and let the party sing its way through the evening. A karaoke party needs little more than a speaker, a song list, and willing singers. Start with group songs so shy guests can join in gradually.",colours:["Purple","Silver","Hot pink"],activities:["Karaoke sing-off","Duet challenge"],food:"Mini sliders and fruit cups"},
+{name:"Hollywood Red Carpet",groups:["teens","adults"],desc:"Roll out the red carpet and treat every guest like a star arriving at a premiere. A photo wall and a few fun award categories give the evening its shape. Dressing up is half the fun, so put the theme on the invitation.",colours:["Black","Gold","Red"],activities:["Red carpet photo walk","Best-dressed awards"],food:"Sparkling juice toast and canapes"},
+{name:"Masquerade",groups:["teens","adults"],desc:"Masks, candles, and music turn an ordinary room into a masquerade ball. Guests decorate their own masks on arrival, so everyone matches the theme. Keep the music varied so every guest finds a dance they enjoy.",colours:["Deep purple","Gold","Black"],activities:["Mask decorating station","Masquerade dance"],food:"Elegant finger foods"},
+{name:"Decades Disco",groups:["teens","adults"],desc:"Pick a decade, dress the part, and dance to the songs of the era. A decades disco works because the music does most of the entertaining. Add a short quiz about the chosen decade for a breather between dances.",colours:["Neon pink","Electric blue","Gold"],activities:["Decade dance-off","Decade music quiz"],food:"Retro snack table"},
+{name:"Garden Tea Party",groups:["kids","tweens","adults"],desc:"Set a pretty table in the garden with flowers, teacups, and tiered plates. A garden tea party is calm and charming, with games that suit a slower afternoon. Flower crowns give every guest something lovely to wear home.",colours:["Sage green","Blush pink","Cream"],activities:["Flower crown making","Garden games such as croquet"],food:"Finger sandwiches and scones"},
+{name:"Picnic Party",groups:["toddlers","kids","adults"],desc:"Spread blankets on the grass and let the party happen outdoors. A picnic party is simple to plan and easy for guests of every age to enjoy. Pack games that work on grass and food that travels well.",colours:["Gingham red","White","Green"],activities:["Lawn games such as sack race and egg and spoon","Picnic blanket story corner"],food:"Picnic baskets with sandwiches and fruit"},
+{name:"Pajama Party",groups:["kids","tweens","teens"],desc:"Everyone arrives in pajamas, and the party never needs to leave the house. Pillow games, a film, and a snack bar keep the evening moving. It is a cosy theme that suits a sleepover or an evening party.",colours:["Navy","Lavender","Silver"],activities:["Gentle pillow games","Bedtime story and film"],food:"Midnight snack bar with popcorn and fruit"},
+{name:"Book / Storybook Party",groups:["toddlers","kids","tweens"],desc:"Invite guests to dress as a favourite storybook character and step into a story for the day. A treasure hunt based on a well-loved tale gives the party its adventure. Keep the reading short and the games active.",colours:["Forest green","Gold","Cream"],activities:["Dress as a storybook character","Story treasure hunt"],food:"Storybook-themed cupcakes"},
+{name:"Music and Dance Party",groups:["tweens","teens","adults"],desc:"Clear the floor, turn up the music, and let the dancing carry the party. A dance-off and a few party games keep the energy high between songs. Let guests add their favourite songs to the playlist.",colours:["Hot pink","Black","Silver"],activities:["Dance-off contest","Freeze dance game"],food:"Snack station with finger foods"},
+{name:"Board Game Night",groups:["tweens","teens","adults"],desc:"Lay out a table of board games and let guests choose their own adventure. A board game night suits guests who like a slower, talkative party. Set up two or three games at once so nobody waits long for a turn.",colours:["Warm wood tones","Red","Cream"],activities:["Board game tournament","Team quiz round"],food:"Sharing platters and popcorn"}
+];
+function themesForGroup(group) {
+  if (group === "all") { return THEMES.slice(); }
+  return THEMES.filter(function (t) { return t.groups.indexOf(group) !== -1; });
+}
+function pickRandom(list, rand) {
+  rand = rand || Math.random;
+  return list[Math.floor(rand() * list.length)];
+}
+function themeCardHTML(t, featured) {
+  var cls = featured ? "theme-card featured" : "theme-card";
+  var groups = t.groups.map(function (g) { return AGE_GROUPS[g]; }).join(", ");
+  return "<div class=\"" + cls + "\"><div class=\"theme-name\">" + t.name + "</div>" +
+    "<div class=\"theme-desc\">" + t.desc + "</div>" +
+    "<div class=\"theme-meta\"><strong>Best for:</strong> " + groups + "</div>" +
+    "<div class=\"theme-meta\"><strong>Colours:</strong> " + t.colours.join(", ") + "</div>" +
+    "<div class=\"theme-meta\"><strong>Activities:</strong> " + t.activities.join("; ") + "</div>" +
+    "<div class=\"theme-meta\"><strong>Food idea:</strong> " + t.food + "</div></div>";
+}
+if (typeof document !== "undefined") {
+  var currentGroup = "all";
+  var listEl = document.getElementById("themeList");
+  var countEl = document.getElementById("countLine");
+  var featuredEl = document.getElementById("featured");
+  function renderList() {
+    var list = themesForGroup(currentGroup);
+    var html = "";
+    for (var i = 0; i < list.length; i++) { html += themeCardHTML(list[i], false); }
+    listEl.innerHTML = html;
+    if (currentGroup === "all") {
+      countEl.textContent = "Showing all " + list.length + " themes.";
+    } else {
+      countEl.textContent = "Showing " + list.length + " themes for " + AGE_GROUPS[currentGroup] + ".";
+    }
+  }
+  var buttons = document.querySelectorAll("#filterBar .filter-btn");
+  for (var b = 0; b < buttons.length; b++) {
+    buttons[b].addEventListener("click", function () {
+      for (var k = 0; k < buttons.length; k++) { buttons[k].classList.remove("active"); }
+      this.classList.add("active");
+      currentGroup = this.getAttribute("data-group");
+      featuredEl.innerHTML = "";
+      renderList();
+    });
+  }
+  document.getElementById("surpriseBtn").addEventListener("click", function () {
+    var list = themesForGroup(currentGroup);
+    var pick = pickRandom(list);
+    featuredEl.innerHTML = "<div class=\"featured-label\">Your surprise theme:</div>" + themeCardHTML(pick, true);
+  });
+  renderList();
+}
+</script>
+</body>
+</html>

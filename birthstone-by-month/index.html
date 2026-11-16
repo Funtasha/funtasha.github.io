@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birthstones by Month: Find Your Birthstone | Funtasha</title>
+<meta name="description" content="Pick a birth month to find its birthstone, colour and traditional associations, with the full twelve-month table of the modern birthstone list.">
+<link rel="canonical" href="https://funtasha.github.io/birthstone-by-month/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Birthstones by Month: Find Your Birthstone">
+<meta property="og:description" content="Find the birthstone for any month, with its colour and the folklore that goes with it.">
+<meta property="og:url" content="https://funtasha.github.io/birthstone-by-month/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+th,td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+.monthgrid{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.calc .monthbtn{margin-top:0;padding:8px 14px;font-size:14.5px}
+.calc .monthbtn.active{background:#9d174d}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I find my birthstone?","acceptedAnswer":{"@type":"Answer","text":"Pick your birth month above and the finder shows its stone, its colour, and the traditional associations that go with it. The full table below lists all twelve months at a glance."}},{"@type":"Question","name":"Why does my month have more than one birthstone?","acceptedAnswer":{"@type":"Answer","text":"The modern list was standardised in 1912 and has been added to since: alexandrite and citrine joined in 1952, tanzanite in 2002, and spinel in 2016. When a month has several stones, any of them counts as its birthstone."}},{"@type":"Question","name":"Are birthstone meanings real?","acceptedAnswer":{"@type":"Answer","text":"No. The associations on this page are traditional folklore, passed down through jewellers and gift-givers, not facts about the stones or the people born in each month. They are a pleasant tradition, not a promise."}},{"@type":"Question","name":"What is the difference between the modern list and the traditional list?","acceptedAnswer":{"@type":"Answer","text":"The modern list is the one jewellers agreed on in 1912, with later additions. The traditional list is older and differs for some months, for example bloodstone for March instead of aquamarine. The table shows both."}},{"@type":"Question","name":"Can I wear a birthstone from a different month?","acceptedAnswer":{"@type":"Answer","text":"Of course. The list is a jewellers' convention, not a rule. Many people wear a stone they love for its colour, or the birthstone of someone they want to remember."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Birthstones by Month: Find Your Birthstone</h1>
+<p class="answer">Pick a birth month and this finder shows its birthstone, its colour, and the traditional associations that go with it. The full twelve-month table below lists every stone, so you can compare months at a glance.</p>
+<div class="calc">
+<label>Pick a birth month</label>
+<div class="monthgrid" id="monthGrid"></div>
+<div class="out" id="out"></div>
+<div class="steps" id="steps"></div>
+</div>
+<div class="warn">The birthstone list is a jewellers' convention, not a law of nature, and the associations are traditional folklore rather than facts. Lists vary a little between sources, so another list may name a different stone for the same month.</div>
+<h2>How the birthstone list came about</h2>
+<p>The modern birthstone list is the one American jewellers agreed on in 1912, and it is the list most gift shops and jewellers still follow today. Before that, different regions and traditions each had their own lists, and the same month could be matched with several different stones depending on where you asked. The 1912 list tidied that into one shared set of twelve months and twelve stones.</p>
+<p>The list has not stood still since. Alexandrite was added for June and citrine for November in 1952, tanzanite joined December in 2002, and spinel was added for August in 2016. That is why some months now have two or three stones where they once had one. The older, traditional stones are still listed alongside the modern ones in the table below, so you can see both versions.</p>
+<p>It is worth remembering what the list is and is not. It is a trade convention that jewellers and gift-givers adopted because it is pleasant and easy to follow. It is not a law of nature, and no stone was ever assigned to a month by anything other than human custom. The associations listed here — protection, calm, courage, and the rest — are traditional folklore, the kind of thing people have said about stones for generations. They make a lovely story for a gift card, but they are not claims about the stone or about anyone born in that month.</p>
+<h2>How people use birthstones</h2>
+<p>Birthstones are most often used for gifts. A piece of jewellery in the birthday person's stone, a card that names the stone, or a small keepsake in the stone's colour all make a present feel personal without needing to know the person's tastes in detail. The colour alone is often enough: a deep red wrap for a January birthday, or a soft blue ribbon for March, quietly ties the gift to the month.</p>
+<p>Party colours work the same way. Balloons, tablecloths, and cake decorations in the birthstone's colour give a birthday table a theme that guests notice without needing an explanation. For a milestone birthday, the birthstone colour can run through the invitations, the decorations, and the cake, which pulls the whole party together around one simple idea.</p>
+<h2>What if your month has more than one stone?</h2>
+<p>Several months have more than one birthstone, and any of them counts. June has three — pearl, alexandrite, and moonstone — and December has three as well: turquoise, tanzanite, and zircon. August, October, and November each have two. There is no rule that says one is more correct than the others.</p>
+<p>The simplest way to choose is by colour: pick the stone whose colour you like best, or the one that suits the gift you have in mind. Some people pick by meaning instead, choosing the association that fits the person — calm for someone who keeps a steady head, or courage for someone starting something new. And some people simply use the traditional stone from the older list, which the table shows alongside the modern one. Whichever you pick, it is your birthstone.</p>
+<h2>The full twelve-month table</h2>
+<table>
+<tr><th>Month</th><th>Birthstone(s)</th><th>Colour</th><th>Traditional stone(s)</th><th>Traditional associations</th></tr>
+<tr><td>January</td><td>Garnet</td><td>Deep red</td><td>Garnet</td><td>Protection, friendship, trust</td></tr>
+<tr><td>February</td><td>Amethyst</td><td>Purple</td><td>Amethyst</td><td>Clarity, calm</td></tr>
+<tr><td>March</td><td>Aquamarine</td><td>Light blue</td><td>Bloodstone</td><td>Courage</td></tr>
+<tr><td>April</td><td>Diamond</td><td>Clear/white</td><td>Diamond</td><td>Eternal love, purity</td></tr>
+<tr><td>May</td><td>Emerald</td><td>Green</td><td>Emerald</td><td>Renewal, wisdom</td></tr>
+<tr><td>June</td><td>Pearl, Alexandrite, Moonstone</td><td>White/colour-change</td><td>Pearl, Moonstone</td><td>Intuition, innocence</td></tr>
+<tr><td>July</td><td>Ruby</td><td>Red</td><td>Ruby</td><td>Passion, protection</td></tr>
+<tr><td>August</td><td>Peridot, Spinel</td><td>Lime green</td><td>Sardonyx</td><td>Strength</td></tr>
+<tr><td>September</td><td>Sapphire</td><td>Blue</td><td>Sapphire</td><td>Wisdom, loyalty</td></tr>
+<tr><td>October</td><td>Opal, Tourmaline</td><td>Play-of-colour</td><td>Opal</td><td>Hope, creativity</td></tr>
+<tr><td>November</td><td>Topaz, Citrine</td><td>Golden yellow</td><td>Topaz</td><td>Warmth, joy</td></tr>
+<tr><td>December</td><td>Turquoise, Tanzanite, Zircon</td><td>Blue / blue-green</td><td>Turquoise, Lapis Lazuli</td><td>Good fortune, protection</td></tr>
+</table>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How do I find my birthstone?</h3><p>Pick your birth month above and the finder shows its stone, its colour, and the traditional associations that go with it. The full table below lists all twelve months at a glance.</p></div>
+<div class="faq"><h3>Why does my month have more than one birthstone?</h3><p>The modern list was standardised in 1912 and has been added to since: alexandrite and citrine joined in 1952, tanzanite in 2002, and spinel in 2016. When a month has several stones, any of them counts as its birthstone.</p></div>
+<div class="faq"><h3>Are birthstone meanings real?</h3><p>No. The associations on this page are traditional folklore, passed down through jewellers and gift-givers, not facts about the stones or the people born in each month. They are a pleasant tradition, not a promise.</p></div>
+<div class="faq"><h3>What is the difference between the modern list and the traditional list?</h3><p>The modern list is the one jewellers agreed on in 1912, with later additions. The traditional list is older and differs for some months, for example bloodstone for March instead of aquamarine. The table shows both.</p></div>
+<div class="faq"><h3>Can I wear a birthstone from a different month?</h3><p>Of course. The list is a jewellers' convention, not a rule. Many people wear a stone they love for its colour, or the birthstone of someone they want to remember.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../birth-flower-by-month/">Birth Flowers by Month</a> · <a href="../anniversary-gifts-by-year/">Anniversary Gifts by Year</a> · <a href="../what-day-were-you-born/">What Day Were You Born?</a> · <a href="../moon-on-your-birthday/">Moon on Your Birthday</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+var BIRTHSTONES = [
+  { month: "January", stones: "Garnet", colour: "Deep red", traditional: "Garnet", associations: "Protection, friendship, trust" },
+  { month: "February", stones: "Amethyst", colour: "Purple", traditional: "Amethyst", associations: "Clarity, calm" },
+  { month: "March", stones: "Aquamarine", colour: "Light blue", traditional: "Bloodstone", associations: "Courage" },
+  { month: "April", stones: "Diamond", colour: "Clear/white", traditional: "Diamond", associations: "Eternal love, purity" },
+  { month: "May", stones: "Emerald", colour: "Green", traditional: "Emerald", associations: "Renewal, wisdom" },
+  { month: "June", stones: "Pearl, Alexandrite, Moonstone", colour: "White/colour-change", traditional: "Pearl, Moonstone", associations: "Intuition, innocence" },
+  { month: "July", stones: "Ruby", colour: "Red", traditional: "Ruby", associations: "Passion, protection" },
+  { month: "August", stones: "Peridot, Spinel", colour: "Lime green", traditional: "Sardonyx", associations: "Strength" },
+  { month: "September", stones: "Sapphire", colour: "Blue", traditional: "Sapphire", associations: "Wisdom, loyalty" },
+  { month: "October", stones: "Opal, Tourmaline", colour: "Play-of-colour", traditional: "Opal", associations: "Hope, creativity" },
+  { month: "November", stones: "Topaz, Citrine", colour: "Golden yellow", traditional: "Topaz", associations: "Warmth, joy" },
+  { month: "December", stones: "Turquoise, Tanzanite, Zircon", colour: "Blue / blue-green", traditional: "Turquoise, Lapis Lazuli", associations: "Good fortune, protection" }
+];
+
+function getBirthstone(monthIndex) {
+  if (typeof monthIndex !== "number" || monthIndex < 0 || monthIndex > 11) return null;
+  return BIRTHSTONES[monthIndex];
+}
+
+function showMonth(index) {
+  var entry = getBirthstone(index);
+  if (!entry) return;
+  document.getElementById("out").textContent = entry.month + ": " + entry.stones;
+  document.getElementById("steps").textContent =
+    "Colour: " + entry.colour + "\n" +
+    "Traditional stone(s): " + entry.traditional + "\n" +
+    "Traditional associations: " + entry.associations;
+  var buttons = document.getElementById("monthGrid").getElementsByTagName("button");
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].className = "monthbtn" + (i === index ? " active" : "");
+  }
+}
+
+(function init() {
+  var grid = document.getElementById("monthGrid");
+  for (var i = 0; i < 12; i++) {
+    (function (idx) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "monthbtn";
+      btn.textContent = BIRTHSTONES[idx].month;
+      btn.addEventListener("click", function () { showMonth(idx); });
+      grid.appendChild(btn);
+    })(i);
+  }
+  showMonth(new Date().getMonth());
+})();
+</script>
+</body>
+</html>
