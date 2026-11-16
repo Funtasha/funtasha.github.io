@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Video Downloader — Download Pinterest, Facebook, Instagram &amp; TikTok Videos | Funtasha</title>
+<meta name="description" content="Download public videos from Pinterest, Facebook, Instagram and TikTok — paste a link, get the video file. Free, no sign-up. YouTube isn't supported.">
+<link rel="canonical" href="https://funtasha.github.io/video-downloader/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Video Downloader — Download Pinterest, Facebook, Instagram &amp; TikTok Videos | Funtasha">
+<meta property="og:description" content="Download public videos from Pinterest, Facebook, Instagram and TikTok — paste a link, get the video file. Free, no sign-up.">
+<meta property="og:url" content="https://funtasha.github.io/video-downloader/">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fdf2f8,#fff7ed 45%,#fef3c7) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .t{color:#ea580c}
+.hero{background:linear-gradient(135deg,#db2777,#ea580c);border-radius:24px;padding:30px 20px 24px;margin:16px 0 0;color:#fff;text-align:center;box-shadow:0 18px 36px rgba(219,39,119,.28)}
+.hero h1{font-size:31px;line-height:1.2;margin:0 0 8px;text-shadow:0 2px 12px rgba(0,0,0,.18)}
+.hero .sub{font-size:16.5px;color:rgba(255,255,255,.94);max-width:560px;margin:0 auto}
+.tool{background:#fff;border-radius:16px;padding:18px 16px;margin:18px auto 0;max-width:620px;box-shadow:0 14px 30px rgba(30,41,59,.18);text-align:left}
+.tool form{display:flex;flex-direction:column;gap:10px}
+.tool input{width:100%;padding:14px 16px;border:2px solid #fbcfe8;border-radius:12px;font-size:16px;font-family:inherit;color:#1e293b;background:#fffdf7;min-height:52px}
+.tool input:focus{outline:none;border-color:#db2777;box-shadow:0 0 0 4px rgba(219,39,119,.15)}
+.tool input:disabled{background:#f1f5f9;color:#94a3b8;border-color:#e2e8f0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:13px 24px;border:none;border-radius:999px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer;text-decoration:none}
+.btn-go{width:100%;background:linear-gradient(135deg,#db2777,#ea580c);color:#fff;box-shadow:0 10px 20px rgba(219,39,119,.35)}
+.btn-go:disabled{background:#e2e8f0;color:#94a3b8;box-shadow:none;cursor:not-allowed}
+.status{font-size:15px;color:#334155;margin-top:12px;min-height:24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.chip{padding:8px 15px;border-radius:999px;font-size:14px;font-weight:700;color:#fff;line-height:1.4}
+.chip-pin{background:#e60023}
+.chip-fb{background:#1877f2}
+.chip-ig{background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)}
+.chip-tt{background:#000}
+.yt-note{font-size:13.5px;color:rgba(255,255,255,.85);margin-top:10px}
+.result{background:#fff;border:1px solid #ffe4e6;border-radius:20px;padding:20px;margin-top:20px;box-shadow:0 14px 30px rgba(30,41,59,.12)}
+.result img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;background:#f1f5f9}
+.result h2{font-size:20px;line-height:1.35;margin:14px 0 4px;overflow-wrap:break-word}
+.meta{font-size:14.5px;color:#64748b}
+.actions{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.btn-dl{width:100%;background:#ea580c;color:#fff;box-shadow:0 10px 20px rgba(234,88,12,.35)}
+.btn-copy{width:100%;background:#fff;color:#ea580c;border:2px solid #fed7aa}
+.hint{font-size:14px;color:#64748b;margin-top:12px}
+h2.sec{font-size:21px;margin:34px 0 12px}
+.steps{display:grid;grid-template-columns:1fr;gap:12px}
+.step{background:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.9);border-radius:16px;padding:18px;box-shadow:0 10px 22px rgba(30,41,59,.08)}
+.step .num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#db2777,#ea580c);color:#fff;font-weight:800;font-size:17px;margin-bottom:8px}
+.step h3{font-size:17px;margin-bottom:4px}
+.step p{font-size:15px;color:#475569}
+.notes{background:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.9);border-radius:16px;padding:18px;box-shadow:0 10px 22px rgba(30,41,59,.08)}
+.notes li{margin:10px 0 10px 18px;font-size:15px;color:#475569}
+.notes li:first-child{margin-top:0}.notes li:last-child{margin-bottom:0}
+.notes b{color:#1e293b}
+.faq{background:#fff;border:1px solid #ffe4e6;border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.faq p{font-size:15px;color:#475569}
+.back{text-align:center;margin-top:30px}
+.back a{color:#db2777;font-weight:700}
+footer{margin-top:36px;font-size:13.5px;color:#64748b;text-align:center}
+@media(min-width:560px){
+  .hero{padding:36px 28px 28px}
+  .hero h1{font-size:38px}
+  .tool form{flex-direction:row}
+  .tool input{flex:1}
+  .btn-go{width:auto;white-space:nowrap}
+  .actions{flex-direction:row}
+  .btn-dl{flex:1}
+  .btn-copy{width:auto}
+}
+@media(min-width:640px){.steps{grid-template-columns:repeat(3,1fr)}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which sites does the downloader work with?","acceptedAnswer":{"@type":"Answer","text":"Pinterest, Facebook, Instagram and TikTok. Paste a link from any of those and we'll fetch the video file for you. YouTube isn't supported."}},{"@type":"Question","name":"Is it free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes — downloading videos here is completely free, and you don't need an account or sign-up."}},{"@type":"Question","name":"Why does the video open in a new tab?","acceptedAnswer":{"@type":"Answer","text":"Your browser ignores the download button on links to other websites, so the video opens in its own tab instead. From there, save it with your browser's own download or save control."}},{"@type":"Question","name":"Why can't it find a video at my link?","acceptedAnswer":{"@type":"Answer","text":"The link may be private or need a login — only public videos work. A link to a photo, board or profile has no video file either. Platforms also change their pages sometimes, which can break a download until we catch up."}},{"@type":"Question","name":"How long do I have to download a video?","acceptedAnswer":{"@type":"Answer","text":"Some video links expire after a while, so it's best to download the video as soon as you get it rather than saving the link for later."}},{"@type":"Question","name":"Do you keep my links or videos?","acceptedAnswer":{"@type":"Answer","text":"No. Your link is used only to fetch the video, and nothing is stored or kept afterwards. The videos belong to their makers — please save them for personal use and ask before reposting."}}]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="t">tasha</span></a></div>
+
+<section class="hero">
+<h1>Download any public video</h1>
+<p class="sub">Paste a link from Pinterest, Facebook, Instagram or TikTok and get the video file — free, no sign-up, nothing to install.</p>
+<div class="tool">
+<form id="dl-form" novalidate>
+<input id="video-url" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Paste a video link here…" aria-label="Video link">
+<button id="go-btn" class="btn btn-go" type="submit">Get video</button>
+</form>
+<p id="status" class="status" role="status" aria-live="polite"></p>
+</div>
+<div class="chips" aria-label="Supported sites">
+<span class="chip chip-pin">Pinterest</span>
+<span class="chip chip-fb">Facebook</span>
+<span class="chip chip-ig">Instagram</span>
+<span class="chip chip-tt">TikTok</span>
+</div>
+<p class="yt-note">YouTube isn't supported.</p>
+</section>
+<!-- AD-ZONE-HOOK -->
+
+<section id="result" class="result" hidden>
+<img id="result-thumb" src="" alt="Video thumbnail" onerror="this.style.display='none'">
+<h2 id="result-title"></h2>
+<p id="result-meta" class="meta"></p>
+<div class="actions">
+<button id="download-btn" class="btn btn-dl" type="button">Download video</button>
+<button id="copy-btn" class="btn btn-copy" type="button">Copy link</button>
+</div>
+<p id="result-hint" class="hint"></p>
+</section>
+
+<h2 class="sec">How it works</h2>
+<div class="steps">
+<div class="step"><span class="num">1</span><h3>Paste the link</h3><p>Copy the link of a public video from Pinterest, Facebook, Instagram or TikTok and paste it in the box above.</p></div>
+<div class="step"><span class="num">2</span><h3>Get the video</h3><p>We fetch the video file for you — it usually takes just a couple of seconds.</p></div>
+<div class="step"><span class="num">3</span><h3>Download it</h3><p>Tap the big Download button and save the video to your device.</p></div>
+</div>
+
+<h2 class="sec">Good to know</h2>
+<ul class="notes">
+<li><b>Public links only.</b> Private posts, friends-only videos and anything needing a login won't work — the tool only sees what a logged-out visitor sees.</li>
+<li><b>Download promptly.</b> Some video links expire after a while, so save the video as soon as you get it.</li>
+<li><b>Videos belong to their makers.</b> Save videos for personal use, and ask the creator before reposting anything.</li>
+<li><b>Sometimes it can't find a video.</b> A link to a photo, board or profile has no video file, and platforms change their pages without warning.</li>
+</ul>
+
+<h2 class="sec">Questions people ask</h2>
+<div class="faq"><h3>Which sites does the downloader work with?</h3><p>Pinterest, Facebook, Instagram and TikTok. Paste a link from any of those and we'll fetch the video file for you. YouTube isn't supported.</p></div>
+<div class="faq"><h3>Is it free to use?</h3><p>Yes — downloading videos here is completely free, and you don't need an account or sign-up.</p></div>
+<div class="faq"><h3>Why does the video open in a new tab?</h3><p>Your browser ignores the download button on links to other websites, so the video opens in its own tab instead. From there, save it with your browser's own download or save control.</p></div>
+<div class="faq"><h3>Why can't it find a video at my link?</h3><p>The link may be private or need a login — only public videos work. A link to a photo, board or profile has no video file either. Platforms also change their pages sometimes, which can break a download until we catch up.</p></div>
+<div class="faq"><h3>How long do I have to download a video?</h3><p>Some video links expire after a while, so it's best to download the video as soon as you get it rather than saving the link for later.</p></div>
+<div class="faq"><h3>Do you keep my links or videos?</h3><p>No. Your link is used only to fetch the video, and nothing is stored or kept afterwards. The videos belong to their makers — please save them for personal use and ask before reposting.</p></div>
+
+<p class="back"><a href="../">← Back to Funtasha</a></p>
+<footer>© Funtasha — funtasha.github.io</footer>
+</div>
+
+<script>
+const WORKER_URL = "";
+
+const PLATFORMS = [
+  { host: "pinterest.com", name: "Pinterest" },
+  { host: "pin.it", name: "Pinterest" },
+  { host: "facebook.com", name: "Facebook" },
+  { host: "fb.watch", name: "Facebook" },
+  { host: "instagram.com", name: "Instagram" },
+  { host: "tiktok.com", name: "TikTok" }
+];
+const YOUTUBE_HOSTS = ["youtube.com", "youtu.be", "music.youtube.com"];
+
+const form = document.getElementById("dl-form");
+const urlInput = document.getElementById("video-url");
+const goBtn = document.getElementById("go-btn");
+const statusEl = document.getElementById("status");
+const resultCard = document.getElementById("result");
+const resultThumb = document.getElementById("result-thumb");
+const resultTitle = document.getElementById("result-title");
+const resultMeta = document.getElementById("result-meta");
+const resultHint = document.getElementById("result-hint");
+const downloadBtn = document.getElementById("download-btn");
+const copyBtn = document.getElementById("copy-btn");
+
+let currentVideoUrl = "";
+let currentIsHls = false;
+
+function hostMatches(host, allowed) {
+  return host === allowed || host.endsWith("." + allowed);
+}
+function platformFor(host) {
+  for (const p of PLATFORMS) {
+    if (hostMatches(host, p.host)) return p.name;
+  }
+  return null;
+}
+function isYouTube(host) {
+  return YOUTUBE_HOSTS.some(function (h) { return hostMatches(host, h); });
+}
+function setStatus(text) {
+  statusEl.textContent = text;
+}
+function hideResult() {
+  resultCard.hidden = true;
+  currentVideoUrl = "";
+  currentIsHls = false;
+}
+function showResult(data, platform) {
+  currentVideoUrl = data.video_url;
+  currentIsHls = data.video_type === "hls";
+  if (data.thumbnail) {
+    resultThumb.src = data.thumbnail;
+    resultThumb.style.display = "";
+  } else {
+    resultThumb.removeAttribute("src");
+    resultThumb.style.display = "none";
+  }
+  resultTitle.textContent = data.title || "Video";
+  resultMeta.textContent = "From " + platform + (currentIsHls ? " · Stream link" : "");
+  downloadBtn.textContent = currentIsHls ? "Open video stream" : "Download video";
+  resultHint.textContent = currentIsHls
+    ? "This is a stream link — it opens in a new tab where you can play it."
+    : "The video opens in a new tab — save it with your browser's own download control.";
+  resultCard.hidden = false;
+}
+
+if (!WORKER_URL) {
+  urlInput.disabled = true;
+  goBtn.disabled = true;
+  urlInput.placeholder = "Coming soon…";
+  setStatus("This tool isn't connected yet — check back soon.");
+}
+
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  if (!WORKER_URL) return;
+  hideResult();
+  const raw = urlInput.value.trim();
+  if (!raw) {
+    setStatus("Paste a video link first.");
+    urlInput.focus();
+    return;
+  }
+  let parsed = null;
+  try {
+    parsed = new URL(raw);
+  } catch (err) {
+    try {
+      parsed = new URL("https://" + raw);
+    } catch (err2) {
+      parsed = null;
+    }
+  }
+  if (!parsed || (parsed.protocol !== "http:" && parsed.protocol !== "https:")) {
+    setStatus("That doesn't look like a link — paste the full video link and try again.");
+    return;
+  }
+  const host = parsed.hostname.toLowerCase();
+  if (isYouTube(host)) {
+    setStatus("YouTube links aren't supported — this tool works with Pinterest, Facebook, Instagram and TikTok.");
+    return;
+  }
+  const platform = platformFor(host);
+  if (!platform) {
+    setStatus("That link isn't from a supported site — try a Pinterest, Facebook, Instagram or TikTok link.");
+    return;
+  }
+  setStatus("Getting your video…");
+  goBtn.disabled = true;
+  try {
+    const res = await fetch(WORKER_URL + "/?url=" + encodeURIComponent(parsed.href));
+    const data = await res.json();
+    if (data.error) {
+      setStatus(typeof data.error === "string" ? data.error : "We couldn't find a video at that link. Check the link is public and try again.");
+      return;
+    }
+    if (!data.video_url) {
+      setStatus("We couldn't find a video at that link. Check the link is public and try again.");
+      return;
+    }
+    showResult(data, platform);
+    setStatus("");
+  } catch (err) {
+    setStatus("Something went wrong — check your connection and try again.");
+  } finally {
+    goBtn.disabled = false;
+  }
+});
+
+downloadBtn.addEventListener("click", function () {
+  if (!currentVideoUrl) return;
+  window.open(currentVideoUrl, "_blank", "noopener");
+  try { window.__funtashaPopunder && window.__funtashaPopunder(); } catch (e) {}
+});
+
+copyBtn.addEventListener("click", async function () {
+  if (!currentVideoUrl) return;
+  let ok = false;
+  try {
+    await navigator.clipboard.writeText(currentVideoUrl);
+    ok = true;
+  } catch (err) {
+    const ta = document.createElement("textarea");
+    ta.value = currentVideoUrl;
+    document.body.appendChild(ta);
+    ta.select();
+    try { ok = document.execCommand("copy"); } catch (err2) {}
+    ta.remove();
+  }
+  if (ok) {
+    copyBtn.textContent = "Copied!";
+    setTimeout(function () { copyBtn.textContent = "Copy link"; }, 2000);
+  }
+});
+</script>
+</body>
+</html>
