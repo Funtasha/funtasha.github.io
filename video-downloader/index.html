@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Video Downloader — Download Pinterest, Facebook, Instagram &amp; TikTok Videos | Funtasha</title>
-<meta name="description" content="Download public videos from Pinterest, Facebook, Instagram and TikTok — paste a link, get the video file. Free, no sign-up. YouTube isn't supported.">
+<title>Free Online Video Downloader — Pinterest, Facebook, Instagram, X, Vimeo &amp; Dailymotion Videos | Funtasha</title>
+<meta name="description" content="Free online video downloader — download videos and reels from Pinterest, Facebook, Instagram, X, Vimeo and Dailymotion by pasting a link. No sign-up, no app. YouTube links open our partner site.">
 <link rel="canonical" href="https://funtasha.github.io/video-downloader/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Video Downloader — Download Pinterest, Facebook, Instagram &amp; TikTok Videos | Funtasha">
-<meta property="og:description" content="Download public videos from Pinterest, Facebook, Instagram and TikTok — paste a link, get the video file. Free, no sign-up.">
+<meta property="og:title" content="Free Online Video Downloader — Pinterest, Facebook, Instagram, X, Vimeo &amp; Dailymotion Videos | Funtasha">
+<meta property="og:description" content="Free online video downloader — download videos and reels from Pinterest, Facebook, Instagram, X, Vimeo and Dailymotion by pasting a link. No sign-up, no app.">
 <meta property="og:url" content="https://funtasha.github.io/video-downloader/">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -35,6 +35,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#
 .chip-fb{background:#1877f2}
 .chip-ig{background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)}
 .chip-tt{background:#000}
+.chip-x{background:#000}
+.chip-vimeo{background:#17b3e8}
+.chip-dm{background:#0066dc}
 .yt-note{font-size:13.5px;color:rgba(255,255,255,.85);margin-top:10px}
 .result{background:#fff;border:1px solid #ffe4e6;border-radius:20px;padding:20px;margin-top:20px;box-shadow:0 14px 30px rgba(30,41,59,.12)}
 .result img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;background:#f1f5f9}
@@ -57,6 +60,9 @@ h2.sec{font-size:21px;margin:34px 0 12px}
 .faq{background:#fff;border:1px solid #ffe4e6;border-radius:12px;padding:14px 16px;margin:10px 0}
 .faq h3{font-size:16.5px;margin-bottom:4px}
 .faq p{font-size:15px;color:#475569}
+.plat{background:#fff;border:1px solid #ffe4e6;border-radius:12px;padding:14px 16px;margin:10px 0}
+.plat h3{font-size:16.5px;margin-bottom:4px}
+.plat p{font-size:15px;color:#475569}
 .back{text-align:center;margin-top:30px}
 .back a{color:#db2777;font-weight:700}
 footer{margin-top:36px;font-size:13.5px;color:#64748b;text-align:center}
@@ -73,7 +79,10 @@ footer{margin-top:36px;font-size:13.5px;color:#64748b;text-align:center}
 @media(min-width:640px){.steps{grid-template-columns:repeat(3,1fr)}}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which sites does the downloader work with?","acceptedAnswer":{"@type":"Answer","text":"Pinterest, Facebook, Instagram and TikTok. Paste a link from any of those and we'll fetch the video file for you. YouTube isn't supported."}},{"@type":"Question","name":"Is it free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes — downloading videos here is completely free, and you don't need an account or sign-up."}},{"@type":"Question","name":"Why does the video open in a new tab?","acceptedAnswer":{"@type":"Answer","text":"Your browser ignores the download button on links to other websites, so the video opens in its own tab instead. From there, save it with your browser's own download or save control."}},{"@type":"Question","name":"Why can't it find a video at my link?","acceptedAnswer":{"@type":"Answer","text":"The link may be private or need a login — only public videos work. A link to a photo, board or profile has no video file either. Platforms also change their pages sometimes, which can break a download until we catch up."}},{"@type":"Question","name":"How long do I have to download a video?","acceptedAnswer":{"@type":"Answer","text":"Some video links expire after a while, so it's best to download the video as soon as you get it rather than saving the link for later."}},{"@type":"Question","name":"Do you keep my links or videos?","acceptedAnswer":{"@type":"Answer","text":"No. Your link is used only to fetch the video, and nothing is stored or kept afterwards. The videos belong to their makers — please save them for personal use and ask before reposting."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which sites does the downloader work with?","acceptedAnswer":{"@type":"Answer","text":"Pinterest, Facebook, Instagram, X, Vimeo and Dailymotion. Paste a link from any of those and we'll fetch the video file for you. YouTube links open our partner download site, where you can paste your link to download the video."}},{"@type":"Question","name":"Is it free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes — downloading videos here is completely free, and you don't need an account or sign-up."}},{"@type":"Question","name":"Why does the video open in a new tab?","acceptedAnswer":{"@type":"Answer","text":"Your browser ignores the download button on links to other websites, so the video opens in its own tab instead. From there, save it with your browser's own download or save control."}},{"@type":"Question","name":"Why can't it find a video at my link?","acceptedAnswer":{"@type":"Answer","text":"The link may be private or need a login — only public videos work. A link to a photo, board or profile has no video file either. Platforms also change their pages sometimes, which can break a download until we catch up."}},{"@type":"Question","name":"How long do I have to download a video?","acceptedAnswer":{"@type":"Answer","text":"Some video links expire after a while, so it's best to download the video as soon as you get it rather than saving the link for later."}},{"@type":"Question","name":"Do you keep my links or videos?","acceptedAnswer":{"@type":"Answer","text":"No. Your link is used only to fetch the video, and nothing is stored or kept afterwards. The videos belong to their makers — please save them for personal use and ask before reposting."}},{"@type":"Question","name":"Can I download YouTube videos?","acceptedAnswer":{"@type":"Answer","text":"YouTube links open our partner download site — paste your YouTube link there to download the video. This page fetches video files directly only for Pinterest, Facebook, Instagram, X, Vimeo and Dailymotion."}},{"@type":"Question","name":"Does it remove watermarks?","acceptedAnswer":{"@type":"Answer","text":"No. You get the platform's own video file exactly as published — nothing is edited or re-encoded."}},{"@type":"Question","name":"Do I need to install an app?","acceptedAnswer":{"@type":"Answer","text":"No. It works in your browser on any phone or computer — paste a link, get the video."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Funtasha Video Downloader","url":"https://funtasha.github.io/video-downloader/","applicationCategory":"MultimediaApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
 </script>
 </head>
 <body>
@@ -81,8 +90,8 @@ footer{margin-top:36px;font-size:13.5px;color:#64748b;text-align:center}
 <div class="brand"><a href="../"><span class="f">Fun</span><span class="t">tasha</span></a></div>
 
 <section class="hero">
-<h1>Download any public video</h1>
-<p class="sub">Paste a link from Pinterest, Facebook, Instagram or TikTok and get the video file — free, no sign-up, nothing to install.</p>
+<h1>Free Online Video Downloader</h1>
+<p class="sub">Paste a link from Pinterest, Facebook, Instagram, X, Vimeo or Dailymotion and get the video file — free, no sign-up, nothing to install.</p>
 <div class="tool">
 <form id="dl-form" novalidate>
 <input id="video-url" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Paste a video link here…" aria-label="Video link">
@@ -94,9 +103,11 @@ footer{margin-top:36px;font-size:13.5px;color:#64748b;text-align:center}
 <span class="chip chip-pin">Pinterest</span>
 <span class="chip chip-fb">Facebook</span>
 <span class="chip chip-ig">Instagram</span>
-<span class="chip chip-tt">TikTok</span>
+<span class="chip chip-x">X (Twitter)</span>
+<span class="chip chip-vimeo">Vimeo</span>
+<span class="chip chip-dm">Dailymotion</span>
 </div>
-<p class="yt-note">YouTube isn't supported.</p>
+<p class="yt-note">YouTube links open our partner download site.</p>
 </section>
 <!-- AD-ZONE-HOOK -->
 
@@ -113,7 +124,7 @@ footer{margin-top:36px;font-size:13.5px;color:#64748b;text-align:center}
 
 <h2 class="sec">How it works</h2>
 <div class="steps">
-<div class="step"><span class="num">1</span><h3>Paste the link</h3><p>Copy the link of a public video from Pinterest, Facebook, Instagram or TikTok and paste it in the box above.</p></div>
+<div class="step"><span class="num">1</span><h3>Paste the link</h3><p>Copy the link of a public video from Pinterest, Facebook, Instagram, X, Vimeo or Dailymotion and paste it in the box above.</p></div>
 <div class="step"><span class="num">2</span><h3>Get the video</h3><p>We fetch the video file for you — it usually takes just a couple of seconds.</p></div>
 <div class="step"><span class="num">3</span><h3>Download it</h3><p>Tap the big Download button and save the video to your device.</p></div>
 </div>
@@ -126,20 +137,32 @@ footer{margin-top:36px;font-size:13.5px;color:#64748b;text-align:center}
 <li><b>Sometimes it can't find a video.</b> A link to a photo, board or profile has no video file, and platforms change their pages without warning.</li>
 </ul>
 
+<h2 class="sec">Download videos from every platform</h2>
+<div class="plat"><h3>Pinterest video downloader</h3><p>Save any public pin video to your device. Paste a Pinterest link or a pin.it short link and get the video file — free, no sign-up, no app to install.</p></div>
+<div class="plat"><h3>Facebook video downloader</h3><p>Download Facebook videos and reels by pasting the video link. Short fb.watch links work too — paste the link, get the file, save it to your phone or computer.</p></div>
+<div class="plat"><h3>Instagram video &amp; reels downloader</h3><p>Download Instagram reels and videos online. Paste the reel or video link and get the video file straight from Instagram — free and without an account.</p></div>
+<div class="plat"><h3>X (Twitter) video downloader</h3><p>Download videos from X posts by pasting the post link. Works with x.com, twitter.com and t.co short links — paste the link, get the video file, save it to your device.</p></div>
+<div class="plat"><h3>Vimeo video downloader</h3><p>Open Vimeo videos from their watch link. Paste a Vimeo link and get a stream link you can play in your browser or a video player app — free, no sign-up.</p></div>
+<div class="plat"><h3>Dailymotion video downloader</h3><p>Open Dailymotion videos from their watch link. Paste a Dailymotion or dai.ly link and get a stream link you can play in your browser or a video player app.</p></div>
+<div class="plat"><h3>YouTube video downloader</h3><p>YouTube links open our partner download site, where you can paste your YouTube link and download the video. This page fetches video files directly for Pinterest, Facebook, Instagram, X, Vimeo and Dailymotion.</p></div>
+
 <h2 class="sec">Questions people ask</h2>
-<div class="faq"><h3>Which sites does the downloader work with?</h3><p>Pinterest, Facebook, Instagram and TikTok. Paste a link from any of those and we'll fetch the video file for you. YouTube isn't supported.</p></div>
+<div class="faq"><h3>Which sites does the downloader work with?</h3><p>Pinterest, Facebook, Instagram, X, Vimeo and Dailymotion. Paste a link from any of those and we'll fetch the video file for you. YouTube links open our partner download site, where you can paste your link to download the video.</p></div>
 <div class="faq"><h3>Is it free to use?</h3><p>Yes — downloading videos here is completely free, and you don't need an account or sign-up.</p></div>
 <div class="faq"><h3>Why does the video open in a new tab?</h3><p>Your browser ignores the download button on links to other websites, so the video opens in its own tab instead. From there, save it with your browser's own download or save control.</p></div>
 <div class="faq"><h3>Why can't it find a video at my link?</h3><p>The link may be private or need a login — only public videos work. A link to a photo, board or profile has no video file either. Platforms also change their pages sometimes, which can break a download until we catch up.</p></div>
 <div class="faq"><h3>How long do I have to download a video?</h3><p>Some video links expire after a while, so it's best to download the video as soon as you get it rather than saving the link for later.</p></div>
 <div class="faq"><h3>Do you keep my links or videos?</h3><p>No. Your link is used only to fetch the video, and nothing is stored or kept afterwards. The videos belong to their makers — please save them for personal use and ask before reposting.</p></div>
+<div class="faq"><h3>Can I download YouTube videos?</h3><p>YouTube links open our partner download site — paste your YouTube link there to download the video. This page fetches video files directly only for Pinterest, Facebook, Instagram, X, Vimeo and Dailymotion.</p></div>
+<div class="faq"><h3>Does it remove watermarks?</h3><p>No. You get the platform's own video file exactly as published — nothing is edited or re-encoded.</p></div>
+<div class="faq"><h3>Do I need to install an app?</h3><p>No. It works in your browser on any phone or computer — paste a link, get the video.</p></div>
 
 <p class="back"><a href="../">← Back to Funtasha</a></p>
 <footer>© Funtasha — funtasha.github.io</footer>
 </div>
 
 <script>
-const WORKER_URL = "";
+const WORKER_URL = "https://funtasha-d1.faysalb60k.workers.dev";
 
 const PLATFORMS = [
   { host: "pinterest.com", name: "Pinterest" },
@@ -147,9 +170,15 @@ const PLATFORMS = [
   { host: "facebook.com", name: "Facebook" },
   { host: "fb.watch", name: "Facebook" },
   { host: "instagram.com", name: "Instagram" },
-  { host: "tiktok.com", name: "TikTok" }
+  { host: "x.com", name: "X" },
+  { host: "twitter.com", name: "X" },
+  { host: "t.co", name: "X" },
+  { host: "vimeo.com", name: "Vimeo" },
+  { host: "dailymotion.com", name: "Dailymotion" },
+  { host: "dai.ly", name: "Dailymotion" }
 ];
 const YOUTUBE_HOSTS = ["youtube.com", "youtu.be", "music.youtube.com"];
+const YOUTUBE_PARTNER_URL = "https://en1.savefrom.net/";
 
 const form = document.getElementById("dl-form");
 const urlInput = document.getElementById("video-url");
@@ -204,6 +233,18 @@ function showResult(data, platform) {
     : "The video opens in a new tab — save it with your browser's own download control.";
   resultCard.hidden = false;
 }
+function showYouTubePartner() {
+  currentVideoUrl = YOUTUBE_PARTNER_URL;
+  currentIsHls = false;
+  resultThumb.removeAttribute("src");
+  resultThumb.style.display = "none";
+  resultTitle.textContent = "YouTube video";
+  resultMeta.textContent = "From YouTube · via our partner site";
+  downloadBtn.textContent = "Open download site";
+  resultHint.textContent = "YouTube downloads open on our partner site — paste your link there to download the video.";
+  resultCard.hidden = false;
+  setStatus("");
+}
 
 if (!WORKER_URL) {
   urlInput.disabled = true;
@@ -238,12 +279,12 @@ form.addEventListener("submit", async function (e) {
   }
   const host = parsed.hostname.toLowerCase();
   if (isYouTube(host)) {
-    setStatus("YouTube links aren't supported — this tool works with Pinterest, Facebook, Instagram and TikTok.");
+    showYouTubePartner();
     return;
   }
   const platform = platformFor(host);
   if (!platform) {
-    setStatus("That link isn't from a supported site — try a Pinterest, Facebook, Instagram or TikTok link.");
+    setStatus("That link isn't from a supported site — try a Pinterest, Facebook, Instagram, X, Vimeo or Dailymotion link.");
     return;
   }
   setStatus("Getting your video…");
