@@ -196,17 +196,11 @@ let currentVideoUrl = "";
 let currentSourceUrl = "";
 let currentIsHls = false;
 
-/* Funtasha Adsterra popunder (zone 32317376) — loads only from the
-   Download click, once per page load; the download itself never waits. */
-let popunderLoaded = false;
-window.__funtashaPopunder = function () {
-  if (popunderLoaded) return;
-  popunderLoaded = true;
-  const s = document.createElement("script");
-  s.setAttribute("data-cfasync", "false");
-  s.src = "https://accountut.com/1/a3d13a48b9e4c2132c855735428924c5";
-  document.body.appendChild(s);
-};
+/* Funtasha Adsterra Smartlink (zone 32317423) — opens in a new tab on
+   each Download click for mp4 videos; the download never waits for it.
+   (The Popunder script tag was tried first and broke the download: its
+   overlay covered the button and the navigation never completed.) */
+const SMARTLINK_URL = "https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb";
 
 function hostMatches(host, allowed) {
   return host === allowed || host.endsWith("." + allowed);
@@ -327,11 +321,11 @@ form.addEventListener("submit", async function (e) {
 downloadBtn.addEventListener("click", function () {
   if (!currentVideoUrl) return;
   if (!currentIsHls && currentSourceUrl) {
+    window.open(SMARTLINK_URL, "_blank", "noopener");
     window.location.href = WORKER_URL + "/?url=" + encodeURIComponent(currentSourceUrl) + "&download=1";
   } else {
     window.open(currentVideoUrl, "_blank", "noopener");
   }
-  try { window.__funtashaPopunder && window.__funtashaPopunder(); } catch (e) {}
 });
 
 copyBtn.addEventListener("click", async function () {
