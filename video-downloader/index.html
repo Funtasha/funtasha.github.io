@@ -79,7 +79,7 @@ footer{margin-top:36px;font-size:13.5px;color:#64748b;text-align:center}
 @media(min-width:640px){.steps{grid-template-columns:repeat(3,1fr)}}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which sites does the downloader work with?","acceptedAnswer":{"@type":"Answer","text":"Pinterest, Facebook, Instagram, X, Vimeo and Dailymotion. Paste a link from any of those and we'll fetch the video file for you. YouTube links open our partner download site, where you can paste your link to download the video."}},{"@type":"Question","name":"Is it free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes — downloading videos here is completely free, and you don't need an account or sign-up."}},{"@type":"Question","name":"Why does the video open in a new tab?","acceptedAnswer":{"@type":"Answer","text":"Your browser ignores the download button on links to other websites, so the video opens in its own tab instead. From there, save it with your browser's own download or save control."}},{"@type":"Question","name":"Why can't it find a video at my link?","acceptedAnswer":{"@type":"Answer","text":"The link may be private or need a login — only public videos work. A link to a photo, board or profile has no video file either. Platforms also change their pages sometimes, which can break a download until we catch up."}},{"@type":"Question","name":"How long do I have to download a video?","acceptedAnswer":{"@type":"Answer","text":"Some video links expire after a while, so it's best to download the video as soon as you get it rather than saving the link for later."}},{"@type":"Question","name":"Do you keep my links or videos?","acceptedAnswer":{"@type":"Answer","text":"No. Your link is used only to fetch the video, and nothing is stored or kept afterwards. The videos belong to their makers — please save them for personal use and ask before reposting."}},{"@type":"Question","name":"Can I download YouTube videos?","acceptedAnswer":{"@type":"Answer","text":"YouTube links open our partner download site — paste your YouTube link there to download the video. This page fetches video files directly only for Pinterest, Facebook, Instagram, X, Vimeo and Dailymotion."}},{"@type":"Question","name":"Does it remove watermarks?","acceptedAnswer":{"@type":"Answer","text":"No. You get the platform's own video file exactly as published — nothing is edited or re-encoded."}},{"@type":"Question","name":"Do I need to install an app?","acceptedAnswer":{"@type":"Answer","text":"No. It works in your browser on any phone or computer — paste a link, get the video."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which sites does the downloader work with?","acceptedAnswer":{"@type":"Answer","text":"Pinterest, Facebook, Instagram, X, Vimeo and Dailymotion. Paste a link from any of those and we'll fetch the video file for you. YouTube links open our partner download site, where you can paste your link to download the video."}},{"@type":"Question","name":"Is it free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes — downloading videos here is completely free, and you don't need an account or sign-up."}},{"@type":"Question","name":"Does the video download straight to my device?","acceptedAnswer":{"@type":"Answer","text":"Yes — tap Download video and the file saves straight to your device. Stream links (Vimeo and Dailymotion) open in a new tab where you can play them instead."}},{"@type":"Question","name":"Why can't it find a video at my link?","acceptedAnswer":{"@type":"Answer","text":"The link may be private or need a login — only public videos work. A link to a photo, board or profile has no video file either. Platforms also change their pages sometimes, which can break a download until we catch up."}},{"@type":"Question","name":"How long do I have to download a video?","acceptedAnswer":{"@type":"Answer","text":"Some video links expire after a while, so it's best to download the video as soon as you get it rather than saving the link for later."}},{"@type":"Question","name":"Do you keep my links or videos?","acceptedAnswer":{"@type":"Answer","text":"No. Your link is used only to fetch the video, and nothing is stored or kept afterwards. The videos belong to their makers — please save them for personal use and ask before reposting."}},{"@type":"Question","name":"Can I download YouTube videos?","acceptedAnswer":{"@type":"Answer","text":"YouTube links open our partner download site — paste your YouTube link there to download the video. This page fetches video files directly only for Pinterest, Facebook, Instagram, X, Vimeo and Dailymotion."}},{"@type":"Question","name":"Does it remove watermarks?","acceptedAnswer":{"@type":"Answer","text":"No. You get the platform's own video file exactly as published — nothing is edited or re-encoded."}},{"@type":"Question","name":"Do I need to install an app?","acceptedAnswer":{"@type":"Answer","text":"No. It works in your browser on any phone or computer — paste a link, get the video."}}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"Funtasha Video Downloader","url":"https://funtasha.github.io/video-downloader/","applicationCategory":"MultimediaApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
@@ -149,7 +149,7 @@ footer{margin-top:36px;font-size:13.5px;color:#64748b;text-align:center}
 <h2 class="sec">Questions people ask</h2>
 <div class="faq"><h3>Which sites does the downloader work with?</h3><p>Pinterest, Facebook, Instagram, X, Vimeo and Dailymotion. Paste a link from any of those and we'll fetch the video file for you. YouTube links open our partner download site, where you can paste your link to download the video.</p></div>
 <div class="faq"><h3>Is it free to use?</h3><p>Yes — downloading videos here is completely free, and you don't need an account or sign-up.</p></div>
-<div class="faq"><h3>Why does the video open in a new tab?</h3><p>Your browser ignores the download button on links to other websites, so the video opens in its own tab instead. From there, save it with your browser's own download or save control.</p></div>
+<div class="faq"><h3>Does the video download straight to my device?</h3><p>Yes — tap Download video and the file saves straight to your device. Stream links (Vimeo and Dailymotion) open in a new tab where you can play them instead.</p></div>
 <div class="faq"><h3>Why can't it find a video at my link?</h3><p>The link may be private or need a login — only public videos work. A link to a photo, board or profile has no video file either. Platforms also change their pages sometimes, which can break a download until we catch up.</p></div>
 <div class="faq"><h3>How long do I have to download a video?</h3><p>Some video links expire after a while, so it's best to download the video as soon as you get it rather than saving the link for later.</p></div>
 <div class="faq"><h3>Do you keep my links or videos?</h3><p>No. Your link is used only to fetch the video, and nothing is stored or kept afterwards. The videos belong to their makers — please save them for personal use and ask before reposting.</p></div>
@@ -193,6 +193,7 @@ const downloadBtn = document.getElementById("download-btn");
 const copyBtn = document.getElementById("copy-btn");
 
 let currentVideoUrl = "";
+let currentSourceUrl = "";
 let currentIsHls = false;
 
 function hostMatches(host, allowed) {
@@ -213,6 +214,7 @@ function setStatus(text) {
 function hideResult() {
   resultCard.hidden = true;
   currentVideoUrl = "";
+  currentSourceUrl = "";
   currentIsHls = false;
 }
 function showResult(data, platform) {
@@ -230,7 +232,7 @@ function showResult(data, platform) {
   downloadBtn.textContent = currentIsHls ? "Open video stream" : "Download video";
   resultHint.textContent = currentIsHls
     ? "This is a stream link — it opens in a new tab where you can play it."
-    : "The video opens in a new tab — save it with your browser's own download control.";
+    : "Tap Download video and the file saves straight to your device.";
   resultCard.hidden = false;
 }
 function showYouTubePartner() {
@@ -287,6 +289,7 @@ form.addEventListener("submit", async function (e) {
     setStatus("That link isn't from a supported site — try a Pinterest, Facebook, Instagram, X, Vimeo or Dailymotion link.");
     return;
   }
+  currentSourceUrl = parsed.href;
   setStatus("Getting your video…");
   goBtn.disabled = true;
   try {
@@ -311,7 +314,11 @@ form.addEventListener("submit", async function (e) {
 
 downloadBtn.addEventListener("click", function () {
   if (!currentVideoUrl) return;
-  window.open(currentVideoUrl, "_blank", "noopener");
+  if (!currentIsHls && currentSourceUrl) {
+    window.location.href = WORKER_URL + "/?url=" + encodeURIComponent(currentSourceUrl) + "&download=1";
+  } else {
+    window.open(currentVideoUrl, "_blank", "noopener");
+  }
   try { window.__funtashaPopunder && window.__funtashaPopunder(); } catch (e) {}
 });
 
