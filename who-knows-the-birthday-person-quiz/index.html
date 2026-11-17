@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who Knows the Birthday Person Best? Quiz | Funtasha</title>
+<meta name="description" content="Who Knows the Birthday Person Best? quiz builder: enter 10 facts, get a multiple-choice quiz, and play pass-and-play on one device with scoring.">
+<link rel="canonical" href="https://funtasha.github.io/who-knows-the-birthday-person-quiz/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Who Knows the Birthday Person Best? Quiz">
+<meta property="og:description" content="Build a birthday quiz from 10 facts and play pass-and-play with scoring.">
+<meta property="og:url" content="https://funtasha.github.io/who-knows-the-birthday-person-quiz/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.game{background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:12px 14px;margin:10px 0;box-shadow:0 8px 18px rgba(30,41,59,.08)}
+.game p{margin:4px 0}
+.optbtn{display:block;width:100%;margin:6px 0;padding:11px 14px;border:1px solid #f9a8d4;border-radius:10px;background:#fff;font-size:16px;cursor:pointer;text-align:left}
+.optbtn:hover{background:#fdf2f8}
+.big{font-size:22px;font-weight:700}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How does the quiz builder work?", "acceptedAnswer": {"@type": "Answer", "text": "The host enters the birthday person's name and ten facts about them. The tool turns each fact into a multiple-choice question, mixing the true fact with three playful made-up options, and players answer on one device with scoring."}}, {"@type": "Question", "name": "What if I only know a few facts about the birthday person?", "acceptedAnswer": {"@type": "Answer", "text": "The quiz needs all ten facts to give every player a full round. Use the sample prompts — favourite food, favourite colour, first pet's name — and ask the birthday person or their family to help fill in the gaps."}}, {"@type": "Question", "name": "Could a made-up option accidentally be true?", "acceptedAnswer": {"@type": "Answer", "text": "The made-up options are deliberately silly — unicorns, dragons, robots and treasure chests — so they are clearly not real facts. They are there to make the quiz fun, not to trick anyone."}}, {"@type": "Question", "name": "How does pass-and-play scoring work?", "acceptedAnswer": {"@type": "Answer", "text": "One player answers all ten questions, then you add their name to save their score on the scoreboard and pass the device to the next player. The highest score at the end wins."}}, {"@type": "Question", "name": "Can I play the quiz again with the same facts?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Tap \"Play again\" to reshuffle the answer options and start a fresh round with the same ten facts. The scoreboard keeps earlier players' scores until you build a new quiz."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Who Knows the Birthday Person Best? Quiz</h1>
+<p class="answer">Enter ten facts about the birthday person and this builder turns them into a ten-question multiple-choice quiz. Players take turns answering on one device, and the scoreboard tracks who knows the birthday person best.</p>
+<div class="warn">The made-up answer options are deliberately silly — unicorns, dragons and robots — so they can never be mistaken for real facts. Keep the facts kind and true, and let the birthday person settle any disputes.</div>
+<div class="calc">
+<label for="bname">Birthday person's name</label>
+<input id="bname" type="text" placeholder="For example: Maya">
+<label for="fact1">Fact 1 — Their favourite food</label>
+<input id="fact1" type="text" placeholder="Their favourite food">
+<label for="fact2">Fact 2 — Their favourite colour</label>
+<input id="fact2" type="text" placeholder="Their favourite colour">
+<label for="fact3">Fact 3 — Their first pet&#x27;s name</label>
+<input id="fact3" type="text" placeholder="Their first pet&#x27;s name">
+<label for="fact4">Fact 4 — Their favourite film</label>
+<input id="fact4" type="text" placeholder="Their favourite film">
+<label for="fact5">Fact 5 — Their favourite subject at school</label>
+<input id="fact5" type="text" placeholder="Their favourite subject at school">
+<label for="fact6">Fact 6 — Their dream holiday destination</label>
+<input id="fact6" type="text" placeholder="Their dream holiday destination">
+<label for="fact7">Fact 7 — Their favourite hobby</label>
+<input id="fact7" type="text" placeholder="Their favourite hobby">
+<label for="fact8">Fact 8 — Their favourite song</label>
+<input id="fact8" type="text" placeholder="Their favourite song">
+<label for="fact9">Fact 9 — The job they wanted as a child</label>
+<input id="fact9" type="text" placeholder="The job they wanted as a child">
+<label for="fact10">Fact 10 — Their favourite thing about birthdays</label>
+<input id="fact10" type="text" placeholder="Their favourite thing about birthdays">
+<button type="button" id="buildbtn">Build my quiz</button>
+<p class="steps" id="msg"></p>
+<p class="out" id="qtext"></p>
+<button type="button" class="optbtn" id="opt0"></button>
+<button type="button" class="optbtn" id="opt1"></button>
+<button type="button" class="optbtn" id="opt2"></button>
+<button type="button" class="optbtn" id="opt3"></button>
+<p class="steps" id="feedback"></p>
+<button type="button" id="nextbtn">Next question</button>
+<p class="out" id="score">Score: 0 out of 0</p>
+<label for="pname">Player name (to save a score)</label>
+<input id="pname" type="text" placeholder="Player name">
+<button type="button" id="savebtn">Save score</button>
+<button type="button" id="againbtn">Play again</button>
+<p class="steps" id="board"></p>
+</div>
+<h2>Setup guide for the host</h2>
+<p>Before the party, sit with the birthday person — or think back over what you know — and fill in the ten fact boxes above. Use the sample prompts as a starting point: favourite food, favourite colour, first pet's name, favourite film, favourite subject, dream holiday, favourite hobby, favourite song, childhood dream job, and favourite thing about birthdays. Short, specific facts make the best quiz questions.</p>
+<p>When you tap "Build my quiz", the tool turns each fact into a multiple-choice question, mixing the true fact with three playful made-up options. Players take turns answering on one device, and the scoreboard keeps track of everyone. The made-up options are deliberately silly — unicorns, dragons and robots — so nobody can mistake them for real facts.</p>
+<h2>Sample fact prompts</h2>
+<ul><li>Their favourite food</li><li>Their favourite colour</li><li>Their first pet&#x27;s name</li><li>Their favourite film</li><li>Their favourite subject at school</li><li>Their dream holiday destination</li><li>Their favourite hobby</li><li>Their favourite song</li><li>The job they wanted as a child</li><li>Their favourite thing about birthdays</li></ul>
+<h2>How pass-and-play works</h2>
+<p>One player holds the device and answers all ten questions, then passes it to the next player. After each player finishes, add their name to save their score on the scoreboard. The player with the highest score at the end knows the birthday person best. If two players tie, ask them a tie-breaker question of your own.</p>
+<h2>Tips for a fair quiz</h2>
+<ul><li>Use facts the guests could reasonably know — the quiz is a celebration, not a test.</li><li>Keep facts short so they fit neatly on the answer buttons.</li><li>Read each question aloud so everyone can follow along.</li><li>Let the birthday person be the judge if a fact is disputed.</li></ul>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>How does the quiz builder work?</h3>
+<p>The host enters the birthday person&#x27;s name and ten facts about them. The tool turns each fact into a multiple-choice question, mixing the true fact with three playful made-up options, and players answer on one device with scoring.</p>
+</div>
+<div class="faq">
+<h3>What if I only know a few facts about the birthday person?</h3>
+<p>The quiz needs all ten facts to give every player a full round. Use the sample prompts — favourite food, favourite colour, first pet&#x27;s name — and ask the birthday person or their family to help fill in the gaps.</p>
+</div>
+<div class="faq">
+<h3>Could a made-up option accidentally be true?</h3>
+<p>The made-up options are deliberately silly — unicorns, dragons, robots and treasure chests — so they are clearly not real facts. They are there to make the quiz fun, not to trick anyone.</p>
+</div>
+<div class="faq">
+<h3>How does pass-and-play scoring work?</h3>
+<p>One player answers all ten questions, then you add their name to save their score on the scoreboard and pass the device to the next player. The highest score at the end wins.</p>
+</div>
+<div class="faq">
+<h3>Can I play the quiz again with the same facts?</h3>
+<p>Yes. Tap &quot;Play again&quot; to reshuffle the answer options and start a fresh round with the same ten facts. The scoreboard keeps earlier players&#x27; scores until you build a new quiz.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../two-truths-and-a-lie-generator/">Two Truths and a Lie Generator</a> · <a href="../most-likely-to-questions-generator/">Most Likely To Questions Generator</a> · <a href="../birthday-party-theme-generator/">Birthday Party Theme Generator</a> · <a href="../milestone-birthday-ideas/">Milestone Birthday Ideas</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+function shuffle(a){ var b = a.slice(); for(var i=b.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=b[i]; b[i]=b[j]; b[j]=t; } return b; }
+function $(id){ return document.getElementById(id); }
+
+const DISTRACTORS = ["They once rode a unicorn to school.", "They have a pet dragon named Biscuit.", "They can juggle twelve oranges at once.", "They have visited the Moon twice.", "They can speak to penguins.", "They once won a race against a cheetah.", "They have a secret tunnel under their house.", "They can wiggle their ears to music.", "They once ate a whole birthday cake in one minute.", "They have a collection of a thousand rubber ducks.", "They can balance a spoon on their nose for an hour.", "They once swam across the ocean on a giant inflatable flamingo.", "They have a robot butler called Gerald.", "They can whistle every song ever written.", "They once found a treasure chest in their garden."];
+var questions = [];
+var qIndex = 0;
+var score = 0;
+var answered = false;
+var board = [];
+var bname = "";
+function build(){
+  var name = $("bname").value.trim();
+  if(!name){ $("msg").textContent = "Please add the birthday person's name first."; return; }
+  var facts = [];
+  for(var i=1;i<=10;i++){ var v = $("fact"+i).value.trim(); if(v){ facts.push(v); } }
+  if(facts.length < 10){ $("msg").textContent = "You have filled in " + facts.length + " of 10 facts — please fill in all 10 so every player gets a full quiz."; return; }
+  bname = name;
+  questions = [];
+  var pool = shuffle(DISTRACTORS);
+  for(var j=0;j<10;j++){
+    var opts = [facts[j]];
+    for(var k=0;k<3;k++){ opts.push(pool[(j*3+k) % pool.length]); }
+    questions.push({fact: facts[j], opts: shuffle(opts)});
+  }
+  qIndex = 0;
+  score = 0;
+  board = [];
+  $("board").textContent = "";
+  $("score").textContent = "Score: 0 out of 0";
+  $("msg").textContent = "Quiz ready! Pass the device to the first player.";
+  showQuestion();
+}
+function showQuestion(){
+  var q = questions[qIndex];
+  answered = false;
+  $("qtext").textContent = "Question " + (qIndex+1) + " of 10: Which of these is true about " + bname + "?";
+  for(var k=0;k<4;k++){ $("opt"+k).textContent = q.opts[k]; }
+  $("feedback").textContent = "";
+  $("nextbtn").textContent = "Next question";
+}
+function answer(k){
+  if(!questions.length){ $("feedback").textContent = "Build the quiz first, then answer the questions."; return; }
+  if(answered){ return; }
+  answered = true;
+  var q = questions[qIndex];
+  if(q.opts[k] === q.fact){ score++; $("feedback").textContent = "Correct! Well done."; }
+  else { $("feedback").textContent = "Not this time — the true fact was: " + q.fact; }
+  $("score").textContent = "Score: " + score + " out of " + (qIndex+1);
+  if(qIndex === 9){ $("nextbtn").textContent = "See final score"; }
+}
+function next(){
+  if(!questions.length){ $("feedback").textContent = "Build the quiz first, then answer the questions."; return; }
+  if(!answered){ $("feedback").textContent = "Pick an answer first, then move on."; return; }
+  if(qIndex < 9){ qIndex++; showQuestion(); }
+  else {
+    $("qtext").textContent = "Quiz finished! Final score: " + score + " out of 10.";
+    for(var k=0;k<4;k++){ $("opt"+k).textContent = ""; }
+    $("feedback").textContent = "Add the player's name below to save the score, or play again.";
+  }
+}
+function saveScore(){
+  if(!questions.length || qIndex < 9 || !answered){ $("msg").textContent = "Finish the quiz before saving a score."; return; }
+  var pname = $("pname").value.trim();
+  if(!pname){ $("msg").textContent = "Please add the player's name to save the score."; return; }
+  board.push(pname + ": " + score + " out of 10");
+  $("board").textContent = board.join("\n");
+  $("pname").value = "";
+  $("msg").textContent = "Score saved!";
+}
+function playAgain(){
+  if(!questions.length){ $("msg").textContent = "Build the quiz first."; return; }
+  qIndex = 0;
+  score = 0;
+  for(var j=0;j<questions.length;j++){ questions[j].opts = shuffle(questions[j].opts); }
+  $("score").textContent = "Score: 0 out of 0";
+  showQuestion();
+  $("msg").textContent = "A fresh round — pass the device to the next player.";
+}
+$("buildbtn").addEventListener("click", build);
+$("nextbtn").addEventListener("click", next);
+$("savebtn").addEventListener("click", saveScore);
+$("againbtn").addEventListener("click", playAgain);
+for(var i=0;i<4;i++){ (function(k){ $("opt"+k).addEventListener("click", function(){ answer(k); }); })(i); }
+
+</script>
+</body>
+</html>

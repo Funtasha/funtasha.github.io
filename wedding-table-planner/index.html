@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wedding Table Planner | Funtasha</title>
+<meta name="description" content="Plan wedding seating in your browser — enter guest names, tables and seats, and get an even seating plan with shuffle, manual moves and a printable list.">
+<link rel="canonical" href="https://funtasha.github.io/wedding-table-planner/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wedding Table Planner">
+<meta property="og:description" content="An even wedding seating plan with shuffle, manual moves and a printable list.">
+<meta property="og:url" content="https://funtasha.github.io/wedding-table-planner/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>.calc textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;min-height:120px;font-family:inherit}
+.tlist p{margin:14px 0 4px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I enter my guest list?", "acceptedAnswer": {"@type": "Answer", "text": "Type one guest name per line in the box, then enter your number of tables and seats per table, and press Assign seats."}}, {"@type": "Question", "name": "How are guests shared between tables?", "acceptedAnswer": {"@type": "Answer", "text": "Guests are dealt out evenly, one at a time in turn, so the tables end up as equal as possible and no table carries far more guests than another."}}, {"@type": "Question", "name": "What if I have more guests than seats?", "acceptedAnswer": {"@type": "Answer", "text": "The planner tells you plainly how many guests and seats you have, and asks you to add a table or more seats per table before it assigns anyone."}}, {"@type": "Question", "name": "Can I move a guest to a different table?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — pick the guest and the table you want, then press Move guest. A guest can only move to a table with a free seat."}}, {"@type": "Question", "name": "Is my guest list uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No — everything runs in your browser, your guest list is never sent anywhere, and nothing is saved when you close the page, so print the list before you leave."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Wedding Table Planner</h1>
+<p class="answer">Enter your guest names, the number of tables, and the seats per table, and this planner seats everyone evenly in seconds. You can shuffle the tables, move any guest by hand, and print the finished list — all in your browser, with nothing uploaded.</p>
+<div class="calc">
+<label for="guest-list">Guest names, one per line</label>
+<textarea id="guest-list" placeholder="One guest name per line"></textarea>
+<label for="num-tables">Number of tables</label>
+<input id="num-tables" type="number" min="1" max="50" placeholder="For example 8">
+<label for="seats-per">Seats per table</label>
+<input id="seats-per" type="number" min="1" max="50" placeholder="For example 8">
+<button id="assign-btn" type="button">Assign seats</button>
+<p class="steps" id="planner-msg"></p>
+</div>
+<div class="tlist" id="tables-out"></div>
+<div class="calc">
+<label for="move-guest">Move a guest</label>
+<select id="move-guest"></select>
+<label for="move-table">To table</label>
+<select id="move-table"></select>
+<button id="move-btn" type="button">Move guest</button>
+<button id="shuffle-btn" type="button">Shuffle tables</button>
+<button id="print-btn" type="button">Print table list</button>
+</div>
+<h2>How the seating works</h2>
+<p>Enter your guest names one per line, say how many tables you have and how many seats fit at each one, then press Assign seats. The planner deals guests out evenly across the tables, one at a time in turn, so the tables end up as equal as possible — no table carries far more guests than another. If you have more guests than seats, the planner says so plainly and asks you to add a table or more seats per table, instead of squeezing anyone in.</p>
+<h2>Shuffle and manual moves</h2>
+<p>Not happy with the first arrangement? Shuffle deals the same guests out again in a new random order, keeping the tables even. For finer control, pick any guest and move them to another table with a free seat — useful when you want families together, or when two guests would get on better apart. Every change updates the table list straight away, and you can shuffle and move as often as you like until the plan feels right.</p>
+<div class="warn">This planner only arranges names into tables — it cannot know who gets on well together, so check the plan yourself and move anyone who needs a different seat.</div>
+<h2>Planning the day</h2>
+<p>Once the tables look right, print the list and keep a copy with your seating plan — it makes the day much smoother when helpers can check who sits where. Leave a couple of spare seats if you can, in case a guest brings a plus-one you did not expect. Everything on this page runs in your browser: your guest list is never uploaded anywhere, and nothing is saved when you close the page, so print or copy the list before you leave.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How do I enter my guest list?</h3><p>Type one guest name per line in the box, then enter your number of tables and seats per table, and press Assign seats.</p></div><div class="faq"><h3>How are guests shared between tables?</h3><p>Guests are dealt out evenly, one at a time in turn, so the tables end up as equal as possible and no table carries far more guests than another.</p></div><div class="faq"><h3>What if I have more guests than seats?</h3><p>The planner tells you plainly how many guests and seats you have, and asks you to add a table or more seats per table before it assigns anyone.</p></div><div class="faq"><h3>Can I move a guest to a different table?</h3><p>Yes — pick the guest and the table you want, then press Move guest. A guest can only move to a table with a free seat.</p></div><div class="faq"><h3>Is my guest list uploaded anywhere?</h3><p>No — everything runs in your browser, your guest list is never sent anywhere, and nothing is saved when you close the page, so print the list before you leave.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../wedding-captions-for-instagram/">Wedding Captions for Instagram</a> · <a href="../wedding-hashtag-generator/">Wedding Hashtag Generator</a> · <a href="../wedding-shoe-game-questions/">Wedding Shoe Game Questions</a> · <a href="../bridal-shower-games/">Bridal Shower Games</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+(function(){
+  var tables = [];
+  var seatsPer = 0;
+  function showMsg(t){ document.getElementById('planner-msg').textContent = t; }
+  function render(){
+    var out = document.getElementById('tables-out');
+    var html = '';
+    for (var t = 0; t < tables.length; t++) {
+      html += '<p><strong>Table ' + (t + 1) + ' (' + tables[t].length + ' of ' + seatsPer + ' seats)</strong></p><ul>';
+      for (var g = 0; g < tables[t].length; g++) {
+        html += '<li>' + tables[t][g] + '</li>';
+      }
+      html += '</ul>';
+    }
+    out.innerHTML = html;
+    var guestSel = document.getElementById('move-guest');
+    var tableSel = document.getElementById('move-table');
+    var gh = '';
+    for (var t2 = 0; t2 < tables.length; t2++) {
+      for (var g2 = 0; g2 < tables[t2].length; g2++) {
+        gh += '<option>' + tables[t2][g2] + '</option>';
+      }
+    }
+    guestSel.innerHTML = gh;
+    var th = '';
+    for (var t3 = 0; t3 < tables.length; t3++) {
+      th += '<option value="' + (t3 + 1) + '">Table ' + (t3 + 1) + '</option>';
+    }
+    tableSel.innerHTML = th;
+  }
+  function assignRoundRobin(guests){
+    tables = [];
+    for (var t = 0; t < parseInt(document.getElementById('num-tables').value, 10); t++) tables.push([]);
+    for (var i = 0; i < guests.length; i++) tables[i % tables.length].push(guests[i]);
+  }
+  document.getElementById('assign-btn').addEventListener('click', function(){
+    var raw = document.getElementById('guest-list').value || '';
+    var guests = raw.split('\n').map(function(s){ return s.trim(); }).filter(function(s){ return s.length > 0; });
+    var nt = parseInt(document.getElementById('num-tables').value, 10);
+    var ns = parseInt(document.getElementById('seats-per').value, 10);
+    if (guests.length === 0) { showMsg('Add at least one guest name first, one per line.'); return; }
+    if (isNaN(nt) || nt < 1 || nt > 50) { showMsg('Please enter a whole number of tables between 1 and 50.'); return; }
+    if (isNaN(ns) || ns < 1 || ns > 50) { showMsg('Please enter a whole number of seats per table between 1 and 50.'); return; }
+    if (guests.length > nt * ns) { showMsg('You have ' + guests.length + ' guests but only ' + (nt * ns) + ' seats — add a table or more seats per table.'); return; }
+    seatsPer = ns;
+    assignRoundRobin(guests);
+    render();
+    showMsg(guests.length + ' guests seated across ' + nt + ' tables.');
+  });
+  document.getElementById('shuffle-btn').addEventListener('click', function(){
+    if (tables.length === 0) { showMsg('Assign the tables first, then shuffle.'); return; }
+    var all = [];
+    for (var t = 0; t < tables.length; t++) all = all.concat(tables[t]);
+    for (var i = all.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = all[i]; all[i] = all[j]; all[j] = tmp;
+    }
+    var fresh = [];
+    for (var t2 = 0; t2 < tables.length; t2++) fresh.push([]);
+    for (var k = 0; k < all.length; k++) fresh[k % fresh.length].push(all[k]);
+    tables = fresh;
+    render();
+    showMsg('Tables shuffled — the same guests, in new seats.');
+  });
+  document.getElementById('move-btn').addEventListener('click', function(){
+    if (tables.length === 0) { showMsg('Assign the tables first, then move a guest.'); return; }
+    var guest = document.getElementById('move-guest').value;
+    var target = parseInt(document.getElementById('move-table').value, 10) - 1;
+    var from = -1, at = -1;
+    for (var t = 0; t < tables.length; t++) {
+      var idx = tables[t].indexOf(guest);
+      if (idx !== -1) { from = t; at = idx; }
+    }
+    if (from === -1) { showMsg('Pick a guest from the list first.'); return; }
+    if (isNaN(target) || target < 0 || target >= tables.length) { showMsg('Pick a table to move them to.'); return; }
+    if (from === target) { showMsg(guest + ' is already sitting at Table ' + (target + 1) + '.'); return; }
+    if (tables[target].length >= seatsPer) { showMsg('Table ' + (target + 1) + ' is full — pick a table with a free seat.'); return; }
+    tables[from].splice(at, 1);
+    tables[target].push(guest);
+    render();
+    showMsg(guest + ' moved to Table ' + (target + 1) + '.');
+  });
+  document.getElementById('print-btn').addEventListener('click', function(){
+    if (tables.length === 0) { showMsg('Assign the tables first, then print the list.'); return; }
+    window.print();
+  });
+})();
+</script>
+</body>
+</html>

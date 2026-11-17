@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pictionary Word Generator | Funtasha</title>
+<meta name="description" content="Pictionary word generator with 130 original drawable prompts in five categories, a difficulty filter, a one-minute timer and no-repeat draws.">
+<link rel="canonical" href="https://funtasha.github.io/pictionary-word-generator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pictionary Word Generator">
+<meta property="og:description" content="Draw a fresh Pictionary prompt with a timer and difficulty filter.">
+<meta property="og:url" content="https://funtasha.github.io/pictionary-word-generator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do you play Pictionary?", "acceptedAnswer": {"@type": "Answer", "text": "One player draws a prompt while their team guesses what it is, with no letters, numbers or talking from the artist. Guess correctly before the timer ends to score a point."}}, {"@type": "Question", "name": "How long is the timer?", "acceptedAnswer": {"@type": "Answer", "text": "The timer runs for one minute, which is the classic Pictionary round. You can pause it or reset it at any time with the buttons under the timer."}}, {"@type": "Question", "name": "Can I filter the prompts?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Choose a category — Animals, Objects, Actions, Food or Places — and a difficulty — Easy, Medium or Hard — and the generator draws only from prompts that match both."}}, {"@type": "Question", "name": "Will I get the same prompt twice?", "acceptedAnswer": {"@type": "Answer", "text": "Not until the deck is used up. The generator deals each matching prompt once, then shuffles a fresh deck and tells you it has done so."}}, {"@type": "Question", "name": "What do I need to play?", "acceptedAnswer": {"@type": "Answer", "text": "Paper and pencils, or a whiteboard, and at least four players split into two teams. Everything else — the prompts and the timer — is on this page."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Pictionary Word Generator</h1>
+<p class="answer">Pictionary is a drawing game where one player sketches a word while everyone else guesses what it is. This generator deals from 130 original prompts across five categories, with a difficulty filter, a timer and no repeats.</p>
+<div class="calc">
+<label for="pic-category">Category</label>
+<select id="pic-category"><option value="All">All categories</option><option>Animals</option><option>Objects</option><option>Actions</option><option>Food</option><option>Places</option></select>
+<label for="pic-difficulty">Difficulty</label>
+<select id="pic-difficulty"><option value="All">All difficulties</option><option>Easy</option><option>Medium</option><option>Hard</option></select>
+<button type="button" id="pic-draw">Draw a prompt</button>
+<p class="out" id="pic-word"></p>
+<p class="steps" id="pic-meta"></p>
+<p class="steps" id="pic-msg">Press "Draw a prompt" to begin.</p>
+<label>Drawing timer</label>
+<p class="out" id="pic-time">01:00</p>
+<button type="button" id="pic-start">Start timer</button>
+<button type="button" id="pic-pause">Pause timer</button>
+<button type="button" id="pic-reset">Reset timer</button>
+</div>
+<div class="warn">The prompts are for drawing only — no letters, numbers or talking from the artist while the timer runs.</div>
+<h2>How to play</h2>
+<p>Split into two teams and take turns drawing. The artist presses the button, sees a prompt, and has one minute — the timer on this page — to draw it while their team shouts out guesses. No letters, no numbers, and no talking from the artist: the drawing has to do all the work.</p><p>If the team guesses correctly before the timer ends, they score a point. If not, the other team gets one guess for a steal, and then the pencil passes to the next artist. The first team to an agreed score wins, or simply play until everyone has drawn twice.</p><p>Use the filters to set the mood: Easy prompts suit younger players and quick warm-up rounds, while Hard prompts make for long, funny games with confident artists. The generator never repeats a prompt until the whole deck is used, so every round feels fresh.</p>
+<h2>Drawing tips</h2>
+<p>You do not need to be good at drawing to be good at Pictionary — you need to be quick and clear. A few habits help more than talent.</p><ul><li><strong>Draw the big shape first.</strong> A circle for a head or a long line for a road gives your team something to guess from in the first seconds.</li><li><strong>Add one clue at a time.</strong> If your team is stuck, add a detail that narrows it down — a fin for a fish, a handle for a cup.</li><li><strong>Use the scene.</strong> Drawing a sun, a wave or a plate around your subject can say as much as the subject itself.</li><li><strong>Keep moving.</strong> A fast, rough sketch beats a slow, perfect one — the timer does not wait for shading.</li><li><strong>Watch your team.</strong> If they are close, a small nod or a pointed finger at part of the drawing can steer them home without a word.</li></ul>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How do you play Pictionary?</h3><p>One player draws a prompt while their team guesses what it is, with no letters, numbers or talking from the artist. Guess correctly before the timer ends to score a point.</p></div><div class="faq"><h3>How long is the timer?</h3><p>The timer runs for one minute, which is the classic Pictionary round. You can pause it or reset it at any time with the buttons under the timer.</p></div><div class="faq"><h3>Can I filter the prompts?</h3><p>Yes. Choose a category — Animals, Objects, Actions, Food or Places — and a difficulty — Easy, Medium or Hard — and the generator draws only from prompts that match both.</p></div><div class="faq"><h3>Will I get the same prompt twice?</h3><p>Not until the deck is used up. The generator deals each matching prompt once, then shuffles a fresh deck and tells you it has done so.</p></div><div class="faq"><h3>What do I need to play?</h3><p>Paper and pencils, or a whiteboard, and at least four players split into two teams. Everything else — the prompts and the timer — is on this page.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../two-truths-and-a-lie-generator/">Two Truths and a Lie Generator</a> · <a href="../simon-says-command-generator/">Simon Says Command Generator</a> · <a href="../name-five-game-generator/">Name Five Game Generator</a> · <a href="../minute-to-win-it-games-list/">Minute to Win It Games</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+var PROMPTS=[{"w": "dog", "c": "Animals", "d": "Easy"}, {"w": "cat", "c": "Animals", "d": "Easy"}, {"w": "elephant", "c": "Animals", "d": "Medium"}, {"w": "penguin", "c": "Animals", "d": "Medium"}, {"w": "giraffe", "c": "Animals", "d": "Hard"}, {"w": "butterfly", "c": "Animals", "d": "Easy"}, {"w": "snail", "c": "Animals", "d": "Easy"}, {"w": "octopus", "c": "Animals", "d": "Hard"}, {"w": "kangaroo", "c": "Animals", "d": "Medium"}, {"w": "hedgehog", "c": "Animals", "d": "Medium"}, {"w": "frog", "c": "Animals", "d": "Easy"}, {"w": "owl", "c": "Animals", "d": "Medium"}, {"w": "dolphin", "c": "Animals", "d": "Medium"}, {"w": "crab", "c": "Animals", "d": "Hard"}, {"w": "ladybird", "c": "Animals", "d": "Easy"}, {"w": "turtle", "c": "Animals", "d": "Medium"}, {"w": "rabbit", "c": "Animals", "d": "Easy"}, {"w": "bee", "c": "Animals", "d": "Easy"}, {"w": "shark", "c": "Animals", "d": "Hard"}, {"w": "camel", "c": "Animals", "d": "Medium"}, {"w": "peacock", "c": "Animals", "d": "Hard"}, {"w": "mouse", "c": "Animals", "d": "Easy"}, {"w": "goat", "c": "Animals", "d": "Medium"}, {"w": "swan", "c": "Animals", "d": "Medium"}, {"w": "ant", "c": "Animals", "d": "Easy"}, {"w": "zebra", "c": "Animals", "d": "Hard"}, {"w": "umbrella", "c": "Objects", "d": "Easy"}, {"w": "bicycle", "c": "Objects", "d": "Medium"}, {"w": "key", "c": "Objects", "d": "Easy"}, {"w": "lamp", "c": "Objects", "d": "Easy"}, {"w": "guitar", "c": "Objects", "d": "Medium"}, {"w": "telescope", "c": "Objects", "d": "Hard"}, {"w": "scissors", "c": "Objects", "d": "Easy"}, {"w": "teapot", "c": "Objects", "d": "Medium"}, {"w": "kite", "c": "Objects", "d": "Easy"}, {"w": "backpack", "c": "Objects", "d": "Medium"}, {"w": "mirror", "c": "Objects", "d": "Easy"}, {"w": "clock", "c": "Objects", "d": "Easy"}, {"w": "candle", "c": "Objects", "d": "Easy"}, {"w": "crown", "c": "Objects", "d": "Hard"}, {"w": "rocket", "c": "Objects", "d": "Hard"}, {"w": "suitcase", "c": "Objects", "d": "Medium"}, {"w": "hammer", "c": "Objects", "d": "Easy"}, {"w": "balloon", "c": "Objects", "d": "Easy"}, {"w": "camera", "c": "Objects", "d": "Medium"}, {"w": "chessboard", "c": "Objects", "d": "Medium"}, {"w": "tent", "c": "Objects", "d": "Medium"}, {"w": "anchor", "c": "Objects", "d": "Hard"}, {"w": "book", "c": "Objects", "d": "Easy"}, {"w": "glasses", "c": "Objects", "d": "Easy"}, {"w": "robot", "c": "Objects", "d": "Hard"}, {"w": "toothbrush", "c": "Objects", "d": "Easy"}, {"w": "swimming", "c": "Actions", "d": "Medium"}, {"w": "dancing", "c": "Actions", "d": "Easy"}, {"w": "juggling", "c": "Actions", "d": "Hard"}, {"w": "baking", "c": "Actions", "d": "Medium"}, {"w": "fishing", "c": "Actions", "d": "Medium"}, {"w": "skiing", "c": "Actions", "d": "Hard"}, {"w": "singing", "c": "Actions", "d": "Easy"}, {"w": "climbing", "c": "Actions", "d": "Medium"}, {"w": "painting", "c": "Actions", "d": "Easy"}, {"w": "skipping", "c": "Actions", "d": "Easy"}, {"w": "cycling", "c": "Actions", "d": "Medium"}, {"w": "reading", "c": "Actions", "d": "Easy"}, {"w": "surfing", "c": "Actions", "d": "Hard"}, {"w": "gardening", "c": "Actions", "d": "Medium"}, {"w": "sleeping", "c": "Actions", "d": "Easy"}, {"w": "running", "c": "Actions", "d": "Easy"}, {"w": "cooking", "c": "Actions", "d": "Medium"}, {"w": "driving", "c": "Actions", "d": "Medium"}, {"w": "sailing", "c": "Actions", "d": "Hard"}, {"w": "knitting", "c": "Actions", "d": "Hard"}, {"w": "hopping", "c": "Actions", "d": "Easy"}, {"w": "whispering", "c": "Actions", "d": "Hard"}, {"w": "yawning", "c": "Actions", "d": "Easy"}, {"w": "building", "c": "Actions", "d": "Medium"}, {"w": "diving", "c": "Actions", "d": "Hard"}, {"w": "laughing", "c": "Actions", "d": "Easy"}, {"w": "pizza", "c": "Food", "d": "Easy"}, {"w": "banana", "c": "Food", "d": "Easy"}, {"w": "ice cream", "c": "Food", "d": "Easy"}, {"w": "broccoli", "c": "Food", "d": "Medium"}, {"w": "birthday cake", "c": "Food", "d": "Hard"}, {"w": "popcorn", "c": "Food", "d": "Easy"}, {"w": "sandwich", "c": "Food", "d": "Easy"}, {"w": "watermelon", "c": "Food", "d": "Medium"}, {"w": "spaghetti", "c": "Food", "d": "Medium"}, {"w": "cheese", "c": "Food", "d": "Easy"}, {"w": "cupcake", "c": "Food", "d": "Medium"}, {"w": "pineapple", "c": "Food", "d": "Hard"}, {"w": "soup", "c": "Food", "d": "Medium"}, {"w": "pretzel", "c": "Food", "d": "Hard"}, {"w": "strawberry", "c": "Food", "d": "Easy"}, {"w": "bread", "c": "Food", "d": "Easy"}, {"w": "taco", "c": "Food", "d": "Medium"}, {"w": "donut", "c": "Food", "d": "Easy"}, {"w": "grapes", "c": "Food", "d": "Easy"}, {"w": "carrot", "c": "Food", "d": "Easy"}, {"w": "pancake", "c": "Food", "d": "Medium"}, {"w": "sushi", "c": "Food", "d": "Hard"}, {"w": "egg", "c": "Food", "d": "Easy"}, {"w": "milkshake", "c": "Food", "d": "Medium"}, {"w": "cherry", "c": "Food", "d": "Easy"}, {"w": "honey", "c": "Food", "d": "Medium"}, {"w": "beach", "c": "Places", "d": "Easy"}, {"w": "castle", "c": "Places", "d": "Hard"}, {"w": "library", "c": "Places", "d": "Medium"}, {"w": "farm", "c": "Places", "d": "Easy"}, {"w": "lighthouse", "c": "Places", "d": "Medium"}, {"w": "zoo", "c": "Places", "d": "Easy"}, {"w": "mountain", "c": "Places", "d": "Medium"}, {"w": "desert", "c": "Places", "d": "Hard"}, {"w": "forest", "c": "Places", "d": "Easy"}, {"w": "bridge", "c": "Places", "d": "Medium"}, {"w": "school", "c": "Places", "d": "Easy"}, {"w": "market", "c": "Places", "d": "Medium"}, {"w": "island", "c": "Places", "d": "Hard"}, {"w": "park", "c": "Places", "d": "Easy"}, {"w": "museum", "c": "Places", "d": "Medium"}, {"w": "volcano", "c": "Places", "d": "Hard"}, {"w": "village", "c": "Places", "d": "Medium"}, {"w": "playground", "c": "Places", "d": "Easy"}, {"w": "hospital", "c": "Places", "d": "Medium"}, {"w": "bakery", "c": "Places", "d": "Easy"}, {"w": "campsite", "c": "Places", "d": "Medium"}, {"w": "waterfall", "c": "Places", "d": "Hard"}, {"w": "garden", "c": "Places", "d": "Easy"}, {"w": "train station", "c": "Places", "d": "Medium"}, {"w": "harbour", "c": "Places", "d": "Hard"}, {"w": "windmill", "c": "Places", "d": "Medium"}];
+var picDeck=[];
+var picLastKey=null;
+var picTimeLeft=60;
+var picTimer=null;
+function picShuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}}
+function picPool(){
+  var cat=document.getElementById("pic-category").value;
+  var dif=document.getElementById("pic-difficulty").value;
+  var pool=[];
+  for(var i=0;i<PROMPTS.length;i++){
+    if((cat==="All"||PROMPTS[i].c===cat)&&(dif==="All"||PROMPTS[i].d===dif)){pool.push(i);}
+  }
+  return {key:cat+"|"+dif,pool:pool};
+}
+function picDraw(){
+  var p=picPool();
+  var msg=document.getElementById("pic-msg");
+  if(p.pool.length===0){
+    document.getElementById("pic-word").textContent="";
+    document.getElementById("pic-meta").textContent="";
+    msg.textContent="No prompts match that combination — try another category or difficulty.";
+    return;
+  }
+  if(p.key!==picLastKey){picDeck=p.pool.slice();picShuffle(picDeck);picLastKey=p.key;}
+  if(picDeck.length===0){
+    picDeck=p.pool.slice();picShuffle(picDeck);
+    msg.textContent="You have drawn them all — shuffling a fresh deck.";
+  } else {
+    msg.textContent="";
+  }
+  var pr=PROMPTS[picDeck.pop()];
+  document.getElementById("pic-word").textContent=pr.w;
+  document.getElementById("pic-meta").textContent=pr.c+" · "+pr.d+" · "+picDeck.length+" left in this deck";
+}
+function picShowTime(){
+  var m=Math.floor(picTimeLeft/60);
+  var s=picTimeLeft%60;
+  document.getElementById("pic-time").textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s;
+}
+function picTick(){
+  if(picTimeLeft>0){picTimeLeft--;}
+  picShowTime();
+  if(picTimeLeft===0){
+    if(picTimer!==null){clearInterval(picTimer);picTimer=null;}
+    document.getElementById("pic-msg").textContent="Time is up! Put the pencil down and see who guessed it.";
+  }
+}
+function picStart(){
+  if(picTimer!==null){return;}
+  if(picTimeLeft===0){picTimeLeft=60;}
+  picShowTime();
+  document.getElementById("pic-msg").textContent="Drawing time — go!";
+  picTimer=setInterval(picTick,1000);
+}
+function picPause(){
+  if(picTimer!==null){clearInterval(picTimer);picTimer=null;}
+  document.getElementById("pic-msg").textContent="Timer paused.";
+}
+function picReset(){
+  if(picTimer!==null){clearInterval(picTimer);picTimer=null;}
+  picTimeLeft=60;
+  picShowTime();
+  document.getElementById("pic-msg").textContent="Timer reset to one minute.";
+}
+document.getElementById("pic-draw").addEventListener("click",picDraw);
+document.getElementById("pic-start").addEventListener("click",picStart);
+document.getElementById("pic-pause").addEventListener("click",picPause);
+document.getElementById("pic-reset").addEventListener("click",picReset);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two Truths and a Lie Generator | Funtasha</title>
+<meta name="description" content="Two Truths and a Lie generator with 65 original triples across five categories — deal a shuffled triple, guess the lie, and reveal it with a tap.">
+<link rel="canonical" href="https://funtasha.github.io/two-truths-and-a-lie-generator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Two Truths and a Lie Generator">
+<meta property="og:description" content="Deal a fresh Two Truths and a Lie triple and guess the lie.">
+<meta property="og:url" content="https://funtasha.github.io/two-truths-and-a-lie-generator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do you play Two Truths and a Lie?", "acceptedAnswer": {"@type": "Answer", "text": "One player reads three statements — two true, one false — and the other players guess which one is the lie. Press the reveal button to check, then pass to the next reader."}}, {"@type": "Question", "name": "How many people can play?", "acceptedAnswer": {"@type": "Answer", "text": "Three players is the minimum, and there is no real maximum. With a big group, split into teams and let each team agree on one guess."}}, {"@type": "Question", "name": "What makes a good lie?", "acceptedAnswer": {"@type": "Answer", "text": "A good lie sounds like something the reader might actually have done. If it is too wild or too dull, it gives itself away — the best lies sit right next to the truth."}}, {"@type": "Question", "name": "Can children play?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every triple in the bank is family-safe, and the School and Animals categories are especially good for younger players."}}, {"@type": "Question", "name": "How do I reveal the lie?", "acceptedAnswer": {"@type": "Answer", "text": "Press the Reveal the lie button under the triple. The lie is marked in the list, and you can deal a new triple for the next round."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Two Truths and a Lie Generator</h1>
+<p class="answer">Two Truths and a Lie is a party game where one player reads three statements and everyone else guesses which one is the lie. This generator deals a fresh triple from 65 original sets, and you can reveal the lie with a tap.</p>
+<div class="calc">
+<label for="tt-category">Category</label>
+<select id="tt-category"><option value="All">All categories</option><option>Everyday Life</option><option>Food</option><option>Travel</option><option>School</option><option>Animals</option></select>
+<button type="button" id="tt-draw">Deal a new triple</button>
+<div id="tt-triple" class="steps"></div>
+<button type="button" id="tt-reveal">Reveal the lie</button>
+<p class="steps" id="tt-msg">Press "Deal a new triple" to begin.</p>
+</div>
+<div class="warn">These statements are ready-made lines for the game — pick ones that suit your group, and skip any that do not feel right for your players.</div>
+<h2>How to play</h2>
+<p>One player is the reader. They press the button, read the three statements out loud as if they were all true, and everyone else tries to spot the lie. Once every player has guessed, press the reveal button to see the answer.</p><p>Score one point for each player who guesses correctly, and give the reader a point if nobody guesses the lie — a well-hidden lie deserves a reward. Then pass the device to the next reader and deal a new triple.</p><p>The game works with as few as three players and as many as you can fit around a table. With a big group, split into teams and let each team discuss its guess before answering — the debates are half the fun.</p><p>The generator never repeats a triple until you have seen the whole deck, and you can filter by category if you want a round that is all food, all travel, or all animals.</p>
+<h2>Make your own triples</h2>
+<p>Once you have played a few rounds, try writing your own triples. The best ones mix the ordinary with the surprising, so the lie hides among everyday facts.</p><ul><li><strong>Start with two real facts.</strong> Pick things that are true but not obvious — a hobby, a small achievement, or a place you have been.</li><li><strong>Make the lie believable.</strong> A lie that is too wild gives itself away. The best lies sound like something you might actually have done.</li><li><strong>Keep it kind.</strong> Avoid statements that could embarrass anyone, including yourself — the game is about guessing, not confessing.</li><li><strong>Vary the shape.</strong> If both truths are about food, make the lie about food too, so the odd one out is not obvious.</li><li><strong>Read them flat.</strong> Say all three in the same tone, with the same smile — a grin at the wrong moment is the easiest tell.</li></ul>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How do you play Two Truths and a Lie?</h3><p>One player reads three statements — two true, one false — and the other players guess which one is the lie. Press the reveal button to check, then pass to the next reader.</p></div><div class="faq"><h3>How many people can play?</h3><p>Three players is the minimum, and there is no real maximum. With a big group, split into teams and let each team agree on one guess.</p></div><div class="faq"><h3>What makes a good lie?</h3><p>A good lie sounds like something the reader might actually have done. If it is too wild or too dull, it gives itself away — the best lies sit right next to the truth.</p></div><div class="faq"><h3>Can children play?</h3><p>Yes. Every triple in the bank is family-safe, and the School and Animals categories are especially good for younger players.</p></div><div class="faq"><h3>How do I reveal the lie?</h3><p>Press the Reveal the lie button under the triple. The lie is marked in the list, and you can deal a new triple for the next round.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../pictionary-word-generator/">Pictionary Word Generator</a> · <a href="../simon-says-command-generator/">Simon Says Command Generator</a> · <a href="../emoji-puzzle-game/">Emoji Puzzle Game</a> · <a href="../never-have-i-ever-generator/">Never Have I Ever Generator</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+var TRIPLES=[{"c": "Everyday Life", "t1": "I once rode my bicycle in the rain and arrived home completely soaked.", "t2": "I have a favourite mug that I use every single morning.", "l": "I once won a neighbourhood talent show by juggling five oranges."}, {"c": "Everyday Life", "t1": "I can tie my shoes without looking at them.", "t2": "I have a drawer at home that is full of old cables and chargers.", "l": "I once lived in a house with a secret room behind a bookcase."}, {"c": "Everyday Life", "t1": "I always check the weather before I choose what to wear.", "t2": "I have a habit of humming while I tidy my room.", "l": "I once met a film star at a bus stop and we shared an umbrella."}, {"c": "Everyday Life", "t1": "I have woken up early on purpose just to watch the sunrise.", "t2": "I keep a notebook by my bed for ideas that come at night.", "l": "I once slept for twenty hours straight and missed a whole day."}, {"c": "Everyday Life", "t1": "I have planted seeds and watched them grow into flowers.", "t2": "I like to take the long way home when the weather is nice.", "l": "I once built a treehouse with a working doorbell."}, {"c": "Everyday Life", "t1": "I have a playlist that I only listen to when it rains.", "t2": "I always read the last page of a book first, just to check the ending.", "l": "I once swam across a lake before breakfast."}, {"c": "Everyday Life", "t1": "I have kept the same wallet for more than five years.", "t2": "I enjoy doing jigsaw puzzles on quiet evenings.", "l": "I once owned a parrot that could say my full name."}, {"c": "Everyday Life", "t1": "I have rearranged my bedroom furniture more than three times.", "t2": "I like to write shopping lists on paper, even though I own a phone.", "l": "I once found a four-leaf clover on my very first try."}, {"c": "Everyday Life", "t1": "I have a favourite bench in a park near my home.", "t2": "I always carry a spare pen in my bag, just in case.", "l": "I once rode in a hot-air balloon over my own street."}, {"c": "Everyday Life", "t1": "I have watched the same film more than ten times.", "t2": "I prefer to wake up without an alarm whenever I can.", "l": "I once won a raffle prize on the first ticket I ever bought."}, {"c": "Everyday Life", "t1": "I have a plant on my windowsill that I water every Sunday.", "t2": "I like to wear odd socks on purpose sometimes.", "l": "I once stayed awake for two whole nights in a row."}, {"c": "Everyday Life", "t1": "I have baked bread from scratch at least once.", "t2": "I always double-check that I locked the door when I leave.", "l": "I once had a job delivering newspapers on a unicycle."}, {"c": "Everyday Life", "t1": "I have a photograph on my wall from a trip I loved.", "t2": "I enjoy listening to the rain while I read a book.", "l": "I once climbed to the top of a lighthouse in a thunderstorm."}, {"c": "Food", "t1": "I have eaten ice cream for breakfast at least once.", "t2": "I always add extra cheese to my pasta.", "l": "I once ate a whole watermelon by myself in one sitting."}, {"c": "Food", "t1": "I can make pancakes without looking at a recipe.", "t2": "I have a favourite soup that I cook whenever I feel tired.", "l": "I once won an eating contest at a village fair."}, {"c": "Food", "t1": "I have tried cooking a dish from another country.", "t2": "I like my toast very dark and crunchy.", "l": "I once grew a pumpkin that weighed more than I do."}, {"c": "Food", "t1": "I have eaten breakfast foods for dinner on purpose.", "t2": "I always save the best bite of a meal for last.", "l": "I once baked a birthday cake with seven layers."}, {"c": "Food", "t1": "I have picked strawberries straight from a field.", "t2": "I enjoy trying a new fruit whenever I see one in a shop.", "l": "I once drank a smoothie made from twenty different fruits."}, {"c": "Food", "t1": "I have made my own pizza dough from scratch.", "t2": "I like to put crisps inside my sandwiches.", "l": "I once ate at a restaurant that served dinner in the dark."}, {"c": "Food", "t1": "I have a secret ingredient that I add to scrambled eggs.", "t2": "I always eat the filling of a biscuit before the biscuit itself.", "l": "I once cooked a meal for fifty people all by myself."}, {"c": "Food", "t1": "I have eaten noodles with chopsticks without dropping a single one.", "t2": "I like to dip chips into ice cream.", "l": "I once found a pearl inside an oyster at dinner."}, {"c": "Food", "t1": "I have grown herbs on a kitchen windowsill.", "t2": "I always smell my food before I take the first bite.", "l": "I once ate the spiciest chilli in the world and did not even blink."}, {"c": "Food", "t1": "I have made jam from fruit I picked myself.", "t2": "I prefer salty snacks to sweet ones.", "l": "I once baked cookies shaped like every animal in a zoo."}, {"c": "Food", "t1": "I have eaten a meal cooked entirely over a campfire.", "t2": "I like to eat my cereal dry, straight from the box.", "l": "I once drank hot chocolate made with a whole bar of chocolate."}, {"c": "Food", "t1": "I have tried a food I could not pronounce.", "t2": "I always finish the vegetables on my plate first.", "l": "I once ate breakfast on a boat in the middle of a lake."}, {"c": "Food", "t1": "I have made lemonade from real lemons.", "t2": "I enjoy eating leftovers cold the next day.", "l": "I once won a prize for the tallest sandwich ever built."}, {"c": "Travel", "t1": "I have watched a sunset from a beach.", "t2": "I once got lost in a new city and found my way back by asking a stranger.", "l": "I once rode a camel across a desert for three days."}, {"c": "Travel", "t1": "I have taken a photograph of a famous landmark.", "t2": "I like to collect small souvenirs from places I visit.", "l": "I once slept overnight in an airport by choice."}, {"c": "Travel", "t1": "I have crossed a river on a small ferry.", "t2": "I enjoy trying the local food whenever I travel.", "l": "I once climbed a mountain wearing sandals."}, {"c": "Travel", "t1": "I have visited a museum in another town.", "t2": "I always pack a book for a long journey.", "l": "I once travelled to five countries in a single week."}, {"c": "Travel", "t1": "I have seen snow fall in a place I was visiting.", "t2": "I like to walk around a new place instead of taking a taxi.", "l": "I once swam with dolphins in the open sea."}, {"c": "Travel", "t1": "I have stayed in a house with a view of the sea.", "t2": "I always learn how to say hello in the local language.", "l": "I once rode on the roof of a train through the mountains."}, {"c": "Travel", "t1": "I have watched fireworks over a harbour.", "t2": "I enjoy visiting markets when I travel.", "l": "I once spent a night in a castle that was said to be haunted."}, {"c": "Travel", "t1": "I have taken a train journey that lasted more than six hours.", "t2": "I like to send postcards from places I visit.", "l": "I once missed a flight because I was watching penguins."}, {"c": "Travel", "t1": "I have walked across a long bridge on foot.", "t2": "I always take a photograph of the first meal I eat on a trip.", "l": "I once sailed on a ship for ten days without seeing land."}, {"c": "Travel", "t1": "I have visited a village with no cars at all.", "t2": "I enjoy hiking up hills to see the view from the top.", "l": "I once rode an elephant to school for a whole week."}, {"c": "Travel", "t1": "I have seen a waterfall up close.", "t2": "I like to keep a travel diary with ticket stubs inside.", "l": "I once flew in a plane with only three other passengers."}, {"c": "Travel", "t1": "I have eaten breakfast in a different country from where I had dinner.", "t2": "I always bring back a small gift for someone at home.", "l": "I once stayed in a hotel room shaped like a giant shoe."}, {"c": "Travel", "t1": "I have watched the sun rise over a mountain lake.", "t2": "I enjoy riding bicycles around new towns.", "l": "I once crossed a desert on a bicycle with one wheel."}, {"c": "School", "t1": "I once forgot my homework and had to explain it to my teacher.", "t2": "I have a favourite subject that I would happily study all day.", "l": "I once finished a whole textbook in a single weekend."}, {"c": "School", "t1": "I have raised my hand to answer a question and then forgotten what I wanted to say.", "t2": "I always sharpen my pencils before a test.", "l": "I once won a spelling competition without studying at all."}, {"c": "School", "t1": "I have sat next to my best friend in class.", "t2": "I enjoy group projects more than working alone.", "l": "I once taught a lesson to my class because the teacher was away."}, {"c": "School", "t1": "I have drawn pictures in the margins of my notebook.", "t2": "I like to read during break time.", "l": "I once scored full marks on every test in a whole year."}, {"c": "School", "t1": "I have forgotten my lunch money and borrowed some from a friend.", "t2": "I always write the date at the top of my page.", "l": "I once built a working robot for a school science fair."}, {"c": "School", "t1": "I have played a sport at school, even if I was not very good at it.", "t2": "I enjoy school trips more than ordinary school days.", "l": "I once read fifty books in one school term."}, {"c": "School", "t1": "I have a teacher whose lessons I still remember clearly.", "t2": "I like to use coloured pens to make my notes prettier.", "l": "I once wrote a poem that was printed in a real newspaper."}, {"c": "School", "t1": "I have fallen asleep during a lesson at least once.", "t2": "I always pack my bag the night before school.", "l": "I once solved a maths problem that nobody else in the class could solve."}, {"c": "School", "t1": "I have sung in a school concert.", "t2": "I enjoy the smell of a new book at the start of term.", "l": "I once played the lead role in a school play after one rehearsal."}, {"c": "School", "t1": "I have a subject I find really hard, no matter how much I practise.", "t2": "I like to sit near the window in class.", "l": "I once memorised a hundred digits of pi for fun."}, {"c": "School", "t1": "I have helped a classmate understand a tricky topic.", "t2": "I always check my timetable twice on Monday mornings.", "l": "I once won a chess tournament against my headteacher."}, {"c": "School", "t1": "I have eaten lunch in the classroom on a rainy day.", "t2": "I enjoy art lessons because I can make a mess.", "l": "I once gave a speech in front of the whole school without any notes."}, {"c": "School", "t1": "I have a school memory that still makes me laugh.", "t2": "I like to decorate my locker or desk with pictures.", "l": "I once finished my exams a whole hour early and still got top marks."}, {"c": "Animals", "t1": "I have stroked a cat that purred so loudly I could hear it across the room.", "t2": "I once watched ducklings follow their mother across a park.", "l": "I once taught a goldfish to swim through a hoop."}, {"c": "Animals", "t1": "I have seen a fox in my garden at night.", "t2": "I enjoy watching birds from my window.", "l": "I once rode a horse backwards around a field."}, {"c": "Animals", "t1": "I have fed bread to ducks at a pond.", "t2": "I like the sound of a dog snoring.", "l": "I once shared a tent with a friendly raccoon."}, {"c": "Animals", "t1": "I have held a rabbit in my arms.", "t2": "I once watched a spider build a web over a whole night.", "l": "I once had a pet snake that slept in my bed."}, {"c": "Animals", "t1": "I have seen a deer in the wild.", "t2": "I enjoy listening to frogs croak in the evening.", "l": "I once raced a tortoise and lost."}, {"c": "Animals", "t1": "I have watched bees visiting flowers in a garden.", "t2": "I once found a ladybird and let it walk on my hand.", "l": "I once milked a cow on a school trip to a farm."}, {"c": "Animals", "t1": "I have seen a peacock spread its feathers.", "t2": "I like to watch fish swimming in an aquarium.", "l": "I once shook hands with a monkey at a zoo."}, {"c": "Animals", "t1": "I have heard an owl hooting at night.", "t2": "I once followed a trail of ants to find their nest.", "l": "I once adopted a penguin and visited it every weekend."}, {"c": "Animals", "t1": "I have patted a goat at a farm.", "t2": "I enjoy watching squirrels run along fences.", "l": "I once trained a chicken to come when I called its name."}, {"c": "Animals", "t1": "I have seen a hedgehog in a garden.", "t2": "I once watched a butterfly land on my shoulder.", "l": "I once swam in a lake with a friendly otter."}, {"c": "Animals", "t1": "I have listened to a cat purring while it slept on my lap.", "t2": "I enjoy the way dogs tilt their heads when they are curious.", "l": "I once found a baby bird and raised it until it could fly."}, {"c": "Animals", "t1": "I have watched a snail cross a path, slowly but surely.", "t2": "I once saw a bat flying at dusk.", "l": "I once rode a donkey all the way to a beach."}, {"c": "Animals", "t1": "I have fed carrots to a horse.", "t2": "I like to watch kittens chasing their own tails.", "l": "I once had a pet crab that escaped and hid in my shoes."}];
+var ttDeck=[];
+var ttLastFilter=null;
+var ttCurrent=null;
+var ttRevealed=false;
+function ttShuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}}
+function ttPool(){
+  var cat=document.getElementById("tt-category").value;
+  var pool=[];
+  for(var i=0;i<TRIPLES.length;i++){
+    if(cat==="All"||TRIPLES[i].c===cat){pool.push(i);}
+  }
+  return {cat:cat,pool:pool};
+}
+function ttDraw(){
+  var p=ttPool();
+  var msg=document.getElementById("tt-msg");
+  if(p.pool.length===0){document.getElementById("tt-triple").textContent="";msg.textContent="No triples in this category yet — try another one.";ttCurrent=null;return;}
+  if(p.cat!==ttLastFilter){ttDeck=p.pool.slice();ttShuffle(ttDeck);ttLastFilter=p.cat;}
+  if(ttDeck.length===0){
+    ttDeck=p.pool.slice();ttShuffle(ttDeck);
+    msg.textContent="You have seen them all — shuffling a fresh deck.";
+  } else {
+    msg.textContent="";
+  }
+  var idx=ttDeck.pop();
+  var t=TRIPLES[idx];
+  var items=[{s:t.t1,lie:false},{s:t.t2,lie:false},{s:t.l,lie:true}];
+  ttShuffle(items);
+  ttCurrent=items;
+  ttRevealed=false;
+  ttShow();
+}
+function ttShow(){
+  var box=document.getElementById("tt-triple");
+  if(!ttCurrent){box.textContent="";return;}
+  var out="<ol>";
+  for(var i=0;i<ttCurrent.length;i++){
+    var mark=(ttRevealed&&ttCurrent[i].lie)?" — THE LIE":"";
+    out+="<li>"+ttCurrent[i].s+mark+"</li>";
+  }
+  out+="</ol>";
+  box.innerHTML=out;
+}
+function ttReveal(){
+  var msg=document.getElementById("tt-msg");
+  if(!ttCurrent){msg.textContent="Deal a triple first, then reveal the lie.";return;}
+  if(ttRevealed){msg.textContent="The lie is already revealed — deal a new triple for the next round.";return;}
+  ttRevealed=true;
+  ttShow();
+  msg.textContent="The lie is marked above. Did anyone guess it?";
+}
+document.getElementById("tt-draw").addEventListener("click",ttDraw);
+document.getElementById("tt-reveal").addEventListener("click",ttReveal);
+
+</script>
+</body>
+</html>

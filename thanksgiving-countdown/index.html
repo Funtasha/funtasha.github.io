@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thanksgiving Countdown | Funtasha</title>
+<meta name="description" content="Live countdown to Thanksgiving in the United States — the fourth Thursday of November — showing days, hours, minutes and seconds left, plus gathering ideas.">
+<link rel="canonical" href="https://funtasha.github.io/thanksgiving-countdown/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thanksgiving Countdown">
+<meta property="og:description" content="Count down to the next Thanksgiving, the fourth Thursday of November.">
+<meta property="og:url" content="https://funtasha.github.io/thanksgiving-countdown/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.cd{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.cd div{background:#fff;border-radius:10px;padding:10px 14px;text-align:center;min-width:70px;flex:1}
+.cd b{display:block;font-size:26px;color:#db2777}
+.cd span{font-size:13px;color:#64748b}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When is Thanksgiving?", "acceptedAnswer": {"@type": "Answer", "text": "Thanksgiving in the United States falls on the fourth Thursday of November. The countdown at the top of this page shows the next one and the time left until it begins."}}, {"@type": "Question", "name": "Why does the date change every year?", "acceptedAnswer": {"@type": "Answer", "text": "Because the rule is a weekday rule, not a fixed date. The fourth Thursday of November can land anywhere from 22 November to 28 November, depending on where the Thursdays fall that year."}}, {"@type": "Question", "name": "What time does the countdown end?", "acceptedAnswer": {"@type": "Answer", "text": "The countdown ends at midnight local time at the start of Thanksgiving, so it reaches zero just as the day begins."}}, {"@type": "Question", "name": "How early should I start planning?", "acceptedAnswer": {"@type": "Answer", "text": "A few weeks ahead is plenty for a family gathering. Confirm guests first, then share out the dishes, and leave the table and seating until the day before."}}, {"@type": "Question", "name": "What can I do to keep the day relaxed?", "acceptedAnswer": {"@type": "Answer", "text": "Share the cooking, keep the schedule loose, and plan one unhurried activity after the meal, such as a walk or a board game. A relaxed host makes a relaxed gathering."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Thanksgiving Countdown</h1>
+<p class="answer">Thanksgiving in the United States falls on the fourth Thursday of November, and this live countdown shows the days, hours, minutes and seconds left until the next one. Start planning the gathering while there is still plenty of time.</p>
+<div class="calc">
+<div class="cd">
+<div><b id="cd-days">0</b><span>days</span></div>
+<div><b id="cd-hours">0</b><span>hours</span></div>
+<div><b id="cd-mins">0</b><span>minutes</span></div>
+<div><b id="cd-secs">0</b><span>seconds</span></div>
+</div>
+<p class="steps" id="cd-target"></p>
+<p class="steps" id="cd-today"></p>
+</div>
+<div class="warn">This countdown follows the United States date — the fourth Thursday of November — and runs on your device&#x27;s clock and time zone.</div>
+<h2>How the date is worked out</h2>
+<p>Thanksgiving does not fall on a fixed date. The rule is the <strong>fourth Thursday of November</strong>. To find it, take the first Thursday of November and count forward three more Thursdays. That is why the date moves a little from year to year, landing somewhere between 22 November and 28 November.</p><p>The countdown above works the rule out for you. It finds the fourth Thursday of November in the current year, and once that day has passed it rolls forward to the fourth Thursday of the next November. The target is midnight at the start of the day, in your local time, so the countdown reaches zero just as Thanksgiving begins.</p><p>If you are planning travel or a shared meal, the same rule lets you work out any future Thanksgiving with a calendar: open November, find the first Thursday, and count to the fourth.</p>
+<h2>Planning the gathering</h2>
+<p>A good Thanksgiving is mostly good planning. The meal gets the attention, but the day feels easy when the small things are sorted early: who is coming, who is bringing what, and where everyone will sit.</p><ul><li><strong>Confirm the guest list early.</strong> Knowing the numbers shapes everything else, from the size of the table to the amount of food.</li><li><strong>Share the cooking.</strong> Ask each guest to bring one dish — it lightens the load and puts more variety on the table.</li><li><strong>Plan the table, not just the food.</strong> Seats, plates, glasses and a spare chair or two are worth sorting the day before.</li><li><strong>Leave room for gratitude.</strong> A moment when everyone shares one thing they are thankful for is a simple tradition that suits any gathering.</li><li><strong>Keep the day relaxed.</strong> A walk after the meal, a board game, or a quiet hour helps everyone enjoy the day instead of rushing through it.</li></ul><p>And if the countdown still shows many weeks, that is the best time to start: the guests, the menu and the travel all get easier with a little lead time.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>When is Thanksgiving?</h3><p>Thanksgiving in the United States falls on the fourth Thursday of November. The countdown at the top of this page shows the next one and the time left until it begins.</p></div><div class="faq"><h3>Why does the date change every year?</h3><p>Because the rule is a weekday rule, not a fixed date. The fourth Thursday of November can land anywhere from 22 November to 28 November, depending on where the Thursdays fall that year.</p></div><div class="faq"><h3>What time does the countdown end?</h3><p>The countdown ends at midnight local time at the start of Thanksgiving, so it reaches zero just as the day begins.</p></div><div class="faq"><h3>How early should I start planning?</h3><p>A few weeks ahead is plenty for a family gathering. Confirm guests first, then share out the dishes, and leave the table and seating until the day before.</p></div><div class="faq"><h3>What can I do to keep the day relaxed?</h3><p>Share the cooking, keep the schedule loose, and plan one unhurried activity after the meal, such as a walk or a board game. A relaxed host makes a relaxed gathering.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../christmas-countdown/">Christmas Countdown</a> · <a href="../new-year-countdown/">New Year Countdown</a> · <a href="../halloween-countdown/">Halloween Countdown</a> · <a href="../valentines-day-countdown/">Valentine&#x27;s Day Countdown</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+var MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
+var DAYNAMES=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+function isLeap(y){return (y%4===0&&y%100!==0)||y%400===0;}
+function fmt(d){return DAYNAMES[d.getDay()]+", "+d.getDate()+" "+MONTHS[d.getMonth()]+" "+d.getFullYear();}
+function targetForYear(y){
+  var first=new Date(y,10,1);
+  var offset=(4-first.getDay()+7)%7;
+  return new Date(y,10,1+offset+21);
+}
+function nextTarget(now){
+  var t=targetForYear(now.getFullYear());
+  if(t<=now){t=targetForYear(now.getFullYear()+1);}
+  return t;
+}
+function isToday(now){
+  var t=targetForYear(now.getFullYear());
+  return t.getFullYear()===now.getFullYear()&&t.getMonth()===now.getMonth()&&t.getDate()===now.getDate();
+}
+function render(){
+  var now=new Date();
+  var t=nextTarget(now);
+  var diff=t-now;
+  if(diff<0){diff=0;}
+  var days=Math.floor(diff/86400000);
+  var hours=Math.floor(diff%86400000/3600000);
+  var mins=Math.floor(diff%3600000/60000);
+  var secs=Math.floor(diff%60000/1000);
+  document.getElementById("cd-days").textContent=days;
+  document.getElementById("cd-hours").textContent=hours;
+  document.getElementById("cd-mins").textContent=mins;
+  document.getElementById("cd-secs").textContent=secs;
+  document.getElementById("cd-target").textContent="Next: "+fmt(t)+" at midnight, your local time.";
+  var today=document.getElementById("cd-today");
+  if(isToday(now)){today.textContent="It is Thanksgiving today \u2014 enjoy the gathering, and the countdown above is already looking ahead to next year.";}
+  else{today.textContent="";}
+}
+render();
+setInterval(render,1000);
+</script>
+</body>
+</html>

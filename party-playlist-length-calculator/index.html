@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Party Playlist Length Calculator | Funtasha</title>
+<meta name="description" content="Work out how many songs your party playlist needs — enter the party length and average song length, and get the count rounded up, plus a buffer and a checklist.">
+<link rel="canonical" href="https://funtasha.github.io/party-playlist-length-calculator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Party Playlist Length Calculator">
+<meta property="og:description" content="How many songs your party playlist needs, rounded up, with a buffer.">
+<meta property="og:url" content="https://funtasha.github.io/party-playlist-length-calculator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many songs do I need for a three-hour party?", "acceptedAnswer": {"@type": "Answer", "text": "At an average of three and a half minutes per song, a three-hour party needs 52 songs — 180 minutes divided by 3.5, rounded up — plus a few extra as a buffer."}}, {"@type": "Question", "name": "Why does the result round up?", "acceptedAnswer": {"@type": "Answer", "text": "Because half a song still needs a song to fill the time — rounding down would leave the last minutes of the party with no music."}}, {"@type": "Question", "name": "What is the buffer for?", "acceptedAnswer": {"@type": "Answer", "text": "The buffer is about ten percent extra, in case guests arrive early, the dancing starts sooner than expected, or a song gets skipped — if you do not need the extra songs, they simply stay unplayed."}}, {"@type": "Question", "name": "Can I change the average song length?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — the average starts at three and a half minutes, but it is an assumption you can change to match your own playlist, and the count updates to match."}}, {"@type": "Question", "name": "Does this count speeches or quiet time?", "acceptedAnswer": {"@type": "Answer", "text": "No — the calculator counts music for the full party length you enter, so if part of the party has no music, enter only the hours when music will play."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Party Playlist Length Calculator</h1>
+<p class="answer">Enter your party length and the average song length, and this calculator tells you how many songs your playlist needs, rounded up, with a buffer on top. The average starts at three and a half minutes, and you can change it to match your own playlist.</p>
+<div class="calc">
+<label for="party-hours">Party length (hours)</label>
+<input id="party-hours" type="number" min="0" step="0.5" placeholder="For example 3">
+<label for="song-length">Average song length (minutes)</label>
+<input id="song-length" type="number" min="0" step="0.1" value="3.5">
+<button id="pl-btn" type="button">How many songs?</button>
+<p class="out" id="pl-out"></p>
+<p class="steps" id="pl-steps"></p>
+</div>
+<h2>How the maths works</h2>
+<p>The calculator turns your party length into minutes, divides by the average song length, and rounds up — because half a song still needs a song to fill the time. A three-hour party at an average of three and a half minutes per song needs 52 songs, since 180 minutes divided by 3.5 is just over 51. The average is an assumption you can change: if your playlist leans towards long dance tracks, raise it; if it is full of short pop songs, lower it, and the count updates to match.</p>
+<h2>The buffer: why extra songs help</h2>
+<p>The result adds a buffer of about ten percent on top of the songs you need, because real parties rarely run to plan. Guests arrive early, the dancing starts sooner than expected, or a song gets skipped — and a playlist that runs out before the party ends is an awkward silence nobody wants. The buffer gives you room to breathe: if you do not need the extra songs, they simply stay unplayed, and if you do, they are already there.</p>
+<div class="warn">The average song length is an assumption you can change — the result is only as good as the average you enter, so adjust it to match your own playlist.</div>
+<h2>Playlist planning checklist</h2>
+<ul>
+<li>Build the playlist a day or two early, so you are not rushing on the day.</li>
+<li>Mix fast and slow songs, and put the crowd favourites where the energy peaks.</li>
+<li>Download the playlist or check your connection before the party starts, so a weak signal cannot stop the music.</li>
+<li>Keep a charger and a backup speaker nearby, in case the main one runs out.</li>
+<li>Ask a friend to keep an eye on the music, so you can enjoy the party instead of watching the playlist.</li>
+</ul>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How many songs do I need for a three-hour party?</h3><p>At an average of three and a half minutes per song, a three-hour party needs 52 songs — 180 minutes divided by 3.5, rounded up — plus a few extra as a buffer.</p></div><div class="faq"><h3>Why does the result round up?</h3><p>Because half a song still needs a song to fill the time — rounding down would leave the last minutes of the party with no music.</p></div><div class="faq"><h3>What is the buffer for?</h3><p>The buffer is about ten percent extra, in case guests arrive early, the dancing starts sooner than expected, or a song gets skipped — if you do not need the extra songs, they simply stay unplayed.</p></div><div class="faq"><h3>Can I change the average song length?</h3><p>Yes — the average starts at three and a half minutes, but it is an assumption you can change to match your own playlist, and the count updates to match.</p></div><div class="faq"><h3>Does this count speeches or quiet time?</h3><p>No — the calculator counts music for the full party length you enter, so if part of the party has no music, enter only the hours when music will play.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../party-drinks-calculator/">Party Drinks Calculator</a> · <a href="../helium-balloon-calculator/">Helium Balloon Calculator</a> · <a href="../birthday-party-theme-generator/">Birthday Party Theme Generator</a> · <a href="../minute-to-win-it-games-list/">Minute to Win It Games</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+(function(){
+  document.getElementById('pl-btn').addEventListener('click', function(){
+    var hours = parseFloat(document.getElementById('party-hours').value);
+    var avg = parseFloat(document.getElementById('song-length').value);
+    var out = document.getElementById('pl-out');
+    var steps = document.getElementById('pl-steps');
+    if (isNaN(hours) || hours <= 0) { out.textContent = 'Enter a party length above zero, like 3 hours.'; steps.textContent = ''; return; }
+    if (hours > 24) { out.textContent = 'Please enter 24 hours or fewer.'; steps.textContent = ''; return; }
+    if (isNaN(avg) || avg <= 0) { out.textContent = 'Enter an average song length above zero, like 3.5 minutes.'; steps.textContent = ''; return; }
+    if (avg > 60) { out.textContent = 'Please enter an average song length of 60 minutes or less.'; steps.textContent = ''; return; }
+    var minutes = hours * 60;
+    var exact = minutes / avg;
+    var songs = Math.ceil(exact);
+    var buffer = Math.ceil(songs * 0.1);
+    var total = songs + buffer;
+    out.textContent = 'You need ' + songs + ' songs, plus ' + buffer + ' extra as a buffer — plan for ' + total + ' songs in total.';
+    steps.textContent = 'Party length: ' + hours + ' hours = ' + minutes + ' minutes\n' + minutes + ' ÷ ' + avg + ' minutes per song = ' + exact.toFixed(2) + '\nRounded up: ' + songs + ' songs\nBuffer (about 10%): ' + buffer + ' songs\nPlan for: ' + songs + ' + ' + buffer + ' = ' + total + ' songs';
+  });
+})();
+</script>
+</body>
+</html>
