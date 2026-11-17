@@ -47,6 +47,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#
 .btn-dl{width:100%;background:#ea580c;color:#fff;box-shadow:0 10px 20px rgba(234,88,12,.35)}
 .btn-copy{width:100%;background:#fff;color:#ea580c;border:2px solid #fed7aa}
 .hint{font-size:14px;color:#64748b;margin-top:12px}
+.sponsored{margin-top:28px;border-top:2px solid #fecdd3;padding-top:16px;text-align:left}
+.sponsored-label{font-size:12px;color:#94a3b8;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+.sponsored-link{font-size:16px;font-weight:700;color:#0e7490}
 h2.sec{font-size:21px;margin:34px 0 12px}
 .steps{display:grid;grid-template-columns:1fr;gap:12px}
 .step{background:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.9);border-radius:16px;padding:18px;box-shadow:0 10px 22px rgba(30,41,59,.08);cursor:pointer}
@@ -136,6 +139,11 @@ footer{margin-top:36px;font-size:13.5px;color:#64748b;text-align:center}
 <p id="result-hint" class="hint"></p>
 </section>
 
+<section id="sponsored-card" class="sponsored" hidden>
+<p class="sponsored-label">Sponsored</p>
+<a class="sponsored-link" href="https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb" target="_blank" rel="nofollow sponsored noopener">Explore sponsored offers →</a>
+</section>
+
 <h2 class="sec">How it works</h2>
 <div class="steps">
 <div class="step"><span class="num">1</span><h3>Paste the link</h3><p>Copy the link of a public video from Pinterest, Facebook, Instagram, X, Vimeo or Dailymotion and paste it in the box above.</p></div>
@@ -205,14 +213,17 @@ const resultMeta = document.getElementById("result-meta");
 const resultHint = document.getElementById("result-hint");
 const downloadBtn = document.getElementById("download-btn");
 const copyBtn = document.getElementById("copy-btn");
+const sponsoredCard = document.getElementById("sponsored-card");
 
 let currentVideoUrl = "";
 let currentSourceUrl = "";
 let currentIsHls = false;
 
 /* Funtasha Adsterra Smartlink (zone 32317423) — opens in a new tab on
-   each click on the page's own links and action buttons (see the
-   binding at the end of this script); the download never waits for it.
+   each deliberate click on Download, the platform chips and the
+   How-it-works step cards (see the binding at the end of this
+   script), and via the labelled Sponsored card below the result.
+   The download never waits for it.
    (The Popunder script tag was tried first and broke the download: its
    overlay covered the button and the navigation never completed.) */
 const SMARTLINK_URL = "https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb";
@@ -234,6 +245,7 @@ function setStatus(text) {
 }
 function hideResult() {
   resultCard.hidden = true;
+  sponsoredCard.hidden = true;
   currentVideoUrl = "";
   currentSourceUrl = "";
   currentIsHls = false;
@@ -343,6 +355,7 @@ downloadBtn.addEventListener("click", function () {
   } else {
     window.open(currentVideoUrl, "_blank", "noopener");
   }
+  sponsoredCard.hidden = false;
 });
 
 copyBtn.addEventListener("click", async function () {
@@ -365,13 +378,13 @@ copyBtn.addEventListener("click", async function () {
   }
 });
 
-/* Smartlink popunder on every own-link click (owner order 2026-11-17):
-   one ad tab per deliberate click on the brand link, the back link,
-   Download or Copy — plus the platform chips and the How-it-works
-   step cards (owner order 2026-11-17, marked on his screenshots).
-   Ad widgets' own links are untouched, and the Get-video submit is
-   not a link, so it never opens an ad tab. */
-document.querySelectorAll(".brand a, .back a, #download-btn, #copy-btn, .chip, .step").forEach(function (el) {
+/* Smartlink (playbook R3/F11, 2026-11-17): one ad tab per deliberate
+   click on Download, the platform chips and the How-it-works step
+   cards ONLY. Navigation links (.brand a, .back a) and the Copy
+   button carry NO Smartlink — nav and copy taps must never open an
+   ad tab. The Get-video submit is not a link, so it never opens an
+   ad tab either. */
+document.querySelectorAll("#download-btn, .chip, .step").forEach(function (el) {
   el.addEventListener("click", function () {
     window.open(SMARTLINK_URL, "_blank", "noopener");
   });
