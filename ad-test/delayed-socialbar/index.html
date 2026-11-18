@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ad Test — Social Bar Delayed 30s | Funtasha</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fdf2f8;color:#1e293b;line-height:1.65}
+.wrap{max-width:640px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:26px;margin:8px 0 10px}
+p{margin:10px 0;font-size:16px}
+a{color:#db2777;font-weight:700}
+button{min-height:52px;padding:13px 24px;border:none;border-radius:999px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer;background:#ea580c;color:#fff}
+#taplog{font-size:14px;color:#64748b}
+#timer{font-weight:700;color:#b45309}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Test — Social Bar activates after 30 seconds</h1>
+<p>This page carries ONE ad format only: the Social Bar script — but it loads 30 seconds AFTER entry, not on entry. Nothing ad-related runs before the countdown ends.</p>
+<p>Watch at 30 seconds: does ONLY the bar appear (with its close button), or does a new tab open too? If a tab opens, the delay did not stop the hijack — it only delayed it.</p>
+<p><a href="../">← Back to ad test index</a></p>
+<p><button id="tbtn" type="button">Test button — tap me</button></p>
+<p id="taplog">Taps: 0</p>
+<p id="timer">Social Bar activates in 30 seconds.</p>
+</div>
+<script>
+var n = 0;
+document.getElementById("tbtn").addEventListener("click", function () {
+  n++;
+  document.getElementById("taplog").textContent = "Taps: " + n + " — page still here, good.";
+});
+</script>
+<script>
+var left = 30;
+var timerEl = document.getElementById("timer");
+var iv = setInterval(function () {
+  left--;
+  if (left <= 0) {
+    clearInterval(iv);
+    var s = document.createElement("script");
+    s.setAttribute("data-cfasync", "false");
+    s.src = "https://bellnewyork.org/14/385dbe2bd15a5e4d828ec644fc878913";
+    document.body.appendChild(s);
+    timerEl.textContent = "Social Bar activated.";
+  } else {
+    timerEl.textContent = "Social Bar activates in " + left + " seconds.";
+  }
+}, 1000);
+</script>
+</body>
+</html>
