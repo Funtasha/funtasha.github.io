@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Make Puzzles with AI: Crosswords, Word Searches, and Riddles | Funtasha</title>
+<meta name="description" content="Make crosswords, word searches, and riddles with AI, with word-list tips, difficulty levels, printing advice, and 10 ready riddle examples.">
+<link rel="canonical" href="https://funtasha.github.io/ai-puzzle-maker-guide/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Make Puzzles with AI: Crosswords, Word Searches, and Riddles">
+<meta property="og:description" content="Build crosswords, word searches, and riddles with AI, plus 10 ready riddle examples.">
+<meta property="og:url" content="https://funtasha.github.io/ai-puzzle-maker-guide/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>.byline{font-size:14px;color:#64748b;margin:6px 0 0}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What makes a good puzzle word list?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick a clear theme, favour short words, and keep the list to ten or twenty words. Read the list yourself and cross out anything too hard, too obscure, or off-theme."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many words should a word search have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ten to fifteen words is a good size for a family word search. Fewer words make a quick puzzle for young children, and more words make a longer challenge for older solvers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can AI make a crossword grid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI is best at the words and clues. For the grid itself, draw a small grid on paper, place the longest word first, and fit the others around it. Small grids are easier and more fun."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I set the difficulty of a puzzle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use shorter words and simpler clues for younger solvers, and longer words with trickier clues for older ones. Aim for about half easy and half challenging."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make puzzles for a classroom?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Puzzles built around a lesson topic are a wonderful way to review vocabulary and facts, and children enjoy solving a puzzle about something they have just learned."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>How to Make Puzzles with AI: Crosswords, Word Searches, and Riddles</h1>
+<p class="byline">By the Funtasha team · Published 18 November 2026 · Updated 18 November 2026</p>
+<p class="answer">Puzzles are more fun when they are about your own family, your own holiday, or your own classroom. This guide shows you how to build crosswords, word searches, and riddles with AI, plus 10 ready riddle examples to get you started.</p>
+<p>A puzzle about your own life beats a puzzle from a book every time. A crossword with your children's names in it, a word search full of holiday words, a riddle about the family dog — these are the puzzles people actually want to solve, because they are about them.</p>
+<p>AI is a good puzzle partner because it is fast at the boring parts: brainstorming word lists, drafting clues, and checking that everything fits. You bring the theme and the sense of humour. Together, you can make a puzzle in minutes that would take an hour by hand.</p>
+<div class="warn">Check every puzzle before you share it: AI can slip in a misspelled word, a clue with two answers, or a word search missing a word. A quick solve-through yourself is the best quality check.</div>
+<h2>Start with a word list</h2>
+<p>Every puzzle starts with a word list. Pick a theme — animals, a holiday, a school subject, a family trip — and brainstorm ten to twenty words that fit it. Short words are easier to fit into grids, so favour them: CAT beats CATERPILLAR in a crossword, and SUN beats SUNSHINE in a word search.</p>
+<p>Ask AI to help expand the list: <code>Give me 15 short words about [theme] that are suitable for a word search for children aged [age]. Keep each word under 8 letters.</code> Then read the list and cross out anything too hard, too obscure, or off-theme. Your judgement matters more than the tool's output.</p>
+<h2>Crosswords</h2>
+<p>Crosswords are the most satisfying puzzle to make, because the clues are half the fun. Start with five to ten words on a theme, then ask AI to write a clue for each one. Good clues are short, fair, and a little bit playful: "It barks and wags its tail" is better than "A domesticated canine".</p>
+<p>Prompt pattern: <code>Write a simple one-line crossword clue for each of these words, suitable for children aged [age]: [word list]. Keep each clue short and fun.</code></p>
+<p>For the grid itself, keep it small and simple. A five-by-five or seven-by-seven grid with words crossing in the middle is plenty for a family puzzle. Draw the grid on paper, place the longest word first, then fit the others around it. If a word will not fit, swap it for a shorter one rather than forcing it.</p>
+<h2>Word searches</h2>
+<p>Word searches are the easiest puzzle to make and the most forgiving. Pick ten to fifteen words, hide them in a grid of letters, and list them at the bottom for solvers to find. Children love them because the hunt is satisfying and there is no wrong answer — you either find the word or you do not.</p>
+<p>Prompt pattern: <code>Give me 12 words about [theme] for a word search for children aged [age]. Keep each word between 4 and 8 letters long.</code></p>
+<p>When you build the grid, place words in different directions — across, down, and diagonally — and fill the empty squares with random letters. Check that every listed word actually appears in the grid, and that no extra rude or confusing word appears by accident. A quick solve-through catches both problems.</p>
+<h2>Riddles</h2>
+<p>Riddles are puzzles made of words alone, which makes them perfect for car journeys, classrooms, and rainy afternoons. A good riddle describes something familiar in an unfamiliar way, so the answer feels obvious once you hear it — and impossible before.</p>
+<p>Prompt pattern: <code>Write 5 original riddles for children aged [age] about everyday objects. Each riddle should be one or two sentences, with a clear single answer. Do not use riddles from books.</code></p>
+<p>Test every riddle on someone before you share it. If they solve it in two seconds, it is too easy. If they never solve it, the clue is unfair. The sweet spot is a riddle that takes a minute of thinking and then produces a groan of delight.</p>
+<h2>10 ready riddle examples</h2>
+<p>Here are ten riddles, written fresh for this guide. Try them on your family before you peek at the answers.</p>
+<ol>
+<li>"I have a face and two hands, but no arms and no legs. What am I?" — A clock.</li>
+<li>"The more of me you take, the more you leave behind. What am I?" — Footsteps.</li>
+<li>"I can be cracked, made, told, and played. What am I?" — A joke.</li>
+<li>"What has a neck but no head?" — A bottle.</li>
+<li>"What runs all day but never gets tired?" — A river.</li>
+<li>"What has teeth but never bites?" — A comb.</li>
+<li>"I am full of holes but I can still hold water. What am I?" — A sponge.</li>
+<li>"What gets wetter the more it dries?" — A towel.</li>
+<li>"What can you catch but never throw?" — A cold.</li>
+<li>"What has many keys but cannot open a single lock?" — A piano.</li>
+</ol>
+<h2>Difficulty levels</h2>
+<p>Match the difficulty to the solver. For young children, use short words, simple clues, and small grids. For older children and adults, use longer words, trickier clues, and bigger grids. The goal is a puzzle that stretches the solver without frustrating them.</p>
+<p>A useful rule: about half the puzzle should feel easy, and half should make the solver pause and think. If everything is easy, it is boring. If everything is hard, it is a chore. Mix a few quick wins with a few head-scratchers, and the solver will keep going to the end.</p>
+<h2>Printing and sharing</h2>
+<p>Print puzzles on plain paper, one per page, with the word list or clues clearly laid out and plenty of white space for writing. Include the answers upside down at the bottom of the page, or on a separate sheet, so solvers can check themselves without spoiling the fun.</p>
+<p>Puzzles make lovely party favours, classroom handouts, and travel activities. Print a set for a car journey, a rainy afternoon, or a family gathering, and watch how quickly a room goes quiet when everyone is hunting for the last word.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>What makes a good puzzle word list?</h3>
+<p>Pick a clear theme, favour short words, and keep the list to ten or twenty words. Read the list yourself and cross out anything too hard, too obscure, or off-theme.</p>
+</div>
+<div class="faq">
+<h3>How many words should a word search have?</h3>
+<p>Ten to fifteen words is a good size for a family word search. Fewer words make a quick puzzle for young children, and more words make a longer challenge for older solvers.</p>
+</div>
+<div class="faq">
+<h3>Can AI make a crossword grid?</h3>
+<p>AI is best at the words and clues. For the grid itself, draw a small grid on paper, place the longest word first, and fit the others around it. Small grids are easier and more fun.</p>
+</div>
+<div class="faq">
+<h3>How do I set the difficulty of a puzzle?</h3>
+<p>Use shorter words and simpler clues for younger solvers, and longer words with trickier clues for older ones. Aim for about half easy and half challenging.</p>
+</div>
+<div class="faq">
+<h3>Can I make puzzles for a classroom?</h3>
+<p>Yes. Puzzles built around a lesson topic are a wonderful way to review vocabulary and facts, and children enjoy solving a puzzle about something they have just learned.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../ai-quiz-night-ideas/">AI Quiz Night Ideas</a> · <a href="../ai-scavenger-hunt-ideas/">How to Plan a Scavenger Hunt with AI</a> · <a href="../ai-family-game-night-ideas/">AI Family Game Night Ideas</a> · <a href="../ai-coloring-pages-guide/">How to Make AI Coloring Pages for Kids</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+</body>
+</html>
