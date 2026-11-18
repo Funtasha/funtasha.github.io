@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ad Test — Banner Time Limit | Funtasha</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fdf2f8;color:#1e293b;line-height:1.65}
+.wrap{max-width:640px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:26px;margin:8px 0 10px}
+p{margin:10px 0;font-size:16px}
+a{color:#db2777;font-weight:700}
+button{min-height:52px;padding:13px 24px;border:none;border-radius:999px;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer;background:#ea580c;color:#fff}
+.ad-slot{margin:22px auto 0;text-align:center}
+.ad-label{font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+#taplog{font-size:14px;color:#64748b}
+#timer{font-weight:700;color:#b45309}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Test — Banner with a 10-second time limit</h1>
+<p>This page carries ONE ad format only: the Banner (300x250), with a time limit — the ad is removed from the page after 10 seconds.</p>
+<p>Watch: does a new tab open BEFORE the 10 seconds run out? If yes, the time limit cannot stop the hijack.</p>
+<p><a href="../">← Back to ad test index</a></p>
+<p><button id="tbtn" type="button">Test button — tap me</button></p>
+<p id="taplog">Taps: 0</p>
+<p id="timer">Ad removes in 10 seconds.</p>
+<div class="ad-slot">
+<p class="ad-label">Advertisement</p>
+<script>
+  atOptions = {
+    'key' : 'e20e1e6290f4c44ca541c648438aec5e',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://bellnewyork.org/22/e20e1e6290f4c44ca541c648438aec5e"></script>
+</div>
+</div>
+<script>
+var n = 0;
+document.getElementById("tbtn").addEventListener("click", function () {
+  n++;
+  document.getElementById("taplog").textContent = "Taps: " + n + " — page still here, good.";
+});
+</script>
+<script>
+var left = 10;
+var timerEl = document.getElementById("timer");
+var iv = setInterval(function () {
+  left--;
+  if (left <= 0) {
+    clearInterval(iv);
+    var slot = document.querySelector(".ad-slot");
+    if (slot) slot.remove();
+    timerEl.textContent = "Time limit reached — ad removed.";
+  } else {
+    timerEl.textContent = "Ad removes in " + left + " seconds.";
+  }
+}, 1000);
+</script>
+</body>
+</html>
