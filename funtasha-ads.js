@@ -1,4 +1,6 @@
 /* Funtasha ad slots — Banner ONLY, site-wide.
+ * DISABLED 2026-11-18: all three layers off (owner screen-hijack report).
+ * Re-enable only after the hijack source is diagnosed. Do not flip blindly.
  *
  * Adsterra site funtasha.github.io (site ID 6206009). The Banner
  * 300x250_1 code below (zone 32317565) is the EXACT code Adsterra
@@ -50,7 +52,7 @@
  */
 window.FUNTASHA_ADS = {
   banner: {
-    enabled: true,
+    enabled: false,
     key: 'e20e1e6290f4c44ca541c648438aec5e',
     format: 'iframe',
     height: 250,
@@ -58,11 +60,11 @@ window.FUNTASHA_ADS = {
     src: 'https://bellnewyork.org/22/e20e1e6290f4c44ca541c648438aec5e'
   },
   smartlink: {
-    enabled: true,
+    enabled: false,
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb'
   },
   sponsoredLine: {
-    enabled: true,
+    enabled: false,
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
     label: 'Sponsored',
     text: 'Explore sponsored offers \u2192'
