@@ -27,6 +27,17 @@
  * same session open nothing extra (sessionStorage flag
  * 'funtasha_smartlink_fired', in-memory fallback). /video-downloader/
  * keeps its own settled Smartlink wiring and never loads this file.
+ * Sponsored line (zone 32317423, same Smartlink URL) — ONE labelled
+ * mid-article line, added 2026-11-18 on the owner's word: the loader
+ * inserts a "Sponsored" label + link after the 2nd direct-child H2 of
+ * .wrap, ONLY on article pages (gate: .wrap present, 4+ direct-child
+ * H2s, at least one .faq, no .grid — the hub has no .faq and carries
+ * .grid, so it never fires there). The label is plainly visible; the
+ * line is NEVER disguised as a content/reference link. It has its own
+ * enabled flag and can be killed the same way. A click on the
+ * Sponsored link itself opens the Smartlink URL via its own href, so
+ * the first-click layer skips links already pointing at that URL —
+ * otherwise one tap would open two identical tabs.
  *
  * Display-slot rules: NO artificial delay and NO frequency cap —
  * display inventory, matching the downloader's proven static shape.
@@ -49,6 +60,12 @@ window.FUNTASHA_ADS = {
   smartlink: {
     enabled: true,
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb'
+  },
+  sponsoredLine: {
+    enabled: true,
+    url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
+    label: 'Sponsored',
+    text: 'Explore sponsored offers \u2192'
   }
 };
 
@@ -91,12 +108,61 @@ window.FUNTASHA_ADS = {
       var a = (t && typeof t.closest === 'function') ? t.closest('a') : null;
       if (!a) return;
       if (!a.getAttribute('href')) return;
+      /* A link already pointing at the Smartlink URL (the Sponsored
+       * line's own link) needs no extra tab — it opens that URL
+       * itself. Without this guard one tap would open two tabs. */
+      if (a.href === cfg.url) return;
       window.open(cfg.url, '_blank', 'noopener');
       smartlinkMarkFired();
     });
   }
+  /* Labelled mid-article Sponsored line. Gate: article pages only —
+   * .wrap present, 4+ direct-child H2s, at least one .faq, no .grid.
+   * The hub fails the .faq/.grid checks, so it never fires there.
+   * Direct-child H2s only: H2s nested inside a tool block are never
+   * used as the anchor, so the line can never land inside a tool.
+   * Inserted as a plain block sibling after the 2nd H2, with margins
+   * separating it from content; it covers nothing and intercepts no
+   * content clicks. Single injection per page, guarded by id. */
+  function insertSponsoredLine() {
+    var cfg = (window.FUNTASHA_ADS && window.FUNTASHA_ADS.sponsoredLine) || {};
+    if (!cfg.enabled || !cfg.url) return;
+    if (document.getElementById('funtasha-sponsored-line')) return;
+    var wrap = document.querySelector('.wrap');
+    if (!wrap) return;
+    if (wrap.querySelector('.grid')) return;
+    if (!wrap.querySelector('.faq')) return;
+    var h2s = [];
+    for (var i = 0; i < wrap.children.length; i++) {
+      if (wrap.children[i].tagName === 'H2') h2s.push(wrap.children[i]);
+    }
+    if (h2s.length < 4) return;
+    var anchor = h2s[1];
+    var line = document.createElement('p');
+    line.id = 'funtasha-sponsored-line';
+    line.style.margin = '18px 0';
+    var label = document.createElement('span');
+    label.textContent = cfg.label || 'Sponsored';
+    label.style.fontSize = '11px';
+    label.style.color = '#94a3b8';
+    label.style.textTransform = 'uppercase';
+    label.style.letterSpacing = '1.5px';
+    label.style.marginRight = '8px';
+    label.style.lineHeight = '1.4';
+    var a = document.createElement('a');
+    a.href = cfg.url;
+    a.target = '_blank';
+    a.rel = 'nofollow sponsored noopener';
+    a.textContent = cfg.text || 'Explore sponsored offers \u2192';
+    a.style.color = '#be185d';
+    a.style.fontWeight = '600';
+    line.appendChild(label);
+    line.appendChild(a);
+    anchor.parentNode.insertBefore(line, anchor.nextSibling);
+  }
   function run() {
     bindSmartlink();
+    insertSponsoredLine();
     if (loaded) return;
     loaded = true;
     var cfg = (window.FUNTASHA_ADS && window.FUNTASHA_ADS.banner) || {};
