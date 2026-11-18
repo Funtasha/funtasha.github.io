@@ -1,6 +1,8 @@
-/* Funtasha ad slots — Banner ONLY, site-wide.
- * DISABLED 2026-11-18: all three layers off (owner screen-hijack report).
- * Re-enable only after the hijack source is diagnosed. Do not flip blindly.
+/* Funtasha ad slots — Sponsored Smartlink line ONLY, site-wide.
+ * FINAL STATE 2026-11-18: Banner + Smartlink click-layer PERMANENTLY
+ * OFF (both proven hijackers — see _ad-rules.md). Only the labelled
+ * Sponsored line (deliberate tap, clearly marked) stays on.
+ * Never re-enable banner or click-layer.
  *
  * Adsterra site funtasha.github.io (site ID 6206009). The Banner
  * 300x250_1 code below (zone 32317565) is the EXACT code Adsterra
@@ -64,7 +66,7 @@ window.FUNTASHA_ADS = {
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb'
   },
   sponsoredLine: {
-    enabled: false,
+    enabled: true,
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
     label: 'Sponsored',
     text: 'Explore sponsored offers \u2192'
