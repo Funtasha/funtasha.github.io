@@ -71,8 +71,12 @@
  * same way.
  */
 window.FUNTASHA_ADS = {
+  /* DISABLED 2026-11-19 evening — hijack reported on the owner's
+   * phone the same day the bar went live. The bar stays OFF until
+   * the cause is proven; if the bar is the cause it joins the
+   * banned list with the 300x250. */
   slimBar: {
-    enabled: true,
+    enabled: false,
     key728: '1e834c96ad0944ca4a3e4c9ebdc15738',
     key320: 'f2ef53da18b580853743091a67d7330b',
     host: 'https://bellnewyork.org/22/'
