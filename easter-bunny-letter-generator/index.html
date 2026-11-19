@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Easter Bunny Letter Generator | Funtasha</title>
+<meta name="description" content="Write a personalised letter from the Easter Bunny for a child. Add their name, a good deed and a favourite thing, and get a letter to print and hide.">
+<link rel="canonical" href="https://funtasha.github.io/easter-bunny-letter-generator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Easter Bunny Letter Generator">
+<meta property="og:description" content="A personalised letter from the Easter Bunny, written for one special child.">
+<meta property="og:url" content="https://funtasha.github.io/easter-bunny-letter-generator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.byline{font-size:14px;color:#64748b;margin:6px 0 0}
+.calc button.secondary{background:#fff;color:#db2777;border:2px solid #db2777}
+.letter{background:#fff;border:1px solid #f9a8d4;border-radius:12px;padding:16px;white-space:pre-line;margin-top:14px}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What do I need to write a letter?", "acceptedAnswer": {"@type": "Answer", "text": "Only the child's name. Everything else — age, town, a good deed and a favourite thing — is optional, but each detail you add makes the letter feel more personal."}}, {"@type": "Question", "name": "Can I print the letter?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Press Print letter after the letter is written, and it prints from your browser. You can print it on paper or save it as a file, and it looks lovely on coloured paper."}}, {"@type": "Question", "name": "What if the child cannot read yet?", "acceptedAnswer": {"@type": "Answer", "text": "Read the letter aloud to them on Easter morning and let them hold the paper. Little ones love hearing their name in a letter, even if they cannot read the words themselves."}}, {"@type": "Question", "name": "Can I change the letter after it is written?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Copy the letter and edit it in any text app, or copy it out by hand onto a card. Add a line of your own, a drawing, or a family joke to make it yours."}}, {"@type": "Question", "name": "Is the letter suitable for older children?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The letter is written in a playful tone that works for younger children and amuses older ones. Children aged 9 to 12 often enjoy the joke and keep the letter anyway."}}, {"@type": "Question", "name": "When should I hide the letter?", "acceptedAnswer": {"@type": "Answer", "text": "Hide it the night before Easter, with the eggs, so it is waiting when the children wake up. Tuck it into the Easter basket or lean it against the front door."}}]}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Easter Bunny Letter Generator</h1>
+<p class="byline">By the Funtasha team · Published 19 November 2026 · Updated 19 November 2026</p>
+<p class="answer">Add a child's name, a good thing they did and a favourite thing, and the generator writes a personalised letter from the Easter Bunny. Print it, hide it with the eggs, and watch their face light up on Easter morning.</p>
+<div class="calc">
+<label for="childName">Child's name</label>
+<input id="childName" type="text" maxlength="40" placeholder="For example Mia">
+<label for="childAge">Age (optional)</label>
+<input id="childAge" type="number" min="1" max="16" step="1" placeholder="For example 7">
+<label for="childTown">Town or village (optional)</label>
+<input id="childTown" type="text" maxlength="40" placeholder="For example Willow Lane">
+<label for="goodThing">One good thing they did this year (optional)</label>
+<input id="goodThing" type="text" maxlength="80" placeholder="For example helped Grandma in the garden">
+<label for="favourite">Favourite thing</label>
+<select id="favourite">
+<option value="chocolate eggs">Chocolate eggs</option>
+<option value="egg hunts">Egg hunts</option>
+<option value="spring flowers">Spring flowers</option>
+<option value="hot cross buns">Hot cross buns</option>
+<option value="drawing and crafts">Drawing and crafts</option>
+</select>
+<button type="button" id="letterBtn">Write the letter</button>
+<button type="button" id="copyLetterBtn" class="secondary">Copy letter</button>
+<button type="button" id="printLetterBtn" class="secondary">Print letter</button>
+<p class="out" id="letterOut">Add a name and press the button.</p>
+<div class="letter" id="letterPreview" style="display:none"></div>
+<p class="steps" id="letterMsg"></p>
+</div>
+<h2>How the letter generator works</h2>
+<p>Type in the child's name — that is the only part you must fill in. Then add as much or as little as you like: their age, their town or village, one good thing they did this year, and their favourite thing about Easter. Press Write the letter, and the generator writes a personalised letter from the Easter Bunny, with all of your details woven into it.</p>
+<p>Read the letter in the preview box. If you like it, press Copy letter to copy it, or Print letter to print it straight from your browser. Print it on nice paper if you have it, fold it up, and hide it with the eggs on Easter morning. The letter is written in a warm, playful voice that suits children of all ages — no scares, no tricks, just a bunny who is very pleased to visit.</p>
+<h2>What makes a letter feel personal</h2>
+<p>A letter feels personal when it could only have been written for one child. The name does most of the work, but the small details do the rest: the town where they live, the good thing they did, the thing they love most about Easter. When a child reads their own name beside something they actually did, the letter stops being a piece of paper and becomes a little bit of magic.</p>
+<p>That is why the good deed line matters more than any other box on the page. A letter that says "I heard you helped Grandma in the garden" will be remembered long after a letter that says "you have been a good child". Use something real, something recent, and something the child will recognise as their own. If you cannot think of one, ask yourself what they did last week that made you smile — that is the line to use.</p>
+<h2>Ideas for the good deed line</h2>
+<p>The good deed does not need to be grand. Small, everyday kindnesses are the ones children are proudest of, because they are the ones they chose to do themselves. Think about the last few months and pick the moment that stands out.</p>
+<p>Here are a few ideas to get you started:</p>
+<ul>
+<li>Helped a younger brother or sister with their reading.</li>
+<li>Shared their toys without being asked.</li>
+<li>Helped Grandma in the garden, or Grandpa with the shopping.</li>
+<li>Looked after a friend who was feeling sad at school.</li>
+<li>Kept their room tidy all week, without a single reminder.</li>
+<li>Was brave at the dentist, or patient while waiting for news.</li>
+</ul>
+<p>Write it in your own words, in a few words if you can. The generator fits your line into the letter as it stands, so keep it short and simple.</p>
+<h2>Letters for different ages</h2>
+<p>The same letter works for many ages, but the details change how it lands. For a little one aged 2 to 4, keep it simple: their name, their favourite thing, and a short line about the eggs. Read it aloud to them on Easter morning, and let them hold the paper — the feel of it matters as much as the words.</p>
+<p>For a child aged 5 to 8, the good deed line is the star of the show. They are old enough to read the letter themselves, or to follow along as you read it, and young enough to believe every word. For older children aged 9 to 12, the letter works best with a wink: they may suspect who really wrote it, but they will enjoy the joke and keep the letter anyway. A letter for an older child can be longer and a little funnier — the generator keeps the tone playful for exactly that reason.</p>
+<h2>Printing and hiding the letter</h2>
+<p>Print the letter the night before Easter, so Easter morning runs smoothly. Plain paper works fine, but coloured paper or a little drawing in the margin makes it feel special. Fold the letter in half, or roll it up and tie it with a ribbon if you want a flourish. You can also copy the letter by hand onto a card, if your handwriting is neater than the printer's.</p>
+<p>Hide the letter where the child will find it with the eggs: tucked into the Easter basket, leaning against the front door, or propped up beside the biggest egg. Some families leave it with a few chocolate footprints — a trail of small eggs leading from the door to the basket. Wherever you put it, make sure it is the first thing they see, so the letter sets the scene for the whole morning.</p>
+<h2>The Easter Bunny story</h2>
+<p>The Easter Bunny is a springtime visitor who brings eggs and treats to children on Easter morning. The story is old and simple: while the children sleep, the bunny hops from house to house, hiding eggs in gardens and homes for them to find when they wake. Eggs stand for new life, which is why they belong to a spring festival, and the bunny — quick, soft and full of energy — is spring itself in animal form.</p>
+<p>Every family tells the story a little differently, and that is part of the fun. Some say the bunny paints the eggs, some say it hides chocolate ones, and some say it leaves a letter as well. The generator's letter follows the friendliest version of the story: a kind bunny who notices good deeds, loves spring flowers, and is always delighted to visit. You can add your own family details to the letter after you print it, to make the story yours.</p>
+<h2>Making Easter morning special</h2>
+<p>Easter morning is about the first ten minutes. The children wake up, find the letter, and the hunt begins. Keep it simple: the letter, the basket, and a handful of eggs hidden in easy spots to start with. A big breakfast can wait — the excitement will not.</p>
+<p>After the hunt, slow the morning down. Read the letter aloud together, count the eggs, and let the children tell you about their hardest find. Take a photo of them holding the letter — it is the kind of photo that gets brought out years later. And keep the letter itself: in a drawer, in a scrapbook, or pinned to the fridge for a week. A letter from the Easter Bunny is a small thing, but it is the kind of small thing childhood is made of.</p>
+<div class="warn">Only use a child's name in a letter with a parent or guardian's permission, and never share a letter that names a child in public. The letter is for one family, one morning, and one very lucky child.</div>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>What do I need to write a letter?</h3>
+<p>Only the child's name. Everything else — age, town, a good deed and a favourite thing — is optional, but each detail you add makes the letter feel more personal.</p>
+</div>
+<div class="faq">
+<h3>Can I print the letter?</h3>
+<p>Yes. Press Print letter after the letter is written, and it prints from your browser. You can print it on paper or save it as a file, and it looks lovely on coloured paper.</p>
+</div>
+<div class="faq">
+<h3>What if the child cannot read yet?</h3>
+<p>Read the letter aloud to them on Easter morning and let them hold the paper. Little ones love hearing their name in a letter, even if they cannot read the words themselves.</p>
+</div>
+<div class="faq">
+<h3>Can I change the letter after it is written?</h3>
+<p>Yes. Copy the letter and edit it in any text app, or copy it out by hand onto a card. Add a line of your own, a drawing, or a family joke to make it yours.</p>
+</div>
+<div class="faq">
+<h3>Is the letter suitable for older children?</h3>
+<p>Yes. The letter is written in a playful tone that works for younger children and amuses older ones. Children aged 9 to 12 often enjoy the joke and keep the letter anyway.</p>
+</div>
+<div class="faq">
+<h3>When should I hide the letter?</h3>
+<p>Hide it the night before Easter, with the eggs, so it is waiting when the children wake up. Tuck it into the Easter basket or lean it against the front door.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links">
+<a href="../easter-countdown-2027/">Easter Countdown 2027</a> · <a href="../easter-egg-hunt-game-generator/">Easter Egg Hunt Game Generator</a> · <a href="../easter-egg-hunt-planning-guide/">Easter Egg Hunt Planning Guide</a> · <a href="../ai-bedtime-story-guide/">AI Bedtime Story Guide</a>
+</div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+function validateLetter(d) {
+  var errs = [];
+  if (!d.name || !d.name.trim()) errs.push("Add the child's name so the letter feels personal.");
+  if (d.name && d.name.trim().length > 40) errs.push("Keep the name to 40 characters so it fits the letter nicely.");
+  if (d.age !== "" && d.age !== null && d.age !== undefined) {
+    var a = Number(d.age);
+    if (isNaN(a) || a < 1 || a > 16) errs.push("Age should be a whole number between 1 and 16, or left blank.");
+  }
+  return errs;
+}
+function buildLetter(d) {
+  var name = d.name.trim();
+  var lines = [];
+  lines.push("Dear " + name + ",");
+  lines.push("");
+  lines.push("Happy Easter! The spring flowers are out, the mornings are brighter, and I have been hopping all over the countryside hiding eggs for children who have been kind and helpful this year. You are certainly one of them.");
+  if (d.town && d.town.trim()) {
+    lines.push("I hopped all the way to " + d.town.trim() + " just to visit you, and I hid your eggs in the very best spots I could find.");
+  } else {
+    lines.push("I hopped a very long way just to visit you, and I hid your eggs in the very best spots I could find.");
+  }
+  if (d.goodThing && d.goodThing.trim()) {
+    lines.push("I heard that you " + d.goodThing.trim() + ". That made my bunny ears wiggle with happiness. Kindness like that is worth more than all the chocolate in the world.");
+  } else {
+    lines.push("I heard that you have been kind and helpful this year. That made my bunny ears wiggle with happiness. Kindness like that is worth more than all the chocolate in the world.");
+  }
+  var fav = d.favourite || "chocolate eggs";
+  lines.push("I know how much you love " + fav + ", so I made sure there are plenty waiting for you. Look high, look low, and look behind the things you walk past every day.");
+  if (d.age !== "" && d.age !== null && d.age !== undefined && !isNaN(Number(d.age))) {
+    lines.push("Being " + Number(d.age) + " is a wonderful age for an egg hunt. You are old enough to find the tricky ones and young enough to believe in a bunny who writes letters.");
+  }
+  lines.push("Have a wonderful Easter morning, share your eggs with the people you love, and remember that spring always comes back, just like I do.");
+  lines.push("");
+  lines.push("With love,");
+  lines.push("The Easter Bunny");
+  return lines.join("\n");
+}
+if (typeof document !== "undefined") {
+  var nameEl = document.getElementById("childName");
+  var ageEl = document.getElementById("childAge");
+  var townEl = document.getElementById("childTown");
+  var goodEl = document.getElementById("goodThing");
+  var favEl = document.getElementById("favourite");
+  var outEl = document.getElementById("letterOut");
+  var prevEl = document.getElementById("letterPreview");
+  var msgEl = document.getElementById("letterMsg");
+  var current = "";
+  document.getElementById("letterBtn").addEventListener("click", function () {
+    var data = { name: nameEl.value, age: ageEl.value, town: townEl.value, goodThing: goodEl.value, favourite: favEl.value };
+    var errs = validateLetter(data);
+    if (errs.length > 0) {
+      outEl.textContent = errs[0];
+      prevEl.style.display = "none";
+      msgEl.textContent = "";
+      current = "";
+      return;
+    }
+    current = buildLetter(data);
+    prevEl.textContent = current;
+    prevEl.style.display = "block";
+    outEl.textContent = "Your letter is ready for " + data.name.trim() + ".";
+    msgEl.textContent = "Copy it or print it, then hide it with the eggs on Easter morning.";
+  });
+  document.getElementById("copyLetterBtn").addEventListener("click", function () {
+    if (!current) { msgEl.textContent = "Write the letter first, then copy it."; return; }
+    function done() { msgEl.textContent = "Copied. Paste it into any text app or print it."; }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = current;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); done(); }
+      catch (e) { msgEl.textContent = "Copy did not work in this browser. Select the letter text and copy it by hand."; }
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(current).then(done, fallback);
+    } else { fallback(); }
+  });
+  document.getElementById("printLetterBtn").addEventListener("click", function () {
+    if (!current) { msgEl.textContent = "Write the letter first, then print it."; return; }
+    window.print();
+  });
+}
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

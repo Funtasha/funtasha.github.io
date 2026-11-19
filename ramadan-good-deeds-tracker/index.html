@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ramadan Good Deeds Tracker | Funtasha</title>
+<meta name="description" content="Track a good deed every day of Ramadan with thirty small ideas, a progress bar, and ticks that save in your browser. Simple, gentle, and free.">
+<link rel="canonical" href="https://funtasha.github.io/ramadan-good-deeds-tracker/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ramadan Good Deeds Tracker">
+<meta property="og:description" content="One good deed a day through Ramadan, tracked day by day.">
+<meta property="og:url" content="https://funtasha.github.io/ramadan-good-deeds-tracker/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.byline{font-size:14px;color:#64748b;margin:6px 0 0}
+.progwrap{background:#e2e8f0;border-radius:999px;height:14px;overflow:hidden;margin:10px 0 16px}
+.progbar{background:#db2777;height:14px;width:0;border-radius:999px}
+.deedrow{display:flex;gap:10px;align-items:flex-start;margin:8px 0;font-size:15px}
+.deedrow input{margin-top:4px;width:auto;flex:none}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I use the tracker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Do the deed shown beside a day, then tick that day's box. The progress bar at the top fills as you go, and a short message changes as you pass ten, twenty, and thirty days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the tracker remember my ticks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, on the same browser and device. Your ticks are saved in your browser's own storage, so they will still be there when you come back tomorrow. They are not sent anywhere, and they do not follow you to another device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if Ramadan is 29 days this year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The thirtieth box becomes a bonus deed. Do it on the first day of Eid, or use it to make up a day you missed. The tracker covers the longest possible month, so a shorter month simply leaves you a deed to spare."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can children use the tracker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The deeds are small, safe, and family-friendly, and children enjoy ticking the boxes. If a deed is too grown-up for a child, let them choose a different kind act for the day and tick the box for that instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What counts as a good deed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Any small kind act counts: helping someone, giving something, saying a kind word, or looking after the world around you. The list on this page is a starting point, and you can swap any deed for another kind act."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I reset and start again?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Press the Reset the tracker button under the list and all thirty boxes will be cleared. Your saved ticks will be cleared too, so only reset when you are ready to begin again."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Ramadan Good Deeds Tracker</h1>
+<p class="byline">By the Funtasha team · Published 19 November 2026 · Updated 19 November 2026</p>
+<p class="answer">Tick off one good deed each day of Ramadan and watch your progress grow across the month. The tracker holds thirty small deed ideas, saves your ticks in your browser, and celebrates every day you complete.</p>
+<div class="calc">
+<p class="out" id="progText"></p>
+<div class="progwrap"><div class="progbar" id="progBar"></div></div>
+<div id="deedGrid"></div>
+<button id="resetBtn" type="button">Reset the tracker</button>
+<p class="steps">Tick a box when you have done that day's deed. Your ticks are saved in this browser, so they will still be here when you come back tomorrow.</p>
+</div>
+<h2>How the tracker works</h2>
+<p>The tracker holds thirty days, one for each day of Ramadan, and each day has a small good deed beside it. Do the deed, tick the box, and the progress bar at the top moves a little further. The bar is the whole point: watching it grow is a quiet pleasure, and it keeps you going on the days when motivation is low.</p><p>Your ticks are saved in your own browser, so they will still be there when you come back tomorrow. Nothing is sent anywhere, and nobody else can see your progress. If you use a different browser or device, the ticks will not follow you, so pick one device and stick with it for the month.</p>
+<h2>Thirty days, thirty small deeds</h2>
+<p>Every deed on the list is deliberately small. Calling a relative, helping a neighbour, sharing a meal, reading for ten minutes: none of them takes more than a few minutes, and none of them costs anything. That is by design. A deed you can actually do is worth far more than a grand plan you never start.</p><p>The deeds are written to suit any day of the week and any household. Some are about people you know, some are about strangers, and some are about the world around you. If a deed does not fit your day, swap it for another kind act: the tracker is a helper, not a rule book.</p>
+<h2>Why small deeds matter more than grand ones</h2>
+<p>Grand gestures are lovely, but they are rare. Small deeds are the ones that shape a life, because they happen every day. A kind word to a tired shopkeeper, a seat offered to a stranger, a meal shared with a neighbour: these are the moments people remember, and they cost the giver almost nothing.</p><p>Ramadan is a month of generosity, and generosity is a habit, not an event. Doing one small kind thing each day trains the same muscle as a large donation, and it trains it thirty times in a month. By the end of Ramadan, kindness has become a reflex rather than a decision.</p>
+<h2>Building a habit that outlasts Ramadan</h2>
+<p>The best thing about a daily tracker is what happens after the month ends. Thirty days of ticking boxes builds a rhythm, and rhythms are hard to break. Many people find that the habit continues into the months after Ramadan without any effort at all.</p><p>If you want the habit to last, keep the deeds small even after the tracker is finished. One kind act a day is easy to keep up for a lifetime; a long daily list is not. When Ramadan ends, pick your favourite deeds from the list and keep doing them, one a day, with no tracker at all.</p>
+<h2>Tracking with children</h2>
+<p>Children love trackers. The boxes, the bar, and the sense of finishing something each day all appeal to them, and the deeds on this list are safe for young hands. Let a child tick the box themselves, and praise the effort rather than the result.</p><p>Some deeds suit children better than others. Feeding a bird, helping a neighbour, or drawing a card for a grandparent are all perfect for little ones. If a deed is too grown-up, let the child choose a different kind act for the day, and tick the box for that instead.</p>
+<h2>If you miss a day</h2>
+<p>Everybody misses a day. Life gets busy, a child falls ill, work runs late, and the deed does not happen. That is fine. The tracker is not a test, and a missed day does not spoil the month. Just tick the next day's box tomorrow and carry on.</p><p>If you like, you can do two deeds the next day to catch up, but you do not have to. The progress bar counts the days you did complete, and it never punishes you for the ones you did not. A month with twenty-five good deeds in it is still a wonderful month.</p>
+<h2>When the month is 29 days</h2>
+<p>Ramadan lasts 29 or 30 days, depending on the sighting of the new moon. If the month turns out to be 29 days, the thirtieth box on the tracker becomes a bonus: do its deed on the first day of Eid, or save it as a spare for a day you missed.</p><p>Either way, the tracker still works. Thirty boxes cover the longest possible month, and a shorter month simply means you finish with a deed to spare. Think of it as a head start on the kindness of the month after Ramadan.</p>
+<h2>Sharing the habit with others</h2>
+<p>A tracker is a private thing, but the habit is better shared. Tell a friend or a family member that you are tracking a deed a day, and ask them to join you. You do not need to compare scores: simply knowing that someone else is doing the same thing makes the quiet days easier.</p><p>Some families keep a shared list on the fridge, with each person writing down the deed they did that day. Children love seeing their names on the list, and adults find that the list becomes a small record of a good month. When Ramadan ends, the list is a lovely thing to look back on: thirty days of kindness, written in your own hand.</p>
+<div class="warn">This tracker is a personal habit tool, not a religious record. It stores your ticks only in your own browser, and it does not measure the worth of any deed.</div>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>How do I use the tracker?</h3>
+<p>Do the deed shown beside a day, then tick that day's box. The progress bar at the top fills as you go, and a short message changes as you pass ten, twenty, and thirty days.</p>
+</div>
+<div class="faq">
+<h3>Does the tracker remember my ticks?</h3>
+<p>Yes, on the same browser and device. Your ticks are saved in your browser's own storage, so they will still be there when you come back tomorrow. They are not sent anywhere, and they do not follow you to another device.</p>
+</div>
+<div class="faq">
+<h3>What if Ramadan is 29 days this year?</h3>
+<p>The thirtieth box becomes a bonus deed. Do it on the first day of Eid, or use it to make up a day you missed. The tracker covers the longest possible month, so a shorter month simply leaves you a deed to spare.</p>
+</div>
+<div class="faq">
+<h3>Can children use the tracker?</h3>
+<p>Yes. The deeds are small, safe, and family-friendly, and children enjoy ticking the boxes. If a deed is too grown-up for a child, let them choose a different kind act for the day and tick the box for that instead.</p>
+</div>
+<div class="faq">
+<h3>What counts as a good deed?</h3>
+<p>Any small kind act counts: helping someone, giving something, saying a kind word, or looking after the world around you. The list on this page is a starting point, and you can swap any deed for another kind act.</p>
+</div>
+<div class="faq">
+<h3>Can I reset and start again?</h3>
+<p>Yes. Press the Reset the tracker button under the list and all thirty boxes will be cleared. Your saved ticks will be cleared too, so only reset when you are ready to begin again.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../ramadan-countdown-2027/">Ramadan Countdown 2027</a> · <a href="../iftar-countdown-2027/">Iftar Countdown 2027</a> · <a href="../ramadan-quiz-2027/">Ramadan Quiz 2027</a> · <a href="../eid-al-fitr-wishes-generator/">Eid al-Fitr Wishes Generator</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+(function(){
+  var DEEDS = ["Call a relative you have not spoken to for a while.", "Help a neighbour carry something heavy.", "Share a meal with someone who eats alone.", "Read for ten quiet minutes.", "Give away something you no longer need.", "Thank a shopkeeper, driver, or cleaner by name.", "Tidy one shelf and set something aside for charity.", "Write a short note of thanks to someone who helped you.", "Offer your seat to someone who needs it.", "Water a plant or feed a bird.", "Listen properly to a child, without your phone in your hand.", "Forgive a small slight and let it go.", "Cook a little extra and share it with a neighbour.", "Smile at three people you do not know.", "Hold a door open for the person behind you.", "Donate a book you have finished to a library or a friend.", "Check on an elderly neighbour and ask if they need anything.", "Pick up litter on your street.", "Teach someone one small thing you know.", "Let someone go ahead of you in a queue.", "Send a message of encouragement to a friend who is struggling.", "Share your iftar with a neighbour.", "Put a coin in a charity box.", "Help a child with their homework.", "Say sorry for something small, and mean it.", "Make a cup of tea for someone who is tired.", "Leave a kind review for a small business you like.", "Offer to look after a child so a parent can rest.", "Plant a seed or tend a small garden.", "End the day by naming three things you are grateful for."];
+  var KEY = "funtasha-ramadan-deeds-2027";
+  var done = {};
+  function load(){
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (raw) { var parsed = JSON.parse(raw); if (parsed && typeof parsed === "object") done = parsed; }
+    } catch (e) { done = {}; }
+  }
+  function save(){
+    try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {}
+  }
+  function countDone(){
+    var n = 0;
+    for (var k in done) { if (done[k]) n++; }
+    return n;
+  }
+  function progress(){
+    var n = countDone();
+    var pct = Math.round(n / 30 * 100);
+    var msg = "";
+    if (n === 0) msg = "Your month of good deeds starts with a single tick.";
+    else if (n < 10) msg = "A lovely start. Keep going, one day at a time.";
+    else if (n < 20) msg = "You are building a real habit now. Well done.";
+    else if (n < 30) msg = "Nearly there. The last few days are the sweetest.";
+    else msg = "Thirty days of good deeds. What a month.";
+    return {count: n, pct: pct, msg: msg};
+  }
+  function toggle(day){
+    if (day < 1 || day > 30) return;
+    done[day] = !done[day];
+    save();
+    render();
+  }
+  function resetAll(){
+    done = {};
+    save();
+    render();
+  }
+  function el(tag, text, cls){
+    var d = document.createElement(tag);
+    if (text !== undefined && text !== null) d.textContent = text;
+    if (cls) d.className = cls;
+    return d;
+  }
+  function render(){
+    var box = document.getElementById("deedGrid");
+    box.innerHTML = "";
+    for (var day = 1; day <= 30; day++) {
+      (function(d){
+        var row = el("div", null, "deedrow");
+        var cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.checked = !!done[d];
+        cb.addEventListener("change", function(){ toggle(d); });
+        row.appendChild(cb);
+        row.appendChild(el("span", "Day " + d + ": " + DEEDS[d - 1]));
+        box.appendChild(row);
+      })(day);
+    }
+    var p = progress();
+    document.getElementById("progText").textContent = p.count + " of 30 days done. " + p.msg;
+    var bar = document.getElementById("progBar");
+    bar.style.width = p.pct + "%";
+  }
+  window.FT = {DEEDS: DEEDS, load: load, save: save, countDone: countDone,
+               progress: progress, toggle: toggle, resetAll: resetAll,
+               render: render, getDone: function(){ return done; },
+               setDone: function(o){ done = o || {}; }};
+  load();
+  render();
+  var rb = document.getElementById("resetBtn");
+  if (rb && rb.addEventListener) rb.addEventListener("click", resetAll);
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>
