@@ -1,7 +1,13 @@
-/* Funtasha ad slots — Sponsored Smartlink line ONLY, site-wide.
+/* Funtasha ad slots — Sponsored Smartlink line + text-element links, site-wide.
  * FINAL STATE 2026-11-18: Banner + Smartlink click-layer PERMANENTLY
  * OFF (both proven hijackers — see _ad-rules.md). Only the labelled
  * Sponsored line (deliberate tap, clearly marked) stays on.
+ * 2026-11-19 (owner order): plain-text elements that do nothing on
+ * click — the "Questions people ask" .faq cards and plain <li>
+ * bullets with no link inside — become Sponsored links too. These
+ * are NOT tool cards and NOT navigation links, so nothing the
+ * visitor wanted is ever diverted. Same one-ad-tab-per-session
+ * guard, every element visibly marked "Sponsored".
  * Never re-enable banner or click-layer.
  *
  * Adsterra site funtasha.github.io (site ID 6206009). The Banner
@@ -70,6 +76,11 @@ window.FUNTASHA_ADS = {
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
     label: 'Sponsored',
     text: 'Explore sponsored offers \u2192'
+  },
+  textLinks: {
+    enabled: true,
+    url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
+    label: 'Sponsored'
   }
 };
 
@@ -164,9 +175,67 @@ window.FUNTASHA_ADS = {
     line.appendChild(a);
     anchor.parentNode.insertBefore(line, anchor.nextSibling);
   }
+  /* Text-element ad links (owner order 2026-11-19): plain-text
+   * elements that do nothing on click — the "Questions people ask"
+   * .faq cards and plain <li> bullets (no <a> inside) — become
+   * Sponsored links. These are NOT tool cards and NOT navigation
+   * links, so nothing the visitor wanted is ever diverted: the
+   * page stays, at most one extra ad tab opens per session (the
+   * same sessionStorage guard as the Smartlink layer). Every
+   * element carries a small visible "Sponsored" marker, so the
+   * link is never disguised. Clicks on a real <a> inside an
+   * element are left alone — that link opens exactly what it
+   * promises. The TOOL itself is never touched: any element
+   * inside a .calc tool block is skipped, so people can use the
+   * tool normally. Gate: article pages only (.wrap present, no .grid);
+   * the hub (.grid) and /video-downloader/ (never loads this file)
+   * are untouched. */
+  function bindTextLinks() {
+    var cfg = (window.FUNTASHA_ADS && window.FUNTASHA_ADS.textLinks) || {};
+    if (!cfg.enabled || !cfg.url) return;
+    var wrap = document.querySelector('.wrap');
+    if (!wrap) return;
+    if (wrap.querySelector('.grid')) return;
+    var targets = [];
+    var faqs = wrap.querySelectorAll('.faq');
+    for (var i = 0; i < faqs.length; i++) {
+      if (faqs[i].closest && faqs[i].closest('.calc')) continue;
+      targets.push(faqs[i]);
+    }
+    var lis = wrap.querySelectorAll('li');
+    for (var j = 0; j < lis.length; j++) {
+      if (lis[j].closest && lis[j].closest('.calc')) continue;
+      if (!lis[j].querySelector('a')) targets.push(lis[j]);
+    }
+    for (var k = 0; k < targets.length; k++) {
+      (function (el) {
+        if (el.getAttribute('data-funtasha-textlink') === '1') return;
+        el.setAttribute('data-funtasha-textlink', '1');
+        el.style.cursor = 'pointer';
+        var mark = document.createElement('span');
+        mark.textContent = cfg.label || 'Sponsored';
+        mark.style.fontSize = '10px';
+        mark.style.color = '#94a3b8';
+        mark.style.textTransform = 'uppercase';
+        mark.style.letterSpacing = '1.5px';
+        mark.style.marginLeft = '6px';
+        mark.style.lineHeight = '1.4';
+        el.appendChild(mark);
+        el.addEventListener('click', function (e) {
+          var t = e.target;
+          var a = (t && typeof t.closest === 'function') ? t.closest('a') : null;
+          if (a) return;
+          if (smartlinkHasFired()) return;
+          window.open(cfg.url, '_blank', 'noopener');
+          smartlinkMarkFired();
+        });
+      })(targets[k]);
+    }
+  }
   function run() {
     bindSmartlink();
     insertSponsoredLine();
+    bindTextLinks();
     if (loaded) return;
     loaded = true;
     var cfg = (window.FUNTASHA_ADS && window.FUNTASHA_ADS.banner) || {};
