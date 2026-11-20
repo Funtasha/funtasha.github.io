@@ -90,6 +90,16 @@
  * one-page popunder stays enabled:false (live test failed). The
  * sitewide first-link-click Smartlink layer stays enabled:false
  * (owner ban on ads on page-opening links still stands).
+ * DISABLED 2026-11-20 13:25 — live cloud-browser test: the first
+ * paragraph click on free-ai-video-generator navigated the
+ * Funtasha tab ITSELF to an ad (cdn.wusum.com "Claim Your Special
+ * Offer", back-chain to Banglaplus casino), 0 new tabs — the same
+ * click-hijack as Black Friday. Both new popunders killed at once
+ * per the owner's rule; dlPopunder was unproven in a fresh session
+ * (its test ran after the session had already fired) and uses the
+ * identical window.open mechanism, so it goes off too. Slim bar
+ * stays ON: it rendered on load with no hijack. textLinks +
+ * sponsoredLine stay ON (pre-existing, owner-ordered).
  */
 window.FUNTASHA_ADS = {
   /* RE-ENABLED 2026-11-20 on the owner's word — his 2026-11-19
@@ -135,25 +145,24 @@ window.FUNTASHA_ADS = {
     buttonId: 'calc-btn'
   },
   /* DOWNLOAD-BUTTON POPUNDER (owner order 2026-11-20): .dl-btn clicks
-   * on /download/ pages only. Ad opens in a NEW tab; the same tab
-   * follows the button's own href to the official Play Store /
-   * APKPure page (never touched, no preventDefault). Once per
-   * session; shares the one-ad-tab guard with textLinks. */
+   * on /download/ pages only. DISABLED 2026-11-20 13:25 — same
+   * window.open mechanism as firstClick, which hijacked the tab in
+   * the live test; unproven in a fresh session. Download buttons
+   * fall back to clean official links. */
   dlPopunder: {
-    enabled: true,
+    enabled: false,
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
     pathPrefix: '/download/',
     selector: '.dl-btn'
   },
-  /* FIRST-CLICK POPUNDER (owner order 2026-11-20): the visitor's
-   * first deliberate click on one of the 12 new AI-video pages only
-   * opens ONE popunder in a new tab, once per session. Browsers
-   * block popups without a gesture, so on-load is impossible —
-   * first click is the working shape. Shares the one-ad-tab guard
-   * with textLinks, so a first click on a Sponsored element opens
-   * exactly one tab, never two. */
+  /* FIRST-CLICK POPUNDER (owner order 2026-11-20): DISABLED
+   * 2026-11-20 13:25 after the live cloud-browser test — the first
+   * paragraph click navigated the Funtasha tab ITSELF to an ad
+   * (cdn.wusum.com, back-chain Banglaplus casino), 0 new tabs.
+   * Same click-hijack as Black Friday; the window.open mechanism
+   * is not safe in the live browser. */
   firstClick: {
-    enabled: true,
+    enabled: false,
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
     pages: ['free-ai-video-generator', 'ai-video-generator-no-watermark', 'text-to-video-ai', 'image-to-video-ai', 'google-flow-video-guide', 'ai-video-generator-long-video', 'faceless-ai-video-generator', 'ai-product-video-generator', 'tiktok-ai-video-generator', 'ai-avatar-video-generator', 'kling-ai-video-guide', 'script-to-video-ai']
   }
