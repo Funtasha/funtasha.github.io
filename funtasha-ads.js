@@ -189,6 +189,21 @@ window.FUNTASHA_ADS = {
     enabled: false,
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
     pages: ['free-ai-video-generator', 'ai-video-generator-no-watermark', 'text-to-video-ai', 'image-to-video-ai', 'google-flow-video-guide', 'ai-video-generator-long-video', 'faceless-ai-video-generator', 'ai-product-video-generator', 'tiktok-ai-video-generator', 'ai-avatar-video-generator', 'kling-ai-video-guide', 'script-to-video-ai']
+  },
+  /* MONETAG IN-PAGE PUSH (owner order 2026-11-20, replacement earner
+   * after the Adsterra hijack saga): site funtasha.github.io VERIFIED
+   * on Monetag 2026-11-20 (site ID 3585862, sw.js verification file
+   * at repo root, commit 4ce071d9). Zone "Talented tag", In-Page Push,
+   * zone ID 12307155, created 2026-11-20. Tag below is byte-identical
+   * to Monetag's issue (domain 5gvci.com, tag.min.js?z=12307155,
+   * data-cfasync=false, async) — verified live (HTTP 200 JS).
+   * In-Page Push renders as small notification-style ads inside the
+   * page (corners on desktop, top/bottom on mobile) — it does NOT
+   * move the tab, so it fits the no-hijack boundary. Kill switch:
+   * set enabled:false below and republish this one file. */
+  monetagIPP: {
+    enabled: true,
+    tagSrc: 'https://5gvci.com/act/files/tag.min.js?z=12307155'
   }
 };
 
@@ -511,7 +526,29 @@ window.FUNTASHA_ADS = {
       window.open(cfg.url, '_blank', 'noopener');
     });
   }
+  /* MONETAG IN-PAGE PUSH — injects the exact issued tag into <head>
+   * (first child, as high as possible per Monetag's guidance).
+   * Single injection per page, guarded by the tag src. The tag is
+   * async and data-cfasync=false, byte-identical to Monetag's issue.
+   * No window.open anywhere — the ads render inside the page. */
+  function loadMonetagIPP() {
+    var cfg = (window.FUNTASHA_ADS && window.FUNTASHA_ADS.monetagIPP) || {};
+    if (!cfg.enabled || !cfg.tagSrc) return;
+    if (document.querySelector('script[src="' + cfg.tagSrc + '"]')) return;
+    var s = document.createElement('script');
+    s.src = cfg.tagSrc;
+    s.setAttribute('data-cfasync', 'false');
+    s.async = true;
+    var head = document.getElementsByTagName('head')[0];
+    if (head) {
+      if (head.firstChild) head.insertBefore(s, head.firstChild);
+      else head.appendChild(s);
+    } else {
+      document.documentElement.appendChild(s);
+    }
+  }
   function run() {
+    loadMonetagIPP();
     bindSmartlink();
     insertSponsoredLine();
     bindTextLinks();
