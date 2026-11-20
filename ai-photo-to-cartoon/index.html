@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Photo to Cartoon — Turn Your Photo Into Art | Funtasha</title>
+<meta name="description" content="Turn any photo into a cartoon, anime or painting with AI. The styles people love and how to get each one right.">
+<link rel="canonical" href="https://funtasha.github.io/ai-photo-to-cartoon/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Photo to Cartoon — Turn Your Photo Into Art">
+<meta property="og:description" content="Turn any photo into a cartoon, anime or watercolor picture.">
+<meta property="og:url" content="https://funtasha.github.io/ai-photo-to-cartoon/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.byline{font-size:14px;color:#64748b;margin:6px 0 0}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I turn a photo into a cartoon?", "acceptedAnswer": {"@type": "Answer", "text": "Pick a clear, well-lit photo, choose a style — cartoon, anime, watercolor or comic — and describe it in a prompt: turn this photo into a cartoon portrait, big friendly eyes, bold outlines, bright colours, keep the face recognisable. The picker above writes the prompt for you."}}, {"@type": "Question", "name": "Which style looks most like me?", "acceptedAnswer": {"@type": "Answer", "text": "Cartoon and comic keep the shape of a face best, so they usually look most like you. Watercolor softens features, so the likeness is looser but the picture is prettier. Try cartoon first if the likeness matters most."}}, {"@type": "Question", "name": "Why does my cartoon face look different?", "acceptedAnswer": {"@type": "Answer", "text": "Usually because the starting photo was blurry, dark, or taken from far away, so the tool had little to work with and filled in a generic face. Use a clear, well-lit, front-on photo and add keep the face recognisable to the prompt."}}, {"@type": "Question", "name": "Can I cartoon a pet photo?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — pets make wonderful cartoons, and comic book style suits them especially well. Use a clear photo where the pet's face is visible, and describe the animal in the prompt so the tool knows what it is drawing."}}, {"@type": "Question", "name": "What size should a cartoon profile picture be?", "acceptedAnswer": {"@type": "Answer", "text": "A square crop is the safe choice, since most platforms show profile pictures as squares or circles, and the face should fill a good part of the frame so it still reads at small size. Check the app you use for its recommended size, since it varies."}}, {"@type": "Question", "name": "Is it free to cartoon a photo?", "acceptedAnswer": {"@type": "Answer", "text": "Many AI image tools let you make a few pictures free, though free plans usually have limits on how many you can make. Check whether the tool you pick needs an account or a paid plan for more pictures."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>AI Photo to Cartoon</h1>
+<p class="byline">By the Funtasha team · Published 20 November 2026 · Updated 20 November 2026</p>
+<p class="answer">An AI photo-to-cartoon tool turns any photo into a cartoon, an anime portrait or a watercolor painting. This guide walks through the styles people love, the prompts that get each one right, and how to keep the face looking like you.</p>
+<div class="calc">
+<label for="style">Pick a style</label>
+<select id="style">
+<option value="cartoon">Cartoon</option>
+<option value="anime">Anime</option>
+<option value="watercolor">Watercolor</option>
+<option value="comic">Comic book</option>
+</select>
+<button id="show-btn" type="button">Show my prompt</button>
+<div class="out" id="out"></div>
+<div class="steps" id="steps"></div>
+<button id="copy-btn" type="button">Copy the prompt</button>
+<p class="steps" id="copy-status"></p>
+</div>
+<div class="warn">Use your own photos, or photos you have permission to edit. Never cartoon someone else's photo and post it without asking them.</div>
+<h2>Why cartoon photos are everywhere</h2>
+<p>Open any feed and you will see them: friends as cartoons, pets as anime characters, family photos turned into paintings. Cartoon photos are everywhere because they are fun to make, fun to share, and they turn an ordinary picture into something people stop and look at.</p><p>The trend keeps finding new styles. One of the trending formats in November 2026 is the hand-painted anime countryside — a photo turned into a soft, painted scene that looks like it came from a film. The same idea works for people: a selfie becomes an anime portrait, a family photo becomes a watercolor painting, a pet becomes a comic book hero.</p><p>Part of the appeal is that anyone can do it. You need a photo and a few words describing the style — no drawing skill, no software to learn. The picker above gives you the prompt for each style, ready to copy.</p>
+<h2>The styles: cartoon, anime, watercolor, comic</h2>
+<p>Four styles cover most of what people make, and each has its own look.</p><ul><li><strong>Cartoon.</strong> Big friendly eyes, bold outlines, bright colours, simple background. The cheerful one — great for profile pictures and birthday cards.</li><li><strong>Anime.</strong> Soft colours, detailed eyes, gentle light, a painted feel. The dreamy one — lovely for portraits and for turning a landscape into a painted scene.</li><li><strong>Watercolor.</strong> Gentle washes of colour, light paper texture, loose brush strokes. The arty one — beautiful for family photos and gifts.</li><li><strong>Comic book.</strong> Bold ink lines, bright flat colours, halftone dots. The bold one — fun for posters and for pets, who make excellent comic heroes.</li></ul><p>There is also the Pixar-style 3D look — a smooth, rounded, film-like version of a face — which sits between cartoon and realistic. Try each style on the same photo and see which one suits it best.</p>
+<h2>How to prompt each style</h2>
+<p>A cartoon prompt has three parts: what to turn it into, the style words, and the face. Start with the action — turn this photo into a cartoon portrait — then add the style words — big friendly eyes, bold outlines, bright colours — and finish with the face: keep the face recognisable. That last part matters more than the rest, and it is the part people forget.</p><p>Each style has its own words. Anime wants soft colours, detailed eyes, gentle light. Watercolor wants gentle washes of colour, light paper texture, loose brush strokes. Comic book wants bold ink lines, bright flat colours, halftone dots. The picker above puts the right words together for each style, so you can copy the prompt and use it as it is.</p><p>If you want something the prompt does not say, add it in plain words: a plain background, a smile, a blue shirt. One extra detail at a time — too many at once and the tool starts guessing.</p>
+<h2>Keeping the face recognisable</h2>
+<p>The most common disappointment with cartoon photos is the face: the cartoon looks lovely, but it does not look like you. The usual cause is the photo, not the tool. A blurry photo, a face in shadow, or a face turned away gives the tool little to work with, and it fills in the gaps with a generic face.</p><p>Start with a clear, well-lit photo where the face is front-on and filling a good part of the frame. A good passport-style photo works well; a distant group shot does not. And say it in the prompt: keep the face recognisable, same smile, same hairstyle. The tool listens when you name what matters.</p><p>Some styles keep faces better than others. Cartoon and comic keep the shape of a face well. Watercolor softens features, so the likeness is looser. If the likeness matters most — a gift for someone, a profile picture — pick cartoon or comic first.</p>
+<h2>Profile picture or poster?</h2>
+<p>A cartoon made for a profile picture and one made for a poster are different jobs, and it helps to decide which you are making before you start.</p><p>A profile picture is shown small and square, so the face needs to be big and clear. A close crop, a plain background, a bold style — cartoon or comic — reads well at small size. Fine detail is wasted here: nobody sees the brush strokes in a tiny circle. A square crop is the safe choice, since most platforms show profile pictures as squares or circles.</p><p>A poster is the opposite: it is seen big, so detail is welcome. Watercolor and anime shine here, with their soft colours and painted feel. A full scene — a person in a place, a pet in a garden — works better than a tight face crop, because there is room for the picture to breathe.</p>
+<h2>Making a cartoon gift</h2>
+<p>A cartoon photo makes a lovely gift because it is personal and it took thought. A birthday card with the birthday person's cartoon face on it, a poster of a friend's pet as a comic hero, a watercolor version of a family photo for a parent — these are the gifts people keep.</p><p>Use your own photo, or a photo you have permission to use. A photo of a friend is fine for a gift you give them, but do not take someone's photo, cartoon it, and post it publicly without asking. The gift is for them; the choice to share it is theirs.</p><p>Print it if you can. A cartoon on a screen is nice; a cartoon on a card or a poster on a wall is a gift. Most print shops can print from a phone photo, and a cartoon hides small flaws that a real photo would show.</p>
+<h2>What to do when it comes out wrong</h2>
+<p>Sometimes the cartoon comes out wrong: the face is off, the colours are muddy, the style is not what you asked for. Do not start over from scratch — change one thing at a time.</p><p>If the face is wrong, the photo is usually the problem: try a clearer, better-lit one, or ask for the face more plainly — same face, same smile, same hairstyle. If the style is wrong, the prompt needs stronger style words: say bold outlines and bright colours instead of just cartoon. If the colours are muddy, ask for a plain background and bright colours.</p><p>And if one style keeps failing, try another. A photo that will not cartoon well often makes a beautiful watercolor, and a face that anime keeps changing may hold still as a comic. The styles are different tools, and the right one depends on the photo.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How do I turn a photo into a cartoon?</h3><p>Pick a clear, well-lit photo, choose a style — cartoon, anime, watercolor or comic — and describe it in a prompt: turn this photo into a cartoon portrait, big friendly eyes, bold outlines, bright colours, keep the face recognisable. The picker above writes the prompt for you.</p></div><div class="faq"><h3>Which style looks most like me?</h3><p>Cartoon and comic keep the shape of a face best, so they usually look most like you. Watercolor softens features, so the likeness is looser but the picture is prettier. Try cartoon first if the likeness matters most.</p></div><div class="faq"><h3>Why does my cartoon face look different?</h3><p>Usually because the starting photo was blurry, dark, or taken from far away, so the tool had little to work with and filled in a generic face. Use a clear, well-lit, front-on photo and add keep the face recognisable to the prompt.</p></div><div class="faq"><h3>Can I cartoon a pet photo?</h3><p>Yes — pets make wonderful cartoons, and comic book style suits them especially well. Use a clear photo where the pet's face is visible, and describe the animal in the prompt so the tool knows what it is drawing.</p></div><div class="faq"><h3>What size should a cartoon profile picture be?</h3><p>A square crop is the safe choice, since most platforms show profile pictures as squares or circles, and the face should fill a good part of the frame so it still reads at small size. Check the app you use for its recommended size, since it varies.</p></div><div class="faq"><h3>Is it free to cartoon a photo?</h3><p>Many AI image tools let you make a few pictures free, though free plans usually have limits on how many you can make. Check whether the tool you pick needs an account or a paid plan for more pictures.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../chatgpt-image-prompts-trending/">Trending ChatGPT Image Prompts</a> · <a href="../ai-photo-editing-for-fun/">Fun AI Photo Edits</a> · <a href="../ai-avatar-face-trends/">AI Avatar and Face Trends</a> · <a href="../ai-birthday-card-ideas/">AI Birthday Card Ideas</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+function fallbackCopy(text){
+  try{
+    var ta=document.createElement("textarea");
+    ta.value=text;
+    document.body.appendChild(ta);
+    ta.select();
+    if(document.execCommand){document.execCommand("copy");}
+    document.body.removeChild(ta);
+    return true;
+  }catch(e){return false;}
+}
+function copyText(text,btn){
+  var done=function(){if(btn){btn.textContent="Copied!";}};
+  try{
+    if(typeof navigator!=="undefined"&&navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done,function(){fallbackCopy(text);done();});
+      return;
+    }
+  }catch(e){}
+  fallbackCopy(text);
+  done();
+}
+var PROMPTS={
+  cartoon:"Turn this photo into a fun cartoon portrait: big friendly eyes, bold outlines, bright colours, simple background. Keep the face recognisable.",
+  anime:"Turn this photo into a hand-painted anime portrait: soft colours, detailed eyes, gentle light, painted background. Keep the face recognisable.",
+  watercolor:"Turn this photo into a soft watercolor painting: gentle washes of colour, light paper texture, loose brush strokes. Keep the face recognisable.",
+  comic:"Turn this photo into a comic book illustration: bold ink lines, bright flat colours, halftone dots. Keep the face recognisable."
+};
+function getPrompt(style){return PROMPTS[style]||"";}
+var current="";
+function showPrompt(){
+  var style=document.getElementById("style").value;
+  current=getPrompt(style);
+  document.getElementById("out").textContent=current;
+  document.getElementById("steps").textContent="Copy it and paste it into an AI image tool with your photo.";
+  document.getElementById("copy-status").textContent="";
+  document.getElementById("copy-btn").textContent="Copy the prompt";
+}
+function copyCurrent(){
+  if(!current){showPrompt();}
+  copyText(current,document.getElementById("copy-btn"));
+}
+document.getElementById("show-btn").addEventListener("click",showPrompt);
+document.getElementById("copy-btn").addEventListener("click",copyCurrent);
+showPrompt();
+window.FT={getPrompt:getPrompt,PROMPTS:PROMPTS,copyText:copyText,fallbackCopy:fallbackCopy};
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Music Generator — Make a Song From Words | Funtasha</title>
+<meta name="description" content="Type a mood and a style, get a song. How AI music generators work, how to prompt one, and what to make first.">
+<link rel="canonical" href="https://funtasha.github.io/ai-music-generator-guide/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Music Generator — Make a Song From Words">
+<meta property="og:description" content="Turn a mood and a style into a song with an AI music generator.">
+<meta property="og:url" content="https://funtasha.github.io/ai-music-generator-guide/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.byline{font-size:14px;color:#64748b;margin:6px 0 0}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is an AI music generator?", "acceptedAnswer": {"@type": "Answer", "text": "An AI music generator is a tool that turns a few words into a song. You describe the mood, the style and what the song is for, and it builds a melody, a beat and instruments around your description."}}, {"@type": "Question", "name": "How do I prompt an AI song?", "acceptedAnswer": {"@type": "Answer", "text": "Give it four things: a mood (happy, calm, energetic), a style (pop, lo-fi, rock), the instruments you want to hear, and what the song is for. Say whether you want it fast or slow and short or long — the clearer the prompt, the better the song."}}, {"@type": "Question", "name": "Can AI write lyrics too?", "acceptedAnswer": {"@type": "Answer", "text": "Many AI music tools can write lyrics as well as music, and they will give you verses and a chorus on any topic. The words can be charming or odd, so read them and fix the lines that do not sound right — or write your own words and let the tool sing them."}}, {"@type": "Question", "name": "How long can an AI song be?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the tool. Most AI music tools make short songs — a verse and a chorus, often a minute or two — and longer pieces are usually made by joining sections together. Short songs also sound better, so start short and grow from there."}}, {"@type": "Question", "name": "Can I use an AI song in my video?", "acceptedAnswer": {"@type": "Answer", "text": "Often yes, for a personal video — a birthday clip, a holiday film, a family memory. Check the rules of the tool you used and the platform you post on first, because ownership and platform rules for AI music vary."}}, {"@type": "Question", "name": "Is AI music free to make?", "acceptedAnswer": {"@type": "Answer", "text": "Many AI music tools have a free tier that lets you make a few songs without paying, though free plans usually have limits on how many songs you can make. Say plainly: check whether the tool you pick needs an account or a paid plan for more songs."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>AI Music Generator</h1>
+<p class="byline">By the Funtasha team · Published 20 November 2026 · Updated 20 November 2026</p>
+<p class="answer">An AI music generator turns a few words — a mood, a style, a use — into a song you can listen to. This guide shows how to prompt one, what to make first, and what to check before you share your song.</p>
+<div class="calc">
+<label for="mood">Pick a mood</label>
+<select id="mood">
+<option value="happy">Happy</option>
+<option value="calm">Calm</option>
+<option value="energetic">Energetic</option>
+<option value="dreamy">Dreamy</option>
+</select>
+<label for="style">Pick a style</label>
+<select id="style">
+<option value="pop">Pop</option>
+<option value="lofi">Lo-fi</option>
+<option value="rock">Rock</option>
+<option value="classical">Classical</option>
+<option value="electronic">Electronic</option>
+</select>
+<label for="use">Pick a use</label>
+<select id="use">
+<option value="birthday">Birthday</option>
+<option value="workout">Workout</option>
+<option value="sleep">Sleep</option>
+</select>
+<button id="show-btn" type="button">Build my song prompt</button>
+<div class="out" id="out"></div>
+<div class="steps" id="steps"></div>
+<button id="copy-btn" type="button">Copy the prompt</button>
+<p class="steps" id="copy-status"></p>
+</div>
+<div class="warn">Ownership and platform rules for AI music vary — check the rules of the tool you use and the place you post before you share or sell a song.</div>
+<h2>What an AI music generator does</h2>
+<p>An AI music generator turns words into music. You type a few words — a mood, a style, what the song is for — and it builds a song around them: a melody, a beat, instruments, sometimes words to sing. You do not need to read music or play an instrument; the describing is the skill, and the tool does the playing.</p><p>It is one of the fastest-growing things people search for. Searches for AI music generators have grown 5,200% over five years, which puts music near the top of the fastest-growing AI searches. The reason is simple: making a song used to take years of practice, and now it takes a sentence. People make birthday songs, workout tracks, lullabies, and background music for their videos — all from a few words.</p><p>What comes back is a real song you can listen to, share with friends, or use in a video. The builder above puts together a prompt for you — pick a mood, a style and a use, and it writes the words that shape the song.</p>
+<h2>How to prompt a song</h2>
+<p>A good music prompt has four ingredients: mood, style, instruments and use. Mood is the feeling — happy, calm, energetic, dreamy. Style is the kind of music — pop, lo-fi, rock, classical, electronic. Instruments are what you hear — piano, guitar, strings, synths. And use is what the song is for — a birthday, a workout, falling asleep. Put them together and the tool has something to work with.</p><p>Tempo and length help too. Say whether you want it fast or slow, and whether you want a short tune or a full song. A prompt that says happy pop song for a birthday, bright synths, catchy chorus, upbeat and short gives the tool a clear picture. A prompt that just says make a song leaves everything to chance.</p><p>If the first song is not right, change one thing and try again. A different mood, a slower tempo, fewer instruments — small changes make big differences in music, and the second try is often the one you keep.</p>
+<h2>What to make first</h2>
+<p>Start small and start with something fun. A birthday song is the perfect first song: it is short, it is happy, and the person you made it for will love it even if it is not perfect. Pick a happy mood, a pop style, and the birthday use, and you have a song in a minute.</p><p>A workout track is a good second try. Pick an energetic mood and a style with a strong beat — rock or electronic — and the song will practically move by itself. A lullaby is the gentle opposite: calm mood, classical or lo-fi style, slow and soft, made for falling asleep.</p><p>Keep your first songs short. A short song is easy to judge — you know in seconds whether you like it — and easy to redo if you do not. Once you have made a few short ones you like, you can try longer songs and trickier ideas.</p>
+<h2>What sounds good — and what still sounds off</h2>
+<p>AI music is at its best with melody and rhythm. A catchy tune, a steady beat, a pleasant mix of instruments — these are the things the tools do well, and a short song in a clear style usually sounds surprisingly good. Background music, birthday songs and simple tunes are the safe ground.</p><p>Lyrics are harder. AI-written words can be odd — rhymes that do not quite land, lines that repeat, verses that wander off topic. Long songs are harder too: the longer a song runs, the more chances it has to lose its way. If a song starts well and falls apart, that is normal — it is the length, not you.</p><p>The fix for both is the same: keep it short, keep it simple, and ask for what the tool does well. A one-minute tune with a clear mood will beat a five-minute epic almost every time.</p>
+<h2>Using AI music for videos and parties</h2>
+<p>A song you made yourself is a lovely thing to put behind a video. A birthday video with a birthday song, a holiday clip with a dreamy tune, a workout video with an energetic track — the music makes the pictures feel finished. Pick the mood to match the moment, and keep the volume low enough that voices still come through.</p><p>Parties are the other natural home. A playlist of songs you made for the occasion — one for the birthday person, one for the dancing, one for winding down — is a personal touch no shop-bought playlist can match. Make the songs ahead of time, listen to them once, and keep the ones that make you smile.</p><p>For videos and parties alike, the rule is the same: the music serves the moment, not the other way round. Short, matching the mood, and played at a volume people can talk over.</p>
+<h2>Lyrics: let the AI sing, or write your own?</h2>
+<p>Many AI music tools can write lyrics as well as music, and they will happily give you verses and a chorus on any topic. The results are mixed: sometimes charming, sometimes strange, often a bit of both. A chorus about a birthday cake can be delightful; a verse about your best friend can come out oddly formal.</p><p>The best lyrics usually come from mixing the two. Let the tool draft the words, then fix the lines that do not sound like you. Or write your own words — a name, an inside joke, a line only your friends would understand — and let the tool sing them. Your own words make a song personal in a way no tool can manage on its own.</p><p>And if the words do not matter — background music for a video, a tune for a party — skip the lyrics entirely. An instrumental song has no words to get wrong, and it lets the melody do all the work.</p>
+<h2>Before you post or sell a song</h2>
+<p>Before you share a song anywhere public, or sell one, check the rules. Ownership and platform rules for AI music vary: some tools let you use the songs freely, some keep limits on commercial use, and the places you post have their own rules too. Read the terms of the tool you used and the platform you post on — it takes a few minutes and it saves trouble later.</p><p>Keep your own copy of the prompt you used and the song that came back. If a question ever comes up about where the song came from, having the prompt and the date is the simplest proof that you made it. And if a tool says a song is only for personal use, believe it — a birthday song for a friend is personal, a song sold in a shop is not.</p><p>For private sharing — sending a song to a friend, playing it at a party, putting it in a family video — you are on safe ground. It is the public and commercial uses that need the extra check.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is an AI music generator?</h3><p>An AI music generator is a tool that turns a few words into a song. You describe the mood, the style and what the song is for, and it builds a melody, a beat and instruments around your description.</p></div><div class="faq"><h3>How do I prompt an AI song?</h3><p>Give it four things: a mood (happy, calm, energetic), a style (pop, lo-fi, rock), the instruments you want to hear, and what the song is for. Say whether you want it fast or slow and short or long — the clearer the prompt, the better the song.</p></div><div class="faq"><h3>Can AI write lyrics too?</h3><p>Many AI music tools can write lyrics as well as music, and they will give you verses and a chorus on any topic. The words can be charming or odd, so read them and fix the lines that do not sound right — or write your own words and let the tool sing them.</p></div><div class="faq"><h3>How long can an AI song be?</h3><p>It depends on the tool. Most AI music tools make short songs — a verse and a chorus, often a minute or two — and longer pieces are usually made by joining sections together. Short songs also sound better, so start short and grow from there.</p></div><div class="faq"><h3>Can I use an AI song in my video?</h3><p>Often yes, for a personal video — a birthday clip, a holiday film, a family memory. Check the rules of the tool you used and the platform you post on first, because ownership and platform rules for AI music vary.</p></div><div class="faq"><h3>Is AI music free to make?</h3><p>Many AI music tools have a free tier that lets you make a few songs without paying, though free plans usually have limits on how many songs you can make. Say plainly: check whether the tool you pick needs an account or a paid plan for more songs.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../ai-playlist-name-ideas/">AI Playlist Name Ideas</a> · <a href="../ai-video-generator-guide/">AI Video Generator</a> · <a href="../ai-voice-generator-guide/">AI Voice Generator</a> · <a href="../ai-birthday-wishes-guide/">AI Birthday Wishes Guide</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+function fallbackCopy(text){
+  try{
+    var ta=document.createElement("textarea");
+    ta.value=text;
+    document.body.appendChild(ta);
+    ta.select();
+    if(document.execCommand){document.execCommand("copy");}
+    document.body.removeChild(ta);
+    return true;
+  }catch(e){return false;}
+}
+function copyText(text,btn){
+  var done=function(){if(btn){btn.textContent="Copied!";}};
+  try{
+    if(typeof navigator!=="undefined"&&navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done,function(){fallbackCopy(text);done();});
+      return;
+    }
+  }catch(e){}
+  fallbackCopy(text);
+  done();
+}
+var MOODS={happy:"bright and cheerful",calm:"soft and relaxed",energetic:"bold and full of energy",dreamy:"gentle and dreamlike"};
+var MOOD_LINES={happy:"Keep the mood bright and cheerful from start to finish.",calm:"Keep the mood soft and relaxed from start to finish.",energetic:"Keep the mood bold and full of energy from start to finish.",dreamy:"Keep the mood gentle and dreamlike from start to finish."};
+var STYLES={pop:{name:"pop",detail:"Use bright synths and a catchy chorus."},lofi:{name:"lo-fi",detail:"Use soft piano and a slow relaxed beat."},rock:{name:"rock",detail:"Use electric guitars and driving drums."},classical:{name:"classical",detail:"Use strings and piano."},electronic:{name:"electronic",detail:"Use synths and a steady beat."}};
+var USES={birthday:"a birthday celebration",workout:"a workout session",sleep:"falling asleep"};
+var USE_LINES={birthday:"It is for a birthday celebration, so make it fun to sing along to.",workout:"It is for a workout session, so give it a strong beat to move to.",sleep:"It is for falling asleep, so keep it slow, soft and soothing."};
+function buildPrompt(mood,style,use){
+  var m=MOODS[mood]||mood;
+  var s=STYLES[style]||{name:style,detail:""};
+  var u=USES[use]||use;
+  return "Make a "+m+" "+s.name+" song for "+u+". "+(USE_LINES[use]||"")+" "+s.detail+" "+(MOOD_LINES[mood]||"")+" Keep it short and easy to listen to.";
+}
+var current="";
+function showPrompt(){
+  var mood=document.getElementById("mood").value;
+  var style=document.getElementById("style").value;
+  var use=document.getElementById("use").value;
+  current=buildPrompt(mood,style,use);
+  document.getElementById("out").textContent=current;
+  document.getElementById("steps").textContent="Copy it and paste it into an AI music tool to hear your song.";
+  document.getElementById("copy-status").textContent="";
+  document.getElementById("copy-btn").textContent="Copy the prompt";
+}
+function copyCurrent(){
+  if(!current){showPrompt();}
+  copyText(current,document.getElementById("copy-btn"));
+}
+document.getElementById("show-btn").addEventListener("click",showPrompt);
+document.getElementById("copy-btn").addEventListener("click",copyCurrent);
+showPrompt();
+window.FT={buildPrompt:buildPrompt,MOODS:MOODS,STYLES:STYLES,USES:USES,copyText:copyText,fallbackCopy:fallbackCopy};
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>
