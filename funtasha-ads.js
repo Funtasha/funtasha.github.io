@@ -103,14 +103,18 @@ window.FUNTASHA_ADS = {
   },
   /* ONE-PAGE POPUNDER — owner order 2026-11-20, overrides the old
    * canon ban for this ONE page only (black-friday-discount-
-   * calculator). Fires only on a deliberate click on the Calculate
-   * button, once per session, never on load, never on a link click,
-   * never blocks the tool. Destination is the Smartlink URL (same
-   * zone 32317423 as the text links); this is NOT the Adsterra
+   * calculator). DISABLED 2026-11-20 after the live cloud-browser
+   * click test: the first Calculate click navigated the calculator
+   * tab ITSELF to gambling ads (1xBet clickunder, then Rajabaji/MCW
+   * on Back) instead of opening a new tab — a click-hijack, which
+   * the owner's standing boundary forbids. The window.open shape
+   * passed a headless test but failed live, so it stays OFF until
+   * a safe mechanism is proven. Destination was the Smartlink URL
+   * (same zone 32317423 as the text links); this is NOT the Adsterra
    * popunder script tag — that tag is page-wide and broke
    * downloads, so it stays banned everywhere. */
   popunder: {
-    enabled: true,
+    enabled: false,
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
     page: 'black-friday-discount-calculator',
     buttonId: 'calc-btn'
