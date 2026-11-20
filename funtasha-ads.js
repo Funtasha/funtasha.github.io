@@ -108,14 +108,14 @@
  * browser opens in the SAME tab. textLinks disabled at once below.
  */
 window.FUNTASHA_ADS = {
-  /* DISABLED 2026-11-20 15:25 — owner reported screen hijack on his
-   * phone after opening a Funtasha page. Slim bar was the remaining
-   * banner layer; a bad Adsterra creative can move the tab even from
-   * inside the srcdoc iframe cage. Killed at once per the standing
-   * no-hijack boundary. Re-enable only after a new mechanism is
-   * proven safe on the owner's phone. */
+  /* RE-ENABLED 2026-11-20 15:39 — owner challenged: if no ad is placed
+   * nicely, no income can come. Slim bar ONLY (the CineBari-proven
+   * mechanism — same bar renders fine on his phone there, page intact).
+   * Sponsored line stays OFF (a tap on it opens the ad page itself,
+   * which feels like a hijack). Owner's phone test decides: if it
+   * hijacks, kill at once. All window.open layers stay OFF. */
   slimBar: {
-    enabled: false,
+    enabled: true,
     key728: '1e834c96ad0944ca4a3e4c9ebdc15738',
     key320: 'f2ef53da18b580853743091a67d7330b',
     host: 'https://bellnewyork.org/22/'
