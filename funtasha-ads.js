@@ -108,14 +108,18 @@
  * browser opens in the SAME tab. textLinks disabled at once below.
  */
 window.FUNTASHA_ADS = {
-  /* RE-ENABLED 2026-11-20 15:39 — owner challenged: if no ad is placed
-   * nicely, no income can come. Slim bar ONLY (the CineBari-proven
-   * mechanism — same bar renders fine on his phone there, page intact).
-   * Sponsored line stays OFF (a tap on it opens the ad page itself,
-   * which feels like a hijack). Owner's phone test decides: if it
-   * hijacks, kill at once. All window.open layers stay OFF. */
+  /* DISABLED 2026-11-20 15:52 — owner tested: normal mode fine, but
+   * INCOGNITO hijacks. Cause: his Chrome ad blocker hides the bad
+   * creative in normal mode; incognito has no blocker, so the real ad
+   * loads and moves the tab. Incognito = true visitor view, and
+   * visitors have no blocker either — so this bar hijacks real
+   * visitors. Killed at once per the no-hijack boundary. Same code
+   * as CineBari; the difference is the served creative, not the cage
+   * (sandboxing the tag is banned by Adsterra ToS 4.7). Replacement
+   * earner: Monetag In-Page Push for Funtasha (separate registration).
+   * All window.open layers stay OFF. */
   slimBar: {
-    enabled: true,
+    enabled: false,
     key728: '1e834c96ad0944ca4a3e4c9ebdc15738',
     key320: 'f2ef53da18b580853743091a67d7330b',
     host: 'https://bellnewyork.org/22/'
