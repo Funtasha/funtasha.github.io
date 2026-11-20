@@ -34,8 +34,13 @@
  * </body>. Never paste raw Adsterra tags into page HTML.
  *
  * BANNED on Funtasha (proven harmful, never re-add):
- * - Popunder (zone 32317376): its script tag broke downloads on
- *   /video-downloader/ — the overlay covered the Download button.
+ * - Popunder SCRIPT TAG (zone 32317376): its page-wide tag broke
+ *   downloads on /video-downloader/ — the overlay covered the
+ *   Download button. The tag stays banned everywhere. ONE exception
+ *   (owner order 2026-11-20): a restrained window.open popunder on
+ *   the Calculate button of black-friday-discount-calculator ONLY
+ *   (see popunder config below) — never on load, never on a link,
+ *   once per session, never on the downloader.
  * - Native Banner (zone 32317586): the owner's isolation test proved
  *   it hijacked the whole screen to a survey lander.
  * - Social Bar (zone 32317620): same screen-hijack evidence.
@@ -95,6 +100,20 @@ window.FUNTASHA_ADS = {
     enabled: true,
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
     label: 'Sponsored'
+  },
+  /* ONE-PAGE POPUNDER — owner order 2026-11-20, overrides the old
+   * canon ban for this ONE page only (black-friday-discount-
+   * calculator). Fires only on a deliberate click on the Calculate
+   * button, once per session, never on load, never on a link click,
+   * never blocks the tool. Destination is the Smartlink URL (same
+   * zone 32317423 as the text links); this is NOT the Adsterra
+   * popunder script tag — that tag is page-wide and broke
+   * downloads, so it stays banned everywhere. */
+  popunder: {
+    enabled: true,
+    url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
+    page: 'black-friday-discount-calculator',
+    buttonId: 'calc-btn'
   }
 };
 
@@ -349,10 +368,39 @@ window.FUNTASHA_ADS = {
       if (!card.querySelector('iframe')) card.appendChild(bannerIframe());
     }, 4000);
   }
+  /* ONE-PAGE POPUNDER (owner order 2026-11-20): binds to ONE
+   * button on ONE page only. No preventDefault, no href rewrite —
+   * the page's own Calculate handler runs untouched and the result
+   * shows normally. window.open runs inside the click handler, so
+   * popup blockers allow it. The shared one-ad-tab-per-session
+   * guard is honoured both ways: if a Sponsored tap already fired
+   * this session the popunder stays quiet, and firing it marks the
+   * session so no second ad tab follows. Its own sessionStorage
+   * key stops a second Calculate click in the same session. */
+  var POPUNDER_KEY = 'funtasha_popunder_fired';
+  function bindPopunder() {
+    var cfg = (window.FUNTASHA_ADS && window.FUNTASHA_ADS.popunder) || {};
+    if (!cfg.enabled || !cfg.url || !cfg.page || !cfg.buttonId) return;
+    if (window.location.pathname.indexOf('/' + cfg.page + '/') === -1) return;
+    var btn = document.getElementById(cfg.buttonId);
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      if (smartlinkHasFired()) return;
+      try {
+        if (window.sessionStorage.getItem(POPUNDER_KEY) === '1') return;
+      } catch (e) {}
+      smartlinkMarkFired();
+      try {
+        window.sessionStorage.setItem(POPUNDER_KEY, '1');
+      } catch (e) {}
+      window.open(cfg.url, '_blank', 'noopener');
+    });
+  }
   function run() {
     bindSmartlink();
     insertSponsoredLine();
     bindTextLinks();
+    bindPopunder();
     renderSlimBar();
   }
   if (document.readyState === 'loading') {

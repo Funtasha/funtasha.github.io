@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black Friday Discount Calculator — Sale Price & Savings | Funtasha</title>
+<meta name="description" content="Work out any Black Friday deal in seconds. Enter the original price and the discount to see the sale price and how much you save.">
+<link rel="canonical" href="https://funtasha.github.io/black-friday-discount-calculator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Black Friday Discount Calculator — Sale Price & Savings">
+<meta property="og:description" content="Work out any Black Friday deal — sale price and savings in seconds.">
+<meta property="og:url" content="https://funtasha.github.io/black-friday-discount-calculator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate a discount?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply the original price by the discount percent and divide by 100 — that is what you save. Then subtract the savings from the original price to get the sale price. For example, 40% off $100 saves $40, so the sale price is $60."}}, {"@type": "Question", "name": "What is the formula for the sale price?", "acceptedAnswer": {"@type": "Answer", "text": "Sale price = original price x (100 - discount percent) / 100. For a $100 item at 40% off, that is $100 x 60 / 100 = $60. The calculator on this page applies the formula for you and shows the working."}}, {"@type": "Question", "name": "How do I find the original price from a sale price?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the sale price by what you actually paid as a share of the original: original price = sale price / (1 - discount percent / 100). A $60 sale price at 40% off means the original was $60 / 0.60 = $100."}}, {"@type": "Question", "name": "What is a good Black Friday discount?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single number that makes a discount good — it depends on the item and on what it usually sells for. Judge a deal against the price the item actually sold at before the sale, not against the percentage alone: a real cut on a real price beats a big percentage on an inflated was price."}}, {"@type": "Question", "name": "Can I stack a coupon on top of a Black Friday discount?", "acceptedAnswer": {"@type": "Answer", "text": "Sometimes — it depends on the store's terms, and some shops exclude sale items from coupons. Where stacking works, the coupon usually comes off the sale price: a $100 item at 40% off is $60, and a 10% coupon on that takes another $6 off, leaving $54. Check the terms before you count on it."}}, {"@type": "Question", "name": "How do I know if a Black Friday deal is real?", "acceptedAnswer": {"@type": "Answer", "text": "Compare the sale price with the price you noted before the sale, check the same item at more than one shop, and look at the price history where it is shown. A real deal beats the price the item actually sold at; a fake one only beats a was price that was raised for the occasion."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Black Friday Discount Calculator</h1>
+<p class="answer">Enter the original price and the discount percent, and this calculator works out the sale price and how much you save — per item and in total. It is the fastest way to check whether a Black Friday deal is really a deal.</p>
+<div class="calc">
+<label for="origPrice">Original price</label>
+<input id="origPrice" type="number" min="0" step="any" placeholder="e.g. 100">
+<label for="discPct">Discount percent</label>
+<input id="discPct" type="number" min="0" max="100" step="any" placeholder="e.g. 40">
+<label for="qty">Quantity (optional)</label>
+<input id="qty" type="number" min="1" step="1" value="1">
+<button id="calc-btn" type="button">Calculate</button>
+<div class="out" id="out"></div>
+<div class="steps" id="steps"></div>
+</div>
+<div class="warn">This calculator works with the numbers you enter — it does not fetch prices or check any store. A discount is only a deal if the original price was real, so check the price history before you buy.</div>
+<h2>How a discount works</h2>
+<p>A discount is a slice taken off a price, and the size of the slice is given as a percentage. When a shop says 40% off, it means you pay 60% of the original price and keep the other 40% in your pocket. The sale price is what you pay; the savings are what you do not pay.</p><p>The sale-price formula, in plain words, is this: take the discount percent away from 100, and multiply the original price by what is left. For 40% off, 100 minus 40 leaves 60, so you pay 60% of the original price. Written as a formula: sale price = original price x (100 - discount percent) / 100. The savings are the rest: savings = original price - sale price.</p><p>That is all a discount is — one multiplication and one subtraction. The calculator above does both for you, and shows the working so you can see exactly where each number came from.</p>
+<h2>How to use the calculator</h2>
+<p>The calculator has three inputs, and only the first two are required.</p><ul><li><strong>Original price.</strong> The price before the discount — the number on the tag, or the price the item usually sells at. Enter it as a plain number, without any currency symbol.</li><li><strong>Discount percent.</strong> The percentage off, as shown on the sale label — 40 for 40% off, 25 for 25% off, and so on. It must be between 0 and 100.</li><li><strong>Quantity (optional).</strong> How many of the item you are buying. It starts at 1; change it if you are buying more than one.</li></ul><p>Press Calculate, and the results appear below the button: the sale price per item, what you save per item, the total price for the quantity you entered, and the total savings. The working is shown underneath, so you can check the maths at a glance.</p><p>If an input is missing or impossible — a blank price, a discount above 100, a quantity of zero — the calculator says so in plain words instead of showing a nonsense number. Fix the input and press Calculate again.</p>
+<h2>Worked examples</h2>
+<p>Three examples, each checked by hand, so you can see the calculator at work.</p><p><strong>Example 1: $100 at 40% off.</strong> The sale price is $100 x (100 - 40) / 100 = $100 x 0.60 = $60. You save $100 - $60 = $40. This is the classic Black Friday shape: a round price, a big discount, and a saving you can feel.</p><p><strong>Example 2: $250 at 25% off.</strong> The sale price is $250 x (100 - 25) / 100 = $250 x 0.75 = $187.50. You save $250 - $187.50 = $62.50. A smaller percentage on a bigger price can still be a large saving in money terms — which is why the amount saved matters as much as the percentage.</p><p><strong>Example 3: $80 at 50% off, quantity 2.</strong> The sale price per item is $80 x 0.50 = $40, so two cost $80 in total. You save $40 per item, $80 in total. Half price is the easiest discount to check in your head, and the calculator agrees: try it with a quantity of 2 and watch the totals double while the per-item numbers stay the same.</p>
+<h2>How to spot a fake deal</h2>
+<p>A discount is only a deal if the original price was real. The most common trick of sale season is the inflated was price: a shop raises a price shortly before the sale, then cuts it back and calls the drop a discount. The percentage looks impressive; the price you pay is the same as it was last month.</p><p>The defence is simple, and it costs nothing: note the price before the sale. In the weeks before Black Friday, write down the ordinary prices of the things on your wishlist — the item, the shop, the price, and the date. When the sale arrives, compare. If the sale price beats the price you wrote down, it is a real cut. If it matches it, the discount is decoration.</p><p>Price history helps where it is available. Some shops and price comparison sites show how a price has moved over time. A price that was steady for months and then dropped on Black Friday is a genuine cut; a price that jumped up last week and fell back is not. And if a deal looks too good to be true — a huge discount on a brand-new item, or a price far below every other shop — slow down and check the seller before you pay.</p>
+<h2>Stacking coupons and cashback</h2>
+<p>Sometimes a Black Friday discount is not the end of it: a coupon code, a loyalty offer or cashback can sit on top of the sale price. Stacking can turn a good deal into a great one — but only if you know how the pieces fit together.</p><p>The key question is what the coupon comes off: the sale price or the original price. Most of the time a coupon applies to the price after the discount. Take a $100 item at 40% off: the sale price is $60. A 10% coupon on the sale price takes another $6 off, leaving $54. If the coupon came off the original price instead, it would take $10 off — a different answer. Check the store's terms before you assume either way, because shops differ.</p><p>Cashback works differently again: you pay the sale price now and get a percentage back later, usually after a waiting period. Count it as a bonus, not as part of the price — the money leaves your account today either way. And remember that stacking only saves money on something you were going to buy. A coupon that persuades you to buy a second item you did not want has cost you money, not saved it.</p>
+<h2>Setting a budget so the discount does not become overspending</h2>
+<p>Discounts are designed to make spending feel like saving, and that feeling is exactly where overspending starts. The cure is a budget decided before the day, when no sale signs are in sight.</p><p>Start with a total: the most you will spend across the whole of Black Friday. Then split it across your wishlist — so much for this gift, so much for that household item — and keep a little unassigned for the one genuine surprise. As you buy, subtract each sale price from the total. When the budget is gone, the shopping is done, however tempting the next deal looks.</p><p>Two habits help the budget hold. First, buy from the list: if it was not on the wishlist, it waits until after the sale, when you can decide calmly. Second, use the calculator on this page before you commit — seeing the total price and the total savings in plain numbers takes the excitement out of the decision and puts the facts in. A discount you cannot afford is not a bargain, whatever the percentage says.</p>
+<h2>Finding the original price from a sale price</h2>
+<p>Sometimes a shop shows only the sale price and the discount, and you want to know what the item cost before. The formula runs backwards: original price = sale price / (1 - discount percent / 100).</p><p>Take a $60 sale price at 40% off. The discount means you paid 60% of the original, so the original is $60 / 0.60 = $100. Or a $75 sale price at 25% off: you paid 75%, so the original is $75 / 0.75 = $100 again. Both check out the other way round: $100 at 40% off is $60, and $100 at 25% off is $75.</p><p>This reverse check is useful when a was price looks suspicious. If the label says the item was $120 but the sale price and discount point to $100, the was price was inflated — and the real discount is smaller than the label claims. Run the numbers before you believe the ticket.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How do I calculate a discount?</h3><p>Multiply the original price by the discount percent and divide by 100 — that is what you save. Then subtract the savings from the original price to get the sale price. For example, 40% off $100 saves $40, so the sale price is $60.</p></div><div class="faq"><h3>What is the formula for the sale price?</h3><p>Sale price = original price x (100 - discount percent) / 100. For a $100 item at 40% off, that is $100 x 60 / 100 = $60. The calculator on this page applies the formula for you and shows the working.</p></div><div class="faq"><h3>How do I find the original price from a sale price?</h3><p>Divide the sale price by what you actually paid as a share of the original: original price = sale price / (1 - discount percent / 100). A $60 sale price at 40% off means the original was $60 / 0.60 = $100.</p></div><div class="faq"><h3>What is a good Black Friday discount?</h3><p>There is no single number that makes a discount good — it depends on the item and on what it usually sells for. Judge a deal against the price the item actually sold at before the sale, not against the percentage alone: a real cut on a real price beats a big percentage on an inflated was price.</p></div><div class="faq"><h3>Can I stack a coupon on top of a Black Friday discount?</h3><p>Sometimes — it depends on the store's terms, and some shops exclude sale items from coupons. Where stacking works, the coupon usually comes off the sale price: a $100 item at 40% off is $60, and a 10% coupon on that takes another $6 off, leaving $54. Check the terms before you count on it.</p></div><div class="faq"><h3>How do I know if a Black Friday deal is real?</h3><p>Compare the sale price with the price you noted before the sale, check the same item at more than one shop, and look at the price history where it is shown. A real deal beats the price the item actually sold at; a fake one only beats a was price that was raised for the occasion.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../black-friday-countdown/">Black Friday Countdown</a> · <a href="../christmas-countdown/">Christmas Countdown</a> · <a href="../birthday-party-budget-calculator/">Birthday Party Budget Calculator</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+function money(n){return "$"+n.toFixed(2);}
+function calc(price, pct, qty){
+  if(price===null||price===undefined||isNaN(price)||price<=0){return {error:"Enter an original price above zero."};}
+  if(pct===null||pct===undefined||isNaN(pct)||pct<0||pct>100){return {error:"Enter a discount between 0 and 100."};}
+  if(qty===null||qty===undefined||isNaN(qty)||qty<1||Math.floor(qty)!==qty){return {error:"Enter a quantity of 1 or more, as a whole number."};}
+  var sale=price*(100-pct)/100;
+  var save=price-sale;
+  var total=sale*qty;
+  var totalSave=save*qty;
+  return {sale:sale,save:save,total:total,totalSave:totalSave,
+    steps:"Sale price per item = "+money(price)+" x (100 - "+pct+") / 100 = "+money(sale)+
+    "\nSavings per item = "+money(price)+" - "+money(sale)+" = "+money(save)+
+    "\nTotal for "+qty+" = "+money(sale)+" x "+qty+" = "+money(total)+
+    "\nTotal savings = "+money(save)+" x "+qty+" = "+money(totalSave)};
+}
+function onCalculate(){
+  var priceEl=document.getElementById("origPrice");
+  var pctEl=document.getElementById("discPct");
+  var qtyEl=document.getElementById("qty");
+  var out=document.getElementById("out");
+  var steps=document.getElementById("steps");
+  var price=priceEl.value===""?NaN:parseFloat(priceEl.value);
+  var pct=pctEl.value===""?NaN:parseFloat(pctEl.value);
+  var qty=qtyEl.value===""?1:parseFloat(qtyEl.value);
+  var r=calc(price,pct,qty);
+  if(r.error){out.textContent=r.error;steps.textContent="";return;}
+  out.textContent="Sale price: "+money(r.sale)+" per item — you save "+money(r.save)+" per item. Total: "+money(r.total)+" — total savings: "+money(r.totalSave)+".";
+  steps.textContent=r.steps;
+}
+document.getElementById("calc-btn").addEventListener("click",onCalculate);
+window.BF={calc:calc,money:money};
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>
