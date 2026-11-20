@@ -100,6 +100,12 @@
  * identical window.open mechanism, so it goes off too. Slim bar
  * stays ON: it rendered on load with no hijack. textLinks +
  * sponsoredLine stay ON (pre-existing, owner-ordered).
+ * UPDATE 13:33 — decisive test PROVED the hijack comes from
+ * textLinks itself, not the popunders: with firstClick/dlPopunder/
+ * popunder/smartlink all provably disabled in the browser, a plain
+ * paragraph click still navigated the tab to the Smartlink URL
+ * (go1.trakit36.com, subid 32317423) — window.open in the live
+ * browser opens in the SAME tab. textLinks disabled at once below.
  */
 window.FUNTASHA_ADS = {
   /* RE-ENABLED 2026-11-20 on the owner's word — his 2026-11-19
@@ -121,8 +127,15 @@ window.FUNTASHA_ADS = {
     label: 'Sponsored',
     text: 'Explore sponsored offers \u2192'
   },
+  /* DISABLED 2026-11-20 13:33 — decisive live test proved this layer
+   * hijacks: its window.open opens the Smartlink URL in the SAME tab
+   * in the live browser (go1.trakit36.com -> casino chain), not a new
+   * tab. Same symptom as the 2026-11-19 FAQ-tap bug, never fixed.
+   * Re-enable only after a new mechanism is proven in a live test
+   * (e.g. real <a target=_blank> links instead of window.open) or
+   * the owner's phone proves it opens a new tab there. */
   textLinks: {
-    enabled: true,
+    enabled: false,
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
     label: 'Sponsored'
   },
