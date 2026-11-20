@@ -74,14 +74,29 @@
  * below and republish this one file. Code stays byte-identical. The
  * Smartlink layer has its own enabled flag and can be killed the
  * same way.
+ *
+ * 2026-11-20 (owner order, publish of AI-video + APK download pages):
+ * slim bar RE-ENABLED (slimBar.enabled:true) — owner gave the word
+ * after correcting the 2026-11-19 hijack report (no screen hijack
+ * happened; creative only). Two NEW restrained popunders, both
+ * window.open inside a click handler, both sharing the
+ * one-ad-tab-per-session guard, both live-tested before calling
+ * done, disabled at once on any hijack / same-tab navigation
+ * (Black Friday rule): (a) dlPopunder — .dl-btn clicks on
+ * /download/ pages only (ad in a new tab, same tab lands on the
+ * official Play Store / APKPure link); (b) firstClick — the
+ * visitor's FIRST click on the 12 new AI-video pages only opens
+ * one popunder in a new tab, once per session. The Black Friday
+ * one-page popunder stays enabled:false (live test failed). The
+ * sitewide first-link-click Smartlink layer stays enabled:false
+ * (owner ban on ads on page-opening links still stands).
  */
 window.FUNTASHA_ADS = {
-  /* DISABLED 2026-11-19 evening — hijack reported on the owner's
-   * phone the same day the bar went live. The bar stays OFF until
-   * the cause is proven; if the bar is the cause it joins the
-   * banned list with the 300x250. */
+  /* RE-ENABLED 2026-11-20 on the owner's word — his 2026-11-19
+   * correction: no screen hijack happened, creative only. Live-test
+   * at publish; kill again at once on any hijack. */
   slimBar: {
-    enabled: false,
+    enabled: true,
     key728: '1e834c96ad0944ca4a3e4c9ebdc15738',
     key320: 'f2ef53da18b580853743091a67d7330b',
     host: 'https://bellnewyork.org/22/'
@@ -118,6 +133,29 @@ window.FUNTASHA_ADS = {
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
     page: 'black-friday-discount-calculator',
     buttonId: 'calc-btn'
+  },
+  /* DOWNLOAD-BUTTON POPUNDER (owner order 2026-11-20): .dl-btn clicks
+   * on /download/ pages only. Ad opens in a NEW tab; the same tab
+   * follows the button's own href to the official Play Store /
+   * APKPure page (never touched, no preventDefault). Once per
+   * session; shares the one-ad-tab guard with textLinks. */
+  dlPopunder: {
+    enabled: true,
+    url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
+    pathPrefix: '/download/',
+    selector: '.dl-btn'
+  },
+  /* FIRST-CLICK POPUNDER (owner order 2026-11-20): the visitor's
+   * first deliberate click on one of the 12 new AI-video pages only
+   * opens ONE popunder in a new tab, once per session. Browsers
+   * block popups without a gesture, so on-load is impossible —
+   * first click is the working shape. Shares the one-ad-tab guard
+   * with textLinks, so a first click on a Sponsored element opens
+   * exactly one tab, never two. */
+  firstClick: {
+    enabled: true,
+    url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
+    pages: ['free-ai-video-generator', 'ai-video-generator-no-watermark', 'text-to-video-ai', 'image-to-video-ai', 'google-flow-video-guide', 'ai-video-generator-long-video', 'faceless-ai-video-generator', 'ai-product-video-generator', 'tiktok-ai-video-generator', 'ai-avatar-video-generator', 'kling-ai-video-guide', 'script-to-video-ai']
   }
 };
 
@@ -400,11 +438,53 @@ window.FUNTASHA_ADS = {
       window.open(cfg.url, '_blank', 'noopener');
     });
   }
+  var DL_POPUNDER_KEY = 'funtasha_dlpopunder_fired';
+  function bindDlPopunder() {
+    var cfg = (window.FUNTASHA_ADS && window.FUNTASHA_ADS.dlPopunder) || {};
+    if (!cfg.enabled || !cfg.url || !cfg.pathPrefix || !cfg.selector) return;
+    if (window.location.pathname.indexOf(cfg.pathPrefix) !== 0) return;
+    var btns = document.querySelectorAll(cfg.selector);
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function () {
+        if (smartlinkHasFired()) return;
+        try {
+          if (window.sessionStorage.getItem(DL_POPUNDER_KEY) === '1') return;
+        } catch (e) {}
+        smartlinkMarkFired();
+        try {
+          window.sessionStorage.setItem(DL_POPUNDER_KEY, '1');
+        } catch (e) {}
+        window.open(cfg.url, '_blank', 'noopener');
+      });
+    }
+  }
+  /* FIRST-CLICK POPUNDER — see firstClick config above. Document-level
+   * listener, active only on the listed pages. It runs in the bubble
+   * phase, AFTER any textLinks element handler on the same click:
+   * whichever runs first marks the shared guard, so the other stays
+   * quiet — exactly one ad tab, never two. */
+  function bindFirstClick() {
+    var cfg = (window.FUNTASHA_ADS && window.FUNTASHA_ADS.firstClick) || {};
+    if (!cfg.enabled || !cfg.url || !cfg.pages) return;
+    var path = window.location.pathname;
+    var onPage = false;
+    for (var i = 0; i < cfg.pages.length; i++) {
+      if (path.indexOf('/' + cfg.pages[i] + '/') !== -1) { onPage = true; break; }
+    }
+    if (!onPage) return;
+    document.addEventListener('click', function () {
+      if (smartlinkHasFired()) return;
+      smartlinkMarkFired();
+      window.open(cfg.url, '_blank', 'noopener');
+    });
+  }
   function run() {
     bindSmartlink();
     insertSponsoredLine();
     bindTextLinks();
     bindPopunder();
+    bindDlPopunder();
+    bindFirstClick();
     renderSlimBar();
   }
   if (document.readyState === 'loading') {
