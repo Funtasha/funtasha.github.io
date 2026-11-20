@@ -108,11 +108,14 @@
  * browser opens in the SAME tab. textLinks disabled at once below.
  */
 window.FUNTASHA_ADS = {
-  /* RE-ENABLED 2026-11-20 on the owner's word — his 2026-11-19
-   * correction: no screen hijack happened, creative only. Live-test
-   * at publish; kill again at once on any hijack. */
+  /* DISABLED 2026-11-20 15:25 — owner reported screen hijack on his
+   * phone after opening a Funtasha page. Slim bar was the remaining
+   * banner layer; a bad Adsterra creative can move the tab even from
+   * inside the srcdoc iframe cage. Killed at once per the standing
+   * no-hijack boundary. Re-enable only after a new mechanism is
+   * proven safe on the owner's phone. */
   slimBar: {
-    enabled: true,
+    enabled: false,
     key728: '1e834c96ad0944ca4a3e4c9ebdc15738',
     key320: 'f2ef53da18b580853743091a67d7330b',
     host: 'https://bellnewyork.org/22/'
@@ -121,8 +124,12 @@ window.FUNTASHA_ADS = {
     enabled: false,
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb'
   },
+  /* DISABLED 2026-11-20 15:25 — owner reported screen hijack on his
+   * phone. Sponsored line was the other remaining live layer (a real
+   * link to the Smartlink URL); killed together with the slim bar so
+   * no ad layer is left live until a safe mechanism is proven. */
   sponsoredLine: {
-    enabled: true,
+    enabled: false,
     url: 'https://ardance.org/4/9ae1a7e6c539e3ffe09395409dd351eb',
     label: 'Sponsored',
     text: 'Explore sponsored offers \u2192'
