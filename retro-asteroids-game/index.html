@@ -155,6 +155,7 @@ code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
 <div class="game-controls">
 <button class="mute-btn" id="btn-autofire">Auto-fire: On</button>
 <button class="mute-btn" id="mute-btn">Sound: Off</button>
+<button class="mute-btn" type="button" onclick="toggleFS()">Fullscreen</button>
 </div>
 </div>
 <div class="warn">This is an original game inspired by the classics of that era. It is not affiliated with Nokia or any original publisher. Hyperspace saves you from a trap — and can drop you into a worse one.</div>
@@ -801,5 +802,8 @@ if (hasDoc) {
 
 </script>
 <script src="/funtasha-ads.js" defer></script>
+<script>
+function toggleFS(){var d=document;if(d.fullscreenElement){d.exitFullscreen();return;}var e=d.documentElement;var f=e.requestFullscreen||e.webkitRequestFullscreen;if(f){try{var p=f.call(e);if(p&&p.catch){p.catch(function(){});}}catch(err){}}}
+</script>
 </body>
 </html>

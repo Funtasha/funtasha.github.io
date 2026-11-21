@@ -147,7 +147,8 @@ code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
 <div class="dpad-row"><button class="game-btn" id="btn-up">Up</button></div>
 <div class="dpad-row"><button class="game-btn" id="btn-left">Left</button><button class="game-btn" id="btn-down">Down</button><button class="game-btn" id="btn-right">Right</button></div>
 </div>
-<div class="game-controls"><button class="mute-btn" id="mute-btn">Sound: Off</button></div>
+<div class="game-controls"><button class="mute-btn" id="mute-btn">Sound: Off</button>
+<button class="mute-btn" type="button" onclick="toggleFS()">Fullscreen</button></div>
 </div>
 <div class="warn">This is an original game inspired by the classics of that era. It is not affiliated with Nokia or any original publisher. The ghosts each chase differently — learn their patterns before you chase the pellets.</div>
 <h2>What Retro Maze Chase is</h2>
@@ -850,5 +851,8 @@ if (hasDoc) {
 
 </script>
 <script src="/funtasha-ads.js" defer></script>
+<script>
+function toggleFS(){var d=document;if(d.fullscreenElement){d.exitFullscreen();return;}var e=d.documentElement;var f=e.requestFullscreen||e.webkitRequestFullscreen;if(f){try{var p=f.call(e);if(p&&p.catch){p.catch(function(){});}}catch(err){}}}
+</script>
 </body>
 </html>

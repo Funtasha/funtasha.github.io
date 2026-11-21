@@ -153,7 +153,8 @@ th{background:#fdf2f8}
 </div>
 <div class="game-controls"><button class="game-btn" id="btn-left" aria-label="Move left">&#8592;</button><button class="game-btn" id="btn-right" aria-label="Move right">&#8594;</button><button class="game-btn" id="btn-autofire">Auto-fire: Off</button></div>
 <div class="game-controls"><button class="game-btn fire-btn" id="btn-fire">FIRE</button></div>
-<div class="game-controls"><button class="mute-btn" id="btn-mute">Sound: Off</button></div>
+<div class="game-controls"><button class="mute-btn" id="btn-mute">Sound: Off</button>
+<button class="mute-btn" type="button" onclick="toggleFS()">Fullscreen</button></div>
 </div>
 <div class="warn">This is an original game inspired by the classics of that era. It is not affiliated with Nokia or any original publisher. The lowest aliens are the dangerous ones — clear the bottom rows first.</div>
 <h2>What Retro Alien Invaders is</h2>
@@ -904,5 +905,8 @@ th{background:#fdf2f8}
 
 </script>
 <script src="/funtasha-ads.js" defer></script>
+<script>
+function toggleFS(){var d=document;if(d.fullscreenElement){d.exitFullscreen();return;}var e=d.documentElement;var f=e.requestFullscreen||e.webkitRequestFullscreen;if(f){try{var p=f.call(e);if(p&&p.catch){p.catch(function(){});}}catch(err){}}}
+</script>
 </body>
 </html>

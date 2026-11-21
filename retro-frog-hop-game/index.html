@@ -153,7 +153,8 @@ th{background:#fdf2f8}
 </div>
 <div class="pad-row"><button class="game-btn" id="btn-up" aria-label="Hop up">&#8593;</button></div>
 <div class="pad-row"><button class="game-btn" id="btn-left" aria-label="Hop left">&#8592;</button><button class="game-btn" id="btn-down" aria-label="Hop down">&#8595;</button><button class="game-btn" id="btn-right" aria-label="Hop right">&#8594;</button></div>
-<div class="game-controls"><button class="mute-btn" id="btn-mute">Sound: Off</button></div>
+<div class="game-controls"><button class="mute-btn" id="btn-mute">Sound: Off</button>
+<button class="mute-btn" type="button" onclick="toggleFS()">Fullscreen</button></div>
 </div>
 <div class="warn">This is an original game inspired by the classics of that era. It is not affiliated with Nokia or any original publisher. Cars kill, water kills, logs carry — watch the pattern before you hop.</div>
 <h2>What Retro Frog Hop is</h2>
@@ -750,5 +751,8 @@ th{background:#fdf2f8}
 
 </script>
 <script src="/funtasha-ads.js" defer></script>
+<script>
+function toggleFS(){var d=document;if(d.fullscreenElement){d.exitFullscreen();return;}var e=d.documentElement;var f=e.requestFullscreen||e.webkitRequestFullscreen;if(f){try{var p=f.call(e);if(p&&p.catch){p.catch(function(){});}}catch(err){}}}
+</script>
 </body>
 </html>
