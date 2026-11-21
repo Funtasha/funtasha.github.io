@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retro Asteroids — Play the Classic Space Rock Shooter Free | Funtasha</title>
+<meta name="description" content="Play Retro Asteroids free in your browser — blast big space rocks into smaller, faster pieces and survive the swarm. No download, no signup.">
+<link rel="canonical" href="https://funtasha.github.io/retro-asteroids-game/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Retro Asteroids — Play the Classic Space Rock Shooter Free">
+<meta property="og:description" content="Blast big space rocks into smaller, faster pieces and survive the swarm.">
+<meta property="og:url" content="https://funtasha.github.io/retro-asteroids-game/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>.byline{font-size:14px;color:#64748b;margin:6px 0 0}
+.hub{margin:18px 0 4px;font-size:16px;font-weight:700}.hub a{color:#be185d}
+.game-wrap{position:relative}
+.game-canvas{display:block;width:100%;max-width:480px;margin:0 auto;background:#0a1f0a;border:3px solid #1e293b;border-radius:10px;touch-action:none}
+.game-score{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:16px;margin:6px 0 10px;flex-wrap:wrap;gap:6px}
+.calc .game-btn{min-height:90px;min-width:90px;padding:12px 18px;border:0;border-radius:14px;font-size:18px;font-weight:700;cursor:pointer;touch-action:manipulation;margin-top:0}
+.calc .game-btn-wide{width:100%;min-height:90px;padding:14px 18px;border:0;border-radius:14px;font-size:19px;font-weight:700;cursor:pointer;touch-action:manipulation;margin-top:0}
+.game-controls{display:flex;gap:10px;justify-content:space-between;margin-top:12px;flex-wrap:wrap}
+.game-controls .game-btn{flex:1}
+.game-overlay{position:absolute;inset:0;background:rgba(10,31,10,.93);color:#e8f7ef;border-radius:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;text-align:center;gap:12px}
+.ov-title{font-size:22px;font-weight:700}
+.game-overlay p{font-size:16px;max-width:420px}
+.calc .pause-btn{position:absolute;top:8px;right:8px;min-width:90px;min-height:72px;padding:10px 14px;border:0;border-radius:12px;font-size:17px;font-weight:700;cursor:pointer;z-index:5;touch-action:manipulation;margin-top:0}
+.calc .mute-btn{min-width:72px;min-height:72px;padding:10px 14px;border:0;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;touch-action:manipulation;margin-top:0}
+.calc .game-btn,.calc .game-btn-wide{background:#db2777;color:#fff}
+.calc .pause-btn,.calc .mute-btn{background:#ea580c;color:#fff}
+.dpad{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.dpad-row{display:flex;gap:10px;justify-content:center}
+.dpad-row .game-btn{flex:0 0 90px}
+.calc .game-btn-fire{min-height:100px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Retro Asteroids free to play?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Retro Asteroids is completely free, and you do not need to download anything or sign up. Just open the page, tap Start Game, and play in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I move on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drag on the space field and your ship turns toward your finger and thrusts, or use the big Rotate, Thrust and Fire buttons below the field. Auto-fire is on by default, so you only need to steer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does hyperspace do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hyperspace makes your ship vanish and reappear at a random spot on the field. It can save you from a trap, but there is a one-in-eight chance the jump destroys your ship, and there is a three-second cooldown after each jump."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do big rocks split?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is the heart of the game. Shooting a big rock breaks it into two medium rocks, and shooting a medium rock breaks it into two small, faster rocks. One big rock is really seven rocks once you count every piece."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my best score saved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your best score is saved in your browser on your own device, using local storage. It stays there when you close the page, and it will still be there next time you play on the same device and browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I mute the sound?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The sound is off by default. Tap the Sound button under the field, or press M on a keyboard, to switch the short shooting and explosion tones on or off at any time."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Retro Asteroids</h1>
+<p class="byline">By the Funtasha team · Published 21 November 2026 · Updated 21 November 2026</p>
+<p class="answer">Retro Asteroids is a free space shooter you play right in your browser. Blast big rocks into smaller, faster pieces, dodge the swarm, and use hyperspace when you are cornered. No download, no signup — it works on your phone and on a computer.</p>
+<div class="calc">
+<div class="game-score"><span>Score: <b id="score">0</b></span><span>Best: <b id="best">0</b></span><span>Lives: <b id="lives">3</b></span><span>Wave: <b id="level">1</b></span></div>
+<div class="game-wrap">
+<canvas class="game-canvas" id="game-canvas" width="480" height="480"></canvas>
+<button class="pause-btn" id="pause-btn" style="display:none">Pause</button>
+<div class="game-overlay" id="start-overlay">
+<div class="ov-title">Retro Asteroids</div>
+<p>Blast the rocks. Dodge the pieces. Hyperspace is your last resort.</p>
+<button class="game-btn-wide" id="start-btn">Start Game</button>
+</div>
+<div class="game-overlay" id="pause-overlay" style="display:none">
+<div class="ov-title">Paused</div>
+<p>Take a breath. The rocks are waiting.</p>
+<button class="game-btn-wide" id="resume-btn">Resume</button>
+<button class="game-btn-wide" id="restart-btn">Restart</button>
+<button class="game-btn-wide" id="howto-btn">How to Play</button>
+</div>
+<div class="game-overlay" id="over-overlay" style="display:none">
+<div class="ov-title">Game Over</div>
+<p id="over-text">Score: 0</p>
+<p id="newbest-text" style="display:none">New Best!</p>
+<button class="game-btn-wide" id="again-btn">Play Again</button>
+</div>
+</div>
+<div class="game-controls">
+<button class="game-btn" id="btn-rot-l">Rotate Left</button>
+<button class="game-btn" id="btn-rot-r">Rotate Right</button>
+</div>
+<div class="game-controls">
+<button class="game-btn" id="btn-thrust">Thrust</button>
+<button class="game-btn game-btn-fire" id="btn-fire">Fire</button>
+<button class="game-btn" id="btn-hyper">Hyperspace</button>
+</div>
+<div class="game-controls">
+<button class="mute-btn" id="btn-autofire">Auto-fire: On</button>
+<button class="mute-btn" id="mute-btn">Sound: Off</button>
+</div>
+</div>
+<div class="warn">This is an original game inspired by the classics of that era. It is not affiliated with Nokia or any original publisher. Hyperspace saves you from a trap — and can drop you into a worse one.</div>
+<h2>What Retro Asteroids is</h2>
+<p>Retro Asteroids is a space shooter in the style of the vector arcade games of the late 1970s. You fly a small triangle ship in the middle of a black field while big space rocks drift toward you from every side. Shoot a big rock and it splits into two smaller, faster ones. Shoot those and they split again into small, quick pieces. Clear every rock and the next wave arrives with one more big rock than the last.</p>
+<p>The whole game is about motion. Your ship does not stop when you stop pushing: it keeps gliding in the direction you sent it, and turning takes a moment. That floating feeling is the game. You learn to tap the thrust in short bursts, to let the ship drift while you aim, and to keep some empty space around you at all times.</p>
+<p>There is also a saucer that crosses the screen from time to time. It is worth 200 points if you hit it, and it shoots back, so it is both a prize and a threat. And when everything goes wrong at once, there is the hyperspace button: your ship vanishes and reappears somewhere random. It can save your run, or it can end it on the spot.</p>
+<p>There are no downloads, no accounts and no timers pushing you to buy anything. The game runs entirely in your browser, and your best score is saved on your own device. A run lasts a few minutes, and every wave asks the same question: how long can you keep the sky clear?</p>
+<h2>How to play on your phone</h2>
+<p>On a phone, you have two ways to fly. The simplest is to drag on the space field itself: touch the screen and your ship turns toward your finger and fires its thruster, so you steer by pointing where you want to go. Lift your finger and the ship keeps gliding. The second way is the big buttons below the field: Rotate Left and Rotate Right to turn, Thrust to push forward, Fire to shoot, and Hyperspace for an emergency jump.</p>
+<p>All the buttons are 90 pixels tall, and the Fire button is 100 pixels, so they are easy to hit without looking. They sit below the field, never on top of it, so your thumbs never cover the rocks you are trying to dodge. Auto-fire is switched on by default on a phone, which means your ship shoots on its own while you fly — you only need to worry about steering and thrust.</p>
+<p>The field fills the width of your screen and the page will not scroll while you play. Drag and tap controls are handled inside the game area, so a fast swipe to turn will never drag the page away. If you need a break, the Pause button is always visible at the top right of the game area, and the game freezes exactly where it is.</p>
+<p>Sound is off by default. Tap the Sound button under the field to switch on the short shooting and explosion tones, which are made by your browser with no audio files to download. The game is one light page, and it starts the moment you tap Start Game.</p>
+<h2>How to play on a computer</h2>
+<p>On a computer, the Left and Right arrow keys rotate your ship, the Up arrow fires the thruster, and the Space bar fires your gun. Hold Shift to jump into hyperspace. Press P at any time to pause, and press it again to carry on. Press M to switch the sound on or off. The on-screen buttons work with a mouse too, so you can play entirely by clicking if you prefer.</p>
+<p>The keyboard rewards small, gentle inputs. A short tap of the Left or Right key turns the ship a little; holding it spins the ship right around. Short bursts of thrust are safer than one long push, because every push adds speed you then have to manage. The best players on a keyboard barely touch the thrust key at all — they drift, aim, shoot, and only push when a rock is closing in.</p>
+<p>The game runs in any modern browser, including on a school Chromebook, and it needs no plug-ins. Your best score is saved in the browser on that computer, so it will still be there next time you open the page on the same machine.</p>
+<h2>Controls at a glance</h2>
+<p>Here is every control in one place, so you can check it in a second:</p>
+<ul>
+<li><b>Drag on the field (phone):</b> the ship turns toward your finger and thrusts.</li>
+<li><b>Rotate Left / Rotate Right buttons (phone and mouse):</b> turn the ship. Hold to keep turning.</li>
+<li><b>Thrust button (phone and mouse):</b> push the ship forward. Hold to keep pushing.</li>
+<li><b>Fire button (phone and mouse):</b> shoot. Auto-fire is on by default, so this is optional.</li>
+<li><b>Hyperspace button (phone and mouse):</b> vanish and reappear somewhere random. Risky.</li>
+<li><b>Left / Right / Up arrows and Space (computer):</b> rotate, thrust and fire.</li>
+<li><b>Shift (computer):</b> hyperspace. <b>P:</b> pause. <b>M:</b> sound on or off.</li>
+<li><b>Auto-fire button:</b> switch automatic shooting on or off. It starts on.</li>
+</ul>
+<p>One habit makes a real difference: turn before you thrust. A ship that is already pointing the right way needs only a short push, while a ship that is pointing the wrong way wastes thrust going nowhere useful. Get the nose right first, then push.</p>
+<h2>Rocks, saucers and scoring</h2>
+<p>Big rocks are worth 20 points, medium rocks 50, and small rocks 100. The points go up as the rocks get smaller because the small ones are the hardest to hit: they move faster and they are a smaller target. Every big rock you break becomes two medium rocks, and every medium rock becomes two small ones, so one big rock is really seven rocks once you count the pieces. That is why the screen feels calm at the start of a wave and crowded near the end.</p>
+<p>Each wave starts with one more big rock than the last: 4 big rocks on wave one, 5 on wave two, and so on. The rocks also get a little faster every wave. A run usually ends not because the rocks are fast, but because the small pieces fill the screen and leave you no clean route out.</p>
+<p>The saucer appears every 20 to 30 seconds and drifts across the screen. It is worth 200 points, which makes it the best single target in the game, but it shoots at you about every two and a half seconds while it is on screen. If you can hit it early, take the shot. If you miss twice, forget it and deal with the rocks — the saucer leaves on its own after crossing the screen, and its bullets stay dangerous the whole time it is there.</p>
+<p>You get 3 lives. When a rock, the saucer, or a saucer bullet hits your ship, you lose a life and your ship reappears in the centre after two seconds, flashing and safe from harm for three seconds. If the centre is not clear, the game waits until it is. When all 3 lives are gone, the game is over and your best score is saved on your device.</p>
+<h2>Hyperspace: the risky escape</h2>
+<p>Hyperspace is the most dramatic button in the game, and the one you should respect the most. Tap it and your ship vanishes from the field and reappears at a random spot. The new spot is always at least a short distance from the nearest rock, so you will not land on top of one. But there is a one-in-eight chance that the jump itself destroys your ship. That chance never goes away, no matter how careful you are.</p>
+<p>Use hyperspace when there is no other way out: when rocks are closing in from two sides and thrust cannot save you. Do not use it when you are merely uncomfortable, because every jump is a fresh roll of the dice, and the odds catch up with players who jump often. There is also a three-second cooldown after each jump, so you cannot jump twice in a row to escape a bad landing.</p>
+<p>The honest rule is simple: hyperspace is for emergencies, not for travel. If you can see a gap, fly through it. If you cannot see a gap anywhere, jump and hope the dice are kind.</p>
+<h2>Five tips that actually work</h2>
+<p><b>1. Shoot the small rocks first in open space.</b> Small rocks are worth the most points and they are the ones that kill you, because they are fast and easy to lose track of. When the field is open, clear the small pieces before they spread. Leave the big slow rocks for later — they are easy to dodge and easy to hit.</p>
+<p><b>2. Keep the middle of the screen empty.</b> Your ship reappears in the centre after losing a life, and the game waits until the centre is clear before bringing you back. If you always fight near the edges, the centre stays open and your respawns are quick and safe.</p>
+<p><b>3. Use the edges as a door.</b> The field wraps around: fly off the right edge and you come back on the left. That is an escape route. When rocks close in, fly through an edge and you arrive on the other side with the whole screen between you and the trouble.</p>
+<p><b>4. Save hyperspace for a real trap.</b> The one-in-eight chance of destruction means that jumping four times in a run is already a serious risk. Fly out of trouble whenever you can, and jump only when there is no gap at all.</p>
+<p><b>5. Thrust in short bursts.</b> A long push builds speed you cannot easily undo, and a fast ship is a ship heading for a rock it has not seen yet. Short taps give you control. Drift most of the time, push only to change direction or to escape.</p>
+<h2>Common mistakes</h2>
+<p>The most common mistake is holding the thrust down. It feels like flying, but it builds speed in one direction until the ship is moving too fast to turn away from a rock. The ship has no brakes, only drift, so every push is a commitment. Short bursts, long glides: that is the rhythm of the game.</p>
+<p>The second mistake is chasing the saucer across the screen. The saucer is worth 200 points, but while you chase it you are not watching the rocks, and the saucer shoots back. Take the shot if it crosses your line of fire, and let it go if it does not.</p>
+<p>The third mistake is jumping into hyperspace out of panic. A jump feels like safety, but one jump in eight ends the ship, and a panicked player jumps again as soon as the cooldown ends. Two jumps in a row is already a one-in-four chance of losing a life to the jump itself.</p>
+<p>The fourth mistake is fighting in the corners. Corners feel safe because the walls are near, but the field has no walls — it wraps. A corner is just a place with fewer escape routes. The open middle of the field, with room to turn in every direction, is the safest place to fight.</p>
+<h2>Why vector space games still feel good</h2>
+<p>The first space shooters were drawn with lines of light on a dark screen, and the look has never gone out of fashion. A triangle ship, a few jagged rocks and a starless black field are all the game needs, because the fun is in the movement, not the decoration. You can see everything that matters at a glance: where the rocks are, where they are going, and where you are going.</p>
+<p>The physics is the other half of the charm. There is no friction in space, so your ship glides, and gliding well is a skill you can feel improving. The first time you play, the ship seems to have a mind of its own. By the fifth run, you are tapping the thrust like a drummer and threading gaps between rocks without thinking about it.</p>
+<p>That is why the game has lasted for more than forty years. It asks for one thing — keep the ship alive — and it gives you exactly the tools to do it, nothing more. One finger on a phone, or three keys on a keyboard, and the whole sky is yours to survive.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>Is Retro Asteroids free to play?</h3><p>Yes. Retro Asteroids is completely free, and you do not need to download anything or sign up. Just open the page, tap Start Game, and play in your browser.</p></div>
+<div class="faq"><h3>How do I move on my phone?</h3><p>Drag on the space field and your ship turns toward your finger and thrusts, or use the big Rotate, Thrust and Fire buttons below the field. Auto-fire is on by default, so you only need to steer.</p></div>
+<div class="faq"><h3>What does hyperspace do?</h3><p>Hyperspace makes your ship vanish and reappear at a random spot on the field. It can save you from a trap, but there is a one-in-eight chance the jump destroys your ship, and there is a three-second cooldown after each jump.</p></div>
+<div class="faq"><h3>Why do big rocks split?</h3><p>That is the heart of the game. Shooting a big rock breaks it into two medium rocks, and shooting a medium rock breaks it into two small, faster rocks. One big rock is really seven rocks once you count every piece.</p></div>
+<div class="faq"><h3>Where is my best score saved?</h3><p>Your best score is saved in your browser on your own device, using local storage. It stays there when you close the page, and it will still be there next time you play on the same device and browser.</p></div>
+<div class="faq"><h3>Can I mute the sound?</h3><p>Yes. The sound is off by default. Tap the Sound button under the field, or press M on a keyboard, to switch the short shooting and explosion tones on or off at any time.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../retro-maze-chase-game/">Retro Maze Chase</a> · <a href="../retro-frog-hop-game/">Retro Frog Hop</a> · <a href="../retro-alien-invaders-game/">Retro Alien Invaders</a></div>
+<div class="hub"><a href="https://toolbari.github.io/retro-games/">More retro games</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+(function () {
+"use strict";
+var hasDoc = (typeof document !== "undefined");
+var hasWin = (typeof window !== "undefined");
+
+var W = 480, H = 480;
+var BEST_KEY = "rg-asteroids-best";
+var S = null;
+var soundOn = false;
+var actx = null;
+
+var store = (function () {
+  try {
+    if (typeof localStorage !== "undefined" && localStorage) {
+      localStorage.getItem("__rg_test__");
+      return localStorage;
+    }
+  } catch (e) {}
+  var mem = {};
+  return {
+    getItem: function (k) { return (k in mem) ? mem[k] : null; },
+    setItem: function (k, v) { mem[k] = String(v); }
+  };
+})();
+
+function loadBest() {
+  var v = parseInt(store.getItem(BEST_KEY), 10);
+  return isNaN(v) ? 0 : v;
+}
+function saveBest() {
+  try { store.setItem(BEST_KEY, String(S.best)); } catch (e) {}
+}
+function rand(a, b) { return a + Math.random() * (b - a); }
+function wrap(v, max) {
+  if (v < 0) return v + max;
+  if (v >= max) return v - max;
+  return v;
+}
+function dist2(ax, ay, bx, by) {
+  var dx = ax - bx, dy = ay - by;
+  return dx * dx + dy * dy;
+}
+
+function rockRadius(size) {
+  return size === 2 ? 42 : (size === 1 ? 26 : 14);
+}
+function rockScore(size) {
+  return size === 2 ? 20 : (size === 1 ? 50 : 100);
+}
+function rockSpeed(size) {
+  var base = size === 2 ? rand(30, 50) : (size === 1 ? rand(50, 80) : rand(80, 120));
+  return base * (1 + 0.06 * (S.wave - 1));
+}
+
+function makeRock(x, y, size) {
+  var a = rand(0, Math.PI * 2);
+  var sp = rockSpeed(size);
+  var verts = [];
+  var n = 9 + Math.floor(Math.random() * 3);
+  for (var i = 0; i < n; i++) {
+    verts.push(rand(0.75, 1.15));
+  }
+  return {
+    x: x, y: y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
+    size: size, radius: rockRadius(size),
+    angle: rand(0, Math.PI * 2), rot: rand(-1.2, 1.2), verts: verts
+  };
+}
+
+function spawnWave() {
+  var count = 3 + S.wave;
+  S.rocks = [];
+  for (var i = 0; i < count; i++) {
+    var x, y, tries = 0;
+    do {
+      var edge = Math.floor(Math.random() * 4);
+      if (edge === 0) { x = rand(0, W); y = 10; }
+      else if (edge === 1) { x = rand(0, W); y = H - 10; }
+      else if (edge === 2) { x = 10; y = rand(0, H); }
+      else { x = W - 10; y = rand(0, H); }
+      tries++;
+    } while (dist2(x, y, S.ship.x, S.ship.y) < 130 * 130 && tries < 20);
+    S.rocks.push(makeRock(x, y, 2));
+  }
+  S.saucerAt = S.time + rand(18000, 28000);
+}
+
+function newGame() {
+  S = {
+    phase: "ready", score: 0, best: loadBest(), prevBest: loadBest(),
+    lives: 3, wave: 1, time: 0,
+    ship: { x: W / 2, y: H / 2, vx: 0, vy: 0, angle: -Math.PI / 2, radius: 10, alive: true, invulnUntil: 0, respawnAt: 0 },
+    bullets: [], rocks: [], saucer: null, saucerBullets: [],
+    rotDir: 0, thrusting: false, fireHeld: false,
+    fireCooldown: 0, hyperCooldown: 0, saucerAt: 20000,
+    autoFire: true, dragSteer: null
+  };
+  spawnWave();
+}
+
+function addScore(n) {
+  S.score += n;
+  if (S.score > S.best) { S.best = S.score; saveBest(); }
+}
+
+function fireBullet() {
+  if (S.bullets.length >= 6) return;
+  var sh = S.ship;
+  var bx = sh.x + Math.cos(sh.angle) * 14;
+  var by = sh.y + Math.sin(sh.angle) * 14;
+  S.bullets.push({
+    x: bx, y: by,
+    vx: Math.cos(sh.angle) * 520 + sh.vx * 0.5,
+    vy: Math.sin(sh.angle) * 520 + sh.vy * 0.5,
+    life: 900
+  });
+  beep(1000, 0.06);
+}
+
+function hyperspace() {
+  if (!S || S.phase !== "playing") return;
+  if (!S.ship.alive) return;
+  if (S.time < S.hyperCooldown) return;
+  S.hyperCooldown = S.time + 3000;
+  beep(300, 0.2);
+  if (Math.random() < 0.125) {
+    killShip();
+    return;
+  }
+  var x, y, tries = 0;
+  do {
+    x = rand(30, W - 30);
+    y = rand(30, H - 30);
+    tries++;
+  } while (tries < 20 && S.rocks.some(function (r) { return dist2(x, y, r.x, r.y) < 70 * 70; }));
+  S.ship.x = x;
+  S.ship.y = y;
+  S.ship.vx = 0;
+  S.ship.vy = 0;
+}
+
+function killShip() {
+  if (!S.ship.alive) return;
+  S.ship.alive = false;
+  S.lives--;
+  beep(150, 0.4);
+  if (S.lives <= 0) {
+    S.phase = "over";
+    saveBest();
+    if (hasDoc) showOver();
+  } else {
+    S.ship.respawnAt = S.time + 2000;
+  }
+}
+
+function respawnShip() {
+  var sh = S.ship;
+  var clear = S.rocks.every(function (r) { return dist2(W / 2, H / 2, r.x, r.y) > 90 * 90; });
+  if (!clear) { sh.respawnAt = S.time + 1000; return; }
+  sh.x = W / 2; sh.y = H / 2; sh.vx = 0; sh.vy = 0;
+  sh.angle = -Math.PI / 2;
+  sh.alive = true;
+  sh.invulnUntil = S.time + 3000;
+}
+
+function spawnSaucer() {
+  var fromLeft = Math.random() < 0.5;
+  S.saucer = {
+    x: fromLeft ? -20 : W + 20,
+    y: rand(60, H - 60),
+    vx: (fromLeft ? 1 : -1) * 90,
+    vy: 0,
+    radius: 16,
+    shootAt: S.time + 1500
+  };
+}
+
+function splitRock(idx) {
+  var r = S.rocks[idx];
+  addScore(rockScore(r.size));
+  S.rocks.splice(idx, 1);
+  if (r.size > 0) {
+    for (var i = 0; i < 2; i++) {
+      var nr = makeRock(r.x, r.y, r.size - 1);
+      nr.vx = r.vx * 0.5 + rand(-60, 60);
+      nr.vy = r.vy * 0.5 + rand(-60, 60);
+      S.rocks.push(nr);
+    }
+  }
+  beep(500, 0.1);
+}
+
+function step(ms) {
+  if (!S) return;
+  if (S.phase === "paused" || S.phase === "ready" || S.phase === "over") return;
+  var remain = ms;
+  while (remain > 0) {
+    var dt = Math.min(16, remain);
+    remain -= dt;
+    stepOnce(dt);
+    if (S.phase !== "playing") return;
+  }
+}
+
+function stepOnce(dt) {
+  S.time += dt;
+  var sh = S.ship;
+  var sec = dt / 1000;
+
+  if (!sh.alive && S.lives > 0 && S.time >= sh.respawnAt) respawnShip();
+
+  if (sh.alive) {
+    if (S.dragSteer !== null) {
+      var want = Math.atan2(S.dragSteer.y - sh.y, S.dragSteer.x - sh.x);
+      var diff = want - sh.angle;
+      while (diff > Math.PI) diff -= Math.PI * 2;
+      while (diff < -Math.PI) diff += Math.PI * 2;
+      var turn = 4.6 * sec;
+      if (Math.abs(diff) <= turn) sh.angle = want;
+      else sh.angle += (diff > 0 ? turn : -turn);
+      S.thrusting = true;
+    } else if (S.rotDir !== 0) {
+      sh.angle += S.rotDir * 4.6 * sec;
+    }
+    if (S.thrusting) {
+      sh.vx += Math.cos(sh.angle) * 320 * sec;
+      sh.vy += Math.sin(sh.angle) * 320 * sec;
+    }
+    var damp = Math.pow(0.6, sec);
+    sh.vx *= damp;
+    sh.vy *= damp;
+    sh.x = wrap(sh.x + sh.vx * sec, W);
+    sh.y = wrap(sh.y + sh.vy * sec, H);
+
+    if (S.fireCooldown > 0) S.fireCooldown -= dt;
+    if ((S.autoFire || S.fireHeld) && S.fireCooldown <= 0) {
+      fireBullet();
+      S.fireCooldown = 180;
+    }
+  }
+
+  for (var i = S.bullets.length - 1; i >= 0; i--) {
+    var b = S.bullets[i];
+    b.x = wrap(b.x + b.vx * sec, W);
+    b.y = wrap(b.y + b.vy * sec, H);
+    b.life -= dt;
+    if (b.life <= 0) S.bullets.splice(i, 1);
+  }
+  for (var j = S.saucerBullets.length - 1; j >= 0; j--) {
+    var sb = S.saucerBullets[j];
+    sb.x += sb.vx * sec;
+    sb.y += sb.vy * sec;
+    sb.life -= dt;
+    if (sb.life <= 0 || sb.x < 0 || sb.x > W || sb.y < 0 || sb.y > H) S.saucerBullets.splice(j, 1);
+  }
+  for (var k = 0; k < S.rocks.length; k++) {
+    var r = S.rocks[k];
+    r.x = wrap(r.x + r.vx * sec, W);
+    r.y = wrap(r.y + r.vy * sec, H);
+    r.angle += r.rot * sec;
+  }
+
+  if (!S.saucer && S.time >= S.saucerAt) spawnSaucer();
+  if (S.saucer) {
+    var sc = S.saucer;
+    sc.x += sc.vx * sec;
+    if (sc.x < -40 || sc.x > W + 40) {
+      S.saucer = null;
+      S.saucerAt = S.time + rand(18000, 28000);
+    } else if (sh.alive && S.time >= sc.shootAt) {
+      sc.shootAt = S.time + 2500;
+      var a = Math.atan2(sh.y - sc.y, sh.x - sc.x);
+      S.saucerBullets.push({ x: sc.x, y: sc.y, vx: Math.cos(a) * 260, vy: Math.sin(a) * 260, life: 3000 });
+    }
+  }
+
+  for (var bi = S.bullets.length - 1; bi >= 0; bi--) {
+    var bb = S.bullets[bi];
+    var hit = false;
+    for (var ri = S.rocks.length - 1; ri >= 0; ri--) {
+      var rr = S.rocks[ri];
+      if (dist2(bb.x, bb.y, rr.x, rr.y) < rr.radius * rr.radius) {
+        splitRock(ri);
+        hit = true;
+        break;
+      }
+    }
+    if (!hit && S.saucer && dist2(bb.x, bb.y, S.saucer.x, S.saucer.y) < S.saucer.radius * S.saucer.radius) {
+      addScore(200);
+      beep(700, 0.15);
+      S.saucer = null;
+      S.saucerAt = S.time + rand(18000, 28000);
+      hit = true;
+    }
+    if (hit) S.bullets.splice(bi, 1);
+  }
+
+  if (sh.alive && S.time >= sh.invulnUntil) {
+    var dead = false;
+    for (var m = 0; m < S.rocks.length; m++) {
+      var rm = S.rocks[m];
+      var rr2 = rm.radius + sh.radius - 4;
+      if (dist2(sh.x, sh.y, rm.x, rm.y) < rr2 * rr2) { dead = true; break; }
+    }
+    if (!dead && S.saucer && dist2(sh.x, sh.y, S.saucer.x, S.saucer.y) < (S.saucer.radius + sh.radius - 4) * (S.saucer.radius + sh.radius - 4)) dead = true;
+    if (!dead) {
+      for (var n = 0; n < S.saucerBullets.length; n++) {
+        if (dist2(sh.x, sh.y, S.saucerBullets[n].x, S.saucerBullets[n].y) < 10 * 10) { dead = true; break; }
+      }
+    }
+    if (dead) killShip();
+  }
+
+  if (S.phase === "playing" && S.rocks.length === 0) {
+    S.wave++;
+    spawnWave();
+  }
+}
+
+function start() {
+  newGame();
+  S.phase = "playing";
+  if (hasDoc) { showPlaying(); syncHud(); }
+}
+function pause() {
+  if (S && S.phase === "playing") { S.phase = "paused"; if (hasDoc) showPaused(); }
+}
+function resume() {
+  if (S && S.phase === "paused") { S.phase = "playing"; if (hasDoc) showPlaying(); }
+}
+function restart() { start(); }
+function togglePause() {
+  if (!S) return;
+  if (S.phase === "playing") pause();
+  else if (S.phase === "paused") resume();
+}
+function setRotate(d) { if (S) S.rotDir = d; }
+function setThrust(on) { if (S) S.thrusting = !!on; }
+function setFire(on) { if (S) S.fireHeld = !!on; }
+function setAutoFire(on) { if (S) S.autoFire = !!on; }
+function setDragSteer(pt) { if (S) S.dragSteer = pt; }
+
+function beep(freq, dur) {
+  if (!soundOn || !hasDoc) return;
+  try {
+    if (!actx) {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      actx = new AC();
+    }
+    if (actx.state === "suspended") actx.resume();
+    var o = actx.createOscillator(), g = actx.createGain();
+    o.type = "square";
+    o.frequency.value = freq;
+    g.gain.setValueAtTime(0.05, actx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, actx.currentTime + dur);
+    o.connect(g);
+    g.connect(actx.destination);
+    o.start();
+    o.stop(actx.currentTime + dur);
+  } catch (e) {}
+}
+
+var GAME = {
+  start: start, pause: pause, resume: resume, restart: restart,
+  togglePause: togglePause, step: step, hyperspace: hyperspace,
+  setRotate: setRotate, setThrust: setThrust, setFire: setFire,
+  setAutoFire: setAutoFire, setDragSteer: setDragSteer,
+  getScore: function () { return S ? S.score : 0; },
+  getBest: function () { return S ? S.best : loadBest(); },
+  getLives: function () { return S ? S.lives : 3; },
+  getLevel: function () { return S ? S.wave : 1; },
+  getPhase: function () { return S ? S.phase : "none"; },
+  setSound: function (on) { soundOn = !!on; },
+  isSoundOn: function () { return soundOn; },
+  _state: function () { return S; }
+};
+if (hasWin) window.GAME = GAME;
+
+function syncHud() {
+  if (!S) return;
+  document.getElementById("score").textContent = S.score;
+  document.getElementById("best").textContent = S.best;
+  document.getElementById("lives").textContent = S.lives;
+  document.getElementById("level").textContent = S.wave;
+}
+
+function showOverlay(id) {
+  var ids = ["start-overlay", "pause-overlay", "over-overlay"];
+  for (var i = 0; i < ids.length; i++) {
+    document.getElementById(ids[i]).style.display = (ids[i] === id) ? "flex" : "none";
+  }
+}
+function showPlaying() {
+  showOverlay(null);
+  document.getElementById("pause-btn").style.display = "block";
+}
+function showPaused() {
+  showOverlay("pause-overlay");
+  document.getElementById("pause-btn").style.display = "none";
+}
+function showOver() {
+  document.getElementById("over-text").textContent = "Score: " + S.score + "   Best: " + S.best;
+  document.getElementById("newbest-text").style.display = (S.score > S.prevBest && S.score > 0) ? "block" : "none";
+  showOverlay("over-overlay");
+  document.getElementById("pause-btn").style.display = "none";
+}
+function showStart() {
+  showOverlay("start-overlay");
+  document.getElementById("pause-btn").style.display = "none";
+}
+
+if (hasDoc) {
+  var cv = document.getElementById("game-canvas");
+  var ctx = cv.getContext("2d");
+
+  function drawRock(r) {
+    ctx.strokeStyle = "#e8f7ef";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (var i = 0; i < r.verts.length; i++) {
+      var a = r.angle + (i / r.verts.length) * Math.PI * 2;
+      var rr = r.radius * r.verts[i];
+      var px = r.x + Math.cos(a) * rr, py = r.y + Math.sin(a) * rr;
+      if (i === 0) ctx.moveTo(px, py);
+      else ctx.lineTo(px, py);
+    }
+    ctx.closePath();
+    ctx.stroke();
+  }
+
+  function drawShip() {
+    var sh = S.ship;
+    if (!sh.alive) return;
+    if (S.time < sh.invulnUntil && Math.floor(S.time / 120) % 2 === 0) return;
+    ctx.strokeStyle = "#e8f7ef";
+    ctx.lineWidth = 2;
+    var a = sh.angle;
+    var nx = Math.cos(a), ny = Math.sin(a);
+    var px = -ny, py = nx;
+    ctx.beginPath();
+    ctx.moveTo(sh.x + nx * 14, sh.y + ny * 14);
+    ctx.lineTo(sh.x - nx * 10 + px * 10, sh.y - ny * 10 + py * 10);
+    ctx.lineTo(sh.x - nx * 6, sh.y - ny * 6);
+    ctx.lineTo(sh.x - nx * 10 - px * 10, sh.y - ny * 10 - py * 10);
+    ctx.closePath();
+    ctx.stroke();
+    if (S.thrusting) {
+      ctx.beginPath();
+      ctx.moveTo(sh.x - nx * 10 + px * 5, sh.y - ny * 10 + py * 5);
+      ctx.lineTo(sh.x - nx * 20, sh.y - ny * 20);
+      ctx.lineTo(sh.x - nx * 10 - px * 5, sh.y - ny * 10 - py * 5);
+      ctx.stroke();
+    }
+  }
+
+  function draw() {
+    if (!S) return;
+    ctx.fillStyle = "#0a1f0a";
+    ctx.fillRect(0, 0, W, H);
+    for (var i = 0; i < S.rocks.length; i++) drawRock(S.rocks[i]);
+    if (S.saucer) {
+      var sc = S.saucer;
+      ctx.strokeStyle = "#f472b6";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.ellipse(sc.x, sc.y, 16, 7, 0, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(sc.x, sc.y - 3, 7, Math.PI, 0);
+      ctx.stroke();
+    }
+    ctx.fillStyle = "#e8f7ef";
+    for (var j = 0; j < S.bullets.length; j++) {
+      ctx.beginPath();
+      ctx.arc(S.bullets[j].x, S.bullets[j].y, 2.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.fillStyle = "#f472b6";
+    for (var k = 0; k < S.saucerBullets.length; k++) {
+      ctx.beginPath();
+      ctx.arc(S.saucerBullets[k].x, S.saucerBullets[k].y, 2.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    drawShip();
+    syncHud();
+  }
+
+  var lastT = 0;
+  function loop(t) {
+    var dt = lastT ? Math.min(100, t - lastT) : 16;
+    lastT = t;
+    if (S && S.phase === "playing") step(dt);
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  document.getElementById("start-btn").addEventListener("click", start);
+  document.getElementById("again-btn").addEventListener("click", start);
+  document.getElementById("restart-btn").addEventListener("click", start);
+  document.getElementById("resume-btn").addEventListener("click", resume);
+  document.getElementById("howto-btn").addEventListener("click", showStart);
+  document.getElementById("pause-btn").addEventListener("click", togglePause);
+  document.getElementById("mute-btn").addEventListener("click", function () {
+    setSound(!soundOn);
+    this.textContent = soundOn ? "Sound: On" : "Sound: Off";
+  });
+  document.getElementById("btn-autofire").addEventListener("click", function () {
+    if (S) S.autoFire = !S.autoFire;
+    this.textContent = S.autoFire ? "Auto-fire: On" : "Auto-fire: Off";
+  });
+
+  function holdBtn(id, down, up) {
+    var b = document.getElementById(id);
+    b.addEventListener("pointerdown", function (e) { e.preventDefault(); down(); });
+    b.addEventListener("pointerup", function () { up(); });
+    b.addEventListener("pointerleave", function () { up(); });
+    b.addEventListener("pointercancel", function () { up(); });
+  }
+  holdBtn("btn-rot-l", function () { setRotate(-1); }, function () { if (S && S.rotDir === -1) setRotate(0); });
+  holdBtn("btn-rot-r", function () { setRotate(1); }, function () { if (S && S.rotDir === 1) setRotate(0); });
+  holdBtn("btn-thrust", function () { setThrust(true); }, function () { setThrust(false); });
+  holdBtn("btn-fire", function () { setFire(true); }, function () { setFire(false); });
+  document.getElementById("btn-hyper").addEventListener("click", hyperspace);
+
+  function canvasPoint(e) {
+    var rect = cv.getBoundingClientRect();
+    var cx = (e.touches ? e.touches[0].clientX : e.clientX);
+    var cy = (e.touches ? e.touches[0].clientY : e.clientY);
+    return {
+      x: (cx - rect.left) * (W / rect.width),
+      y: (cy - rect.top) * (H / rect.height)
+    };
+  }
+  cv.addEventListener("touchstart", function (e) {
+    if (e.touches.length === 1) setDragSteer(canvasPoint(e));
+  }, { passive: true });
+  cv.addEventListener("touchmove", function (e) {
+    if (e.touches.length === 1) setDragSteer(canvasPoint(e));
+  }, { passive: true });
+  cv.addEventListener("touchend", function () { setDragSteer(null); }, { passive: true });
+  cv.addEventListener("touchcancel", function () { setDragSteer(null); }, { passive: true });
+
+  var calc = document.querySelector(".calc");
+  calc.addEventListener("touchmove", function (e) { e.preventDefault(); }, { passive: false });
+
+  var keys = {};
+  document.addEventListener("keydown", function (e) {
+    var k = e.key;
+    if (k === "ArrowLeft") { e.preventDefault(); keys.left = true; setRotate(-1); }
+    else if (k === "ArrowRight") { e.preventDefault(); keys.right = true; setRotate(1); }
+    else if (k === "ArrowUp") { e.preventDefault(); keys.up = true; setThrust(true); }
+    else if (k === " ") { e.preventDefault(); setFire(true); }
+    else if (k === "Shift") { hyperspace(); }
+    else if (k === "p" || k === "P") { togglePause(); }
+    else if (k === "m" || k === "M") {
+      setSound(!soundOn);
+      document.getElementById("mute-btn").textContent = soundOn ? "Sound: On" : "Sound: Off";
+    }
+  });
+  document.addEventListener("keyup", function (e) {
+    var k = e.key;
+    if (k === "ArrowLeft") { keys.left = false; if (keys.right) setRotate(1); else setRotate(0); }
+    else if (k === "ArrowRight") { keys.right = false; if (keys.left) setRotate(-1); else setRotate(0); }
+    else if (k === "ArrowUp") { keys.up = false; setThrust(false); }
+    else if (k === " ") { setFire(false); }
+  });
+
+  newGame();
+  showStart();
+  syncHud();
+  requestAnimationFrame(loop);
+}
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

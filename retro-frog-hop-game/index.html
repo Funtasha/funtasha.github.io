@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retro Frog Hop — Play the Classic Road and River Crossing Game Free | Funtasha</title>
+<meta name="description" content="Play Retro Frog Hop free in your browser — hop across busy roads and a fast river to reach home, one jump at a time. No download, no signup.">
+<link rel="canonical" href="https://funtasha.github.io/retro-frog-hop-game/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Retro Frog Hop — Play the Classic Road and River Crossing Game Free">
+<meta property="og:description" content="Hop across busy roads and a fast river to reach home, one jump at a time.">
+<meta property="og:url" content="https://funtasha.github.io/retro-frog-hop-game/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.byline{font-size:14px;color:#64748b;margin:6px 0 0}
+.game-wrap{position:relative}
+.game-canvas{display:block;width:100%;max-width:480px;margin:0 auto;background:#0a1f0a;border:3px solid #1e293b;border-radius:10px;touch-action:none}
+.game-score{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:16px;margin:6px 0 10px;flex-wrap:wrap;gap:6px}
+.game-btn{min-height:90px;min-width:90px;padding:12px 18px;border:0;border-radius:14px;font-size:18px;font-weight:700;cursor:pointer;touch-action:manipulation}
+.game-btn-wide{width:100%;min-height:90px;padding:14px 18px;border:0;border-radius:14px;font-size:19px;font-weight:700;cursor:pointer;touch-action:manipulation}
+.game-controls{display:flex;gap:10px;justify-content:space-between;margin-top:12px;flex-wrap:wrap}
+.game-controls .game-btn{flex:1}
+.game-overlay{position:absolute;inset:0;background:rgba(10,31,10,.92);color:#e8f7ef;border-radius:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;text-align:center;gap:12px}
+.game-overlay h3{font-size:22px}
+.game-overlay p{font-size:16px;max-width:420px}
+.pause-btn{position:absolute;top:8px;right:8px;min-width:90px;min-height:72px;padding:10px 14px;border:0;border-radius:12px;font-size:17px;font-weight:700;cursor:pointer;z-index:5;touch-action:manipulation}
+.mute-btn{min-width:72px;min-height:72px;padding:10px 14px;border:0;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;touch-action:manipulation}
+.game-btn,.game-btn-wide{background:#db2777;color:#fff}.pause-btn,.mute-btn{background:#ea580c;color:#fff}
+.hub{margin:18px 0 4px;font-size:16px;font-weight:700}.hub a{color:#be185d}
+.pause-btn{min-width:90px;min-height:90px}
+.calc .game-btn,.calc .game-btn-wide{margin-top:0;padding:12px 18px}
+.calc .mute-btn,.calc .pause-btn{margin-top:0}
+.ov-title{font-size:22px;font-weight:700}
+.pad-row{display:flex;gap:10px;justify-content:center;margin-top:10px}
+.pad-row .game-btn{flex:0 0 90px}
+.fire-btn{min-width:100px;min-height:100px}
+table{width:100%;border-collapse:collapse;margin:10px 0}
+th,td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;font-size:15px}
+th{background:#fdf2f8}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Retro Frog Hop is completely free to play in your browser. There is no download, no signup, no account and no payment anywhere on the page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I hop on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Swipe in the direction you want to hop: one swipe is one hop. You can also use the big arrow pad below the game. Both work the same way, so use whichever feels better in your hand."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I fall in the river?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You lose one of your 3 lives and the frog goes back to the start bank. The river is only safe when the frog stands on a log or a turtle, so always check what is under the next square before you hop."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many homes do I need to fill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Five. There are five home slots at the top of the screen. Fill all five to clear the round, and the next round starts with faster traffic and a shorter timer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my best score saved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On your own device, in your browser storage. Nobody else can see it, and it stays there when you come back to the page. Clearing your browser data will erase it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I play it with one hand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The swipe control was built for one hand: hold the phone, swipe to hop, and use the big Pause button at the top-right whenever you need to stop. The arrow pad works one-handed too."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Retro Frog Hop</h1>
+<p class="byline">By the Funtasha team · Published 21 November 2026 · Updated 21 November 2026</p>
+<p class="answer">Retro Frog Hop is a road-and-river crossing game: hop a frog across five lanes of traffic, then ride logs and turtles across a fast river to reach one of five homes. Every hop is yours to time — rush it and the traffic or the water ends the run. It is free, it runs in your browser, and it plays with one thumb on a phone or with the arrow keys on a computer.</p>
+<div class="calc">
+<div class="game-score"><span>Score: <b id="score">0</b></span><span>Best: <b id="best">0</b></span><span>Lives: <b id="lives">3</b></span><span>Round: <b id="level">1</b></span><span>Time: <b id="time">60</b></span></div>
+<div class="game-wrap">
+<canvas id="game-canvas" class="game-canvas" width="480" height="520"></canvas>
+<button class="pause-btn" id="btn-pause">Pause</button>
+<div class="game-overlay" id="ov-start">
+<p class="ov-title">Retro Frog Hop</p>
+<p>Hop across five lanes of traffic, then ride logs and turtles across the river to reach a home.</p>
+<p>Swipe or use the arrow pad to hop. Cars kill, water kills, logs carry.</p>
+<p>Fill all five homes to clear the round. You have 3 lives and a timer on every crossing.</p>
+<button class="game-btn-wide" id="btn-start">Start game</button>
+</div>
+<div class="game-overlay" id="ov-pause" style="display:none">
+<p class="ov-title">Paused</p>
+<button class="game-btn-wide" id="btn-resume">Resume</button>
+<button class="game-btn-wide" id="btn-restart">Restart</button>
+<button class="game-btn-wide" id="btn-how">How to play</button>
+</div>
+<div class="game-overlay" id="ov-over" style="display:none">
+<p class="ov-title">Game over</p>
+<p>Score: <b id="final-score">0</b></p>
+<p>Best: <b id="final-best">0</b></p>
+<p id="new-best" style="display:none">New Best!</p>
+<button class="game-btn-wide" id="btn-again">Play again</button>
+</div>
+</div>
+<div class="pad-row"><button class="game-btn" id="btn-up" aria-label="Hop up">&#8593;</button></div>
+<div class="pad-row"><button class="game-btn" id="btn-left" aria-label="Hop left">&#8592;</button><button class="game-btn" id="btn-down" aria-label="Hop down">&#8595;</button><button class="game-btn" id="btn-right" aria-label="Hop right">&#8594;</button></div>
+<div class="game-controls"><button class="mute-btn" id="btn-mute">Sound: Off</button></div>
+</div>
+<div class="warn">This is an original game inspired by the classics of that era. It is not affiliated with Nokia or any original publisher. Cars kill, water kills, logs carry — watch the pattern before you hop.</div>
+<h2>What Retro Frog Hop is</h2>
+<p>Retro Frog Hop is a road-and-river crossing game in the style of the 1981 arcade original that started the whole genre. You control a small frog at the bottom of the screen, and the goal is simple to explain and hard to master: cross a busy road, then cross a fast river, and reach one of five safe homes at the top. There are no power-ups to collect and no enemies to shoot. The only thing standing between you and home is timing.</p>
+<p>The screen is split into three parts. The bottom half is a road with five lanes of cars and trucks, each lane moving at its own speed and in its own direction. Above the road sits a narrow safe bank where you can catch your breath. The top half is a river with five more lanes, where logs and turtles drift past in both directions. At the very top are five home slots, each one waiting for a frog.</p>
+<p>What made this style of game a classic is that every move is a small decision. You hop one square at a time, and every hop is a bet: is there a gap in the traffic, is there a log under the next square, will the turtle still be there when you land? The game never rushes you with a button-mashing contest. It rewards patience, pattern reading and calm nerves, and it punishes the hop you make without looking.</p>
+<p>This version is an original game built for the browser. It keeps the rules of the arcade era — five homes, three lives, a timer on every crossing — and adds phone controls that actually fit a thumb: swipe to hop, or use the big arrow pad below the game. It runs entirely in your browser with no download, no signup and no account.</p>
+<h2>How to play on your phone</h2>
+<p>Playing on a phone is simple. Tap Start game, then swipe in the direction you want the frog to hop: swipe up to move one square forward, swipe down to step back, swipe left or right to move sideways. One swipe is one hop, and the frog moves the moment your finger lifts. You can also use the arrow pad under the game: four big buttons, each 90 pixels across, that hop the frog in the same four directions.</p>
+<p>The game is built so the page never scrolls under your thumbs while you play. The canvas and the controls are touch-locked during a run, so a swipe means a hop and nothing else. The Pause button sits at the top-right of the game area and stays visible the whole time, so you can stop the game instantly if someone calls or the bus arrives.</p>
+<p>One hand is enough. The swipe control means you never need a second hand to steady the phone while the other taps buttons, and the arrow pad is big enough to hit without looking once you know the layout. If you prefer sound, tap the Sound button to switch the retro beeps on. Sound is off by default so the game never makes noise in a quiet room.</p>
+<h2>How to play on a computer</h2>
+<p>On a computer, use the arrow keys or the W, A, S and D keys to hop: up or W to move forward, down or S to step back, left or right to move sideways. The P key pauses and resumes the game, and the M key switches the sound on and off. Everything the phone version can do, the keyboard version can do too.</p>
+<p>The game window is 480 pixels wide and fits comfortably next to anything else on your screen. The canvas scales to the window, so the frog stays the same size relative to the road whether you play on a small laptop or a large monitor. There is nothing to install and nothing to download: open the page, tap Start game, and play.</p>
+<h2>Controls</h2>
+<p>Every control in the game is listed here. There are no hidden moves and no secret keys.</p>
+<table>
+<tr><th>Action</th><th>Phone</th><th>Computer</th></tr>
+<tr><td>Hop up</td><td>Swipe up or Up button</td><td>Arrow Up or W</td></tr>
+<tr><td>Hop down</td><td>Swipe down or Down button</td><td>Arrow Down or S</td></tr>
+<tr><td>Hop left</td><td>Swipe left or Left button</td><td>Arrow Left or A</td></tr>
+<tr><td>Hop right</td><td>Swipe right or Right button</td><td>Arrow Right or D</td></tr>
+<tr><td>Pause / resume</td><td>Pause button</td><td>P</td></tr>
+<tr><td>Sound on / off</td><td>Sound button</td><td>M</td></tr>
+<tr><td>Start / play again</td><td>Start game button</td><td>Start game button</td></tr>
+</table>
+<p>The frog hops one square per input. Holding a button down does not make the frog keep hopping: each hop is a single press, a single swipe or a single key tap. That is deliberate. The game is about choosing the right moment, not about holding a button and hoping.</p>
+<h2>Scoring, lives and levels</h2>
+<p>You score 10 points for every new row you reach on the way up. The first time your frog reaches a row it has not reached before on that crossing, the points are added. Hopping back down and up again does not score twice for the same row, so the honest way to build a score is to keep moving forward.</p>
+<p>Reaching a home is worth 50 points plus a time bonus of 10 points for every second left on the timer. A quick, confident crossing is worth far more than a slow, careful one, which is the central trade-off of the game: hurry and you risk the traffic, dawdle and you lose the bonus. A home reached with 40 seconds left is worth 450 points. The same home reached with 10 seconds left is worth 150.</p>
+<p>You start with 3 lives. You lose a life when a car or truck hits the frog, when the frog lands in the water without a log or a turtle under it, when a turtle sinks under the frog, when the frog is carried off the edge of the screen on a log, when the frog hops into the bank between two homes, or when the timer runs out. Lose all three lives and the run ends.</p>
+<p>Fill all five homes and the round is cleared. The next round starts with the same layout but faster traffic and a shorter timer: traffic speeds rise by about 12 percent per round, and the timer loses 5 seconds per round down to a minimum of 30 seconds. There is no final round. The game keeps going until your lives run out, and your best score is saved on your own device so you can chase it next time.</p>
+<h2>Strategy: five tips that actually work</h2>
+<p>Five tips that make a real difference, learned the hard way.</p>
+<ol>
+<li><strong>Watch a full pattern before your first hop.</strong> Stand on the start bank for a few seconds and watch how the lanes move. Each lane has its own speed and direction, and the gaps repeat on a steady rhythm. Once you see the rhythm, the road stops looking random.</li>
+<li><strong>Cross the road one lane at a time.</strong> Hop into a lane, wait for the next gap, then hop again. The frog is safe only while it stands between lanes, and the middle of a lane is the worst place to hesitate. One lane, one decision.</li>
+<li><strong>Ride the slowest log.</strong> On the river, the slow logs are the safest rides. Hop onto a slow log, ride it across to the column you need, then hop to the next lane. Fast logs are tempting because they save time, but they carry you toward the edge before you are ready to hop off.</li>
+<li><strong>Never trust a sinking turtle.</strong> Some turtles dip under the water on a timer. If a turtle looks darker or sits lower than the others, it is about to sink. Treat it as open water and wait for the next one.</li>
+<li><strong>Fill the edge homes first.</strong> The homes at the far left and far right are the hardest to reach because you must travel sideways across the river to line them up. Fill them while the timer is generous and you still have lives to spare, and leave the easy middle home for last.</li>
+</ol>
+<h2>Common mistakes and how to fix them</h2>
+<p><strong>Hopping blindly.</strong> The most common death is the hop made without looking at the next lane. Fix it by pausing on the safe bank and reading one lane ahead before every hop. The timer gives you a full minute on the first round, which is more time than you think.</p>
+<p><strong>Chasing the timer.</strong> The time bonus is tempting, but a life is worth far more than a few hundred points. A calm crossing with 20 seconds left beats a rushed crossing that ends under a truck. Speed comes naturally once you know the patterns.</p>
+<p><strong>Standing on a sinking turtle.</strong> Turtles on one river lane sink on a cycle. If you hop onto one and it starts to dip, hop off at once to the next lane. Waiting to see what happens is how frogs get wet.</p>
+<p><strong>Hopping into a filled home.</strong> A home that already has a frog in it is closed. Hopping into it costs a life, just like hopping into the bank. Count the filled homes before your final hop and aim for an empty one.</p>
+<p><strong>Riding a log too far.</strong> A log carries the frog with it, and the edge of the screen is a cliff. Always hop off a log before it reaches the side, even if the next lane does not look perfect yet. You can wait on the next log.</p>
+<h2>Why old games still feel good</h2>
+<p>Old games like this one were built for hardware that could barely draw a frog, so they had to be fun in their rules instead of their graphics. There was no room for a story, no room for fancy effects, and no room for a tutorial. The whole game had to fit in one idea — get the frog home — and that idea had to be good enough to carry the game on its own. It was.</p>
+<p>That simplicity is why the game still works today. A run lasts a few minutes, the rules fit in a single sentence, and every death is your own fault in a way you can see clearly. There is no grinding, no waiting for energy to refill, and no shop asking you to buy a better frog. You just play, learn the patterns, and try again.</p>
+<p>The game also respects your time. You can pause at any moment, the best score is saved on your device, and a quick session on the bus is as satisfying as a long one at home. Some games need an hour to get going. This one needs ten seconds.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>Is it free?</h3><p>Yes. Retro Frog Hop is completely free to play in your browser. There is no download, no signup, no account and no payment anywhere on the page.</p></div>
+<div class="faq"><h3>How do I hop on my phone?</h3><p>Swipe in the direction you want to hop: one swipe is one hop. You can also use the big arrow pad below the game. Both work the same way, so use whichever feels better in your hand.</p></div>
+<div class="faq"><h3>What happens if I fall in the river?</h3><p>You lose one of your 3 lives and the frog goes back to the start bank. The river is only safe when the frog stands on a log or a turtle, so always check what is under the next square before you hop.</p></div>
+<div class="faq"><h3>How many homes do I need to fill?</h3><p>Five. There are five home slots at the top of the screen. Fill all five to clear the round, and the next round starts with faster traffic and a shorter timer.</p></div>
+<div class="faq"><h3>Where is my best score saved?</h3><p>On your own device, in your browser storage. Nobody else can see it, and it stays there when you come back to the page. Clearing your browser data will erase it.</p></div>
+<div class="faq"><h3>Can I play it with one hand?</h3><p>Yes. The swipe control was built for one hand: hold the phone, swipe to hop, and use the big Pause button at the top-right whenever you need to stop. The arrow pad works one-handed too.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../retro-maze-chase-game/">Retro Maze Chase</a> · <a href="../retro-asteroids-game/">Retro Asteroids</a> · <a href="../retro-alien-invaders-game/">Retro Alien Invaders</a></div>
+<div class="hub"><a href="https://toolbari.github.io/retro-games/">More retro games</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+/* Retro Frog Hop — road and river crossing game.
+   Logic is pure and testable on window.GAME; rendering + input wiring
+   only run when a document exists. No external assets. */
+(function () {
+  'use strict';
+  var COLS = 12, ROWS = 13, CELL = 40;
+  var W = COLS * CELL, H = ROWS * CELL; /* 480 x 520 */
+  var BEST_KEY = 'rg-frog-hop-best';
+  var HOME_COLS = [1, 3, 5, 7, 9];
+  var ROAD_ROWS = [7, 8, 9, 10, 11];
+  var RIVER_ROWS = [1, 2, 3, 4, 5];
+  var START_COL = 5, START_ROW = 12;
+
+  function loadBest() {
+    try {
+      if (typeof localStorage === 'undefined') return 0;
+      var v = parseInt(localStorage.getItem(BEST_KEY), 10);
+      return isNaN(v) ? 0 : v;
+    } catch (e) { return 0; }
+  }
+  function saveBest(v) {
+    try {
+      if (typeof localStorage !== 'undefined') localStorage.setItem(BEST_KEY, String(v));
+    } catch (e) { /* storage unavailable: best score just is not kept */ }
+  }
+
+  /* ---- sound: WebAudio tones only, OFF by default ---- */
+  var soundOn = false, audioCtx = null;
+  function beep(freq, dur, type, vol) {
+    if (!soundOn) return;
+    try {
+      if (typeof AudioContext === 'undefined' && typeof webkitAudioContext === 'undefined') return;
+      if (!audioCtx) audioCtx = new (AudioContext || webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      var o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.type = type || 'square';
+      o.frequency.value = freq;
+      g.gain.value = vol || 0.05;
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start();
+      o.stop(audioCtx.currentTime + dur);
+    } catch (e) { /* sound is optional */ }
+  }
+
+  /* ---- lanes ---- */
+  function buildLanes(round) {
+    var m = 1 + (round - 1) * 0.12;
+    var lanes = [];
+    var road = [
+      { row: 11, dir: 1, speed: 55, kinds: ['car', 'car', 'truck'] },
+      { row: 10, dir: -1, speed: 82, kinds: ['car', 'truck', 'car'] },
+      { row: 9, dir: 1, speed: 66, kinds: ['truck', 'car', 'car'] },
+      { row: 8, dir: -1, speed: 96, kinds: ['car', 'car', 'truck'] },
+      { row: 7, dir: 1, speed: 74, kinds: ['car', 'truck', 'car'] }
+    ];
+    road.forEach(function (def, li) {
+      var items = [];
+      var n = def.kinds.length;
+      for (var i = 0; i < n; i++) {
+        var w = def.kinds[i] === 'truck' ? 100 : 56;
+        items.push({ x: i * (W / n) + ((li * 53 + i * 29) % 50), w: w, type: def.kinds[i] });
+      }
+      lanes.push({ row: def.row, dir: def.dir, speed: def.speed * m, kind: 'road', items: items });
+    });
+    var river = [
+      { row: 5, dir: 1, speed: 46, type: 'log', widths: [120, 100, 140], sink: false },
+      { row: 4, dir: -1, speed: 60, type: 'turtle', widths: [80, 80, 80, 80], sink: false },
+      { row: 3, dir: 1, speed: 56, type: 'log', widths: [110, 130, 100], sink: false },
+      { row: 2, dir: -1, speed: 72, type: 'turtle', widths: [80, 80, 80], sink: true },
+      { row: 1, dir: 1, speed: 50, type: 'log', widths: [130, 100, 120], sink: false }
+    ];
+    river.forEach(function (def, li) {
+      var items = [];
+      var n = def.widths.length;
+      for (var j = 0; j < n; j++) {
+        items.push({ x: j * (W / n) + ((li * 41 + j * 31) % 40), w: def.widths[j], type: def.type, phase: (j * 0.37 + li * 0.13) % 1, sink: def.sink });
+      }
+      lanes.push({ row: def.row, dir: def.dir, speed: def.speed * m, kind: 'river', items: items });
+    });
+    return lanes;
+  }
+
+  function timeForRound(round) {
+    return Math.max(30, 60 - (round - 1) * 5);
+  }
+
+  /* ---- state ---- */
+  var state = {
+    status: 'ready', /* ready | playing | paused | over */
+    score: 0, best: loadBest(), lives: 3, round: 1,
+    frog: { x: START_COL * CELL, row: START_ROW },
+    maxRow: START_ROW,
+    timeLeft: 60,
+    homes: [false, false, false, false, false],
+    lanes: buildLanes(1),
+    deadFlash: 0,
+    elapsed: 0,
+    newBest: false
+  };
+
+  function resetFrog() {
+    state.frog = { x: START_COL * CELL, row: START_ROW };
+    state.maxRow = START_ROW;
+    state.timeLeft = timeForRound(state.round);
+  }
+
+  function addScore(n) {
+    state.score += n;
+    if (state.score > state.best) {
+      state.best = state.score;
+      state.newBest = true;
+      saveBest(state.best);
+    }
+  }
+
+  function laneFor(row) {
+    for (var i = 0; i < state.lanes.length; i++) {
+      if (state.lanes[i].row === row) return state.lanes[i];
+    }
+    return null;
+  }
+
+  function turtleState(item, elapsed) {
+    if (!item.sink) return 'up';
+    var t = (elapsed + item.phase * 7) % 7;
+    if (t >= 4.5 && t < 6) return 'down';
+    if (t >= 3.5 && t < 4.5) return 'warn';
+    return 'up';
+  }
+
+  function platformUnder(frog) {
+    var lane = laneFor(frog.row);
+    if (!lane || lane.kind !== 'river') return null;
+    var cx = frog.x + CELL / 2;
+    for (var i = 0; i < lane.items.length; i++) {
+      var it = lane.items[i];
+      if (it.type === 'turtle' && turtleState(it, state.elapsed) === 'down') continue;
+      if (cx >= it.x - 2 && cx <= it.x + it.w + 2) return lane;
+    }
+    return null;
+  }
+
+  function vehicleHit(frog) {
+    var lane = laneFor(frog.row);
+    if (!lane || lane.kind !== 'road') return false;
+    var fx0 = frog.x + 7, fx1 = frog.x + CELL - 7;
+    for (var i = 0; i < lane.items.length; i++) {
+      var it = lane.items[i];
+      if (fx1 > it.x + 2 && fx0 < it.x + it.w - 2) return true;
+    }
+    return false;
+  }
+
+  function death() {
+    state.lives -= 1;
+    beep(140, 0.3, 'sawtooth', 0.06);
+    if (state.lives <= 0) {
+      state.lives = 0;
+      state.status = 'over';
+      if (state.score > state.best) { state.best = state.score; state.newBest = true; }
+      saveBest(state.best);
+      updateOverlays();
+      return;
+    }
+    state.deadFlash = 1;
+    resetFrog();
+  }
+
+  function reachHome() {
+    var col = Math.round(state.frog.x / CELL);
+    var idx = HOME_COLS.indexOf(col);
+    if (idx < 0 || state.homes[idx]) { death(); return; }
+    state.homes[idx] = true;
+    addScore(50 + Math.round(state.timeLeft) * 10);
+    beep(660, 0.09, 'square', 0.05);
+    beep(880, 0.14, 'square', 0.05);
+    var all = true;
+    for (var i = 0; i < state.homes.length; i++) if (!state.homes[i]) all = false;
+    if (all) {
+      state.round += 1;
+      state.homes = [false, false, false, false, false];
+      state.lanes = buildLanes(state.round);
+    }
+    resetFrog();
+  }
+
+  function hop(dir) {
+    if (state.status !== 'playing' || state.deadFlash > 0) return false;
+    var f = state.frog;
+    if (dir === 'up') {
+      if (f.row <= 0) return false;
+      f.row -= 1;
+      if (f.row < state.maxRow) { state.maxRow = f.row; addScore(10); }
+      beep(340, 0.06, 'square', 0.04);
+      if (f.row === 0) reachHome();
+    } else if (dir === 'down') {
+      if (f.row >= ROWS - 1) return false;
+      f.row += 1;
+      beep(300, 0.06, 'square', 0.04);
+    } else if (dir === 'left') {
+      f.x = Math.max(0, f.x - CELL);
+      beep(320, 0.06, 'square', 0.04);
+    } else if (dir === 'right') {
+      f.x = Math.min(W - CELL, f.x + CELL);
+      beep(320, 0.06, 'square', 0.04);
+    } else {
+      return false;
+    }
+    return true;
+  }
+
+  function moveLanes(dt) {
+    state.lanes.forEach(function (lane) {
+      lane.items.forEach(function (it) {
+        it.x += lane.dir * lane.speed * dt;
+        if (lane.dir > 0 && it.x > W) it.x -= (W + it.w);
+        if (lane.dir < 0 && it.x + it.w < 0) it.x += (W + it.w);
+      });
+    });
+  }
+
+  function step(dtMs) {
+    if (state.status !== 'playing') return;
+    var dt = dtMs / 1000;
+    state.elapsed += dt;
+    state.timeLeft -= dt;
+    if (state.timeLeft <= 0) {
+      state.timeLeft = 0;
+      death();
+      return;
+    }
+    moveLanes(dt);
+    if (state.deadFlash > 0) { state.deadFlash -= dt; return; }
+    var f = state.frog;
+    if (RIVER_ROWS.indexOf(f.row) >= 0) {
+      var plat = platformUnder(f);
+      if (!plat) { death(); return; }
+      f.x += plat.dir * plat.speed * dt;
+      if (f.x < -CELL + 8 || f.x > W - 8) { death(); return; }
+    } else if (ROAD_ROWS.indexOf(f.row) >= 0) {
+      if (vehicleHit(f)) { death(); return; }
+    }
+  }
+
+  function start() {
+    state.status = 'playing';
+    state.score = 0;
+    state.lives = 3;
+    state.round = 1;
+    state.homes = [false, false, false, false, false];
+    state.lanes = buildLanes(1);
+    state.deadFlash = 0;
+    state.elapsed = 0;
+    state.newBest = false;
+    state.best = loadBest();
+    resetFrog();
+    updateOverlays();
+  }
+
+  function pause() {
+    if (state.status !== 'playing') return;
+    state.status = 'paused';
+    updateOverlays();
+  }
+
+  function resume() {
+    if (state.status !== 'paused') return;
+    state.status = 'playing';
+    updateOverlays();
+  }
+
+  function togglePause() {
+    if (state.status === 'playing') pause();
+    else if (state.status === 'paused') resume();
+  }
+
+  var GAME = {
+    state: state,
+    W: W, H: H, COLS: COLS, ROWS: ROWS, CELL: CELL,
+    HOME_COLS: HOME_COLS, ROAD_ROWS: ROAD_ROWS, RIVER_ROWS: RIVER_ROWS,
+    BEST_KEY: BEST_KEY,
+    start: start, restart: start, pause: pause, resume: resume, togglePause: togglePause,
+    hop: hop, step: step,
+    getScore: function () { return state.score; },
+    getBest: function () { return state.best; },
+    getLives: function () { return state.lives; },
+    getLevel: function () { return state.round; },
+    getTimeLeft: function () { return state.timeLeft; },
+    isOver: function () { return state.status === 'over'; },
+    isPaused: function () { return state.status === 'paused'; },
+    isPlaying: function () { return state.status === 'playing'; },
+    setSound: function (on) { soundOn = !!on; },
+    isSoundOn: function () { return soundOn; },
+    turtleState: turtleState,
+    timeForRound: timeForRound
+  };
+
+  if (typeof window !== 'undefined') window.GAME = GAME;
+  if (typeof module !== 'undefined' && module.exports) module.exports = GAME;
+
+  /* ---- DOM wiring + rendering (browser only) ---- */
+  var els = {};
+  function $(id) { return document.getElementById(id); }
+  function show(el) { if (el) el.style.display = 'flex'; }
+  function hide(el) { if (el) el.style.display = 'none'; }
+
+  function updateOverlays() {
+    if (typeof document === 'undefined') return;
+    if (!els.start) return;
+    hide(els.start); hide(els.pause); hide(els.over);
+    if (state.status === 'ready') {
+      show(els.start);
+      if (els.startBtn) els.startBtn.textContent = 'Start game';
+    } else if (state.status === 'paused') {
+      show(els.pause);
+    } else if (state.status === 'over') {
+      show(els.over);
+      if (els.finalScore) els.finalScore.textContent = state.score;
+      if (els.finalBest) els.finalBest.textContent = state.best;
+      if (els.newBest) els.newBest.style.display = state.newBest ? 'block' : 'none';
+    }
+  }
+
+  function updateHUD() {
+    if (!els.score) return;
+    els.score.textContent = state.score;
+    els.best.textContent = state.best;
+    els.lives.textContent = state.lives;
+    els.level.textContent = state.round;
+    els.time.textContent = Math.ceil(state.timeLeft);
+  }
+
+  function draw() {
+    if (!els.canvas) return;
+    var ctx = els.canvas.getContext('2d');
+    /* background rows */
+    for (var r = 0; r < ROWS; r++) {
+      if (r === 0 || r === 6 || r === 12) ctx.fillStyle = '#2f9e44';
+      else if (RIVER_ROWS.indexOf(r) >= 0) ctx.fillStyle = '#2563eb';
+      else ctx.fillStyle = '#334155';
+      ctx.fillRect(0, r * CELL, W, CELL);
+    }
+    /* road dashes */
+    ctx.fillStyle = '#e2e8f0';
+    ROAD_ROWS.forEach(function (row) {
+      for (var x = 8; x < W; x += 40) ctx.fillRect(x, row * CELL + CELL / 2 - 1, 20, 2);
+    });
+    /* homes */
+    HOME_COLS.forEach(function (col, i) {
+      var hx = col * CELL;
+      ctx.fillStyle = '#14532d';
+      ctx.fillRect(hx + 2, 2, CELL - 4, CELL - 4);
+      ctx.fillStyle = '#86efac';
+      ctx.fillRect(hx + 2, 2, CELL - 4, 5);
+      if (state.homes[i]) {
+        ctx.fillStyle = '#4ade80';
+        ctx.beginPath();
+        ctx.arc(hx + CELL / 2, CELL / 2 + 4, 11, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    });
+    /* lane items */
+    state.lanes.forEach(function (lane) {
+      var y = lane.row * CELL;
+      lane.items.forEach(function (it) {
+        if (it.type === 'log') {
+          ctx.fillStyle = '#92400e';
+          ctx.fillRect(it.x, y + 8, it.w, CELL - 16);
+          ctx.fillStyle = '#b45309';
+          ctx.fillRect(it.x + 4, y + 12, it.w - 8, 5);
+        } else if (it.type === 'turtle') {
+          var st = turtleState(it, state.elapsed);
+          if (st === 'down') return; /* submerged: invisible */
+          ctx.fillStyle = st === 'warn' ? '#166534' : '#22c55e';
+          var n = Math.max(1, Math.round(it.w / 40));
+          for (var k = 0; k < n; k++) {
+            var cx = it.x + 20 + k * 40;
+            ctx.beginPath();
+            ctx.arc(cx, y + CELL / 2, 15, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#14532d';
+            ctx.beginPath();
+            ctx.arc(cx - 5, y + CELL / 2 - 4, 2.5, 0, Math.PI * 2);
+            ctx.arc(cx + 5, y + CELL / 2 - 4, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = st === 'warn' ? '#166534' : '#22c55e';
+          }
+        } else {
+          /* car / truck */
+          ctx.fillStyle = it.type === 'truck' ? '#eab308' : (it.w > 60 ? '#ef4444' : '#f8fafc');
+          ctx.fillRect(it.x, y + 5, it.w, CELL - 10);
+          ctx.fillStyle = '#0f172a';
+          ctx.fillRect(it.x + 6, y + 9, it.w - 12, 8);
+          ctx.fillStyle = '#1e293b';
+          ctx.fillRect(it.x + 4, y + CELL - 9, 10, 5);
+          ctx.fillRect(it.x + it.w - 14, y + CELL - 9, 10, 5);
+        }
+      });
+    });
+    /* frog */
+    if (state.status !== 'over') {
+      var f = state.frog;
+      var flash = state.deadFlash > 0 && Math.floor(state.elapsed * 8) % 2 === 0;
+      if (!flash) {
+        var fx = f.x + CELL / 2, fy = f.row * CELL + CELL / 2;
+        ctx.fillStyle = '#4ade80';
+        ctx.beginPath();
+        ctx.arc(fx, fy + 2, 13, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#166534';
+        ctx.beginPath();
+        ctx.arc(fx - 6, fy - 8, 4, 0, Math.PI * 2);
+        ctx.arc(fx + 6, fy - 8, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(fx - 6, fy - 9, 1.8, 0, Math.PI * 2);
+        ctx.arc(fx + 6, fy - 9, 1.8, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    /* timer bar */
+    var frac = Math.max(0, state.timeLeft / timeForRound(state.round));
+    ctx.fillStyle = '#0f172a';
+    ctx.fillRect(0, H - 6, W, 6);
+    ctx.fillStyle = frac < 0.25 ? '#ef4444' : '#facc15';
+    ctx.fillRect(0, H - 6, Math.round(W * frac), 6);
+  }
+
+  function wireDOM() {
+    els.canvas = $('game-canvas');
+    els.score = $('score'); els.best = $('best'); els.lives = $('lives');
+    els.level = $('level'); els.time = $('time');
+    els.start = $('ov-start'); els.pause = $('ov-pause'); els.over = $('ov-over');
+    els.startBtn = $('btn-start');
+    els.finalScore = $('final-score'); els.finalBest = $('final-best'); els.newBest = $('new-best');
+    if (!els.canvas) return;
+    updateOverlays();
+    updateHUD();
+
+    function bindClick(id, fn) {
+      var b = $(id);
+      if (!b) return;
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        fn();
+        b.blur();
+      });
+    }
+    bindClick('btn-start', function () {
+      if (state.status === 'paused') resume();
+      else start();
+    });
+    bindClick('btn-resume', resume);
+    bindClick('btn-restart', start);
+    bindClick('btn-again', start);
+    bindClick('btn-how', function () {
+      hide(els.pause);
+      show(els.start);
+      if (els.startBtn) els.startBtn.textContent = 'Back to game';
+    });
+    bindClick('btn-pause', togglePause);
+    bindClick('btn-mute', function () {
+      soundOn = !soundOn;
+      var b = $('btn-mute');
+      if (b) b.textContent = soundOn ? 'Sound: On' : 'Sound: Off';
+    });
+    bindClick('btn-up', function () { hop('up'); });
+    bindClick('btn-down', function () { hop('down'); });
+    bindClick('btn-left', function () { hop('left'); });
+    bindClick('btn-right', function () { hop('right'); });
+
+    /* swipe to hop */
+    var tsX = 0, tsY = 0, tsT = 0;
+    els.canvas.addEventListener('touchstart', function (e) {
+      var t = e.changedTouches[0];
+      tsX = t.clientX; tsY = t.clientY; tsT = Date.now();
+    }, { passive: true });
+    els.canvas.addEventListener('touchend', function (e) {
+      var t = e.changedTouches[0];
+      var dx = t.clientX - tsX, dy = t.clientY - tsY;
+      if (Date.now() - tsT > 600) return;
+      if (Math.abs(dx) < 24 && Math.abs(dy) < 24) return;
+      if (Math.abs(dx) > Math.abs(dy)) hop(dx > 0 ? 'right' : 'left');
+      else hop(dy > 0 ? 'down' : 'up');
+    }, { passive: true });
+
+    /* no scrolling while playing */
+    var calc = els.canvas.closest('.calc');
+    if (calc) {
+      calc.addEventListener('touchmove', function (e) {
+        if (state.status === 'playing') e.preventDefault();
+      }, { passive: false });
+    }
+
+    /* keyboard */
+    window.addEventListener('keydown', function (e) {
+      var k = e.key;
+      if (k === 'ArrowUp' || k === 'w' || k === 'W') { hop('up'); e.preventDefault(); }
+      else if (k === 'ArrowDown' || k === 's' || k === 'S') { hop('down'); e.preventDefault(); }
+      else if (k === 'ArrowLeft' || k === 'a' || k === 'A') { hop('left'); e.preventDefault(); }
+      else if (k === 'ArrowRight' || k === 'd' || k === 'D') { hop('right'); e.preventDefault(); }
+      else if (k === 'p' || k === 'P') togglePause();
+      else if (k === 'm' || k === 'M') {
+        soundOn = !soundOn;
+        var b = $('btn-mute');
+        if (b) b.textContent = soundOn ? 'Sound: On' : 'Sound: Off';
+      }
+    });
+
+    var last = 0;
+    function frame(ts) {
+      var dt = last ? ts - last : 16;
+      last = ts;
+      if (dt > 100) dt = 100;
+      step(dt);
+      draw();
+      updateHUD();
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+    wireDOM();
+  }
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

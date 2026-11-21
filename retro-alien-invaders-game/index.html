@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retro Alien Invaders — Play the Classic Fixed Shooter Game Free | Funtasha</title>
+<meta name="description" content="Play Retro Alien Invaders free in your browser — stop the rows of aliens marching down toward you, hide behind shields and clear every wave. No download, no signup.">
+<link rel="canonical" href="https://funtasha.github.io/retro-alien-invaders-game/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Retro Alien Invaders — Play the Classic Fixed Shooter Game Free">
+<meta property="og:description" content="Stop the rows of aliens marching down toward you, hide behind shields and clear every wave.">
+<meta property="og:url" content="https://funtasha.github.io/retro-alien-invaders-game/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.byline{font-size:14px;color:#64748b;margin:6px 0 0}
+.game-wrap{position:relative}
+.game-canvas{display:block;width:100%;max-width:480px;margin:0 auto;background:#0a1f0a;border:3px solid #1e293b;border-radius:10px;touch-action:none}
+.game-score{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:16px;margin:6px 0 10px;flex-wrap:wrap;gap:6px}
+.game-btn{min-height:90px;min-width:90px;padding:12px 18px;border:0;border-radius:14px;font-size:18px;font-weight:700;cursor:pointer;touch-action:manipulation}
+.game-btn-wide{width:100%;min-height:90px;padding:14px 18px;border:0;border-radius:14px;font-size:19px;font-weight:700;cursor:pointer;touch-action:manipulation}
+.game-controls{display:flex;gap:10px;justify-content:space-between;margin-top:12px;flex-wrap:wrap}
+.game-controls .game-btn{flex:1}
+.game-overlay{position:absolute;inset:0;background:rgba(10,31,10,.92);color:#e8f7ef;border-radius:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;text-align:center;gap:12px}
+.game-overlay h3{font-size:22px}
+.game-overlay p{font-size:16px;max-width:420px}
+.pause-btn{position:absolute;top:8px;right:8px;min-width:90px;min-height:72px;padding:10px 14px;border:0;border-radius:12px;font-size:17px;font-weight:700;cursor:pointer;z-index:5;touch-action:manipulation}
+.mute-btn{min-width:72px;min-height:72px;padding:10px 14px;border:0;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;touch-action:manipulation}
+.game-btn,.game-btn-wide{background:#db2777;color:#fff}.pause-btn,.mute-btn{background:#ea580c;color:#fff}
+.hub{margin:18px 0 4px;font-size:16px;font-weight:700}.hub a{color:#be185d}
+.pause-btn{min-width:90px;min-height:90px}
+.calc .game-btn,.calc .game-btn-wide{margin-top:0;padding:12px 18px}
+.calc .mute-btn,.calc .pause-btn{margin-top:0}
+.ov-title{font-size:22px;font-weight:700}
+.pad-row{display:flex;gap:10px;justify-content:center;margin-top:10px}
+.pad-row .game-btn{flex:0 0 90px}
+.fire-btn{min-width:100px;min-height:100px}
+table{width:100%;border-collapse:collapse;margin:10px 0}
+th,td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;font-size:15px}
+th{background:#fdf2f8}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Retro Alien Invaders is completely free to play in your browser. There is no download, no signup, no account and no payment anywhere on the page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I move and shoot on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drag left or right anywhere on the game area to move the cannon, and tap the big FIRE button to shoot. Auto-fire is on by default on phones, so the cannon shoots on its own and you only need to move."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the bonus ship?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A red mystery ship crosses the top of the screen every so often. Hit it for a bonus of 50, 100, 150 or 300 points, picked at random. It moves fast and only crosses once per pass."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do the shields come back?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, at the start of every new wave all four shields are rebuilt in full. Within a wave they only get weaker, so spend your cover wisely and do not shoot through your own shields."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my best score saved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On your own device, in your browser storage. Nobody else can see it, and it stays there when you come back to the page. Clearing your browser data will erase it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many waves are there?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no last wave. Each wave is faster than the one before, with quicker marching and faster alien bullets, and the game goes on until you run out of lives or the aliens reach the bottom."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Retro Alien Invaders</h1>
+<p class="byline">By the Funtasha team · Published 21 November 2026 · Updated 21 November 2026</p>
+<p class="answer">Retro Alien Invaders is a fixed shooter: rows of aliens march down toward your cannon, and you clear them wave by wave before they reach the bottom. Four shields give you cover, and a mystery ship crosses the top for a bonus. It is free, it runs in your browser, and it plays with drag and one big fire button on a phone.</p>
+<div class="calc">
+<div class="game-score"><span>Score: <b id="score">0</b></span><span>Best: <b id="best">0</b></span><span>Lives: <b id="lives">3</b></span><span>Wave: <b id="level">1</b></span></div>
+<div class="game-wrap">
+<canvas id="game-canvas" class="game-canvas" width="480" height="560"></canvas>
+<button class="pause-btn" id="btn-pause">Pause</button>
+<div class="game-overlay" id="ov-start">
+<p class="ov-title">Retro Alien Invaders</p>
+<p>Stop the rows of aliens marching down toward your cannon.</p>
+<p>Drag to move, tap FIRE to shoot. Hide behind the shields and watch for the bonus ship.</p>
+<p>Clear every wave before the aliens reach the bottom. You have 3 lives.</p>
+<button class="game-btn-wide" id="btn-start">Start game</button>
+</div>
+<div class="game-overlay" id="ov-pause" style="display:none">
+<p class="ov-title">Paused</p>
+<button class="game-btn-wide" id="btn-resume">Resume</button>
+<button class="game-btn-wide" id="btn-restart">Restart</button>
+<button class="game-btn-wide" id="btn-how">How to play</button>
+</div>
+<div class="game-overlay" id="ov-over" style="display:none">
+<p class="ov-title">Game over</p>
+<p>Score: <b id="final-score">0</b></p>
+<p>Best: <b id="final-best">0</b></p>
+<p id="new-best" style="display:none">New Best!</p>
+<button class="game-btn-wide" id="btn-again">Play again</button>
+</div>
+</div>
+<div class="game-controls"><button class="game-btn" id="btn-left" aria-label="Move left">&#8592;</button><button class="game-btn" id="btn-right" aria-label="Move right">&#8594;</button><button class="game-btn" id="btn-autofire">Auto-fire: Off</button></div>
+<div class="game-controls"><button class="game-btn fire-btn" id="btn-fire">FIRE</button></div>
+<div class="game-controls"><button class="mute-btn" id="btn-mute">Sound: Off</button></div>
+</div>
+<div class="warn">This is an original game inspired by the classics of that era. It is not affiliated with Nokia or any original publisher. The lowest aliens are the dangerous ones — clear the bottom rows first.</div>
+<h2>What Retro Alien Invaders is</h2>
+<p>Retro Alien Invaders is a fixed shooter in the style of the 1978 arcade original that started the genre. Rows of alien creatures march across the top of the screen, stepping down a little closer with every pass, and your cannon sits at the bottom with one job: clear them all before they reach you. There is no scrolling, no jumping and no maze. The whole game is aim, movement and nerve.</p>
+<p>The game is famous for one clever trick: the fewer aliens are left, the faster they move. Clearing the last few aliens is the hardest part of the wave, because the survivors march across the screen at a frightening pace. A wave that starts slow and relaxed always ends in a rush, and the final alien is the fastest thing on the screen.</p>
+<p>Four shields sit between you and the aliens. They block shots from both sides, which makes them useful cover and a real problem at the same time: every shot you fire from behind a shield eats a little hole in your own cover. Learning when to hide and when to step out and shoot is the heart of the game.</p>
+<p>This version is an original game built for the browser. It keeps the rules of the arcade era — five rows of aliens, destructible shields, a mystery bonus ship and waves that get faster — and adds phone controls that fit a thumb: drag to move, one big FIRE button, and an auto-fire option. It runs entirely in your browser with no download, no signup and no account.</p>
+<h2>How to play on your phone</h2>
+<p>Playing on a phone is simple. Tap Start game, then drag your finger left or right anywhere on the game area to move the cannon. The cannon follows your finger, so you can park it exactly where you want it. Tap the big FIRE button to shoot. Your cannon can only have one bullet in the air at a time, so each shot should count.</p>
+<p>Auto-fire is on by default on phones: the cannon shoots on its own whenever there is no bullet in the air, so you only need to worry about moving. If you prefer to shoot by hand, tap the Auto-fire button to switch it off. On a computer, auto-fire starts off and you can switch it on the same way.</p>
+<p>The game is built so the page never scrolls under your thumbs while you play. The canvas and the controls are touch-locked during a run, so a drag means a move and nothing else. The Pause button sits at the top-right of the game area and stays visible the whole time, so you can stop the game instantly if someone calls or the bus arrives. Sound is off by default; tap the Sound button to switch the retro beeps on.</p>
+<h2>How to play on a computer</h2>
+<p>On a computer, use the Left and Right arrow keys or the A and D keys to move the cannon, and press Space to fire. The P key pauses and resumes the game, and the M key switches the sound on and off. Everything the phone version can do, the keyboard version can do too.</p>
+<p>The game window is 480 pixels wide and fits comfortably next to anything else on your screen. The canvas scales to the window, so the aliens stay the same size relative to the cannon whether you play on a small laptop or a large monitor. There is nothing to install and nothing to download: open the page, tap Start game, and play.</p>
+<h2>Controls</h2>
+<p>Every control in the game is listed here. There are no hidden moves and no secret keys.</p>
+<table>
+<tr><th>Action</th><th>Phone</th><th>Computer</th></tr>
+<tr><td>Move left</td><td>Drag left or Left button</td><td>Arrow Left or A</td></tr>
+<tr><td>Move right</td><td>Drag right or Right button</td><td>Arrow Right or D</td></tr>
+<tr><td>Fire</td><td>FIRE button</td><td>Space</td></tr>
+<tr><td>Auto-fire on / off</td><td>Auto-fire button</td><td>Auto-fire button</td></tr>
+<tr><td>Pause / resume</td><td>Pause button</td><td>P</td></tr>
+<tr><td>Sound on / off</td><td>Sound button</td><td>M</td></tr>
+<tr><td>Start / play again</td><td>Start game button</td><td>Start game button</td></tr>
+</table>
+<p>The Left and Right buttons are hold-to-move buttons: hold one down and the cannon keeps moving until you let go. The drag control is usually faster and more precise, but the buttons are there for players who prefer them.</p>
+<h2>Scoring, shields and waves</h2>
+<p>Aliens are worth points by row. The top row is worth 30 points each, the two middle rows are worth 20 points each, and the two bottom rows are worth 10 points each. The top row is worth the most because it is the hardest to reach: your bullet must travel past the lower rows first, and the lower rows keep getting in the way.</p>
+<p>The mystery ship is the bonus. Every so often a red ship crosses the top of the screen, and hitting it is worth 50, 100, 150 or 300 points, picked at random. It moves fast and it only crosses once, so you get one chance per pass. A 300-point ship is worth thirty bottom-row aliens, which makes it the best shot in the game when it appears.</p>
+<p>The four shields are destructible. Every bullet that hits a shield, yours or theirs, knocks a block out of it. The shields slowly fall apart as the wave goes on, and a shield with a hole in the middle stops protecting anything. Shields are rebuilt at the start of every new wave, so a ruined shield is only a problem for the wave you are in.</p>
+<p>You start with 3 lives. You lose a life when an alien bullet hits your cannon. The game also ends at once if any alien reaches the bottom of the screen, no matter how many lives you have left. Clear all fifty aliens and the next wave begins: faster marching, faster alien bullets, and the aliens start a little lower. There is no final wave. The game keeps going until your lives run out, and your best score is saved on your own device so you can chase it next time.</p>
+<h2>Strategy: five tips that actually work</h2>
+<p>Five tips that make a real difference, learned the hard way.</p>
+<ol>
+<li><strong>Clear the bottom rows first.</strong> The lowest aliens are the ones that shoot at you and the ones that reach the bottom first. Picking them off early slows the whole advance and keeps the danger far from your cannon.</li>
+<li><strong>Save a shield.</strong> Do not shoot through the same shield all wave long. Fire from the gaps between the shields, and keep one shield in good shape for the end of the wave, when the last aliens are fast and you need somewhere to hide.</li>
+<li><strong>Hit the bonus ship.</strong> The red ship is worth up to 300 points and it crosses the top every twenty seconds or so. When you hear it coming, stop what you are doing and line up a shot. One hit is worth a whole row of aliens.</li>
+<li><strong>Keep moving.</strong> A cannon that sits still is an easy target. Move a little after every shot, even if it is only a short shuffle to the side. The aliens aim at where you were, not where you are going.</li>
+<li><strong>Use the edges.</strong> Aliens at the edge of the formation are the easiest to predict: they turn around at the same spot every time. Park near an edge and pick off the turning alien as it comes around.</li>
+</ol>
+<h2>Common mistakes and how to fix them</h2>
+<p><strong>Hiding behind a shield forever.</strong> Shields feel safe, but the aliens keep marching while you hide, and every shot you fire from cover eats your own shield. Step out, shoot, and move back. Cover is for resting, not for living in.</p>
+<p><strong>Ignoring the lowest aliens.</strong> The top row is worth 30 points and it is tempting to aim high, but the lowest alien is the one that ends your game. Clear from the bottom up, and the top row will come to you as the formation thins out.</p>
+<p><strong>Shooting through your own shields.</strong> Your bullets destroy shield blocks just like alien bullets do. If you fire from directly behind a shield, you are digging your own grave one block at a time. Shoot from the gaps.</p>
+<p><strong>Standing still.</strong> The aliens fire at your position, and a cannon that never moves gets hit. Even a small side-to-side shuffle after each shot makes their aim much worse.</p>
+<p><strong>Forgetting the ship.</strong> The bonus ship crosses the top quietly and leaves fast. If you never look up, you miss the biggest single score in the game. Glance at the top of the screen every few seconds.</p>
+<h2>Why old games still feel good</h2>
+<p>Old games like this one were built for hardware that could barely draw an alien, so they had to be fun in their rules instead of their graphics. There was no room for a story, no room for fancy effects, and no room for a tutorial. The whole game had to fit in one idea — stop the march — and that idea had to be good enough to carry the game on its own. It was.</p>
+<p>That simplicity is why the game still works today. A run lasts a few minutes, the rules fit in a single sentence, and every death is your own fault in a way you can see clearly. There is no grinding, no waiting for energy to refill, and no shop asking you to buy a better cannon. You just play, learn the patterns, and try again.</p>
+<p>The game also respects your time. You can pause at any moment, the best score is saved on your device, and a quick session on the bus is as satisfying as a long one at home. Some games need an hour to get going. This one needs ten seconds.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>Is it free?</h3><p>Yes. Retro Alien Invaders is completely free to play in your browser. There is no download, no signup, no account and no payment anywhere on the page.</p></div>
+<div class="faq"><h3>How do I move and shoot on my phone?</h3><p>Drag left or right anywhere on the game area to move the cannon, and tap the big FIRE button to shoot. Auto-fire is on by default on phones, so the cannon shoots on its own and you only need to move.</p></div>
+<div class="faq"><h3>What is the bonus ship?</h3><p>A red mystery ship crosses the top of the screen every so often. Hit it for a bonus of 50, 100, 150 or 300 points, picked at random. It moves fast and only crosses once per pass.</p></div>
+<div class="faq"><h3>Do the shields come back?</h3><p>Yes, at the start of every new wave all four shields are rebuilt in full. Within a wave they only get weaker, so spend your cover wisely and do not shoot through your own shields.</p></div>
+<div class="faq"><h3>Where is my best score saved?</h3><p>On your own device, in your browser storage. Nobody else can see it, and it stays there when you come back to the page. Clearing your browser data will erase it.</p></div>
+<div class="faq"><h3>How many waves are there?</h3><p>There is no last wave. Each wave is faster than the one before, with quicker marching and faster alien bullets, and the game goes on until you run out of lives or the aliens reach the bottom.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../retro-maze-chase-game/">Retro Maze Chase</a> · <a href="../retro-asteroids-game/">Retro Asteroids</a> · <a href="../retro-frog-hop-game/">Retro Frog Hop</a></div>
+<div class="hub"><a href="https://toolbari.github.io/retro-games/">More retro games</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+/* Retro Alien Invaders — fixed shooter game.
+   Logic is pure and testable on window.GAME; rendering + input wiring
+   only run when a document exists. No external assets. */
+(function () {
+  'use strict';
+  var W = 480, H = 560;
+  var BEST_KEY = 'rg-alien-invaders-best';
+  var ALIEN_W = 28, ALIEN_H = 20, ALIEN_DX = 36, ALIEN_DY = 30;
+  var ALIEN_ROWS = 5, ALIEN_COLS = 10;
+  var CANNON_Y = H - 44;
+  var CANNON_W = 36, CANNON_H = 18;
+  var CANNON_SPEED = 260;
+  var SHIELD_Y = H - 118;
+  var SHIP_VALUES = [50, 100, 150, 300];
+
+  function loadBest() {
+    try {
+      if (typeof localStorage === 'undefined') return 0;
+      var v = parseInt(localStorage.getItem(BEST_KEY), 10);
+      return isNaN(v) ? 0 : v;
+    } catch (e) { return 0; }
+  }
+  function saveBest(v) {
+    try {
+      if (typeof localStorage !== 'undefined') localStorage.setItem(BEST_KEY, String(v));
+    } catch (e) { /* storage unavailable: best score just is not kept */ }
+  }
+
+  /* ---- sound: WebAudio tones only, OFF by default ---- */
+  var soundOn = false, audioCtx = null;
+  function beep(freq, dur, type, vol) {
+    if (!soundOn) return;
+    try {
+      if (typeof AudioContext === 'undefined' && typeof webkitAudioContext === 'undefined') return;
+      if (!audioCtx) audioCtx = new (AudioContext || webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      var o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.type = type || 'square';
+      o.frequency.value = freq;
+      g.gain.value = vol || 0.05;
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start();
+      o.stop(audioCtx.currentTime + dur);
+    } catch (e) { /* sound is optional */ }
+  }
+
+  function rowValue(row) {
+    if (row === 0) return 30;
+    if (row <= 2) return 20;
+    return 10;
+  }
+
+  function buildAliens(wave) {
+    var aliens = [];
+    var gridW = ALIEN_COLS * ALIEN_DX - (ALIEN_DX - ALIEN_W);
+    var startX = Math.round((W - gridW) / 2);
+    var startY = 64 + Math.min(24, (wave - 1) * 8);
+    for (var r = 0; r < ALIEN_ROWS; r++) {
+      for (var c = 0; c < ALIEN_COLS; c++) {
+        aliens.push({ x: startX + c * ALIEN_DX, y: startY + r * ALIEN_DY, row: r, col: c, alive: true });
+      }
+    }
+    return aliens;
+  }
+
+  function buildShields() {
+    var shields = [];
+    var xs = [52, 152, 272, 372];
+    for (var s = 0; s < 4; s++) {
+      var blocks = [];
+      for (var r = 0; r < 4; r++) {
+        var row = [];
+        for (var c = 0; c < 7; c++) row.push(true);
+        blocks.push(row);
+      }
+      shields.push({ x: xs[s], y: SHIELD_Y, w: 56, h: 32, blocks: blocks });
+    }
+    return shields;
+  }
+
+  var state = {
+    status: 'ready', /* ready | playing | paused | over */
+    score: 0, best: loadBest(), lives: 3, wave: 1,
+    cannonX: W / 2,
+    aliens: buildAliens(1),
+    alienDir: 1,
+    marchTimer: 0,
+    marchStep: 0,
+    bullets: [],
+    enemyBullets: [],
+    shields: buildShields(),
+    ship: null,
+    shipTimer: 0,
+    nextShipAt: 18000,
+    enemyFireTimer: 0,
+    deadFlash: 0,
+    elapsed: 0,
+    autoFire: false,
+    newBest: false,
+    moveDir: 0,
+    dragX: null,
+    boom: null,
+    lastShipValue: 0
+  };
+
+  function aliensAlive() {
+    var n = 0;
+    state.aliens.forEach(function (a) { if (a.alive) n++; });
+    return n;
+  }
+
+  function marchInterval() {
+    var frac = aliensAlive() / (ALIEN_ROWS * ALIEN_COLS);
+    var base = 650 * (0.25 + 0.75 * frac);
+    var waveMul = Math.pow(0.88, state.wave - 1);
+    return Math.max(90, base * waveMul);
+  }
+
+  function addScore(n) {
+    state.score += n;
+    if (state.score > state.best) {
+      state.best = state.score;
+      state.newBest = true;
+      saveBest(state.best);
+    }
+  }
+
+  function gameOver() {
+    state.status = 'over';
+    if (state.score > state.best) { state.best = state.score; state.newBest = true; }
+    saveBest(state.best);
+    updateOverlays();
+  }
+
+  function loseLife() {
+    state.lives -= 1;
+    state.enemyBullets = [];
+    beep(120, 0.35, 'sawtooth', 0.06);
+    if (state.lives <= 0) {
+      state.lives = 0;
+      gameOver();
+      return;
+    }
+    state.deadFlash = 1;
+  }
+
+  function marchStep() {
+    var dx = 10 * state.alienDir;
+    var hitEdge = false;
+    state.aliens.forEach(function (a) {
+      if (!a.alive) return;
+      var nx = a.x + dx;
+      if (nx < 8 || nx + ALIEN_W > W - 8) hitEdge = true;
+    });
+    state.aliens.forEach(function (a) {
+      if (!a.alive) return;
+      if (hitEdge) a.y += 18;
+      else a.x += dx;
+    });
+    if (hitEdge) state.alienDir *= -1;
+    state.marchStep += 1;
+    /* aliens landing on a shield chew through it */
+    state.aliens.forEach(function (a) {
+      if (!a.alive) return;
+      state.shields.forEach(function (sh) {
+        if (a.x < sh.x + sh.w && a.x + ALIEN_W > sh.x && a.y < sh.y + sh.h && a.y + ALIEN_H > sh.y) {
+          for (var r = 0; r < 4; r++) for (var c = 0; c < 7; c++) {
+            var bx = sh.x + c * 8, by = sh.y + r * 8;
+            if (bx + 8 > a.x && bx < a.x + ALIEN_W && by + 8 > a.y && by < a.y + ALIEN_H) sh.blocks[r][c] = false;
+          }
+        }
+      });
+    });
+    /* aliens reaching the cannon line end the game */
+    var reached = false;
+    state.aliens.forEach(function (a) {
+      if (a.alive && a.y + ALIEN_H >= CANNON_Y) reached = true;
+    });
+    if (reached) gameOver();
+  }
+
+  function fire() {
+    if (state.status !== 'playing' || state.deadFlash > 0) return false;
+    if (state.bullets.length >= 1) return false;
+    state.bullets.push({ x: state.cannonX, y: CANNON_Y - 8 });
+    beep(880, 0.07, 'square', 0.04);
+    return true;
+  }
+
+  function enemyFireInterval() {
+    return Math.max(500, 1100 - state.wave * 80);
+  }
+
+  function enemyFire() {
+    var maxBullets = Math.min(5, 2 + state.wave);
+    if (state.enemyBullets.length >= maxBullets) return;
+    var cols = [];
+    for (var c = 0; c < ALIEN_COLS; c++) {
+      var lowest = null;
+      state.aliens.forEach(function (a) {
+        if (a.alive && a.col === c && (!lowest || a.y > lowest.y)) lowest = a;
+      });
+      if (lowest) cols.push(lowest);
+    }
+    if (!cols.length) return;
+    var shooter = cols[Math.floor(Math.random() * cols.length)];
+    state.enemyBullets.push({ x: shooter.x + ALIEN_W / 2, y: shooter.y + ALIEN_H });
+  }
+
+  function spawnShip() {
+    var dir = Math.random() < 0.5 ? 1 : -1;
+    state.ship = { x: dir > 0 ? -40 : W + 40, y: 30, dir: dir, speed: 120 };
+  }
+
+  /* shield block hit: returns true if the point destroyed a block */
+  function shieldHit(x, y, fromBelow) {
+    for (var s = 0; s < state.shields.length; s++) {
+      var sh = state.shields[s];
+      if (x < sh.x || x >= sh.x + sh.w || y < sh.y || y >= sh.y + sh.h) continue;
+      var col = Math.floor((x - sh.x) / 8);
+      var order = fromBelow ? [3, 2, 1, 0] : [0, 1, 2, 3];
+      for (var k = 0; k < 4; k++) {
+        var r = order[k];
+        if (sh.blocks[r][col]) {
+          sh.blocks[r][col] = false;
+          return true;
+        }
+      }
+      return true; /* inside the shield area but the column is gone: bullet still spent */
+    }
+    return false;
+  }
+
+  function nextWave() {
+    state.wave += 1;
+    state.aliens = buildAliens(state.wave);
+    state.shields = buildShields();
+    state.alienDir = 1;
+    state.marchTimer = 0;
+    state.bullets = [];
+    state.enemyBullets = [];
+    state.ship = null;
+    state.shipTimer = 0;
+    state.nextShipAt = 16000 + Math.random() * 8000;
+  }
+
+  function step(dtMs) {
+    if (state.status !== 'playing') return;
+    var dt = dtMs / 1000;
+    state.elapsed += dt;
+
+    /* cannon movement: drag wins, then held direction */
+    if (state.dragX !== null) {
+      state.cannonX = Math.max(CANNON_W / 2, Math.min(W - CANNON_W / 2, state.dragX));
+    } else if (state.moveDir !== 0) {
+      state.cannonX += state.moveDir * CANNON_SPEED * dt;
+      state.cannonX = Math.max(CANNON_W / 2, Math.min(W - CANNON_W / 2, state.cannonX));
+    }
+
+    /* alien march */
+    state.marchTimer += dtMs;
+    var interval = marchInterval();
+    while (state.marchTimer >= interval && state.status === 'playing') {
+      state.marchTimer -= interval;
+      marchStep();
+      interval = marchInterval();
+    }
+    if (state.status !== 'playing') return;
+
+    /* auto-fire */
+    if (state.autoFire) fire();
+
+    /* enemy fire */
+    state.enemyFireTimer += dtMs;
+    if (state.enemyFireTimer >= enemyFireInterval()) {
+      state.enemyFireTimer = 0;
+      enemyFire();
+    }
+
+    /* mystery ship */
+    state.shipTimer += dtMs;
+    if (!state.ship && state.shipTimer >= state.nextShipAt) {
+      state.shipTimer = 0;
+      state.nextShipAt = 16000 + Math.random() * 8000;
+      spawnShip();
+    }
+    if (state.ship) {
+      state.ship.x += state.ship.dir * state.ship.speed * dt;
+      if (state.ship.x < -60 || state.ship.x > W + 60) state.ship = null;
+    }
+
+    /* player bullets */
+    var i, b;
+    for (i = state.bullets.length - 1; i >= 0; i--) {
+      b = state.bullets[i];
+      b.y -= 430 * dt;
+      if (b.y < 0) { state.bullets.splice(i, 1); continue; }
+      /* ship first (it is highest) */
+      if (state.ship && b.x >= state.ship.x - 4 && b.x <= state.ship.x + 44 &&
+          b.y >= state.ship.y - 4 && b.y <= state.ship.y + 16) {
+        var val = SHIP_VALUES[Math.floor(Math.random() * SHIP_VALUES.length)];
+        state.lastShipValue = val;
+        addScore(val);
+        state.boom = { x: b.x, y: b.y, t: 0.25 };
+        state.ship = null;
+        state.bullets.splice(i, 1);
+        beep(1200, 0.12, 'square', 0.05);
+        continue;
+      }
+      /* aliens */
+      var hitAlien = false;
+      for (var a = 0; a < state.aliens.length; a++) {
+        var al = state.aliens[a];
+        if (!al.alive) continue;
+        if (b.x >= al.x - 2 && b.x <= al.x + ALIEN_W + 2 && b.y >= al.y - 2 && b.y <= al.y + ALIEN_H + 2) {
+          al.alive = false;
+          addScore(rowValue(al.row));
+          state.boom = { x: al.x + ALIEN_W / 2, y: al.y + ALIEN_H / 2, t: 0.2 };
+          state.bullets.splice(i, 1);
+          beep(520, 0.08, 'square', 0.05);
+          hitAlien = true;
+          break;
+        }
+      }
+      if (hitAlien) continue;
+      /* shields (bullet comes from below) */
+      if (shieldHit(b.x, b.y, true)) {
+        state.bullets.splice(i, 1);
+        continue;
+      }
+    }
+
+    /* enemy bullets */
+    for (i = state.enemyBullets.length - 1; i >= 0; i--) {
+      b = state.enemyBullets[i];
+      b.y += (190 + state.wave * 15) * dt;
+      if (b.y > H) { state.enemyBullets.splice(i, 1); continue; }
+      if (shieldHit(b.x, b.y, false)) {
+        state.enemyBullets.splice(i, 1);
+        continue;
+      }
+      if (state.deadFlash <= 0 &&
+          b.x >= state.cannonX - CANNON_W / 2 && b.x <= state.cannonX + CANNON_W / 2 &&
+          b.y >= CANNON_Y && b.y <= CANNON_Y + CANNON_H) {
+        state.enemyBullets.splice(i, 1);
+        loseLife();
+        if (state.status !== 'playing') return;
+      }
+    }
+
+    if (state.boom) {
+      state.boom.t -= dt;
+      if (state.boom.t <= 0) state.boom = null;
+    }
+    if (state.deadFlash > 0) state.deadFlash -= dt;
+
+    /* wave cleared */
+    if (aliensAlive() === 0) nextWave();
+  }
+
+  function start() {
+    state.status = 'playing';
+    state.score = 0;
+    state.lives = 3;
+    state.wave = 1;
+    state.cannonX = W / 2;
+    state.aliens = buildAliens(1);
+    state.alienDir = 1;
+    state.marchTimer = 0;
+    state.marchStep = 0;
+    state.bullets = [];
+    state.enemyBullets = [];
+    state.shields = buildShields();
+    state.ship = null;
+    state.shipTimer = 0;
+    state.nextShipAt = 18000;
+    state.enemyFireTimer = 0;
+    state.deadFlash = 0;
+    state.elapsed = 0;
+    state.newBest = false;
+    state.moveDir = 0;
+    state.dragX = null;
+    state.boom = null;
+    state.best = loadBest();
+    updateOverlays();
+  }
+
+  function pause() {
+    if (state.status !== 'playing') return;
+    state.status = 'paused';
+    updateOverlays();
+  }
+
+  function resume() {
+    if (state.status !== 'paused') return;
+    state.status = 'playing';
+    updateOverlays();
+  }
+
+  function togglePause() {
+    if (state.status === 'playing') pause();
+    else if (state.status === 'paused') resume();
+  }
+
+  var GAME = {
+    state: state,
+    W: W, H: H, CANNON_Y: CANNON_Y, CANNON_W: CANNON_W, CANNON_H: CANNON_H,
+    ALIEN_W: ALIEN_W, ALIEN_H: ALIEN_H, SHIP_VALUES: SHIP_VALUES,
+    BEST_KEY: BEST_KEY,
+    start: start, restart: start, pause: pause, resume: resume, togglePause: togglePause,
+    fire: fire, step: step,
+    setMoveDir: function (d) { state.moveDir = d; },
+    setDragX: function (x) { state.dragX = x; },
+    clearDrag: function () { state.dragX = null; },
+    setAutoFire: function (on) { state.autoFire = !!on; },
+    isAutoFire: function () { return state.autoFire; },
+    getScore: function () { return state.score; },
+    getBest: function () { return state.best; },
+    getLives: function () { return state.lives; },
+    getLevel: function () { return state.wave; },
+    getAliensLeft: function () { return aliensAlive(); },
+    isOver: function () { return state.status === 'over'; },
+    isPaused: function () { return state.status === 'paused'; },
+    isPlaying: function () { return state.status === 'playing'; },
+    setSound: function (on) { soundOn = !!on; },
+    isSoundOn: function () { return soundOn; },
+    rowValue: rowValue,
+    marchInterval: marchInterval
+  };
+
+  if (typeof window !== 'undefined') window.GAME = GAME;
+  if (typeof module !== 'undefined' && module.exports) module.exports = GAME;
+
+  /* ---- DOM wiring + rendering (browser only) ---- */
+  var els = {};
+  function $(id) { return document.getElementById(id); }
+  function show(el) { if (el) el.style.display = 'flex'; }
+  function hide(el) { if (el) el.style.display = 'none'; }
+
+  function updateOverlays() {
+    if (typeof document === 'undefined') return;
+    if (!els.start) return;
+    hide(els.start); hide(els.pause); hide(els.over);
+    if (state.status === 'ready') {
+      show(els.start);
+      if (els.startBtn) els.startBtn.textContent = 'Start game';
+    } else if (state.status === 'paused') {
+      show(els.pause);
+    } else if (state.status === 'over') {
+      show(els.over);
+      if (els.finalScore) els.finalScore.textContent = state.score;
+      if (els.finalBest) els.finalBest.textContent = state.best;
+      if (els.newBest) els.newBest.style.display = state.newBest ? 'block' : 'none';
+    }
+  }
+
+  function updateHUD() {
+    if (!els.score) return;
+    els.score.textContent = state.score;
+    els.best.textContent = state.best;
+    els.lives.textContent = state.lives;
+    els.level.textContent = state.wave;
+  }
+
+  function drawAlien(ctx, a) {
+    var x = a.x, y = a.y;
+    var frame = state.marchStep % 2 === 0;
+    ctx.fillStyle = a.row === 0 ? '#f472b6' : (a.row <= 2 ? '#4ade80' : '#60a5fa');
+    ctx.fillRect(x + 4, y + 2, 20, 6);
+    ctx.fillRect(x + 2, y + 8, 24, 8);
+    ctx.fillRect(x + 6, y + 16, 4, 4);
+    ctx.fillRect(x + 18, y + 16, 4, 4);
+    if (frame) {
+      ctx.fillRect(x, y + 12, 4, 4);
+      ctx.fillRect(x + 24, y + 12, 4, 4);
+    } else {
+      ctx.fillRect(x + 2, y + 12, 4, 4);
+      ctx.fillRect(x + 22, y + 12, 4, 4);
+    }
+    ctx.fillStyle = '#0f172a';
+    ctx.fillRect(x + 8, y + 9, 4, 4);
+    ctx.fillRect(x + 16, y + 9, 4, 4);
+  }
+
+  function draw() {
+    if (!els.canvas) return;
+    var ctx = els.canvas.getContext('2d');
+    ctx.fillStyle = '#0a1f0a';
+    ctx.fillRect(0, 0, W, H);
+    /* stars */
+    ctx.fillStyle = '#94a3b8';
+    for (var s = 0; s < 40; s++) {
+      var sx = (s * 97 + 13) % W, sy = (s * 61 + 29) % 420;
+      ctx.fillRect(sx, sy, 2, 2);
+    }
+    /* ground line */
+    ctx.fillStyle = '#22c55e';
+    ctx.fillRect(0, CANNON_Y + CANNON_H + 4, W, 2);
+    /* shields */
+    state.shields.forEach(function (sh) {
+      ctx.fillStyle = '#22c55e';
+      for (var r = 0; r < 4; r++) {
+        for (var c = 0; c < 7; c++) {
+          if (sh.blocks[r][c]) ctx.fillRect(sh.x + c * 8, sh.y + r * 8, 8, 8);
+        }
+      }
+    });
+    /* aliens */
+    state.aliens.forEach(function (a) {
+      if (a.alive) drawAlien(ctx, a);
+    });
+    /* mystery ship */
+    if (state.ship) {
+      ctx.fillStyle = '#ef4444';
+      ctx.fillRect(state.ship.x, state.ship.y, 40, 8);
+      ctx.fillRect(state.ship.x + 8, state.ship.y - 6, 24, 6);
+      ctx.fillStyle = '#fca5a5';
+      ctx.fillRect(state.ship.x + 14, state.ship.y - 4, 12, 4);
+    }
+    /* bullets */
+    ctx.fillStyle = '#facc15';
+    state.bullets.forEach(function (b) {
+      ctx.fillRect(b.x - 2, b.y - 8, 4, 10);
+    });
+    ctx.fillStyle = '#f87171';
+    state.enemyBullets.forEach(function (b) {
+      ctx.fillRect(b.x - 2, b.y - 2, 4, 10);
+    });
+    /* explosion flash */
+    if (state.boom) {
+      ctx.fillStyle = '#fbbf24';
+      ctx.beginPath();
+      ctx.arc(state.boom.x, state.boom.y, 14, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    /* cannon */
+    if (state.status !== 'over') {
+      var flash = state.deadFlash > 0 && Math.floor(state.elapsed * 8) % 2 === 0;
+      if (!flash) {
+        var cx = state.cannonX;
+        ctx.fillStyle = '#4ade80';
+        ctx.fillRect(cx - CANNON_W / 2, CANNON_Y + 8, CANNON_W, 10);
+        ctx.fillRect(cx - 4, CANNON_Y, 8, 10);
+        ctx.fillRect(cx - 12, CANNON_Y + 4, 6, 6);
+        ctx.fillRect(cx + 6, CANNON_Y + 4, 6, 6);
+      }
+    }
+  }
+
+  function wireDOM() {
+    els.canvas = $('game-canvas');
+    els.score = $('score'); els.best = $('best'); els.lives = $('lives');
+    els.level = $('level');
+    els.start = $('ov-start'); els.pause = $('ov-pause'); els.over = $('ov-over');
+    els.startBtn = $('btn-start');
+    els.finalScore = $('final-score'); els.finalBest = $('final-best'); els.newBest = $('new-best');
+    if (!els.canvas) return;
+    /* auto-fire defaults ON on touch devices, OFF on desktop */
+    var isTouch = (typeof window !== 'undefined' && 'ontouchstart' in window) ||
+                  (typeof navigator !== 'undefined' && navigator.maxTouchPoints > 0);
+    state.autoFire = !!isTouch;
+    var afBtn = $('btn-autofire');
+    if (afBtn) afBtn.textContent = state.autoFire ? 'Auto-fire: On' : 'Auto-fire: Off';
+    updateOverlays();
+    updateHUD();
+
+    function bindClick(id, fn) {
+      var b = $(id);
+      if (!b) return;
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        fn();
+        b.blur();
+      });
+    }
+    bindClick('btn-start', function () {
+      if (state.status === 'paused') resume();
+      else start();
+    });
+    bindClick('btn-resume', resume);
+    bindClick('btn-restart', start);
+    bindClick('btn-again', start);
+    bindClick('btn-how', function () {
+      hide(els.pause);
+      show(els.start);
+      if (els.startBtn) els.startBtn.textContent = 'Back to game';
+    });
+    bindClick('btn-pause', togglePause);
+    bindClick('btn-mute', function () {
+      soundOn = !soundOn;
+      var b = $('btn-mute');
+      if (b) b.textContent = soundOn ? 'Sound: On' : 'Sound: Off';
+    });
+    bindClick('btn-fire', fire);
+    bindClick('btn-autofire', function () {
+      state.autoFire = !state.autoFire;
+      var b = $('btn-autofire');
+      if (b) b.textContent = state.autoFire ? 'Auto-fire: On' : 'Auto-fire: Off';
+    });
+    /* hold-to-move buttons */
+    function bindHold(id, dir) {
+      var b = $(id);
+      if (!b) return;
+      var on = function (e) { e.preventDefault(); state.moveDir = dir; };
+      var off = function (e) { e.preventDefault(); if (state.moveDir === dir) state.moveDir = 0; };
+      b.addEventListener('pointerdown', on);
+      b.addEventListener('pointerup', off);
+      b.addEventListener('pointerleave', off);
+      b.addEventListener('pointercancel', off);
+      b.addEventListener('click', function (e) { e.preventDefault(); b.blur(); });
+    }
+    bindHold('btn-left', -1);
+    bindHold('btn-right', 1);
+
+    /* drag the cannon on the canvas */
+    function canvasX(e) {
+      var rect = els.canvas.getBoundingClientRect();
+      return (e.clientX - rect.left) * (W / rect.width);
+    }
+    els.canvas.addEventListener('pointerdown', function (e) {
+      e.preventDefault();
+      state.dragX = canvasX(e);
+      try { els.canvas.setPointerCapture(e.pointerId); } catch (err) { /* optional */ }
+    });
+    els.canvas.addEventListener('pointermove', function (e) {
+      if (state.dragX !== null) state.dragX = canvasX(e);
+    });
+    function endDrag() { state.dragX = null; }
+    els.canvas.addEventListener('pointerup', endDrag);
+    els.canvas.addEventListener('pointercancel', endDrag);
+
+    /* no scrolling while playing */
+    var calc = els.canvas.closest('.calc');
+    if (calc) {
+      calc.addEventListener('touchmove', function (e) {
+        if (state.status === 'playing') e.preventDefault();
+      }, { passive: false });
+    }
+
+    /* keyboard */
+    var keysDown = {};
+    window.addEventListener('keydown', function (e) {
+      var k = e.key;
+      if (k === 'ArrowLeft' || k === 'a' || k === 'A') { keysDown.left = true; state.moveDir = -1; e.preventDefault(); }
+      else if (k === 'ArrowRight' || k === 'd' || k === 'D') { keysDown.right = true; state.moveDir = 1; e.preventDefault(); }
+      else if (k === ' ') { fire(); e.preventDefault(); }
+      else if (k === 'p' || k === 'P') togglePause();
+      else if (k === 'm' || k === 'M') {
+        soundOn = !soundOn;
+        var b = $('btn-mute');
+        if (b) b.textContent = soundOn ? 'Sound: On' : 'Sound: Off';
+      }
+    });
+    window.addEventListener('keyup', function (e) {
+      var k = e.key;
+      if (k === 'ArrowLeft' || k === 'a' || k === 'A') {
+        keysDown.left = false;
+        state.moveDir = keysDown.right ? 1 : 0;
+      } else if (k === 'ArrowRight' || k === 'd' || k === 'D') {
+        keysDown.right = false;
+        state.moveDir = keysDown.left ? -1 : 0;
+      }
+    });
+
+    var last = 0;
+    function frame(ts) {
+      var dt = last ? ts - last : 16;
+      last = ts;
+      if (dt > 100) dt = 100;
+      step(dt);
+      draw();
+      updateHUD();
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+    wireDOM();
+  }
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

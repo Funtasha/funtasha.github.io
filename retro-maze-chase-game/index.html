@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retro Maze Chase — Play the Classic Maze Ghost Game Free | Funtasha</title>
+<meta name="description" content="Play Retro Maze Chase free in your browser — eat every dot in the maze, dodge the ghosts, grab a power pellet and chase them back. No download, no signup.">
+<link rel="canonical" href="https://funtasha.github.io/retro-maze-chase-game/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Retro Maze Chase — Play the Classic Maze Ghost Game Free">
+<meta property="og:description" content="Eat every dot, dodge the ghosts, and chase them back with a power pellet.">
+<meta property="og:url" content="https://funtasha.github.io/retro-maze-chase-game/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>.byline{font-size:14px;color:#64748b;margin:6px 0 0}
+.hub{margin:18px 0 4px;font-size:16px;font-weight:700}.hub a{color:#be185d}
+.game-wrap{position:relative}
+.game-canvas{display:block;width:100%;max-width:480px;margin:0 auto;background:#0a1f0a;border:3px solid #1e293b;border-radius:10px;touch-action:none}
+.game-score{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:16px;margin:6px 0 10px;flex-wrap:wrap;gap:6px}
+.calc .game-btn{min-height:90px;min-width:90px;padding:12px 18px;border:0;border-radius:14px;font-size:18px;font-weight:700;cursor:pointer;touch-action:manipulation;margin-top:0}
+.calc .game-btn-wide{width:100%;min-height:90px;padding:14px 18px;border:0;border-radius:14px;font-size:19px;font-weight:700;cursor:pointer;touch-action:manipulation;margin-top:0}
+.game-controls{display:flex;gap:10px;justify-content:space-between;margin-top:12px;flex-wrap:wrap}
+.game-controls .game-btn{flex:1}
+.game-overlay{position:absolute;inset:0;background:rgba(10,31,10,.93);color:#e8f7ef;border-radius:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;text-align:center;gap:12px}
+.ov-title{font-size:22px;font-weight:700}
+.game-overlay p{font-size:16px;max-width:420px}
+.calc .pause-btn{position:absolute;top:8px;right:8px;min-width:90px;min-height:72px;padding:10px 14px;border:0;border-radius:12px;font-size:17px;font-weight:700;cursor:pointer;z-index:5;touch-action:manipulation;margin-top:0}
+.calc .mute-btn{min-width:72px;min-height:72px;padding:10px 14px;border:0;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;touch-action:manipulation;margin-top:0}
+.calc .game-btn,.calc .game-btn-wide{background:#db2777;color:#fff}
+.calc .pause-btn,.calc .mute-btn{background:#ea580c;color:#fff}
+.dpad{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.dpad-row{display:flex;gap:10px;justify-content:center}
+.dpad-row .game-btn{flex:0 0 90px}
+.calc .game-btn-fire{min-height:100px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Retro Maze Chase free to play?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Retro Maze Chase is completely free, and you do not need to download anything or sign up. Just open the page, tap Start Game, and play in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I turn on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Swipe in the direction you want to turn, or tap the big arrow pad below the maze. Your character keeps moving until you tell it to turn, so you only need to steer at junctions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a power pellet do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A power pellet turns the ghosts blue for 8 seconds. While they are blue, you can eat them: the first ghost is worth 200 points, the second 400, the third 800 and the fourth 1600. The fright time gets shorter on higher levels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many lives do I get?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You get 3 lives. When a ghost catches you, you lose one life and the maze resets to the starting positions, with the dots you already ate staying eaten. When all 3 lives are gone, the game is over."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my best score saved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your best score is saved in your browser on your own device, using local storage. It stays there when you close the page, and it will still be there next time you play on the same device and browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I play it on a Chromebook?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Retro Maze Chase runs in any modern browser, including on a Chromebook. Use the arrow keys or the W, A, S and D keys to steer, press P to pause, and press M to switch the sound on or off."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Retro Maze Chase</h1>
+<p class="byline">By the Funtasha team · Published 21 November 2026 · Updated 21 November 2026</p>
+<p class="answer">Retro Maze Chase is a free maze game you play right in your browser. Eat every dot in the maze, dodge four ghosts with different hunting styles, and grab a power pellet to chase them back. No download, no signup — it works on your phone and on a computer.</p>
+<div class="calc">
+<div class="game-score"><span>Score: <b id="score">0</b></span><span>Best: <b id="best">0</b></span><span>Lives: <b id="lives">3</b></span><span>Level: <b id="level">1</b></span></div>
+<div class="game-wrap">
+<canvas class="game-canvas" id="game-canvas" width="380" height="420"></canvas>
+<button class="pause-btn" id="pause-btn" style="display:none">Pause</button>
+<div class="game-overlay" id="start-overlay">
+<div class="ov-title">Retro Maze Chase</div>
+<p>Eat every dot. Dodge the ghosts. Grab a power pellet to chase them back.</p>
+<button class="game-btn-wide" id="start-btn">Start Game</button>
+</div>
+<div class="game-overlay" id="pause-overlay" style="display:none">
+<div class="ov-title">Paused</div>
+<p>Take a breath. The ghosts are waiting.</p>
+<button class="game-btn-wide" id="resume-btn">Resume</button>
+<button class="game-btn-wide" id="restart-btn">Restart</button>
+<button class="game-btn-wide" id="howto-btn">How to Play</button>
+</div>
+<div class="game-overlay" id="over-overlay" style="display:none">
+<div class="ov-title">Game Over</div>
+<p id="over-text">Score: 0</p>
+<p id="newbest-text" style="display:none">New Best!</p>
+<button class="game-btn-wide" id="again-btn">Play Again</button>
+</div>
+</div>
+<div class="dpad">
+<div class="dpad-row"><button class="game-btn" id="btn-up">Up</button></div>
+<div class="dpad-row"><button class="game-btn" id="btn-left">Left</button><button class="game-btn" id="btn-down">Down</button><button class="game-btn" id="btn-right">Right</button></div>
+</div>
+<div class="game-controls"><button class="mute-btn" id="mute-btn">Sound: Off</button></div>
+</div>
+<div class="warn">This is an original game inspired by the classics of that era. It is not affiliated with Nokia or any original publisher. The ghosts each chase differently — learn their patterns before you chase the pellets.</div>
+<h2>What Retro Maze Chase is</h2>
+<p>Retro Maze Chase is a maze game in the style of the arcade hits of the early 1980s. You guide a hungry yellow character through a maze full of small dots. Eat every dot to clear the maze and move on to the next level, where the ghosts move a little faster and the fright time from a power pellet gets a little shorter. The idea is simple enough to learn in ten seconds, and the game stays tense for the whole run because the maze never changes but the ghosts never stop hunting.</p>
+<p>The four ghosts are the heart of the game. Each one hunts in its own way, and learning their habits is what turns a lucky run into a long one. One ghost chases you directly, one tries to cut you off ahead, one works with the first ghost to corner you, and one loses interest when it gets close. They also switch between hunting you and drifting back to their own corners, which gives you short windows to cross the maze safely.</p>
+<p>There are no downloads, no accounts and no timers pushing you to buy anything. The game runs entirely in your browser, and your best score is saved on your own device. A run lasts a few minutes, which makes it a good game for a short break, a bus ride, or a quiet evening when you want one more try at beating your best.</p>
+<h2>How to play on your phone</h2>
+<p>On a phone, you steer with a swipe or with the big arrow pad below the maze. Swipe in the direction you want to turn, or tap the Up, Down, Left or Right button. Your character keeps moving in the direction it is facing until you tell it to turn, so you do not need to hold anything down. The arrow buttons are 90 pixels tall, made for thumbs, and they sit below the maze so your fingers never cover the action.</p>
+<p>The maze fills the width of your screen and the page will not scroll while you play. Swipe and tap controls are handled inside the game area, so a fast swipe to turn a corner will never drag the page away. If you need a break, the Pause button is always visible at the top right of the game area. Tap it and the ghosts freeze exactly where they are.</p>
+<p>Sound is off by default on purpose. If you want the little eating and alarm sounds, tap the Sound button under the maze to switch it on. The sounds are short tones made by your browser, and there are no music files to download. Everything about the game is built to be light: one page, no extra files, and it starts the moment you tap Start Game.</p>
+<h2>How to play on a computer</h2>
+<p>On a computer, the arrow keys steer your character, and the W, A, S and D keys work the same way. Press P at any time to pause, and press it again to carry on. Press M to switch the sound on or off. The game also works with a mouse: click the on-screen arrow pad below the maze, and click the Start, Pause, Resume and Play Again buttons as you need them.</p>
+<p>The keyboard is the fastest way to play, because you can queue a turn before you reach the corner. Press the direction you want while your character is still moving, and it will turn the moment the corridor opens. This matters most when a ghost is right behind you: a clean turn at full speed buys you the two seconds you need to reach a power pellet.</p>
+<p>The game runs in any modern browser, including on a school Chromebook, and it needs no plug-ins. Your best score is saved in the browser on that computer, so it will still be there next time you open the page on the same machine.</p>
+<h2>Controls at a glance</h2>
+<p>Here is every control in one place, so you can check it in a second:</p>
+<ul>
+<li><b>Swipe on the maze (phone):</b> swipe up, down, left or right to turn that way.</li>
+<li><b>Arrow pad (phone and mouse):</b> the big Up, Down, Left and Right buttons below the maze.</li>
+<li><b>Arrow keys or W, A, S, D (computer):</b> steer your character.</li>
+<li><b>P (computer) or the Pause button (phone):</b> pause and resume the game.</li>
+<li><b>M (computer) or the Sound button (phone):</b> switch the sound on or off.</li>
+<li><b>Start Game, Resume, Restart and Play Again buttons:</b> all large, all full width on a phone.</li>
+</ul>
+<p>One habit makes a real difference: steer early. Because your character only turns at a corridor junction, pressing the direction a moment before the corner means the turn happens the instant it is possible. Waiting until you are already at the corner costs you a step, and a step is often the distance between a ghost catching you and a ghost missing you.</p>
+<h2>The four ghosts and how they chase</h2>
+<p>The ghosts are not all the same, and knowing the difference is the biggest edge in the game. The red ghost is the straightforward hunter: it aims straight at your tile and follows you wherever you go. If you run in a straight line, it will slowly catch you, so you beat it by turning often and using the maze against it.</p>
+<p>The pink ghost is the ambusher. It does not aim at you; it aims four tiles ahead of where you are going, trying to meet you at the next junction. When you see it waiting at a corner ahead of you, it is not lost — it is guessing your route. Change direction suddenly and its guess is wasted.</p>
+<p>The blue ghost is the partner. It takes a point two tiles ahead of you, draws a line from the red ghost through that point, and aims at the far end of the line. In plain words, it tries to come at you from the other side while the red ghost pushes you toward it. When the red ghost is close behind you, watch for the blue ghost ahead.</p>
+<p>The orange ghost is the shy one. It chases you when it is far away, but when it gets within about eight tiles it gives up the chase and drifts back to its own corner. That makes it the least dangerous ghost up close, and the most dangerous one when you forget about it — because while it drifts, it can still block a corridor you need.</p>
+<p>All four ghosts also follow a shared rhythm: they spend a few seconds drifting to their corners, then a longer stretch hunting you, then drift again. The first seconds of a level are a drifting stretch, which is why the opening feels calm. Use those seconds to eat the dots in the open corridors before the hunt begins.</p>
+<h2>Scoring, power pellets and fruit</h2>
+<p>Every small dot is worth 10 points, and there are more than 160 of them in the maze. The four big flashing power pellets, one in each corner area, are worth 50 points each, and they do something far more valuable than the points: for 8 seconds after you eat one, the ghosts turn blue and run away from you, and you can eat them. The first ghost is worth 200 points, the second 400, the third 800 and the fourth 1600, if you catch them all inside the same 8 seconds.</p>
+<p>The fright time shrinks as the levels go up: 8 seconds on level one, then a second less each level, down to a minimum of 3 seconds. The ghosts also get a little faster every level, and so do you, but they speed up more than you do. That is the whole difficulty curve: the maze stays the same, the hunt gets harder, and the safe windows get shorter.</p>
+<p>A fruit bonus appears twice per level, after you have eaten 70 dots and again after 130 dots. It sits just below the ghost house for about 9 seconds, and it is worth 100 points the first time and 300 the second. The fruit is a small reward, but the spot is right in the middle of the ghost traffic, so grabbing it is always a small risk. Take it when the ghosts are far away or blue, and leave it when they are close.</p>
+<p>You get 3 lives. Losing one resets you and the ghosts to their starting spots, with the dots you already ate staying eaten. Clearing every dot moves you to the next level with the maze refilled and the ghosts a step quicker. Your best score is saved on your device and shown next to your score while you play.</p>
+<h2>Five tips that actually work</h2>
+<p><b>1. Save the pellets for trouble.</b> A power pellet is worth far more as an escape than as 50 points. If the ghosts are far away, walk past the pellet and eat it later, when you are cornered. The best pellet is the one you eat with two ghosts already behind you.</p>
+<p><b>2. Chain the ghosts.</b> When the ghosts turn blue, do not chase the nearest one at random. Pick a route that passes two or three of them in a row, because the second ghost is worth double the first and the third is worth double again. A 200, 400, 800 chain is the fastest way to a big score.</p>
+<p><b>3. Learn the corner rhythm.</b> The ghosts drift to their corners in the first seconds of a level and again later in the hunt. Those drifting windows are the safest time to eat the dots in the long open corridors. When the hunt starts again, stay near the middle, where you have more ways out.</p>
+<p><b>4. Never turn into a dead end.</b> The maze has a few corridors that end in a single dot with only one way out. Eat those dots when the ghosts are far away, and never enter one with a ghost behind you. If you are chased, keep to the loops around the middle, where every turn gives you another exit.</p>
+<p><b>5. Use the pink ghost against itself.</b> The pink ghost aims ahead of you, so it often waits at the junction you are heading for. When you see it there, turn at the last moment or reverse direction. Its guess is based on where you were going, and a sudden change leaves it waiting in an empty corridor.</p>
+<h2>Common mistakes</h2>
+<p>The most common mistake is eating a power pellet the moment you see one. It feels good, but a pellet eaten with no ghosts nearby is a wasted escape. The pellet is at its best when you are already in trouble, and the corners where the pellets sit are exactly the places the ghosts like to trap you.</p>
+<p>The second mistake is running in straight lines. A straight corridor is the one place where the red ghost is faster than your thinking, because it only has to follow. Short runs with frequent turns keep the ghosts guessing, and every turn is a chance for one of them to take a wrong corridor.</p>
+<p>The third mistake is chasing the fruit through the middle of the pack. The fruit is worth 100 or 300 points, but a life is worth far more than that. If two ghosts are near the fruit, let it disappear. It comes back later, and a lost life does not.</p>
+<p>The fourth mistake is forgetting that the ghosts speed up. The first level feels relaxed because the ghosts are slower than you. By level three the gap is small, and by level five the ghosts are nearly as fast as you are. The playing style that works on level one — long runs, late turns — stops working, and players who do not adjust lose lives to ghosts they used to outrun easily.</p>
+<h2>Why maze games still feel good</h2>
+<p>Maze chase games have lasted for more than forty years because the tension is honest. Nothing is hidden from you: you can see the whole maze, every dot, every ghost, and every exit. The pressure comes from your own decisions, not from a surprise. You chose that corridor, you chose to eat that pellet, and the ghost that caught you was one you could see coming.</p>
+<p>The game also respects short sessions. A run takes a few minutes, a level takes about a minute, and every dot you eat is progress you can see. There is no long story to remember and no complicated controls to re-learn. You open the page, you tap Start, and within ten seconds you are making real decisions again.</p>
+<p>That simplicity is also why the game still works so well on a phone. One finger, four directions, and a maze that fits on a small screen. The best old games were built around a single idea done well, and eating dots while outrunning ghosts is still one of the best single ideas in games.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>Is Retro Maze Chase free to play?</h3><p>Yes. Retro Maze Chase is completely free, and you do not need to download anything or sign up. Just open the page, tap Start Game, and play in your browser.</p></div>
+<div class="faq"><h3>How do I turn on my phone?</h3><p>Swipe in the direction you want to turn, or tap the big arrow pad below the maze. Your character keeps moving until you tell it to turn, so you only need to steer at junctions.</p></div>
+<div class="faq"><h3>What does a power pellet do?</h3><p>A power pellet turns the ghosts blue for 8 seconds. While they are blue, you can eat them: the first ghost is worth 200 points, the second 400, the third 800 and the fourth 1600. The fright time gets shorter on higher levels.</p></div>
+<div class="faq"><h3>How many lives do I get?</h3><p>You get 3 lives. When a ghost catches you, you lose one life and the maze resets to the starting positions, with the dots you already ate staying eaten. When all 3 lives are gone, the game is over.</p></div>
+<div class="faq"><h3>Where is my best score saved?</h3><p>Your best score is saved in your browser on your own device, using local storage. It stays there when you close the page, and it will still be there next time you play on the same device and browser.</p></div>
+<div class="faq"><h3>Can I play it on a Chromebook?</h3><p>Yes. Retro Maze Chase runs in any modern browser, including on a Chromebook. Use the arrow keys or the W, A, S and D keys to steer, press P to pause, and press M to switch the sound on or off.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../retro-asteroids-game/">Retro Asteroids</a> · <a href="../retro-frog-hop-game/">Retro Frog Hop</a> · <a href="../retro-alien-invaders-game/">Retro Alien Invaders</a></div>
+<div class="hub"><a href="https://toolbari.github.io/retro-games/">More retro games</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+(function () {
+"use strict";
+var hasDoc = (typeof document !== "undefined");
+var hasWin = (typeof window !== "undefined");
+
+var TILE = 20, COLS = 19, ROWS = 21;
+var MAP = [
+"###################",
+"#........#........#",
+"#.##.###.#.###.##.#",
+"#o##.###.#.###.##o#",
+"#.................#",
+"#.##.#.#####.#.##.#",
+"#....#...#...#....#",
+"####.###.#.###.####",
+"####.#.......#.####",
+"####.#.##-##.#.####",
+"####.#.#   #.#.####",
+"####.#.#####.#.####",
+"####.#.......#.####",
+"####.###.#.###.####",
+"#........ ........#",
+"#.##.###.#.###.##.#",
+"#o.#.....#.....#.o#",
+"##.#.#.#####.#.#.##",
+"#....#...#...#....#",
+"#.##.###.#.###.##.#",
+"###################"
+];
+var GHOSTS = [
+  { name: "red", color: "#ef4444", corner: { x: 17, y: 0 } },
+  { name: "pink", color: "#f472b6", corner: { x: 1, y: 0 } },
+  { name: "blue", color: "#38bdf8", corner: { x: 17, y: 20 } },
+  { name: "orange", color: "#fb923c", corner: { x: 1, y: 20 } }
+];
+var MODE_SCHED = [["scatter", 7000], ["chase", 20000], ["scatter", 7000], ["chase", 20000], ["scatter", 5000], ["chase", Infinity]];
+var DIRS = [{ x: 0, y: -1 }, { x: -1, y: 0 }, { x: 0, y: 1 }, { x: 1, y: 0 }];
+var BEST_KEY = "rg-maze-chase-best";
+var S = null;
+var soundOn = false;
+var actx = null;
+
+var store = (function () {
+  try {
+    if (typeof localStorage !== "undefined" && localStorage) {
+      localStorage.getItem("__rg_test__");
+      return localStorage;
+    }
+  } catch (e) {}
+  var mem = {};
+  return {
+    getItem: function (k) { return (k in mem) ? mem[k] : null; },
+    setItem: function (k, v) { mem[k] = String(v); }
+  };
+})();
+
+function loadBest() {
+  var v = parseInt(store.getItem(BEST_KEY), 10);
+  return isNaN(v) ? 0 : v;
+}
+function saveBest() {
+  try { store.setItem(BEST_KEY, String(S.best)); } catch (e) {}
+}
+function tileChar(x, y) {
+  if (x < 0 || x >= COLS || y < 0 || y >= ROWS) return "#";
+  return MAP[y].charAt(x);
+}
+function walkable(x, y, kind) {
+  var c = tileChar(x, y);
+  if (c === "#") return false;
+  if (c === "-") return kind === "eyes";
+  return true;
+}
+function centerX(tx) { return tx * TILE + TILE / 2; }
+function centerY(ty) { return ty * TILE + TILE / 2; }
+function playerSpeed() { return 140 * (1 + 0.04 * (S.level - 1)); }
+function ghostSpeed() { return Math.min(180, 128 * (1 + 0.07 * (S.level - 1))); }
+function frightMs() { return Math.max(3000, 8000 - (S.level - 1) * 1000); }
+
+function buildDots() {
+  var dots = {}, pellets = {}, n = 0;
+  for (var y = 0; y < ROWS; y++) {
+    for (var x = 0; x < COLS; x++) {
+      var c = MAP[y].charAt(x);
+      if (c === ".") { dots[x + "," + y] = true; n++; }
+      if (c === "o") { pellets[x + "," + y] = true; }
+    }
+  }
+  return { dots: dots, pellets: pellets, total: n };
+}
+
+function addScore(n) {
+  S.score += n;
+  if (S.score > S.best) { S.best = S.score; saveBest(); }
+}
+
+function resetPositions() {
+  S.player = { x: centerX(9), y: centerY(14), dir: { x: -1, y: 0 }, want: { x: -1, y: 0 }, speed: playerSpeed() };
+  var starts = [
+    { x: 9, y: 8, mode: "normal", release: 0 },
+    { x: 9, y: 10, mode: "house", release: 500 },
+    { x: 8, y: 10, mode: "house", release: 3000 },
+    { x: 10, y: 10, mode: "house", release: 6000 }
+  ];
+  S.ghosts = [];
+  for (var i = 0; i < 4; i++) {
+    S.ghosts.push({
+      idx: i, name: GHOSTS[i].name, color: GHOSTS[i].color,
+      x: centerX(starts[i].x), y: centerY(starts[i].y),
+      dir: { x: -1, y: 0 }, mode: starts[i].mode, speed: ghostSpeed(),
+      releaseAt: S.time + starts[i].release
+    });
+  }
+  S.frightUntil = 0;
+  S.ghostChain = 0;
+  S.fruit = null;
+  S.fruitSpawned = [false, false];
+  S.modeIndex = 0;
+  S.modeTimer = 0;
+  S.mode = "scatter";
+}
+
+function newGame() {
+  var d = buildDots();
+  S = {
+    phase: "ready", score: 0, best: loadBest(), prevBest: loadBest(),
+    lives: 3, level: 1,
+    dots: d.dots, pellets: d.pellets, dotsTotal: d.total, dotsEaten: 0,
+    time: 0, deathAt: 0, clearAt: 0, frightUntil: 0, ghostChain: 0,
+    fruit: null, fruitSpawned: [false, false],
+    mode: "scatter", modeIndex: 0, modeTimer: 0
+  };
+  resetPositions();
+}
+
+function spawnFruit(points, idx) {
+  S.fruitSpawned[idx] = true;
+  S.fruit = { x: 9, y: 12, until: S.time + 9000, points: points };
+}
+
+function levelClear() {
+  S.phase = "levelclear";
+  S.clearAt = S.time + 2000;
+  beep(1200, 0.25);
+}
+
+function die() {
+  S.lives--;
+  beep(200, 0.4);
+  if (S.lives <= 0) {
+    S.phase = "over";
+    saveBest();
+    if (hasDoc) showOver();
+  } else {
+    S.phase = "dying";
+    S.deathAt = S.time + 1500;
+  }
+}
+
+function updateMode(dt) {
+  S.modeTimer += dt;
+  while (S.modeIndex < MODE_SCHED.length - 1 && S.modeTimer >= MODE_SCHED[S.modeIndex][1]) {
+    S.modeTimer -= MODE_SCHED[S.modeIndex][1];
+    S.modeIndex++;
+  }
+  var nm = MODE_SCHED[S.modeIndex][0];
+  if (nm !== S.mode) {
+    S.mode = nm;
+    if (S.time >= S.frightUntil) {
+      for (var i = 0; i < S.ghosts.length; i++) {
+        var g = S.ghosts[i];
+        if (g.mode === "normal") g.dir = { x: -g.dir.x, y: -g.dir.y };
+      }
+    }
+  }
+}
+
+function ghostTarget(g) {
+  var p = S.player;
+  var ptx = Math.floor(p.x / TILE), pty = Math.floor(p.y / TILE);
+  if (g.mode === "eyes") return { x: 9, y: 9 };
+  if (S.mode === "scatter") return { x: GHOSTS[g.idx].corner.x, y: GHOSTS[g.idx].corner.y };
+  if (g.idx === 0) return { x: ptx, y: pty };
+  if (g.idx === 1) return { x: ptx + 4 * p.dir.x, y: pty + 4 * p.dir.y };
+  if (g.idx === 2) {
+    var px = ptx + 2 * p.dir.x, py = pty + 2 * p.dir.y;
+    var r = S.ghosts[0];
+    return { x: 2 * px - Math.floor(r.x / TILE), y: 2 * py - Math.floor(r.y / TILE) };
+  }
+  var dx = Math.floor(g.x / TILE) - ptx, dy = Math.floor(g.y / TILE) - pty;
+  if (dx * dx + dy * dy > 64) return { x: ptx, y: pty };
+  return { x: GHOSTS[3].corner.x, y: GHOSTS[3].corner.y };
+}
+
+function chooseDir(g, tx, ty) {
+  var kind = (g.mode === "eyes") ? "eyes" : "ghost";
+  var opts = [];
+  for (var i = 0; i < 4; i++) {
+    var d = DIRS[i];
+    if (d.x === -g.dir.x && d.y === -g.dir.y) continue;
+    if (walkable(tx + d.x, ty + d.y, kind)) opts.push(d);
+  }
+  if (opts.length === 0) return { x: -g.dir.x, y: -g.dir.y };
+  if (S.time < S.frightUntil && g.mode === "normal") {
+    return opts[Math.floor(Math.random() * opts.length)];
+  }
+  var t = ghostTarget(g);
+  var best = opts[0], bd = Infinity;
+  for (var j = 0; j < opts.length; j++) {
+    var nx = tx + opts[j].x, ny = ty + opts[j].y;
+    var dd = (nx - t.x) * (nx - t.x) + (ny - t.y) * (ny - t.y);
+    if (dd < bd) { bd = dd; best = opts[j]; }
+  }
+  return { x: best.x, y: best.y };
+}
+
+function playerAtCenter(tx, ty) {
+  var p = S.player;
+  if (p.want.x !== p.dir.x || p.want.y !== p.dir.y) {
+    if (walkable(tx + p.want.x, ty + p.want.y, "player")) {
+      p.dir = { x: p.want.x, y: p.want.y };
+    }
+  }
+  var key = tx + "," + ty;
+  if (S.dots[key]) {
+    delete S.dots[key];
+    S.dotsEaten++;
+    addScore(10);
+    beep(880, 0.05);
+    if (S.dotsEaten === 70 && !S.fruitSpawned[0]) spawnFruit(100, 0);
+    if (S.dotsEaten === 130 && !S.fruitSpawned[1]) spawnFruit(300, 1);
+    if (S.dotsEaten >= S.dotsTotal) levelClear();
+  }
+  if (S.pellets[key]) {
+    delete S.pellets[key];
+    addScore(50);
+    beep(440, 0.12);
+    S.frightUntil = S.time + frightMs();
+    S.ghostChain = 0;
+    for (var i = 0; i < S.ghosts.length; i++) {
+      var g = S.ghosts[i];
+      if (g.mode === "normal") g.dir = { x: -g.dir.x, y: -g.dir.y };
+    }
+  }
+  if (S.fruit && S.fruit.x === tx && S.fruit.y === ty) {
+    addScore(S.fruit.points);
+    beep(1200, 0.15);
+    S.fruit = null;
+  }
+}
+
+function ghostAtCenter(g, tx, ty) {
+  if (g.mode === "eyes" && tx === 9 && ty === 9) {
+    g.mode = "entering";
+    g.dir = { x: 0, y: 1 };
+    return;
+  }
+  g.dir = chooseDir(g, tx, ty);
+}
+
+function moveEnt(e, dt, kind) {
+  if (e.dir.x === 0 && e.dir.y === 0) return;
+  var sp = e.speed * dt / 1000;
+  var nx = e.x + e.dir.x * sp, ny = e.y + e.dir.y * sp;
+  var tx = Math.floor(e.x / TILE), ty = Math.floor(e.y / TILE);
+  var cx = tx * TILE + TILE / 2, cy = ty * TILE + TILE / 2;
+  var crossed = false;
+  if (e.dir.x === 1 && e.x < cx && nx >= cx) { nx = cx; crossed = true; }
+  else if (e.dir.x === -1 && e.x > cx && nx <= cx) { nx = cx; crossed = true; }
+  else if (e.dir.y === 1 && e.y < cy && ny >= cy) { ny = cy; crossed = true; }
+  else if (e.dir.y === -1 && e.y > cy && ny <= cy) { ny = cy; crossed = true; }
+  e.x = nx; e.y = ny;
+  if (crossed) {
+    if (kind === "player") playerAtCenter(tx, ty);
+    else ghostAtCenter(e, tx, ty);
+    if (!walkable(tx + e.dir.x, ty + e.dir.y, kind)) {
+      e.dir = { x: 0, y: 0 };
+    }
+  }
+}
+
+function moveHouseGhost(g, dt) {
+  if (g.releaseAt > S.time) return;
+  var doorX = centerX(9), outY = centerY(8);
+  var sp = 80 * dt / 1000;
+  if (Math.abs(g.x - doorX) > 1.5) {
+    var stepX = Math.min(sp, Math.abs(doorX - g.x));
+    g.x += (doorX > g.x ? stepX : -stepX);
+    g.dir = { x: (doorX > g.x ? 1 : -1), y: 0 };
+  } else if (g.y > outY) {
+    g.y = Math.max(outY, g.y - sp);
+    g.dir = { x: 0, y: -1 };
+  } else {
+    g.mode = "normal";
+    g.dir = { x: -1, y: 0 };
+  }
+}
+
+function moveEnteringGhost(g, dt) {
+  var homeY = centerY(10);
+  var sp = 80 * dt / 1000;
+  g.y = Math.min(homeY, g.y + sp);
+  g.dir = { x: 0, y: 1 };
+  if (g.y >= homeY) { g.mode = "house"; g.releaseAt = S.time; }
+}
+
+function checkCollisions() {
+  var p = S.player;
+  for (var i = 0; i < S.ghosts.length; i++) {
+    var g = S.ghosts[i];
+    if (g.mode === "eyes" || g.mode === "house" || g.mode === "entering") continue;
+    var dx = g.x - p.x, dy = g.y - p.y;
+    if (dx * dx + dy * dy < 12 * 12) {
+      if (S.time < S.frightUntil) {
+        var pts = 200 * Math.pow(2, S.ghostChain);
+        S.ghostChain = Math.min(3, S.ghostChain + 1);
+        addScore(pts);
+        beep(1500, 0.2);
+        g.mode = "eyes";
+      } else {
+        die();
+        return;
+      }
+    }
+  }
+}
+
+function step(ms) {
+  if (!S) return;
+  if (S.phase === "paused" || S.phase === "ready" || S.phase === "over") return;
+  var remain = ms;
+  while (remain > 0) {
+    var dt = Math.min(8, remain);
+    remain -= dt;
+    S.time += dt;
+    if (S.phase === "dying") {
+      if (S.time >= S.deathAt) { resetPositions(); S.phase = "playing"; }
+      continue;
+    }
+    if (S.phase === "levelclear") {
+      if (S.time >= S.clearAt) {
+        S.level++;
+        var d = buildDots();
+        S.dots = d.dots; S.pellets = d.pellets; S.dotsTotal = d.total; S.dotsEaten = 0;
+        resetPositions();
+        S.phase = "playing";
+      }
+      continue;
+    }
+    if (S.phase !== "playing") return;
+    updateMode(dt);
+    if (S.fruit && S.time > S.fruit.until) S.fruit = null;
+    S.player.speed = playerSpeed();
+    moveEnt(S.player, dt, "player");
+    if (S.phase !== "playing") return;
+    for (var i = 0; i < S.ghosts.length; i++) {
+      var g = S.ghosts[i];
+      if (g.mode === "house") { moveHouseGhost(g, dt); continue; }
+      if (g.mode === "entering") { moveEnteringGhost(g, dt); continue; }
+      if (g.mode === "eyes") g.speed = 240;
+      else if (S.time < S.frightUntil) g.speed = 90;
+      else g.speed = ghostSpeed();
+      moveEnt(g, dt, g.mode === "eyes" ? "eyes" : "ghost");
+    }
+    checkCollisions();
+    if (S.phase !== "playing") return;
+  }
+}
+
+function setDir(dx, dy) {
+  if (!S || S.phase !== "playing") return;
+  var p = S.player;
+  p.want = { x: dx, y: dy };
+  if (dx === -p.dir.x && dy === -p.dir.y && (p.dir.x !== 0 || p.dir.y !== 0)) {
+    p.dir = { x: dx, y: dy };
+    return;
+  }
+  var tx = Math.floor(p.x / TILE), ty = Math.floor(p.y / TILE);
+  var cx = tx * TILE + TILE / 2, cy = ty * TILE + TILE / 2;
+  if (Math.abs(p.x - cx) <= 4 && Math.abs(p.y - cy) <= 4) {
+    if (walkable(tx + dx, ty + dy, "player")) {
+      p.x = cx; p.y = cy;
+      p.dir = { x: dx, y: dy };
+      return;
+    }
+  }
+  if (p.dir.x === 0 && p.dir.y === 0) {
+    if (walkable(tx + dx, ty + dy, "player")) p.dir = { x: dx, y: dy };
+  }
+}
+
+function start() {
+  newGame();
+  S.phase = "playing";
+  if (hasDoc) { showPlaying(); syncHud(); }
+}
+function pause() {
+  if (S && S.phase === "playing") { S.phase = "paused"; if (hasDoc) showPaused(); }
+}
+function resume() {
+  if (S && S.phase === "paused") { S.phase = "playing"; if (hasDoc) showPlaying(); }
+}
+function restart() { start(); }
+function togglePause() {
+  if (!S) return;
+  if (S.phase === "playing") pause();
+  else if (S.phase === "paused") resume();
+}
+
+function beep(freq, dur) {
+  if (!soundOn || !hasDoc) return;
+  try {
+    if (!actx) {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      actx = new AC();
+    }
+    if (actx.state === "suspended") actx.resume();
+    var o = actx.createOscillator(), g = actx.createGain();
+    o.type = "square";
+    o.frequency.value = freq;
+    g.gain.setValueAtTime(0.05, actx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, actx.currentTime + dur);
+    o.connect(g);
+    g.connect(actx.destination);
+    o.start();
+    o.stop(actx.currentTime + dur);
+  } catch (e) {}
+}
+
+var GAME = {
+  start: start, pause: pause, resume: resume, restart: restart,
+  togglePause: togglePause, step: step, setDir: setDir,
+  getScore: function () { return S ? S.score : 0; },
+  getBest: function () { return S ? S.best : loadBest(); },
+  getLives: function () { return S ? S.lives : 3; },
+  getLevel: function () { return S ? S.level : 1; },
+  getPhase: function () { return S ? S.phase : "none"; },
+  setSound: function (on) { soundOn = !!on; },
+  isSoundOn: function () { return soundOn; },
+  _state: function () { return S; },
+  _map: MAP
+};
+if (hasWin) window.GAME = GAME;
+
+function syncHud() {
+  if (!S) return;
+  document.getElementById("score").textContent = S.score;
+  document.getElementById("best").textContent = S.best;
+  document.getElementById("lives").textContent = S.lives;
+  document.getElementById("level").textContent = S.level;
+}
+
+function showOverlay(id) {
+  var ids = ["start-overlay", "pause-overlay", "over-overlay"];
+  for (var i = 0; i < ids.length; i++) {
+    document.getElementById(ids[i]).style.display = (ids[i] === id) ? "flex" : "none";
+  }
+}
+function showPlaying() {
+  showOverlay(null);
+  document.getElementById("pause-btn").style.display = "block";
+}
+function showPaused() {
+  showOverlay("pause-overlay");
+  document.getElementById("pause-btn").style.display = "none";
+}
+function showOver() {
+  document.getElementById("over-text").textContent = "Score: " + S.score + "   Best: " + S.best;
+  document.getElementById("newbest-text").style.display = (S.score > S.prevBest && S.score > 0) ? "block" : "none";
+  showOverlay("over-overlay");
+  document.getElementById("pause-btn").style.display = "none";
+}
+function showStart() {
+  showOverlay("start-overlay");
+  document.getElementById("pause-btn").style.display = "none";
+}
+
+if (hasDoc) {
+  var cv = document.getElementById("game-canvas");
+  var ctx = cv.getContext("2d");
+
+  function drawGhost(g) {
+    var x = g.x, y = g.y, r = 9;
+    var fright = (S.time < S.frightUntil && g.mode === "normal");
+    ctx.beginPath();
+    if (g.mode !== "eyes") {
+      ctx.fillStyle = fright ? "#1d4ed8" : g.color;
+      ctx.moveTo(x - r, y + r);
+      ctx.lineTo(x - r, y);
+      ctx.arc(x, y, r, Math.PI, 0);
+      ctx.lineTo(x + r, y + r);
+      ctx.lineTo(x + r / 2, y + r - 4);
+      ctx.lineTo(x, y + r);
+      ctx.lineTo(x - r / 2, y + r - 4);
+      ctx.closePath();
+      ctx.fill();
+    }
+    if (fright) {
+      ctx.fillStyle = "#fef3c7";
+      ctx.beginPath(); ctx.arc(x - 3, y - 1, 1.6, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x + 3, y - 1, 1.6, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = "#fef3c7";
+      ctx.beginPath(); ctx.moveTo(x - 5, y + 4); ctx.lineTo(x + 5, y + 4); ctx.stroke();
+      return;
+    }
+    var ex = g.dir.x * 2, ey = g.dir.y * 2;
+    ctx.fillStyle = "#ffffff";
+    ctx.beginPath(); ctx.arc(x - 3.5 + ex, y - 2 + ey, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(x + 3.5 + ex, y - 2 + ey, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#0f172a";
+    ctx.beginPath(); ctx.arc(x - 3.5 + ex * 2, y - 2 + ey * 2, 1.6, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(x + 3.5 + ex * 2, y - 2 + ey * 2, 1.6, 0, Math.PI * 2); ctx.fill();
+  }
+
+  function draw() {
+    if (!S) return;
+    ctx.fillStyle = "#0a1f0a";
+    ctx.fillRect(0, 0, cv.width, cv.height);
+    for (var y = 0; y < ROWS; y++) {
+      for (var x = 0; x < COLS; x++) {
+        if (MAP[y].charAt(x) === "#") {
+          ctx.fillStyle = "#2563eb";
+          ctx.fillRect(x * TILE + 1, y * TILE + 1, TILE - 2, TILE - 2);
+        }
+      }
+    }
+    ctx.fillStyle = "#fde68a";
+    for (var k in S.dots) {
+      var parts = k.split(",");
+      ctx.beginPath();
+      ctx.arc(centerX(+parts[0]), centerY(+parts[1]), 2.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    var pr = 5 + Math.sin(S.time / 150) * 1.5;
+    for (var k2 in S.pellets) {
+      var p2 = k2.split(",");
+      ctx.beginPath();
+      ctx.arc(centerX(+p2[0]), centerY(+p2[1]), pr, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    if (S.fruit) {
+      var fx = centerX(S.fruit.x), fy = centerY(S.fruit.y);
+      ctx.fillStyle = "#ef4444";
+      ctx.beginPath(); ctx.arc(fx - 2, fy + 2, 5, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(fx + 3, fy + 3, 4, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = "#22c55e";
+      ctx.beginPath(); ctx.moveTo(fx - 2, fy - 3); ctx.lineTo(fx + 2, fy - 8); ctx.stroke();
+    }
+    var p = S.player;
+    if (S.phase !== "dying") {
+      var ang = Math.atan2(p.dir.y, p.dir.x);
+      var mouth = (p.dir.x === 0 && p.dir.y === 0) ? 0.15 : 0.28 + 0.22 * Math.sin(S.time / 60);
+      ctx.fillStyle = "#facc15";
+      ctx.beginPath();
+      ctx.moveTo(p.x, p.y);
+      ctx.arc(p.x, p.y, 9, ang + mouth, ang + Math.PI * 2 - mouth);
+      ctx.closePath();
+      ctx.fill();
+    }
+    for (var i = 0; i < S.ghosts.length; i++) drawGhost(S.ghosts[i]);
+    if (S.phase === "levelclear") {
+      ctx.fillStyle = "#e8f7ef";
+      ctx.font = "bold 20px Arial";
+      ctx.textAlign = "center";
+      ctx.fillText("Maze clear! Next level...", cv.width / 2, cv.height / 2);
+    }
+    syncHud();
+  }
+
+  var lastT = 0;
+  function loop(t) {
+    var dt = lastT ? Math.min(100, t - lastT) : 16;
+    lastT = t;
+    if (S && (S.phase === "playing" || S.phase === "dying" || S.phase === "levelclear")) step(dt);
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  document.getElementById("start-btn").addEventListener("click", start);
+  document.getElementById("again-btn").addEventListener("click", start);
+  document.getElementById("restart-btn").addEventListener("click", start);
+  document.getElementById("resume-btn").addEventListener("click", resume);
+  document.getElementById("howto-btn").addEventListener("click", showStart);
+  document.getElementById("pause-btn").addEventListener("click", togglePause);
+  document.getElementById("mute-btn").addEventListener("click", function () {
+    setSound(!soundOn);
+    this.textContent = soundOn ? "Sound: On" : "Sound: Off";
+  });
+
+  function bindDir(id, dx, dy) {
+    var b = document.getElementById(id);
+    b.addEventListener("pointerdown", function (e) { e.preventDefault(); setDir(dx, dy); });
+  }
+  bindDir("btn-up", 0, -1);
+  bindDir("btn-down", 0, 1);
+  bindDir("btn-left", -1, 0);
+  bindDir("btn-right", 1, 0);
+
+  var tsX = 0, tsY = 0;
+  cv.addEventListener("touchstart", function (e) {
+    if (e.touches.length === 1) { tsX = e.touches[0].clientX; tsY = e.touches[0].clientY; }
+  }, { passive: true });
+  cv.addEventListener("touchend", function (e) {
+    var dx = e.changedTouches[0].clientX - tsX;
+    var dy = e.changedTouches[0].clientY - tsY;
+    if (Math.abs(dx) < 24 && Math.abs(dy) < 24) return;
+    if (Math.abs(dx) > Math.abs(dy)) setDir(dx > 0 ? 1 : -1, 0);
+    else setDir(0, dy > 0 ? 1 : -1);
+  }, { passive: true });
+
+  var calc = document.querySelector(".calc");
+  calc.addEventListener("touchmove", function (e) { e.preventDefault(); }, { passive: false });
+
+  document.addEventListener("keydown", function (e) {
+    var k = e.key;
+    if (k === "ArrowUp" || k === "w" || k === "W") { e.preventDefault(); setDir(0, -1); }
+    else if (k === "ArrowDown" || k === "s" || k === "S") { e.preventDefault(); setDir(0, 1); }
+    else if (k === "ArrowLeft" || k === "a" || k === "A") { e.preventDefault(); setDir(-1, 0); }
+    else if (k === "ArrowRight" || k === "d" || k === "D") { e.preventDefault(); setDir(1, 0); }
+    else if (k === "p" || k === "P") { togglePause(); }
+    else if (k === "m" || k === "M") {
+      setSound(!soundOn);
+      document.getElementById("mute-btn").textContent = soundOn ? "Sound: On" : "Sound: Off";
+    }
+  });
+
+  newGame();
+  showStart();
+  syncHud();
+  requestAnimationFrame(loop);
+}
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>
