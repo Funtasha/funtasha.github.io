@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microlearning Lesson Builder — Build Short Lessons That Stick | Funtasha</title>
+<meta name="description" content="Build microlearning lessons free — short, focused lessons people actually finish. A working builder in your browser, no signup.">
+<link rel="canonical" href="https://funtasha.github.io/microlearning-lesson-builder/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Microlearning Lesson Builder — Build Short Lessons That Stick">
+<meta property="og:description" content="Build microlearning lessons free — short, focused lessons people actually finish. A working builder in your browser, no signup.">
+<meta property="og:url" content="https://funtasha.github.io/microlearning-lesson-builder/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button,.calc input,.calc select,.calc textarea{min-height:72px}
+.msg{font-size:15px;color:#334155;margin-top:10px;min-height:22px}
+.qblock{border-top:1px solid #e2e8f0;padding:10px 0}
+.qblock p{margin:2px 0;font-size:15px}
+.qblock button{margin-top:6px;margin-right:8px}
+.calc button.sel{background:#9d174d}
+</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is microlearning?","acceptedAnswer":{"@type":"Answer","text":"Microlearning is learning in small pieces: a lesson that takes about five minutes, teaches one idea, and ends with a check. It fits into a coffee break or a train ride, and because it is short, people actually finish it. The test is simple: can the learner say in one sentence what they learned?"}},{"@type":"Question","name":"How long should a micro-lesson be?","acceptedAnswer":{"@type":"Answer","text":"About five minutes is the guide, though three to seven minutes are all fine. What matters is that the lesson stays small enough to finish in one sitting, without a break and without a second part. If your lesson needs a second part, it is two lessons — split it and give each half its own goal and check question."}},{"@type":"Question","name":"How do I write a good check question?","acceptedAnswer":{"@type":"Answer","text":"Ask the learner to use the skill, not to repeat the lesson. A good check question has a clear right answer and a tempting wrong one, because the choice between them is where the learning shows. Write the question after the steps, so it tests what the steps actually taught."}},{"@type":"Question","name":"Can I use this for work training?","acceptedAnswer":{"@type":"Answer","text":"Yes — work training is one of the best uses for microlearning. A short lesson on one task, one rule or one tool fits into a working day far better than a long course, and staff are far more likely to finish it. The builder on this page works for any subject, including workplace skills."}},{"@type":"Question","name":"How many steps should a lesson have?","acceptedAnswer":{"@type":"Answer","text":"Three to five steps, each one short action starting with a verb, in the order the learner should do them. Fewer than three steps rarely teach anything worth learning; more than five usually means the lesson is trying to teach two things at once. The builder asks for at least three steps before it builds the lesson."}},{"@type":"Question","name":"Can I print my lesson?","acceptedAnswer":{"@type":"Answer","text":"Yes — tap the Print lesson button, and the finished lesson prints from your browser. You can also copy it with the Copy lesson button and paste it into a document, a message, or a training page. Your lesson is saved in this browser only, so it is still there when you come back."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Microlearning Lesson Builder</h1>
+<p class="answer">A micro-lesson is a short lesson that teaches one thing well: one topic, one goal, a few clear steps, and one question that proves the learning happened. The builder on this page turns your own words into a finished micro-lesson you can copy, print, or keep.</p>
+<div class="calc"><label for="ml-topic">Lesson topic</label>
+<input id="ml-topic" type="text" value="How to write a clear subject line">
+<label for="ml-goal">What should the learner be able to do afterwards?</label>
+<input id="ml-goal" type="text" value="Write subject lines people open">
+<label for="ml-step-1">Step 1</label>
+<input id="ml-step-1" type="text" value="Say what the email is about in five words or fewer.">
+<label for="ml-step-2">Step 2</label>
+<input id="ml-step-2" type="text" value="Put the most important word first.">
+<label for="ml-step-3">Step 3</label>
+<input id="ml-step-3" type="text" value="Cut every word that adds nothing.">
+<label for="ml-step-4">Step 4 (optional)</label>
+<input id="ml-step-4" type="text" value="Read it aloud before you send it.">
+<label for="ml-step-5">Step 5 (optional)</label>
+<input id="ml-step-5" type="text" value="">
+<label for="ml-question">Check question</label>
+<input id="ml-question" type="text" value="Which subject line tells the reader more: Update, or Meeting moved to Tuesday 10am?">
+<button id="ml-build" type="button">Build my lesson</button>
+<p class="steps" id="ml-out"></p>
+<button id="ml-copy" type="button">Copy lesson</button>
+<button id="ml-print" type="button">Print lesson</button>
+<button id="ml-clear" type="button">Clear</button>
+<p class="msg" id="ml-msg"></p></div><div class="warn">This builder turns a lesson outline you write into a finished micro-lesson. It does not write the lesson for you, and it does not know your subject — the teaching is yours. Your lesson is saved in this browser only, never uploaded anywhere.</div>
+<h2>How to use the builder</h2><p>The builder at the top of the page has five parts: a topic, a goal, three to five steps, and one check question. Fill them in with your own words, tap Build my lesson, and the finished lesson appears below the button. Copy it with the Copy lesson button, or print it with the Print lesson button. Your entries save in this browser automatically, so the lesson is still there when you come back.</p><p>Start with the topic: one short phrase that says what the lesson is about. Then the goal: what the learner should be able to do when the lesson ends, written as a plain sentence starting with a verb — 'write', 'spot', 'use', 'explain'. Then the steps: three to five short actions, in the order the learner should do them. Finally the check question: one question that only a learner who understood the lesson can answer.</p><p>The builder checks your work as you go. If the topic, the goal, or the check question is empty, or if fewer than three steps are filled in, it tells you what is missing instead of building a half-finished lesson. The Clear button removes your entries and brings back the worked example, so you can start again from something that works.</p><h2>What microlearning is</h2><p>Microlearning is learning in small pieces: a lesson that takes about five minutes, teaches one idea, and ends with a check. It is the opposite of the long course that covers everything and is finished by nobody. A micro-lesson fits into a coffee break, a train ride, or the five minutes before a meeting, and because it is short, people actually finish it.</p><p>The idea works because memory works that way. A short lesson about one thing is easier to remember than a long lesson about ten things, and a lesson you finish is worth more than a course you abandon halfway. Microlearning does not replace deep learning — nobody learns surgery in five minutes — but for a single skill, a single idea, or a single change of habit, it is often the best format there is.</p><p>The test of a micro-lesson is simple: can the learner say, in one sentence, what they learned? If the answer is clear, the lesson worked. If the learner hesitates, or lists three different things, the lesson tried to teach too much. One lesson, one idea, one sentence — that is the whole method.</p><h2>The 5-minute lesson shape</h2><p>A good micro-lesson has the same shape every time: a topic that promises one thing, a goal that says what the learner will be able to do, three to five steps that teach it, and one check question that proves it. The shape never changes; only the content does. Learners get used to the shape, and once they know it, they can focus on the learning instead of working out what is expected of them.</p><p>Five minutes is a guide, not a rule. Some lessons take three minutes, some take seven, and both are fine. What matters is that the lesson stays small enough to finish in one sitting, without a break and without a second part. If your lesson needs a second part, it is two lessons — split it, and give each half its own goal and its own check question.</p><p>The shape also keeps the writer honest. A lesson with no goal is a ramble; a lesson with no check question is a hope. The builder asks for both before it builds anything, because a lesson without them is not finished, however good the steps look.</p><h2>Writing steps that teach</h2><p>A step is an action the learner takes, not a fact the learner reads. 'Put the most important word first' is a step: the learner can do it, and can tell whether they did it. 'Subject lines are important' is not a step: it is a fact, and reading it changes nothing. Every step in a micro-lesson should start with a verb and end with something the learner can check.</p><p>Keep each step short — one sentence, one action. Two actions in one step are two steps pretending to be one, and the learner will do the first and forget the second. If a step needs explaining, the explanation belongs in the step itself, in plain words, not in a footnote the learner will skip.</p><p>Order the steps the way the learner will do them, from the first thing to the last. A learner who follows the steps in order should end up with the skill the goal promises, and a learner who skips a step should notice that something is missing. Test the order yourself: read the steps aloud, in order, and ask whether each one follows naturally from the one before.</p><h2>The check question that proves learning</h2><p>The check question is the most important part of the lesson, and the part most writers skip. It is the only proof that the lesson worked: a learner who can answer it has learned something, and a learner who cannot has not — whatever they felt while reading. A lesson without a check question is a lesson you cannot tell apart from a page nobody read.</p><p>A good check question asks the learner to use the skill, not to repeat the lesson. 'What is a subject line?' tests memory; 'Which subject line tells the reader more?' tests judgment, and judgment is what the lesson was for. The best check questions have a clear right answer and a tempting wrong one, because the choice between them is where the learning shows.</p><p>One check question is enough for a micro-lesson. Two or three are fine if the lesson is longer, but one good question beats five easy ones. Write the question after the steps, not before — the question should test what the steps taught, and you cannot know what they taught until you have written them.</p><h2>A worked example: one lesson, built live</h2><p>The builder above starts with a worked example, already filled in: a lesson called 'How to write a clear subject line', with the goal 'Write subject lines people open'. Tap Build my lesson and the finished lesson appears — four steps and a check question, in the shape this guide teaches. Read it as a lesson first, then read it as an example of the shape.</p><p>Notice what the steps do. The first step gives a rule the learner can apply at once: say what the email is about in five words or fewer. The second step gives a second rule: put the most important word first. The third step tells the learner what to cut. The fourth step is a habit: read it aloud before sending. Each step is one action, each starts with a verb, and together they add up to the goal.</p><p>Now notice the check question: 'Which subject line tells the reader more: Update, or Meeting moved to Tuesday 10am?' A learner who read the steps answers it at once, and a learner who skipped them guesses. That is what a check question is for. Change the example to your own subject — the builder keeps your words, and the shape stays the same.</p><h2>Common mistakes</h2><p>The most common mistake is a forty-minute lesson called micro. The writer starts with one idea, then adds a second, then a background section, then a history of the subject — and the lesson that was meant to take five minutes now takes an hour. Cut it. If the lesson needs more than five steps, it is two lessons; if it needs more than one goal, it is a course, not a micro-lesson.</p><p>The second mistake is no check at the end. The writer finishes the steps, feels done, and skips the question — and then has no idea whether anyone learned anything. Always write the check question, and write it last, so it tests what the steps actually taught.</p><p>The third mistake is steps that describe instead of teach. 'Subject lines matter' is a description; 'Put the most important word first' is a step. If a step cannot be done, it is not a step — rewrite it as an action, or cut it and let the other steps carry the lesson.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is microlearning?</h3><p>Microlearning is learning in small pieces: a lesson that takes about five minutes, teaches one idea, and ends with a check. It fits into a coffee break or a train ride, and because it is short, people actually finish it. The test is simple: can the learner say in one sentence what they learned?</p></div><div class="faq"><h3>How long should a micro-lesson be?</h3><p>About five minutes is the guide, though three to seven minutes are all fine. What matters is that the lesson stays small enough to finish in one sitting, without a break and without a second part. If your lesson needs a second part, it is two lessons — split it and give each half its own goal and check question.</p></div><div class="faq"><h3>How do I write a good check question?</h3><p>Ask the learner to use the skill, not to repeat the lesson. A good check question has a clear right answer and a tempting wrong one, because the choice between them is where the learning shows. Write the question after the steps, so it tests what the steps actually taught.</p></div><div class="faq"><h3>Can I use this for work training?</h3><p>Yes — work training is one of the best uses for microlearning. A short lesson on one task, one rule or one tool fits into a working day far better than a long course, and staff are far more likely to finish it. The builder on this page works for any subject, including workplace skills.</p></div><div class="faq"><h3>How many steps should a lesson have?</h3><p>Three to five steps, each one short action starting with a verb, in the order the learner should do them. Fewer than three steps rarely teach anything worth learning; more than five usually means the lesson is trying to teach two things at once. The builder asks for at least three steps before it builds the lesson.</p></div><div class="faq"><h3>Can I print my lesson?</h3><p>Yes — tap the Print lesson button, and the finished lesson prints from your browser. You can also copy it with the Copy lesson button and paste it into a document, a message, or a training page. Your lesson is saved in this browser only, so it is still there when you come back.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../training-assessment-platform/">Training Assessment Platform</a> · <a href="../corporate-learning-analytics-dashboard/">Corporate Learning Analytics Dashboard</a> · <a href="../podcast-transcript-search-engine/">Podcast Transcript Search Engine</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+window.FT = window.FT || {};
+(function(){
+  var FT = window.FT;
+  FT.countSteps = function(steps){
+    return steps.filter(function(s){ return s && s.trim(); }).length;
+  };
+  FT.validateLesson = function(d){
+    var missing = [];
+    if(!d.topic || !d.topic.trim()) missing.push("topic");
+    if(!d.goal || !d.goal.trim()) missing.push("goal");
+    if(FT.countSteps(d.steps) < 3) missing.push("steps");
+    if(!d.question || !d.question.trim()) missing.push("question");
+    return {ok: missing.length === 0, missing: missing};
+  };
+  FT.buildLesson = function(d){
+    var lines = [];
+    lines.push("MICRO-LESSON: " + d.topic.trim());
+    lines.push("Goal: " + d.goal.trim());
+    lines.push("");
+    var steps = d.steps.filter(function(s){ return s && s.trim(); });
+    for(var i = 0; i < steps.length; i++){
+      lines.push((i + 1) + ". " + steps[i].trim());
+    }
+    lines.push("");
+    lines.push("Check question: " + d.question.trim());
+    return lines.join("\n");
+  };
+  if(typeof document === "undefined") return;
+  var KEY = "ft-microlearning-lesson";
+  function el(id){ return document.getElementById(id); }
+  function read(){
+    var steps = [];
+    for(var i = 1; i <= 5; i++){ steps.push(el("ml-step-" + i).value); }
+    return {topic: el("ml-topic").value, goal: el("ml-goal").value,
+            steps: steps, question: el("ml-question").value};
+  }
+  function write(d){
+    el("ml-topic").value = d.topic || "";
+    el("ml-goal").value = d.goal || "";
+    for(var i = 1; i <= 5; i++){ el("ml-step-" + i).value = (d.steps && d.steps[i - 1]) || ""; }
+    el("ml-question").value = d.question || "";
+  }
+  function save(){
+    try{ localStorage.setItem(KEY, JSON.stringify(read())); }catch(e){}
+  }
+  function load(){
+    try{
+      var raw = localStorage.getItem(KEY);
+      if(raw){ write(JSON.parse(raw)); }
+    }catch(e){}
+  }
+  function render(){
+    var d = read();
+    var v = FT.validateLesson(d);
+    if(!v.ok){
+      el("ml-out").textContent = "";
+      el("ml-msg").textContent = "Fill in the topic, the goal, at least 3 steps and the check question.";
+      return;
+    }
+    el("ml-out").textContent = FT.buildLesson(d);
+    el("ml-msg").textContent = "Lesson built: " + FT.countSteps(d.steps) + " steps. Saved on this device only.";
+    save();
+  }
+  function copyText(text, btn){
+    function done(){
+      var old = btn.textContent;
+      btn.textContent = "Copied!";
+      setTimeout(function(){ btn.textContent = old; }, 1500);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, function(){ fallback(); });
+    } else { fallback(); }
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try{ document.execCommand("copy"); }catch(e){}
+      document.body.removeChild(ta);
+      done();
+    }
+  }
+  el("ml-build").addEventListener("click", render);
+  el("ml-copy").addEventListener("click", function(){
+    var d = read();
+    var v = FT.validateLesson(d);
+    if(!v.ok){
+      el("ml-msg").textContent = "Build the lesson first, then copy it.";
+      return;
+    }
+    copyText(FT.buildLesson(d), el("ml-copy"));
+  });
+  el("ml-print").addEventListener("click", function(){ window.print(); });
+  el("ml-clear").addEventListener("click", function(){
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    write({topic: "How to write a clear subject line",
+           goal: "Write subject lines people open",
+           steps: ["Say what the email is about in five words or fewer.",
+                   "Put the most important word first.",
+                   "Cut every word that adds nothing.",
+                   "Read it aloud before you send it.", ""],
+           question: "Which subject line tells the reader more: Update, or Meeting moved to Tuesday 10am?"});
+    render();
+    el("ml-msg").textContent = "Entries cleared and the worked example restored.";
+  });
+  load();
+  render();
+})();
+
+</script><script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

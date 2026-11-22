@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podcast Transcript Search Engine — Find Any Moment in a Transcript | Funtasha</title>
+<meta name="description" content="Search podcast transcripts free — paste a transcript and find any word or moment in seconds. No signup, works on phone.">
+<link rel="canonical" href="https://funtasha.github.io/podcast-transcript-search-engine/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Podcast Transcript Search Engine — Find Any Moment in a Transcript">
+<meta property="og:description" content="Search podcast transcripts free — paste a transcript and find any word or moment in seconds. No signup, works on phone.">
+<meta property="og:url" content="https://funtasha.github.io/podcast-transcript-search-engine/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a podcast transcript?", "acceptedAnswer": {"@type": "Answer", "text": "A transcript is a written copy of everything said in an episode, in order, usually with the name of the person speaking. Some include time stamps that mark where each part begins. It turns an hour of audio into a document you can search, quote, skim and share."}}, {"@type": "Question", "name": "Can this search other people's shows?", "acceptedAnswer": {"@type": "Answer", "text": "No: this tool searches only the transcript you paste into the box. It has no index of other people's shows and cannot reach the internet. If you want to search a show, paste its transcript here first."}}, {"@type": "Question", "name": "Where do I get a transcript?", "acceptedAnswer": {"@type": "Answer", "text": "Check the show's own website and episode notes first, since many shows publish one there. Some podcast apps show a transcript while the episode plays. If the show has none, ask the maker, or transcribe the audio yourself and read it through to fix the errors."}}, {"@type": "Question", "name": "How do I search inside one?", "acceptedAnswer": {"@type": "Answer", "text": "Paste the transcript into the box above, type the word or phrase you want, and press search. Every line that contains it is listed with its line number, and the search is not case sensitive. Use the copy button to copy all the matching lines at once."}}, {"@type": "Question", "name": "Why do auto-transcripts get words wrong?", "acceptedAnswer": {"@type": "Answer", "text": "Machine transcription mistakes names, numbers and words that sound alike, and it drops sentences when two people talk at once. Accents and background noise make it worse. That is why every auto-transcript needs to be read through and corrected before it is published or quoted from."}}, {"@type": "Question", "name": "Are transcripts good for accessibility?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Transcripts open a show to deaf and hard-of-hearing listeners, and they help language learners, people in noisy places, and anyone who reads faster than they listen. Speaker names, time stamps and careful proofreading make a transcript far more useful."}}]}</script>
+<style>.calc input,.calc select,.calc textarea{min-height:72px;padding:14px 12px;font-size:16px}
+.calc button{min-height:72px;padding:14px 22px}
+.calc .row button{min-height:72px}
+.calc .msg{font-size:15px;color:#334155;margin-top:10px;min-height:22px}
+.calc textarea{width:100%;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-family:inherit}
+.calc .row{display:flex;gap:10px;flex-wrap:wrap}
+.calc .row button{flex:1 1 140px}
+.calc .list{margin-top:12px}
+.calc .item{border:1px solid #cbd5e1;border-radius:8px;background:#fff;padding:12px;margin:8px 0;font-size:15px}
+.calc .item .small{font-size:14px;color:#64748b}
+.calc .checkrow{display:flex;align-items:center;gap:12px;min-height:72px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;padding:0 12px;margin:8px 0;font-weight:600;font-size:16px}
+.calc .checkrow input{width:28px;height:28px;min-height:28px;flex:none}
+.calc .checkrow span{line-height:1.4}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Podcast Transcript Search Engine</h1>
+<p class="answer">This page searches inside a podcast transcript you paste, so you can find any word or moment in seconds. Paste the transcript, type your search word, and every matching line appears with its line number.</p>
+<div class="calc"><label for="ts-text">Paste the transcript here</label><textarea id="ts-text" rows="8" placeholder="Paste the full transcript text here..."></textarea><label for="ts-term">Word or phrase to find</label><input id="ts-term" type="text" placeholder="e.g. river, first episode, thank you"><div class="row"><button id="ts-search" type="button">Search transcript</button><button id="ts-clear" type="button">Clear</button></div><div class="msg" id="ts-msg"></div><div class="out" id="ts-out" style="display:none"></div><div class="list" id="ts-list"></div><div class="row"><button id="ts-copy" type="button" style="display:none">Copy matches</button></div></div>
+<div class="warn">This tool searches only the transcript you paste here; it has no index of other people's shows and cannot search the internet. Transcripts stay in this browser only, and auto-transcripts should always be checked against the audio before you quote from them.</div>
+<h2>How to use the search tool</h2><p>Paste a podcast transcript into the box above, type the word or phrase you want to find, and press the search button. The tool shows how many times it appears and lists every line that contains it, with the line number, so you can jump straight to the moment you need. The search is not case sensitive, so searching for river finds River, river and RIVER. Use the copy button to copy all the matching lines at once.</p><p>The transcript never leaves your browser. It is saved only on this device so you can come back to it, and nothing is uploaded or shared. The tool searches only the transcript you paste: it has no index of other people's shows, and it cannot search a show you have not pasted here. On a phone, paste with a long press, type the search word, and tap to search. Long transcripts work fine, but very long ones take a moment to search, so give it a second before tapping again.</p><ul><li>Paste the transcript, type your search word, and press search.</li><li>Every matching line is shown with its line number.</li><li>Copy all matches at once with the copy button.</li><li>Your transcript stays in this browser only, and is never uploaded.</li></ul><h2>What a podcast transcript is</h2><p>A transcript is a written copy of everything said in an episode, in order, usually with the name of the person speaking. Some transcripts include time stamps, which mark the minute and second where each part begins, and some do not. A good transcript reads like a script: you can follow the conversation, find a quote, and see who said what. A poor transcript is a wall of text with no speaker names and no breaks, and finding anything in it is slow work.</p><p>Transcripts are made in two ways. A person listens and types, which is slow but accurate, or a machine listens and types, which is fast but makes mistakes, especially with names, accents and words that sound alike. Many shows publish a machine transcript and then fix the worst errors by hand. Whichever way it was made, a transcript turns an hour of audio into a document you can search, quote, skim and share, which is why it is worth having one for any show you want people to find and reuse.</p><ul><li>A transcript is the written words of an episode, in order.</li><li>Speaker names and time stamps make a transcript far more useful.</li><li>Human transcripts are accurate and slow; machine transcripts are fast and error-prone.</li><li>A transcript turns audio into a document you can search and quote.</li></ul><h2>Where to get transcripts</h2><p>The best place to get a transcript is the show itself. Many shows publish a transcript on their own website, next to the episode, or in the episode notes. Some podcast apps show a transcript while the episode plays. If the show has no transcript, the next best step is to ask the maker, because many podcasters have one and have simply not published it. For your own show, the simplest route is to make one: either type it yourself, or run the audio through a transcription tool and then read it through to fix the errors.</p><p>Never take a transcript from a site you do not trust and present it as the show's own words. Unofficial copies can be wrong, out of date, or from a different episode entirely. If you quote from a transcript, check the quote against the audio before you publish it, because a wrong quote attributed to a real person is a real problem. And remember that the words belong to the people who said them: a transcript is for finding and quoting, not for copying a whole show and passing it off as your own work.</p><ul><li>Check the show's own website and episode notes first.</li><li>Some podcast apps show a transcript while the episode plays.</li><li>Ask the maker if no transcript is published.</li><li>For your own show, transcribe the audio and read it through to fix errors.</li><li>Always check a quote against the audio before publishing it.</li></ul><h2>Searching well</h2><p>A good search starts with a distinctive word. Searching for the name of a person, a place or a product finds the moment fast, because those words appear only where they are talked about. Searching for a common word like time or thing returns so many lines that the list is useless. If your first search returns too much, try a longer phrase, or a word that only appears near the moment you want. If it returns nothing, try a shorter word, or a different form of the word, because the transcript may say running where you searched for run.</p><p>Use the line numbers to find your place. When you know the line, you can count forward or backward to the start of the thought, and you can see what was said just before and after. If the transcript has time stamps, the line number also tells you roughly where in the episode the moment sits. And if the search finds the word in a place you did not expect, read the whole line before you quote it, because a word out of context can mean the opposite of what it seems to mean on its own.</p><ul><li>Search for distinctive words: names, places and products.</li><li>Avoid common words that appear everywhere.</li><li>Too many matches means a longer phrase; no matches means a shorter word.</li><li>Use line numbers to find the start of the thought.</li><li>Read the whole line before quoting, so the context is right.</li></ul><h2>What to do with what you find</h2><p>Once you have found the moment, the transcript earns its keep. The most common use is a quote: a sharp sentence from a guest, a clear definition, or a line that sums up the episode. Copy the line, check it against the audio, and use it in show notes, a post, or a newsletter, with the speaker's name attached. A quote with a name and a source is useful; a quote with neither is just words.</p><p>The second use is show notes. A transcript lets you write notes that match what was actually said, with the right names and the right order, instead of writing from memory. The third use is finding your own patterns: search your own transcripts for a word you say too often, a topic you return to, or a guest you keep mentioning, and you will see your show more clearly than any single listen allows. And the fourth is accessibility, which the next section covers in full.</p><ul><li>Quotes: copy the line, check it against the audio, name the speaker.</li><li>Show notes: write from the transcript, not from memory.</li><li>Patterns: search your own transcripts for repeated words and topics.</li><li>Clips: find the moment, then cut the audio from the same place.</li></ul><h2>Transcripts and accessibility</h2><p>Transcripts are one of the best things a podcast can do for its listeners. People who are deaf or hard of hearing cannot follow an audio-only show at all, and a transcript opens the whole episode to them. People who are learning the language, or listening in a noisy place, or reading faster than they can listen, all benefit too. A show with transcripts reaches people a show without them never will, and it costs little more than the time to make them.</p><p>A transcript made for accessibility needs the same care as any other part of the show. Speaker names matter, because knowing who said what is part of understanding the conversation. Time stamps help, because they let a reader jump to the part they want. And accuracy matters most of all: a transcript full of errors is worse than none, because it misleads the reader instead of helping them. Read every transcript through before you publish it, and fix the names first, because a wrong name is the error a reader notices most.</p><ul><li>Transcripts open a show to deaf and hard-of-hearing listeners.</li><li>They help language learners, noisy places and fast readers too.</li><li>Speaker names and time stamps make a transcript far more useful.</li><li>Read every transcript through, and fix the names first.</li></ul><h2>Common mistakes and how to avoid them</h2><p>The most common mistake is trusting an auto-transcript word for word. Machine transcription mistakes names, numbers and words that sound alike, and it drops whole sentences when two people talk at once. A transcript you have not read through is a draft, not a finished document, and quoting from it without checking is how wrong quotes get published. Always read it through, and check every quote against the audio.</p><p>The second mistake is a transcript with no time stamps and no speaker names, which is hard to search and harder to quote from. The third is searching for a single common word and giving up when the results are useless, instead of trying a longer phrase. And the fourth is expecting this page to search shows it has never seen: it searches only the transcript you paste. If you want to search a show, paste its transcript here first, and the tool will do the rest.</p><ul><li>Never trust an auto-transcript word for word; read it through first.</li><li>Keep speaker names and time stamps wherever you can.</li><li>If a search returns too much, try a longer phrase.</li><li>This tool searches only the transcript you paste, nothing else.</li></ul>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is a podcast transcript?</h3><p>A transcript is a written copy of everything said in an episode, in order, usually with the name of the person speaking. Some include time stamps that mark where each part begins. It turns an hour of audio into a document you can search, quote, skim and share.</p></div><div class="faq"><h3>Can this search other people's shows?</h3><p>No: this tool searches only the transcript you paste into the box. It has no index of other people's shows and cannot reach the internet. If you want to search a show, paste its transcript here first.</p></div><div class="faq"><h3>Where do I get a transcript?</h3><p>Check the show's own website and episode notes first, since many shows publish one there. Some podcast apps show a transcript while the episode plays. If the show has none, ask the maker, or transcribe the audio yourself and read it through to fix the errors.</p></div><div class="faq"><h3>How do I search inside one?</h3><p>Paste the transcript into the box above, type the word or phrase you want, and press search. Every line that contains it is listed with its line number, and the search is not case sensitive. Use the copy button to copy all the matching lines at once.</p></div><div class="faq"><h3>Why do auto-transcripts get words wrong?</h3><p>Machine transcription mistakes names, numbers and words that sound alike, and it drops sentences when two people talk at once. Accents and background noise make it worse. That is why every auto-transcript needs to be read through and corrected before it is published or quoted from.</p></div><div class="faq"><h3>Are transcripts good for accessibility?</h3><p>Yes. Transcripts open a show to deaf and hard-of-hearing listeners, and they help language learners, people in noisy places, and anyone who reads faster than they listen. Speaker names, time stamps and careful proofreading make a transcript far more useful.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../podcast-audience-feedback-portal/">Podcast Audience Feedback Portal</a> · <a href="../audio-production-project-manager/">Audio Production Project Manager</a> · <a href="../audio-licensing-information-directory/">Audio Licensing Information Directory</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = window.FT || {};
+(function () {
+  function searchTranscript(text, term) {
+    var t = (text || "").replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+    var q = (term || "").trim().toLowerCase();
+    if (!t.trim() || !q) return {count: 0, matches: []};
+    var lines = t.split("\n");
+    var matches = [];
+    for (var i = 0; i < lines.length; i++) {
+      if (lines[i].toLowerCase().indexOf(q) >= 0) {
+        matches.push({line: i + 1, text: lines[i].trim()});
+      }
+    }
+    return {count: matches.length, matches: matches};
+  }
+  function countWords(text) {
+    var t = (text || "").trim();
+    if (!t) return 0;
+    return t.split(/\s+/).length;
+  }
+  window.FT.searchTranscript = searchTranscript;
+  window.FT.countWords = countWords;
+  if (typeof document !== "undefined") {
+    var $ = function (id) { return document.getElementById(id); };
+    var KEY = "ft-transcript-search-v1";
+    var lastMatches = [];
+    function copyText(text, btn) {
+      function done() {
+        var t = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = t; }, 2000);
+      }
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); } catch (e) {}
+        document.body.removeChild(ta);
+        done();
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+      } else { fallback(); }
+    }
+    function renderMatches(res) {
+      var list = $("ts-list");
+      list.textContent = "";
+      res.matches.forEach(function (m) {
+        var d = document.createElement("div");
+        d.className = "item";
+        var b = document.createElement("strong");
+        b.textContent = "Line " + m.line + ": ";
+        d.appendChild(b);
+        var s = document.createElement("span");
+        var txt = m.text.length > 220 ? m.text.slice(0, 220) + "..." : m.text;
+        s.textContent = txt;
+        d.appendChild(s);
+        list.appendChild(d);
+      });
+    }
+    function save() {
+      try {
+        localStorage.setItem(KEY, JSON.stringify({text: $("ts-text").value, term: $("ts-term").value}));
+      } catch (e) {}
+    }
+    function restore() {
+      try {
+        var raw = localStorage.getItem(KEY);
+        if (!raw) return;
+        var d = JSON.parse(raw);
+        if (d.text) $("ts-text").value = d.text;
+        if (d.term) $("ts-term").value = d.term;
+      } catch (e) {}
+    }
+    $("ts-search").addEventListener("click", function () {
+      var text = $("ts-text").value;
+      var term = $("ts-term").value;
+      if (!text.trim()) {
+        $("ts-msg").textContent = "Paste a transcript first.";
+        $("ts-out").style.display = "none";
+        $("ts-list").textContent = "";
+        $("ts-copy").style.display = "none";
+        return;
+      }
+      if (!term.trim()) {
+        $("ts-msg").textContent = "Type a word or phrase to search for.";
+        $("ts-out").style.display = "none";
+        $("ts-list").textContent = "";
+        $("ts-copy").style.display = "none";
+        return;
+      }
+      save();
+      var res = searchTranscript(text, term);
+      lastMatches = res.matches;
+      $("ts-msg").textContent = "";
+      var words = countWords(text);
+      if (res.count === 0) {
+        $("ts-out").textContent = "No matches in " + words + " words. Try a shorter word, or a different form of it.";
+        $("ts-out").style.display = "block";
+        $("ts-list").textContent = "";
+        $("ts-copy").style.display = "none";
+        return;
+      }
+      $("ts-out").textContent = res.count + (res.count === 1 ? " match" : " matches") + " in " + words + " words.";
+      $("ts-out").style.display = "block";
+      renderMatches(res);
+      $("ts-copy").style.display = "inline-block";
+    });
+    $("ts-clear").addEventListener("click", function () {
+      $("ts-text").value = "";
+      $("ts-term").value = "";
+      $("ts-msg").textContent = "";
+      $("ts-out").style.display = "none";
+      $("ts-list").textContent = "";
+      $("ts-copy").style.display = "none";
+      try { localStorage.removeItem(KEY); } catch (e) {}
+    });
+    $("ts-copy").addEventListener("click", function () {
+      var text = lastMatches.map(function (m) { return "Line " + m.line + ": " + m.text; }).join("\n");
+      copyText(text, $("ts-copy"));
+    });
+    restore();
+  }
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

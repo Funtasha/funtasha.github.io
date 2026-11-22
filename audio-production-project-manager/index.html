@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audio Production Project Manager — Run Your Audio Projects in Order | Funtasha</title>
+<meta name="description" content="Manage audio projects free — plan episodes, track tasks, and finish on time. A local planner in your browser, no signup.">
+<link rel="canonical" href="https://funtasha.github.io/audio-production-project-manager/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Audio Production Project Manager — Run Your Audio Projects in Order">
+<meta property="og:description" content="Manage audio projects free — plan episodes, track tasks, and finish on time. A local planner in your browser, no signup.">
+<meta property="og:url" content="https://funtasha.github.io/audio-production-project-manager/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I manage an audio project?", "acceptedAnswer": {"@type": "Answer", "text": "Break the project into its four stages, record, edit, mix and publish, and list the tasks in each stage with a due date. Use the planner above to track them, change each task's status as the work moves, and check the plan once a week. One change at a time, and one check-in a week, keeps most projects on track."}}, {"@type": "Question", "name": "What are the production stages?", "acceptedAnswer": {"@type": "Answer", "text": "Recording captures the voices, music and sounds, and editing chooses the best takes and puts them in order. Mixing balances the voices and music and cleans up noise. Publishing exports the finished file, writes the title and notes, and puts the episode where listeners can find it."}}, {"@type": "Question", "name": "How do I track tasks?", "acceptedAnswer": {"@type": "Answer", "text": "Add each task to the planner with its stage and a due date, then change its status to doing and then done as the work moves. The progress line shows how many tasks are done and what share of the project that is. Everything is saved in this browser only."}}, {"@type": "Question", "name": "Is my data uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No: your project name and tasks are saved only in this browser, using its own storage. Nothing is uploaded, shared or synced anywhere. The copy button turns the plan into plain text you can paste wherever you like."}}, {"@type": "Question", "name": "Can I manage more than one project?", "acceptedAnswer": {"@type": "Answer", "text": "This planner holds one project at a time. When you start a new project, clear the old tasks and type the new project name, or copy the old plan as text first so you keep a record of it. The copy button makes that easy."}}, {"@type": "Question", "name": "What if a task slips?", "acceptedAnswer": {"@type": "Answer", "text": "Move the task to a date you can meet, and move the tasks that depend on it too. Then ask why it slipped, and fix the plan for next time. If anyone is waiting for the project, tell them early: bad news given early is a plan, and bad news given late is a surprise."}}]}</script>
+<style>.calc input,.calc select,.calc textarea{min-height:72px;padding:14px 12px;font-size:16px}
+.calc button{min-height:72px;padding:14px 22px}
+.calc .row button{min-height:72px}
+.calc .msg{font-size:15px;color:#334155;margin-top:10px;min-height:22px}
+.calc textarea{width:100%;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-family:inherit}
+.calc .row{display:flex;gap:10px;flex-wrap:wrap}
+.calc .row button{flex:1 1 140px}
+.calc .list{margin-top:12px}
+.calc .item{border:1px solid #cbd5e1;border-radius:8px;background:#fff;padding:12px;margin:8px 0;font-size:15px}
+.calc .item .small{font-size:14px;color:#64748b}
+.calc .checkrow{display:flex;align-items:center;gap:12px;min-height:72px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;padding:0 12px;margin:8px 0;font-weight:600;font-size:16px}
+.calc .checkrow input{width:28px;height:28px;min-height:28px;flex:none}
+.calc .checkrow span{line-height:1.4}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Audio Production Project Manager</h1>
+<p class="answer">An audio project moves through four stages, record, edit, mix and publish, and this page keeps them in order. Plan the tasks, track each one as the work moves, and finish on time.</p>
+<div class="calc"><label for="pm-project">Project name</label><input id="pm-project" type="text" placeholder="e.g. Episode 12, Spring series"><label for="pm-task">New task</label><input id="pm-task" type="text" placeholder="e.g. Record the interview"><label for="pm-stage">Stage</label><select id="pm-stage"><option value="Record">Record</option><option value="Edit">Edit</option><option value="Mix">Mix</option><option value="Publish">Publish</option></select><label for="pm-due">Due date</label><input id="pm-due" type="date"><div class="row"><button id="pm-add" type="button">Add task</button><button id="pm-clear" type="button">Clear project</button></div><div class="msg" id="pm-msg"></div><div class="out" id="pm-progress"></div><div class="list" id="pm-list"></div><div class="row"><button id="pm-copy" type="button" style="display:none">Copy plan</button></div></div>
+<div class="warn">This planner runs in your browser only: your project and tasks are saved on this device and never uploaded. Copy the plan as text if you want a record elsewhere, and always back up your raw audio the day you record it.</div>
+<h2>How to use the planner</h2><p>The planner above keeps your audio projects in order. Start by typing the name of your project, such as the episode or series you are working on. Then add tasks one at a time: type what the task is, choose the stage it belongs to, pick a due date, and press the add button. Each task appears in the list below, where you can change its status as the work moves along, and delete it when it is no longer needed. The progress line shows how many tasks are done and what share of the project that is.</p><p>Everything is saved in this browser only, so your plan is still there when you come back, and nothing is uploaded or shared. The copy button turns the whole plan into plain text you can paste into a message or a note. On a phone, everything works by touch: type, tap to choose, tap to add, tap to change a status. Work through the stages in order, and let the planner carry the details while you carry the recording.</p><ul><li>Type the project name, then add tasks one at a time.</li><li>Choose the stage and a due date for each task.</li><li>Change a task's status as the work moves along.</li><li>Copy the whole plan as text with the copy button.</li><li>Your plan is saved only in this browser, and never uploaded.</li></ul><h2>The production stages</h2><p>Every audio project moves through the same four stages, and knowing them is what turns a pile of tasks into a plan. Recording is the first stage: capturing the voices, the music and the sounds the project needs. It includes preparing the script, setting up the room, and recording the takes, and it ends when the raw audio exists and is backed up. Editing is the second stage: choosing the best takes, cutting the mistakes and the pauses, and putting the pieces in order. It is the stage that takes the most time, and the stage most people underestimate.</p><p>Mixing is the third stage: balancing the voices against each other and against the music, cleaning up noise, and making the whole thing sound even from start to finish. Publishing is the fourth stage: exporting the finished file, writing the title and the notes, and putting the episode where listeners can find it. A task belongs to the stage where its work happens, and a project is finished when every stage is done, not when the recording is done.</p><ul><li>Record: prepare, set up, capture the takes, back up the raw audio.</li><li>Edit: choose the best takes, cut mistakes and pauses, order the pieces.</li><li>Mix: balance voices and music, clean noise, even out the sound.</li><li>Publish: export, write the title and notes, put it where listeners find it.</li></ul><h2>The task list for each stage</h2><p>A good task list is specific enough to act on. Record the interview is a task; work on the episode is not. For the recording stage, the tasks are usually: finalise the script, prepare the room, test the equipment, record the takes, and back up the raw audio before anything else happens. For editing, the tasks are: listen through the raw audio, mark the best takes, cut the first version, listen again, and make the final cuts. For mixing: balance the levels, clean the noise, add the music and the fades, and listen on headphones and on a speaker. For publishing: export the file, write the title and notes, check the file plays, and publish.</p><p>Keep each task small enough to finish in one sitting, because a task that takes a week is really five tasks hiding in one line. Give each task one due date, and give the stages their own deadlines too, so a slow edit does not eat the time meant for mixing. If a task has no clear end, rewrite it until it does: the test is whether you can say, without hesitation, that it is done.</p><ul><li>Record: finalise the script, prepare the room, test, record, back up.</li><li>Edit: listen through, mark the best takes, cut, listen again, finalise.</li><li>Mix: balance, clean, add music and fades, check on two kinds of speaker.</li><li>Publish: export, write the notes, check the file, publish.</li><li>Keep tasks small enough to finish in one sitting.</li></ul><h2>The weekly check-in</h2><p>A plan only works if someone looks at it, and the weekly check-in is when you look. Once a week, at the same time, open the planner and read the list. Mark what is done, move what slipped, and ask one question: is this project on track for its date? If it is, carry on. If it is not, decide what changes: a task moves, a deadline moves, or something is cut. A check-in that ends with no decision is just reading a list.</p><p>The check-in is also the moment to look ahead. What needs to be ready before next week? Is a guest booked? Is the script final? Is the room free? The tasks that cause trouble are usually the ones that depend on someone else, and a week of warning is the difference between a quick message and a missed deadline. Keep the check-in short: ten minutes, once a week, is enough for most projects, and it is the cheapest insurance a project can have.</p><ul><li>Once a week, at the same time, open the planner and read the list.</li><li>Mark what is done, move what slipped, and ask if the project is on track.</li><li>End every check-in with a decision, not just a reading.</li><li>Look ahead: what depends on someone else, and what needs warning?</li><li>Ten minutes a week is enough for most projects.</li></ul><h2>When a task slips</h2><p>Tasks slip. A guest cancels, a recording fails, an edit takes twice as long as expected. A slipped task is not a failure; it is information, and the planner exists so you can see it early and act on it. The first step is to move the task to a new date you can actually meet, and to move the tasks that depend on it too, because a late recording means a late edit and a late mix. Pretending the date has not moved only moves the problem to the end, where it is bigger.</p><p>The second step is to ask why it slipped, and whether the same thing will happen again. If the edit always takes twice as long as planned, the plan is wrong, not the editor, and the next plan should give editing twice the time. If a guest keeps cancelling, the booking needs more warning or a backup guest. And if the whole project is slipping, say so early to anyone waiting for it. Bad news given early is a plan; bad news given late is a surprise.</p><ul><li>Move the task to a date you can meet, and move what depends on it too.</li><li>Ask why it slipped, and fix the plan, not just the date.</li><li>If editing always takes twice as long, give it twice the time next time.</li><li>Tell anyone waiting, early: bad news early is a plan, late is a surprise.</li></ul><h2>Backing up your work</h2><p>The raw audio is the one thing that cannot be remade. A recording can be re-edited, a mix can be redone, and notes can be rewritten, but a lost recording is gone, along with the time and the people that made it. Back up the raw audio the day it is recorded, before anything else happens to it, and keep the backup somewhere the original is not. Two copies in the same room are not a backup; they are two copies waiting for the same accident.</p><p>A simple routine is enough. After each recording session, copy the files to a second place: another drive, another computer, or a storage service you trust. Check that the copies play before you delete anything from the recorder. Name the files so you can find them later: the project name, the date, and the take number, in that order. And back up the project file too, not just the audio, because rebuilding an edit from raw files takes longer than the edit took the first time.</p><ul><li>Back up the raw audio the day it is recorded.</li><li>Keep the backup somewhere the original is not.</li><li>Check that the copies play before deleting anything.</li><li>Name files with the project, the date and the take number.</li><li>Back up the project file as well as the audio.</li></ul><h2>Common mistakes and how to avoid them</h2><p>The most common mistake is editing before the script is final. An edit built on a script that changes is an edit that has to be done twice, and the second time is slower, because the editor is unpicking work instead of making it. Finalise the script first, then edit. The second mistake is no backup of the raw audio, which turns a lost file into a lost recording. The third is a task list with no dates, which is a wish list, not a plan.</p><p>The fourth mistake is skipping the weekly check-in, so a small slip becomes a large one before anyone notices. The fifth is giving every task the same urgency, so nothing is clearly first and the day is spent on the easiest task instead of the most important one. And the sixth is publishing without listening to the finished file, which is how a wrong export, a missing ending or a silent stretch reaches the listeners. Check the file, then publish.</p><ul><li>Finalise the script before you start editing.</li><li>Back up the raw audio the day you record it.</li><li>Give every task a date, or it is a wish, not a plan.</li><li>Keep the weekly check-in, even when the project feels fine.</li><li>Listen to the finished file before you publish it.</li></ul>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How do I manage an audio project?</h3><p>Break the project into its four stages, record, edit, mix and publish, and list the tasks in each stage with a due date. Use the planner above to track them, change each task's status as the work moves, and check the plan once a week. One change at a time, and one check-in a week, keeps most projects on track.</p></div><div class="faq"><h3>What are the production stages?</h3><p>Recording captures the voices, music and sounds, and editing chooses the best takes and puts them in order. Mixing balances the voices and music and cleans up noise. Publishing exports the finished file, writes the title and notes, and puts the episode where listeners can find it.</p></div><div class="faq"><h3>How do I track tasks?</h3><p>Add each task to the planner with its stage and a due date, then change its status to doing and then done as the work moves. The progress line shows how many tasks are done and what share of the project that is. Everything is saved in this browser only.</p></div><div class="faq"><h3>Is my data uploaded anywhere?</h3><p>No: your project name and tasks are saved only in this browser, using its own storage. Nothing is uploaded, shared or synced anywhere. The copy button turns the plan into plain text you can paste wherever you like.</p></div><div class="faq"><h3>Can I manage more than one project?</h3><p>This planner holds one project at a time. When you start a new project, clear the old tasks and type the new project name, or copy the old plan as text first so you keep a record of it. The copy button makes that easy.</p></div><div class="faq"><h3>What if a task slips?</h3><p>Move the task to a date you can meet, and move the tasks that depend on it too. Then ask why it slipped, and fix the plan for next time. If anyone is waiting for the project, tell them early: bad news given early is a plan, and bad news given late is a surprise.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../podcast-guest-booking-platform/">Podcast Guest Booking Platform</a> · <a href="../podcast-transcript-search-engine/">Podcast Transcript Search Engine</a> · <a href="../voiceover-artist-directory/">Voiceover Artist Directory</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = window.FT || {};
+(function () {
+  var STATUSES = ["To do", "Doing", "Done"];
+  function addTask(tasks, task) {
+    var name = (task.name || "").trim();
+    if (!name) return null;
+    var t = {
+      id: task.id || (Date.now() + Math.floor(Math.random() * 100000)),
+      name: name,
+      stage: task.stage || "Record",
+      due: task.due || "",
+      status: task.status || "To do"
+    };
+    return tasks.concat([t]);
+  }
+  function setTaskStatus(tasks, id, status) {
+    if (STATUSES.indexOf(status) < 0) return tasks;
+    return tasks.map(function (t) {
+      if (t.id === id) {
+        return {id: t.id, name: t.name, stage: t.stage, due: t.due, status: status};
+      }
+      return t;
+    });
+  }
+  function removeTask(tasks, id) {
+    return tasks.filter(function (t) { return t.id !== id; });
+  }
+  function progressPct(tasks) {
+    if (!tasks.length) return 0;
+    var done = tasks.filter(function (t) { return t.status === "Done"; }).length;
+    return Math.round((done / tasks.length) * 100);
+  }
+  function planText(project, tasks) {
+    var lines = [];
+    lines.push("Audio project — " + (project || "Untitled project"));
+    var done = tasks.filter(function (t) { return t.status === "Done"; }).length;
+    lines.push("Progress: " + done + " of " + tasks.length + " tasks done (" + progressPct(tasks) + "%).");
+    lines.push("");
+    tasks.forEach(function (t) {
+      var line = "[" + t.stage + "] " + t.name + " — " + t.status;
+      if (t.due) line += " — due " + t.due;
+      lines.push(line);
+    });
+    return lines.join("\n");
+  }
+  window.FT.addTask = addTask;
+  window.FT.setTaskStatus = setTaskStatus;
+  window.FT.removeTask = removeTask;
+  window.FT.progressPct = progressPct;
+  window.FT.planText = planText;
+  if (typeof document !== "undefined") {
+    var $ = function (id) { return document.getElementById(id); };
+    var KEY = "ft-audio-pm-v1";
+    var state = {project: "", tasks: []};
+    function copyText(text, btn) {
+      function done() {
+        var t = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = t; }, 2000);
+      }
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); } catch (e) {}
+        document.body.removeChild(ta);
+        done();
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+      } else { fallback(); }
+    }
+    function save() {
+      try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    }
+    function restore() {
+      try {
+        var raw = localStorage.getItem(KEY);
+        if (!raw) return;
+        var d = JSON.parse(raw);
+        if (d && typeof d.project === "string") state.project = d.project;
+        if (d && Array.isArray(d.tasks)) state.tasks = d.tasks;
+      } catch (e) {}
+    }
+    function renderSummary() {
+      var done = state.tasks.filter(function (t) { return t.status === "Done"; }).length;
+      if (!state.tasks.length) {
+        $("pm-progress").textContent = "No tasks yet. Add the first task above.";
+      } else {
+        $("pm-progress").textContent = done + " of " + state.tasks.length + " tasks done (" + progressPct(state.tasks) + "%).";
+      }
+      $("pm-copy").style.display = state.tasks.length ? "inline-block" : "none";
+    }
+    function renderList() {
+      var list = $("pm-list");
+      list.textContent = "";
+      state.tasks.forEach(function (t) {
+        var d = document.createElement("div");
+        d.className = "item";
+        var head = document.createElement("div");
+        var strong = document.createElement("strong");
+        strong.textContent = t.name;
+        head.appendChild(strong);
+        var small = document.createElement("div");
+        small.className = "small";
+        small.textContent = t.stage + (t.due ? " — due " + t.due : " — no due date");
+        var sel = document.createElement("select");
+        sel.setAttribute("aria-label", "Status for " + t.name);
+        STATUSES.forEach(function (s) {
+          var o = document.createElement("option");
+          o.value = s;
+          o.textContent = s;
+          if (s === t.status) o.selected = true;
+          sel.appendChild(o);
+        });
+        sel.addEventListener("change", function () {
+          state.tasks = setTaskStatus(state.tasks, t.id, sel.value);
+          save();
+          renderSummary();
+        });
+        var del = document.createElement("button");
+        del.type = "button";
+        del.textContent = "Delete";
+        del.addEventListener("click", function () {
+          state.tasks = removeTask(state.tasks, t.id);
+          save();
+          renderSummary();
+          renderList();
+        });
+        d.appendChild(head);
+        d.appendChild(small);
+        d.appendChild(sel);
+        d.appendChild(del);
+        list.appendChild(d);
+      });
+    }
+    $("pm-add").addEventListener("click", function () {
+      var next = addTask(state.tasks, {
+        name: $("pm-task").value, stage: $("pm-stage").value, due: $("pm-due").value
+      });
+      if (!next) {
+        $("pm-msg").textContent = "Type the task first.";
+        return;
+      }
+      state.project = $("pm-project").value.trim();
+      state.tasks = next;
+      $("pm-task").value = "";
+      $("pm-due").value = "";
+      $("pm-msg").textContent = "";
+      save();
+      renderSummary();
+      renderList();
+    });
+    $("pm-clear").addEventListener("click", function () {
+      state = {project: "", tasks: []};
+      $("pm-project").value = "";
+      $("pm-task").value = "";
+      $("pm-due").value = "";
+      $("pm-msg").textContent = "";
+      try { localStorage.removeItem(KEY); } catch (e) {}
+      renderSummary();
+      renderList();
+    });
+    $("pm-copy").addEventListener("click", function () {
+      state.project = $("pm-project").value.trim();
+      copyText(planText(state.project, state.tasks), $("pm-copy"));
+    });
+    $("pm-project").addEventListener("change", function () {
+      state.project = $("pm-project").value.trim();
+      save();
+    });
+    restore();
+    $("pm-project").value = state.project;
+    renderSummary();
+    renderList();
+  }
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

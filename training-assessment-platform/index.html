@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Training Assessment Platform — Test What Training Really Taught | Funtasha</title>
+<meta name="description" content="Assess training free — build a quick quiz, take it, and see what stuck. A working quiz builder in your browser, no signup.">
+<link rel="canonical" href="https://funtasha.github.io/training-assessment-platform/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Training Assessment Platform — Test What Training Really Taught">
+<meta property="og:description" content="Assess training free — build a quick quiz, take it, and see what stuck. A working quiz builder in your browser, no signup.">
+<meta property="og:url" content="https://funtasha.github.io/training-assessment-platform/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button,.calc input,.calc select,.calc textarea{min-height:72px}
+.msg{font-size:15px;color:#334155;margin-top:10px;min-height:22px}
+.qblock{border-top:1px solid #e2e8f0;padding:10px 0}
+.qblock p{margin:2px 0;font-size:15px}
+.qblock button{margin-top:6px;margin-right:8px}
+.calc button.sel{background:#9d174d}
+</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a training assessment?","acceptedAnswer":{"@type":"Answer","text":"A training assessment is a short set of questions, given after training, that shows what was learned and what was not. It is not an exam: an exam decides pass or fail, while an assessment finds out what needs teaching again. A low score is useful news — it tells the trainer exactly where the training fell short."}},{"@type":"Question","name":"How do I write a fair question?","acceptedAnswer":{"@type":"Answer","text":"Write one clear right answer in plain wording, with no tricks. Keep the options similar in length, avoid negatives unless the training was about exceptions, and make the wrong options believable — the best wrong answers come from real mistakes learners actually make. If a learner who knows the subject can still get it wrong, the question is unfair."}},{"@type":"Question","name":"Is this an official exam?","acceptedAnswer":{"@type":"Answer","text":"No. The quiz builder on this page is a learning tool: results stay on this device only, and a score here is not a certificate and not an official exam result. If your work needs a certificate, that comes from an official course with an official exam. Use this page to find out what stuck."}},{"@type":"Question","name":"How many questions should I ask?","acceptedAnswer":{"@type":"Answer","text":"Ten good questions beat thirty careless ones. A quiz of thirty questions tests patience, not learning, and learners stop reading carefully halfway through. Ask enough to cover what matters — knowledge, skill and confidence — and stop when each question earns its place."}},{"@type":"Question","name":"What do the results mean?","acceptedAnswer":{"@type":"Answer","text":"Read the results question by question, not just as a total: which questions were missed, and what do the misses have in common? A question everyone misses means the training did not cover it, or the question is badly written. Use the pattern to change the training, not to rank the learners."}},{"@type":"Question","name":"Is my data uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No — nothing is uploaded anywhere. Your questions, your answers and your score stay in this browser only, saved on this device. There is no account, no sign-up, and no server. Clearing your browser data removes the saved quiz, so copy any results you want to keep."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Training Assessment Platform</h1>
+<p class="answer">Training is only worth the time if something was learned, and the only way to know is to ask. This page explains what a training assessment is, how to write fair questions, and how to read the results — and the quiz builder below lets you build a quick quiz, take it, and see what stuck.</p>
+<div class="calc"><label for="ta-q">Question</label>
+<input id="ta-q" type="text" value="">
+<label for="ta-opt-1">Answer A</label>
+<input id="ta-opt-1" type="text" value="">
+<label for="ta-opt-2">Answer B</label>
+<input id="ta-opt-2" type="text" value="">
+<label for="ta-opt-3">Answer C</label>
+<input id="ta-opt-3" type="text" value="">
+<label for="ta-opt-4">Answer D</label>
+<input id="ta-opt-4" type="text" value="">
+<label for="ta-correct">Which answer is correct?</label>
+<select id="ta-correct"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select>
+<button id="ta-add" type="button">Add question</button>
+<div class="qblock" id="ta-list"></div>
+<button id="ta-start" type="button">Start quiz</button>
+<div class="qblock" id="ta-quiz"></div>
+<button id="ta-score-btn" type="button">See my score</button>
+<p class="steps" id="ta-score"></p>
+<button id="ta-copy" type="button">Copy results</button>
+<button id="ta-clear" type="button">Clear all questions</button>
+<p class="msg" id="ta-msg"></p></div><div class="warn">The quiz builder on this page is a learning tool, not an exam. Results stay on this device only, and a score here is not a certificate and not an official exam result. Use it to find out what stuck — and what needs teaching again.</div>
+<h2>How to use the builder</h2><p>The builder at the top of the page has three parts: add questions, take the quiz, and see the score. To add a question, type the question, type two to four answer options, pick which answer is correct, and tap Add question. The question joins the list below, and your questions save in this browser automatically, so they are still there when you come back.</p><p>To take the quiz, tap Start quiz. Each question appears with its answer options as buttons — tap one answer for each question. Then tap See my score, and the results appear: how many you got right, and which questions were right and which were not. The Copy results button copies the score as plain text, for keeping or sharing.</p><p>The builder starts with two example questions about fire safety, so you can try the whole flow at once: start the quiz, answer one question right and one wrong, and watch the score read one out of two. The Clear all questions button removes every question, including the examples, so you can build a quiz of your own from nothing.</p><h2>What a training assessment is</h2><p>A training assessment is a check on what training actually taught. It is not a test of the learner's worth, and it is not a trick: it is a short set of questions, given after training, that shows what stuck and what did not. The point is not the score — the point is what the score tells the trainer to do next.</p><p>An assessment is different from an exam. An exam decides whether someone passes or fails; an assessment finds out what needs teaching again. A low score on an assessment is useful news, not bad news: it tells the trainer exactly where the training fell short, while there is still time to fix it. A trainer who fears low scores will never learn what their training is missing.</p><p>It is also different from a certificate. A score on this page proves nothing to anyone except the person who took the quiz, and it should never be presented as a qualification. If your work needs a certificate, that comes from an official course with an official exam — this page is a practice tool, and it says so plainly.</p><h2>Writing fair questions</h2><p>A fair question has one clear right answer, plain wording, and no tricks. The learner should be able to tell what is being asked without reading the question twice, and the right answer should be right because of what was taught, not because of a clue in the wording. If a learner who knows the subject can still get the question wrong, the question is unfair.</p><p>Keep the wording short and the options similar in length. A question with one long detailed option and three short ones gives the answer away — learners pick the longest option without reading it. Avoid negatives ('Which of these is NOT...') unless the training itself was about exceptions, because negatives test reading skill, not subject knowledge.</p><p>Write the wrong options carefully too. A wrong option that is obviously wrong tests nothing; a wrong option that a learner who half-understood the training would pick tests exactly what you need to know. The best wrong options come from real mistakes: the things learners actually get wrong, written as answers.</p><h2>The 3 things to assess: knowledge, skill, confidence</h2><p>Good training teaches three things, and a good assessment checks all three. The first is knowledge: does the learner know the facts — the steps, the rules, the names? Knowledge questions are the easiest to write and the easiest to score, which is why most quizzes test only knowledge. But knowledge alone is not enough.</p><p>The second is skill: can the learner do the thing? A quiz cannot watch someone do a task, but it can ask what the learner would do in a situation — 'What should you do first when the fire alarm sounds?' tests judgment, not memory, and judgment is closer to skill than recall. For real skill, follow the quiz with a practical check: watch the learner do the task, and judge that.</p><p>The third is confidence: does the learner feel able to do it? Confidence is easy to ignore and dangerous to skip, because a learner who knows the steps but does not trust themselves will freeze when it matters. Ask it directly — 'How confident are you that you could do this alone?' — and treat a low answer as a training need, not a personal failing.</p><h2>Reading the results honestly</h2><p>A score is a number, and a number without context misleads. A score of eight out of ten sounds good, but if the two wrong answers were the two safety questions, the training has failed where it matters most. Read the results question by question: which questions were missed, and what do the misses have in common? The pattern matters more than the total.</p><p>A question everyone gets right may be too easy, or may be testing something the training taught well — both are worth knowing. A question everyone gets wrong is telling you something too: either the training did not cover it, or the question is badly written. Check the training first, then the question, and fix whichever is at fault.</p><p>One score from one person is a hint, not a verdict. Scores from many people are a picture: if most learners miss the same question, the training needs work in that spot. Use the results to change the training, not to rank the learners — the assessment serves the teaching, not the other way round.</p><p>Keep the results over time, and the picture gets sharper. A question that was missed by half the learners last month and by nobody this month shows that the retraining worked. A score that climbs after a change to the training shows the change was worth making. The builder on this page keeps your questions in this browser, and the Copy results button lets you keep the scores too — paste them into a document, date them, and compare the next round against them.</p><h2>A worked example: a short quiz, taken and scored</h2><p>The builder above starts with two example questions about fire safety, so you can see the whole flow in a minute. The first asks what to do first when the fire alarm sounds, and the right answer is to leave the building by the nearest safe exit. The second asks how often fire drills should be practised, and the right answer is regularly, so everyone knows the route.</p><p>Try it: tap Start quiz, answer the first question correctly and the second one wrong, then tap See my score. The results read one out of two correct, with the first question marked correct and the second marked not correct. That is the whole assessment in miniature — a score, and the detail behind it.</p><p>Now try the other way: answer both correctly, and the score reads two out of two. Then add a question of your own and take the quiz again — the score now covers three questions, and the builder saves them all in this browser. The worked example is a starting point; your own questions are the real quiz.</p><h2>Common mistakes</h2><p>The most common mistake is trick questions. A question designed to catch the learner out tests the learner's nerves, not their knowledge, and it teaches them to distrust the next assessment. Write questions a learner who knows the subject can answer, and save your cleverness for the training itself.</p><p>The second mistake is testing memory instead of skill. 'What year was the policy written?' tests memory; 'What should you do when a customer asks for a refund?' tests judgment. Memory questions are easy to write and easy to score, which is why quizzes are full of them — and why so many quizzes say nothing about whether the learner can do the job.</p><p>The third mistake is asking too many questions. A quiz of thirty questions tests patience, not learning, and learners stop reading carefully halfway through. Ten good questions beat thirty careless ones. And the fourth mistake is doing nothing with the results: an assessment whose results nobody reads is time wasted for everyone who took it.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is a training assessment?</h3><p>A training assessment is a short set of questions, given after training, that shows what was learned and what was not. It is not an exam: an exam decides pass or fail, while an assessment finds out what needs teaching again. A low score is useful news — it tells the trainer exactly where the training fell short.</p></div><div class="faq"><h3>How do I write a fair question?</h3><p>Write one clear right answer in plain wording, with no tricks. Keep the options similar in length, avoid negatives unless the training was about exceptions, and make the wrong options believable — the best wrong answers come from real mistakes learners actually make. If a learner who knows the subject can still get it wrong, the question is unfair.</p></div><div class="faq"><h3>Is this an official exam?</h3><p>No. The quiz builder on this page is a learning tool: results stay on this device only, and a score here is not a certificate and not an official exam result. If your work needs a certificate, that comes from an official course with an official exam. Use this page to find out what stuck.</p></div><div class="faq"><h3>How many questions should I ask?</h3><p>Ten good questions beat thirty careless ones. A quiz of thirty questions tests patience, not learning, and learners stop reading carefully halfway through. Ask enough to cover what matters — knowledge, skill and confidence — and stop when each question earns its place.</p></div><div class="faq"><h3>What do the results mean?</h3><p>Read the results question by question, not just as a total: which questions were missed, and what do the misses have in common? A question everyone misses means the training did not cover it, or the question is badly written. Use the pattern to change the training, not to rank the learners.</p></div><div class="faq"><h3>Is my data uploaded anywhere?</h3><p>No — nothing is uploaded anywhere. Your questions, your answers and your score stay in this browser only, saved on this device. There is no account, no sign-up, and no server. Clearing your browser data removes the saved quiz, so copy any results you want to keep.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../microlearning-lesson-builder/">Microlearning Lesson Builder</a> · <a href="../corporate-learning-analytics-dashboard/">Corporate Learning Analytics Dashboard</a> · <a href="../podcast-audience-feedback-portal/">Podcast Audience Feedback Portal</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+window.FT = window.FT || {};
+(function(){
+  var FT = window.FT;
+  FT.validateQuestion = function(q){
+    if(!q || !q.text || !q.text.trim()) return {ok:false, error:"Enter a question."};
+    var opts = (q.options || []).filter(function(o){ return o && o.trim(); });
+    if(opts.length < 2) return {ok:false, error:"Enter at least two answer options."};
+    if(typeof q.correct !== "number" || q.correct < 0 || q.correct >= q.options.length)
+      return {ok:false, error:"Pick the correct answer."};
+    if(!q.options[q.correct] || !q.options[q.correct].trim())
+      return {ok:false, error:"The correct answer must not be empty."};
+    return {ok:true, error:""};
+  };
+  FT.addQuestion = function(list, q){
+    var v = FT.validateQuestion(q);
+    if(!v.ok) return {ok:false, error:v.error, questions:list};
+    var next = list.slice();
+    next.push({text: q.text.trim(),
+               options: q.options.map(function(o){ return o.trim(); }),
+               correct: q.correct});
+    return {ok:true, error:"", questions:next};
+  };
+  FT.scoreQuiz = function(questions, answers){
+    var score = 0, results = [];
+    for(var i = 0; i < questions.length; i++){
+      var ok = answers[i] === questions[i].correct;
+      results.push(ok);
+      if(ok) score++;
+    }
+    return {score: score, total: questions.length, results: results};
+  };
+  FT.resultsText = function(questions, answers){
+    var r = FT.scoreQuiz(questions, answers);
+    var lines = ["Quiz results: " + r.score + " out of " + r.total + " correct."];
+    for(var i = 0; i < questions.length; i++){
+      lines.push((i + 1) + ". " + questions[i].text + " — " + (r.results[i] ? "Correct" : "Not correct"));
+    }
+    return lines.join("\n");
+  };
+  if(typeof document === "undefined") return;
+  var KEY = "ft-training-quiz";
+  var EXAMPLES = [
+    {text: "What should you do first when the fire alarm sounds?",
+     options: ["Finish your work and leave later", "Leave the building by the nearest safe exit", "Open all the windows", "Wait for someone to tell you"],
+     correct: 1},
+    {text: "How often should fire drills be practised?",
+     options: ["Never", "Once, when you join", "Regularly, so everyone knows the route", "Only after a real fire"],
+     correct: 2}
+  ];
+  var questions = [];
+  var answers = {};
+  function el(id){ return document.getElementById(id); }
+  function save(){
+    try{ localStorage.setItem(KEY, JSON.stringify(questions)); }catch(e){}
+  }
+  function load(){
+    try{
+      var raw = localStorage.getItem(KEY);
+      if(raw){ questions = JSON.parse(raw) || []; }
+      else { questions = EXAMPLES.slice(); }
+    }catch(e){ questions = EXAMPLES.slice(); }
+  }
+  function renderList(){
+    var list = el("ta-list");
+    while(list.firstChild){ list.removeChild(list.firstChild); }
+    if(questions.length === 0){
+      var none = document.createElement("p");
+      none.textContent = "No questions yet. Add your first question above.";
+      list.appendChild(none);
+      return;
+    }
+    for(var i = 0; i < questions.length; i++){
+      (function(idx){
+        var row = document.createElement("div");
+        row.className = "qblock";
+        var p = document.createElement("p");
+        p.textContent = (idx + 1) + ". " + questions[idx].text;
+        row.appendChild(p);
+        var del = document.createElement("button");
+        del.type = "button";
+        del.textContent = "Delete";
+        del.addEventListener("click", function(){
+          questions.splice(idx, 1);
+          answers = {};
+          save();
+          renderList();
+          renderQuiz();
+          el("ta-score").textContent = "";
+          el("ta-msg").textContent = "Question deleted.";
+        });
+        row.appendChild(del);
+        list.appendChild(row);
+      })(i);
+    }
+  }
+  function renderQuiz(){
+    var quiz = el("ta-quiz");
+    while(quiz.firstChild){ quiz.removeChild(quiz.firstChild); }
+    if(questions.length === 0) return;
+    for(var i = 0; i < questions.length; i++){
+      (function(idx){
+        var block = document.createElement("div");
+        block.className = "qblock";
+        var p = document.createElement("p");
+        p.textContent = (idx + 1) + ". " + questions[idx].text;
+        block.appendChild(p);
+        var labels = ["A", "B", "C", "D"];
+        for(var j = 0; j < questions[idx].options.length; j++){
+          (function(opt){
+            var b = document.createElement("button");
+            b.type = "button";
+            b.textContent = labels[opt] + ". " + questions[idx].options[opt];
+            if(answers[idx] === opt){ b.className = "sel"; }
+            b.addEventListener("click", function(){
+              answers[idx] = opt;
+              var btns = block.querySelectorAll("button");
+              for(var k = 0; k < btns.length; k++){ btns[k].className = ""; }
+              b.className = "sel";
+            });
+            block.appendChild(b);
+          })(j);
+        }
+        quiz.appendChild(block);
+      })(i);
+    }
+  }
+  function copyText(text, btn){
+    function done(){
+      var old = btn.textContent;
+      btn.textContent = "Copied!";
+      setTimeout(function(){ btn.textContent = old; }, 1500);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, function(){ fallback(); });
+    } else { fallback(); }
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try{ document.execCommand("copy"); }catch(e){}
+      document.body.removeChild(ta);
+      done();
+    }
+  }
+  el("ta-add").addEventListener("click", function(){
+    var q = {text: el("ta-q").value,
+             options: [el("ta-opt-1").value, el("ta-opt-2").value,
+                       el("ta-opt-3").value, el("ta-opt-4").value],
+             correct: parseInt(el("ta-correct").value, 10)};
+    var r = FT.addQuestion(questions, q);
+    if(!r.ok){
+      el("ta-msg").textContent = r.error;
+      return;
+    }
+    questions = r.questions;
+    save();
+    el("ta-q").value = "";
+    el("ta-opt-1").value = ""; el("ta-opt-2").value = "";
+    el("ta-opt-3").value = ""; el("ta-opt-4").value = "";
+    renderList();
+    el("ta-msg").textContent = "Question added. " + questions.length + " question(s) in this quiz. Saved on this device only.";
+  });
+  el("ta-start").addEventListener("click", function(){
+    if(questions.length === 0){
+      el("ta-msg").textContent = "Add at least one question before starting the quiz.";
+      return;
+    }
+    answers = {};
+    el("ta-score").textContent = "";
+    renderQuiz();
+    el("ta-msg").textContent = "Quiz started. Tap one answer for each question, then tap See my score.";
+  });
+  el("ta-score-btn").addEventListener("click", function(){
+    if(questions.length === 0){
+      el("ta-msg").textContent = "Add at least one question before scoring.";
+      return;
+    }
+    var unanswered = 0;
+    for(var i = 0; i < questions.length; i++){
+      if(answers[i] === undefined) unanswered++;
+    }
+    el("ta-score").textContent = FT.resultsText(questions, answers);
+    var r = FT.scoreQuiz(questions, answers);
+    el("ta-msg").textContent = "Score: " + r.score + " out of " + r.total +
+      (unanswered ? " (" + unanswered + " unanswered)." : ".") +
+      " Results stay on this device only.";
+  });
+  el("ta-copy").addEventListener("click", function(){
+    var text = el("ta-score").textContent;
+    if(!text){
+      el("ta-msg").textContent = "See your score first, then copy the results.";
+      return;
+    }
+    copyText(text, el("ta-copy"));
+  });
+  el("ta-clear").addEventListener("click", function(){
+    questions = [];
+    answers = {};
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    el("ta-quiz").textContent = "";
+    el("ta-score").textContent = "";
+    renderList();
+    el("ta-msg").textContent = "All questions cleared.";
+  });
+  load();
+  renderList();
+})();
+
+</script><script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podcast Audience Feedback Portal — Hear What Your Listeners Really Think | Funtasha</title>
+<meta name="description" content="Collect podcast feedback free — build a listener survey, ask the right questions, and use what you hear. No signup.">
+<link rel="canonical" href="https://funtasha.github.io/podcast-audience-feedback-portal/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Podcast Audience Feedback Portal — Hear What Your Listeners Really Think">
+<meta property="og:description" content="Collect podcast feedback free — build a listener survey, ask the right questions, and use what you hear. No signup.">
+<meta property="og:url" content="https://funtasha.github.io/podcast-audience-feedback-portal/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I get listener feedback?", "acceptedAnswer": {"@type": "Answer", "text": "Ask for it directly, with a short survey of five to eight questions about specific moments, topics and lengths. Share the survey where your listeners already are, such as the end of an episode or a post. Say what you will do with the answers, so listeners know their time matters."}}, {"@type": "Question", "name": "What questions should I ask?", "acceptedAnswer": {"@type": "Answer", "text": "Ask about things the listener can remember: what made them press play, which part held their attention, and whether there was a moment they almost stopped listening. Add questions about episode length and topics, and one open question for anything you did not think to ask."}}, {"@type": "Question", "name": "How do I build the survey?", "acceptedAnswer": {"@type": "Answer", "text": "Use the builder above: type your show name, choose the purpose, tick the questions you want, and add one of your own if you like. Press the build button to see the finished survey, then copy it with the copy button and paste it wherever your listeners are."}}, {"@type": "Question", "name": "Where do the answers go?", "acceptedAnswer": {"@type": "Answer", "text": "Nowhere on this page. This page builds the survey but does not collect answers, because it is a static page with no server. You paste the survey into your own post, message, newsletter or survey form, and the answers come back to you there."}}, {"@type": "Question", "name": "How do I use the feedback?", "acceptedAnswer": {"@type": "Answer", "text": "Read every answer, look for patterns, and pick one change to make from each survey. Tell listeners what changed and why, in the next episode. Try the change for a few episodes before judging it, and ask again later to see if it worked."}}, {"@type": "Question", "name": "Is this a live survey tool?", "acceptedAnswer": {"@type": "Answer", "text": "No. This page builds a survey for you to send, and it does not host a live survey or collect submissions. Your choices are saved only in this browser, and nothing you type is uploaded anywhere."}}]}</script>
+<style>.calc input,.calc select,.calc textarea{min-height:72px;padding:14px 12px;font-size:16px}
+.calc button{min-height:72px;padding:14px 22px}
+.calc .row button{min-height:72px}
+.calc .msg{font-size:15px;color:#334155;margin-top:10px;min-height:22px}
+.calc textarea{width:100%;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-family:inherit}
+.calc .row{display:flex;gap:10px;flex-wrap:wrap}
+.calc .row button{flex:1 1 140px}
+.calc .list{margin-top:12px}
+.calc .item{border:1px solid #cbd5e1;border-radius:8px;background:#fff;padding:12px;margin:8px 0;font-size:15px}
+.calc .item .small{font-size:14px;color:#64748b}
+.calc .checkrow{display:flex;align-items:center;gap:12px;min-height:72px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;padding:0 12px;margin:8px 0;font-weight:600;font-size:16px}
+.calc .checkrow input{width:28px;height:28px;min-height:28px;flex:none}
+.calc .checkrow span{line-height:1.4}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Podcast Audience Feedback Portal</h1>
+<p class="answer">This page helps you hear what your listeners really think, by building a short, honest listener survey you can send anywhere. Pick the questions, add one of your own, and copy the finished survey to share with your audience.</p>
+<div class="calc"><label for="fb-show">Show name</label><input id="fb-show" type="text" placeholder="The name of your show"><label for="fb-purpose">What is this survey for?</label><select id="fb-purpose"><option value="Episode feedback">Episode feedback</option><option value="Whole show feedback">Whole show feedback</option><option value="Ideas for new topics">Ideas for new topics</option><option value="Guest suggestions">Guest suggestions</option></select><label>Tick the questions to include</label><label class="checkrow"><input type="checkbox" class="fb-q" value="q1"><span>What made you press play on this episode?</span></label><label class="checkrow"><input type="checkbox" class="fb-q" value="q2"><span>Which part of the episode held your attention most?</span></label><label class="checkrow"><input type="checkbox" class="fb-q" value="q3"><span>Was there a moment you almost stopped listening? What happened there?</span></label><label class="checkrow"><input type="checkbox" class="fb-q" value="q4"><span>What did you learn or take away from this episode?</span></label><label class="checkrow"><input type="checkbox" class="fb-q" value="q5"><span>How long should our episodes be?</span></label><label class="checkrow"><input type="checkbox" class="fb-q" value="q6"><span>Which topics do you want more of?</span></label><label class="checkrow"><input type="checkbox" class="fb-q" value="q7"><span>Which topics do you want less of?</span></label><label class="checkrow"><input type="checkbox" class="fb-q" value="q8"><span>How would you describe this show to a friend?</span></label><label class="checkrow"><input type="checkbox" class="fb-q" value="q9"><span>What would make you recommend this show?</span></label><label class="checkrow"><input type="checkbox" class="fb-q" value="q10"><span>Is there anything else you want to tell us?</span></label><label for="fb-custom">Your own question (optional)</label><input id="fb-custom" type="text" placeholder="One extra question in your own words"><div class="row"><button id="fb-build" type="button">Build my survey</button><button id="fb-clear" type="button">Clear choices</button></div><div class="msg" id="fb-msg"></div><div class="out" id="fb-out" style="display:none"></div><div class="steps" id="fb-steps" style="display:none"></div><div class="row"><button id="fb-copy" type="button" style="display:none">Copy survey</button></div></div>
+<div class="warn">This page builds a survey; it does not collect answers and it is not a live survey tool. Your choices are saved only in this browser, and nothing you type is uploaded anywhere, so paste the survey into your own post or form to gather replies.</div>
+<h2>How to use the feedback builder</h2><p>The builder above turns your choices into a listener survey you can copy and send anywhere. Start by typing your show name, then choose what the survey is for: feedback on one episode, feedback on the whole show, ideas for new topics, or suggestions for guests. Then tick the questions you want to include. You can tick as many or as few as you like, and you can add one question of your own in the box provided. Press the build button, and the survey appears below, numbered and ready to copy.</p><p>The survey is plain text, so you can paste it into a post, a message, a newsletter or a survey form. Nothing you type is sent anywhere: the builder runs in your browser, your choices are saved only on this device, and no listener answers come back to this page, because this page does not collect answers at all. It builds the survey; you choose where to ask it. On a phone, everything works by touch: type, tap to tick, tap to build, tap to copy.</p><ul><li>Type your show name and choose the survey purpose.</li><li>Tick the questions you want, and add one of your own if you like.</li><li>Press the build button to see the finished survey.</li><li>Copy it with the copy button and paste it wherever your listeners are.</li></ul><h2>The 10 questions worth asking</h2><p>Good survey questions ask about something specific the listener can remember. The ten questions in the builder are written that way. The first asks what made the listener press play, which tells you what your titles and topics promise. The second asks which part held their attention, which tells you what to do more of. The third asks about the moment they almost stopped listening, which is the most useful question of all, because it points at the exact place the episode lost them.</p><p>The rest cover what the listener took away, how long episodes should be, which topics deserve more time and which deserve less, how the listener would describe the show to a friend, and what would make them recommend it. The last question is an open one, because the most useful feedback is often something you did not think to ask about. You do not need all ten every time. Five good questions, answered by twenty listeners, teach you more than thirty questions answered by nobody.</p><ul><li>What made you press play on this episode?</li><li>Which part held your attention most?</li><li>Was there a moment you almost stopped listening?</li><li>What did you learn or take away?</li><li>How long should our episodes be?</li><li>Which topics do you want more of, and which less of?</li><li>How would you describe this show to a friend?</li><li>What would make you recommend this show?</li></ul><h2>Asking without leading the listener</h2><p>A leading question pushes the listener towards the answer you want to hear, and the answer it gets is worthless. Asking did you love this episode is not a question, it is a request for praise, and most listeners will give it rather than be rude. Asking what did you think of this episode leaves the listener free to say what they really thought, including the parts they did not like. The honest answer is the one that helps you make a better show.</p><p>Three habits keep your questions honest. First, ask about what happened, not about how good it was: which part did you skip is better than was it great. Second, offer no answer in the question: avoid words like amazing, boring or too long inside the question itself. Third, make it safe to be critical by saying so at the top of the survey, in plain words: honest answers help the show, and no answer will offend anyone. Listeners who believe that will tell you the truth.</p><ul><li>Ask what happened, not how good it was.</li><li>Keep praise and blame out of the question itself.</li><li>Say at the top that honest answers help and will not offend.</li><li>Ask one thing per question, never two.</li></ul><h2>Reading the answers honestly</h2><p>When the answers come back, read them all before you decide what they mean. The first few answers are often the most enthusiastic, because the keenest listeners reply first, and the quieter ones take longer. If you stop after five answers, you will hear mostly praise. Wait until the replies slow down, then read them in one sitting and look for patterns: the same point made by three different listeners is a finding, and a single strong opinion is only one person's view.</p><p>Count what can be counted, and read what cannot. If you asked about episode length, count how many want shorter, longer or the same. If you asked open questions, group the answers by theme: sound quality, topics, pacing, guests, length. Write down the three themes that come up most, and one quote for each, so you can act on them later. Ignore the answers that praise everything and the answers that attack everything, and pay attention to the middle: the listeners who liked the show and still found something to fix.</p><ul><li>Read every answer before deciding what they mean.</li><li>Wait for the replies to slow down; early answers skew positive.</li><li>Count the countable answers, and group the open ones by theme.</li><li>Three listeners making the same point is a finding, not a coincidence.</li></ul><h2>What to do with what you hear</h2><p>Feedback only helps if it changes something, so pick one change from each survey and make it. If listeners say the introductions are too long, shorten the next one and see what happens. If they want more of a topic, plan two episodes on it. One change at a time matters, because if you change five things at once, you will never know which one worked. Tell the listeners what you changed and why, in the next episode, so they know their answers were read.</p><p>Not every suggestion should be followed. A suggestion that fits your show and your listeners is worth trying; a suggestion that would turn your show into a different show is not. The test is simple: would this change make the show better for the listeners it already has? If the answer is yes, try it for a few episodes and ask again. If the answer is no, thank the listener and carry on. Your show does not have to please everyone, but it should listen to everyone.</p><ul><li>Pick one change from each survey and make it.</li><li>Tell listeners what changed and why, in the next episode.</li><li>Try a change for a few episodes before judging it.</li><li>Follow suggestions that fit your show, and thank the rest.</li></ul><h2>When to ask again</h2><p>Ask for feedback when something has changed, or when enough time has passed for the answers to be different. After a new format, a new host, or a run of episodes on a new topic, a short survey tells you whether the change worked. A regular check, two or three times a year, catches slow drifts that you would not notice from inside the show. Asking every week teaches you nothing new and trains listeners to ignore the request.</p><p>Keep each survey short. Five to eight questions is the range most listeners will finish, and a survey that takes more than a few minutes will be abandoned. Ask at a moment when listeners are already thinking about the show, such as the end of an episode or the day after a release, and give them a reason to answer: tell them what you will do with the answers, and when they will hear about it. A survey with a purpose gets answers; a survey with no purpose gets ignored.</p><ul><li>Ask after a change, and two or three times a year as a routine.</li><li>Keep it to five to eight questions, and a few minutes at most.</li><li>Ask when listeners are already thinking about the show.</li><li>Say what you will do with the answers, and when they will hear about it.</li></ul><h2>Common mistakes and how to avoid them</h2><p>The most common mistake is asking did you like it and nothing else. That question can only be answered yes or no, and neither answer tells you what to change. A survey needs questions about specific moments, specific topics and specific lengths, because those are the answers you can act on. The second mistake is the opposite: thirty questions nobody finishes. A long survey is abandoned halfway, and the answers you get come only from the most patient listeners, which is not a fair sample of your audience.</p><p>The third mistake is asking leading questions and then believing the praise they produce. The fourth is collecting answers and never acting on them, which teaches listeners that their time was wasted and makes the next survey harder. And the fifth is taking one angry answer as the voice of the whole audience. One listener can be wrong, and one listener can be right; the difference is whether other listeners say the same thing. Read the whole set, look for patterns, and act on the patterns.</p><ul><li>Never ask only did you like it: ask about specific moments and topics.</li><li>Keep the survey short, or only the most patient listeners will finish it.</li><li>Do not ask leading questions and then believe the praise.</li><li>Act on the answers, and tell listeners what changed.</li><li>One answer is one opinion; a pattern across answers is a finding.</li></ul>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How do I get listener feedback?</h3><p>Ask for it directly, with a short survey of five to eight questions about specific moments, topics and lengths. Share the survey where your listeners already are, such as the end of an episode or a post. Say what you will do with the answers, so listeners know their time matters.</p></div><div class="faq"><h3>What questions should I ask?</h3><p>Ask about things the listener can remember: what made them press play, which part held their attention, and whether there was a moment they almost stopped listening. Add questions about episode length and topics, and one open question for anything you did not think to ask.</p></div><div class="faq"><h3>How do I build the survey?</h3><p>Use the builder above: type your show name, choose the purpose, tick the questions you want, and add one of your own if you like. Press the build button to see the finished survey, then copy it with the copy button and paste it wherever your listeners are.</p></div><div class="faq"><h3>Where do the answers go?</h3><p>Nowhere on this page. This page builds the survey but does not collect answers, because it is a static page with no server. You paste the survey into your own post, message, newsletter or survey form, and the answers come back to you there.</p></div><div class="faq"><h3>How do I use the feedback?</h3><p>Read every answer, look for patterns, and pick one change to make from each survey. Tell listeners what changed and why, in the next episode. Try the change for a few episodes before judging it, and ask again later to see if it worked.</p></div><div class="faq"><h3>Is this a live survey tool?</h3><p>No. This page builds a survey for you to send, and it does not host a live survey or collect submissions. Your choices are saved only in this browser, and nothing you type is uploaded anywhere.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../podcast-guest-booking-platform/">Podcast Guest Booking Platform</a> · <a href="../podcast-transcript-search-engine/">Podcast Transcript Search Engine</a> · <a href="../audio-production-project-manager/">Audio Production Project Manager</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = window.FT || {};
+(function () {
+  var BANK = [
+    {id: "q1", text: "What made you press play on this episode?"},
+    {id: "q2", text: "Which part of the episode held your attention most?"},
+    {id: "q3", text: "Was there a moment you almost stopped listening? What happened there?"},
+    {id: "q4", text: "What did you learn or take away from this episode?"},
+    {id: "q5", text: "How long should our episodes be?"},
+    {id: "q6", text: "Which topics do you want more of?"},
+    {id: "q7", text: "Which topics do you want less of?"},
+    {id: "q8", text: "How would you describe this show to a friend?"},
+    {id: "q9", text: "What would make you recommend this show?"},
+    {id: "q10", text: "Is there anything else you want to tell us?"}
+  ];
+  function buildSurvey(input) {
+    var show = (input.show || "").trim();
+    var purpose = input.purpose || "Episode feedback";
+    var picked = input.picked || [];
+    var custom = (input.custom || "").trim();
+    if (!show) return null;
+    var lines = [];
+    lines.push("Listener survey — " + show);
+    lines.push("Purpose: " + purpose);
+    lines.push("");
+    var n = 0;
+    BANK.forEach(function (q) {
+      if (picked.indexOf(q.id) >= 0) { n += 1; lines.push(n + ". " + q.text); }
+    });
+    if (custom) { n += 1; lines.push(n + ". " + custom); }
+    if (n === 0) return null;
+    lines.push("");
+    lines.push("Thank you for listening. Honest answers help the show, and no answer will offend anyone.");
+    return lines.join("\n");
+  }
+  window.FT.feedbackBank = BANK;
+  window.FT.buildSurvey = buildSurvey;
+  if (typeof document !== "undefined") {
+    var $ = function (id) { return document.getElementById(id); };
+    var KEY = "ft-feedback-portal-v1";
+    var lastText = "";
+    function copyText(text, btn) {
+      function done() {
+        var t = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = t; }, 2000);
+      }
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); } catch (e) {}
+        document.body.removeChild(ta);
+        done();
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+      } else { fallback(); }
+    }
+    function pickedIds() {
+      var out = [];
+      var boxes = document.querySelectorAll(".fb-q");
+      for (var i = 0; i < boxes.length; i++) {
+        if (boxes[i].checked) out.push(boxes[i].value);
+      }
+      return out;
+    }
+    function save() {
+      try {
+        localStorage.setItem(KEY, JSON.stringify({
+          show: $("fb-show").value, purpose: $("fb-purpose").value,
+          picked: pickedIds(), custom: $("fb-custom").value
+        }));
+      } catch (e) {}
+    }
+    function restore() {
+      try {
+        var raw = localStorage.getItem(KEY);
+        if (!raw) return;
+        var d = JSON.parse(raw);
+        if (d.show) $("fb-show").value = d.show;
+        if (d.purpose) $("fb-purpose").value = d.purpose;
+        if (d.custom) $("fb-custom").value = d.custom;
+        if (d.picked) {
+          var boxes = document.querySelectorAll(".fb-q");
+          for (var i = 0; i < boxes.length; i++) {
+            boxes[i].checked = d.picked.indexOf(boxes[i].value) >= 0;
+          }
+        }
+      } catch (e) {}
+    }
+    $("fb-build").addEventListener("click", function () {
+      var text = buildSurvey({
+        show: $("fb-show").value, purpose: $("fb-purpose").value,
+        picked: pickedIds(), custom: $("fb-custom").value
+      });
+      if (!text) {
+        $("fb-msg").textContent = "Type your show name and tick at least one question first.";
+        $("fb-out").style.display = "none";
+        $("fb-steps").style.display = "none";
+        $("fb-copy").style.display = "none";
+        return;
+      }
+      save();
+      lastText = text;
+      var count = pickedIds().length + ($("fb-custom").value.trim() ? 1 : 0);
+      $("fb-msg").textContent = "";
+      $("fb-out").textContent = "Your survey is ready — " + count + " questions.";
+      $("fb-out").style.display = "block";
+      $("fb-steps").textContent = text;
+      $("fb-steps").style.display = "block";
+      $("fb-copy").style.display = "inline-block";
+    });
+    $("fb-clear").addEventListener("click", function () {
+      $("fb-show").value = "";
+      $("fb-custom").value = "";
+      var boxes = document.querySelectorAll(".fb-q");
+      for (var i = 0; i < boxes.length; i++) boxes[i].checked = false;
+      $("fb-msg").textContent = "";
+      $("fb-out").style.display = "none";
+      $("fb-steps").style.display = "none";
+      $("fb-copy").style.display = "none";
+      try { localStorage.removeItem(KEY); } catch (e) {}
+    });
+    $("fb-copy").addEventListener("click", function () { copyText(lastText, $("fb-copy")); });
+    restore();
+  }
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>
