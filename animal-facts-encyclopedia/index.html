@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Animal Facts Encyclopedia — Amazing Facts About Animals | Funtasha</title>
+<meta name="description" content="Free animal facts encyclopedia — surprising, true facts about animals from every corner of the world. No signup, phone friendly.">
+<link rel="canonical" href="https://funtasha.github.io/animal-facts-encyclopedia/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Animal Facts Encyclopedia — Amazing Facts About Animals">
+<meta property="og:description" content="Free animal facts encyclopedia — surprising, true facts about animals from every corner of the world. No signup, phone friendly.">
+<meta property="og:url" content="https://funtasha.github.io/animal-facts-encyclopedia/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+.result{border:1px solid #e2e8f0;border-radius:10px;padding:12px;margin:10px 0;background:#fff}
+.result b{font-size:16.5px}
+.result .tag{display:inline-block;font-size:13px;font-weight:700;padding:2px 10px;border-radius:999px;margin-left:8px}
+.tag-yes{background:#dcfce7;color:#166534}
+.tag-no{background:#fee2e2;color:#991b1b}
+.tag-drop{background:#fef9c3;color:#854d0e}
+.pitch{position:relative;width:100%;height:420px;background:#16a34a;border:3px solid #fff;border-radius:10px;margin:12px 0;overflow:hidden}
+.pitch .line{position:absolute;border:2px solid rgba(255,255,255,.8)}
+.dot{position:absolute;width:46px;height:46px;margin-left:-23px;margin-top:-23px;border-radius:50%;background:#fff;color:#166534;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:3px solid #166534;user-select:none}
+.dot.sel{background:#db2777;color:#fff;border-color:#fff}
+.poslist{display:grid;gap:8px;margin:12px 0}
+.poslist button{margin-top:0;text-align:left}
+.poslist button.sel{background:#0b7a4b}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the fastest animal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The peregrine falcon is the fastest animal on Earth — in a hunting dive it can pass 300 kilometres an hour. On land, the cheetah is fastest, reaching about 60 to 70 kilometres an hour in short bursts. In water, the sailfish is among the quickest, at around 100 kilometres an hour."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do goldfish really forget in 3 seconds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — that is a myth. Goldfish remember things for months, not seconds, and they can learn simple tasks, such as swimming through a hoop for food, and recognise the people who feed them. Their memory was once underestimated, and the three-second story stuck even though it is wrong."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which animal sleeps the most?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Koalas sleep for around 20 hours a day, which is among the longest of any animal, because eucalyptus leaves give them very little energy and take a long time to digest. Brown bats sleep for about the same length of time. At the other end, giraffes and horses sleep for only a few hours a day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can animals really talk to each other?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Animals communicate in rich ways — calls, songs, dances, scents and gestures — but they do not use language the way people do. Honeybees tell each other where flowers are with a waggle dance, whales sing songs that travel for kilometres, and prairie dogs use different alarm calls for different predators."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the biggest animal on land?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The African savanna elephant is the largest land animal, with large males weighing around six tonnes and standing about three metres tall at the shoulder. The largest animal of all, on land or in water, is the blue whale, which can weigh far more than any land animal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use this encyclopedia with children?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick one habitat, read three facts together, and ask the child to choose a favourite and say why. Let the child press the surprise button and read the fact aloud. For older children, read a fact without naming the animal and let them guess, or draw the animal from the fact and then check a picture."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Animal Facts Encyclopedia</h1>
+<p class="answer">This encyclopedia holds more than sixty true facts about animals, grouped by where they live, from the deep ocean to your own home. Every fact is a standard, widely published one, written in plain words with the animal named.</p>
+<div class="calc">
+<label for="af-search">Search the encyclopedia</label>
+<input id="af-search" type="text" placeholder="Try whale, owl or camel" autocomplete="off">
+<label for="af-habitat">Filter by habitat</label>
+<select id="af-habitat">
+<option value="all">All habitats</option>
+<option value="ocean">Ocean</option>
+<option value="forest">Forest</option>
+<option value="desert">Desert</option>
+<option value="sky">Sky</option>
+<option value="farm">Farm</option>
+<option value="home">Home</option>
+</select>
+<button id="af-surprise" type="button">Surprise me with a fact</button>
+<div class="out" id="af-count" aria-live="polite"></div>
+<div id="af-results"></div>
+</div>
+<div class="warn">The facts here are standard, widely published facts from field guides and wildlife sources — this page does not invent records. Where a number is approximate, the fact says so, and the page is a starting point, not a full field guide.</div>
+<h2>How to use this encyclopedia</h2>
+<p>Every fact in this encyclopedia names its animal and says where the animal lives, so you can search by animal, by word, or by habitat. Type a word in the search box — try "whale", "owl" or "camel" — or pick a habitat from the list and browse what lives there. The surprise button picks one fact at random, which is a good way to start if you are just curious. Each fact is written in plain words, and where a number is approximate, the fact says so: "about 300 kilometres an hour", "around 20 hours a day".</p>
+<p>The facts are standard, widely published facts — the kind you will find in field guides, wildlife books and nature programmes. This page does not invent records, and it does not dress up a guess as a fact. Where scientists are still unsure about something, such as why scorpions glow under ultraviolet light, the fact says so honestly. Think of this encyclopedia as a starting point: a place to find something surprising, and a reason to open a field guide and learn more.</p>
+<h2>Ocean animals</h2>
+<p>The ocean holds the largest animal that has ever lived, the blue whale, and some of the strangest: the octopus with three hearts, the seahorse father who carries the babies, the jellyfish with no brain at all. Ocean facts in this encyclopedia come from marine field guides and wildlife sources, and they share a theme — life in water works differently from life on land. Animals breathe, move, sleep and raise their young in ways that seem impossible until you read how they do it.</p>
+<p>When you read an ocean fact, ask what problem the animal is solving. The dolphin sleeps with half its brain awake because it must keep swimming and breathing. The sea turtle returns to the beach where she hatched because it is a safe, known place to lay eggs. The coral polyp builds a reef grain by grain because a reef is a home, a shelter and a hunting ground all at once. The facts are surprising on their own, but they make more sense when you see the reason behind them.</p>
+<h2>Forest animals</h2>
+<p>Forests are crowded, dark and full of watchers, so forest animals are masters of hiding, listening and patience. The sloth hides by moving so slowly that algae grows in its fur. The fox hunts by hearing, pouncing on sounds it cannot see. The owl turns its head almost all the way around so it never has to move its body and give itself away. The facts in this group come from forest field guides and wildlife writing, and they reward slow reading — many of them are about animals that succeed by being still.</p>
+<p>Try this with the forest group: pick three animals and compare how each one finds food. The woodpecker drums on bark, the chameleon shoots out a tongue longer than its body, and the squirrel buries nuts it will later forget. Three animals, three completely different answers to the same question. That is what makes a forest interesting — every animal has found its own way to live in the same crowded place.</p>
+<h2>Desert animals</h2>
+<p>Deserts are dry, hot by day and cold by night, and the animals that live there are experts at saving water. The kangaroo rat never drinks at all. The camel stores fat in its humps and drinks in huge gulps when it finds water. The thorny devil drinks through its skin. Desert facts in this encyclopedia come from field guides and desert wildlife sources, and almost every one of them is a story about water — how to find it, how to store it, and how to live without it.</p>
+<p>Desert animals also show how much behaviour matters. Meerkats take turns standing guard. The sidewinder moves sideways to cross sand that would be too hot and too loose to cross any other way. The fennec fox's huge ears do two jobs at once: they release heat and they hear prey underground. When you read a desert fact, notice how often one body part solves two problems — in a hard place, nothing is wasted.</p>
+<h2>Sky animals</h2>
+<p>The sky group covers birds, bats and insects, and it holds some of the most famous records in the animal world: the fastest animal, the bird that can fly backwards, the insect that is older than the dinosaurs. The facts come from bird guides and wildlife sources, and they are worth reading with a question in mind — how does this animal stay in the air, and what does it do there that it could not do on the ground?</p>
+<p>Flight changes everything. A swift can stay airborne for months. An albatross can cross an ocean without flapping. A bee can tell its sisters where the flowers are with a dance. Even the animals that fly at night, like bats, have their own way of seeing the world — by listening to echoes. If you only read one group in this encyclopedia, read this one twice: it is full of animals that broke the rules of what a body can do.</p>
+<h2>Farm animals</h2>
+<p>Farm animals are the animals people know best and think about least. A cow has four stomach compartments. A pig can learn its own name. A sheep can remember a face for years. The facts in this group come from farming and animal behaviour sources, and they share a quiet surprise: the animals we live closest to are more interesting than we give them credit for.</p>
+<p>Children often enjoy the farm group most, because they can check the facts for themselves. A horse really does sleep standing up. A goat's pupils really are rectangular. A rabbit's teeth really never stop growing. If you visit a farm, take three facts from this group and look for the animals yourself — it turns a walk into a small expedition, and the facts stick far better when you have seen the animal with your own eyes.</p>
+<h2>Animals at home</h2>
+<p>The home group is about the animals that share our houses: dogs, cats, goldfish, hamsters, parrots, tortoises and the rest. These facts come from pet care guides and animal behaviour writing, and they answer the questions owners actually ask — why does my cat always land on its feet, does my goldfish remember me, why does my guinea pig jump straight up in the air?</p>
+<p>One fact in this group corrects a very common myth: the goldfish does not forget everything in three seconds. Goldfish remember things for months and can learn simple tasks. That is the spirit of the whole encyclopedia — the truth is usually more interesting than the myth, and the animals we think we know best still have surprises in them.</p>
+<h2>Using this encyclopedia with children</h2>
+<p>Start small: pick one habitat, read three facts together, and ask the child to pick a favourite and say why. Then ask a question the fact raises — if a dolphin sleeps with half its brain awake, what does the other half do? If a squirrel forgets its nuts, how do the trees grow? Questions matter more than answers at this age, and this encyclopedia is built to raise them. Let the child press the surprise button and read the fact aloud — owning the discovery makes it stick.</p>
+<p>For older children, turn the encyclopedia into a game. One person reads a fact without naming the animal, and the other guesses. Or pick two animals from different habitats and argue about which one is more surprising. Draw the animal from the fact, then check a picture and see what you got right. The facts are short on purpose: each one is a doorway, and the best use of a doorway is to walk through it into a book, a walk outside, or a visit to a zoo or a farm.</p>
+<h2>Common animal myths, corrected</h2>
+<p>Myths about animals spread because they are simple and memorable — and often wrong. Goldfish do not forget in three seconds. Bats are not blind; most see well and use echolocation as well. Ostriches do not bury their heads in the sand. Lemmings do not march off cliffs in great crowds. Each of these myths has a grain of truth — a goldfish's memory was once underestimated, a bat's eyes are small — but the myth grew far past the truth, and the truth is better.</p>
+<p>How do you tell a fact from a myth? Ask where it comes from. A fact you can find in a field guide, a wildlife book or a nature programme, stated the same way in more than one place, is worth trusting. A claim that appears only in jokes, cartoons or forwarded messages is worth doubting. This encyclopedia follows that rule: every fact here is a standard, widely published one, and where the science is still open, the fact says so. That honesty is what makes the surprising facts worth believing.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>What is the fastest animal?</h3>
+<p>The peregrine falcon is the fastest animal on Earth — in a hunting dive it can pass 300 kilometres an hour. On land, the cheetah is fastest, reaching about 60 to 70 kilometres an hour in short bursts. In water, the sailfish is among the quickest, at around 100 kilometres an hour.</p>
+</div>
+<div class="faq">
+<h3>Do goldfish really forget in 3 seconds?</h3>
+<p>No — that is a myth. Goldfish remember things for months, not seconds, and they can learn simple tasks, such as swimming through a hoop for food, and recognise the people who feed them. Their memory was once underestimated, and the three-second story stuck even though it is wrong.</p>
+</div>
+<div class="faq">
+<h3>Which animal sleeps the most?</h3>
+<p>Koalas sleep for around 20 hours a day, which is among the longest of any animal, because eucalyptus leaves give them very little energy and take a long time to digest. Brown bats sleep for about the same length of time. At the other end, giraffes and horses sleep for only a few hours a day.</p>
+</div>
+<div class="faq">
+<h3>Can animals really talk to each other?</h3>
+<p>Animals communicate in rich ways — calls, songs, dances, scents and gestures — but they do not use language the way people do. Honeybees tell each other where flowers are with a waggle dance, whales sing songs that travel for kilometres, and prairie dogs use different alarm calls for different predators.</p>
+</div>
+<div class="faq">
+<h3>What is the biggest animal on land?</h3>
+<p>The African savanna elephant is the largest land animal, with large males weighing around six tonnes and standing about three metres tall at the shoulder. The largest animal of all, on land or in water, is the blue whale, which can weigh far more than any land animal.</p>
+</div>
+<div class="faq">
+<h3>How do I use this encyclopedia with children?</h3>
+<p>Pick one habitat, read three facts together, and ask the child to choose a favourite and say why. Let the child press the surprise button and read the fact aloud. For older children, read a fact without naming the animal and let them guess, or draw the animal from the fact and then check a picture.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../pet-adoption-directory/">Pet Adoption Directory</a> · <a href="../recycling-guide-directory/">Recycling Guide Directory</a> · <a href="../sports-rules-encyclopedia/">Sports Rules Encyclopedia</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+(function () {
+  var FT = {};
+  var FACTS = [{"animal": "Blue whale", "habitat": "ocean", "fact": "The blue whale is the largest animal known to have ever lived, and its heart is about the size of a small car."}, {"animal": "Octopus", "habitat": "ocean", "fact": "An octopus has three hearts: two pump blood to the gills and one pumps blood to the rest of the body."}, {"animal": "Seahorse", "habitat": "ocean", "fact": "Male seahorses carry the babies — the female places her eggs in a pouch on the male, and he carries them until they hatch."}, {"animal": "Jellyfish", "habitat": "ocean", "fact": "A jellyfish has no brain, no heart and no bones, and jellyfish have drifted through the oceans for hundreds of millions of years."}, {"animal": "Clownfish", "habitat": "ocean", "fact": "Clownfish live safely among stinging sea anemones, protected by a special coat of mucus on their skin."}, {"animal": "Great white shark", "habitat": "ocean", "fact": "A great white shark can smell tiny amounts of blood in the water from far away, which helps it find food."}, {"animal": "Dolphin", "habitat": "ocean", "fact": "A dolphin sleeps with one half of its brain awake, so it keeps swimming and comes up to breathe."}, {"animal": "Sea turtle", "habitat": "ocean", "fact": "A female sea turtle returns to the same beach where she hatched, years later, to lay her own eggs."}, {"animal": "Starfish", "habitat": "ocean", "fact": "A starfish can grow back an arm it has lost, and some kinds can regrow a whole new body from a single arm."}, {"animal": "Emperor penguin", "habitat": "ocean", "fact": "Male emperor penguins keep the egg warm on their feet through the Antarctic winter while the female is away fishing."}, {"animal": "Coral", "habitat": "ocean", "fact": "Coral is a tiny animal, not a plant or a rock — coral reefs are built up by countless coral polyps over thousands of years."}, {"animal": "Sloth", "habitat": "forest", "fact": "A sloth moves so slowly that algae grows in its fur, which helps it blend in with the trees and hide from predators."}, {"animal": "Red-eyed tree frog", "habitat": "forest", "fact": "The red-eyed tree frog flashes its bright red eyes to startle predators, then leaps away while they are surprised."}, {"animal": "Toucan", "habitat": "forest", "fact": "A toucan's huge bill looks heavy, but it is mostly hollow and light, so the bird carries it easily."}, {"animal": "Owl", "habitat": "forest", "fact": "An owl can turn its head about 270 degrees, which lets it look almost all the way behind itself without moving its body."}, {"animal": "Deer", "habitat": "forest", "fact": "Male deer of most species grow a new set of antlers every year, shedding the old ones and growing bigger ones."}, {"animal": "Fox", "habitat": "forest", "fact": "A fox can hear a mouse squeaking from about 100 metres away, and it pounces with great accuracy on sounds it cannot see."}, {"animal": "Woodpecker", "habitat": "forest", "fact": "A woodpecker can peck about 20 times a second, and its long tongue wraps around its skull to cushion the shock."}, {"animal": "Squirrel", "habitat": "forest", "fact": "A squirrel buries thousands of nuts and forgets where many of them are — the forgotten nuts grow into new trees."}, {"animal": "Chameleon", "habitat": "forest", "fact": "A chameleon's tongue can be longer than its whole body, and its two eyes can look in different directions at once."}, {"animal": "Orangutan", "habitat": "forest", "fact": "Orangutans spend almost all of their lives in the trees, and their name means person of the forest in the Malay language."}, {"animal": "Firefly", "habitat": "forest", "fact": "A firefly's light is cold light — it is made without heat — and fireflies flash their lights to find a mate."}, {"animal": "Camel", "habitat": "desert", "fact": "A camel's humps store fat, not water, and a thirsty camel can drink a very large amount of water in just a few minutes."}, {"animal": "Fennec fox", "habitat": "desert", "fact": "The fennec fox has the largest ears of any fox, which release heat and let it hear prey moving underground."}, {"animal": "Kangaroo rat", "habitat": "desert", "fact": "A kangaroo rat can live its whole life without drinking water — it gets all the moisture it needs from the seeds it eats."}, {"animal": "Roadrunner", "habitat": "desert", "fact": "A roadrunner runs fast across the desert floor, at about 30 kilometres an hour, and it can catch and eat snakes."}, {"animal": "Gila monster", "habitat": "desert", "fact": "The gila monster is one of the few venomous lizards in the world, and it stores fat in its thick tail for lean times."}, {"animal": "Meerkat", "habitat": "desert", "fact": "Meerkats take turns standing guard on their hind legs while the rest of the group searches for food."}, {"animal": "Scorpion", "habitat": "desert", "fact": "A scorpion glows a bright blue-green colour under ultraviolet light, though scientists still debate why."}, {"animal": "Thorny devil", "habitat": "desert", "fact": "The thorny devil can drink through its skin — tiny grooves channel water from anywhere on its body to its mouth."}, {"animal": "Desert tortoise", "habitat": "desert", "fact": "A desert tortoise can store water in its bladder for months, saving it for the driest times of the year."}, {"animal": "Jerboa", "habitat": "desert", "fact": "A jerboa hops across the sand like a tiny kangaroo, using its long tail and big ears to balance and listen."}, {"animal": "Sidewinder", "habitat": "desert", "fact": "A sidewinder snake moves sideways across loose sand, leaving a trail of J-shaped tracks behind it."}, {"animal": "Peregrine falcon", "habitat": "sky", "fact": "The peregrine falcon is the fastest animal on Earth — in a hunting dive it can pass 300 kilometres an hour."}, {"animal": "Hummingbird", "habitat": "sky", "fact": "The hummingbird is the only bird that can fly backwards, and its wings can beat about 50 times a second or more."}, {"animal": "Wandering albatross", "habitat": "sky", "fact": "A wandering albatross can fly for hours without flapping its wings once, and its wingspan can reach about 3.5 metres."}, {"animal": "Honeybee", "habitat": "sky", "fact": "A honeybee tells other bees where to find flowers by performing a waggle dance that shows the direction and distance."}, {"animal": "Monarch butterfly", "habitat": "sky", "fact": "Monarch butterflies migrate thousands of kilometres, and the whole journey takes several generations to complete."}, {"animal": "Bat", "habitat": "sky", "fact": "A bat is the only mammal that can truly fly, and it finds its way in the dark by listening to the echoes of its own calls."}, {"animal": "Common swift", "habitat": "sky", "fact": "A common swift can stay in the air for months at a time, eating, drinking and even sleeping on the wing."}, {"animal": "Bald eagle", "habitat": "sky", "fact": "A bald eagle can see several times more sharply than a human, and can spot a fish from high above the water."}, {"animal": "Crow", "habitat": "sky", "fact": "Crows can use simple tools, solve puzzles, and remember the faces of people who have been kind or unkind to them."}, {"animal": "Homing pigeon", "habitat": "sky", "fact": "A homing pigeon can find its way home from hundreds of kilometres away, using the sun and the Earth's magnetic field."}, {"animal": "Dragonfly", "habitat": "sky", "fact": "A dragonfly can fly in any direction, including backwards and sideways, and dragonflies are older than the dinosaurs."}, {"animal": "Cow", "habitat": "farm", "fact": "A cow has four stomach compartments and spends hours every day chewing its cud to break down grass."}, {"animal": "Pig", "habitat": "farm", "fact": "Pigs are highly intelligent animals — they can learn simple tasks, remember them, and even learn their own names."}, {"animal": "Chicken", "habitat": "farm", "fact": "Hens talk to their chicks before they hatch, and chickens dream, just as people and other animals do."}, {"animal": "Goat", "habitat": "farm", "fact": "A goat's rectangular pupils give it a very wide view of the world, and goats are excellent climbers."}, {"animal": "Sheep", "habitat": "farm", "fact": "Sheep can recognise and remember the faces of other sheep and of people, sometimes for years."}, {"animal": "Horse", "habitat": "farm", "fact": "A horse can sleep standing up thanks to a special lock in its legs, but it lies down for deep sleep."}, {"animal": "Donkey", "habitat": "farm", "fact": "A donkey's long ears help it hear other donkeys over long distances and help it keep cool in hot weather."}, {"animal": "Duck", "habitat": "farm", "fact": "A duck's feathers stay waterproof thanks to oil the bird spreads with its beak, and ducklings follow the first moving thing they see."}, {"animal": "Rabbit", "habitat": "farm", "fact": "A rabbit's teeth never stop growing, so it must chew hay and other tough food every day to wear them down."}, {"animal": "Turkey", "habitat": "farm", "fact": "A turkey can see in colour and has a very wide field of vision, about 270 degrees around its head."}, {"animal": "Llama", "habitat": "farm", "fact": "A llama hums when it is calm or curious, and llamas have carried loads in the Andes mountains for thousands of years."}, {"animal": "Dog", "habitat": "home", "fact": "A dog's nose print is unique, like a human fingerprint, and a dog's sense of smell is far stronger than ours."}, {"animal": "Cat", "habitat": "home", "fact": "A cat almost always lands on its feet thanks to a fast righting reflex, and cats purr when they are content — and sometimes when they are hurt."}, {"animal": "Goldfish", "habitat": "home", "fact": "A goldfish remembers things for months, not three seconds, and can learn simple tasks such as swimming through a hoop for food."}, {"animal": "Hamster", "habitat": "home", "fact": "A hamster's cheek pouches can stretch to hold a surprising amount of food, which it carries back to its nest."}, {"animal": "Parrot", "habitat": "home", "fact": "Some parrots can learn hundreds of words, and the larger kinds can live for many decades with their owners."}, {"animal": "Guinea pig", "habitat": "home", "fact": "A happy guinea pig jumps straight up in the air — owners call it popcorning — and guinea pigs need vitamin C in their food, like people do."}, {"animal": "Budgerigar", "habitat": "home", "fact": "A budgerigar can learn to mimic words and tunes, and it can see ultraviolet light that people cannot see."}, {"animal": "Tortoise", "habitat": "home", "fact": "Some tortoises live for more than 100 years, and a tortoise can feel a gentle touch through its shell."}, {"animal": "Gecko", "habitat": "home", "fact": "A gecko can walk upside down on a ceiling thanks to millions of tiny hairs on its toes that grip smooth surfaces."}, {"animal": "Canary", "habitat": "home", "fact": "A male canary sings to attract a mate, and its song changes with the seasons through the year."}, {"animal": "Mouse", "habitat": "home", "fact": "A mouse can squeeze through a gap only a few millimetres wide, because its skull and ribs are small and flexible."}];
+  function searchFacts(query, habitat) {
+    var q = (query || "").toLowerCase().trim();
+    return FACTS.filter(function (f) {
+      if (habitat && habitat !== "all" && f.habitat !== habitat) return false;
+      if (!q) return true;
+      return (f.animal + " " + f.fact).toLowerCase().indexOf(q) !== -1;
+    });
+  }
+  function randomFact() {
+    return FACTS[Math.floor(Math.random() * FACTS.length)];
+  }
+  function habitatCounts() {
+    var counts = {};
+    FACTS.forEach(function (f) { counts[f.habitat] = (counts[f.habitat] || 0) + 1; });
+    return counts;
+  }
+  FT.FACTS = FACTS;
+  FT.searchFacts = searchFacts;
+  FT.randomFact = randomFact;
+  FT.habitatCounts = habitatCounts;
+  window.FT = window.FT || {};
+  for (var k in FT) { window.FT[k] = FT[k]; }
+  if (typeof document === "undefined") return;
+  var searchEl = document.getElementById("af-search");
+  var habEl = document.getElementById("af-habitat");
+  var surpriseBtn = document.getElementById("af-surprise");
+  var countEl = document.getElementById("af-count");
+  var resultsEl = document.getElementById("af-results");
+  function habitatLabel(h) {
+    return h.charAt(0).toUpperCase() + h.slice(1);
+  }
+  function render(list, label) {
+    if (!resultsEl) return;
+    resultsEl.textContent = "";
+    if (countEl) countEl.textContent = label;
+    list.slice(0, 12).forEach(function (f) {
+      var box = document.createElement("div");
+      box.className = "result";
+      var head = document.createElement("p");
+      var name = document.createElement("b");
+      name.textContent = f.animal;
+      var tag = document.createElement("span");
+      tag.className = "tag tag-yes";
+      tag.textContent = habitatLabel(f.habitat);
+      head.appendChild(name);
+      head.appendChild(tag);
+      var body = document.createElement("p");
+      body.textContent = f.fact;
+      box.appendChild(head);
+      box.appendChild(body);
+      resultsEl.appendChild(box);
+    });
+  }
+  function run() {
+    var list = searchFacts(searchEl ? searchEl.value : "", habEl ? habEl.value : "all");
+    var shown = Math.min(list.length, 12);
+    render(list, list.length === 0
+      ? "No facts match that search — try another word or habitat."
+      : "Showing " + shown + " of " + list.length + " facts.");
+  }
+  if (searchEl) searchEl.addEventListener("input", run);
+  if (habEl) habEl.addEventListener("change", run);
+  if (surpriseBtn) surpriseBtn.addEventListener("click", function () {
+    var f = randomFact();
+    render([f], "Surprise fact — " + f.animal + " (" + habitatLabel(f.habitat) + ").");
+  });
+  render(FACTS.slice(0, 6), "Showing 6 of " + FACTS.length + " facts — search or pick a habitat to explore.");
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

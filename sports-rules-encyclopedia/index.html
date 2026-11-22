@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sports Rules Encyclopedia — The Rules of the Games You Love | Funtasha</title>
+<meta name="description" content="Free sports rules encyclopedia — the basic rules of football, cricket, basketball, tennis and more, in plain words. No signup, phone friendly.">
+<link rel="canonical" href="https://funtasha.github.io/sports-rules-encyclopedia/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sports Rules Encyclopedia — The Rules of the Games You Love">
+<meta property="og:description" content="Free sports rules encyclopedia — the basic rules of football, cricket, basketball, tennis and more, in plain words. No signup, phone friendly.">
+<meta property="og:url" content="https://funtasha.github.io/sports-rules-encyclopedia/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+.result{border:1px solid #e2e8f0;border-radius:10px;padding:12px;margin:10px 0;background:#fff}
+.result b{font-size:16.5px}
+.result .tag{display:inline-block;font-size:13px;font-weight:700;padding:2px 10px;border-radius:999px;margin-left:8px}
+.tag-yes{background:#dcfce7;color:#166534}
+.tag-no{background:#fee2e2;color:#991b1b}
+.tag-drop{background:#fef9c3;color:#854d0e}
+.pitch{position:relative;width:100%;height:420px;background:#16a34a;border:3px solid #fff;border-radius:10px;margin:12px 0;overflow:hidden}
+.pitch .line{position:absolute;border:2px solid rgba(255,255,255,.8)}
+.dot{position:absolute;width:46px;height:46px;margin-left:-23px;margin-top:-23px;border-radius:50%;background:#fff;color:#166534;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:3px solid #166534;user-select:none}
+.dot.sel{background:#db2777;color:#fff;border-color:#fff}
+.poslist{display:grid;gap:8px;margin:12px 0}
+.poslist button{margin-top:0;text-align:left}
+.poslist button.sel{background:#0b7a4b}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long is a football match?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A football match lasts 90 minutes, in two halves of 45 minutes, plus stoppage time added by the referee for injuries and delays. Knockout matches that are level after 90 minutes usually go to extra time (two halves of 15 minutes) and then to a penalty shoot-out if still level."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is LBW in cricket?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LBW means leg before wicket. A batter is out LBW if the ball would have hit the stumps but instead hit the batter's leg (or body) first, provided the ball pitched in line and the batter was not offering a shot in some cases. It is one of the most argued-about rules in cricket."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does scoring work in tennis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Points go 15, 30, 40, then game, and a player must win by two points — at 40 all (deuce), a player must win two points in a row. Games make sets, usually first to 6 games by two, and matches are usually best of 3 or 5 sets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a foul in basketball?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A foul is illegal contact with an opponent — pushing, holding, tripping or charging. Personal fouls give the other team free throws or possession, and a player who commits five fouls (six in the NBA) is fouled out of the game. Travelling and double dribbling are violations, not fouls, and give the ball to the other team."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many players are in a volleyball team?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Six players from each team are on the court at once, and a squad usually has twelve players. Teams use rally scoring to 25 points (win by two), best of five sets, and players rotate positions as they win the serve."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do I find the official rules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The cards on this page link to the official bodies for each sport — FIFA for football, the ICC for cricket, FIBA for basketball, the ITF for tennis, and the rest. Their rulebooks are the final word, and they are free to read online."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Sports Rules Encyclopedia</h1>
+<p class="answer">This encyclopedia explains the basic rules of twelve sports in plain words — how each game is played, how scoring works, and the main fouls. These are the rules for beginners and fans, and the official rulebooks always win in a real match.</p>
+<div class="calc">
+<label for="sr-search">Search the encyclopedia</label>
+<input id="sr-search" type="text" placeholder="Try tennis, offside or try" autocomplete="off">
+<label for="sr-sport">Or pick a sport</label>
+<select id="sr-sport">
+<option value="all">All sports</option>
+<option value="Football">Football</option>
+<option value="Cricket">Cricket</option>
+<option value="Basketball">Basketball</option>
+<option value="Tennis">Tennis</option>
+<option value="Badminton">Badminton</option>
+<option value="Volleyball">Volleyball</option>
+<option value="Hockey">Hockey</option>
+<option value="Rugby union">Rugby union</option>
+<option value="Baseball">Baseball</option>
+<option value="Table tennis">Table tennis</option>
+<option value="Swimming races">Swimming races</option>
+<option value="Athletics">Athletics</option>
+</select>
+<div class="out" id="sr-count" aria-live="polite"></div>
+<div id="sr-results"></div>
+</div>
+<div class="warn">These are the basic rules for beginners and fans — the official rulebooks win in a real match. Rules change from time to time, so check the official source linked below for the current version.</div>
+<h2>How to use this encyclopedia</h2>
+<p>Pick a sport from the list above, or type a word in the search box — try "offside", "try" or "set". Each sport has the same four parts: how many players, how to play, how to score, and the main fouls. Read the four parts together and you will understand enough to follow a match, even if you have never watched the sport before. The cards below link to the official rule sources for each sport, so you can check the full rulebook whenever you want the last word.</p>
+<p>These are the basic rules, written for beginners and fans. Real rulebooks are long, detailed documents full of exceptions, and this page does not try to replace them. What it does is give you the shape of each game: what the players are trying to do, how points are won and lost, and what the referee is watching for. Once you have the shape, the details make sense when you meet them.</p>
+<div class="cards">
+<a class="card" href="https://www.fifa.com/"><b>FIFA</b><span>Football's world governing body — the Laws of the Game and official football rules.</span></a>
+<a class="card" href="https://www.icc-cricket.com/"><b>ICC</b><span>The International Cricket Council — official cricket rules and playing conditions.</span></a>
+<a class="card" href="https://www.fiba.basketball/"><b>FIBA</b><span>The International Basketball Federation — official basketball rules.</span></a>
+<a class="card" href="https://www.itftennis.com/"><b>ITF</b><span>The International Tennis Federation — the official rules of tennis.</span></a>
+<a class="card" href="https://bwfbadminton.com/"><b>BWF</b><span>The Badminton World Federation — official badminton laws and regulations.</span></a>
+<a class="card" href="https://www.fivb.com/"><b>FIVB</b><span>The International Volleyball Federation — official volleyball rules.</span></a>
+<a class="card" href="https://www.world.rugby/"><b>World Rugby</b><span>Rugby's world governing body — the laws of rugby union.</span></a>
+<a class="card" href="https://www.mlb.com/"><b>MLB</b><span>Major League Baseball — the official baseball rulebook.</span></a>
+<a class="card" href="https://www.ittf.com/"><b>ITTF</b><span>The International Table Tennis Federation — official table tennis rules.</span></a>
+<a class="card" href="https://www.worldaquatics.com/"><b>World Aquatics</b><span>The world governing body for swimming — official swimming rules and regulations.</span></a>
+<a class="card" href="https://worldathletics.org/"><b>World Athletics</b><span>The world governing body for athletics — official track and field rules.</span></a>
+</div>
+<h2>Team sports and individual sports</h2>
+<p>Team sports — football, cricket, basketball, volleyball, hockey, rugby, baseball — share a pattern: two sides, a shared ball or puck, and a contest for territory. The rules mostly exist to keep that contest fair: offside rules stop players camping by the goal, foul rules stop the stronger team simply pushing the weaker one around, and time rules stop a winning team from hiding the ball forever. Learn one team sport well and the next one comes faster, because the ideas repeat.</p>
+<p>Individual sports — tennis, badminton, table tennis, swimming races, athletics — are simpler to follow but harder to play well. There is no teammate to cover a mistake, and the rules are mostly about the contest itself: the ball must land in, the serve must be fair, the start must be clean. The scoring in these sports is often the confusing part — tennis goes 15, 30, 40 for reasons nobody quite agrees on — so this encyclopedia spends extra time on how scoring works in each one.</p>
+<h2>How scoring works</h2>
+<p>Scoring systems fall into a few families. The simplest is goals or runs: one goal is one point, and the team with more wins — football, hockey and baseball all work this way, with runs in cricket and baseball adding variety. Then there is points scoring, where different actions are worth different amounts: basketball gives 2, 3 or 1 point depending on the shot, and rugby gives 5 for a try, 2 for a conversion and 3 for a penalty or drop goal.</p>
+<p>Then there is set scoring, used by tennis, badminton, volleyball and table tennis: win points to win games, win games to win sets, win sets to win the match. The "win by two" rule appears in all of these, because a one-point win at the end of a long contest feels wrong — the winner has to prove it twice. And then there is time and distance: in swimming and athletics, the clock and the tape measure decide, and the rules are mostly about fair starts and legal technique.</p>
+<h2>Fouls: what they are and why they matter</h2>
+<p>Every sport has fouls, and every foul exists for one of three reasons: safety, fairness, or the shape of the game. Safety fouls — high tackles in rugby, dangerous play in hockey, charging in basketball — protect players from injury. Fairness fouls — handball in football, double dribbling in basketball, a foot fault in tennis — stop players gaining an advantage the game did not intend. And shape fouls — offside in football, a forward pass in rugby — keep the game looking like itself: without the offside rule, football would become a game of long balls to a striker standing by the goal.</p>
+<p>Penalties for fouls scale with seriousness. A small foul usually costs possession or a point. A repeated or serious foul earns a card, a free throw, or a spell off the field. The worst fouls earn a sending off. When you watch a match and the referee blows the whistle, ask which of the three reasons applies — it makes the decision easier to understand, and it makes you a better watcher.</p>
+<h2>How to use this page while watching a match</h2>
+<p>Keep this page open on your phone during a match you do not know well. When something confusing happens — a whistle, a card, a strange score — search for the word you heard: "LBW", "offside", "fault", "try". Read the four parts for that sport, and the moment usually makes sense. The search box is the fastest route: it searches the rules, not just the sport names, so a word from the commentary will usually find the right entry.</p>
+<p>A good habit is to read the rules for one sport before you watch it, rather than during it. Five minutes with the football entry before a match teaches you the offside rule, the card system and the shape of the game, and the match becomes far more interesting. After the match, read the entry again — the parts that were abstract before the game will now have faces and moments attached to them, and they will stick.</p>
+<h2>Worked example: following a football match</h2>
+<p>You are watching your first football match. In the first half, a player is shown a yellow card for a late tackle — a warning, and a second yellow in the same match means a red card and sending off. Then a goal is disallowed for offside: the scorer was ahead of the last defender when the ball was played, which the offside rule forbids. In the second half, a defender handles the ball in the penalty area, and the referee points to the spot — a penalty kick from twelve yards, with only the goalkeeper to beat.</p>
+<p>None of these moments needs an expert to understand. The card system, the offside rule and the penalty are all in the football entry above, in plain words. By the end of the match you have seen all three in action, and the next match will be easier still. That is how sports knowledge grows — one rule, one match, one moment at a time.</p>
+<h2>Worked example: understanding a cricket score</h2>
+<p>A cricket score looks like a code until someone explains it: "England 287 for 6" means England have scored 287 runs and lost 6 of their 10 wickets. A wicket is a batter getting out, and a team has ten wickets to spend. When you hear "LBW", it means leg before wicket: the batter is out because the ball would have hit the stumps but hit the batter's leg instead. A "four" is a ball hit to the boundary, worth 4 runs; a "six" is a ball hit over the boundary without bouncing.</p>
+<p>With those few facts, a cricket scorecard opens up. You can see who is batting well, who is bowling well, and whether the batting team is ahead or behind. The cricket entry above covers the rest — how runs are scored, the ways to get out, and why matches come in so many different lengths. Cricket rewards the patient watcher more than almost any other sport.</p>
+<h2>Common rule myths, corrected</h2>
+<p>Sports are full of myths that sound true. "A football match is always 90 minutes" — no, stoppage time is added for injuries and delays, and knockout matches can go to extra time and penalties. "A tennis player wins a set at 6 games" — usually, but they must win by two games, and a tiebreak decides a set at 6 games all in most formats. "You cannot use your hands in football" — the goalkeeper can, inside the penalty area, and a throw-in is taken with the hands.</p>
+<p>Other myths are older. "Cricket takes five days" — only Test matches do; many matches last a few hours. "Basketball players can take as many steps as they like" — no, travelling is a violation, and the rule is enforced. The way to settle any of these is the same: check the official rulebook. The cards on this page link to the official bodies for each sport, and their word is final.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>How long is a football match?</h3>
+<p>A football match lasts 90 minutes, in two halves of 45 minutes, plus stoppage time added by the referee for injuries and delays. Knockout matches that are level after 90 minutes usually go to extra time (two halves of 15 minutes) and then to a penalty shoot-out if still level.</p>
+</div>
+<div class="faq">
+<h3>What is LBW in cricket?</h3>
+<p>LBW means leg before wicket. A batter is out LBW if the ball would have hit the stumps but instead hit the batter's leg (or body) first, provided the ball pitched in line and the batter was not offering a shot in some cases. It is one of the most argued-about rules in cricket.</p>
+</div>
+<div class="faq">
+<h3>How does scoring work in tennis?</h3>
+<p>Points go 15, 30, 40, then game, and a player must win by two points — at 40 all (deuce), a player must win two points in a row. Games make sets, usually first to 6 games by two, and matches are usually best of 3 or 5 sets.</p>
+</div>
+<div class="faq">
+<h3>What is a foul in basketball?</h3>
+<p>A foul is illegal contact with an opponent — pushing, holding, tripping or charging. Personal fouls give the other team free throws or possession, and a player who commits five fouls (six in the NBA) is fouled out of the game. Travelling and double dribbling are violations, not fouls, and give the ball to the other team.</p>
+</div>
+<div class="faq">
+<h3>How many players are in a volleyball team?</h3>
+<p>Six players from each team are on the court at once, and a squad usually has twelve players. Teams use rally scoring to 25 points (win by two), best of five sets, and players rotate positions as they win the serve.</p>
+</div>
+<div class="faq">
+<h3>Where do I find the official rules?</h3>
+<p>The cards on this page link to the official bodies for each sport — FIFA for football, the ICC for cricket, FIBA for basketball, the ITF for tennis, and the rest. Their rulebooks are the final word, and they are free to read online.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../football-formation-planner/">Football Formation Planner</a> · <a href="../animal-facts-encyclopedia/">Animal Facts Encyclopedia</a> · <a href="../academic-journal-directory/">Academic Journal Directory</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+(function () {
+  var FT = {};
+  var SPORTS = [{"name": "Football", "players": "11 players a side", "play": "Two teams try to score by getting the ball into the other team's goal, using any part of the body except the hands and arms. Only the goalkeeper may use hands, and only inside the penalty area. A match lasts 90 minutes in two halves of 45 minutes.", "score": "One goal equals one point; the team with more goals wins. If scores are level, some matches go to extra time and then a penalty shoot-out.", "fouls": "Tripping, pushing, holding and handball are fouls. Serious fouls earn a yellow card, and two yellow cards (or a very serious foul) earn a red card and sending off."}, {"name": "Cricket", "players": "11 players a side", "play": "One team bats and the other bowls and fields. Batters score runs by running between the wickets, or by hitting the ball to the boundary (4 runs) or over it (6 runs). Bowlers try to get batters out, and fielders try to catch the ball.", "score": "The team with more runs wins. Matches come in many lengths, from a few hours to five days, and each format has its own rules for how long each team bats.", "fouls": "Ways to be out include being bowled, caught, run out and LBW (leg before wicket). A bowler may not overstep the crease (a no-ball) or bowl too wide (a wide)."}, {"name": "Basketball", "players": "5 players a side", "play": "Two teams score by shooting the ball through a hoop about 3 metres high. Players move the ball by dribbling or passing, and the attacking team must shoot within a time limit — 24 seconds in most top leagues.", "score": "A basket inside the arc is worth 2 points, beyond the arc 3 points, and a free throw 1 point. The team with more points wins.", "fouls": "Illegal contact is a personal foul. Travelling (moving without dribbling) and double dribbling are violations that give the ball to the other team. Five fouls (six in the NBA) means a player is fouled out."}, {"name": "Tennis", "players": "Singles (1 v 1) or doubles (2 v 2)", "play": "Players hit the ball over a net into the other side of the court, and the other player must return it before it bounces twice. Serves alternate between players, and players change ends regularly.", "score": "Points go 15, 30, 40, then game, and a player must win by two points. Games make sets (usually first to 6, by two), and matches are usually best of 3 or 5 sets.", "fouls": "A ball that lands outside the lines is out. A serve that misses twice in a row (a double fault) loses the point."}, {"name": "Badminton", "players": "Singles or doubles", "play": "Players hit a shuttlecock over a high net, and the other side must return it before it touches the floor. The shuttlecock must land inside the court lines, and the serve must go diagonally.", "score": "Rally scoring: every rally wins a point, and games go to 21 points (win by 2). Matches are usually best of 3 games.", "fouls": "Hitting the net, hitting the shuttlecock twice, or letting it land outside the court loses the rally."}, {"name": "Volleyball", "players": "6 players a side", "play": "Teams hit a ball over a high net, and each side may touch it at most three times before sending it back. Players rotate positions as they win the serve, and the ball must not touch the floor on your side.", "score": "Rally scoring to 25 points (win by 2), best of 5 sets; the fifth set goes to 15 points.", "fouls": "Touching the net, stepping over the line on serve, or a fourth touch on one side loses the rally."}, {"name": "Hockey", "players": "11 players a side", "play": "Two teams use curved sticks to hit a small hard ball into a goal. Only the flat side of the stick may be used, and the ball must be struck from inside the shooting circle to count as a goal.", "score": "One goal equals one point. Matches last 60 minutes in four quarters of 15 minutes.", "fouls": "Raising the stick dangerously, obstructing an opponent, and using the body to stop the ball are fouls. Serious fouls near the goal earn a penalty corner or a penalty stroke."}, {"name": "Rugby union", "players": "15 players a side", "play": "Two teams carry or kick an oval ball toward the other team's line. The ball may only be passed backwards by hand, but it may be kicked forwards. Play rarely stops, and tackles lead to rucks and mauls.", "score": "A try (touching the ball down over the line) is worth 5 points, a conversion kick 2 points, and a penalty or drop goal 3 points. Matches last 80 minutes.", "fouls": "A forward pass, a high tackle, and offside are fouls. Serious fouls earn a yellow card (10 minutes off the field) or a red card."}, {"name": "Baseball", "players": "9 players a side", "play": "A pitcher throws the ball to a batter, who tries to hit it and run around four bases. The fielding team tries to get three outs, then the teams swap. A game has 9 innings.", "score": "A player scores a run by touching all four bases and returning home. The team with more runs after 9 innings wins.", "fouls": "Three strikes and the batter is out; a caught fly ball is an out; a runner can be tagged or forced out. Four bad pitches (balls) earn a walk to first base."}, {"name": "Table tennis", "players": "Singles or doubles", "play": "Players hit a small light ball over a low net on a table, and the ball must bounce once on each side. Serves alternate every two points, and the server must throw the ball up before hitting it.", "score": "Games go to 11 points (win by 2), and matches are usually best of 5 or 7 games.", "fouls": "A serve that misses the table, a return that hits the net, or touching the table with a free hand loses the point."}, {"name": "Swimming races", "players": "Individuals (or relay teams of 4)", "play": "Swimmers race in lanes, starting from blocks (except backstroke, which starts in the water). Turns must touch the wall, and the rules of each stroke — freestyle, backstroke, breaststroke, butterfly — must be followed.", "score": "The fastest time wins; in most races the first swimmer to touch the wall wins. In relays, four swimmers each swim one leg and the times are added.", "fouls": "A false start (leaving early) disqualifies a swimmer, as does an illegal stroke or turn, or leaving the lane."}, {"name": "Athletics", "players": "Individuals (or relay teams of 4)", "play": "Athletics covers track events (sprints, middle and long distance, hurdles, relays) and field events (jumps and throws). Each event has its own rules for starts, lanes and measurement.", "score": "Track events are won by the fastest time; field events by the longest jump or throw. In relays, four runners each run one leg.", "fouls": "A false start can disqualify a runner — in most senior races, one false start is enough. A jump or throw is a foul if the athlete crosses the take-off line or leaves the circle."}];
+  function getSport(name) {
+    for (var i = 0; i < SPORTS.length; i++) {
+      if (SPORTS[i].name === name) return SPORTS[i];
+    }
+    return null;
+  }
+  function searchSports(query) {
+    var q = (query || "").toLowerCase().trim();
+    if (!q) return SPORTS.slice();
+    return SPORTS.filter(function (s) {
+      return (s.name + " " + s.players + " " + s.play + " " + s.score + " " + s.fouls)
+        .toLowerCase().indexOf(q) !== -1;
+    });
+  }
+  FT.SPORTS = SPORTS;
+  FT.getSport = getSport;
+  FT.searchSports = searchSports;
+  window.FT = window.FT || {};
+  for (var k in FT) { window.FT[k] = FT[k]; }
+  if (typeof document === "undefined") return;
+  var searchEl = document.getElementById("sr-search");
+  var sportEl = document.getElementById("sr-sport");
+  var countEl = document.getElementById("sr-count");
+  var resultsEl = document.getElementById("sr-results");
+  function render(list, label) {
+    if (!resultsEl) return;
+    resultsEl.textContent = "";
+    if (countEl) countEl.textContent = label;
+    list.forEach(function (s) {
+      var box = document.createElement("div");
+      box.className = "result";
+      var head = document.createElement("p");
+      var name = document.createElement("b");
+      name.textContent = s.name;
+      var tag = document.createElement("span");
+      tag.className = "tag tag-yes";
+      tag.textContent = s.players;
+      head.appendChild(name);
+      head.appendChild(tag);
+      var play = document.createElement("p");
+      play.textContent = "How to play: " + s.play;
+      var score = document.createElement("p");
+      score.textContent = "How to score: " + s.score;
+      var fouls = document.createElement("p");
+      fouls.textContent = "Main fouls: " + s.fouls;
+      box.appendChild(head);
+      box.appendChild(play);
+      box.appendChild(score);
+      box.appendChild(fouls);
+      resultsEl.appendChild(box);
+    });
+  }
+  function run() {
+    var picked = sportEl ? sportEl.value : "all";
+    if (picked !== "all") {
+      var one = getSport(picked);
+      render(one ? [one] : [], one ? one.name + " — basic rules." : "Sport not found.");
+      return;
+    }
+    var list = searchSports(searchEl ? searchEl.value : "");
+    render(list, list.length === 0
+      ? "No sports match that search — try another word."
+      : "Showing " + list.length + " of " + SPORTS.length + " sports.");
+  }
+  if (searchEl) searchEl.addEventListener("input", function () {
+    if (sportEl) sportEl.value = "all";
+    run();
+  });
+  if (sportEl) sportEl.addEventListener("change", run);
+  render(SPORTS, "Showing all " + SPORTS.length + " sports — search or pick one to read its rules.");
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

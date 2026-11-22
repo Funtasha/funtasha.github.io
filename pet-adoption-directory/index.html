@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pet Adoption Directory — Find Your New Best Friend | Funtasha</title>
+<meta name="description" content="Free pet adoption directory — how adoption works, what to ask, and where to find shelters and rescue groups. No signup, phone friendly.">
+<link rel="canonical" href="https://funtasha.github.io/pet-adoption-directory/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pet Adoption Directory — Find Your New Best Friend">
+<meta property="og:description" content="Free pet adoption directory — how adoption works, what to ask, and where to find shelters and rescue groups. No signup, phone friendly.">
+<meta property="og:url" content="https://funtasha.github.io/pet-adoption-directory/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+.result{border:1px solid #e2e8f0;border-radius:10px;padding:12px;margin:10px 0;background:#fff}
+.result b{font-size:16.5px}
+.result .tag{display:inline-block;font-size:13px;font-weight:700;padding:2px 10px;border-radius:999px;margin-left:8px}
+.tag-yes{background:#dcfce7;color:#166534}
+.tag-no{background:#fee2e2;color:#991b1b}
+.tag-drop{background:#fef9c3;color:#854d0e}
+.pitch{position:relative;width:100%;height:420px;background:#16a34a;border:3px solid #fff;border-radius:10px;margin:12px 0;overflow:hidden}
+.pitch .line{position:absolute;border:2px solid rgba(255,255,255,.8)}
+.dot{position:absolute;width:46px;height:46px;margin-left:-23px;margin-top:-23px;border-radius:50%;background:#fff;color:#166534;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:3px solid #166534;user-select:none}
+.dot.sel{background:#db2777;color:#fff;border-color:#fff}
+.poslist{display:grid;gap:8px;margin:12px 0}
+.poslist button{margin-top:0;text-align:left}
+.poslist button.sel{background:#0b7a4b}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does pet adoption work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You browse animals at a shelter or on an adoption platform, fill in an application about your home and lifestyle, and meet the animal — often more than once. Many shelters then do a friendly home check, you pay an adoption fee and sign an agreement, and you take your new pet home. The whole process can take days or weeks, and the shelter supports you afterwards."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does adoption cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fees vary widely by country, shelter and animal, so always ask the shelter for its own figures. The fee usually covers vaccinations, microchipping, neutering and a health check, which makes adoption good value compared with paying for those things separately. Remember the ongoing costs too: food, routine vet visits and everyday care for the pet's whole life."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I adopt a puppy or an adult pet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Puppies and kittens are delightful and demanding — they need house training, chewing time and someone around for much of the day. An adult pet's character is already known, which makes matching easier, and an older pet is often calm and trained. For a first-time owner or a calm household, an adult or senior pet is often the best choice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What questions should I ask the shelter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ask about health (vaccinations, microchip, neutering, ongoing treatment), behaviour with children and other animals, and why the animal was given up. Ask what food it eats, what the fee covers, what support you get after adoption, and whether the shelter will take the animal back if things do not work out. Write your questions down before you visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do I need before bringing a pet home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Food and bowls, a bed in a quiet corner, a lead and collar for a dog or a litter tray for a cat, toys, and a vet visit booked for the first week. Set up a safe room or corner before the animal arrives, and write down the feeding routine so the whole household follows it. The checklist at the top of this page covers everything."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I adopt if I live in a flat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — many pets suit flat living, including cats and smaller or calmer dogs. Check first that your landlord and your building allow pets, and be honest with the shelter about your space and your working hours. What matters most is exercise, attention and routine, not the size of the home, and the shelter can suggest animals that fit flat life well."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Pet Adoption Directory</h1>
+<p class="answer">Adopting a pet means giving a home to an animal that needs one, and this directory shows you how the process works from first visit to first week at home. It lists well-known adoption routes and the questions to ask, so you can choose with confidence.</p>
+<div class="calc">
+<label for="pa-pet">What pet are you hoping to adopt?</label>
+<select id="pa-pet">
+<option value="dog">A dog</option>
+<option value="cat">A cat</option>
+<option value="small">A small pet (rabbit, guinea pig, bird)</option>
+</select>
+<label for="pa-home">Where do you live?</label>
+<select id="pa-home">
+<option value="house">A house with a garden or yard</option>
+<option value="flat">A flat with no garden</option>
+<option value="shared">Shared housing or a small space</option>
+</select>
+<label for="pa-exp">Have you kept a pet before?</label>
+<select id="pa-exp">
+<option value="first">No, this would be my first pet</option>
+<option value="some">Yes, I have kept pets before</option>
+</select>
+<label for="pa-time">How much time are you home during the day?</label>
+<select id="pa-time">
+<option value="home">I am home most of the day</option>
+<option value="out">I am out at work or school most of the day</option>
+</select>
+<button id="pa-find" type="button">Find my adoption routes</button>
+<div class="out" id="pa-out" aria-live="polite"></div>
+<div class="steps" id="pa-plan"></div>
+<button id="pa-copy" type="button">Copy my adoption plan</button>
+<p><strong>First-week checklist</strong> — tick each item as you get it ready. Your ticks save on this device.</p>
+<div id="pa-checks"></div>
+</div>
+<div class="warn">This page lists adoption routes and guidance — it does not hold animals itself and does not take adoption applications. Fees and checks vary by shelter and by country, so always confirm the details with the shelter before you visit.</div>
+<h2>Where to look for a pet to adopt</h2>
+<p>Most adoptions start in one of a few places: a local animal shelter, a breed-specific rescue group, a national adoption platform, or a vet or community noticeboard. Shelters are the most direct route — you walk in, meet the animals, and talk to the people who feed and care for them every day. A national platform is useful when you want to compare many shelters at once, because it lists animals from lots of different rescues in one search. Breed-specific rescues suit people who want a particular breed and the deep knowledge that comes with it, while a noticeboard is often how cats and small pets find new homes locally.</p>
+<p>The cards below link to well-known adoption platforms and charities. They are starting points for your search, not shops — every one of them will ask you questions, and most will want to meet you before an animal goes home. That is a good sign. A careful shelter is a shelter that wants the match to last, and the questions protect both you and the animal.</p>
+<div class="cards">
+<a class="card" href="https://www.petfinder.com/"><b>Petfinder</b><span>A large adoption listing service — search for dogs, cats and other pets by place and type, then contact the shelter that holds the animal.</span></a>
+<a class="card" href="https://www.rspca.org.uk/"><b>RSPCA</b><span>The Royal Society for the Prevention of Cruelty to Animals — shelters and rehoming across England and Wales, with advice on pet care.</span></a>
+<a class="card" href="https://www.aspca.org/"><b>ASPCA</b><span>The American Society for the Prevention of Cruelty to Animals — adoption, rescue and pet care guidance in the United States.</span></a>
+<a class="card" href="https://www.dogstrust.org.uk/"><b>Dogs Trust</b><span>The United Kingdom's largest dog welfare charity — rehoming centres across the country and help for new dog owners.</span></a>
+<a class="card" href="https://www.battersea.org.uk/"><b>Battersea</b><span>A well-known animal rescue centre in London — dogs and cats looking for homes, with a careful matching process.</span></a>
+<a class="card" href="https://www.adoptapet.com/"><b>Adopt-a-Pet</b><span>A North American adoption listing service — search shelters and rescue groups near you by animal and location.</span></a>
+</div>
+<h2>How shelters and rescue groups work</h2>
+<p>A shelter takes in animals that are lost, given up, or rescued from bad situations, and looks after them until a new home is found. Staff feed them, give them medical care, and learn their characters — which animals like children, which need a quiet home, which cannot live with cats. When you visit, the staff match what they know about each animal against what you tell them about your home and your day. A good match matters more than a quick one, and a good shelter will say no to a poor match even when you have fallen in love with a particular face.</p>
+<p>Rescue groups work in a similar way but are often smaller and run by volunteers. Many keep animals in foster homes rather than in kennels, so the animal lives in a real house while it waits. That has a real advantage: the foster carer can tell you how the animal behaves at home, at night, and around the television, not just in a kennel. Some rescues specialise — one breed, one species, older animals, or animals with medical needs — and their knowledge runs deep. Ask how long the group has been running and how it supports adopters after the animal goes home.</p>
+<h2>The adoption process, step by step</h2>
+<p>The process usually follows the same shape everywhere. First, you browse and make a shortlist, either online or in person. Then you fill in an application with honest answers about your home, your working hours, other pets, and children in the house. The shelter reads it and invites you to meet the animal — sometimes more than once — so both sides can see how it feels. Many shelters then do a home check, which is a friendly visit to confirm the home is safe and suitable, not an inspection of your housekeeping. If all goes well, you pay the adoption fee, sign an agreement, and take your new companion home.</p>
+<p>Some steps surprise first-time adopters. A shelter may ask for proof that your landlord allows pets, or that your garden fence is secure. Some ask for the name of your vet. None of this is meant to catch you out — the shelter is trying to prevent the animal coming back in a month. If an application is refused, ask why. Often the reason is a simple mismatch, such as an energetic young dog in a flat with no garden, and the shelter can point you to an animal that fits better. The whole process can take days or weeks, and the waiting is worth it.</p>
+<h2>How to choose the right pet for your life</h2>
+<p>Start with your life, not with a face. How many hours a day is the house empty? Is there a garden, and is it fenced? Are there small children, or other pets? How much exercise can you honestly give every day, in winter as well as summer? A dog that needs two long walks a day will not be happy with a short stroll, and a cat that hates other cats will not be happy sharing a sofa with one. The route finder at the top of this page turns your answers into a shortlist of routes — use it as a starting point, then let the shelter staff narrow it down with you.</p>
+<p>Think about age as well as species. Puppies and kittens are delightful and exhausting: they need house training, they chew, and they need someone around for much of the day. An adult animal's character is already clear, which makes matching easier, and an older animal is often calm, trained, and grateful for a quiet home. Older animals wait longest in shelters, and they are often the best choice for a first-time owner or a calm household. Whatever you choose, plan for the animal's whole life — a dog or cat may share your home for well over a decade, and that is a promise worth making properly.</p>
+<h2>Questions to ask the shelter</h2>
+<p>Good questions make a good match. Ask about the animal's health: has it been vaccinated, microchipped, and neutered, and is there any ongoing treatment? Ask about behaviour: how does it behave with children, with other animals, and when left alone? Ask about its history: was it a stray, was it given up, and if so, why? The answer to "why was this animal given up" is often the most useful fact of all — sometimes it is a change in the owner's life, and sometimes it is a behaviour you need to know about.</p>
+<p>Ask practical questions too. What food is it eating now, and how much? What does the adoption fee cover? What happens if things do not work out — will the shelter take the animal back? A good shelter always says yes to that last question, and puts it in the agreement. Ask what support you get after adoption: many shelters offer a helpline, training advice, and a check-in call in the first weeks. Write your questions down before you visit, and take notes — in the excitement of meeting an animal, it is easy to forget half of them.</p>
+<h2>What adoption costs</h2>
+<p>Adoption usually involves a fee, and it is worth understanding what it covers. In most cases the fee pays for the medical care the animal has already had: vaccinations, microchipping, neutering, and a health check. When you add up what those things cost separately, the adoption fee is usually the cheaper path, and it also supports the shelter's work with the next animal. Fees vary a great deal by country, by shelter, and by animal — a puppy often costs more than an older dog, and a cat usually costs less than a dog — so always ask the shelter for its own figures rather than trusting a number you read online.</p>
+<p>The fee is only the beginning of the cost of a pet. Food, routine vet visits, flea and worm treatment, a bed, a lead or a litter tray, toys, and the occasional unexpected vet bill all add up over a pet's life. A realistic budget matters more than the adoption fee itself: a pet that is fed well and seen by a vet when it needs one is a happy pet. If money is tight, ask the shelter about help — some run low-cost vet clinics or food banks, and many are honest about which animals are cheapest to keep. A pet is a long-term commitment, and planning the cost is part of caring for it well.</p>
+<h2>Your first week together</h2>
+<p>The first week sets the tone for everything that follows, and the best rule is simple: keep it calm. Set up a quiet corner with a bed, water, and food before the animal arrives, and let it explore the house at its own pace. Keep the first days low-key — no parties, no long car rides, no introductions to every neighbour. Start the feeding routine at once, at the same times each day, and keep the same food the shelter used for the first week so the animal's stomach is not upset by change on top of change.</p>
+<p>Book a vet visit in the first week, even if the animal seems perfectly well — it is a chance to register, to check the microchip details, and to ask the questions that have come up since you got home. Use the checklist at the top of this page to make sure nothing is forgotten: food and bowls, a bed, a vet appointment, an ID tag, a lead or litter tray, toys, a safe space, and a written feeding routine for the whole household. If something worries you — the animal is not eating, or seems frightened — call the shelter. They would always rather hear from you early than late.</p>
+<h2>A family's first adoption, step by step</h2>
+<p>Imagine a family of four in a house with a small garden, looking for their first dog. They start with the route finder on this page and get three routes: their local shelter, a national platform, and a foster-to-adopt programme. On a Saturday they visit the shelter with a list of questions, and the staff suggest two dogs: a lively young terrier and a calm three-year-old mixed breed who loves children. The family meets both, twice, and the calmer dog wins — the children can walk her, and she settles quickly in the meeting room.</p>
+<p>The shelter does a home check the following week, confirms the garden fence is secure, and the family pays the fee and signs the agreement. They bring the dog home on a quiet Sunday, with a bed, food, and a lead already bought, and they follow the shelter's feeding plan exactly. The first night is restless — new smells, new sounds — but by the end of the week the dog has a routine, a favourite spot on the rug, and a vet appointment booked. Three months later, the family cannot remember the house without her. The steps were ordinary, and that is the point: a good adoption is mostly good planning, done calmly.</p>
+<h2>Common mistakes to avoid</h2>
+<p>The most common mistake is choosing by looks alone. A beautiful animal that needs two hours of exercise a day is a poor match for a household that is out all day, and the mismatch usually ends with the animal back at the shelter. The second mistake is rushing — adopting on the first visit, in the first flush of excitement, without the home check or the second meeting. The third is hiding the truth on the application: the shelter finds out anyway, and a match built on a half-truth rarely lasts.</p>
+<p>Other mistakes are smaller but still matter. Changing the food on day one upsets stomachs. Skipping the vet visit in the first week misses the chance to catch small problems early. Introducing a new pet to the resident cat or dog too fast, without a slow, supervised start, creates fights that are hard to undo. And forgetting the paperwork — microchip details, vaccination records, the adoption agreement — causes trouble later. The fix for all of these is the same: slow down, ask questions, and let the shelter help. They have done this hundreds of times, and they want your adoption to work as much as you do.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>How does pet adoption work?</h3>
+<p>You browse animals at a shelter or on an adoption platform, fill in an application about your home and lifestyle, and meet the animal — often more than once. Many shelters then do a friendly home check, you pay an adoption fee and sign an agreement, and you take your new pet home. The whole process can take days or weeks, and the shelter supports you afterwards.</p>
+</div>
+<div class="faq">
+<h3>How much does adoption cost?</h3>
+<p>Fees vary widely by country, shelter and animal, so always ask the shelter for its own figures. The fee usually covers vaccinations, microchipping, neutering and a health check, which makes adoption good value compared with paying for those things separately. Remember the ongoing costs too: food, routine vet visits and everyday care for the pet's whole life.</p>
+</div>
+<div class="faq">
+<h3>Should I adopt a puppy or an adult pet?</h3>
+<p>Puppies and kittens are delightful and demanding — they need house training, chewing time and someone around for much of the day. An adult pet's character is already known, which makes matching easier, and an older pet is often calm and trained. For a first-time owner or a calm household, an adult or senior pet is often the best choice.</p>
+</div>
+<div class="faq">
+<h3>What questions should I ask the shelter?</h3>
+<p>Ask about health (vaccinations, microchip, neutering, ongoing treatment), behaviour with children and other animals, and why the animal was given up. Ask what food it eats, what the fee covers, what support you get after adoption, and whether the shelter will take the animal back if things do not work out. Write your questions down before you visit.</p>
+</div>
+<div class="faq">
+<h3>What do I need before bringing a pet home?</h3>
+<p>Food and bowls, a bed in a quiet corner, a lead and collar for a dog or a litter tray for a cat, toys, and a vet visit booked for the first week. Set up a safe room or corner before the animal arrives, and write down the feeding routine so the whole household follows it. The checklist at the top of this page covers everything.</p>
+</div>
+<div class="faq">
+<h3>Can I adopt if I live in a flat?</h3>
+<p>Yes — many pets suit flat living, including cats and smaller or calmer dogs. Check first that your landlord and your building allow pets, and be honest with the shelter about your space and your working hours. What matters most is exercise, attention and routine, not the size of the home, and the shelter can suggest animals that fit flat life well.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../animal-facts-encyclopedia/">Animal Facts Encyclopedia</a> · <a href="../recycling-guide-directory/">Recycling Guide Directory</a> · <a href="../research-paper-organizer/">Research Paper Organizer</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+function copyText(text, btn) {
+  function done() {
+    if (!btn) return;
+    var old = btn.textContent;
+    btn.textContent = "Copied!";
+    setTimeout(function () { btn.textContent = old; }, 2000);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, btn, done); });
+  } else {
+    fallbackCopy(text, btn, done);
+  }
+}
+function fallbackCopy(text, btn, done) {
+  var ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); } catch (e) {}
+  document.body.removeChild(ta);
+  done();
+}
+
+(function () {
+  var FT = {};
+  var ROUTES = [
+    { id: "shelter", name: "Your local animal shelter",
+      blurb: "Meet dogs and cats in person, talk to the staff who know them, and take your time choosing." },
+    { id: "platform", name: "A national adoption platform",
+      blurb: "Browse animals from many shelters and rescues in one place, then contact the shelter that holds the animal." },
+    { id: "foster", name: "Foster-to-adopt",
+      blurb: "Take a pet home for a trial period first, with the shelter's support, before the adoption is final." },
+    { id: "breed", name: "A breed-specific rescue group",
+      blurb: "A rescue that knows one breed deeply — useful when you want a particular breed and expert matching." },
+    { id: "senior", name: "A senior pet programme",
+      blurb: "Older animals who need calm homes; their character is already known and they are often overlooked." },
+    { id: "notice", name: "A vet or community noticeboard",
+      blurb: "Local rehoming, often for cats and small pets, arranged directly with the current owner." }
+  ];
+  function recommendRoutes(pet, home, exp, time) {
+    var scored = ROUTES.map(function (r) {
+      var s = 0, why = [];
+      if (r.id === "shelter") { s += 3; why.push("a good first stop for any pet"); }
+      if (r.id === "platform") { s += 3; why.push("lets you compare many shelters at once"); }
+      if (r.id === "foster" && exp === "first") { s += 3; why.push("a trial period suits a first-time owner"); }
+      if (r.id === "foster" && time === "home") { s += 1; why.push("you are home to settle the pet in"); }
+      if (r.id === "breed" && exp === "some") { s += 2; why.push("your experience helps with a specific breed"); }
+      if (r.id === "senior" && time === "home") { s += 2; why.push("an older pet suits a calm home where someone is around"); }
+      if (r.id === "notice" && (pet === "cat" || pet === "small")) { s += 2; why.push("cats and small pets are often rehomed locally"); }
+      if (r.id === "notice" && home === "flat") { s += 1; why.push("local rehoming keeps the journey short"); }
+      if (r.id === "shelter" && home === "house") { s += 1; why.push("a house with a garden suits most shelter dogs"); }
+      return { route: r, score: s, why: why };
+    });
+    scored.sort(function (a, b) { return b.score - a.score; });
+    return scored.slice(0, 3);
+  }
+  function planText(pet, home, exp, time) {
+    var top = recommendRoutes(pet, home, exp, time);
+    var petWord = pet === "dog" ? "a dog" : (pet === "cat" ? "a cat" : "a small pet");
+    var lines = ["My adoption plan — " + petWord];
+    lines.push("Best routes for me:");
+    top.forEach(function (t, i) {
+      lines.push((i + 1) + ". " + t.route.name + " — " + t.route.blurb);
+    });
+    lines.push("Next step: contact the first route, ask about the adoption process, and arrange a visit.");
+    lines.push("Remember: this page lists routes and guidance only — it does not hold animals or take applications.");
+    return lines.join("\n");
+  }
+  var CHECKS = [
+    "Food, a food bowl and a water bowl",
+    "A bed in a quiet corner",
+    "A vet visit booked for the first week",
+    "An ID tag and a microchip check",
+    "A lead and collar (dog) or a litter tray (cat)",
+    "Toys and something safe to chew or scratch",
+    "A safe room or corner for the first days",
+    "A feeding routine written down for the household"
+  ];
+  var KEY = "ft-pet-adoption-directory-checks";
+  function loadChecks() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (e) {}
+    return CHECKS.map(function () { return false; });
+  }
+  function saveChecks(state) {
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  }
+  FT.ROUTES = ROUTES;
+  FT.recommendRoutes = recommendRoutes;
+  FT.planText = planText;
+  FT.CHECKS = CHECKS;
+  FT.loadChecks = loadChecks;
+  FT.saveChecks = saveChecks;
+  window.FT = window.FT || {};
+  for (var k in FT) { window.FT[k] = FT[k]; }
+  if (typeof document === "undefined") return;
+  var petEl = document.getElementById("pa-pet");
+  var homeEl = document.getElementById("pa-home");
+  var expEl = document.getElementById("pa-exp");
+  var timeEl = document.getElementById("pa-time");
+  var outEl = document.getElementById("pa-out");
+  var planEl = document.getElementById("pa-plan");
+  var findBtn = document.getElementById("pa-find");
+  var copyBtn = document.getElementById("pa-copy");
+  var checksEl = document.getElementById("pa-checks");
+  var state = loadChecks();
+  function renderChecks() {
+    if (!checksEl) return;
+    checksEl.textContent = "";
+    CHECKS.forEach(function (item, i) {
+      var row = document.createElement("div");
+      row.className = "checkrow";
+      var box = document.createElement("input");
+      box.type = "checkbox";
+      box.id = "pa-check-" + i;
+      box.checked = !!state[i];
+      box.addEventListener("change", function () {
+        state[i] = box.checked;
+        saveChecks(state);
+      });
+      var lab = document.createElement("label");
+      lab.setAttribute("for", "pa-check-" + i);
+      lab.textContent = item;
+      row.appendChild(box);
+      row.appendChild(lab);
+      checksEl.appendChild(row);
+    });
+  }
+  function showRoutes() {
+    if (!outEl || !planEl) return;
+    var top = recommendRoutes(petEl.value, homeEl.value, expEl.value, timeEl.value);
+    outEl.textContent = "Best routes for you: " + top.map(function (t) { return t.route.name; }).join(", ") + ".";
+    var lines = top.map(function (t, i) {
+      return (i + 1) + ". " + t.route.name + " — " + t.route.blurb + " (" + t.why.join("; ") + ").";
+    });
+    planEl.textContent = lines.join("\n");
+  }
+  if (findBtn) findBtn.addEventListener("click", showRoutes);
+  if (copyBtn) copyBtn.addEventListener("click", function () {
+    copyText(planText(petEl.value, homeEl.value, expEl.value, timeEl.value), copyBtn);
+  });
+  renderChecks();
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

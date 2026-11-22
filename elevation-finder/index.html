@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elevation Finder — How High Is This Place? | Funtasha</title>
+<meta name="description" content="Free elevation finder — look up the height of famous places and learn how elevation works. No signup, phone friendly.">
+<link rel="canonical" href="https://funtasha.github.io/elevation-finder/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Elevation Finder — How High Is This Place?">
+<meta property="og:description" content="Look up the height of famous mountains, cities and landmarks — and learn how elevation works.">
+<meta property="og:url" content="https://funtasha.github.io/elevation-finder/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+
+.calc button{min-height:72px}
+.calc input,.calc select,.calc textarea{min-height:72px}
+.calc textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:14px;margin-top:10px;text-align:left}
+.calc .result{font-size:16px;margin-top:14px}
+.cards{display:grid;gap:12px;margin:14px 0}
+.card{display:block;min-height:90px;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+.card strong{display:block;font-size:17px;color:#be185d}
+.card span{display:block;font-size:15px;color:#334155;margin-top:4px}
+.bar-track{background:#e2e8f0;border-radius:999px;height:22px;margin:6px 0 12px;overflow:hidden}
+.bar-fill{background:#db2777;height:100%;border-radius:999px}
+.list-item{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin:10px 0}
+.list-item p{margin:4px 0}
+.list-item .meta{font-size:14px;color:#64748b}
+.opt-btn{display:block;width:100%;text-align:left;margin-top:10px}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is elevation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elevation is how high a place sits above sea level, measured in metres or feet. A city at 2,240 metres stands 2,240 metres above the average level of the sea. Places below sea level, like the Dead Sea shore, have a negative elevation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the highest place on Earth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The summit of Mount Everest, at 8,849 metres above sea level. Fourteen mountains on Earth rise above 8,000 metres, and all of them are in the Himalaya and Karakoram ranges of Asia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is elevation measured?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Historically, surveyors measured height step by step from the nearest coast, using instruments and chains of triangles. Today, satellites measure elevation with radar and lasers, building maps of the whole planet. A phone's GPS can estimate height too, but its readings can easily be off by ten or twenty metres."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does elevation matter for weather?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Air gets colder as you go up — roughly six and a half degrees Celsius colder for every thousand metres — so high places are cooler than low ones at the same latitude. Elevation also shapes rain: wet air pushed up a mountain cools and drops its water, which is why one side of a range can be green and the other dry."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between elevation and altitude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elevation is the height of the ground above sea level. Altitude is the height of something in the air — a plane or a balloon — above sea level or above the ground. A mountain has an elevation; a plane flying over it has an altitude."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find the elevation of my town?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Search for it in the finder on this page — more than seventy famous places are listed. If your town is not there, use one of the official map tools linked in the cards above: search for the place on the map and read its elevation from the terrain view."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Elevation Finder</h1>
+<p class="answer">Look up the height of more than seventy famous mountains, cities and landmarks, in metres and feet, with a simple search. This page cannot measure the height of any other place — for that, use one of the official map tools linked below.</p>
+<div class="calc">
+<label for="place-search">Search a place</label>
+<input id="place-search" type="text" placeholder="Try Everest, La Paz or Uluru" autocomplete="off">
+<label for="place-filter">Show</label>
+<select id="place-filter">
+<option value="all">All places</option>
+<option value="mountain">Mountains</option>
+<option value="city">Cities</option>
+<option value="landmark">Landmarks and passes</option>
+</select>
+<p class="result" id="place-count"></p>
+<div id="place-results"></div>
+</div>
+<div class="warn">This page cannot measure the elevation of an arbitrary point without a map service — it gives a curated list of known places and links to official map tools for any other point. It never shows a made-up 'your elevation' number.</div>
+<div class="cards">
+<a class="card" href="https://www.google.com/maps"><strong>Google Maps</strong><span>Search any place and read its elevation from the terrain view.</span></a>
+<a class="card" href="https://www.openstreetmap.org/"><strong>OpenStreetMap</strong><span>A free world map with terrain and contour detail.</span></a>
+<a class="card" href="https://www.usgs.gov/"><strong>USGS</strong><span>The United States Geological Survey, home of detailed elevation data and maps.</span></a>
+</div>
+<h2>What elevation means</h2>
+<p>Elevation is how high a place sits above sea level, measured in metres or feet. When a city is listed at 2,240 metres, that means the ground beneath it is 2,240 metres above the average level of the sea. Sea level is the zero line for the whole system — every height on Earth is measured up from it, or down below it.</p>
+<p>Some places sit below sea level. The shore of the Dead Sea is about 430 metres below it, which is why its elevation is written as a negative number. Parts of the Netherlands and the city of New Orleans also sit below sea level, kept dry by dykes, pumps and levees. Below zero does not mean underwater — it means the land is lower than the sea beside it.</p>
+<p>Elevation is a property of the ground, not of the buildings on it. The elevation of a city is usually measured at a central point — often the main square or the town hall — and the real ground varies from street to street. A city listed at 1,400 metres will have neighbourhoods a little higher and a little lower. The numbers on this page are the widely published figures for each place, rounded to the nearest metre.</p>
+<h2>How elevation is measured</h2>
+<p>For most of history, elevation was measured by surveyors walking the land with instruments, measuring height step by step from the nearest coast. It was slow, careful work: a survey team would measure the height difference between two nearby points, then move on to the next pair, building a chain of measurements that could stretch for hundreds of kilometres. The great mountain heights — Everest, K2, Kangchenjunga — were first fixed this way, by teams working in brutal conditions with brass instruments and long chains of triangles.</p>
+<p>Today, satellites do most of the work. Radar and laser instruments in orbit measure the distance to the ground below, building elevation maps of the whole planet. A phone's GPS can also estimate elevation, though less precisely than it estimates position — a phone's height reading can easily be off by ten or twenty metres, which is why this page never asks your phone for its height. For the famous places in the finder, the published figures come from official surveys and satellite data, and they are the numbers used by maps, guidebooks and atlases everywhere.</p>
+<p>Sea level itself is not perfectly flat. The oceans bulge and dip with gravity, tides and currents, so surveyors use a standard model of sea level rather than the water at any one beach. That is why two honest sources can give slightly different elevations for the same place — they may be using different reference models, or measuring from a different point on the ground. A difference of a few metres is normal; a difference of hundreds of metres means one of the numbers is wrong.</p>
+<h2>Why elevation matters: weather</h2>
+<p>Elevation changes the weather you feel. Air gets colder as you go up — roughly six and a half degrees Celsius colder for every thousand metres — which is why mountain tops wear snow in countries where the valleys are warm. A city at 2,800 metres can feel chilly in the evening while a city at sea level in the same country is hot. If you are packing for a high place, pack for the height, not for the latitude.</p>
+<p>Elevation also changes the air itself. At 3,500 metres, the air holds only about two-thirds as much oxygen per breath as at sea level, which is why visitors to high cities often feel breathless climbing stairs for the first few days. At the height of Everest's summit, the air holds about a third as much oxygen — which is why climbers move slowly and many use extra oxygen. Your body adjusts over days and weeks, making more red blood cells, but the adjustment takes time and cannot be rushed.</p>
+<p>Rain and snow follow elevation too. When wet air meets a mountain, it is pushed upward, cools, and drops its water as rain or snow on the windward side — which is why one side of a mountain range can be green while the other side is a dry rain shadow. Farmers, pilots and hikers all read elevation for the same reason: height is one of the strongest controls on what the sky will do.</p>
+<h2>Why elevation matters: flying and hiking</h2>
+<p>Aircraft care about elevation because thin air gives wings less lift and engines less power. A runway at 4,000 metres needs to be much longer than the same runway at sea level, because a plane must go faster before its wings can lift it. High-altitude airports — La Paz, Lhasa, Leh — have some of the longest runways in the world for exactly this reason, and pilots train specially to fly into them.</p>
+<p>Hikers care about elevation for a simpler reason: every metre up is work. A walk that gains 1,000 metres of height is a serious day even for fit walkers, and altitude sickness can strike anyone above about 2,500 metres if they climb too fast. The standard advice is to climb high and sleep low, to gain no more than a few hundred metres of sleeping height per day once you are high, and to turn back if a headache, nausea or dizziness gets worse rather than better. Elevation is not just a number on a map — it is a physical fact your body has to deal with.</p>
+<p>Even everyday life changes with height. Water boils at a lower temperature high up — at 3,000 metres it boils at about 90 degrees Celsius — so cooking times stretch and a cup of tea never tastes quite right. Cars lose power, footballs fly further, and a simple flight of stairs can leave a visitor gasping. Knowing the elevation of a place before you go is one of the most practical things a traveller can do.</p>
+<h2>The highest and lowest places on Earth</h2>
+<p>The highest point on land is the summit of Everest, at 8,849 metres above sea level. Fourteen mountains on Earth rise above 8,000 metres, and all of them are in the Himalaya and Karakoram ranges of Asia. The highest capital city is La Paz in Bolivia, at about 3,640 metres, and the highest large city is El Alto, its neighbour, at about 4,150 metres. Millions of people live their whole lives above 3,500 metres — in the Andes, in the Himalaya, on the Tibetan Plateau — and their bodies are adapted to the thin air in ways visitors are not.</p>
+<p>The lowest dry land on Earth is the shore of the Dead Sea, at about 430 metres below sea level. The Dead Sea sits in a deep rift valley, and its water is so salty that swimmers float without trying. The lowest city of any size is Jericho, at about 258 metres below sea level. Below-sea-level land is rare, and most of it is in a handful of deep basins — the Dead Sea, Death Valley in California, the Caspian Depression — where the ground has dropped below the level of the oceans.</p>
+<p>Between those extremes lies almost everything humans do. Most of the world's people live below 500 metres, in river valleys and coastal plains. The finder on this page spans the full range, from the Dead Sea shore at minus 430 metres to the summit of Everest at 8,849 — a vertical range of more than nine kilometres, all of it places where people have stood.</p>
+<h2>How to use the finder</h2>
+<p>Type a place name in the search box — a mountain, a city or a landmark — and the list narrows at once to the places that match. You can also filter by kind: mountains only, cities only, or landmarks and passes only. Each result shows the elevation in metres and in feet, so the number makes sense whichever unit you grew up with.</p>
+<p>Use the finder to plan and to learn. Before a trip, look up your destination and pack for the height. Before a hike, check the height of the pass you will cross. In the classroom, compare a city you know with a city high in the mountains, and talk about why the weather, the cooking and the football are all different. The finder is a reference, not a game — but it is a reference that rewards browsing, and you will learn something from almost every entry.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li><strong>Mixing up elevation and altitude.</strong> Elevation is the height of the ground above sea level. Altitude is the height of something in the air — a plane, a balloon — above sea level or above the ground. A mountain has an elevation; a plane flying over it has an altitude.</li>
+<li><strong>Mixing up height and elevation.</strong> A building's height is measured from its base to its top. Its elevation is the height of the ground it stands on. A tall building in a low city can be lower, in absolute terms, than a short building on a hill.</li>
+<li><strong>Trusting a phone's height reading.</strong> Phone GPS is good at position and poor at height — readings can be off by ten or twenty metres. Use published figures, like the ones on this page, or an official map tool.</li>
+<li><strong>Assuming sea level is the same everywhere.</strong> The sea's surface is not a perfect flat sheet. Surveyors use a standard model, and small differences between sources are normal.</li>
+<li><strong>Forgetting that cities vary.</strong> A city's listed elevation is one central point. Neighbourhoods on hills and in valleys can differ by tens of metres from the published figure.</li>
+</ul>
+<h2>What this page cannot do</h2>
+<p>This page cannot measure the elevation of an arbitrary point — your house, your street, a hill you can see from your window — because that needs a map service with elevation data for the whole planet, and this page has no connection to one. What it gives you is a curated list of more than seventy famous places with their published elevations, and links to the official map tools where you can look up any other point. It will never show you a made-up number for a place it does not know, because a wrong elevation is worse than no elevation at all.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is elevation?</h3><p>Elevation is how high a place sits above sea level, measured in metres or feet. A city at 2,240 metres stands 2,240 metres above the average level of the sea. Places below sea level, like the Dead Sea shore, have a negative elevation.</p></div>
+<div class="faq"><h3>What is the highest place on Earth?</h3><p>The summit of Mount Everest, at 8,849 metres above sea level. Fourteen mountains on Earth rise above 8,000 metres, and all of them are in the Himalaya and Karakoram ranges of Asia.</p></div>
+<div class="faq"><h3>How is elevation measured?</h3><p>Historically, surveyors measured height step by step from the nearest coast, using instruments and chains of triangles. Today, satellites measure elevation with radar and lasers, building maps of the whole planet. A phone's GPS can estimate height too, but its readings can easily be off by ten or twenty metres.</p></div>
+<div class="faq"><h3>Why does elevation matter for weather?</h3><p>Air gets colder as you go up — roughly six and a half degrees Celsius colder for every thousand metres — so high places are cooler than low ones at the same latitude. Elevation also shapes rain: wet air pushed up a mountain cools and drops its water, which is why one side of a range can be green and the other dry.</p></div>
+<div class="faq"><h3>What is the difference between elevation and altitude?</h3><p>Elevation is the height of the ground above sea level. Altitude is the height of something in the air — a plane or a balloon — above sea level or above the ground. A mountain has an elevation; a plane flying over it has an altitude.</p></div>
+<div class="faq"><h3>How do I find the elevation of my town?</h3><p>Search for it in the finder on this page — more than seventy famous places are listed. If your town is not there, use one of the official map tools linked in the cards above: search for the place on the map and read its elevation from the terrain view.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../measurement-reference-encyclopedia/">Measurement Reference Encyclopedia</a> · <a href="../animal-facts-encyclopedia/">Animal Facts Encyclopedia</a> · <a href="../sports-rules-encyclopedia/">Sports Rules Encyclopedia</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+(function () {
+  window.FT = window.FT || {};
+  var RAW = [["Everest", "mountain", "Nepal–China", 8849], ["K2", "mountain", "Pakistan–China", 8611], ["Kangchenjunga", "mountain", "Nepal–India", 8586], ["Lhotse", "mountain", "Nepal–China", 8516], ["Makalu", "mountain", "Nepal–China", 8485], ["Cho Oyu", "mountain", "Nepal–China", 8188], ["Dhaulagiri", "mountain", "Nepal", 8167], ["Manaslu", "mountain", "Nepal", 8163], ["Nanga Parbat", "mountain", "Pakistan", 8126], ["Annapurna I", "mountain", "Nepal", 8091], ["Aconcagua", "mountain", "Argentina", 6961], ["Denali", "mountain", "United States (Alaska)", 6190], ["Kilimanjaro", "mountain", "Tanzania", 5895], ["Cotopaxi", "mountain", "Ecuador", 5897], ["Elbrus", "mountain", "Russia", 5642], ["Mount Kenya", "mountain", "Kenya", 5199], ["Mount Ararat", "mountain", "Turkey", 5137], ["Mont Blanc", "mountain", "France–Italy", 4808], ["Matterhorn", "mountain", "Switzerland–Italy", 4478], ["Mount Whitney", "mountain", "United States (California)", 4421], ["Mauna Kea", "mountain", "United States (Hawaii)", 4207], ["Mount Toubkal", "mountain", "Morocco", 4167], ["Mount Kinabalu", "mountain", "Malaysia", 4095], ["Mount Fuji", "mountain", "Japan", 3776], ["Mount Rinjani", "mountain", "Indonesia", 3726], ["Mount Etna", "mountain", "Italy (Sicily)", 3357], ["Mount Olympus", "mountain", "Greece", 2918], ["Mount Bromo", "mountain", "Indonesia", 2329], ["Mount Sinai", "mountain", "Egypt", 2285], ["Mount Kosciuszko", "mountain", "Australia", 2228], ["Ben Nevis", "mountain", "Scotland", 1345], ["Mount Vesuvius", "mountain", "Italy", 1281], ["Snowdon (Yr Wyddfa)", "mountain", "Wales", 1085], ["Table Mountain", "mountain", "South Africa", 1085], ["El Alto", "city", "Bolivia", 4150], ["Potosí", "city", "Bolivia", 4090], ["Lhasa", "city", "China (Tibet)", 3656], ["La Paz", "city", "Bolivia", 3640], ["Leh", "city", "India", 3500], ["Cusco", "city", "Peru", 3399], ["Quito", "city", "Ecuador", 2850], ["Sucre", "city", "Bolivia", 2810], ["Bogotá", "city", "Colombia", 2640], ["Addis Ababa", "city", "Ethiopia", 2355], ["Thimphu", "city", "Bhutan", 2334], ["Asmara", "city", "Eritrea", 2325], ["Sanaa", "city", "Yemen", 2250], ["Mexico City", "city", "Mexico", 2240], ["Darjeeling", "city", "India", 2042], ["Nairobi", "city", "Kenya", 1795], ["Kabul", "city", "Afghanistan", 1791], ["Johannesburg", "city", "South Africa", 1753], ["Denver", "city", "United States (Colorado)", 1609], ["Kathmandu", "city", "Nepal", 1400], ["Ulaanbaatar", "city", "Mongolia", 1350], ["Tehran", "city", "Iran", 1200], ["Ankara", "city", "Turkey", 938], ["Madrid", "city", "Spain", 667], ["Dhaka", "city", "Bangladesh", 4], ["Amsterdam", "city", "Netherlands", 2], ["New Orleans", "city", "United States (Louisiana)", -2], ["Baku", "city", "Azerbaijan", -28], ["Jericho", "city", "Palestine", -258], ["Thorong La", "landmark", "Nepal", 5416], ["Everest Base Camp (South)", "landmark", "Nepal", 5364], ["Khardung La", "landmark", "India", 5359], ["Lake Titicaca", "landmark", "Peru–Bolivia", 3812], ["Machu Picchu", "landmark", "Peru", 2430], ["Grand Canyon South Rim", "landmark", "United States (Arizona)", 2100], ["Uluru", "landmark", "Australia", 863], ["Badwater Basin, Death Valley", "landmark", "United States (California)", -86], ["Dead Sea shore", "landmark", "Jordan–Israel", -430]];
+  var PLACES = RAW.map(function (r) {
+    return { name: r[0], kind: r[1], where: r[2], m: r[3] };
+  });
+  function metresToFeet(m) {
+    return Math.round(m * 3.28084);
+  }
+  function fmt(n) {
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  function formatPlace(p) {
+    return p.name + " — " + fmt(p.m) + " m (" + fmt(metresToFeet(p.m)) + " ft)";
+  }
+  function searchPlaces(places, query, kind) {
+    var q = String(query == null ? "" : query).trim().toLowerCase();
+    return places.filter(function (p) {
+      var kOk = !kind || kind === "all" || p.kind === kind;
+      if (!kOk) return false;
+      if (!q) return true;
+      var hay = (p.name + " " + p.where + " " + p.kind).toLowerCase();
+      return hay.indexOf(q) >= 0;
+    });
+  }
+  window.FT.PLACES = PLACES;
+  window.FT.metresToFeet = metresToFeet;
+  window.FT.formatPlace = formatPlace;
+  window.FT.searchPlaces = searchPlaces;
+  if (typeof document !== "undefined" && document.querySelectorAll) {
+    var search = document.getElementById("place-search");
+    var filter = document.getElementById("place-filter");
+    var countEl = document.getElementById("place-count");
+    var results = document.getElementById("place-results");
+    function render() {
+      var shown = searchPlaces(PLACES, search.value, filter.value);
+      countEl.textContent = "Showing " + shown.length + " of " + PLACES.length + " places.";
+      results.innerHTML = "";
+      if (shown.length === 0) {
+        var p = document.createElement("p");
+        p.textContent = "No place matches that search. Try a shorter word, or use one of the official map tools below to look up any other place.";
+        results.appendChild(p);
+        return;
+      }
+      shown.forEach(function (place) {
+        var box = document.createElement("div");
+        box.className = "list-item";
+        var line = document.createElement("p");
+        line.textContent = formatPlace(place);
+        var meta = document.createElement("p");
+        meta.className = "meta";
+        meta.textContent = place.kind.charAt(0).toUpperCase() + place.kind.slice(1) + " · " + place.where;
+        box.appendChild(line);
+        box.appendChild(meta);
+        results.appendChild(box);
+      });
+    }
+    search.addEventListener("input", render);
+    filter.addEventListener("change", render);
+    render();
+  }
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Paper Organizer — Keep Every Paper, Note and Source in Order | Funtasha</title>
+<meta name="description" content="Free research paper organizer — track papers, notes and citations for your study or thesis, all in one place. No signup, phone friendly.">
+<link rel="canonical" href="https://funtasha.github.io/research-paper-organizer/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Research Paper Organizer — Keep Every Paper, Note and Source in Order">
+<meta property="og:description" content="Track every paper, note and source for your study or thesis — all in one place, in your browser.">
+<meta property="og:url" content="https://funtasha.github.io/research-paper-organizer/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+
+.calc button{min-height:72px}
+.calc input,.calc select,.calc textarea{min-height:72px}
+.calc textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:14px;margin-top:10px;text-align:left}
+.calc .result{font-size:16px;margin-top:14px}
+.cards{display:grid;gap:12px;margin:14px 0}
+.card{display:block;min-height:90px;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+.card strong{display:block;font-size:17px;color:#be185d}
+.card span{display:block;font-size:15px;color:#334155;margin-top:4px}
+.bar-track{background:#e2e8f0;border-radius:999px;height:22px;margin:6px 0 12px;overflow:hidden}
+.bar-fill{background:#db2777;height:100%;border-radius:999px}
+.list-item{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin:10px 0}
+.list-item p{margin:4px 0}
+.list-item .meta{font-size:14px;color:#64748b}
+.opt-btn{display:block;width:100%;text-align:left;margin-top:10px}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I organise research papers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Give every paper a title, a topic and a status — to read, reading or done — and keep the whole list in one place. Use a small set of broad topics, add notes in your own words, and filter by topic or status whenever the list grows long. A simple list you actually maintain beats a perfect system you abandon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What notes should I take from a paper?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three lines cover most papers: what the paper claims or finds, what evidence it offers, and how it might help your own work. Write them in your own words after reading, not by copying sentences. A paper with three lines of notes is one you can use without opening it again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I cite a source?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Put a short pointer in your text — usually the author and year — and give the full detail in a reference list at the end, so a reader can find the work. Cite whenever you use someone else's idea, finding or words, not only when you quote. When you are unsure whether to cite, cite."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a reference and a citation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A citation is the short pointer inside your writing, such as an author and year in brackets. A reference is the full entry in the list at the end — author, year, title and where the work was published. Every citation needs a matching reference, and every reference should be cited in the text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many papers do I need to read?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no fixed number — it depends on the assignment, the topic and how much has been published. A short essay may need five to ten solid sources; a thesis needs far more. Quality matters more than count: a few papers you understand well beat a long list you skimmed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I avoid losing my sources?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Record every paper the moment you find it, even if you only add the title. Keep the list in one place, back up your reference list by copying it into your own files, and never trust your memory or your browser history to find a paper again a month later."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Research Paper Organizer</h1>
+<p class="answer">Add every paper you read — title, author, year, topic, notes and status — and keep the whole list in one place that saves in your browser. Filter by topic or status, and copy a clean reference list whenever you need it.</p>
+<div class="calc">
+<label for="paper-title">Paper title</label>
+<input id="paper-title" type="text" placeholder="Title of the paper" autocomplete="off">
+<label for="paper-author">Author</label>
+<input id="paper-author" type="text" placeholder="Author or authors" autocomplete="off">
+<label for="paper-year">Year</label>
+<input id="paper-year" type="text" inputmode="numeric" placeholder="e.g. 2023" autocomplete="off">
+<label for="paper-topic">Topic</label>
+<input id="paper-topic" type="text" placeholder="Topic or subject" autocomplete="off">
+<label for="paper-notes">Notes</label>
+<textarea id="paper-notes" placeholder="Your notes in your own words"></textarea>
+<label for="paper-status">Status</label>
+<select id="paper-status">
+<option value="to read">To read</option>
+<option value="reading">Reading</option>
+<option value="done">Done</option>
+</select>
+<button id="add-btn" type="button">Add paper</button>
+<p class="result" id="paper-msg"></p>
+<label for="filter-topic">Filter by topic</label>
+<select id="filter-topic"><option value="all">All topics</option></select>
+<label for="filter-status">Filter by status</label>
+<select id="filter-status">
+<option value="all">All statuses</option>
+<option value="to read">To read</option>
+<option value="reading">Reading</option>
+<option value="done">Done</option>
+</select>
+<p class="result" id="paper-count"></p>
+<div id="paper-list"></div>
+<button id="copy-refs-btn" type="button">Copy reference list</button>
+<button id="clear-btn" type="button">Clear all papers</button>
+</div>
+<div class="warn">Papers are listed by you — this page does not download or host PDFs, and it cannot fetch a paper from the internet. Your list saves in this browser only, so copy your reference list somewhere safe before you clear your browser data.</div>
+
+<h2>What this page does</h2>
+<p>Research grows messy fast. One paper becomes ten, ten become forty, and soon you cannot remember which paper said what, where you saved it, or whether you have read it at all. This page keeps the whole pile in order: every paper gets a title, an author, a year, a topic, your own notes and a status — to read, reading, or done — and the list saves in your browser so it is still here tomorrow.</p>
+<p>You add papers one at a time, filter the list by topic or status, and copy a clean reference list whenever you need one. The list is yours: nothing is uploaded anywhere, no account is needed, and the page works entirely on your phone or computer. It is built for students, thesis writers and anyone who reads more than a handful of papers for a project.</p>
+<p>The page lists papers that you add yourself. It does not download or host PDFs, it cannot search the internet for papers, and it cannot fetch a paper's details from a title. What it does is simpler and, for most people, more useful: it gives every paper a place, a note and a status, so nothing gets lost between reading and writing.</p>
+<h2>How to use it</h2>
+<p>Add a paper by filling in what you know — the title is the only part that is required — and tapping "Add paper". The author, year, topic and notes are optional, but each one you add makes the list more useful later. A paper with a topic can be found by filtering; a paper with notes can be understood without opening it again.</p>
+<p>The status is the heart of the list. Mark a paper "To read" when you find it, "Reading" while you are working through it, and "Done" when you have finished and written your notes. At a glance you can see how much reading is left and what you have already covered. Tap the status on any paper to move it along, and use the delete button to remove a paper you no longer need.</p>
+<p>Filter the list whenever it grows long. The topic filter shows only papers on one subject; the status filter shows only what is left to read, or only what is done. When you need your sources in a document, tap "Copy reference list" — the page builds a simple numbered list of your papers in "Author (Year). Title." form, ready to paste. Check the list against your own notes before you submit anything: the page formats what you typed, and it can only be as accurate as the details you entered.</p>
+<h2>How to organise research that actually stays organised</h2>
+<p>Most research systems fail for the same reason: they ask for too much work at the moment you are busiest. A system that needs ten fields filled in for every paper will be abandoned by the third paper. This page asks for one thing — the title — and lets you add the rest when you have a moment. That is deliberate. A list with forty titles and short notes beats a perfect system with three papers in it.</p>
+<p>One folder per topic is the oldest good advice in research, and the topic filter here does the same job without any folders. Pick a small set of topics — three to six — and stick to them. "Climate", "Health" and "Education" are useful topics. "Climate change and farming in dry regions" is a thesis, not a topic, and it will hold exactly one paper. Broad topics group papers together; narrow topics scatter them.</p>
+<p>Keep the list honest. If you have not read a paper, leave it as "To read" — marking it done to feel better only cheats your future self. If a paper turned out to be useless, delete it or note why in the notes field, so you do not waste time re-reading it in a month. And once a week, spend five minutes tidying: move finished papers to "Done", fill in missing authors, and merge topics that mean the same thing.</p>
+<h2>How to take notes worth keeping</h2>
+<p>The notes field is the most valuable part of this page, and the easiest to skip. A paper without notes is a paper you will have to read twice. A paper with three lines of notes is a paper you can use without opening it again.</p>
+<p>Write notes in your own words, never by copying sentences from the paper. Copying feels like learning, but it is only moving text from one place to another — and it is the fastest route to accidental plagiarism later. Read a section, close the paper, and write down what it said as if you were explaining it to a friend. If you cannot explain it, you have not understood it yet, and that is useful to know.</p>
+<p>Three kinds of note cover almost everything. First, the claim: what does this paper argue or find, in one sentence? Second, the evidence: what did the authors actually do or measure? Third, the use: how might this paper help your own work — does it support your argument, challenge it, or give you a method to follow? A note with those three lines is worth more than a page of copied quotes.</p>
+<h2>How to cite a source</h2>
+<p>A citation is a short pointer inside your writing that tells the reader where an idea came from. A reference is the full detail at the end — author, year, title, and where the work was published — so the reader can find it. The citation points; the reference delivers. Every citation in your text needs a matching reference, and every reference should be cited somewhere in your text.</p>
+<p>The reference list this page copies out is a simple starting point: author, year and title, one paper per line. Real reference styles — the exact order, punctuation and italics — depend on the style your school or journal asks for, and this page does not pretend to know which one that is. Use the copied list as a clean draft, then shape each entry to the style you need. The important thing is that the facts are right: the author spelled correctly, the year correct, the title exact.</p>
+<p>Cite whenever you use someone else's idea, finding or words — not only when you quote. A paraphrase needs a citation just as much as a quotation does. The one thing that needs no citation is common knowledge: facts that any educated reader would already know, like the capital of a country or the boiling point of water. When you are unsure, cite. An extra citation is never a mistake; a missing one can be.</p>
+<h2>Worked example: a small literature review</h2>
+<p>Imagine a student writing a short review on reading habits in teenagers. She starts with no papers and a blank list. In her first hour of searching, she finds eight papers and adds them all with just titles and authors, marking each "To read". The list already helps: she can see the shape of her reading before she has read a word.</p>
+<p>Over the next week she reads three papers, moving each to "Done" and adding notes in her own words: what each paper found, how it was done, and whether it helps her argument. Two papers turn out to be about adults, not teenagers — she deletes one and notes on the other why it does not fit, so she will not pick it up again by mistake.</p>
+<p>When she starts writing, she filters by topic to see her papers grouped by theme, and copies the reference list into her draft. The copied list is not her final bibliography — she still checks each entry against the style guide — but it means she never has to hunt for a missing author or year in the middle of writing. The review takes less time, and nothing she read gets lost.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li><strong>Saving PDFs with no notes.</strong> A folder full of files with names like "paper_final_v2.pdf" is not a research system. Add the paper to the list with a note, or you will read it twice.</li>
+<li><strong>Losing sources.</strong> If you read a paper and do not record it, you will spend an hour searching for it again the week before your deadline. Add it the moment you find it — the title alone takes ten seconds.</li>
+<li><strong>Copying without citing.</strong> Pasting sentences into your notes without quotation marks is how accidental plagiarism happens. Write notes in your own words, always.</li>
+<li><strong>Too many topics.</strong> Twenty topics for thirty papers means every filter shows one or two papers. Use a handful of broad topics.</li>
+<li><strong>Marking unread papers as done.</strong> The status is for you, not for anyone else. An honest "To read" is more useful than a hopeful "Done".</li>
+<li><strong>Trusting the copied list blindly.</strong> The reference list is only as accurate as what you typed. Check authors, years and titles before you submit.</li>
+</ul>
+<h2>What this page cannot do</h2>
+<p>This page cannot find papers, download them, or fetch their details from the internet — it lists only what you add by hand. It cannot check whether a reference is formatted to a particular style, and it cannot tell you whether a paper is trustworthy: that judgement is yours, and the guide on this site about academic journals explains how to make it. Your list lives in this browser only, so it will not follow you to another device, and clearing your browser data will erase it. Copy your reference list somewhere safe, and keep your notes backed up in your own files.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How do I organise research papers?</h3><p>Give every paper a title, a topic and a status — to read, reading or done — and keep the whole list in one place. Use a small set of broad topics, add notes in your own words, and filter by topic or status whenever the list grows long. A simple list you actually maintain beats a perfect system you abandon.</p></div>
+<div class="faq"><h3>What notes should I take from a paper?</h3><p>Three lines cover most papers: what the paper claims or finds, what evidence it offers, and how it might help your own work. Write them in your own words after reading, not by copying sentences. A paper with three lines of notes is one you can use without opening it again.</p></div>
+<div class="faq"><h3>How do I cite a source?</h3><p>Put a short pointer in your text — usually the author and year — and give the full detail in a reference list at the end, so a reader can find the work. Cite whenever you use someone else's idea, finding or words, not only when you quote. When you are unsure whether to cite, cite.</p></div>
+<div class="faq"><h3>What is the difference between a reference and a citation?</h3><p>A citation is the short pointer inside your writing, such as an author and year in brackets. A reference is the full entry in the list at the end — author, year, title and where the work was published. Every citation needs a matching reference, and every reference should be cited in the text.</p></div>
+<div class="faq"><h3>How many papers do I need to read?</h3><p>There is no fixed number — it depends on the assignment, the topic and how much has been published. A short essay may need five to ten solid sources; a thesis needs far more. Quality matters more than count: a few papers you understand well beat a long list you skimmed.</p></div>
+<div class="faq"><h3>How do I avoid losing my sources?</h3><p>Record every paper the moment you find it, even if you only add the title. Keep the list in one place, back up your reference list by copying it into your own files, and never trust your memory or your browser history to find a paper again a month later.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../academic-journal-directory/">Academic Journal Directory</a> · <a href="../polling-voting-platform/">Polling & Voting Platform</a> · <a href="../measurement-reference-encyclopedia/">Measurement Reference Encyclopedia</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+(function () {
+  window.FT = window.FT || {};
+  var STATUSES = ["to read", "reading", "done"];
+  function validYear(y) {
+    if (y === "" || y == null) return true;
+    return /^\d{4}$/.test(String(y).trim()) && +y >= 1000 && +y <= 2100;
+  }
+  function addPaper(list, paper) {
+    var title = String(paper.title == null ? "" : paper.title).trim();
+    if (!title) return { ok: false, error: "Give the paper a title first." };
+    if (!validYear(paper.year)) return { ok: false, error: "Year must be a 4-digit year, or left blank." };
+    var entry = {
+      id: paper.id,
+      title: title,
+      author: String(paper.author == null ? "" : paper.author).trim(),
+      year: String(paper.year == null ? "" : paper.year).trim(),
+      topic: String(paper.topic == null ? "" : paper.topic).trim(),
+      notes: String(paper.notes == null ? "" : paper.notes).trim(),
+      status: STATUSES.indexOf(paper.status) >= 0 ? paper.status : "to read"
+    };
+    return { ok: true, list: list.concat([entry]) };
+  }
+  function removePaper(list, id) {
+    return list.filter(function (p) { return p.id !== id; });
+  }
+  function setPaperStatus(list, id, status) {
+    if (STATUSES.indexOf(status) < 0) return list;
+    return list.map(function (p) {
+      if (p.id !== id) return p;
+      var copy = {};
+      for (var k in p) copy[k] = p[k];
+      copy.status = status;
+      return copy;
+    });
+  }
+  function filterPapers(list, topic, status) {
+    return list.filter(function (p) {
+      var tOk = !topic || topic === "all" || p.topic === topic;
+      var sOk = !status || status === "all" || p.status === status;
+      return tOk && sOk;
+    });
+  }
+  function topicsOf(list) {
+    var seen = {};
+    var out = [];
+    list.forEach(function (p) {
+      var t = p.topic;
+      if (t && !seen[t]) { seen[t] = true; out.push(t); }
+    });
+    return out.sort();
+  }
+  function countByStatus(list) {
+    var c = { "to read": 0, "reading": 0, "done": 0 };
+    list.forEach(function (p) { if (c[p.status] !== undefined) c[p.status] += 1; });
+    return c;
+  }
+  function formatReference(paper) {
+    var author = paper.author || "Unknown author";
+    var year = paper.year ? "(" + paper.year + ")" : "(no date)";
+    return author + " " + year + ". " + paper.title + ".";
+  }
+  function referenceList(list) {
+    return list.map(function (p, i) { return (i + 1) + ". " + formatReference(p); }).join("\n");
+  }
+  window.FT.addPaper = addPaper;
+  window.FT.removePaper = removePaper;
+  window.FT.setPaperStatus = setPaperStatus;
+  window.FT.filterPapers = filterPapers;
+  window.FT.topicsOf = topicsOf;
+  window.FT.countByStatus = countByStatus;
+  window.FT.formatReference = formatReference;
+  window.FT.referenceList = referenceList;
+  window.FT.STATUSES = STATUSES;
+  if (typeof document !== "undefined" && document.querySelectorAll) {
+    var KEY = "ft-research-paper-organizer-papers";
+    var papers = [];
+    try { papers = JSON.parse(localStorage.getItem(KEY) || "[]"); } catch (e) { papers = []; }
+    var listEl = document.getElementById("paper-list");
+    var countEl = document.getElementById("paper-count");
+    var msg = document.getElementById("paper-msg");
+    var topicSel = document.getElementById("filter-topic");
+    var statusSel = document.getElementById("filter-status");
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(papers)); } catch (e) {} }
+    function render() {
+      var topics = topicsOf(papers);
+      var keep = topicSel.value;
+      topicSel.innerHTML = "";
+      var all = document.createElement("option");
+      all.value = "all"; all.textContent = "All topics";
+      topicSel.appendChild(all);
+      topics.forEach(function (t) {
+        var o = document.createElement("option");
+        o.value = t; o.textContent = t;
+        topicSel.appendChild(o);
+      });
+      if (topics.indexOf(keep) >= 0 || keep === "all") topicSel.value = keep;
+      var shown = filterPapers(papers, topicSel.value, statusSel.value);
+      var counts = countByStatus(papers);
+      countEl.textContent = papers.length + " paper" + (papers.length === 1 ? "" : "s") +
+        " — " + counts["to read"] + " to read, " + counts["reading"] + " reading, " + counts["done"] + " done." +
+        (shown.length !== papers.length ? " Showing " + shown.length + "." : "");
+      listEl.innerHTML = "";
+      if (shown.length === 0) {
+        var empty = document.createElement("p");
+        empty.textContent = papers.length === 0 ? "No papers yet — add your first paper above." : "No papers match this filter.";
+        listEl.appendChild(empty);
+        return;
+      }
+      shown.forEach(function (p) {
+        var box = document.createElement("div");
+        box.className = "list-item";
+        var title = document.createElement("p");
+        title.textContent = p.title;
+        var meta = document.createElement("p");
+        meta.className = "meta";
+        var bits = [];
+        if (p.author) bits.push(p.author);
+        if (p.year) bits.push(p.year);
+        if (p.topic) bits.push("Topic: " + p.topic);
+        bits.push("Status: " + p.status);
+        meta.textContent = bits.join(" · ");
+        box.appendChild(title);
+        box.appendChild(meta);
+        if (p.notes) {
+          var notes = document.createElement("p");
+          notes.textContent = p.notes;
+          box.appendChild(notes);
+        }
+        var row = document.createElement("div");
+        STATUSES.forEach(function (s) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.textContent = s === p.status ? s + " (now)" : s;
+          b.addEventListener("click", function () { papers = setPaperStatus(papers, p.id, s); save(); render(); });
+          row.appendChild(b);
+        });
+        var del = document.createElement("button");
+        del.type = "button";
+        del.textContent = "Delete";
+        del.addEventListener("click", function () { papers = removePaper(papers, p.id); save(); render(); });
+        row.appendChild(del);
+        box.appendChild(row);
+        listEl.appendChild(box);
+      });
+    }
+    document.getElementById("add-btn").addEventListener("click", function () {
+      var built = addPaper(papers, {
+        id: "p" + Date.now() + Math.floor(Math.random() * 1000),
+        title: document.getElementById("paper-title").value,
+        author: document.getElementById("paper-author").value,
+        year: document.getElementById("paper-year").value,
+        topic: document.getElementById("paper-topic").value,
+        notes: document.getElementById("paper-notes").value,
+        status: document.getElementById("paper-status").value
+      });
+      if (!built.ok) { msg.textContent = built.error; return; }
+      msg.textContent = "";
+      papers = built.list;
+      save();
+      ["paper-title", "paper-author", "paper-year", "paper-topic", "paper-notes"].forEach(function (id) {
+        document.getElementById(id).value = "";
+      });
+      document.getElementById("paper-status").value = "to read";
+      render();
+    });
+    topicSel.addEventListener("change", render);
+    statusSel.addEventListener("change", render);
+    var clearArmed = false;
+    document.getElementById("clear-btn").addEventListener("click", function () {
+      var btn = document.getElementById("clear-btn");
+      if (!clearArmed) {
+        clearArmed = true;
+        btn.textContent = "Tap again to clear all";
+        setTimeout(function () { clearArmed = false; btn.textContent = "Clear all papers"; }, 3000);
+        return;
+      }
+      papers = [];
+      save();
+      clearArmed = false;
+      btn.textContent = "Clear all papers";
+      render();
+    });
+    document.getElementById("copy-refs-btn").addEventListener("click", function () {
+      var btn = document.getElementById("copy-refs-btn");
+      var shown = filterPapers(papers, topicSel.value, statusSel.value);
+      var text = shown.length ? referenceList(shown) : "No papers to list yet.";
+      function done() {
+        var old = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = old; }, 2000);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { done(); });
+      } else { done(); }
+    });
+    render();
+  }
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

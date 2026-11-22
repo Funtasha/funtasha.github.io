@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polling & Voting Platform — Ask a Question, Get a Real Answer | Funtasha</title>
+<meta name="description" content="Free polling and voting platform — create a quick poll, share it, and see the results live. No signup, phone friendly.">
+<link rel="canonical" href="https://funtasha.github.io/polling-voting-platform/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Polling & Voting Platform — Ask a Question, Get a Real Answer">
+<meta property="og:description" content="Create a quick poll, vote on it, and see the results live — all in your browser, with no sign-up.">
+<meta property="og:url" content="https://funtasha.github.io/polling-voting-platform/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+
+.calc button{min-height:72px}
+.calc input,.calc select,.calc textarea{min-height:72px}
+.calc textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:14px;margin-top:10px;text-align:left}
+.calc .result{font-size:16px;margin-top:14px}
+.cards{display:grid;gap:12px;margin:14px 0}
+.card{display:block;min-height:90px;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+.card strong{display:block;font-size:17px;color:#be185d}
+.card span{display:block;font-size:15px;color:#334155;margin-top:4px}
+.bar-track{background:#e2e8f0;border-radius:999px;height:22px;margin:6px 0 12px;overflow:hidden}
+.bar-fill{background:#db2777;height:100%;border-radius:999px}
+.list-item{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin:10px 0}
+.list-item p{margin:4px 0}
+.list-item .meta{font-size:14px;color:#64748b}
+.opt-btn{display:block;width:100%;text-align:left;margin-top:10px}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I create a poll?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Type your question, add at least two options, and tap Create poll. The poll appears at once with a vote button for each option, and the results update live as people vote. Your poll is saved in this browser, so you can close the tab and come back to it later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are votes counted online or on my device?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On your device. There is no server behind this page, so votes are counted in this browser only and never leave your phone or computer. That means a poll made on one device cannot be voted on from another device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I share my poll with friends?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can copy the poll as plain text — question, options, vote counts and percentages — and paste it into a message or a document. The poll itself cannot be shared as a live link, because there is no server. For a public poll anyone can vote on, use one of the free public poll tools linked in the cards on this page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many options should a poll have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two options are enough for a yes-or-no vote, and three or four suit most polls. Six is the limit on this page, and more options than that usually split the vote so thinly that the winner means very little. If you have more than six real choices, narrow the list first and then poll on the shortlist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes a fair poll question?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A fair question asks about one thing only, uses plain words everyone understands, and does not push voters toward one answer. The options should be the same kind of thing at the same level of detail, with no overlaps and no vague catch-all that hides a real choice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this for a class vote?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — classroom votes are one of the best uses for this page. Pass one device around the room, or vote together on a shared screen, and everyone can see the result at once. It suits quick decisions like choosing a topic, a date or a team name."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Polling & Voting Platform</h1>
+<p class="answer">Create a quick poll, vote on it, and watch the results appear as bars with percentages — all in your browser, with no sign-up. Votes are counted on this device only, so this page suits classroom, family and small-group votes rather than public elections.</p>
+<div class="calc">
+<label for="poll-q">Poll question</label>
+<input id="poll-q" type="text" placeholder="What should we vote on?" autocomplete="off">
+<label for="poll-opt-1">Option 1</label>
+<input id="poll-opt-1" type="text" placeholder="First choice" autocomplete="off">
+<label for="poll-opt-2">Option 2</label>
+<input id="poll-opt-2" type="text" placeholder="Second choice" autocomplete="off">
+<label for="poll-opt-3">Option 3 (optional)</label>
+<input id="poll-opt-3" type="text" placeholder="Third choice" autocomplete="off">
+<label for="poll-opt-4">Option 4 (optional)</label>
+<input id="poll-opt-4" type="text" placeholder="Fourth choice" autocomplete="off">
+<label for="poll-opt-5">Option 5 (optional)</label>
+<input id="poll-opt-5" type="text" placeholder="Fifth choice" autocomplete="off">
+<label for="poll-opt-6">Option 6 (optional)</label>
+<input id="poll-opt-6" type="text" placeholder="Sixth choice" autocomplete="off">
+<button id="create-btn" type="button">Create poll</button>
+<p class="result" id="poll-msg"></p>
+<div id="poll-area" style="display:none">
+<p class="out" id="poll-question"></p>
+<div id="poll-vote"></div>
+<div id="poll-results"></div>
+<p class="result" id="poll-total"></p>
+<button id="copy-btn" type="button">Copy poll as text</button>
+<button id="new-btn" type="button">Start a new poll</button>
+</div>
+</div>
+<div class="warn">Votes are counted in this browser only — there is no server behind this page, so your poll lives on this device and nobody else can vote on it from their own phone. It suits classroom, family and small-group votes, not public elections; for a shareable public poll, use one of the free public poll tools in the cards below.</div>
+<div class="cards">
+<a class="card" href="https://strawpoll.com/"><strong>StrawPoll</strong><span>A free public poll tool. Make a poll anyone can vote on with a link.</span></a>
+<a class="card" href="https://www.mentimeter.com/"><strong>Mentimeter</strong><span>Live polls and quizzes for classrooms, meetings and events.</span></a>
+<a class="card" href="https://www.slido.com/"><strong>Slido</strong><span>Live polling and questions for events, classes and team meetings.</span></a>
+</div>
+<h2>What this page does</h2>
+<p>A poll is the simplest way to turn a room full of opinions into one clear answer. Instead of asking ten people to shout their views at once, you ask one question, offer a few clear options, and let everyone pick one. The result is a count you can see at a glance: which option won, by how much, and how many people voted. This page gives you that in about a minute, with no sign-up and no account.</p>
+<p>You type a question, add between two and six options, and the page builds the poll for you. Each person taps the option they prefer, and the results appear at once as bars with percentages. When the vote is done, you can copy the whole poll — question, options, votes and percentages — as plain text, ready to paste into a message, a document or a class chat.</p>
+<p>The page is built for small, friendly votes: a classroom choosing a topic, a family picking a film, a team choosing a meeting time, a club deciding on a new logo. It is not a tool for public elections or for votes that need to prove who voted. There is no server behind it and no way to check a voter's identity, and the page is honest about that. For votes that need a public link anyone can open, the free public poll tools in the cards above are the right choice.</p>
+<h2>How to run a poll in five steps</h2>
+<p>Running a poll here takes five short steps, and the whole thing works by touch on a phone.</p>
+<ol>
+<li><strong>Write one clear question.</strong> Put the whole question in the question box. "Which day should we hold the class trip?" is a good question. "Trip?" is not — nobody can tell what you are asking.</li>
+<li><strong>Add your options.</strong> Two options are enough for a yes-or-no vote. Most polls work best with three or four. Six is the limit, and you will rarely need that many.</li>
+<li><strong>Tap "Create poll".</strong> The page checks that you have a question and at least two options, then shows the poll ready for voting.</li>
+<li><strong>Let people vote.</strong> Each person taps one option. The results update at once — bars grow, percentages change, and the leading option is easy to spot.</li>
+<li><strong>Copy the result.</strong> Tap "Copy poll as text" to get the question, every option, the vote counts and the percentages in plain text. Paste it wherever the group will see it.</li>
+</ol>
+<p>Your poll is saved in this browser, so if you close the tab and come back later, the poll and its votes are still here. Tap "Start a new poll" when you want a fresh question — that clears the old poll and its votes.</p>
+<h2>How to write a fair question</h2>
+<p>A fair poll question is one that gives every option a real chance. The question itself should not push the voter toward one answer, and the options should cover the real choices without favouring one of them. That sounds simple, but most bad polls fail right here, before anyone has voted.</p>
+<p>Start with the question. Ask about one thing only. "Should we meet on Saturday or Sunday, and should we bring food?" is two questions wearing one coat — a voter might want Saturday without food, and has no way to say so. Split it into two polls, or pick the one decision that matters now. Keep the question short enough to read in one breath, and use plain words that everyone in the group understands.</p>
+<p>Then look at the options. They should be the same kind of thing, at the same level of detail. "Pizza, pasta, or something healthy" is unfair: two specific foods against one vague category. "Pizza, pasta, or salad" is fair — three specific foods, all at the same level. If none of the options fits some voters, add a genuine "Something else" or "No preference" option rather than forcing them to pick a choice they do not want.</p>
+<p>Finally, watch the order. People tend to pick the first option slightly more often, especially when they are in a hurry. If the order could matter, put the options in a neutral order — alphabetical, or the order they were suggested — rather than putting your favourite first. A fair question is a small kindness to everyone who votes: it says their honest answer is what you actually want.</p>
+<h2>Worked examples</h2>
+<p><strong>A class vote.</strong> A teacher wants the class to choose the topic of next week's project. The question is "Which topic should our next project cover?" The options are "The water cycle", "Local history", "Space exploration" and "How bridges work". Twenty-four pupils vote on one shared tablet, passed around the room. Space exploration wins with eleven votes, and the teacher copies the result into the class notes. The vote took three minutes, and every pupil had a say.</p>
+<p><strong>A family vote.</strong> A family of five cannot agree on a film for Friday night. The question is "Which film should we watch on Friday?" The options are the four films everyone could agree to watch. Each person taps one option on the same phone. The winner gets two votes, two films get one vote each, and one gets none — and the family can see at a glance that the winner is not everyone's favourite, so they agree to watch the runner-up next week. A poll does not have to end the argument; sometimes it just makes the argument fair.</p>
+<p><strong>A team vote.</strong> A small team needs a meeting time that suits everyone. The question is "Which time suits you best for our weekly meeting?" The options are "Monday 9 am", "Tuesday 2 pm", "Wednesday 11 am" and "Thursday 4 pm". Nine people vote, and Tuesday 2 pm wins with five votes. The organiser copies the text version into the team chat, so everyone can see the result and nobody has to take anyone's word for it.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li><strong>Leading questions.</strong> "Don't you agree our new logo is great?" is not a question — it is an answer wearing a question mark. A fair version is "Which logo do you prefer?" with the real options listed.</li>
+<li><strong>Too many options.</strong> Ten options split the vote so thinly that the winner may have only two votes out of twenty. Keep it to two, three or four options whenever you can. Six is the limit here, and most polls are better with fewer.</li>
+<li><strong>Overlapping options.</strong> "Morning", "Afternoon" and "Before lunch" overlap — a voter who wants 11 am could honestly pick two of them. Make each option cover its own ground.</li>
+<li><strong>Vague options.</strong> "Something fun" means a different thing to everyone. Name the actual choices so the result means something.</li>
+<li><strong>Asking two things at once.</strong> "Pizza or pasta, and should we eat at 6 or 7?" needs two polls, not one.</li>
+<li><strong>Hiding the result.</strong> If people vote but never see the outcome, they will not vote next time. Copy the result and share it with the group.</li>
+</ul>
+<h2>What the results can and cannot tell you</h2>
+<p>A poll result tells you what the people who voted preferred, at the moment they voted. That is genuinely useful — and it is also the limit of what it tells you. A poll of nine people tells you about those nine people, not about the whole school or the whole company. If only the keenest people voted, the result leans their way. If the question was unclear, the numbers look precise while meaning very little.</p>
+<p>Percentages help you read a result quickly, but they can mislead in small votes. In a vote with three people, one vote is 33 per cent — a big-looking number for a single person. That is why this page always shows the vote counts next to the percentages: the count is the real information, and the percentage is just a way to compare options at a glance.</p>
+<p>A close result is also information. If two options finish within one vote of each other, the group is genuinely split, and the honest response is to talk about it rather than to declare a winner and move on. A poll is a tool for deciding together, not a way to silence the losing side. The best polls end with everyone understanding the result, even the people who voted the other way.</p>
+<h2>What this page cannot do</h2>
+<p>This page counts votes in this browser only. There is no server, so a poll made on one phone cannot be voted on from another phone, and the results cannot be shared as a live link. If you need a poll that anyone can open and vote on from their own device, use one of the free public poll tools linked in the cards above. This page also cannot check who voted, stop someone voting twice, or prove a result to an outsider. It trusts the people in the room, which is exactly right for a classroom, a family or a small team — and exactly wrong for an election. Use it for the friendly votes it is built for, and it will serve you well.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How do I create a poll?</h3><p>Type your question, add at least two options, and tap Create poll. The poll appears at once with a vote button for each option, and the results update live as people vote. Your poll is saved in this browser, so you can close the tab and come back to it later.</p></div>
+<div class="faq"><h3>Are votes counted online or on my device?</h3><p>On your device. There is no server behind this page, so votes are counted in this browser only and never leave your phone or computer. That means a poll made on one device cannot be voted on from another device.</p></div>
+<div class="faq"><h3>Can I share my poll with friends?</h3><p>You can copy the poll as plain text — question, options, vote counts and percentages — and paste it into a message or a document. The poll itself cannot be shared as a live link, because there is no server. For a public poll anyone can vote on, use one of the free public poll tools linked in the cards on this page.</p></div>
+<div class="faq"><h3>How many options should a poll have?</h3><p>Two options are enough for a yes-or-no vote, and three or four suit most polls. Six is the limit on this page, and more options than that usually split the vote so thinly that the winner means very little. If you have more than six real choices, narrow the list first and then poll on the shortlist.</p></div>
+<div class="faq"><h3>What makes a fair poll question?</h3><p>A fair question asks about one thing only, uses plain words everyone understands, and does not push voters toward one answer. The options should be the same kind of thing at the same level of detail, with no overlaps and no vague catch-all that hides a real choice.</p></div>
+<div class="faq"><h3>Can I use this for a class vote?</h3><p>Yes — classroom votes are one of the best uses for this page. Pass one device around the room, or vote together on a shared screen, and everyone can see the result at once. It suits quick decisions like choosing a topic, a date or a team name.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../research-paper-organizer/">Research Paper Organizer</a> · <a href="../football-formation-planner/">Football Formation Planner</a> · <a href="../academic-journal-directory/">Academic Journal Directory</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+(function () {
+  window.FT = window.FT || {};
+  function cleanList(options) {
+    var out = [];
+    for (var i = 0; i < options.length; i++) {
+      var t = String(options[i] == null ? "" : options[i]).trim();
+      if (t) out.push(t);
+    }
+    return out.slice(0, 6);
+  }
+  function buildPoll(question, options) {
+    var q = String(question == null ? "" : question).trim();
+    if (!q) return { ok: false, error: "Write a question first." };
+    var opts = cleanList(options);
+    if (opts.length < 2) return { ok: false, error: "Add at least two options." };
+    return { ok: true, poll: { question: q, options: opts.map(function (t) { return { text: t, votes: 0 }; }) } };
+  }
+  function totalVotes(poll) {
+    var total = 0;
+    poll.options.forEach(function (o) { total += o.votes; });
+    return total;
+  }
+  function voteOn(poll, index) {
+    var copy = JSON.parse(JSON.stringify(poll));
+    if (index >= 0 && index < copy.options.length) copy.options[index].votes += 1;
+    return copy;
+  }
+  function pollResults(poll) {
+    var total = totalVotes(poll);
+    return poll.options.map(function (o) {
+      return { text: o.text, votes: o.votes, pct: total > 0 ? Math.round((o.votes * 100) / total) : 0 };
+    });
+  }
+  function leadingOption(poll) {
+    var best = null;
+    for (var i = 0; i < poll.options.length; i++) {
+      if (best === null || poll.options[i].votes > poll.options[best].votes) best = i;
+    }
+    if (best === null || poll.options[best].votes === 0) return "";
+    var tied = poll.options.filter(function (o) { return o.votes === poll.options[best].votes; }).length;
+    return tied > 1 ? "" : poll.options[best].text;
+  }
+  function pollShareText(poll) {
+    var lines = ["Poll: " + poll.question];
+    pollResults(poll).forEach(function (r, i) {
+      lines.push((i + 1) + ". " + r.text + " — " + r.votes + (r.votes === 1 ? " vote (" : " votes (") + r.pct + "%)");
+    });
+    lines.push("Total votes: " + totalVotes(poll));
+    lines.push("Votes counted in the browser only.");
+    return lines.join("\n");
+  }
+  window.FT.buildPoll = buildPoll;
+  window.FT.voteOn = voteOn;
+  window.FT.pollResults = pollResults;
+  window.FT.totalVotes = totalVotes;
+  window.FT.leadingOption = leadingOption;
+  window.FT.pollShareText = pollShareText;
+  if (typeof document !== "undefined" && document.querySelectorAll) {
+    var KEY = "ft-polling-voting-platform-poll";
+    var msg = document.getElementById("poll-msg");
+    var area = document.getElementById("poll-area");
+    var qEl = document.getElementById("poll-question");
+    var voteEl = document.getElementById("poll-vote");
+    var resEl = document.getElementById("poll-results");
+    var totalEl = document.getElementById("poll-total");
+    var poll = null;
+    try { poll = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) { poll = null; }
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(poll)); } catch (e) {} }
+    function render() {
+      if (!poll) { area.style.display = "none"; return; }
+      area.style.display = "block";
+      qEl.textContent = poll.question;
+      voteEl.innerHTML = "";
+      poll.options.forEach(function (o, i) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt-btn";
+        b.textContent = "Vote: " + o.text;
+        b.addEventListener("click", function () { poll = voteOn(poll, i); save(); render(); });
+        voteEl.appendChild(b);
+      });
+      resEl.innerHTML = "";
+      pollResults(poll).forEach(function (r) {
+        var row = document.createElement("div");
+        var label = document.createElement("p");
+        label.textContent = r.text + " — " + r.votes + (r.votes === 1 ? " vote (" : " votes (") + r.pct + "%)";
+        var track = document.createElement("div");
+        track.className = "bar-track";
+        var fill = document.createElement("div");
+        fill.className = "bar-fill";
+        fill.style.width = r.pct + "%";
+        track.appendChild(fill);
+        row.appendChild(label);
+        row.appendChild(track);
+        resEl.appendChild(row);
+      });
+      var lead = leadingOption(poll);
+      totalEl.textContent = "Total votes: " + totalVotes(poll) + (lead ? " — leading: " + lead : "");
+    }
+    document.getElementById("create-btn").addEventListener("click", function () {
+      var opts = [];
+      for (var i = 1; i <= 6; i++) opts.push(document.getElementById("poll-opt-" + i).value);
+      var built = buildPoll(document.getElementById("poll-q").value, opts);
+      if (!built.ok) { msg.textContent = built.error; return; }
+      msg.textContent = "";
+      poll = built.poll;
+      save();
+      render();
+    });
+    document.getElementById("new-btn").addEventListener("click", function () {
+      poll = null;
+      try { localStorage.removeItem(KEY); } catch (e) {}
+      document.getElementById("poll-q").value = "";
+      for (var i = 1; i <= 6; i++) document.getElementById("poll-opt-" + i).value = "";
+      render();
+    });
+    document.getElementById("copy-btn").addEventListener("click", function () {
+      var btn = document.getElementById("copy-btn");
+      var text = pollShareText(poll);
+      function done() {
+        var old = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = old; }, 2000);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { done(); });
+      } else { done(); }
+    });
+    render();
+  }
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

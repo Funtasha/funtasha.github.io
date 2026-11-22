@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Football Formation Planner — Draw Your Team's Formation Free | Funtasha</title>
+<meta name="description" content="Free football formation planner — pick a formation, place your players, and share the plan with your team. No signup, phone friendly.">
+<link rel="canonical" href="https://funtasha.github.io/football-formation-planner/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Football Formation Planner — Draw Your Team's Formation Free">
+<meta property="og:description" content="Free football formation planner — pick a formation, place your players, and share the plan with your team. No signup, phone friendly.">
+<meta property="og:url" content="https://funtasha.github.io/football-formation-planner/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+.result{border:1px solid #e2e8f0;border-radius:10px;padding:12px;margin:10px 0;background:#fff}
+.result b{font-size:16.5px}
+.result .tag{display:inline-block;font-size:13px;font-weight:700;padding:2px 10px;border-radius:999px;margin-left:8px}
+.tag-yes{background:#dcfce7;color:#166534}
+.tag-no{background:#fee2e2;color:#991b1b}
+.tag-drop{background:#fef9c3;color:#854d0e}
+.pitch{position:relative;width:100%;height:420px;background:#16a34a;border:3px solid #fff;border-radius:10px;margin:12px 0;overflow:hidden}
+.pitch .line{position:absolute;border:2px solid rgba(255,255,255,.8)}
+.dot{position:absolute;width:46px;height:46px;margin-left:-23px;margin-top:-23px;border-radius:50%;background:#fff;color:#166534;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:3px solid #166534;user-select:none}
+.dot.sel{background:#db2777;color:#fff;border-color:#fff}
+.poslist{display:grid;gap:8px;margin:12px 0}
+.poslist button{margin-top:0;text-align:left}
+.poslist button.sel{background:#0b7a4b}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best football formation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no single best formation — it depends on your players and your opponents. The 4-4-2 is the most balanced and the easiest to learn, the 4-3-3 suits fast attacking teams, and the 5-3-2 suits teams that need to defend. The best formation is the one that fits the players you actually have."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I choose a formation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with your players: count who is happy defending, who can run in midfield, and who scores goals. Then think about the match — an extra defender against a fast team, an extra forward against a slow one. Pick the shape that asks the least of your weakest players and the most of your strongest ones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does 4-4-2 mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The numbers are read from the back and never count the goalkeeper: 4 defenders, 4 midfielders and 2 forwards, plus the goalkeeper, making eleven players. In 4-2-3-1 the numbers mean 4 defenders, 2 holding midfielders, 3 attacking midfielders and 1 striker."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should beginners use a simple formation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A simple shape such as 4-4-2 gives every player one line and one job, which is easy to learn and easy to explain. Players learn a formation by playing it week after week, so pick one simple shape and stay with it for a while before trying anything more complicated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I explain a formation to my team?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Show them the pitch diagram, then walk through it line by line: what the defenders do, what the midfielders do, what the forwards do. Give each player one main job in plain words, and name one thing the team does when it loses the ball. Keep the whole explanation under a minute."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save more than one lineup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Type a name for each lineup — a match, an opponent or a date — and tap Save lineup. Saved lineups live in this browser, so you can load one back, change a name or two, and save it again. Copy the lineup as text to keep it safe or share it with another device."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Football Formation Planner</h1>
+<p class="answer">Pick a formation, place your eleven players on the pitch, name each one, and copy the lineup to share with your team. This planner draws lineups — it is not a live match tracker, and it never pretends to be one.</p>
+<div class="calc">
+<label for="ff-formation">Pick a formation</label>
+<select id="ff-formation">
+<option value="4-4-2">4-4-2 — balanced and simple</option>
+<option value="4-3-3">4-3-3 — attacking, three forwards</option>
+<option value="3-5-2">3-5-2 — midfield control, wing-backs</option>
+<option value="5-3-2">5-3-2 — solid at the back</option>
+<option value="4-2-3-1">4-2-3-1 — two holders, one striker</option>
+</select>
+<div class="pitch" id="ff-pitch" aria-label="Football pitch diagram"></div>
+<p>Tap a dot on the pitch, or tap a position below, then type the player's name.</p>
+<label for="ff-name">Player name for the selected position</label>
+<input id="ff-name" type="text" placeholder="Type a name, then tap Set name" autocomplete="off">
+<button id="ff-setname" type="button">Set name</button>
+<div class="poslist" id="ff-poslist"></div>
+<button id="ff-copy" type="button">Copy lineup as text</button>
+<pre class="outbox" id="ff-out" aria-live="polite"></pre>
+<label for="ff-savename">Save this lineup under a name</label>
+<input id="ff-savename" type="text" placeholder="e.g. Sunday team vs Rovers" autocomplete="off">
+<button id="ff-save" type="button">Save lineup</button>
+<label for="ff-saved">Saved lineups</label>
+<select id="ff-saved"></select>
+<button id="ff-load" type="button">Load selected lineup</button>
+<button id="ff-delete" type="button">Delete selected lineup</button>
+</div>
+<div class="warn">This planner draws lineups — it is not a live match tracker and it does not follow real matches. Lineups save in this browser only, so copy the text to keep a lineup safe.</div>
+<h2>How to use the planner</h2>
+<p>Pick a formation from the list at the top — 4-4-2 is a good place to start — and the pitch fills with eleven dots, one for each player. Tap a dot on the pitch, or tap a position in the list below it, then type the player's name and tap Set name. The dot shows the first letters of the name, and the list below shows the full lineup. When every position has a name, tap Copy lineup as text to share the plan with your team by message or chat.</p>
+<p>You can save as many lineups as you like. Type a name for the lineup — a match, an opponent, a date — and tap Save lineup. Saved lineups live in this browser, so you can load one back, change a name or two, and save it again under a new name. Lineups save on this device only, so copy the text if you want to keep a lineup safe or share it with someone who uses another device.</p>
+<h2>What each formation is good for</h2>
+<p>Every formation is a trade: strength in one part of the pitch costs strength somewhere else. The 4-4-2 is the balanced choice — four defenders, four midfielders, two forwards — with clear jobs and no surprises, which is why it suits beginners and teams that play together every week. The 4-3-3 pushes an extra player forward, which suits teams with fast wingers and a strong midfield that can win the ball back. The 3-5-2 floods the midfield with five players and asks the wing-backs to run the whole flank, up and down, all match.</p>
+<p>The 5-3-2 is the defensive choice: five at the back, hard to break down, with two forwards waiting for a break. It suits a team facing stronger opponents or protecting a lead. The 4-2-3-1 is the modern favourite for many coaches — two holding midfielders protect the defence while three attacking midfielders support a single striker. None of these is "the best" on its own. The best formation is the one that fits the players you actually have, on the day you are playing.</p>
+<h2>How to pick a formation for your team</h2>
+<p>Start with your players, not with a diagram. Count your defenders first: do you have four players who are happy defending, or only three? Then look at your midfield: do you have runners who can cover ground, or passers who need the ball at their feet? Then look at your forwards: one strong striker, or two who work well together? A formation that asks your slowest player to be a wing-back, or your shyest player to lead the line alone, will fail whatever the diagram says.</p>
+<p>Then think about the match. Against a fast team, an extra defender helps. Against a slow team, an extra forward helps. On a small pitch, a narrow formation with five in midfield keeps the ball better than a wide one. And think about fitness: formations with wing-backs and lone strikers demand more running than a flat 4-4-2. Pick the formation that asks the least of your weakest players and the most of your strongest ones, and you will usually pick well.</p>
+<h2>Reading a formation: what 4-4-2 means</h2>
+<p>Formation numbers are read from the back, and they never count the goalkeeper. In 4-4-2, the first 4 is the defenders, the second 4 is the midfielders, and the 2 is the forwards — ten outfield players plus the goalkeeper makes eleven. In 4-2-3-1, there are four defenders, two holding midfielders, three attacking midfielders and one striker. The numbers describe lines, not exact spots: in a real match, players move, swap and cover each other all the time.</p>
+<p>The labels on the pitch use short forms that every football fan learns: GK is the goalkeeper, LB and RB are the left and right full-backs, CB is a centre-back, LM and RM are wide midfielders, CM is a central midfielder, CDM is a holding midfielder, LW and RW are wingers, CAM is an attacking midfielder in the middle, and ST is a striker. Wing-backs (LWB and RWB) are the hybrid players in 3-5-2: defenders when the other team has the ball, attackers when yours does.</p>
+<h2>Worked example: a Sunday team picks 4-4-2</h2>
+<p>A Sunday league team has eleven regulars: a reliable goalkeeper, four players happy to defend, four midfielders of mixed pace, and two forwards who have played together for years. The captain opens the planner, picks 4-4-2, and names the team: the steadiest defender goes at centre-back with the best header of the ball, the fastest midfielder goes wide on the left, and the two forwards stay together up front. The lineup is copied into the team chat on Friday night, and everyone knows where they are playing before Sunday.</p>
+<p>The plan works because it is simple. Each player has one line and one job, and the captain can explain it in a minute: defenders defend, midfielders support both ways, forwards stay high and press together. When one midfielder is late, the captain moves a forward back into midfield for the first ten minutes and the shape still holds. A simple formation survives the chaos of a Sunday morning far better than a clever one.</p>
+<h2>Worked example: a school team tries 4-3-3</h2>
+<p>A school team has a different problem: plenty of fast, skilful players, but only three who enjoy defending. The teacher picks 4-3-3 in the planner, with the fastest two players as wingers and the best finisher as the central striker. The midfield three is built around one calm passer who holds the middle, with two runners either side. The back four is kept simple: two centre-backs who stay close together, and two full-backs who are told not to go forward at the same time.</p>
+<p>The first match is a lesson in why the shape matters. The wingers stretch the other team wide, the striker finds space in the middle, and the midfield three wins the ball back quickly. But when the full-backs both push forward at once, the team is caught on the break — so the teacher adds one rule for the next match: only one full-back goes forward at a time. The formation did not change, but the team learned how to play it. That is how formations work in real life: the diagram is the start, not the finish.</p>
+<h2>Common mistakes</h2>
+<p>The most common mistake is picking too many attackers. A team that names four forwards and two midfielders looks exciting on paper and loses the midfield in the first ten minutes, because nobody is there to win the ball. The second mistake is no cover for the full-backs: if both wide players push forward, the full-backs are left alone against two attackers, and goals follow. The third mistake is changing formation every week. Players learn a shape by playing it, and a team that changes shape every match never learns any of them.</p>
+<p>Other mistakes are quieter. Naming a player in a position they have never played, without telling them what the job is. Forgetting the goalkeeper in the plan — the goalkeeper is a player too, and the defence needs to know how far off the line to play. And planning for eleven players when only ten turn up: always have a ten-player version of your shape in mind, usually by dropping a forward and keeping the defence whole. The planner helps with all of these, because a lineup on a screen is easier to argue about than one in someone's head.</p>
+<h2>Sharing the plan with your team</h2>
+<p>A lineup only works if the team sees it before the match. Copy the text from the planner into your team chat, and add two or three lines of plain instruction: who takes corners, who drops back when the other team has the ball, and what changes if you go a goal down. Keep it short — a long tactical message is never read. The best match-day message is the lineup, one sentence about the plan, and the meeting time.</p>
+<p>After the match, the saved lineup becomes a record. Note what worked and what did not — which player was in the wrong place, which line was overrun — and change one thing for the next match, not five. Over a season, those small changes add up to a team that knows its shape. The planner is not a live match tracker and it does not follow real games; it is a notebook for your team, and a notebook used every week is worth more than a clever diagram used once.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>What is the best football formation?</h3>
+<p>There is no single best formation — it depends on your players and your opponents. The 4-4-2 is the most balanced and the easiest to learn, the 4-3-3 suits fast attacking teams, and the 5-3-2 suits teams that need to defend. The best formation is the one that fits the players you actually have.</p>
+</div>
+<div class="faq">
+<h3>How do I choose a formation?</h3>
+<p>Start with your players: count who is happy defending, who can run in midfield, and who scores goals. Then think about the match — an extra defender against a fast team, an extra forward against a slow one. Pick the shape that asks the least of your weakest players and the most of your strongest ones.</p>
+</div>
+<div class="faq">
+<h3>What does 4-4-2 mean?</h3>
+<p>The numbers are read from the back and never count the goalkeeper: 4 defenders, 4 midfielders and 2 forwards, plus the goalkeeper, making eleven players. In 4-2-3-1 the numbers mean 4 defenders, 2 holding midfielders, 3 attacking midfielders and 1 striker.</p>
+</div>
+<div class="faq">
+<h3>Should beginners use a simple formation?</h3>
+<p>Yes. A simple shape such as 4-4-2 gives every player one line and one job, which is easy to learn and easy to explain. Players learn a formation by playing it week after week, so pick one simple shape and stay with it for a while before trying anything more complicated.</p>
+</div>
+<div class="faq">
+<h3>How do I explain a formation to my team?</h3>
+<p>Show them the pitch diagram, then walk through it line by line: what the defenders do, what the midfielders do, what the forwards do. Give each player one main job in plain words, and name one thing the team does when it loses the ball. Keep the whole explanation under a minute.</p>
+</div>
+<div class="faq">
+<h3>Can I save more than one lineup?</h3>
+<p>Yes. Type a name for each lineup — a match, an opponent or a date — and tap Save lineup. Saved lineups live in this browser, so you can load one back, change a name or two, and save it again. Copy the lineup as text to keep it safe or share it with another device.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../sports-rules-encyclopedia/">Sports Rules Encyclopedia</a> · <a href="../polling-voting-platform/">Polling &amp; Voting Platform</a> · <a href="../measurement-reference-encyclopedia/">Measurement Reference Encyclopedia</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+function copyText(text, btn) {
+  function done() {
+    if (!btn) return;
+    var old = btn.textContent;
+    btn.textContent = "Copied!";
+    setTimeout(function () { btn.textContent = old; }, 2000);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, btn, done); });
+  } else {
+    fallbackCopy(text, btn, done);
+  }
+}
+function fallbackCopy(text, btn, done) {
+  var ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); } catch (e) {}
+  document.body.removeChild(ta);
+  done();
+}
+
+(function () {
+  var FT = {};
+  var FORMATIONS = {"4-4-2": [{"id": "GK", "label": "GK", "x": 50, "y": 92}, {"id": "LB", "label": "LB", "x": 14, "y": 74}, {"id": "CB1", "label": "CB", "x": 38, "y": 78}, {"id": "CB2", "label": "CB", "x": 62, "y": 78}, {"id": "RB", "label": "RB", "x": 86, "y": 74}, {"id": "LM", "label": "LM", "x": 14, "y": 50}, {"id": "CM1", "label": "CM", "x": 38, "y": 54}, {"id": "CM2", "label": "CM", "x": 62, "y": 54}, {"id": "RM", "label": "RM", "x": 86, "y": 50}, {"id": "ST1", "label": "ST", "x": 35, "y": 24}, {"id": "ST2", "label": "ST", "x": 65, "y": 24}], "4-3-3": [{"id": "GK", "label": "GK", "x": 50, "y": 92}, {"id": "LB", "label": "LB", "x": 14, "y": 74}, {"id": "CB1", "label": "CB", "x": 38, "y": 78}, {"id": "CB2", "label": "CB", "x": 62, "y": 78}, {"id": "RB", "label": "RB", "x": 86, "y": 74}, {"id": "CM1", "label": "CM", "x": 25, "y": 52}, {"id": "CDM", "label": "CDM", "x": 50, "y": 58}, {"id": "CM2", "label": "CM", "x": 75, "y": 52}, {"id": "LW", "label": "LW", "x": 16, "y": 26}, {"id": "ST", "label": "ST", "x": 50, "y": 20}, {"id": "RW", "label": "RW", "x": 84, "y": 26}], "3-5-2": [{"id": "GK", "label": "GK", "x": 50, "y": 92}, {"id": "CB1", "label": "CB", "x": 22, "y": 76}, {"id": "CB2", "label": "CB", "x": 50, "y": 80}, {"id": "CB3", "label": "CB", "x": 78, "y": 76}, {"id": "LWB", "label": "LWB", "x": 12, "y": 52}, {"id": "CM1", "label": "CM", "x": 32, "y": 56}, {"id": "CDM", "label": "CDM", "x": 50, "y": 62}, {"id": "CM2", "label": "CM", "x": 68, "y": 56}, {"id": "RWB", "label": "RWB", "x": 88, "y": 52}, {"id": "ST1", "label": "ST", "x": 35, "y": 24}, {"id": "ST2", "label": "ST", "x": 65, "y": 24}], "5-3-2": [{"id": "GK", "label": "GK", "x": 50, "y": 92}, {"id": "LB", "label": "LB", "x": 10, "y": 72}, {"id": "CB1", "label": "CB", "x": 30, "y": 78}, {"id": "CB2", "label": "CB", "x": 50, "y": 81}, {"id": "CB3", "label": "CB", "x": 70, "y": 78}, {"id": "RB", "label": "RB", "x": 90, "y": 72}, {"id": "CM1", "label": "CM", "x": 25, "y": 52}, {"id": "CDM", "label": "CDM", "x": 50, "y": 58}, {"id": "CM2", "label": "CM", "x": 75, "y": 52}, {"id": "ST1", "label": "ST", "x": 35, "y": 24}, {"id": "ST2", "label": "ST", "x": 65, "y": 24}], "4-2-3-1": [{"id": "GK", "label": "GK", "x": 50, "y": 92}, {"id": "LB", "label": "LB", "x": 14, "y": 74}, {"id": "CB1", "label": "CB", "x": 38, "y": 78}, {"id": "CB2", "label": "CB", "x": 62, "y": 78}, {"id": "RB", "label": "RB", "x": 86, "y": 74}, {"id": "CDM1", "label": "CDM", "x": 38, "y": 60}, {"id": "CDM2", "label": "CDM", "x": 62, "y": 60}, {"id": "LAM", "label": "LAM", "x": 18, "y": 38}, {"id": "CAM", "label": "CAM", "x": 50, "y": 34}, {"id": "RAM", "label": "RAM", "x": 82, "y": 38}, {"id": "ST", "label": "ST", "x": 50, "y": 20}]};
+  var KEY = "ft-football-formation-planner-lineups";
+  function formationNames() {
+    return Object.keys(FORMATIONS);
+  }
+  function lineupText(formation, names) {
+    var spots = FORMATIONS[formation];
+    if (!spots) return "Unknown formation: " + formation;
+    var lines = ["Football lineup — formation " + formation];
+    spots.forEach(function (p) {
+      var who = (names && names[p.id]) ? names[p.id] : "Player " + p.id;
+      lines.push(p.label + " — " + who);
+    });
+    return lines.join("\n");
+  }
+  function loadLineups() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (e) {}
+    return {};
+  }
+  function saveLineup(name, formation, names) {
+    var all = loadLineups();
+    all[name] = { formation: formation, names: names || {} };
+    try { localStorage.setItem(KEY, JSON.stringify(all)); } catch (e) {}
+    return Object.keys(all).length;
+  }
+  function deleteLineup(name) {
+    var all = loadLineups();
+    delete all[name];
+    try { localStorage.setItem(KEY, JSON.stringify(all)); } catch (e) {}
+    return Object.keys(all).length;
+  }
+  FT.FORMATIONS = FORMATIONS;
+  FT.formationNames = formationNames;
+  FT.lineupText = lineupText;
+  FT.loadLineups = loadLineups;
+  FT.saveLineup = saveLineup;
+  FT.deleteLineup = deleteLineup;
+  window.FT = window.FT || {};
+  for (var k in FT) { window.FT[k] = FT[k]; }
+  if (typeof document === "undefined") return;
+  var formationEl = document.getElementById("ff-formation");
+  var pitchEl = document.getElementById("ff-pitch");
+  var nameEl = document.getElementById("ff-name");
+  var setNameBtn = document.getElementById("ff-setname");
+  var poslistEl = document.getElementById("ff-poslist");
+  var copyBtn = document.getElementById("ff-copy");
+  var outEl = document.getElementById("ff-out");
+  var saveNameEl = document.getElementById("ff-savename");
+  var saveBtn = document.getElementById("ff-save");
+  var savedEl = document.getElementById("ff-saved");
+  var loadBtn = document.getElementById("ff-load");
+  var deleteBtn = document.getElementById("ff-delete");
+  var names = {};
+  var selected = null;
+  function currentFormation() {
+    var v = formationEl ? formationEl.value : "4-4-2";
+    return FORMATIONS[v] ? v : "4-4-2";
+  }
+  function renderPitch() {
+    if (!pitchEl) return;
+    pitchEl.textContent = "";
+    var half = document.createElement("div");
+    half.className = "line";
+    half.style.left = "0";
+    half.style.right = "0";
+    half.style.top = "50%";
+    half.style.borderTop = "2px solid rgba(255,255,255,.8)";
+    half.style.borderBottom = "0";
+    half.style.borderLeft = "0";
+    half.style.borderRight = "0";
+    pitchEl.appendChild(half);
+    var circle = document.createElement("div");
+    circle.className = "line";
+    circle.style.left = "50%";
+    circle.style.top = "50%";
+    circle.style.width = "90px";
+    circle.style.height = "90px";
+    circle.style.marginLeft = "-45px";
+    circle.style.marginTop = "-45px";
+    circle.style.borderRadius = "50%";
+    pitchEl.appendChild(circle);
+    FORMATIONS[currentFormation()].forEach(function (p) {
+      var dot = document.createElement("span");
+      dot.className = "dot" + (selected === p.id ? " sel" : "");
+      dot.setAttribute("role", "button");
+      dot.setAttribute("tabindex", "0");
+      dot.setAttribute("aria-label", "Position " + p.label);
+      dot.style.left = p.x + "%";
+      dot.style.top = p.y + "%";
+      dot.textContent = names[p.id] ? names[p.id].slice(0, 2) : p.label;
+      dot.title = p.label + (names[p.id] ? " — " + names[p.id] : "");
+      function pick() { selectPosition(p.id); }
+      dot.addEventListener("click", pick);
+      dot.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); }
+      });
+      pitchEl.appendChild(dot);
+    });
+  }
+  function renderPoslist() {
+    if (!poslistEl) return;
+    poslistEl.textContent = "";
+    FORMATIONS[currentFormation()].forEach(function (p) {
+      var b = document.createElement("button");
+      b.type = "button";
+      if (selected === p.id) b.className = "sel";
+      b.textContent = p.label + (names[p.id] ? " — " + names[p.id] : " — tap to name");
+      b.addEventListener("click", function () { selectPosition(p.id); });
+      poslistEl.appendChild(b);
+    });
+  }
+  function renderOut() {
+    if (outEl) outEl.textContent = lineupText(currentFormation(), names);
+  }
+  function renderSaved() {
+    if (!savedEl) return;
+    var all = loadLineups();
+    savedEl.textContent = "";
+    var keys = Object.keys(all);
+    if (!keys.length) {
+      var opt = document.createElement("option");
+      opt.value = "";
+      opt.textContent = "No saved lineups yet";
+      savedEl.appendChild(opt);
+      return;
+    }
+    keys.forEach(function (k) {
+      var o = document.createElement("option");
+      o.value = k;
+      o.textContent = k + " (" + all[k].formation + ")";
+      savedEl.appendChild(o);
+    });
+  }
+  function selectPosition(id) {
+    selected = id;
+    if (nameEl) {
+      nameEl.value = names[id] || "";
+      nameEl.focus();
+    }
+    renderPitch();
+    renderPoslist();
+  }
+  function renderAll() {
+    renderPitch();
+    renderPoslist();
+    renderOut();
+    renderSaved();
+  }
+  if (formationEl) formationEl.addEventListener("change", function () {
+    names = {};
+    selected = null;
+    renderAll();
+  });
+  if (setNameBtn) setNameBtn.addEventListener("click", function () {
+    if (!selected) {
+      if (outEl) outEl.textContent = "Tap a position on the pitch or in the list first, then type a name.";
+      return;
+    }
+    var v = nameEl ? nameEl.value.trim() : "";
+    if (v) names[selected] = v;
+    renderAll();
+  });
+  if (copyBtn) copyBtn.addEventListener("click", function () {
+    copyText(lineupText(currentFormation(), names), copyBtn);
+  });
+  if (saveBtn) saveBtn.addEventListener("click", function () {
+    var v = saveNameEl ? saveNameEl.value.trim() : "";
+    if (!v) {
+      if (outEl) outEl.textContent = "Type a name for the lineup first, then tap Save lineup.";
+      return;
+    }
+    saveLineup(v, currentFormation(), names);
+    renderSaved();
+    if (outEl) outEl.textContent = "Saved lineup '" + v + "'. " + lineupText(currentFormation(), names);
+  });
+  if (loadBtn) loadBtn.addEventListener("click", function () {
+    var all = loadLineups();
+    var v = savedEl ? savedEl.value : "";
+    if (!v || !all[v]) return;
+    if (formationEl) formationEl.value = all[v].formation;
+    names = all[v].names || {};
+    selected = null;
+    renderAll();
+  });
+  if (deleteBtn) deleteBtn.addEventListener("click", function () {
+    var v = savedEl ? savedEl.value : "";
+    if (!v) return;
+    deleteLineup(v);
+    renderSaved();
+  });
+  renderAll();
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

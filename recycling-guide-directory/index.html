@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recycling Guide Directory — What Goes Where, Made Simple | Funtasha</title>
+<meta name="description" content="Free recycling guide directory — find out what can be recycled, what cannot, and how to sort it right. No signup, phone friendly.">
+<link rel="canonical" href="https://funtasha.github.io/recycling-guide-directory/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Recycling Guide Directory — What Goes Where, Made Simple">
+<meta property="og:description" content="Free recycling guide directory — find out what can be recycled, what cannot, and how to sort it right. No signup, phone friendly.">
+<meta property="og:url" content="https://funtasha.github.io/recycling-guide-directory/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+.result{border:1px solid #e2e8f0;border-radius:10px;padding:12px;margin:10px 0;background:#fff}
+.result b{font-size:16.5px}
+.result .tag{display:inline-block;font-size:13px;font-weight:700;padding:2px 10px;border-radius:999px;margin-left:8px}
+.tag-yes{background:#dcfce7;color:#166534}
+.tag-no{background:#fee2e2;color:#991b1b}
+.tag-drop{background:#fef9c3;color:#854d0e}
+.pitch{position:relative;width:100%;height:420px;background:#16a34a;border:3px solid #fff;border-radius:10px;margin:12px 0;overflow:hidden}
+.pitch .line{position:absolute;border:2px solid rgba(255,255,255,.8)}
+.dot{position:absolute;width:46px;height:46px;margin-left:-23px;margin-top:-23px;border-radius:50%;background:#fff;color:#166534;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:3px solid #166534;user-select:none}
+.dot.sel{background:#db2777;color:#fff;border-color:#fff}
+.poslist{display:grid;gap:8px;margin:12px 0}
+.poslist button{margin-top:0;text-align:left}
+.poslist button.sel{background:#0b7a4b}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I recycle greasy cardboard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — grease ruins paper recycling, because it soaks into the fibres and cannot be washed out. Tear the box apart and recycle the clean parts, and put the greasy parts in general waste or in home compost where your council allows it. A pizza box is the classic example: the clean lid recycles, the greasy base does not."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can't I recycle plastic bags?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plastic bags and thin film tangle around the rollers and belts in sorting machines, forcing the plant to stop and cut them free. That is why they are refused at the kerb almost everywhere. Many supermarkets have a collection point for bags and film near the entrance — gather them in one bag and return them there."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do I do with old batteries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Never put batteries in any bin — a crushed battery can catch fire in a collection truck. Take them to a battery collection point, which most shops, supermarkets and recycling centres now have. Tape the ends of lithium batteries if your collection point asks you to, and keep them dry until you drop them off."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does recycling really help?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Recycling saves raw materials and a great deal of energy: making an aluminium can from recycled metal uses only a small fraction of the energy of making one from new metal, and recycled glass melts at a lower temperature than new glass. It also keeps useful material out of landfill, where it would sit and do nothing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I sort recycling at home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Give each stream its own container — paper and card in one, glass, metal and plastic in another, and a small box for batteries and drop-off items. Rinse bottles and tubs as you finish them, flatten cardboard as it arrives, and put a short list of rules on the wall above the bins so the whole household follows the same system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to recycling after collection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It goes to a sorting facility, where magnets, air jets and optical sorters separate it by material. The sorted materials are baled and sold to makers: paper becomes new paper, glass becomes new glass, metal becomes new cans, and plastic becomes new bottles and tubs. Clean, well-sorted loads recycle well; contaminated loads are rejected."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Recycling Guide Directory</h1>
+<p class="answer">This directory tells you what to do with more than forty everyday items — recycle it, bin it, or take it to a special drop-off. The rules given are the common ones that apply almost everywhere, and the page always tells you to check your local council, because local rules win.</p>
+<div class="calc">
+<label for="rg-search">Search for an item</label>
+<input id="rg-search" type="text" placeholder="Try bottle, battery or pizza box" autocomplete="off">
+<label for="rg-verdict">Filter by what to do</label>
+<select id="rg-verdict">
+<option value="all">Show everything</option>
+<option value="recycle">Recycle</option>
+<option value="no">Do not recycle</option>
+<option value="dropoff">Special drop-off</option>
+</select>
+<div class="out" id="rg-count" aria-live="polite"></div>
+<div id="rg-results"></div>
+</div>
+<div class="warn">Recycling rules differ by city and by country — this page gives the common rule for each item, and your local council's rule wins. When in doubt, check your council's website or ask at your local collection point.</div>
+<h2>How to use this directory</h2>
+<p>Type the name of an item in the search box — try "bottle", "battery" or "pizza box" — or pick a filter to see everything in one group. Each item carries one of three verdicts: recycle, do not recycle, or special drop-off, plus a short note explaining why. The verdict is the common rule, the one that applies in most places, most of the time. It is a starting point, not a law: your local council's rule wins, and this page says so on every item where local rules often differ.</p>
+<p>Use the directory the way you would use a dictionary — look up the thing in your hand, not the whole list. The most useful habit is the two-second check: before you drop something in a bin, ask which bin it belongs in, and if you are not sure, search for it here. That small pause is what separates good recycling from wishful recycling, and it makes the whole system work better for everyone.</p>
+<h2>Sorting rules that apply almost everywhere</h2>
+<p>A few rules hold true in nearly every town. Clean and dry beats dirty and wet: rinse bottles and tubs, and keep paper dry. Keep the streams apart: paper with paper, glass with glass, metal with metal, plastic with plastic. Never put bags of recycling inside other bags, because the sorting machines cannot open them. And never put dangerous things in any kerb bin — batteries, paint, gas canisters and medicines all need a special drop-off, because they can start fires or poison the load.</p>
+<p>Another near-universal rule is that size matters. Very small things — a bottle cap on its own, a scrap of foil, a single grape — fall through the sorting machines and end up as waste, so screw caps back on bottles and scrunch foil into a ball. Very large things jam the machines, so flatten boxes and break down bulky cardboard. These rules are simple, but they are the difference between a load that gets recycled and a load that gets rejected and sent to landfill.</p>
+<h2>Paper, card and cardboard</h2>
+<p>Paper is one of the easiest materials to recycle, and one of the easiest to ruin. Clean, dry paper — newspapers, office paper, magazines, envelopes, cereal boxes — goes straight in. Wet paper clumps and rots, and greasy paper contaminates the whole batch, which is why a greasy pizza box is the most famous problem item in recycling: the clean lid can be recycled, but the greasy base cannot. Tear the box apart and recycle only the clean parts.</p>
+<p>Cardboard needs flattening, because a whole box takes up the space of twenty flat ones in the collection truck. Remove tape and plastic windows where you can, though a little tape is usually tolerated. Shredded paper is a special case: the shreds are too small for most sorting machines, so put them in a paper bag or a cardboard box before they go in the bin. And remember that paper can only be recycled a handful of times before the fibres get too short — recycling paper is good, but using less of it is better.</p>
+<h2>Glass, metal and plastic</h2>
+<p>Glass is the perfect recycling material: a glass bottle can be melted and remade endlessly without losing quality. Rinse bottles and jars, and leave labels on — they burn off in the furnace. But not all glass is the same: drinking glasses, mirrors, window glass and oven dishes melt at different temperatures, so they must never go in with bottle glass. One broken drinking glass in a load of bottle glass can spoil the whole batch.</p>
+<p>Metal is nearly as good. Aluminium cans are endlessly recyclable, and making a can from recycled aluminium uses a small fraction of the energy of making one from new metal. Steel food cans are magnetic, so they are easy to sort. Rinse both, and put small lids inside a can so they do not fall through the machines. Plastic is the trickiest of the three: bottles and tubs are widely recycled, but films, bags and mixed-material packets are not, because they tangle machines or cannot be separated. When in doubt about a plastic item, check the directory above — and remember that refusing a plastic item beats recycling it.</p>
+<h2>Batteries, electronics and dangerous items</h2>
+<p>Some things must never go in any kerb bin, and batteries top the list. A lithium battery crushed in a collection truck can catch fire, and battery fires in waste trucks and sorting plants are a real and growing problem. Take every battery — household, phone, laptop, watch — to a battery collection point, which most shops and recycling centres now have. Tape the ends of lithium batteries if your collection point asks you to.</p>
+<p>Electronics carry the same rule. Phones, laptops, televisions, toasters and kettles all contain metals and parts that can be recovered, and all contain things that should not go to landfill. Take them to an electronics collection point, and wipe your personal data from phones and laptops first. Paint, cooking oil, gas canisters and out-of-date medicines each have their own drop-off route, listed in the directory above. The rule for all of them is the same: if it can burn, leak or poison, it goes to a person, not a bin.</p>
+<h2>How to sort recycling at home</h2>
+<p>A good home system is a simple one. Give each stream its own container — one for paper and card, one for glass, metal and plastic, and a small box for batteries and anything that needs a drop-off. Rinse as you go: a quick rinse under the tap when you finish a jar takes two seconds and stops smells and pests. Flatten cardboard as soon as it arrives, and keep a bag for plastic bags and film to return to a shop collection point on your next visit.</p>
+<p>Teach the whole household the same rules, and put a short list on the wall above the bins — the three verdicts from this directory are a good start. Children are often the best recyclers in the house once they know the rules, because sorting feels like a game with a right answer. Check your council's rules once a year, because they change: a material that was not collected last year may be collected this year, and the reverse is also true.</p>
+<h2>Worked examples: three bins, one week</h2>
+<p>Take a normal week in a small household. Monday: a newspaper, two glass jam jars, a cereal box, and a plastic milk jug. The newspaper and cereal box go in paper and card (flatten the box), the jars and jug are rinsed and go in glass, metal and plastic. Wednesday: a takeaway pizza box, greasy on the bottom. Tear off the clean lid for paper recycling, and bin the greasy base. Friday: a dead phone battery and an empty aerosol can. The battery goes in the drop-off box for the next shop visit; the aerosol, fully empty, goes in with metal.</p>
+<p>By Sunday the bins hold a clean, sorted week: paper and card flat and dry, glass and metal rinsed, plastic bottles with caps on, and one small box of things waiting for a drop-off. Nothing was difficult, and nothing took more than a few seconds at the time. That is the whole secret of recycling at home — small habits, done at the moment, beat a big sorting session at the end of the week.</p>
+<h2>Common mistakes</h2>
+<p>The most common mistake is wishful recycling: putting something in the recycling bin and hoping it belongs there. A greasy pizza box, a plastic bag, a coffee cup or a polystyrene tray does not become recyclable because you wish it were — it contaminates the load and can send a whole truck of good recycling to landfill. When you are unsure, the directory above is the answer, and if you are still unsure, the general waste bin is the honest choice.</p>
+<p>Other mistakes are smaller but common. Leaving food in containers attracts pests and smells. Putting recycling inside a plastic bag hides it from the sorters. Leaving lids off bottles lets small parts fall through the machines. And throwing batteries in any bin is dangerous — it is the one mistake that can start a fire. The good news is that every one of these mistakes is easy to fix, and fixing them is mostly a matter of slowing down for two seconds at the bin.</p>
+<h2>What happens to recycling after collection</h2>
+<p>After collection, recycling goes to a sorting facility, where machines and people separate it by material: magnets pull out steel, jets of air lift light plastic, and optical sorters read the type of each plastic bottle. The sorted materials are baled and sold to makers — paper mills, glass furnaces, metal smelters and plastic plants — who turn them into new products. A glass bottle can become a new glass bottle in a matter of weeks. An aluminium can can be back on a shelf in about two months.</p>
+<p>The system works best when the input is clean and well sorted, which is why your two-second check at the bin matters so much. Contaminated loads are rejected, and rejected loads go to landfill or incineration — the worst outcome for everyone. When you sort well, you are not just tidying your kitchen: you are supplying the raw material for the next bottle, the next box and the next can. Recycling is a loop, and your home is where the loop starts.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>Can I recycle greasy cardboard?</h3>
+<p>No — grease ruins paper recycling, because it soaks into the fibres and cannot be washed out. Tear the box apart and recycle the clean parts, and put the greasy parts in general waste or in home compost where your council allows it. A pizza box is the classic example: the clean lid recycles, the greasy base does not.</p>
+</div>
+<div class="faq">
+<h3>Why can't I recycle plastic bags?</h3>
+<p>Plastic bags and thin film tangle around the rollers and belts in sorting machines, forcing the plant to stop and cut them free. That is why they are refused at the kerb almost everywhere. Many supermarkets have a collection point for bags and film near the entrance — gather them in one bag and return them there.</p>
+</div>
+<div class="faq">
+<h3>What do I do with old batteries?</h3>
+<p>Never put batteries in any bin — a crushed battery can catch fire in a collection truck. Take them to a battery collection point, which most shops, supermarkets and recycling centres now have. Tape the ends of lithium batteries if your collection point asks you to, and keep them dry until you drop them off.</p>
+</div>
+<div class="faq">
+<h3>Does recycling really help?</h3>
+<p>Yes. Recycling saves raw materials and a great deal of energy: making an aluminium can from recycled metal uses only a small fraction of the energy of making one from new metal, and recycled glass melts at a lower temperature than new glass. It also keeps useful material out of landfill, where it would sit and do nothing.</p>
+</div>
+<div class="faq">
+<h3>How do I sort recycling at home?</h3>
+<p>Give each stream its own container — paper and card in one, glass, metal and plastic in another, and a small box for batteries and drop-off items. Rinse bottles and tubs as you finish them, flatten cardboard as it arrives, and put a short list of rules on the wall above the bins so the whole household follows the same system.</p>
+</div>
+<div class="faq">
+<h3>What happens to recycling after collection?</h3>
+<p>It goes to a sorting facility, where magnets, air jets and optical sorters separate it by material. The sorted materials are baled and sold to makers: paper becomes new paper, glass becomes new glass, metal becomes new cans, and plastic becomes new bottles and tubs. Clean, well-sorted loads recycle well; contaminated loads are rejected.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../animal-facts-encyclopedia/">Animal Facts Encyclopedia</a> · <a href="../pet-adoption-directory/">Pet Adoption Directory</a> · <a href="../measurement-reference-encyclopedia/">Measurement Reference Encyclopedia</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+(function () {
+  var FT = {};
+  var ITEMS = [{"item": "Newspaper", "verdict": "recycle", "note": "Keep it dry and clean."}, {"item": "Cardboard box", "verdict": "recycle", "note": "Flatten it; remove tape and any greasy parts."}, {"item": "Office paper", "verdict": "recycle", "note": "White and coloured paper both go in."}, {"item": "Magazine", "verdict": "recycle", "note": "Glossy paper is fine in most places."}, {"item": "Glass bottle", "verdict": "recycle", "note": "Rinse it; lids go separately where asked."}, {"item": "Glass jar", "verdict": "recycle", "note": "Rinse out food; labels can stay on."}, {"item": "Aluminium can", "verdict": "recycle", "note": "Rinse it; cans can be recycled again and again."}, {"item": "Steel food can", "verdict": "recycle", "note": "Rinse it; labels can stay on."}, {"item": "Plastic drinks bottle", "verdict": "recycle", "note": "Empty it and put the cap back on."}, {"item": "Plastic milk jug", "verdict": "recycle", "note": "Rinse it out first."}, {"item": "Clean plastic tub", "verdict": "recycle", "note": "Yoghurt and spread tubs, rinsed clean."}, {"item": "Metal lid", "verdict": "recycle", "note": "Small lids go inside a can where your council asks."}, {"item": "Empty aerosol can", "verdict": "recycle", "note": "Make sure it is fully empty first."}, {"item": "Cardboard egg box", "verdict": "recycle", "note": "Clean and dry egg boxes go in."}, {"item": "Cereal box", "verdict": "recycle", "note": "Flatten it; take out the inner plastic bag."}, {"item": "Paper envelope", "verdict": "recycle", "note": "Remove any plastic window if you can."}, {"item": "Clean aluminium foil", "verdict": "recycle", "note": "Scrunch it into a ball first."}, {"item": "Drinks carton", "verdict": "recycle", "note": "Check your council — many areas take cartons at the kerb."}, {"item": "Greasy pizza box", "verdict": "no", "note": "Grease ruins paper recycling; bin the greasy parts."}, {"item": "Plastic bag", "verdict": "no", "note": "Bags tangle sorting machines; return them to a shop collection point."}, {"item": "Cling film", "verdict": "no", "note": "Thin film jams machines; bin it."}, {"item": "Crisp packet", "verdict": "no", "note": "Mixed plastic and foil layers cannot be separated."}, {"item": "Disposable coffee cup", "verdict": "no", "note": "The plastic lining makes it hard to recycle."}, {"item": "Polystyrene foam", "verdict": "no", "note": "Light, bulky and rarely recycled; bin it."}, {"item": "Broken drinking glass", "verdict": "no", "note": "It melts at a different temperature from bottle glass."}, {"item": "Mirror", "verdict": "no", "note": "Coated glass cannot go with bottle glass."}, {"item": "Old-style light bulb", "verdict": "no", "note": "It mixes metal and glass that cannot be separated easily."}, {"item": "Used tissues", "verdict": "no", "note": "Too dirty and too weak to recycle."}, {"item": "Nappy", "verdict": "no", "note": "Goes in general waste."}, {"item": "Chewing gum", "verdict": "no", "note": "It is not recyclable; wrap it and bin it."}, {"item": "Waxed paper", "verdict": "no", "note": "The wax coating stops it being recycled."}, {"item": "Photograph", "verdict": "no", "note": "Coated paper cannot be recycled."}, {"item": "Sticky tape", "verdict": "no", "note": "Bin it; pull it off cardboard before recycling the box."}, {"item": "Rubber glove", "verdict": "no", "note": "Bin it with general waste."}, {"item": "Household battery", "verdict": "dropoff", "note": "Take it to a battery collection point in a shop or recycling centre."}, {"item": "Old phone", "verdict": "dropoff", "note": "Take it to a phone shop or an electronics collection point."}, {"item": "Laptop", "verdict": "dropoff", "note": "Take it to an electronics recycling point; wipe your data first."}, {"item": "Television", "verdict": "dropoff", "note": "Take it to a recycling centre; never leave it on the street."}, {"item": "Printer ink cartridge", "verdict": "dropoff", "note": "Many shops and makers take them back for free."}, {"item": "Paint tin", "verdict": "dropoff", "note": "Take leftover paint to a recycling centre; never pour it down a drain."}, {"item": "Cooking oil", "verdict": "dropoff", "note": "Pour it into a sealed container and take it to a collection point."}, {"item": "Old clothes and shoes", "verdict": "dropoff", "note": "Use a textile bank or a charity shop; worn-out clothes can still be recycled as rags."}, {"item": "Small electrical item", "verdict": "dropoff", "note": "Toasters, kettles and hair dryers go to an electronics collection point."}, {"item": "Energy-saving bulb", "verdict": "dropoff", "note": "It contains electronics; take it to a collection point."}, {"item": "Out-of-date medicine", "verdict": "dropoff", "note": "Return it to a pharmacy; never flush it or bin it."}, {"item": "Gas canister", "verdict": "dropoff", "note": "Take it to a recycling centre; never put it in a bin."}, {"item": "Mattress", "verdict": "dropoff", "note": "Book a bulky waste collection or take it to a recycling centre."}, {"item": "Car tyre", "verdict": "dropoff", "note": "Garages and recycling centres take old tyres."}];
+  function verdictLabel(v) {
+    if (v === "recycle") return "Recycle";
+    if (v === "no") return "Do not recycle";
+    return "Special drop-off";
+  }
+  function searchItems(query, verdict) {
+    var q = (query || "").toLowerCase().trim();
+    return ITEMS.filter(function (it) {
+      if (verdict && verdict !== "all" && it.verdict !== verdict) return false;
+      if (!q) return true;
+      return (it.item + " " + it.note).toLowerCase().indexOf(q) !== -1;
+    });
+  }
+  function verdictCounts() {
+    var counts = { recycle: 0, no: 0, dropoff: 0 };
+    ITEMS.forEach(function (it) { counts[it.verdict]++; });
+    return counts;
+  }
+  FT.ITEMS = ITEMS;
+  FT.verdictLabel = verdictLabel;
+  FT.searchItems = searchItems;
+  FT.verdictCounts = verdictCounts;
+  window.FT = window.FT || {};
+  for (var k in FT) { window.FT[k] = FT[k]; }
+  if (typeof document === "undefined") return;
+  var searchEl = document.getElementById("rg-search");
+  var verdictEl = document.getElementById("rg-verdict");
+  var countEl = document.getElementById("rg-count");
+  var resultsEl = document.getElementById("rg-results");
+  function tagClass(v) {
+    if (v === "recycle") return "tag tag-yes";
+    if (v === "no") return "tag tag-no";
+    return "tag tag-drop";
+  }
+  function render(list) {
+    if (!resultsEl) return;
+    resultsEl.textContent = "";
+    if (countEl) countEl.textContent = list.length === 0
+      ? "No items match that search — try another word."
+      : "Showing " + Math.min(list.length, 12) + " of " + list.length + " items.";
+    list.slice(0, 12).forEach(function (it) {
+      var box = document.createElement("div");
+      box.className = "result";
+      var head = document.createElement("p");
+      var name = document.createElement("b");
+      name.textContent = it.item;
+      var tag = document.createElement("span");
+      tag.className = tagClass(it.verdict);
+      tag.textContent = verdictLabel(it.verdict);
+      head.appendChild(name);
+      head.appendChild(tag);
+      var body = document.createElement("p");
+      body.textContent = it.note;
+      box.appendChild(head);
+      box.appendChild(body);
+      resultsEl.appendChild(box);
+    });
+  }
+  function run() {
+    render(searchItems(searchEl ? searchEl.value : "", verdictEl ? verdictEl.value : "all"));
+  }
+  if (searchEl) searchEl.addEventListener("input", run);
+  if (verdictEl) verdictEl.addEventListener("change", run);
+  render(ITEMS.slice(0, 12));
+  if (countEl) countEl.textContent = "Showing 12 of " + ITEMS.length + " items — search or filter to find yours.";
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>
