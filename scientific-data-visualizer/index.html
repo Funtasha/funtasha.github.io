@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scientific Data Visualizer — Turn Your Numbers into Charts Free | Funtasha</title>
+<meta name="description" content="Visualize scientific data free — paste your numbers and get bar, line and pie charts instantly, in your browser. No upload, no signup.">
+<link rel="canonical" href="https://funtasha.github.io/scientific-data-visualizer/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scientific Data Visualizer — Turn Your Numbers into Charts Free">
+<meta property="og:description" content="Paste your numbers and get bar, line and pie charts instantly, in your browser.">
+<meta property="og:url" content="https://funtasha.github.io/scientific-data-visualizer/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:15px}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+canvas{width:100%;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is my data uploaded anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Everything happens in your browser, and your numbers are never sent to any server. Nothing is stored, and closing the page erases your numbers, so download your chart or copy your table before you leave if you want to keep them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which chart should I use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a bar chart to compare categories, a line chart to show change over time, and a pie chart to show parts of a whole. If your numbers do not add up to a meaningful whole, skip the pie chart. When in doubt, a bar chart is the safest choice, because it is the easiest to read honestly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many numbers can I add?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to twenty rows, one per line. Rows without a number and rows without a label are skipped, so check that nothing you need has dropped out. For the clearest chart, keep the list short: a pie chart works best with six slices or fewer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I download my chart?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The download button saves your chart as a PNG picture, which you can put in a school report, a slide deck or a document. The copy button copies your data table as plain text. Both work on your own numbers only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a bar and a line chart?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A bar chart compares separate categories, such as days of the week or groups in an experiment, by the height of each bar. A line chart shows change over time, because the line connects one point to the next in order. Use bars for comparisons and lines for trends."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this for school?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. It is free, it needs no signup, and it works in your browser on a phone or a computer. Paste your experiment results, pick the chart that fits your data, and download the picture for your report. Write a sentence or two beside the chart explaining what it shows."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Scientific Data Visualizer</h1>
+<p class="answer">Paste your numbers below and this page draws a bar, line or pie chart for you right in your browser. Your data never leaves your device, and you can download the chart as a picture when you are happy with it.</p>
+
+<div class="calc">
+<label for="data-input">Your numbers (one label and value per line)</label>
+<textarea id="data-input">Monday, 12
+Tuesday, 19
+Wednesday, 15
+Thursday, 22
+Friday, 9</textarea>
+<label for="chart-type">Chart type</label>
+<select id="chart-type">
+<option value="bar">Bar chart</option>
+<option value="line">Line chart</option>
+<option value="pie">Pie chart</option>
+</select>
+<button type="button" id="draw-btn">Draw my chart</button>
+<canvas id="chart-canvas" width="700" height="400"></canvas>
+<div id="stats-out" class="outbox"></div>
+<div id="table-out"></div>
+<button type="button" id="copy-btn" class="copy-btn">Copy table</button>
+<button type="button" id="download-png-btn">Download chart as PNG</button>
+</div>
+
+<div class="warn">This page charts the numbers YOU enter — it does not fetch scientific data from anywhere. If you need real research data, you must find it yourself and paste it in here.</div>
+
+<h2>How to use the visualizer</h2>
+<p>Type your numbers into the box above, one row per line, with a label and a
+value on each line. You can separate the label and the value with a comma, a
+colon or a space, so Monday, 12 and Monday: 12 and Monday 12 all work. The box
+starts with a small sample already filled in, so press the draw button to see
+it work straight away, then replace the sample with your own numbers. Pick a
+chart type, bar, line or pie, and press the button again to redraw. Under the
+chart you will see the basic facts about your numbers: how many there are,
+their total, the highest, the lowest and the average. A table of your numbers
+appears below that, and the copy button copies the table as plain text. The
+download button saves your chart as a picture you can put in a report or a
+school project. Everything happens in your browser. Your numbers are never
+sent anywhere, and nothing is stored. Close the page and the numbers are gone,
+so download or copy anything you want to keep.</p>
+<h2>Getting your numbers ready</h2>
+<p>A chart is only as honest as the numbers behind it, so a minute spent
+preparing them is time well spent. First, make sure every row has a label and
+one number. Rows without a number are skipped, and a row with no label is
+skipped too, so check that nothing you need has quietly dropped out. Second,
+keep your units the same. Do not mix centimetres and metres in one chart, or
+minutes and hours, because the chart cannot know they are different and the
+picture it draws will be wrong. Third, decide what each number means before
+you chart it. A count of plants is not the same as a height in centimetres,
+and a chart that mixes the two is meaningless even if it looks tidy. Fourth,
+keep the list short. This page charts up to twenty rows, and that limit is a
+kindness, not a flaw: a chart with twenty bars is already hard to read, and a
+pie chart with twenty slices is unreadable. If you have more numbers than
+that, group them first, or pick the most important ones and chart those.</p>
+<h2>Which chart for which data</h2>
+<p>Bar charts compare things. Use one when your labels are categories, such as
+days of the week, types of plant or groups in an experiment, and you want to
+see which is biggest. The height of each bar shows the size, and the eye is
+very good at comparing heights, so differences jump out at once. Line charts
+show change over time. Use one when your labels are ordered, such as hours,
+days or weeks, and you want to see a trend going up, going down or staying
+flat. A line chart implies a connection between one point and the next, which
+is why it suits time so well. Pie charts show parts of a whole. Use one when
+your numbers add up to something meaningful, such as a whole budget, a whole
+class or a whole day, and you want to see each slice as a share of that whole.
+A pie chart needs numbers that add up above zero, and it works best with a
+small number of slices, ideally six or fewer. If your numbers do not add up
+to a whole, a pie chart is the wrong choice, however pretty it looks.</p>
+<h2>A worked example: one experiment, three charts</h2>
+<p>Imagine a student growing bean plants and measuring their height each day
+for five days. The numbers are Monday 12, Tuesday 19, Wednesday 15, Thursday
+22 and Friday 9, measured in millimetres of new growth each day. Those are
+the sample numbers already in the box above, so you can try this yourself.
+As a bar chart, the story is a comparison: Thursday grew the most and Friday
+the least, and the difference between the best and worst day is easy to see.
+As a line chart, the story is a trend: growth rose, dipped, rose again and
+then fell sharply, which raises the honest question of what happened on
+Friday. Perhaps the student forgot to water the plant, or perhaps the weather
+changed. The chart cannot answer that, but it can show you where to ask. As
+a pie chart, the story is a share of the whole week: Thursday accounts for
+the biggest slice of total growth and Friday the smallest. All three charts
+use the same numbers, and each one shows a different true thing about them.
+Choosing the chart is choosing which true thing to show, and that is why the
+choice matters.</p>
+<h2>Reading a chart honestly</h2>
+<p>A chart can mislead without lying, so learn to read one with care. Start
+with the axes. The vertical axis tells you what the numbers mean and how big
+they are, and if it does not start at zero, small differences will look huge.
+A bar chart whose axis starts at ninety makes a small gap look like a canyon,
+and that is a trick worth spotting. Check the scale next. Two charts of the
+same numbers can look completely different if one stretches the axis and the
+other squeezes it, so always read the numbers, not just the shape. Ask what
+the chart leaves out. A chart of five days says nothing about the sixth day,
+and a chart that averages a whole class hides the range between the best and
+worst student. Ask what the chart cannot show. A bar chart cannot show change
+over time, a line chart cannot show categories fairly, and a pie chart cannot
+show more than one whole at a time. Finally, ask who made the chart and why.
+A chart made to sell something and a chart made to explain an experiment are
+different objects, even when they use the same numbers.</p>
+<h2>Common mistakes to avoid</h2>
+<ul>
+<li>A pie chart with twenty slices. Nobody can read it. Use a bar chart, or
+group the small slices into one slice called Other.</li>
+<li>A line chart for categories. A line between Monday and Tuesday makes
+sense, because time flows. A line between apples and oranges does not, because
+there is no order to connect.</li>
+<li>A scale that starts at ninety. It exaggerates tiny differences and hides
+the real picture. Start bar charts at zero unless you have a clear reason not to.</li>
+<li>Mixing units in one chart. Centimetres and metres, minutes and hours,
+counts and percentages do not belong in the same picture.</li>
+<li>Charting numbers you have not checked. One mistyped value, such as 220
+instead of 22, will dominate the whole chart and hide everything else.</li>
+<li>Forgetting the label. A chart with numbers and no labels is decoration,
+not information, so label every row before you draw.</li>
+</ul>
+<h2>Sharing and using your chart</h2>
+<p>Once your chart looks right, you have two ways to take it with you. The
+download button saves the chart as a PNG picture, which you can put into a
+school report, a slide deck or a document. The copy button copies your data
+table as plain text, which you can paste into a note or a message. Both
+buttons work on your own numbers only, because this page never holds anyone
+else's data. If you are using the chart for school, write one or two sentences
+beside it explaining what it shows and what it does not show. A chart without
+an explanation leaves the reader guessing, and a chart with an honest
+explanation is the mark of careful work. Keep the original numbers somewhere
+safe, because this page does not store them. A chart is a picture of your
+numbers, not a copy of them, and if you lose the numbers you cannot rebuild
+the chart. Save the numbers in a note or a file before you close the page, and
+write down where the numbers came from, so anyone reading your work can check
+them later.</p>
+<h2>What this page cannot do</h2>
+<p>This page charts the numbers you enter, and nothing else. It does not fetch
+scientific data from anywhere, it does not look up real research results, and
+it cannot tell you whether your numbers are correct. If you need real data,
+find it from a trusted source and paste it in here yourself. This page also
+cannot do statistics beyond the five simple facts under the chart: count,
+total, highest, lowest and average. It will not run a test, fit a curve or
+tell you whether a result is significant, and you should not ask it to. What
+it does, it does honestly: it turns your numbers into a clear picture, in
+your browser, without uploading anything. Used within those limits, it is a
+genuine tool for students, teachers and anyone who wants to see what their
+numbers are saying.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>Is my data uploaded anywhere?</h3><p>No. Everything happens in your browser, and your numbers are never sent to any server. Nothing is stored, and closing the page erases your numbers, so download your chart or copy your table before you leave if you want to keep them.</p></div>
+<div class="faq"><h3>Which chart should I use?</h3><p>Use a bar chart to compare categories, a line chart to show change over time, and a pie chart to show parts of a whole. If your numbers do not add up to a meaningful whole, skip the pie chart. When in doubt, a bar chart is the safest choice, because it is the easiest to read honestly.</p></div>
+<div class="faq"><h3>How many numbers can I add?</h3><p>Up to twenty rows, one per line. Rows without a number and rows without a label are skipped, so check that nothing you need has dropped out. For the clearest chart, keep the list short: a pie chart works best with six slices or fewer.</p></div>
+<div class="faq"><h3>Can I download my chart?</h3><p>Yes. The download button saves your chart as a PNG picture, which you can put in a school report, a slide deck or a document. The copy button copies your data table as plain text. Both work on your own numbers only.</p></div>
+<div class="faq"><h3>What is the difference between a bar and a line chart?</h3><p>A bar chart compares separate categories, such as days of the week or groups in an experiment, by the height of each bar. A line chart shows change over time, because the line connects one point to the next in order. Use bars for comparisons and lines for trends.</p></div>
+<div class="faq"><h3>Can I use this for school?</h3><p>Yes. It is free, it needs no signup, and it works in your browser on a phone or a computer. Paste your experiment results, pick the chart that fits your data, and download the picture for your report. Write a sentence or two beside the chart explaining what it shows.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../electrical-calculator-hub/">Electrical Calculator Hub</a> · <a href="../3d-model-file-converter/">3D Model File Converter</a> · <a href="../astronomy-observation-planner/">Astronomy Observation Planner</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = window.FT || {};
+window.FT.parseData = function(text){
+  var rows = [];
+  var lines = String(text).split("\n");
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i].trim();
+    if (!line) continue;
+    var parts = line.split(/[\s,:]+/).filter(function(p){ return p.length > 0; });
+    if (parts.length < 2) continue;
+    var val = Number(parts[parts.length - 1]);
+    if (!isFinite(val)) continue;
+    var label = parts.slice(0, -1).join(" ");
+    if (!label) continue;
+    rows.push({label: label, value: val});
+    if (rows.length >= 20) break;
+  }
+  return rows;
+};
+window.FT.dataStats = function(data){
+  if (!data || !data.length) return {count: 0, total: 0, max: null, min: null, avg: null};
+  var total = 0, max = data[0].value, min = data[0].value;
+  for (var i = 0; i < data.length; i++) {
+    total += data[i].value;
+    if (data[i].value > max) max = data[i].value;
+    if (data[i].value < min) min = data[i].value;
+  }
+  total = Math.round(total * 100) / 100;
+  var avg = Math.round((total / data.length) * 100) / 100;
+  return {count: data.length, total: total, max: max, min: min, avg: avg};
+};
+window.FT.pieShares = function(data){
+  var total = 0;
+  for (var i = 0; i < data.length; i++) total += data[i].value;
+  if (total <= 0) return [];
+  var out = [];
+  for (var j = 0; j < data.length; j++) {
+    out.push({label: data[j].label, value: data[j].value,
+              pct: Math.round(data[j].value / total * 1000) / 10});
+  }
+  return out;
+};
+window.FT.tableText = function(data){
+  var lines = [];
+  for (var i = 0; i < data.length; i++) lines.push(data[i].label + ": " + data[i].value);
+  return lines.join("\n");
+};
+
+function copyText(text, btn){
+  function done(){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+function downloadText(filename, text, type){
+  var blob = new Blob([text], {type: type || "text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+(function(){
+  var input = document.getElementById("data-input");
+  var typeEl = document.getElementById("chart-type");
+  var drawBtn = document.getElementById("draw-btn");
+  var canvas = document.getElementById("chart-canvas");
+  var statsOut = document.getElementById("stats-out");
+  var tableOut = document.getElementById("table-out");
+  var copyBtn = document.getElementById("copy-btn");
+  var dlBtn = document.getElementById("download-png-btn");
+  var COLORS = ["#db2777", "#ea580c", "#2563eb", "#059669", "#7c3aed",
+                "#0891b2", "#ca8a04", "#dc2626", "#4d7c0f", "#0d9488"];
+  function esc(s){
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function drawChart(data, type){
+    if (!canvas) return;
+    var ctx = canvas.getContext("2d");
+    var W = canvas.width, H = canvas.height;
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = "#334155";
+    ctx.font = "15px Arial";
+    ctx.textAlign = "center";
+    if (!data.length) {
+      ctx.fillText("Enter some numbers first.", W / 2, H / 2);
+      return;
+    }
+    if (type === "pie") {
+      var shares = window.FT.pieShares(data);
+      if (!shares.length) {
+        ctx.fillText("Pie charts need numbers that add up above zero.", W / 2, H / 2);
+        return;
+      }
+      var cx = W / 2, cy = H / 2, r = Math.min(W, H) / 2 - 30;
+      var start = -Math.PI / 2;
+      for (var i = 0; i < shares.length; i++) {
+        var ang = shares[i].pct / 100 * 2 * Math.PI;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, r, start, start + ang);
+        ctx.closePath();
+        ctx.fillStyle = COLORS[i % COLORS.length];
+        ctx.fill();
+        var mid = start + ang / 2;
+        var lx = cx + Math.cos(mid) * (r + 22);
+        var ly = cy + Math.sin(mid) * (r + 22);
+        ctx.fillStyle = "#334155";
+        ctx.fillText(shares[i].label + " " + shares[i].pct + "%", lx, ly);
+        start += ang;
+      }
+      return;
+    }
+    var max = data[0].value, min = data[0].value;
+    for (var k = 0; k < data.length; k++) {
+      if (data[k].value > max) max = data[k].value;
+      if (data[k].value < min) min = data[k].value;
+    }
+    var lo = type === "bar" ? Math.min(0, min) : min;
+    var hi = max;
+    if (hi === lo) hi = lo + 1;
+    var ml = 50, mr = 20, mt = 25, mb = 45;
+    var pw = W - ml - mr, ph = H - mt - mb;
+    function yOf(v){ return mt + ph - (v - lo) / (hi - lo) * ph; }
+    ctx.strokeStyle = "#cbd5e1";
+    ctx.beginPath(); ctx.moveTo(ml, mt); ctx.lineTo(ml, mt + ph); ctx.lineTo(ml + pw, mt + ph); ctx.stroke();
+    ctx.fillStyle = "#64748b";
+    ctx.textAlign = "right";
+    ctx.fillText(String(hi), ml - 6, mt + 5);
+    ctx.fillText(String(lo), ml - 6, mt + ph + 5);
+    ctx.textAlign = "center";
+    ctx.fillStyle = "#334155";
+    var step = pw / data.length;
+    if (type === "bar") {
+      for (var b = 0; b < data.length; b++) {
+        var bw = step * 0.6;
+        var bx = ml + step * b + (step - bw) / 2;
+        var by = yOf(Math.max(data[b].value, lo));
+        var bh = yOf(lo) - by;
+        ctx.fillStyle = COLORS[b % COLORS.length];
+        ctx.fillRect(bx, by, bw, Math.max(bh, 1));
+        ctx.fillStyle = "#334155";
+        ctx.fillText(String(data[b].value), bx + bw / 2, by - 6);
+        ctx.fillText(data[b].label.slice(0, 10), bx + bw / 2, mt + ph + 20);
+      }
+    } else {
+      ctx.strokeStyle = "#db2777";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      for (var p = 0; p < data.length; p++) {
+        var px = ml + step * p + step / 2;
+        var py = yOf(data[p].value);
+        if (p === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      }
+      ctx.stroke();
+      ctx.lineWidth = 1;
+      for (var q = 0; q < data.length; q++) {
+        var qx = ml + step * q + step / 2;
+        var qy = yOf(data[q].value);
+        ctx.beginPath();
+        ctx.arc(qx, qy, 5, 0, 2 * Math.PI);
+        ctx.fillStyle = "#db2777";
+        ctx.fill();
+        ctx.fillStyle = "#334155";
+        ctx.fillText(String(data[q].value), qx, qy - 10);
+        ctx.fillText(data[q].label.slice(0, 10), qx, mt + ph + 20);
+      }
+    }
+  }
+  function render(){
+    if (!input) return;
+    var data = window.FT.parseData(input.value);
+    var type = typeEl ? typeEl.value : "bar";
+    drawChart(data, type);
+    var s = window.FT.dataStats(data);
+    if (statsOut) {
+      if (!data.length) {
+        statsOut.textContent = "No numbers yet. Type one label and value per line, like Monday, 12.";
+      } else {
+        statsOut.textContent = "Count: " + s.count + "\nTotal: " + s.total +
+          "\nHighest: " + s.max + "\nLowest: " + s.min + "\nAverage: " + s.avg;
+      }
+    }
+    if (tableOut) {
+      if (!data.length) { tableOut.innerHTML = ""; return; }
+      var html = "<table><tr><th>Label</th><th>Value</th></tr>";
+      for (var i = 0; i < data.length; i++) {
+        html += "<tr><td>" + esc(data[i].label) + "</td><td>" + data[i].value + "</td></tr>";
+      }
+      html += "</table>";
+      tableOut.innerHTML = html;
+    }
+  }
+  if (drawBtn) drawBtn.addEventListener("click", render);
+  if (copyBtn) copyBtn.addEventListener("click", function(){
+    var data = input ? window.FT.parseData(input.value) : [];
+    var text = data.length ? window.FT.tableText(data) : "No numbers yet.";
+    copyText(text, copyBtn);
+  });
+  if (dlBtn) dlBtn.addEventListener("click", function(){
+    if (!canvas) return;
+    var url = canvas.toDataURL("image/png");
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "chart.png";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+  render();
+})();
+</script>
+
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

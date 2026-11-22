@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Electrical Calculator Hub — Volts, Watts, Amps and More, Free | Funtasha</title>
+<meta name="description" content="Electrical calculators free in one place — Ohm&#x27;s law, power, energy use and wire size, with every step shown. No signup, works on phone.">
+<link rel="canonical" href="https://funtasha.github.io/electrical-calculator-hub/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Electrical Calculator Hub — Volts, Watts, Amps and More, Free">
+<meta property="og:description" content="Electrical calculators free in one place — Ohm&#x27;s law, power, energy use and wire size, with every step shown.">
+<meta property="og:url" content="https://funtasha.github.io/electrical-calculator-hub/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:15px}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+canvas{width:100%;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between watts and watt-hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Watts measure power — how fast electricity is used. Watt-hours measure energy — how much is used over time. A 2000 watt heater running for half an hour uses 1000 watt-hours. Your bill charges you for watt-hours, usually counted in kilowatt-hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I work out my electricity bill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply the watts by the hours used and the number of days, then divide by 1000 to get kilowatt-hours. Multiply that by your price per unit and you have the cost. The energy calculator on this page does the whole sum for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Ohm's law?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ohm's law says volts equal amps times ohms. If you know any two of the three, you can work out the third. It is the most useful formula in basic electricity, and the Ohm's law calculator on this page shows its working."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many amps does a heater use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 2000 watt heater on a 230 volt supply draws about 8.7 amps. Divide the watts by the volts to get the amps for any device. That is why heaters should have a socket to themselves and never share an extension lead with another heater."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to do my own wiring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fitting a plug or changing a bulb is everyday life, but work on mains wiring belongs to a qualified electrician. Mains electricity can kill, and faulty wiring can start a fire inside a wall. If a job touches a socket, a circuit or a fuse box, call an electrician."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What size wire do I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the amps and the length of the run. The wire size guide on this page gives the smallest copper wire for each current, from 1.5 square millimetres up to 10 amps to 10 square millimetres up to 40 amps. Above 40 amps, or for a long run, ask an electrician."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Electrical Calculator Hub</h1>
+<p class="answer">Four small calculators in one place work out Ohm's law, power, energy use and wire size, with every step shown. Fill in the numbers you know and the hub does the rest, right here in your browser.</p>
+
+<div class="calc">
+<p><b>Ohm's law — fill in any two, leave the third empty</b></p>
+<label for="ohm-v">Volts (V)</label>
+<input id="ohm-v" type="number" step="any">
+<label for="ohm-i">Amps (I)</label>
+<input id="ohm-i" type="number" step="any">
+<label for="ohm-r">Ohms (R)</label>
+<input id="ohm-r" type="number" step="any">
+<button type="button" id="ohm-btn">Work out Ohm's law</button>
+<div class="outbox" id="ohm-out">Fill in any two boxes and tap the button.</div>
+<p><b>Power — volts times amps</b></p>
+<label for="pow-v">Volts (V)</label>
+<input id="pow-v" type="number" step="any">
+<label for="pow-i">Amps (I)</label>
+<input id="pow-i" type="number" step="any">
+<button type="button" id="pow-btn">Work out power</button>
+<div class="outbox" id="pow-out">Enter volts and amps and tap the button.</div>
+<p><b>Energy use — what it costs to run</b></p>
+<label for="energy-watts">Watts</label>
+<input id="energy-watts" type="number" step="any">
+<label for="energy-hours">Hours used per day</label>
+<input id="energy-hours" type="number" step="any">
+<label for="energy-days">Number of days</label>
+<input id="energy-days" type="number" step="any">
+<label for="energy-price">Price per unit (a plain number, in your own currency)</label>
+<input id="energy-price" type="number" step="any">
+<button type="button" id="energy-btn">Work out energy use</button>
+<div class="outbox" id="energy-out">Enter watts, hours and days and tap the button.</div>
+<p><b>Wire size — from the guide table</b></p>
+<label for="wire-amps">Amps the wire must carry</label>
+<input id="wire-amps" type="number" step="any">
+<button type="button" id="wire-btn">Find wire size</button>
+<div class="outbox" id="wire-out">Enter the amps and tap the button.</div>
+<button type="button" id="copy-btn" class="copy-btn">Copy all results</button>
+</div>
+
+<div class="warn">Mains electricity can kill. This hub does sums only — it never makes wiring safe, and any work on mains wiring belongs to a qualified electrician. The wire sizes are a general guide for copper wire, not a rule for your home.</div>
+
+<div class="cards"><a class="card" href="https://toolbari.github.io/tools/ohms-law-calculator.html"><b>Ohm's Law Calculator on ToolBari</b><span>A dedicated Ohm's law calculator with more worked examples, on our sister site ToolBari.</span></a></div>
+
+
+<h2>How to use the hub</h2>
+<p>The hub holds four small calculators, each doing one job. Start with the one that matches your question. If you know two of volts, amps and ohms and want the third, use the Ohm's law calculator: fill in any two of the three boxes and leave the third empty. The hub works out the missing number and the power as well, and shows the formula it used so you can check the working.</p>
+<p>If you want to know how much power something uses, use the power calculator. Enter the volts and the amps and it multiplies them to give watts. The energy calculator answers the bill question: enter the watts, the hours per day and the number of days, plus your price per unit as a plain number in your own currency, and it gives you the kilowatt-hours used and the cost. The wire size calculator takes the amps and tells you the recommended wire size from the guide table below.</p>
+<p>Each calculator has its own button and its own answer box, so you can use one without touching the others. The copy button at the bottom of the tool gathers every answer into one block of text. Nothing is uploaded anywhere: every sum runs in your browser, and the page works without an account.</p>
+<h2>The formulas in plain words</h2>
+<p>Three ideas run the whole hub: volts, amps and ohms. Volts are the push — how hard electricity is pushed around the circuit. Amps are the flow — how much electricity actually moves. Ohms are the resistance — how much the circuit pushes back. Ohm's law ties them together in one sentence: volts equal amps times ohms. If you know any two, you can work out the third. That is all the Ohm's law calculator does, and it shows its working so you can see which version of the formula it used.</p>
+<p>Power is a separate idea. Watts measure how much work electricity does each second. Power equals volts times amps: a device on a 230 volt supply drawing 2 amps uses 460 watts. The power calculator does this one multiplication for you.</p>
+<p>Energy is power over time, and it is what you pay for. A watt-hour is one watt used for one hour. A kilowatt-hour — one unit on most bills — is a thousand watt-hours. The energy calculator multiplies watts by hours by days and divides by a thousand to give kilowatt-hours, then multiplies by your price per unit to give the cost.</p>
+<h2>Worked example: a phone charger</h2>
+<p>A phone charger is a gentle introduction to the hub. Look at the small print on the charger: it might say the output is 5 volts and 2 amps. Those are the numbers the phone receives. Open the power calculator, enter 5 volts and 2 amps, and it gives 10 watts. That is the power the charger delivers at full speed — about the same as a small LED bulb, which is why a charger barely warms up and costs very little to run.</p>
+<p>Now try the energy calculator with the same charger. Suppose it charges a phone for 2 hours a day, every day, for 30 days. Enter 10 watts, 2 hours, 30 days, and your price per unit. The hub works out 0.6 kilowatt-hours for the month — just over half a unit. At any ordinary price per unit, that is a tiny amount of money. Charging a phone is one of the cheapest things in a home, and the hub shows you why: small watts, short hours, small bill.</p>
+<h2>Worked example: a room heater and the bill</h2>
+<p>A room heater is the opposite of a phone charger — big watts, long hours, a bill you can feel. A typical portable heater is rated 2000 watts. On a 230 volt supply, the power calculator tells you it draws about 8.7 amps — divide 2000 by 230 and you get the same answer. That is why heaters need a proper socket and should never share an extension lead with another heater: the amps add up fast.</p>
+<p>Run the energy calculator for a cold month. Enter 2000 watts, 6 hours a day, 30 days. The hub gives 360 kilowatt-hours. Multiply by your price per unit and you have the month's cost for that one heater. For many homes, that one number explains a winter bill better than anything else. It also shows why turning the heater down by one setting, or running it for one hour less a day, saves real money — the watts are large, so every hour counts.</p>
+<h2>Worked example: a long wire to a workshop</h2>
+<p>A long wire is where the wire size calculator earns its place. Imagine a workshop at the end of a garden, 30 metres from the house, with lights and a few power tools. The tools draw up to 16 amps together. Enter 16 amps in the wire size calculator and the guide says 2.5 square millimetres. That is the smallest size the guide recommends for 16 amps — but the length matters too, and this is where the guide stops and an electrician starts.</p>
+<p>Over a long run, a wire loses some voltage along its length, so the tools at the far end get less than the full supply. Electricians allow for this voltage drop by choosing a thicker wire for long runs than the simple amps table suggests. The hub's table is based on amps alone, so for a long run it can only give you a starting point. A 30 metre run at 16 amps is exactly the kind of job where an electrician earns their fee: they work out the voltage drop, the protection and the route, and they sign off the work.</p>
+<h2>The wire size guide</h2>
+<p>The table below is the guide the wire size calculator uses. It gives the smallest copper wire size for a given current, in square millimetres. It is a general guide, not a rule for your home: local wiring rules, the length of the run, how the wire is installed and the type of protection all change the answer. An electrician decides the final size. Use the table to understand the numbers, not to choose wire for a real job.</p>
+<table>
+<tr><th>Current</th><th>Wire size</th><th>Typical use</th></tr>
+<tr><td>Up to 10 amps</td><td>1.5 sq mm</td><td>Light circuits, small loads</td></tr>
+<tr><td>Up to 16 amps</td><td>2.5 sq mm</td><td>Socket circuits, small appliances</td></tr>
+<tr><td>Up to 25 amps</td><td>4 sq mm</td><td>Larger socket circuits</td></tr>
+<tr><td>Up to 32 amps</td><td>6 sq mm</td><td>Cookers, larger loads</td></tr>
+<tr><td>Up to 40 amps</td><td>10 sq mm</td><td>Heavy loads</td></tr>
+<tr><td>Above 40 amps</td><td>Ask an electrician</td><td>Heavy loads that need a professional</td></tr>
+</table>
+<p>Notice how the sizes jump. Doubling the amps does not double the wire size — it roughly quadruples it, because a thicker wire must carry the extra current without overheating. That is why guessing is dangerous: a wire that looks only slightly too thin can run far hotter than it should. The table also assumes copper wire.</p>
+<h2>Safety first: mains electricity is dangerous</h2>
+<p>Mains electricity can kill, and it can kill without warning. A shock from a mains socket can stop a heart, and a faulty wire can start a fire inside a wall where nobody sees it until the smoke appears. This hub does sums. It never makes a job safe, and no calculator can tell you whether a circuit is live, whether a wire is damaged, or whether your home's wiring is sound. Those questions need a person with training and test equipment, standing in front of your fuse box.</p>
+<p>The rule is simple: if the job touches mains wiring, call an electrician. Fitting a plug or changing a light bulb is everyday life. Opening a socket, adding a circuit, running a new wire, or touching anything inside a fuse box is mains work. It does not matter how clear the video you watched was, or how simple the job looks. Mains work done wrong can hurt you, hurt the next person who opens the socket, and invalidate your home insurance.</p>
+<p>Before any electrical work, switch off the circuit and check it is dead with a proper tester — not by touching it, and not by trusting a switch. Never work on a circuit while standing on a wet floor or with wet hands.</p>
+<h2>Common mistakes</h2>
+<p>The most common mistake is mixing up watts and watt-hours. Watts are power — how fast electricity is used. Watt-hours are energy — how much is used over time. A 2000 watt heater running for half an hour uses 1000 watt-hours, not 2000. A 10 watt charger running for ten hours uses 100 watt-hours. The time matters as much as the watts, and forgetting it is how bills get misread and heaters get blamed for costs they did not cause.</p>
+<p>The second mistake is forgetting amps. People check the watts on a device and stop there, but the amps decide whether a socket, a plug or an extension lead can handle it. Two heaters on one extension lead can draw more amps than the lead is rated for, and the lead overheats while both heaters work perfectly. Add up the amps before you share a socket, and never chain extension leads together.</p>
+<h2>What this hub cannot do</h2>
+<p>This hub does arithmetic, not electrical work. It cannot look at your home, test a circuit, or tell you whether your wiring is safe. It cannot see a damaged cable, a loose connection or an overloaded socket. It cannot tell you what your local wiring rules require, and it does not know how your house was wired. The wire sizes are a general guide for copper wire, and the energy costs depend on the price per unit you enter — if that price is wrong, the cost is wrong too.</p>
+<p>Use the hub to understand the numbers, to estimate a bill, and to ask an electrician better questions. For anything that touches mains wiring, the answer is always the same: switch it off and call someone qualified. The hub is a learning tool, and the safest thing it can teach you is when to put it down and pick up the phone.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is the difference between watts and watt-hours?</h3><p>Watts measure power — how fast electricity is used. Watt-hours measure energy — how much is used over time. A 2000 watt heater running for half an hour uses 1000 watt-hours. Your bill charges you for watt-hours, usually counted in kilowatt-hours.</p></div>
+<div class="faq"><h3>How do I work out my electricity bill?</h3><p>Multiply the watts by the hours used and the number of days, then divide by 1000 to get kilowatt-hours. Multiply that by your price per unit and you have the cost. The energy calculator on this page does the whole sum for you.</p></div>
+<div class="faq"><h3>What is Ohm&#x27;s law?</h3><p>Ohm&#x27;s law says volts equal amps times ohms. If you know any two of the three, you can work out the third. It is the most useful formula in basic electricity, and the Ohm&#x27;s law calculator on this page shows its working.</p></div>
+<div class="faq"><h3>How many amps does a heater use?</h3><p>A 2000 watt heater on a 230 volt supply draws about 8.7 amps. Divide the watts by the volts to get the amps for any device. That is why heaters should have a socket to themselves and never share an extension lead with another heater.</p></div>
+<div class="faq"><h3>Is it safe to do my own wiring?</h3><p>Fitting a plug or changing a bulb is everyday life, but work on mains wiring belongs to a qualified electrician. Mains electricity can kill, and faulty wiring can start a fire inside a wall. If a job touches a socket, a circuit or a fuse box, call an electrician.</p></div>
+<div class="faq"><h3>What size wire do I need?</h3><p>It depends on the amps and the length of the run. The wire size guide on this page gives the smallest copper wire for each current, from 1.5 square millimetres up to 10 amps to 10 square millimetres up to 40 amps. Above 40 amps, or for a long run, ask an electrician.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../scientific-data-visualizer/">Scientific Data Visualizer</a> · <a href="../3d-model-file-converter/">3D Model File Converter</a> · <a href="../astronomy-observation-planner/">Astronomy Observation Planner</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+
+<script>
+window.FT = window.FT || {};
+(function(){
+  function round2(n){ return Math.round(n * 100) / 100; }
+  function fmt(n){ return String(round2(n)); }
+  function isNum(v){ return typeof v === "number" && isFinite(v); }
+  function ohmsLaw(o){
+    var hasV = isNum(o.v), hasI = isNum(o.i), hasR = isNum(o.r);
+    var count = (hasV ? 1 : 0) + (hasI ? 1 : 0) + (hasR ? 1 : 0);
+    if(count !== 2){
+      return {error: "Fill in exactly two of volts, amps and ohms."};
+    }
+    var v, i, r, steps = [];
+    if(!hasV){
+      if(o.r === 0) return {error: "Ohms cannot be zero when working out volts."};
+      v = o.i * o.r;
+      i = o.i; r = o.r;
+      steps.push("V = I x R = " + fmt(o.i) + " x " + fmt(o.r) + " = " + fmt(v) + " volts");
+    } else if(!hasI){
+      if(o.r === 0) return {error: "Ohms cannot be zero when working out amps."};
+      i = o.v / o.r;
+      v = o.v; r = o.r;
+      steps.push("I = V / R = " + fmt(o.v) + " / " + fmt(o.r) + " = " + fmt(i) + " amps");
+    } else {
+      if(o.i === 0) return {error: "Amps cannot be zero when working out ohms."};
+      r = o.v / o.i;
+      v = o.v; i = o.i;
+      steps.push("R = V / I = " + fmt(o.v) + " / " + fmt(o.i) + " = " + fmt(r) + " ohms");
+    }
+    var p = v * i;
+    steps.push("P = V x I = " + fmt(v) + " x " + fmt(i) + " = " + fmt(p) + " watts");
+    return {v: round2(v), i: round2(i), r: round2(r), p: round2(p), steps: steps};
+  }
+  function powerCalc(v, i){ return {p: round2(v * i)}; }
+  function energyUse(watts, hoursPerDay, days, pricePerUnit){
+    var kwh = watts * hoursPerDay * days / 1000;
+    var cost = kwh * pricePerUnit;
+    return {kwh: round2(kwh), cost: round2(cost)};
+  }
+  function wireSize(amps){
+    var note = "General guide for copper wire. Local rules and an electrician decide the final size.";
+    if(amps <= 10) return {size: "1.5 sq mm", note: note};
+    if(amps <= 16) return {size: "2.5 sq mm", note: note};
+    if(amps <= 25) return {size: "4 sq mm", note: note};
+    if(amps <= 32) return {size: "6 sq mm", note: note};
+    if(amps <= 40) return {size: "10 sq mm", note: note};
+    return {size: null, note: "ask an electrician"};
+  }
+  window.FT.ohmsLaw = ohmsLaw;
+  window.FT.powerCalc = powerCalc;
+  window.FT.energyUse = energyUse;
+  window.FT.wireSize = wireSize;
+})();
+
+function copyText(text, btn){
+  function done(){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+function downloadText(filename, text, type){
+  var blob = new Blob([text], {type: type || "text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+(function(){
+  if(typeof document === "undefined" || !document.getElementById) return;
+  function el(id){ return document.getElementById(id); }
+  var ohmV = el("ohm-v"), ohmI = el("ohm-i"), ohmR = el("ohm-r"), ohmBtn = el("ohm-btn"), ohmOut = el("ohm-out");
+  var powV = el("pow-v"), powI = el("pow-i"), powBtn = el("pow-btn"), powOut = el("pow-out");
+  var eW = el("energy-watts"), eH = el("energy-hours"), eD = el("energy-days"), eP = el("energy-price"), eBtn = el("energy-btn"), eOut = el("energy-out");
+  var wA = el("wire-amps"), wBtn = el("wire-btn"), wOut = el("wire-out");
+  var copyBtn = el("copy-btn");
+  if(!ohmV || !ohmI || !ohmR || !ohmBtn || !ohmOut || !powV || !powI || !powBtn || !powOut || !eW || !eH || !eD || !eP || !eBtn || !eOut || !wA || !wBtn || !wOut) return;
+  var results = {ohm: "", power: "", energy: "", wire: ""};
+  function optNum(input){
+    var s = input.value.replace(/^\s+|\s+$/g, "");
+    if(s === "") return null;
+    var v = parseFloat(s);
+    return isNaN(v) ? null : v;
+  }
+  function reqNum(input){
+    var v = optNum(input);
+    return v === null ? NaN : v;
+  }
+  ohmBtn.addEventListener("click", function(){
+    var v = optNum(ohmV), i = optNum(ohmI), r = optNum(ohmR);
+    var text;
+    if((v !== null && v < 0) || (i !== null && i < 0) || (r !== null && r < 0)){
+      text = "Volts, amps and ohms cannot be negative.";
+    } else {
+      var res = window.FT.ohmsLaw({v: v, i: i, r: r});
+      if(res.error){
+        text = res.error;
+      } else {
+        text = "Volts: " + res.v + " V\nAmps: " + res.i + " A\nOhms: " + res.r + " ohms\nPower: " + res.p + " watts\n" + res.steps.join("\n");
+      }
+    }
+    ohmOut.textContent = text;
+    results.ohm = text;
+  });
+  powBtn.addEventListener("click", function(){
+    var v = reqNum(powV), i = reqNum(powI);
+    var text;
+    if(isNaN(v) || isNaN(i)){
+      text = "Enter volts and amps first.";
+    } else if(v < 0 || i < 0){
+      text = "Volts and amps cannot be negative.";
+    } else {
+      var res = window.FT.powerCalc(v, i);
+      text = "Power: " + res.p + " watts\nP = V x I = " + v + " x " + i + " = " + res.p + " watts";
+    }
+    powOut.textContent = text;
+    results.power = text;
+  });
+  eBtn.addEventListener("click", function(){
+    var w = reqNum(eW), h = reqNum(eH), d = reqNum(eD), p = reqNum(eP);
+    var text;
+    if(isNaN(w) || isNaN(h) || isNaN(d) || isNaN(p)){
+      text = "Enter watts, hours per day, days and price per unit first.";
+    } else if(w < 0 || h < 0 || d < 0 || p < 0){
+      text = "These numbers cannot be negative.";
+    } else {
+      var res = window.FT.energyUse(w, h, d, p);
+      text = "Energy used: " + res.kwh + " kWh\nCost: " + res.cost + " (in your own currency)\n" + w + " watts x " + h + " hours x " + d + " days / 1000 = " + res.kwh + " kWh";
+    }
+    eOut.textContent = text;
+    results.energy = text;
+  });
+  wBtn.addEventListener("click", function(){
+    var a = reqNum(wA);
+    var text;
+    if(isNaN(a)){
+      text = "Enter the amps first.";
+    } else if(a < 0){
+      text = "Amps cannot be negative.";
+    } else {
+      var res = window.FT.wireSize(a);
+      if(res.size){
+        text = "Recommended wire size: " + res.size + "\n" + res.note;
+      } else {
+        text = "Above 40 amps: " + res.note + ".";
+      }
+    }
+    wOut.textContent = text;
+    results.wire = text;
+  });
+  if(copyBtn){
+    copyBtn.addEventListener("click", function(){
+      var parts = [];
+      if(results.ohm) parts.push("Ohm's law:\n" + results.ohm);
+      if(results.power) parts.push("Power:\n" + results.power);
+      if(results.energy) parts.push("Energy use:\n" + results.energy);
+      if(results.wire) parts.push("Wire size:\n" + results.wire);
+      copyText(parts.length ? parts.join("\n\n") : "No results yet. Run a calculator first.", copyBtn);
+    });
+  }
+})();
+</script>
+
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

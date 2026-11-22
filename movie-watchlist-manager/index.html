@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Movie Watchlist Manager — Keep Track of Movies to Watch (Free) | Funtasha</title>
+<meta name="description" content="Manage your movie watchlist free — add movies you want to watch, mark them watched, rate them, and pick tonight&#x27;s film in one tap. No signup.">
+<link rel="canonical" href="https://funtasha.github.io/movie-watchlist-manager/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Movie Watchlist Manager — Keep Track of Movies to Watch (Free)">
+<meta property="og:description" content="Manage your movie watchlist free — add movies you want to watch, mark them watched, rate them, and pick tonight&#x27;s film in one tap.">
+<meta property="og:url" content="https://funtasha.github.io/movie-watchlist-manager/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:15px}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+canvas{width:100%;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where is my list saved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In your browser, on this device, using the browser's own storage. Nothing is sent to a server and there is no account. That means your list is private, but it also means it does not follow you to another phone or computer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I rate movies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every film on your list has a rating from zero to five. Zero means not rated. Rate films on the night you watch them, while the feeling is fresh, and your ratings build into a record of what you actually enjoy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I pick tonight's film?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tap the pick button and it chooses one film at random from the ones you have not watched yet. If the pick does not suit the night, tap again. The rule is simple: when nobody can decide in five minutes, let the button decide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I lose my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The list is saved on the device, so a lost phone means a lost list. Use the copy button now and then to copy your list as plain text, and paste it into a note you keep somewhere safe. That copy is your backup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I track TV shows too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Add a show the same way you add a film, and use the where to watch box to note the season you are on. Mark it watched when you finish the season, or remove it and add the next season when it starts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this stream movies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This page only keeps track of your list. It does not play films, rent them or show where to watch them. The where to watch box holds your own note, and you watch the film on whatever service or disc you choose."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Movie Watchlist Manager</h1>
+<p class="answer">Add the movies you want to watch, mark them watched when you finish them, and rate the ones you loved. Your list is saved on your device, and one tap picks tonight's film for you when you cannot decide.</p>
+
+<div class="calc">
+<label for="movie-title">Movie title</label>
+<input id="movie-title" type="text" placeholder="The name of the film">
+<label for="movie-genre">Genre</label>
+<select id="movie-genre">
+<option>Action</option>
+<option>Comedy</option>
+<option>Drama</option>
+<option>Horror</option>
+<option>Science fiction</option>
+<option>Documentary</option>
+<option>Animation</option>
+<option>Thriller</option>
+<option>Romance</option>
+<option>Other</option>
+</select>
+<label for="movie-where">Where to watch (optional)</label>
+<input id="movie-where" type="text" placeholder="Streaming service, disc, cinema">
+<label for="movie-priority">Priority</label>
+<select id="movie-priority">
+<option value="high">High — watch soon</option>
+<option value="normal" selected>Normal</option>
+<option value="low">Low — one day</option>
+</select>
+<button type="button" id="add-btn">Add to watchlist</button>
+<label for="search">Search your list</label>
+<input id="search" type="text" placeholder="Type a title">
+<button type="button" id="filter-all">All</button>
+<button type="button" id="filter-want">Want to watch</button>
+<button type="button" id="filter-watched">Watched</button>
+<div id="watch-list"></div>
+<button type="button" id="pick-btn">Pick one for tonight</button>
+<div class="outbox" id="pick-out">Tap the pick button and tonight's film appears here.</div>
+<button type="button" id="copy-btn" class="copy-btn">Copy my list</button>
+</div>
+
+<div class="warn">Your list is saved in your browser on this device only, so it does not follow you to another phone or computer. This page does not stream movies and does not show where to watch them — it only keeps track of the list you build.</div>
+
+<h2>How to use the watchlist manager</h2>
+<p>Adding a film takes a few seconds. Type the title, pick a genre, and — if you like — note where you plan to watch it, such as a streaming service you already pay for or a disc on your shelf. Set the priority: high for the films you are most excited about, normal for the rest, low for the ones you will get to one day. Tap the add button and the film appears in your list, saved on your device straight away.</p>
+<p>Your list has three views. All shows everything. Want to watch shows only the films you have not seen yet. Watched shows the films you have finished, with your ratings beside them. The search box filters the list as you type, which is handy when the list grows past a dozen films. Each film has three controls: a button to mark it watched or move it back to unwatched, a rating from zero to five, and a remove button for the films you have changed your mind about.</p>
+<p>The pick button is for the nights when nobody can decide. It chooses one film at random from the ones you have not watched yet, and shows it at the top of the page. The copy button turns your whole list into plain text you can paste into a message or a note.</p>
+<h2>Building a watchlist you actually finish</h2>
+<p>A watchlist works when it is short. Ten films you genuinely want to see will get watched; two hundred films you added on a whim will sit there until the list feels like homework. The difference is not discipline — it is the size of the choice. Every film you add makes the next choice a little harder, because there is one more thing to weigh up. Keep the list under twenty films and it stays a pleasure. Let it grow past fifty and opening it starts to feel like work.</p>
+<p>Add films slowly and on purpose. A good rule is one film in, one film out: when you add something new, remove or watch something already on the list. If a film has sat on the list for a year without anyone choosing it, remove it.</p>
+<p>Finish what you start, or at least decide to stop. A film you abandoned halfway is not a failure; it is a film that was not for you. Mark it watched with a low rating, or remove it, and move on. The goal of a watchlist is evenings you enjoy, not a collection you curate. A list of eight films you love is worth more than a list of eighty films you feel guilty about.</p>
+<h2>Using genres and priority to choose faster</h2>
+<p>Genres are useful when you know the mood but not the film. A Friday night after a long week calls for a comedy or an adventure; a quiet Sunday suits a drama or a documentary. Tagging each film with a genre when you add it means you can scan the list by feeling instead of reading every title. The genre list on this page covers the usual choices — action, comedy, drama, horror, science fiction, documentary and more</p>
+<p>Priority does a different job. It answers the question of what to watch first, not what kind of film it is. High priority means watch this soon, before the moment passes — the film everyone is talking about, or the one that leaves a streaming service at the end of the month. Normal priority is the steady middle of the list. Low priority is for films you are curious about but in no hurry to see.</p>
+<p>Together, genre and priority turn a flat list into a small system. On a decision night, filter by the mood you are in, look at the high-priority films in that genre, and pick one. If even that is too much choice, the pick button will decide for you.</p>
+<h2>Rating films so you remember them</h2>
+<p>A rating is a note to your future self. Six months after watching a film, the plot fades but a number stays. Five out of five means watch it again and recommend it to friends. Four means a good evening, worth the time. Three means fine, but not memorable. Two means a disappointment, and one means you wish you had picked something else. Zero — no rating — means you have not decided yet, or the film is still on the list.</p>
+<p>Ratings become useful when they pile up. After twenty rated films you can see your taste in numbers: the comedies cluster at four and five, the horror films at two and three, and the pattern tells you what to pick next time. That is more honest than memory, which flatters the films you wanted to like. When a friend asks for a recommendation, your five-star films are the answer — not the films you think you should recommend, but the ones you actually loved.</p>
+<p>Rate on the night, while the feeling is fresh. A film rated a week later gets the rating you think it deserves, not the one it earned. And do not worry about being fair to the film. The rating is for you, not for the director.</p>
+<h2>The pick one rule for decision nights</h2>
+<p>Every household knows the decision night. Two people, one evening, and forty minutes spent scrolling through options until someone says it is too late to start a film. The problem is not a lack of good films — it is too many choices and no rule for choosing. The pick one rule fixes that: when nobody can decide in five minutes, the pick button decides, and everyone agrees to watch what it picks.</p>
+<p>The rule works because it removes the argument, not the choice. You built the list, so every film on it is one you wanted to see. A random pick from a good list is still a good film. The only films it can pick are the ones you have not watched yet, so you will never be handed a film you have already seen. If the pick genuinely does not suit the night — a horror film when the children are still awake — pick again. The rule is a tool for ending indecision, not a punishment.</p>
+<h2>A worked example: a weekend list of five films</h2>
+<p>Suppose it is Friday evening and you have a free weekend. You want five films: two for Friday and Saturday night, one for Sunday afternoon, and two spares in case the mood changes. Start by adding the five films with their genres and priorities. A comedy you have been meaning to watch goes in as high priority. A drama a friend recommended goes in as normal. A documentary goes in as low.</p>
+<p>Saturday morning, check the list. Mark Friday's film watched and give it four out of five. Now the list shows four unwatched films. Use the search box to find the drama by typing the first few letters of its title. That evening, nobody can agree between the drama and the adventure film, so you tap the pick button. It chooses the adventure film. You watch it, mark it watched, and rate it five out of five.</p>
+<p>By Sunday, two films are watched and rated, and three remain. The weekend felt easy because the decisions were made by the list, not argued over each night. The copy button lets you share the finished weekend with the friend who recommended the drama — the list, with your ratings, as plain text in a message. Five films, one weekend, no scrolling.</p>
+<h2>Common mistakes that turn a watchlist into a chore</h2>
+<p>The first mistake is a list of three hundred films. Nobody watches three hundred films from a list. A list that long is not a plan — it is a warehouse. Every film you add without watching one makes the list heavier and the choice harder. If your list is already huge, be ruthless: keep the twenty you most want to see and remove the rest. You will watch more films with a shorter list, not fewer.</p>
+<p>The second mistake is adding everything. A trailer looks good, a friend mentions a title, a poster catches your eye — and onto the list it goes, unexamined. A watchlist should hold films you have chosen, not films you have noticed. Before you add a film, ask one question: would I watch this tonight if it were the only option? If the answer is no, leave it off.</p>
+<p>The third mistake is never marking films watched. The watched section is the reward for finishing — it shows your ratings, your taste and your progress. A list where nothing is ever marked watched looks the same in December as it did in January, and that sameness is discouraging. Mark films watched the night you finish them, while the rating is fresh in your mind. A growing watched list is the sign the system is working.</p>
+<h2>What this manager cannot do</h2>
+<p>This manager keeps a list. It does not stream movies, rent them or show you where to watch them — the "where to watch" box holds your own note, nothing more. It does not know whether a film is on a particular service, and it does not check prices or availability. For that, check the service you use.</p>
+<p>It does not recommend films. There is no catalogue behind the page and no suggestion engine. The films on your list are the ones you add, and the pick button chooses from those and nothing else. It cannot tell you what is popular this week or what critics thought of a film.</p>
+<p>It also does not sync. Your list lives in your browser on this device, so a list built on your phone will not appear on your computer, and a list on a borrowed device stays on that device. If you change phones or clear your browser data, the list goes with it. The copy button is your backup: copy the list as text now and then, and paste it into a note you keep. That way the list survives even if the device does not.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>Where is my list saved?</h3><p>In your browser, on this device, using the browser&#x27;s own storage. Nothing is sent to a server and there is no account. That means your list is private, but it also means it does not follow you to another phone or computer.</p></div>
+<div class="faq"><h3>Can I rate movies?</h3><p>Yes. Every film on your list has a rating from zero to five. Zero means not rated. Rate films on the night you watch them, while the feeling is fresh, and your ratings build into a record of what you actually enjoy.</p></div>
+<div class="faq"><h3>How do I pick tonight&#x27;s film?</h3><p>Tap the pick button and it chooses one film at random from the ones you have not watched yet. If the pick does not suit the night, tap again. The rule is simple: when nobody can decide in five minutes, let the button decide.</p></div>
+<div class="faq"><h3>What if I lose my phone?</h3><p>The list is saved on the device, so a lost phone means a lost list. Use the copy button now and then to copy your list as plain text, and paste it into a note you keep somewhere safe. That copy is your backup.</p></div>
+<div class="faq"><h3>Can I track TV shows too?</h3><p>Yes. Add a show the same way you add a film, and use the where to watch box to note the season you are on. Mark it watched when you finish the season, or remove it and add the next season when it starts.</p></div>
+<div class="faq"><h3>Does this stream movies?</h3><p>No. This page only keeps track of your list. It does not play films, rent them or show where to watch them. The where to watch box holds your own note, and you watch the film on whatever service or disc you choose.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../astronomy-observation-planner/">Astronomy Observation Planner</a> · <a href="../scientific-data-visualizer/">Scientific Data Visualizer</a> · <a href="../3d-model-file-converter/">3D Model File Converter</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+
+<script>
+window.FT = window.FT || {};
+(function(){
+  function copyItem(m){
+    var c = {};
+    for(var k in m){ if(Object.prototype.hasOwnProperty.call(m, k)) c[k] = m[k]; }
+    return c;
+  }
+  function addMovie(list, movie){
+    var item = copyItem(movie);
+    if(item.watched === undefined) item.watched = false;
+    if(item.rating === undefined) item.rating = 0;
+    return list.concat([item]);
+  }
+  function toggleWatched(list, id){
+    return list.map(function(m){
+      if(m.id !== id) return m;
+      var c = copyItem(m);
+      c.watched = !m.watched;
+      return c;
+    });
+  }
+  function setRating(list, id, rating){
+    var r = Math.max(0, Math.min(5, rating));
+    return list.map(function(m){
+      if(m.id !== id) return m;
+      var c = copyItem(m);
+      c.rating = r;
+      return c;
+    });
+  }
+  function removeMovie(list, id){
+    return list.filter(function(m){ return m.id !== id; });
+  }
+  function pickOne(list, randFn){
+    var unwatched = list.filter(function(m){ return !m.watched; });
+    if(!unwatched.length) return null;
+    var rand = randFn || Math.random;
+    var idx = Math.floor(rand() * unwatched.length);
+    return unwatched[idx];
+  }
+  function filterList(list, mode){
+    if(mode === "want") return list.filter(function(m){ return !m.watched; });
+    if(mode === "watched") return list.filter(function(m){ return m.watched; });
+    return list.slice();
+  }
+  function searchList(list, q){
+    if(!q || q.replace(/^\s+|\s+$/g, "") === "") return list.slice();
+    var needle = q.toLowerCase();
+    return list.filter(function(m){ return String(m.title).toLowerCase().indexOf(needle) >= 0; });
+  }
+  window.FT.addMovie = addMovie;
+  window.FT.toggleWatched = toggleWatched;
+  window.FT.setRating = setRating;
+  window.FT.removeMovie = removeMovie;
+  window.FT.pickOne = pickOne;
+  window.FT.filterList = filterList;
+  window.FT.searchList = searchList;
+})();
+
+function copyText(text, btn){
+  function done(){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+function downloadText(filename, text, type){
+  var blob = new Blob([text], {type: type || "text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+(function(){
+  if(typeof document === "undefined" || !document.getElementById) return;
+  var KEY = "ft-movie-watchlist-manager-list";
+  var titleEl = document.getElementById("movie-title");
+  var genreEl = document.getElementById("movie-genre");
+  var whereEl = document.getElementById("movie-where");
+  var priorityEl = document.getElementById("movie-priority");
+  var addBtn = document.getElementById("add-btn");
+  var listEl = document.getElementById("watch-list");
+  var filterAll = document.getElementById("filter-all");
+  var filterWant = document.getElementById("filter-want");
+  var filterWatched = document.getElementById("filter-watched");
+  var searchEl = document.getElementById("search");
+  var pickBtn = document.getElementById("pick-btn");
+  var pickOut = document.getElementById("pick-out");
+  var copyBtn = document.getElementById("copy-btn");
+  if(!titleEl || !genreEl || !whereEl || !priorityEl || !addBtn || !listEl || !filterAll || !filterWant || !filterWatched || !searchEl || !pickBtn || !pickOut) return;
+  var mode = "all";
+  function load(){
+    try{
+      var raw = localStorage.getItem(KEY);
+      if(!raw) return [];
+      var parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    }catch(e){ return []; }
+  }
+  function save(list){
+    try{ localStorage.setItem(KEY, JSON.stringify(list)); }catch(e){}
+  }
+  function esc(s){
+    return String(s === undefined || s === null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function render(){
+    var list = load();
+    var shown = window.FT.filterList(list, mode);
+    shown = window.FT.searchList(shown, searchEl.value);
+    if(!shown.length){
+      listEl.innerHTML = "<p>No films here yet. Add your first film above.</p>";
+      return;
+    }
+    var html = "";
+    var i, r;
+    for(i = 0; i < shown.length; i++){
+      var m = shown[i];
+      html += '<div class="movie-item" data-id="' + esc(m.id) + '">';
+      html += "<p><b>" + esc(m.title) + "</b></p>";
+      html += "<p>" + esc(m.genre || "") + (m.where ? " — " + esc(m.where) : "") + " — " + esc(m.priority) + " priority</p>";
+      html += '<button type="button" class="watched-btn" data-id="' + esc(m.id) + '">' + (m.watched ? "Mark unwatched" : "Mark watched") + "</button> ";
+      html += '<label for="rate-' + esc(m.id) + '">Rating</label>';
+      html += '<select id="rate-' + esc(m.id) + '" class="rate-select" data-id="' + esc(m.id) + '">';
+      var opts = [["0", "Not rated"], ["1", "1 out of 5"], ["2", "2 out of 5"], ["3", "3 out of 5"], ["4", "4 out of 5"], ["5", "5 out of 5"]];
+      for(r = 0; r < opts.length; r++){
+        html += '<option value="' + opts[r][0] + '"' + (String(m.rating) === opts[r][0] ? " selected" : "") + ">" + opts[r][1] + "</option>";
+      }
+      html += "</select> ";
+      html += '<button type="button" class="remove-btn" data-id="' + esc(m.id) + '">Remove</button>';
+      html += "</div>";
+    }
+    listEl.innerHTML = html;
+  }
+  addBtn.addEventListener("click", function(){
+    var title = titleEl.value.replace(/^\s+|\s+$/g, "");
+    if(!title){
+      titleEl.focus();
+      return;
+    }
+    var list = load();
+    var movie = {
+      id: "m" + Date.now().toString(36) + Math.floor(Math.random() * 100000).toString(36),
+      title: title,
+      genre: genreEl.value,
+      where: whereEl.value,
+      priority: priorityEl.value
+    };
+    save(window.FT.addMovie(list, movie));
+    titleEl.value = "";
+    whereEl.value = "";
+    render();
+  });
+  listEl.addEventListener("click", function(ev){
+    var t = ev.target;
+    if(!t || !t.getAttribute) return;
+    var id = t.getAttribute("data-id");
+    if(!id) return;
+    var cls = t.className || "";
+    if(typeof cls !== "string") return;
+    var list = load();
+    if(cls.indexOf("watched-btn") >= 0){
+      save(window.FT.toggleWatched(list, id));
+      render();
+    } else if(cls.indexOf("remove-btn") >= 0){
+      save(window.FT.removeMovie(list, id));
+      render();
+    }
+  });
+  listEl.addEventListener("change", function(ev){
+    var t = ev.target;
+    if(!t || !t.getAttribute) return;
+    var cls = t.className || "";
+    if(typeof cls !== "string") return;
+    if(cls.indexOf("rate-select") >= 0){
+      var id = t.getAttribute("data-id");
+      var list = load();
+      save(window.FT.setRating(list, id, parseInt(t.value, 10)));
+      render();
+    }
+  });
+  filterAll.addEventListener("click", function(){ mode = "all"; render(); });
+  filterWant.addEventListener("click", function(){ mode = "want"; render(); });
+  filterWatched.addEventListener("click", function(){ mode = "watched"; render(); });
+  searchEl.addEventListener("input", render);
+  pickBtn.addEventListener("click", function(){
+    var list = load();
+    var pick = window.FT.pickOne(list);
+    if(!pick){
+      pickOut.textContent = "No unwatched films on your list. Add a film first.";
+      return;
+    }
+    pickOut.textContent = "Tonight, watch: " + pick.title + (pick.genre ? " (" + pick.genre + ")" : "") + ".";
+  });
+  if(copyBtn){
+    copyBtn.addEventListener("click", function(){
+      var list = load();
+      if(!list.length){
+        copyText("My movie watchlist is empty.", copyBtn);
+        return;
+      }
+      var lines = ["My movie watchlist"];
+      for(var i = 0; i < list.length; i++){
+        var m = list[i];
+        var line = (m.watched ? "[watched] " : "[to watch] ") + m.title;
+        if(m.genre) line += " — " + m.genre;
+        if(m.where) line += " — " + m.where;
+        line += " — " + m.priority + " priority";
+        if(m.watched && m.rating) line += " — rated " + m.rating + " out of 5";
+        lines.push(line);
+      }
+      copyText(lines.join("\n"), copyBtn);
+    });
+  }
+  render();
+})();
+</script>
+
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

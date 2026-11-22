@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Professional Portfolio Builder — Build a Portfolio Page Free | Funtasha</title>
+<meta name="description" content="Build a portfolio free in your browser — your work, your skills and your contact, in a clean page you can share. No signup, works on phone.">
+<link rel="canonical" href="https://funtasha.github.io/professional-portfolio-builder/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Professional Portfolio Builder — Build a Portfolio Page Free">
+<meta property="og:description" content="Build a portfolio free in your browser and share it anywhere.">
+<meta property="og:url" content="https://funtasha.github.io/professional-portfolio-builder/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:15px}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+canvas{width:100%;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a portfolio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A portfolio is a short collection of your best work, shown together so a client or employer can see what you can do. It usually has your name, what you do, a short list of skills, a few work items, and a way to contact you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many projects should I show?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Four to six is the right number. That is enough to prove you can do the work, and short enough that a busy visitor will look at all of them. Forty projects is too many, and the weak ones drag down the strong ones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You need a way for people to see your work, but it does not have to be a big website. A single portfolio page, shared as a file or put online with a free hosting service, is enough to start with."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I share this on social media?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can share the link once your portfolio is online, or share screenshots of your work with a short description. The builder itself does not connect to any social media account."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I have no client work yet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Show personal projects, practice work, or work you did for friends and family. A strong personal project proves your skill just as well as a paid one. Be honest about what each piece is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I put my portfolio online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This builder makes the page but does not host it. Free options include GitHub Pages, which turns your HTML file into a live page, or a site builder with a free plan. You can also share the HTML file itself by email or message."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Professional Portfolio Builder</h1>
+<p class="answer">Build a clean one-page portfolio in your browser, free. Add your name, your skills and your best work, then preview it, copy the code or download the page.</p>
+
+<div class="calc">
+<h2>Build your portfolio</h2>
+<label for="port-name">Your name</label>
+<input id="port-name" type="text">
+<label for="port-role">What you do</label>
+<input id="port-role" type="text">
+<label for="port-skills">Skills (one per line, up to 8)</label>
+<textarea id="port-skills" rows="4"></textarea>
+<div id="work-items">
+<p><b>Work item 1</b></p>
+<label for="item-0-title">Work item 1 title</label>
+<input id="item-0-title" type="text">
+<label for="item-0-desc">Work item 1 description (one line)</label>
+<input id="item-0-desc" type="text">
+<label for="item-0-link">Work item 1 link (optional)</label>
+<input id="item-0-link" type="text">
+<p><b>Work item 2</b></p>
+<label for="item-1-title">Work item 2 title</label>
+<input id="item-1-title" type="text">
+<label for="item-1-desc">Work item 2 description (one line)</label>
+<input id="item-1-desc" type="text">
+<label for="item-1-link">Work item 2 link (optional)</label>
+<input id="item-1-link" type="text">
+<p><b>Work item 3</b></p>
+<label for="item-2-title">Work item 3 title</label>
+<input id="item-2-title" type="text">
+<label for="item-2-desc">Work item 3 description (one line)</label>
+<input id="item-2-desc" type="text">
+<label for="item-2-link">Work item 3 link (optional)</label>
+<input id="item-2-link" type="text">
+<p><b>Work item 4</b></p>
+<label for="item-3-title">Work item 4 title</label>
+<input id="item-3-title" type="text">
+<label for="item-3-desc">Work item 4 description (one line)</label>
+<input id="item-3-desc" type="text">
+<label for="item-3-link">Work item 4 link (optional)</label>
+<input id="item-3-link" type="text">
+</div>
+<button type="button" id="add-item-btn">Add another item</button>
+<label for="contact">Contact method</label>
+<input id="contact" type="text" placeholder="[your email]">
+<button type="button" id="build-btn">Build portfolio</button>
+<iframe id="preview" title="Portfolio preview" style="width:100%;height:480px;border:1px solid #cbd5e1;border-radius:8px;background:#fff"></iframe>
+<button type="button" id="copy-btn" class="copy-btn">Copy as HTML</button>
+<button type="button" id="download-btn">Download HTML</button>
+</div>
+
+<div class="warn">This builds a simple one-page portfolio — it does not host it online. The guide below shows free ways to put it online, so you can share it with a link.</div>
+
+<h2>How to use the builder</h2>
+<p>Type your name and what you do, then list your skills, one per line, up to eight. Pick the skills that match the work you want, not every skill you have ever used. A designer might list logo design, poster design, and photo editing. A writer might list blog writing, editing, and proofreading. Eight skills is the limit, and fewer is often better, because a short list looks confident and a long list looks unsure.</p>
+<p>Next, add your work. The builder starts with four work items. Each item has a title, a one line description, and an optional link to where the work can be seen. Write the description as one sentence that says what the work is and what it achieved. If you have more work to show, press the add button to add another item, up to six in total. Finally, type your contact method: an email address, a phone number, or a social profile name. The builder uses the placeholder text in the box to show you where it goes.</p>
+<p>Press the build button and your portfolio appears in the preview below. It is a clean, simple page with your name at the top, your skills listed, and your work shown one item at a time. Use the copy button to copy the page code, or the download button to save it as an HTML file. The whole thing runs in your browser, on your phone or your computer, and nothing is sent anywhere.</p>
+<h2>What a good portfolio shows</h2>
+<p>A good portfolio shows your best work first. The first item a visitor sees should be the work you are proudest of, not the work you did first. Visitors decide in seconds whether to keep reading, so the strongest piece goes at the top. Four to six items is the right number. That is enough to prove you can do the work, and short enough that a busy visitor will actually look at all of them.</p>
+<p>Forty items is not a portfolio, it is a storage room. Nobody has time to look through forty projects, and the weak ones drag down the strong ones. Pick your best four to six, and leave the rest out. If you are unsure which ones are best, ask a friend to pick their favourites. Other people often see your strengths more clearly than you do.</p>
+<p>A good portfolio also shows what you do, in plain words, right at the top. A visitor should know within five seconds whether you are a designer, a writer, a photographer, or something else. It shows your skills as a short list, and it shows a way to contact you. A portfolio with no contact method is a shop with no door: the visitor may love the work and still have no way to reach you.</p>
+<h2>Writing one-line descriptions that sell the work</h2>
+<p>Each work item needs one line that says what it is and why it matters. The best descriptions name the thing, name who it was for, and name the result, all in one sentence. For example: a poster for a local music festival that sold out in two days. That one line tells the visitor what you made, who it was for, and that it worked. Compare that with a description that only says poster design, which tells the visitor nothing at all.</p>
+<p>Start with the strongest word. If the work won praise, say so. If it reached a lot of people, say so. If it solved a hard problem, say what the problem was. Numbers help when they are real: the number of visitors, the number of sales, or the time it took. Never invent a number. A made up number is a lie, and lies are found out faster than you think.</p>
+<p>Keep it to one line. A description that runs to a whole paragraph is a story, not a caption, and visitors skip stories when they are browsing. If the work needs more explanation, the link can lead to a page with the full story. The portfolio itself stays short, and every line earns its place.</p>
+<h2>A worked example: a designer portfolio in ten minutes</h2>
+<p>Imagine a designer called Ana who wants her first portfolio. She types her name and writes graphic designer as what she does. Her skills are logo design, poster design, social media graphics, and photo editing. Four skills, each one real, each one something she can prove with the work below.</p>
+<p>Her first work item is a logo for a coffee shop, with the description: a warm logo for a neighbourhood coffee shop, used on cups, signs and menus. Her second item is a poster for a school play, described as: a bright poster for a school play that filled every seat. Her third item is a set of social media graphics for a small bakery, described as: a month of graphics for a bakery, each one made to match the season. Her fourth item is a photo edit for a wedding, described as: colour and light fixed for a wedding album of two hundred photos.</p>
+<p>She adds her contact method, presses build, and the preview shows a clean page with her name, her skills, and her four pieces of work. Ten minutes of honest work, and she has a portfolio she can share. She copies the HTML, saves it as a file, and sends it to a client the same day. That is the whole point of this builder: a good portfolio does not need weeks of work, it needs your best work, written clearly.</p>
+<h2>Free ways to put your portfolio online</h2>
+<p>This builder makes the page, but it does not host it online. Hosting means putting the page on the internet so other people can open it with a link. The good news is that there are free ways to do it, and none of them need money or a server. The best known is GitHub Pages, a free service that turns a file into a live web page. You upload your HTML file, and you get a link you can share. It takes a little learning, but there are simple guides for it, and it is free.</p>
+<p>Another free option is a site builder with a free plan. Several well known services let you build a simple page for free, and you can paste your portfolio content into one of their templates. A third option is to share the HTML file itself: send it to a client by email or message, and they can open it in any browser. That works well for a first portfolio, because it needs no account and no setup at all.</p>
+<p>Whichever way you choose, test the link before you share it. Open it on your phone and on a computer, and check that the text is readable and the links work. A portfolio that looks broken is worse than no portfolio, because it suggests you do not check your own work.</p>
+<h2>Common mistakes in portfolios</h2>
+<p>The first mistake is showing every project you have ever done. A portfolio is a selection, not an archive. Ten average projects impress nobody, but four strong ones impress everyone. Be ruthless. If a project does not make you proud, leave it out. The second mistake is having no contact method. Visitors who love your work need a way to reach you, and if they cannot find one, they move on to someone else. Always include a contact method, and check that it works.</p>
+<p>The third mistake is blurry screenshots. A blurry image tells the visitor that you do not care about quality, which is the opposite of what a portfolio should say. Use clear images, and if you do not have a clear image of a project, describe it in words instead. The fourth mistake is a portfolio that is all about you and never about the work. Visitors want to see what you made, not read a long story about your life. Keep the introduction short, and let the work speak.</p>
+<p>The fifth mistake is never updating it. A portfolio from two years ago suggests you have stopped working. Add your newest strong piece whenever you finish one, and remove the weakest old piece. A portfolio that grows with you is always more convincing than one frozen in time.</p>
+<h2>What this page cannot do</h2>
+<p>This page builds a simple one page portfolio. It does not host it online, it does not give you a web address, and it does not connect to any social media account. The page it makes is a starting point: clean, honest, and ready to share as a file or to put online with a free hosting service. If you later want a bigger site with many pages, a blog, or a shop, you will need a proper website builder, but for a first portfolio, one good page is enough.</p>
+<p>The builder also cannot choose your best work for you. It gives you the boxes to fill in, and the judgement is yours. Pick honestly, write clearly, and the page will do the rest. A portfolio is only as good as the work in it, and that part is entirely yours.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is a portfolio?</h3><p>A portfolio is a short collection of your best work, shown together so a client or employer can see what you can do. It usually has your name, what you do, a short list of skills, a few work items, and a way to contact you.</p></div>
+<div class="faq"><h3>How many projects should I show?</h3><p>Four to six is the right number. That is enough to prove you can do the work, and short enough that a busy visitor will look at all of them. Forty projects is too many, and the weak ones drag down the strong ones.</p></div>
+<div class="faq"><h3>Do I need a website?</h3><p>You need a way for people to see your work, but it does not have to be a big website. A single portfolio page, shared as a file or put online with a free hosting service, is enough to start with.</p></div>
+<div class="faq"><h3>Can I share this on social media?</h3><p>Yes. You can share the link once your portfolio is online, or share screenshots of your work with a short description. The builder itself does not connect to any social media account.</p></div>
+<div class="faq"><h3>What if I have no client work yet?</h3><p>Show personal projects, practice work, or work you did for friends and family. A strong personal project proves your skill just as well as a paid one. Be honest about what each piece is.</p></div>
+<div class="faq"><h3>How do I put my portfolio online?</h3><p>This builder makes the page but does not host it. Free options include GitHub Pages, which turns your HTML file into a live page, or a site builder with a free plan. You can also share the HTML file itself by email or message.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../influencer-media-kit-builder/">Influencer Media Kit Builder</a> · <a href="../product-comparison-website/">Product Comparison Website</a> · <a href="../podcast-show-notes-generator/">Podcast Show Notes Generator</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = window.FT || {};
+window.FT.escapeHtml = function(s){
+  return String(s == null ? "" : s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+};
+window.FT.buildPortfolio = function(d){
+  d = d || {};
+  var esc = window.FT.escapeHtml;
+  var name = esc(d.name || "Your Name");
+  var role = esc(d.role || "");
+  var skills = (d.skills || []).slice(0, 8);
+  var items = d.items || [];
+  var contact = esc(d.contact || "");
+  var parts = [];
+  parts.push("<!DOCTYPE html>");
+  parts.push('<html lang="en"><head><meta charset="utf-8">');
+  parts.push('<meta name="viewport" content="width=device-width, initial-scale=1">');
+  parts.push("<title>" + name + " - Portfolio</title>");
+  parts.push("<style>body{font-family:system-ui,sans-serif;max-width:640px;margin:0 auto;padding:24px;color:#1e293b}h1{color:#be185d}ul{padding-left:20px}.item{border:1px solid #e2e8f0;border-radius:8px;padding:12px;margin:12px 0}</style>");
+  parts.push("</head><body>");
+  parts.push("<h" + "1>" + name + "</h" + "1>");
+  if(role){ parts.push("<p>" + role + "</p>"); }
+  if(skills.length){
+    parts.push("<h2>Skills</h2><ul>");
+    for(var i = 0; i < skills.length; i++){ parts.push("<li>" + esc(skills[i]) + "</li>"); }
+    parts.push("</ul>");
+  }
+  if(items.length){
+    parts.push("<h2>Work</h2>");
+    for(var j = 0; j < items.length; j++){
+      var it = items[j] || {};
+      parts.push('<div class="item"><h' + "3>" + esc(it.title || "") + "</h" + "3>");
+      parts.push("<p>" + esc(it.desc || "") + "</p>");
+      if(it.link && String(it.link).indexOf("http") === 0){
+        parts.push("<p><" + "a hr" + 'ef="' + esc(it.link) + '">See this work</' + "a></p>");
+      }
+      parts.push("</div>");
+    }
+  }
+  if(contact){ parts.push("<h2>Contact</h2><p>" + contact + "</p>"); }
+  parts.push("</body></html>");
+  return parts.join("\n");
+};
+
+function copyText(text, btn){
+  function done(){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+function downloadText(filename, text, type){
+  var blob = new Blob([text], {type: type || "text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+(function(){
+  var itemCount = 4;
+  function val(id){
+    var el = document.getElementById(id);
+    return el ? el.value.trim() : "";
+  }
+  function readData(){
+    var skills = val("port-skills").split("\n").map(function(s){ return s.trim(); }).filter(function(s){ return s !== ""; }).slice(0, 8);
+    var items = [];
+    for(var i = 0; i < itemCount; i++){
+      var t = val("item-" + i + "-title");
+      var d = val("item-" + i + "-desc");
+      var l = val("item-" + i + "-link");
+      if(t !== "" || d !== "" || l !== ""){ items.push({title: t, desc: d, link: l}); }
+    }
+    return {name: val("port-name"), role: val("port-role"), skills: skills, items: items, contact: val("contact")};
+  }
+  function build(){
+    var frame = document.getElementById("preview");
+    if(frame){ frame.srcdoc = window.FT.buildPortfolio(readData()); }
+  }
+  var add = document.getElementById("add-item-btn");
+  if(add){
+    add.addEventListener("click", function(){
+      if(itemCount >= 6){ return; }
+      var wrap = document.getElementById("work-items");
+      if(!wrap){ return; }
+      var n = itemCount;
+      var div = document.createElement("div");
+      div.innerHTML = "<p><b>Work item " + (n + 1) + "</b></p>" +
+        '<label for="item-' + n + '-title">Work item ' + (n + 1) + ' title</label>' +
+        '<input id="item-' + n + '-title" type="text">' +
+        '<label for="item-' + n + '-desc">Work item ' + (n + 1) + ' description (one line)</label>' +
+        '<input id="item-' + n + '-desc" type="text">' +
+        '<label for="item-' + n + '-link">Work item ' + (n + 1) + ' link (optional)</label>' +
+        '<input id="item-' + n + '-link" type="text">';
+      wrap.appendChild(div);
+      itemCount++;
+      if(itemCount >= 6){ add.disabled = true; }
+    });
+  }
+  var buildBtn = document.getElementById("build-btn");
+  if(buildBtn){ buildBtn.addEventListener("click", build); }
+  var copy = document.getElementById("copy-btn");
+  if(copy){
+    copy.addEventListener("click", function(){
+      copyText(window.FT.buildPortfolio(readData()), copy);
+    });
+  }
+  var dl = document.getElementById("download-btn");
+  if(dl){
+    dl.addEventListener("click", function(){
+      downloadText("portfolio.html", window.FT.buildPortfolio(readData()), "text/html");
+    });
+  }
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

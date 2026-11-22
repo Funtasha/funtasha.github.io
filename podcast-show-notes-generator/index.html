@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podcast Show Notes Generator — Write Show Notes in Minutes | Funtasha</title>
+<meta name="description" content="Write podcast show notes free — episode title, summary, timestamps and links, in a clean format listeners can skim. No signup, works on phone.">
+<link rel="canonical" href="https://funtasha.github.io/podcast-show-notes-generator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Podcast Show Notes Generator — Write Show Notes in Minutes">
+<meta property="og:description" content="Write podcast show notes free — episode title, summary, timestamps and links, in a clean format listeners can skim. No signup, works on phone.">
+<meta property="og:url" content="https://funtasha.github.io/podcast-show-notes-generator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:15px}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+canvas{width:100%;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are show notes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Show notes are the short written page that sits beside a podcast episode: a summary of what the episode covers, a list of timestamped chapters, and the links mentioned in the show. They help listeners decide whether to press play, and help them find the part they want afterwards."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should show notes be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Short enough to skim in thirty seconds. A two or three sentence summary, up to five main topics, five to eight timestamped chapters, and only the links you actually mentioned. Longer notes are rarely read — if a section is longer than a few lines, it is probably trying to do too much."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need timestamps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if you want listeners to find parts of your episode again. Timestamps turn a long recording into chapters a listener can jump between, and they help new listeners see what the episode covers before they press play. Note the times while you record — it takes seconds and saves half an hour later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I include links?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Include the links you mentioned in the episode, in the order you mentioned them, and check each one before you publish. Do not add links you never talked about, and remove any link that no longer works — a dead link breaks trust faster than a missing one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this for video podcasts too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Video podcasts need show notes just like audio ones, and the format is the same: a summary, timestamped chapters, and links. The timestamps work the same way, and listeners on video platforms use chapters to jump to the part they want."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do show notes help people find my podcast?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They help in a small, honest way: the words in your show notes are text that search engines and podcast apps can read, while the audio itself is not. Clear titles, real topic names and chapter headings give people more ways to find your episode — but good notes support a good show, they do not replace one."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Podcast Show Notes Generator</h1>
+<p class="answer">Show notes are the short written page that sits beside each podcast episode — a summary, timestamped chapters and the links you mention. This free generator turns your title, topics, timestamps and links into clean, ready-to-paste show notes in minutes, with no sign-up.</p>
+<div class="calc">
+<p><strong>Build your show notes</strong></p>
+<label for="ep-title">Episode title</label>
+<input id="ep-title" type="text" placeholder="The title of this episode">
+<label for="ep-number">Episode number (optional)</label>
+<input id="ep-number" type="text" placeholder="12">
+<label for="ep-summary">Summary (2 or 3 sentences)</label>
+<textarea id="ep-summary" placeholder="What is this episode about, and why should someone listen?"></textarea>
+<label for="ep-topics">Main topics — one per line, up to 5</label>
+<textarea id="ep-topics" placeholder="One topic per line"></textarea>
+<label for="ep-times">Timestamps — one per line, like 04:30 topic name</label>
+<textarea id="ep-times" placeholder="One timestamp per line, like 04:30 topic name"></textarea>
+<label for="ep-links">Links mentioned — one per line</label>
+<textarea id="ep-links" placeholder="One link per line"></textarea>
+<label for="ep-guest">Guest name (optional)</label>
+<input id="ep-guest" type="text" placeholder="Your guest, if you had one">
+<button id="build-btn" type="button">Build my show notes</button>
+<div id="notes-warnings" class="outbox"></div>
+<pre id="notes-out" class="outbox"></pre>
+<button id="copy-btn" type="button">Copy show notes</button>
+<button id="download-btn" type="button">Download as text</button>
+</div>
+<div class="warn">This page writes show notes from the words YOU type — it cannot listen to your episode or write the summary for you. Check every timestamp against your recording before you publish, and open each link once to make sure it still works.</div>
+<h2>How to use this generator</h2>
+<p>Start with the episode title and number at the top of the tool — the number is optional, so leave it blank if your show does not use numbers. Then write two or three sentences of summary: what this episode is about, and why someone should listen. Keep it short; the summary is the first thing a listener reads, and a wall of text here is the fastest way to lose them.</p>
+<p>Next, list your main topics, one per line — up to five. These become the "In this episode" list in your finished notes. Then add your timestamps, one per line, in the form "04:30 the topic starts here" — minutes and seconds, a space, then the chapter name. If your episode is over an hour, use hours too, like "1:02:30". The generator sorts your chapters by time, so it does not matter if you type them out of order.</p>
+<p>After that, paste the links you mentioned in the episode, one per line, and add your guest's name if you had one. Press Build my show notes and the finished notes appear below, ready to copy or download as a text file. Everything you type is saved in your own browser, so if you close the page halfway through, your draft is still here when you come back.</p>
+<p>When the notes look right, press Copy show notes to copy them to your clipboard, or Download as text to save them as a plain text file you can keep with your episode files. The download is your own work, saved on your own device — nothing is uploaded anywhere. If you come back to the page later, your draft is still there: everything you typed is saved in your own browser until you change it.</p>
+<h2>What good show notes contain</h2>
+<p>Good show notes have three parts, in this order: a summary, chapters, and links. The order matters, because each part serves a different reader, and the summary is the only part everyone reads.</p>
+<p>The summary is two or three sentences that answer one question: what is this episode about? Write it for someone who has never heard your show. Name the topic plainly, say who it is for, and give one reason to listen. Avoid inside jokes and episode numbers in the summary — a new listener does not know what episode 47 means, and does not care yet.</p>
+<p>The chapters are the timestamped list of what happens when. A listener who is deciding whether to press play will skim the chapters like a menu; a listener who already heard the episode will use them to jump back to the part they want. Good chapter names are specific: "Why most budgets fail" is a chapter; "Talking about money" is not.</p>
+<p>The links come last, because only a small share of readers ever clicks them — but that small share is your most engaged audience, and a broken or missing link wastes their attention. List only the links you actually mentioned, in the order you mentioned them, and check each one once before you publish. A guest name at the end is a courtesy: it helps listeners find your guest, and it helps your guest share the episode.</p>
+<h2>Writing timestamps listeners actually use</h2>
+<p>Timestamps are only useful if they match the recording. The most common mistake is writing them from memory after the episode is done — memory rounds to the nearest five minutes, and a chapter that says 12:00 when the topic starts at 14:30 teaches listeners not to trust your chapters at all.</p>
+<p>The reliable way is to note the time while you record. Keep a notebook or a notes app open, and when the topic changes, write down the clock time and two or three words about the new topic. You do not need a fancy system: the time on your recording screen and a short label are enough. If you record with a co-host, agree that one of you keeps the times — it takes five seconds per chapter and saves half an hour of scrubbing later.</p>
+<p>If you forgot to note the times, do not guess. Play the episode back at double speed and write the times as you go — a one-hour episode takes thirty minutes this way, and the chapters will be right. Round each time down to the start of the topic, not up: a listener who lands ten seconds early can wait; a listener who lands ten seconds late has missed the point.</p>
+<p>Use the same format every time — minutes and seconds for short episodes, hours, minutes and seconds for long ones — and keep chapter names short enough to read at a glance. Five to eight chapters suit most episodes; twenty chapters for a thirty-minute show is a list nobody reads.</p>
+<h2>A worked example: one episode, notes done in 5 minutes</h2>
+<p>Here is an episode of a small gardening show, turned into show notes in five minutes. The episode is number 12, called "Tomatoes That Actually Taste Like Tomatoes". The summary, written in two sentences: "This week we talk about why shop tomatoes taste like water, and what home growers can do about it. We cover soil, sun, watering, and the three varieties we grew this year."</p>
+<p>The main topics, five lines: why shop tomatoes taste bland; soil and sun for flavour; watering without splitting the fruit; the three varieties we grew; listener questions. The timestamps, noted during recording: 00:00 welcome and what we are growing this week; 02:15 why shop tomatoes taste bland; 09:40 soil and sun; 18:05 watering without splitting; 26:30 the three varieties; 34:50 listener questions; 41:20 next week.</p>
+<p>The links mentioned: the seed supplier's website, and the soil guide the host quoted. The guest: a local grower named in the episode. Pressing Build turns all of that into clean notes: the episode line at the top, the summary, the five topics, the seven chapters with times, the two links, and the guest line.</p>
+<p>The whole job took five minutes because the timestamps were noted during recording and the summary was written from the topic list, not from a blank page. The notes are short enough to skim in thirty seconds and complete enough that a listener can find any part of the episode. That is the standard to aim for: a stranger should be able to decide in half a minute whether this episode is for them.</p>
+<h2>Common mistakes that make show notes useless</h2>
+<p>The first mistake is no timestamps. An episode without chapters is a book without a contents page: the listener has no way to find the part they want, and no way to decide whether the episode is worth their time. Even three or four rough chapters are better than none.</p>
+<p>The second mistake is a wall of text. A single paragraph of four hundred words looks like work, and most listeners will not read it. Break the notes into their parts — summary, topics, chapters, links — and let each part breathe. Short lines, short sections, and white space between them are what make notes skimmable.</p>
+<p>The third mistake is links that go nowhere. A link to a page that moved, a shop that closed, or a video that was taken down is worse than no link at all, because it breaks the reader's trust. Open every link once before you publish, and if a link is dead, remove it or replace it with one that works.</p>
+<p>The fourth mistake is writing the notes for yourself instead of for a stranger. "As discussed last time" means nothing to a first-time listener. "The thing with the soil" is not a chapter name. Read your notes once as if you had never heard the show, and fix anything that only makes sense to you.</p>
+<p>The fifth mistake is copying another show's notes and changing the names. Show notes that read like a template — "In this episode we dive deep into..." — tell the listener nothing about your episode in particular. Your summary should only fit your episode: name the topic, name the guest, name the one thing a listener will take away. If your notes could belong to any episode of any show, they belong to none of them.</p>
+<h2>Links that help instead of links that go nowhere</h2>
+<p>Links in show notes do one job: they let a listener follow up on something you mentioned. A good link list is short, in order, and checked — three links that work beat twenty that nobody clicks.</p>
+<p>List the links in the order you mentioned them in the episode, so a listener can match the list to what they heard. If you mentioned the same site twice, list it once. If you mentioned something you cannot link to — a book, a shop, a person — write the name plainly instead of forcing a link that does not exist.</p>
+<p>Keep the list honest. Do not add links you did not mention just because they might earn a click, and do not dress up a sponsor's link as a recommendation if it is not one. Listeners can tell, and the trust you lose is worth more than the click.</p>
+<p>One practical habit: keep a running list of links while you record, the same way you keep timestamps. A link noted in the moment takes two seconds; a link hunted down afterwards takes ten minutes and often ends with the wrong page. When the episode is done, open each link once from the finished notes, and fix anything that does not land where you meant it to.</p>
+<h2>Making show notes a 5-minute habit</h2>
+<p>The reason most shows have thin show notes is not laziness — it is that the notes are left until after everything else, when the energy is gone. The fix is to make the notes part of recording, not a job that comes after it.</p>
+<p>Before you record, write the topic list. You already know what you plan to cover, so write the five lines before you press record — they become your episode plan as well as your notes. During the episode, note the times as the topics change. After the episode, write the summary from the topic list in two sentences, paste the links, and press Build.</p>
+<p>Done this way, the notes take about five minutes, and most of that time is the summary. The habit also makes better episodes: a host who writes the topic list in advance rambles less, and a host who watches the clock makes chapters that actually match the recording.</p>
+<p>Keep your notes in one place. This page saves your draft in your browser, but the finished notes belong with the episode — paste them into wherever you publish, and keep a copy in a document for yourself. After ten episodes you will have a small library of summaries and chapters, and writing the eleventh set of notes will feel like filling in a form you already know.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What are show notes?</h3><p>Show notes are the short written page that sits beside a podcast episode: a summary of what the episode covers, a list of timestamped chapters, and the links mentioned in the show. They help listeners decide whether to press play, and help them find the part they want afterwards.</p></div>
+<div class="faq"><h3>How long should show notes be?</h3><p>Short enough to skim in thirty seconds. A two or three sentence summary, up to five main topics, five to eight timestamped chapters, and only the links you actually mentioned. Longer notes are rarely read — if a section is longer than a few lines, it is probably trying to do too much.</p></div>
+<div class="faq"><h3>Do I need timestamps?</h3><p>Yes, if you want listeners to find parts of your episode again. Timestamps turn a long recording into chapters a listener can jump between, and they help new listeners see what the episode covers before they press play. Note the times while you record — it takes seconds and saves half an hour later.</p></div>
+<div class="faq"><h3>Should I include links?</h3><p>Include the links you mentioned in the episode, in the order you mentioned them, and check each one before you publish. Do not add links you never talked about, and remove any link that no longer works — a dead link breaks trust faster than a missing one.</p></div>
+<div class="faq"><h3>Can I use this for video podcasts too?</h3><p>Yes. Video podcasts need show notes just like audio ones, and the format is the same: a summary, timestamped chapters, and links. The timestamps work the same way, and listeners on video platforms use chapters to jump to the part they want.</p></div>
+<div class="faq"><h3>Do show notes help people find my podcast?</h3><p>They help in a small, honest way: the words in your show notes are text that search engines and podcast apps can read, while the audio itself is not. Clear titles, real topic names and chapter headings give people more ways to find your episode — but good notes support a good show, they do not replace one.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../youtube-thumbnail-maker/">YouTube Thumbnail Maker</a> · <a href="../social-media-post-scheduler/">Social Media Post Scheduler</a> · <a href="../professional-portfolio-builder/">Professional Portfolio Builder</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = (function () {
+  function parseTime(str) {
+    if (typeof str !== "string") return null;
+    var s = str.trim();
+    if (!s) return null;
+    var parts = s.split(":");
+    var h = 0, m, sec;
+    if (parts.length === 2) {
+      m = parts[0]; sec = parts[1];
+    } else if (parts.length === 3) {
+      h = parts[0]; m = parts[1]; sec = parts[2];
+    } else {
+      return null;
+    }
+    if (!/^\d+$/.test(h) || !/^\d+$/.test(m) || !/^\d{1,2}$/.test(sec)) return null;
+    h = Number(h); m = Number(m); sec = Number(sec);
+    if (parts.length === 3 && m > 59) return null;
+    if (sec > 59) return null;
+    return h * 3600 + m * 60 + sec;
+  }
+  function formatTime(sec) {
+    sec = Math.floor(sec);
+    var h = Math.floor(sec / 3600);
+    var m = Math.floor((sec % 3600) / 60);
+    var s = sec % 60;
+    function pad(n) { return (n < 10 ? "0" : "") + n; }
+    if (h > 0) return h + ":" + pad(m) + ":" + pad(s);
+    return pad(m) + ":" + pad(s);
+  }
+  function parseTimestamps(text) {
+    var items = [];
+    var errors = [];
+    if (!text) return { items: items, errors: errors };
+    var lines = String(text).split("\n");
+    lines.forEach(function (raw, idx) {
+      var line = raw.trim();
+      if (!line) return;
+      var sp = line.search(/\s/);
+      if (sp < 0) {
+        errors.push("Line " + (idx + 1) + ": '" + line + "' is not a timestamp — use MM:SS followed by the topic.");
+        return;
+      }
+      var timePart = line.slice(0, sp);
+      var label = line.slice(sp).trim();
+      var sec = parseTime(timePart);
+      if (sec === null || !label) {
+        errors.push("Line " + (idx + 1) + ": '" + line + "' is not a timestamp — use MM:SS followed by the topic.");
+        return;
+      }
+      items.push({ sec: sec, time: formatTime(sec), label: label });
+    });
+    items.sort(function (a, b) { return a.sec - b.sec; });
+    var seen = {};
+    var dupes = [];
+    items.forEach(function (it) {
+      if (seen[it.sec]) {
+        if (dupes.indexOf(it.time) < 0) dupes.push(it.time);
+      }
+      seen[it.sec] = true;
+    });
+    dupes.forEach(function (t) {
+      errors.push("Two chapters share " + t + " — check the order.");
+    });
+    return { items: items, errors: errors };
+  }
+  function parseTopics(text) {
+    var lines = [];
+    if (text) {
+      String(text).split("\n").forEach(function (l) {
+        var t = l.trim();
+        if (t) lines.push(t);
+      });
+    }
+    return { topics: lines.slice(0, 5), extra: Math.max(0, lines.length - 5) };
+  }
+  function parseLinks(text) {
+    var out = [];
+    if (text) {
+      String(text).split("\n").forEach(function (l) {
+        var t = l.trim();
+        if (t) out.push(t);
+      });
+    }
+    return out;
+  }
+  function buildNotes(data) {
+    data = data || {};
+    var title = (data.title || "").trim();
+    var number = (data.number || "").trim();
+    var summary = (data.summary || "").trim();
+    var guest = (data.guest || "").trim();
+    var topics = data.topics || [];
+    var ts = (data.timestamps && data.timestamps.items) || data.timestamps || [];
+    var links = data.links || [];
+    var first;
+    if (number && title) first = "Episode " + number + ": " + title;
+    else if (number) first = "Episode " + number;
+    else if (title) first = title;
+    else first = "Untitled episode";
+    var blocks = [first, summary || "No summary yet."];
+    if (topics.length) {
+      blocks.push("In this episode:\n" + topics.map(function (t) { return "- " + t; }).join("\n"));
+    }
+    if (ts.length) {
+      blocks.push("Chapters:\n" + ts.map(function (it) { return it.time + " — " + it.label; }).join("\n"));
+    }
+    if (links.length) {
+      blocks.push("Links mentioned:\n" + links.map(function (l) { return "- " + l; }).join("\n"));
+    }
+    if (guest) blocks.push("Guest: " + guest);
+    return blocks.join("\n\n");
+  }
+  function validateNotes(data) {
+    data = data || {};
+    var warnings = [];
+    if (!(data.title || "").trim()) warnings.push("Add an episode title.");
+    var topics = data.topics || [];
+    if (!topics.length) warnings.push("Add at least one main topic.");
+    var ts = data.timestamps || {};
+    var items = ts.items || ts;
+    if (!items.length) warnings.push("Add timestamps so listeners can jump to chapters.");
+    var extra = data.extra || 0;
+    if (extra > 0) warnings.push("Only the first 5 topics are used.");
+    var terrs = ts.errors || data.timestampErrors || [];
+    terrs.forEach(function (e) { warnings.push(e); });
+    return warnings;
+  }
+  return { parseTime: parseTime, formatTime: formatTime, parseTimestamps: parseTimestamps, parseTopics: parseTopics, parseLinks: parseLinks, buildNotes: buildNotes, validateNotes: validateNotes };
+})();
+
+function copyText(text, btn){
+  function done(){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+function downloadText(filename, text, type){
+  var blob = new Blob([text], {type: type || "text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+if (typeof document !== "undefined") {
+  var LS_KEY = "ft-podcast-show-notes-generator";
+  var IDS = ["ep-title", "ep-number", "ep-summary", "ep-topics", "ep-times", "ep-links", "ep-guest"];
+  function $(id) { return document.getElementById(id); }
+  function collect() {
+    var v = {};
+    IDS.forEach(function (id) { v[id] = $(id).value; });
+    return v;
+  }
+  function save() {
+    try { localStorage.setItem(LS_KEY, JSON.stringify(collect())); } catch (e) {}
+  }
+  function load() {
+    try {
+      var s = JSON.parse(localStorage.getItem(LS_KEY) || "null");
+      if (s) {
+        IDS.forEach(function (id) { if (s[id]) $(id).value = s[id]; });
+      }
+    } catch (e) {}
+  }
+  function build() {
+    var v = collect();
+    var topics = window.FT.parseTopics(v["ep-topics"]);
+    var ts = window.FT.parseTimestamps(v["ep-times"]);
+    var data = {
+      title: v["ep-title"], number: v["ep-number"], summary: v["ep-summary"],
+      topics: topics.topics, extra: topics.extra,
+      timestamps: ts, links: window.FT.parseLinks(v["ep-links"]), guest: v["ep-guest"]
+    };
+    var notes = window.FT.buildNotes(data);
+    $("notes-out").textContent = notes;
+    var warns = window.FT.validateNotes(data);
+    $("notes-warnings").textContent = warns.length ? warns.join("\n") : "Ready to copy.";
+    save();
+    return notes;
+  }
+  $("build-btn").addEventListener("click", build);
+  $("copy-btn").addEventListener("click", function () {
+    copyText(build(), $("copy-btn"));
+  });
+  $("download-btn").addEventListener("click", function () {
+    downloadText("show-notes.txt", build());
+  });
+  load();
+  build();
+}
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

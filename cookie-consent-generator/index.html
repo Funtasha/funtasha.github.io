@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cookie Consent Generator — Make a Cookie Banner for Your Site Free | Funtasha</title>
+<meta name="description" content="Make a cookie consent banner free — answer a few questions and get a banner text and a simple banner code you can copy. No signup.">
+<link rel="canonical" href="https://funtasha.github.io/cookie-consent-generator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cookie Consent Generator — Make a Cookie Banner for Your Site Free">
+<meta property="og:description" content="Make a cookie banner for your site free — answer four questions and copy the banner text and code.">
+<meta property="og:url" content="https://funtasha.github.io/cookie-consent-generator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px}
+.calc input,.calc select{min-height:72px}
+.calc textarea{width:100%;min-height:180px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:14px;margin-top:10px;text-align:left}
+.calc .result{font-size:16px;margin-top:14px}
+.cards{display:grid;gap:12px;margin:14px 0}
+.card{display:block;min-height:90px;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+.card strong{display:block;font-size:17px;color:#be185d}
+.card span{display:block;font-size:15px;color:#334155;margin-top:4px}
+.tick{margin:12px 0}
+.tick label{display:flex;gap:12px;align-items:center;min-height:72px;cursor:pointer;font-weight:700;font-size:16.5px}
+.tick input[type=checkbox]{width:32px;height:32px;flex:0 0 32px;cursor:pointer}
+.tick p{margin:2px 0 0 44px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a cookie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A cookie is a small text file that a website asks your browser to keep. The next time you visit, the browser sends it back, so the site recognises you. Cookies cannot run code or read your files — they are short notes, stored on your own device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my site need a cookie banner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your site sets cookies that are not strictly necessary — analytics cookies or ad cookies, for example — then yes, your visitors should be told and given a choice. If your site sets no cookies at all, a banner is not needed, though saying so plainly still helps visitors trust you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should the banner say?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It should say that your site uses cookies, what kind they are, what accepting or declining does, and that visitors can change their mind later. It must offer a real choice: an Accept button and a Decline button, both easy to see and tap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this legal advice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This generator makes a starting template, not legal advice. Cookie rules differ by country. If your site is a real business, have a lawyer check your banner and your privacy page before you rely on them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I use no cookies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Then say so honestly. Pick the no-cookies answer in the generator and the banner will say your site sets no cookies of its own. Just be sure it is true — an analytics tool or an embedded video player can set cookies even when you did not expect it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do visitors have to accept?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Visitors must be free to decline, and declining must be as easy as accepting. A banner with no Decline button, or a Decline button that is hidden or hard to tap, is not asking for consent — it is only pretending to."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Cookie Consent Generator</h1>
+<p class="answer">Make a cookie banner for your site in a minute. Answer four quick questions and get banner words plus a simple banner code you can copy, with no tracking in the code itself.</p>
+<div class="calc">
+<label for="site-name">Your site name</label>
+<input id="site-name" type="text" placeholder="My Blog">
+<label for="cookies-used">What cookies does your site use?</label>
+<select id="cookies-used">
+<option value="none">No cookies at all</option>
+<option value="analytics">Analytics cookies (counts visits)</option>
+<option value="ads">Analytics cookies and ad cookies</option>
+</select>
+<label for="banner-style">Banner style</label>
+<select id="banner-style">
+<option value="bar">Small bar at the bottom</option>
+<option value="popup">Pop-up box in the middle</option>
+</select>
+<label for="accept-word">Accept button wording</label>
+<input id="accept-word" type="text" value="Accept">
+<label for="decline-word">Decline button wording</label>
+<input id="decline-word" type="text" value="Decline">
+<button id="gen-btn" type="button">Make my banner</button>
+<div class="result" id="banner-preview" aria-live="polite"></div>
+<pre id="banner-code" style="display:none"></pre>
+<button id="copy-text-btn" type="button" style="display:none">Copy banner text</button>
+<button id="copy-code-btn" type="button" style="display:none">Copy banner code</button>
+<button id="download-btn" type="button" style="display:none">Download banner code</button>
+</div>
+<div class="warn">This generator makes a starting template, not legal advice. The banner records your visitor's choice, but it does not by itself stop cookies from loading, and it does not make a site compliant on its own.</div>
+<h2>How to use this generator</h2>
+<p>Type your site name, pick what cookies your site uses, pick a banner style, and choose the words for the Accept and Decline buttons. Then tap the button and the generator writes two things for you: the words your banner shows to visitors, and a simple banner snippet you can paste into your site. The snippet is plain HTML, CSS and JavaScript with no tracking in it — it only shows the banner, remembers the visitor's choice on their own device, and hides the banner after they choose. It does not send anything to any server, and it does not set any tracking cookies of its own. Copy the banner text if you only need the words, or copy the whole snippet if you want a working banner. You can also download the snippet as a text file and paste it into your site later. Your answers are saved on your own device, so if you come back to this page your last choices are still there. Nothing you type here is sent anywhere.</p>
+<p>If you are not sure what cookies your site uses, start with the honest answer. A plain site with no analytics and no ads uses no cookies of its own, and you can say so. A site with an analytics tool uses analytics cookies. A site that shows ads from an ad network uses ad cookies as well. Guessing wrong is worse than admitting you are unsure — a banner that says "we use no cookies" on a site that runs analytics is the most common mistake on the web, and it is the one this page is built to help you avoid. If you truly do not know, ask whoever built your site, or check your site's settings before you publish the banner.</p>
+<h2>What cookies actually are</h2>
+<p>A cookie is a small text file that a website asks your visitor's browser to keep. The next time that visitor comes back, the browser sends the cookie back to the site, and the site recognises the visitor. That is all a cookie is — a short note, stored on the visitor's own device, that the site can read later. Cookies themselves are not programs. They cannot run code, they cannot read files on a computer, and they cannot see anything the visitor does outside the site that set them. They are useful because the web forgets everything between visits, and a cookie is the web's way of remembering.</p>
+<p>There are a few kinds of cookie, and the difference matters for your banner. Strictly necessary cookies keep a site working — they remember that someone is logged in, or what is in a shopping basket. Without them, the site breaks. Analytics cookies count visits and show which pages people read; they help a site owner understand what is popular, but they do not need to know who anyone is. Ad cookies come from ad networks and are used to show ads and to count how often an ad is seen. Some cookies are set by the site itself, and some are set by other services the site uses, such as an analytics tool or an ad network — those are called third-party cookies, and they are the ones visitors most often want to refuse.</p>
+<p>Visitors can delete cookies at any time from their browser settings, and they can set their browser to block them. That is their right, and a good banner respects it. Your banner is not there to talk visitors into accepting — it is there to tell them honestly what your site does, and to give them a real choice. A banner that hides the Decline button, or makes declining hard, is not a consent banner at all. It is a trick, and visitors know it.</p>
+<h2>What a banner must say</h2>
+<p>A good banner says four things in plain words. First, that your site uses cookies, or that it does not. Second, what kind of cookies they are — analytics, ad cookies, or none. Third, what the visitor's choice does — accepting lets the site set those cookies, declining means the site will not set the optional ones. Fourth, that the visitor can change their mind later, usually by clearing cookies in their browser settings. That is the whole job. A banner does not need legal language, and it does not need a long paragraph that nobody reads. Short, honest words beat a wall of small print every time.</p>
+<p>The banner must also give a real choice. That means an Accept button and a Decline button, both easy to see and easy to tap. A banner with only an Accept button is not asking — it is telling. A banner that makes Decline small, grey, or hidden behind a second screen is not asking either. On a phone, both buttons should be big enough to tap without zooming, and the banner should not cover the whole screen so the visitor cannot read the page behind it. The small bar style in this generator sits at the bottom of the screen and leaves the page readable; the pop-up style sits in the middle and is harder to miss, which suits a site that really does set a lot of cookies.</p>
+<p>Your banner should also say where the visitor can read more, if your site has a privacy page. The generator does not write a privacy page — that is a different document — but a short line such as "read our privacy page for details" helps visitors who want the full story. If your site has no privacy page yet, the honest thing is to write one before you worry about the banner, because the banner points to it.</p>
+<h2>The questions explained</h2>
+<p>The generator asks four questions, and each one changes what you get. The site name goes into the banner words, so visitors know whose site they are on. Use the name visitors see — your blog name, your shop name, or your own name if the site is personal. The cookies question is the most important one, because it decides what the banner promises. Pick "no cookies at all" only if your site truly sets none — no analytics, no ads, no embedded video player that sets cookies of its own. Pick "analytics cookies" if you run an analytics tool. Pick "analytics cookies and ad cookies" if your site also shows ads from a network.</p>
+<p>The banner style question changes the shape of the snippet. The small bar is a strip along the bottom of the screen. It is polite, it stays out of the way, and it suits most small sites. The pop-up is a box in the middle of the screen that the visitor must answer before continuing. It is more forceful, and it suits a site where the cookie choice really matters — for example a shop that sets several kinds of cookie. Neither style is right for every site. Pick the one that matches how much your site actually does with cookies.</p>
+<p>The wording questions let you choose the button labels. "Accept" and "Decline" are clear and honest, and they are the defaults for a reason. You can change them — "Accept all" and "No thanks" say the same thing in a friendlier voice — but keep both buttons honest. A Decline button that says "I do not care about my privacy" is not a choice, it is a guilt trip. Visitors notice, and they remember which sites treated them fairly.</p>
+<h2>A worked example: a small blog's banner</h2>
+<p>Imagine a small food blog called "Maya's Kitchen". Maya writes recipes, and she uses an analytics tool to see which recipes people read. She shows no ads. She types "Maya's Kitchen" as her site name, picks "analytics cookies", picks the small bar style, and keeps the default button words. The generator gives her banner words that say, in plain language, that her site uses analytics cookies to count visits and see which pages people read, that those cookies do not identify anyone by name, and that visitors can accept or decline. The snippet gives her a small bar at the bottom of the page with Accept and Decline buttons. When a visitor taps either button, the bar hides and the choice is remembered on that visitor's device, so the bar does not pop up again on every page.</p>
+<p>Now imagine Maya later adds ads to pay for her hosting. Her banner is now out of date — it says analytics cookies, but the site also sets ad cookies. She comes back to this generator, changes the cookies answer to "analytics cookies and ad cookies", and generates a new banner. The words now mention the ad cookies too, and the snippet is updated. That is the whole maintenance job: when what your site does changes, update the banner to match. A banner is not a one-time task. It is a promise you keep current.</p>
+<p>Notice what the snippet does not do. It does not stop the analytics tool from loading, and it does not block ad cookies by itself. It shows the banner, records the choice, and hides. Stopping cookies from loading until a visitor accepts is a bigger job that depends on how the site is built, and it is not something a banner snippet can do on its own. The honest-limits section below explains this in full, because it is the part most banner generators skip.</p>
+<h2>Common mistakes</h2>
+<p>The most common mistake is a banner with no Decline button. Some sites show only an Accept button, or hide the decline option behind a tiny link, or behind a settings screen with ten toggles. Visitors see through it at once, and it teaches them that the site does not respect their choice. If you want visitors to trust your site, give them a Decline button that is as easy to tap as Accept.</p>
+<p>The second mistake is saying "we use no cookies" while running analytics. The site owner often does not mean to lie — they simply forgot that the analytics tool sets cookies, or they did not know. But the banner is a promise, and a wrong promise is worse than no banner at all. Before you publish, check what your site actually uses. If you run an analytics tool, your site uses analytics cookies. If you embed videos from a video platform, that platform may set cookies too. When in doubt, say what you know and leave the rest out — but never claim "no cookies" unless you are sure.</p>
+<p>The third mistake is copying a banner from a big company. A big company's banner is written for a big company's lawyers and a big company's data practices. Your small site does not do what they do, so their words do not fit your site. A short banner in your own words, built from your real answers, is more honest and more useful than a polished paragraph copied from somewhere else.</p>
+<p>The fourth mistake is forgetting the banner after publishing it. Sites change — a new analytics tool, a new ad network, a new embedded service — and each change can change what cookies the site sets. Check your banner every few months and whenever you add something new to your site. If the answer to "what cookies do we use" has changed, generate a new banner.</p>
+<h2>What it cannot do</h2>
+<p>This generator makes a starting template, not legal advice. Cookie rules differ by country, and a template cannot know which rules apply to your site or your visitors. If your site is a real business, or if you handle personal data beyond simple analytics, have a lawyer check your banner and your privacy page. This page cannot do that for you, and it does not try to.</p>
+<p>The banner snippet also has a real limit you should know. It shows the banner, records the visitor's choice on their device, and hides the banner. It does not by itself stop cookies from loading. If your site loads an analytics tool or an ad network on every page, those cookies are set whether or not the visitor has answered the banner. Truly blocking cookies until consent is given needs changes to how the site loads those tools, and that work depends on the site itself. This generator does not pretend otherwise. Use the banner as the honest front door, and treat cookie blocking as a separate job for whoever builds your site.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is a cookie?</h3><p>A cookie is a small text file that a website asks your browser to keep. The next time you visit, the browser sends it back, so the site recognises you. Cookies cannot run code or read your files — they are short notes, stored on your own device.</p></div>
+<div class="faq"><h3>Does my site need a cookie banner?</h3><p>If your site sets cookies that are not strictly necessary — analytics cookies or ad cookies, for example — then yes, your visitors should be told and given a choice. If your site sets no cookies at all, a banner is not needed, though saying so plainly still helps visitors trust you.</p></div>
+<div class="faq"><h3>What should the banner say?</h3><p>It should say that your site uses cookies, what kind they are, what accepting or declining does, and that visitors can change their mind later. It must offer a real choice: an Accept button and a Decline button, both easy to see and tap.</p></div>
+<div class="faq"><h3>Is this legal advice?</h3><p>No. This generator makes a starting template, not legal advice. Cookie rules differ by country. If your site is a real business, have a lawyer check your banner and your privacy page before you rely on them.</p></div>
+<div class="faq"><h3>What if I use no cookies?</h3><p>Then say so honestly. Pick the no-cookies answer in the generator and the banner will say your site sets no cookies of its own. Just be sure it is true — an analytics tool or an embedded video player can set cookies even when you did not expect it.</p></div>
+<div class="faq"><h3>Do visitors have to accept?</h3><p>No. Visitors must be free to decline, and declining must be as easy as accepting. A banner with no Decline button, or a Decline button that is hidden or hard to tap, is not asking for consent — it is only pretending to.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../data-breach-awareness-checker/">Data Breach Awareness Checker</a> · <a href="../email-header-analyzer/">Email Header Analyzer</a> · <a href="../online-privacy-education-hub/">Online Privacy Education Hub</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+window.FT = window.FT || {};
+(function () {
+  var COOKIE_WORDS = {
+    none: "no cookies of its own. This site sets no cookies that track you",
+    analytics: "analytics cookies, which count visits and show which pages people read. They do not identify you by name",
+    ads: "analytics cookies and cookies set by ad networks, which show ads and count how often they are seen"
+  };
+  function cleanName(name) {
+    name = (name || "").trim();
+    return name || "this site";
+  }
+  function buildBannerText(o) {
+    o = o || {};
+    var site = cleanName(o.site);
+    var cookies = COOKIE_WORDS[o.cookies] || COOKIE_WORDS.analytics;
+    var accept = (o.accept || "Accept").trim() || "Accept";
+    var decline = (o.decline || "Decline").trim() || "Decline";
+    var line = "We use cookies on " + site + ". This site uses " + cookies + ". ";
+    line += "You can accept all cookies or decline them — the choice is yours. ";
+    line += "If you decline, we will not set optional cookies. ";
+    line += "Tap \"" + accept + "\" to accept, or \"" + decline + "\" to decline. ";
+    line += "You can change your mind at any time by clearing cookies in your browser settings.";
+    return line;
+  }
+  function buildBannerSnippet(o) {
+    o = o || {};
+    var text = buildBannerText(o);
+    var accept = (o.accept || "Accept").trim() || "Accept";
+    var decline = (o.decline || "Decline").trim() || "Decline";
+    var style = o.style === "popup" ? "popup" : "bar";
+    var pos = style === "popup"
+      ? "position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);max-width:480px;width:90%"
+      : "position:fixed;left:0;right:0;bottom:0";
+    var out = [];
+    out.push("<!-- Cookie banner made with a free generator. No tracking in this snippet. -->");
+    out.push('<div id="cookie-banner" style="' + pos + ';background:#1e293b;color:#fff;padding:16px;font-family:Arial,sans-serif;z-index:9999;border-radius:8px">');
+    out.push("<p style=\"margin:0 0 12px;line-height:1.5\">" + text + "</p>");
+    out.push('<button id="cookie-accept" type="button" style="min-height:48px;padding:10px 18px;margin-right:8px;border:0;border-radius:999px;background:#db2777;color:#fff;font-weight:700;cursor:pointer">' + accept + "</button>");
+    out.push('<button id="cookie-decline" type="button" style="min-height:48px;padding:10px 18px;border:1px solid #fff;border-radius:999px;background:transparent;color:#fff;font-weight:700;cursor:pointer">' + decline + "</button>");
+    out.push("</div>");
+    out.push("<script>");
+    out.push("(function () {");
+    out.push("  function hide(v) {");
+    out.push("    try { localStorage.setItem('cookie-consent-choice', v); } catch (e) {}");
+    out.push("    var b = document.getElementById('cookie-banner');");
+    out.push("    if (b) { b.style.display = 'none'; }");
+    out.push("  }");
+    out.push("  try {");
+    out.push("    if (localStorage.getItem('cookie-consent-choice')) {");
+    out.push("      var b0 = document.getElementById('cookie-banner');");
+    out.push("      if (b0) { b0.style.display = 'none'; }");
+    out.push("      return;");
+    out.push("    }");
+    out.push("  } catch (e) {}");
+    out.push("  document.getElementById('cookie-accept').addEventListener('click', function () { hide('accepted'); });");
+    out.push("  document.getElementById('cookie-decline').addEventListener('click', function () { hide('declined'); });");
+    out.push("})();");
+    out.push("</scr" + "ipt>");
+    return out.join("\n");
+  }
+  window.FT.buildBannerText = buildBannerText;
+  window.FT.buildBannerSnippet = buildBannerSnippet;
+  if (typeof document !== "undefined" && document.getElementById) {
+    var KEY = "ft-cookie-consent-generator-";
+    var siteEl = document.getElementById("site-name");
+    var cookiesEl = document.getElementById("cookies-used");
+    var styleEl = document.getElementById("banner-style");
+    var acceptEl = document.getElementById("accept-word");
+    var declineEl = document.getElementById("decline-word");
+    var preview = document.getElementById("banner-preview");
+    var codeEl = document.getElementById("banner-code");
+    var copyTextBtn = document.getElementById("copy-text-btn");
+    var copyCodeBtn = document.getElementById("copy-code-btn");
+    var downloadBtn = document.getElementById("download-btn");
+    try {
+      var saved = JSON.parse(localStorage.getItem(KEY + "inputs") || "null");
+      if (saved) {
+        if (saved.site) siteEl.value = saved.site;
+        if (saved.cookies) cookiesEl.value = saved.cookies;
+        if (saved.style) styleEl.value = saved.style;
+        if (saved.accept) acceptEl.value = saved.accept;
+        if (saved.decline) declineEl.value = saved.decline;
+      }
+    } catch (e) {}
+    function opts() {
+      return { site: siteEl.value, cookies: cookiesEl.value, style: styleEl.value,
+               accept: acceptEl.value, decline: declineEl.value };
+    }
+    document.getElementById("gen-btn").addEventListener("click", function () {
+      var o = opts();
+      var text = buildBannerText(o);
+      var code = buildBannerSnippet(o);
+      preview.textContent = text;
+      codeEl.textContent = code;
+      codeEl.style.display = "block";
+      copyTextBtn.style.display = "inline-block";
+      copyCodeBtn.style.display = "inline-block";
+      downloadBtn.style.display = "inline-block";
+      try { localStorage.setItem(KEY + "inputs", JSON.stringify(o)); } catch (e) {}
+    });
+    copyTextBtn.addEventListener("click", function () { copyText(preview.textContent, copyTextBtn); });
+    copyCodeBtn.addEventListener("click", function () { copyText(codeEl.textContent, copyCodeBtn); });
+    downloadBtn.addEventListener("click", function () {
+      var blob = new Blob([codeEl.textContent], { type: "text/plain" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "cookie-banner.txt";
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+    });
+  }
+})();
+
+function copyText(text, btn) {
+  function done() {
+    if (btn) { var o = btn.textContent; btn.textContent = "Copied!"; setTimeout(function () { btn.textContent = o; }, 2000); }
+  }
+  function fallback() {
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta); done();
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(function () { fallback(); });
+  } else { fallback(); }
+}
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

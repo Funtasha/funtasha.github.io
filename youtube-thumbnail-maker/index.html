@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouTube Thumbnail Maker — Make Clickable Thumbnails Free | Funtasha</title>
+<meta name="description" content="Make YouTube thumbnails free in your browser — pick a layout, add your text, and download a real thumbnail image. No signup, works on phone.">
+<link rel="canonical" href="https://funtasha.github.io/youtube-thumbnail-maker/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YouTube Thumbnail Maker — Make Clickable Thumbnails Free">
+<meta property="og:description" content="Make YouTube thumbnails free in your browser — pick a layout, add your text, and download a real thumbnail image. No signup, works on phone.">
+<meta property="og:url" content="https://funtasha.github.io/youtube-thumbnail-maker/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What size is a YouTube thumbnail?", "acceptedAnswer": {"@type": "Answer", "text": "YouTube thumbnails are 1280 pixels wide by 720 pixels tall, a 16 by 9 shape. This maker draws your thumbnail at exactly that size, so the PNG you download is ready to upload as it is, with no resizing needed."}}, {"@type": "Question", "name": "How many words should I use?", "acceptedAnswer": {"@type": "Answer", "text": "Three words or fewer is a good rule. Thumbnails are often seen very small, on a phone screen or in a list, and a short phrase in large letters can be read at a glance. If you need more words, put the rest in the video title instead."}}, {"@type": "Question", "name": "Can I use my own photo?", "acceptedAnswer": {"@type": "Answer", "text": "Not in this maker. It builds clean text-and-colour thumbnails from gradients, text and drawn shapes, and it does not edit photos or draw custom art. If you want a photo thumbnail, edit your photo in a photo editor first, then use this page for a text-only version or a simple title card."}}, {"@type": "Question", "name": "Why does my thumbnail look blurry?", "acceptedAnswer": {"@type": "Answer", "text": "Blur usually comes from uploading an image smaller than 1280 by 720, or from saving it at low quality. This maker draws at the full 1280 by 720 size, so the PNG it downloads is sharp. If your thumbnail still looks soft after upload, check that you uploaded the PNG file itself and not a small preview or screenshot of it."}}, {"@type": "Question", "name": "What colours work best?", "acceptedAnswer": {"@type": "Answer", "text": "High contrast works best: light text on a dark background, or dark text on a bright background. Warm colours like pink, orange and yellow stand out in a feed full of thumbnails, while blue and teal feel calm and clean. Pick one strong background colour and one text colour that is easy to read against it."}}, {"@type": "Question", "name": "Do I need to sign up?", "acceptedAnswer": {"@type": "Answer", "text": "No. There is no account, no sign-up and no password. Everything happens in your browser, and the thumbnail you download is yours to use however you like."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>.calc button,.calc input,.calc select,.calc textarea{min-height:72px}
+.calc textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;font-family:inherit}
+canvas{max-width:100%;height:auto;display:block;margin:14px auto 0}</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>YouTube Thumbnail Maker</h1>
+<p class="answer">Make a clean, clickable YouTube thumbnail right in your browser — pick a colour gradient, add up to two short lines of text, choose a style and a drawn shape, then download a real 1280 by 720 PNG. No sign-up, and it works on your phone. This tool makes text-and-colour thumbnails; it does not edit your photos or draw custom art.</p>
+<div class="calc"><label for="bg">Background</label><select id="bg"><option value="sunset">Sunset</option><option value="ocean">Ocean</option><option value="lime">Lime</option><option value="purple">Purple</option><option value="slate">Dark Slate</option><option value="sunny">Warm Yellow</option></select><label for="line1">Main text (line 1)</label><input id="line1" type="text" maxlength="30" value="MY VIDEO" placeholder="e.g. EPIC WIN"><label for="line2">Second line (optional)</label><input id="line2" type="text" maxlength="30" placeholder="e.g. FINAL LAP"><label for="textcolor">Text colour</label><select id="textcolor"><option value="#ffffff">White</option><option value="#facc15">Yellow</option><option value="#111827">Black</option><option value="#f472b6">Pink</option></select><label for="style">Text style</label><select id="style"><option value="bold">Bold</option><option value="outline">Outline</option><option value="highlight">Highlight</option></select><label for="shape">Corner shape</label><select id="shape"><option value="none">None</option><option value="circle">Circle</option><option value="star">Star</option><option value="arrow">Arrow</option><option value="bolt">Bolt</option></select><canvas id="thumb-canvas" width="1280" height="720"></canvas><button id="draw-btn" type="button">Update thumbnail</button><button id="download-btn" type="button">Download PNG</button><button id="copy-btn" type="button">Copy thumbnail details</button><div class="steps" id="thumb-out"></div></div>
+<div class="warn">Honest limits: this maker builds clean text-and-colour thumbnails only. It does not edit your photos, remove backgrounds, or draw custom art — for photo-based thumbnails, use a photo editor and bring the finished image here for text. The corner shapes are simple drawn shapes, never emoji.</div>
+<h2>How to use this thumbnail maker</h2>
+<p>Start by picking a background from the list — six gradients, from a warm sunset pink to a calm ocean blue. Then type your main text in the first box: a short phrase, three words or fewer, in large letters. Add a second line if you need it, for a detail or a number, but keep it short too. Pick a text colour, a style, and a corner shape, and the preview updates as you type.</p>
+<p>The three styles change how the text looks. Bold is plain strong lettering in your chosen colour. Outline adds a dark edge around each letter, which helps the text stand out on a bright or busy background. Highlight puts a white panel behind the text with dark letters on top — the clearest option when you want the words to be readable at a glance.</p>
+<p>The corner shape is a simple drawn shape in the top corner: a circle, a star, an arrow, or a bolt. It adds a little energy without cluttering the picture. When the thumbnail looks right, press Download PNG to save a real 1280 by 720 image, ready to upload to YouTube. Press Copy thumbnail details to copy a short text summary of your design. Your settings are saved in your browser, so your last design is waiting for you next time.</p>
+<h2>What makes a thumbnail get clicks</h2>
+<p>A thumbnail has one job: to make someone stop scrolling and click. It has about a second to do it, and it is usually seen very small — on a phone screen, in a list of other videos. That is why the best thumbnails are simple. Three words or fewer, in letters big enough to read at a glance, with one clear subject: one face, one object, or one idea.</p>
+<p>Contrast is what makes a thumbnail visible. Light text on a dark background, or dark text on a bright background, reads instantly. Text that is close in colour to its background disappears, however good the words are. The highlight style on this page exists for exactly this reason: a white panel with dark text is readable against any background.</p>
+<p>Leave empty space. A thumbnail packed edge to edge with words, shapes and colours looks noisy and is hard to read. Two short lines, one shape, and a clean background are enough. And make the thumbnail honest: it should promise what the video actually delivers. A thumbnail that over-promises may win a click, but the viewer leaves quickly — and a viewer who leaves quickly is worse than a viewer who never clicked.</p>
+<h2>Worked example 1: a gaming video</h2>
+<p>Imagine a video of a close win in a racing game. The thumbnail needs energy and one clear message. Pick the Sunset gradient — pink to orange — for a bold, warm background. Type EPIC WIN as the main text in white, bold style, and add FINAL LAP as the second line. Add a bolt shape in the corner for speed.</p>
+<p>Why does this work? The warm background stands out in a feed, the two short phrases say everything — a great win, in the last lap — and the bolt adds movement without adding words. The letters are large enough to read on a phone, and the white text on the pink-orange background has strong contrast. The whole design took less than a minute, and it is honest: the video really is about a win on the final lap.</p>
+<p>If the game is a calm puzzle game instead of a race, the same layout still works — just change the mood. Try the Ocean gradient, keep the text to two words, and swap the bolt for a circle. The method is the same: one background, two short lines, one shape. Change the colours and the words to match the video, and the thumbnail will always look like it belongs to it.</p>
+<h2>Worked example 2: a cooking video</h2>
+<p>Now a cooking video: a simple dinner made in one pan. The thumbnail should feel warm and appetising, and it should say how easy the recipe is. Pick the Warm Yellow gradient for a sunny background, type EASY DINNER as the main text in black, bold style, and add ONE PAN as the second line. A star shape in the corner adds a friendly touch.</p>
+<p>Black text on a yellow background is one of the highest-contrast pairs there is, which is why it is used on road signs. The two phrases tell the whole story — an easy dinner, made in one pan — and a viewer who is hungry and short of time knows in a second that this video is for them. The star shape keeps the design cheerful without adding clutter.</p>
+<p>Notice what is not on the thumbnail: no list of ingredients, no cooking time, no channel name. Those details belong in the video title and description, where there is room for them. The thumbnail has one job, and two short phrases do it.</p>
+<h2>Worked example 3: a tutorial video</h2>
+<p>A tutorial video needs to look clear and trustworthy. Imagine a video teaching the basics of photo editing. Pick the Ocean gradient — blue to teal — for a calm, clean background. Type EDIT PHOTOS as the main text in white, bold style, and add STEP BY STEP as the second line. Use the highlight style if you want the words to stand out even more, and add an arrow shape pointing the eye toward the text.</p>
+<p>The cool colours suit a learning video: they feel calm and organised, which is what a learner wants. The two phrases say what the video teaches and how it teaches it — step by step, from the start. A viewer looking for a beginner guide knows at once that this video is at their level.</p>
+<p>Tutorials often make the mistake of cramming the whole lesson onto the thumbnail — five topics, three tips, a long title. Resist that. The thumbnail is the door, not the room. Two short phrases open the door; the video does the teaching.</p>
+<h2>Colours, contrast and text size</h2>
+<p>Colour is the first thing a viewer notices, before the words. Warm colours — pink, orange, yellow — stand out in a feed and feel energetic, which suits gaming, cooking and entertainment videos. Cool colours — blue, teal, purple — feel calm and clean, which suits tutorials, reviews and explainers. Dark slate works well when you want the text to carry the design, because it gets out of the way.</p>
+<p>Whatever background you pick, the text must contrast with it. White text works on dark and mid-tone backgrounds; black text works on light and bright ones. Yellow text works on dark blue and dark slate, and pink text works on dark backgrounds too. If you are unsure, use the highlight style — dark text on a white panel is readable against any background, and it never looks wrong.</p>
+<p>Text size matters as much as colour. This maker draws the main line in very large letters, because thumbnails are often seen at the size of a postage stamp. Test your design by holding your phone at arm's length: if you can still read the words, the size is right. If you cannot, shorten the words instead of shrinking the letters — fewer words in big letters always beat more words in small ones.</p>
+<h2>Common mistakes to avoid</h2>
+<p>The most common mistake is tiny text. A thumbnail full of small words looks fine on a large screen and unreadable everywhere else. Keep to three words or fewer in the main line, and let the letters stay large. If the words do not fit, shorten the words — do not shrink the text.</p>
+<p>The second mistake is ten words on one thumbnail. A long sentence across a small image is hard to read and harder to remember. Put the extra words in the video title, where there is room, and keep the thumbnail to the one phrase that matters most.</p>
+<p>The third mistake is copying a famous channel's thumbnail. It may look like a shortcut, but viewers notice, and a copy never fits your video as well as your own design. Use other thumbnails for ideas — notice what colours and layouts catch your eye — then make your own version with your own words.</p>
+<p>The fourth mistake is a misleading thumbnail: a promise the video does not keep. It may win a click, but the viewer leaves quickly, and that hurts the video more than a missed click ever would. The best thumbnail is an honest one: it shows what the video is, in the clearest way possible.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What size is a YouTube thumbnail?</h3><p>YouTube thumbnails are 1280 pixels wide by 720 pixels tall, a 16 by 9 shape. This maker draws your thumbnail at exactly that size, so the PNG you download is ready to upload as it is, with no resizing needed.</p></div>
+<div class="faq"><h3>How many words should I use?</h3><p>Three words or fewer is a good rule. Thumbnails are often seen very small, on a phone screen or in a list, and a short phrase in large letters can be read at a glance. If you need more words, put the rest in the video title instead.</p></div>
+<div class="faq"><h3>Can I use my own photo?</h3><p>Not in this maker. It builds clean text-and-colour thumbnails from gradients, text and drawn shapes, and it does not edit photos or draw custom art. If you want a photo thumbnail, edit your photo in a photo editor first, then use this page for a text-only version or a simple title card.</p></div>
+<div class="faq"><h3>Why does my thumbnail look blurry?</h3><p>Blur usually comes from uploading an image smaller than 1280 by 720, or from saving it at low quality. This maker draws at the full 1280 by 720 size, so the PNG it downloads is sharp. If your thumbnail still looks soft after upload, check that you uploaded the PNG file itself and not a small preview or screenshot of it.</p></div>
+<div class="faq"><h3>What colours work best?</h3><p>High contrast works best: light text on a dark background, or dark text on a bright background. Warm colours like pink, orange and yellow stand out in a feed full of thumbnails, while blue and teal feel calm and clean. Pick one strong background colour and one text colour that is easy to read against it.</p></div>
+<div class="faq"><h3>Do I need to sign up?</h3><p>No. There is no account, no sign-up and no password. Everything happens in your browser, and the thumbnail you download is yours to use however you like.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../social-media-post-scheduler/">Social Media Post Scheduler</a> · <a href="../tiktok-content-planner/">TikTok Content Planner</a> · <a href="../podcast-show-notes-generator/">Podcast Show Notes Generator</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+(function () {
+  var GRADIENTS = [
+    { id: "sunset", name: "Sunset", from: "#db2777", to: "#ea580c" },
+    { id: "ocean", name: "Ocean", from: "#0ea5e9", to: "#14b8a6" },
+    { id: "lime", name: "Lime", from: "#84cc16", to: "#22c55e" },
+    { id: "purple", name: "Purple", from: "#8b5cf6", to: "#d946ef" },
+    { id: "slate", name: "Dark Slate", from: "#1e293b", to: "#475569" },
+    { id: "sunny", name: "Warm Yellow", from: "#f59e0b", to: "#facc15" }
+  ];
+  var STYLES = ["bold", "outline", "highlight"];
+  var SHAPES = ["none", "circle", "star", "arrow", "bolt"];
+
+  function wrapText(text, maxChars) {
+    if (typeof maxChars !== "number" || maxChars <= 0) { maxChars = 14; }
+    if (typeof text !== "string") { return []; }
+    var trimmed = text.trim();
+    if (!trimmed) { return []; }
+    var words = trimmed.split(/\s+/);
+    var lines = [""];
+    for (var i = 0; i < words.length; i++) {
+      var w = words[i];
+      var cur = lines[lines.length - 1];
+      if (!cur) {
+        lines[lines.length - 1] = w;
+      } else if ((cur + " " + w).length <= maxChars || lines.length >= 2) {
+        lines[lines.length - 1] = cur + " " + w;
+      } else {
+        lines.push(w);
+      }
+    }
+    return lines.filter(function (l) { return l.length > 0; });
+  }
+
+  function findGradient(id) {
+    for (var i = 0; i < GRADIENTS.length; i++) {
+      if (GRADIENTS[i].id === id) { return GRADIENTS[i]; }
+    }
+    return GRADIENTS[0];
+  }
+
+  function normalizeConfig(opts) {
+    opts = opts || {};
+    var bg = GRADIENTS[0];
+    if (typeof opts.bg === "string") {
+      bg = findGradient(opts.bg);
+    } else if (opts.bg && typeof opts.bg.from === "string" && typeof opts.bg.to === "string") {
+      bg = opts.bg;
+    }
+    return {
+      bg: bg,
+      line1: typeof opts.line1 === "string" ? opts.line1 : "",
+      line2: typeof opts.line2 === "string" ? opts.line2 : "",
+      textColor: typeof opts.textColor === "string" && opts.textColor ? opts.textColor : "#ffffff",
+      style: STYLES.indexOf(opts.style) >= 0 ? opts.style : "bold",
+      shape: SHAPES.indexOf(opts.shape) >= 0 ? opts.shape : "none"
+    };
+  }
+
+  function drawStar(ctx, cx, cy, outer, inner) {
+    ctx.beginPath();
+    for (var i = 0; i < 10; i++) {
+      var r = (i % 2 === 0) ? outer : inner;
+      var a = -Math.PI / 2 + i * Math.PI / 5;
+      var x = cx + r * Math.cos(a);
+      var y = cy + r * Math.sin(a);
+      if (i === 0) { ctx.moveTo(x, y); } else { ctx.lineTo(x, y); }
+    }
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  function drawArrow(ctx, cx, cy) {
+    ctx.beginPath();
+    ctx.moveTo(cx - 70, cy - 25);
+    ctx.lineTo(cx + 10, cy - 25);
+    ctx.lineTo(cx + 10, cy - 55);
+    ctx.lineTo(cx + 80, cy);
+    ctx.lineTo(cx + 10, cy + 55);
+    ctx.lineTo(cx + 10, cy + 25);
+    ctx.lineTo(cx - 70, cy + 25);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  function drawBolt(ctx, cx, cy) {
+    var pts = [[cx + 20, cy - 80], [cx - 40, cy + 10], [cx - 5, cy + 10], [cx - 25, cy + 80], [cx + 45, cy - 15], [cx + 5, cy - 15]];
+    ctx.beginPath();
+    ctx.moveTo(pts[0][0], pts[0][1]);
+    for (var i = 1; i < pts.length; i++) { ctx.lineTo(pts[i][0], pts[i][1]); }
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  function drawShape(ctx, shape, cx, cy, color) {
+    if (!shape || shape === "none") { return; }
+    ctx.fillStyle = color;
+    if (shape === "circle") {
+      ctx.beginPath();
+      ctx.arc(cx, cy, 60, 0, Math.PI * 2);
+      ctx.fill();
+    } else if (shape === "star") {
+      drawStar(ctx, cx, cy, 80, 32);
+    } else if (shape === "arrow") {
+      drawArrow(ctx, cx, cy);
+    } else if (shape === "bolt") {
+      drawBolt(ctx, cx, cy);
+    }
+  }
+
+  function drawLines(ctx, lines, startY, gap, font, rectH, cfg) {
+    ctx.font = font;
+    for (var i = 0; i < lines.length; i++) {
+      var y = startY + i * gap;
+      if (cfg.style === "highlight") {
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(90, y - rectH / 2, 1100, rectH);
+        ctx.fillStyle = "#111827";
+        ctx.fillText(lines[i], 640, y);
+      } else if (cfg.style === "outline") {
+        ctx.strokeStyle = "#111827";
+        ctx.lineWidth = 10;
+        ctx.strokeText(lines[i], 640, y);
+        ctx.fillStyle = cfg.textColor;
+        ctx.fillText(lines[i], 640, y);
+      } else {
+        ctx.fillStyle = cfg.textColor;
+        ctx.fillText(lines[i], 640, y);
+      }
+    }
+  }
+
+  function drawThumbnail(ctx, config) {
+    var cfg = normalizeConfig(config);
+    var grad = ctx.createLinearGradient(0, 0, 1280, 720);
+    grad.addColorStop(0, cfg.bg.from);
+    grad.addColorStop(1, cfg.bg.to);
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 1280, 720);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    drawShape(ctx, cfg.shape, 1130, 120, cfg.textColor);
+    var lines1 = wrapText(cfg.line1, 14);
+    var lines2 = wrapText(cfg.line2, 14);
+    if (lines1.length) {
+      drawLines(ctx, lines1, lines1.length > 1 ? 240 : 300, 130, "bold 110px Arial, sans-serif", 140, cfg);
+    }
+    if (lines2.length) {
+      drawLines(ctx, lines2, lines2.length > 1 ? 490 : 540, 100, "bold 72px Arial, sans-serif", 100, cfg);
+    }
+  }
+
+  function thumbnailSummary(config) {
+    var cfg = normalizeConfig(config);
+    var parts = [cfg.bg.name + " background", cfg.style + " text style"];
+    parts.push(cfg.shape === "none" ? "no corner shape" : cfg.shape + " corner shape");
+    var text = [cfg.line1, cfg.line2].filter(function (t) { return t && t.trim(); }).join(" / ");
+    var out = "Thumbnail: " + parts.join(", ");
+    if (text) { out += ' — "' + text + '"'; }
+    else { out += " — no text yet"; }
+    return out + ".";
+  }
+
+  var FT = {
+    GRADIENTS: GRADIENTS, STYLES: STYLES, SHAPES: SHAPES,
+    wrapText: wrapText, normalizeConfig: normalizeConfig,
+    drawThumbnail: drawThumbnail, thumbnailSummary: thumbnailSummary
+  };
+  if (typeof window !== "undefined") { window.FT = FT; }
+  if (typeof globalThis !== "undefined") { globalThis.FT = FT; }
+  if (typeof document === "undefined") { return; }
+
+  var KEY = "ft-youtube-thumbnail-maker";
+  var IDS = ["bg", "line1", "line2", "textcolor", "style", "shape"];
+
+  function currentConfig() {
+    return FT.normalizeConfig({
+      bg: document.getElementById("bg").value,
+      line1: document.getElementById("line1").value,
+      line2: document.getElementById("line2").value,
+      textColor: document.getElementById("textcolor").value,
+      style: document.getElementById("style").value,
+      shape: document.getElementById("shape").value
+    });
+  }
+
+  function saveSettings(cfg) {
+    try {
+      localStorage.setItem(KEY, JSON.stringify({
+        bg: cfg.bg.id, line1: cfg.line1, line2: cfg.line2,
+        textColor: cfg.textColor, style: cfg.style, shape: cfg.shape
+      }));
+    } catch (e) {}
+  }
+
+  function loadSettings() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) { return null; }
+      return JSON.parse(raw);
+    } catch (e) { return null; }
+  }
+
+  function draw() {
+    var canvas = document.getElementById("thumb-canvas");
+    var ctx = canvas.getContext("2d");
+    var cfg = currentConfig();
+    FT.drawThumbnail(ctx, cfg);
+    document.getElementById("thumb-out").textContent = FT.thumbnailSummary(cfg);
+    saveSettings(cfg);
+  }
+
+  function copyText(text, btn) {
+    var original = btn.textContent;
+    function done() {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  var saved = loadSettings();
+  if (saved) {
+    if (saved.bg) { document.getElementById("bg").value = saved.bg; }
+    if (typeof saved.line1 === "string") { document.getElementById("line1").value = saved.line1; }
+    if (typeof saved.line2 === "string") { document.getElementById("line2").value = saved.line2; }
+    if (saved.textColor) { document.getElementById("textcolor").value = saved.textColor; }
+    if (saved.style) { document.getElementById("style").value = saved.style; }
+    if (saved.shape) { document.getElementById("shape").value = saved.shape; }
+  }
+
+  IDS.forEach(function (id) {
+    var el = document.getElementById(id);
+    el.addEventListener("input", draw);
+    el.addEventListener("change", draw);
+  });
+  document.getElementById("draw-btn").addEventListener("click", draw);
+  document.getElementById("download-btn").addEventListener("click", function () {
+    var canvas = document.getElementById("thumb-canvas");
+    canvas.toBlob(function (blob) {
+      if (!blob) { return; }
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "thumbnail.png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    }, "image/png");
+  });
+  document.getElementById("copy-btn").addEventListener("click", function () {
+    copyText(FT.thumbnailSummary(currentConfig()), document.getElementById("copy-btn"));
+  });
+  draw();
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

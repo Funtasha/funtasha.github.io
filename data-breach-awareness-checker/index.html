@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Breach Awareness Checker — Has Your Data Been Exposed? | Funtasha</title>
+<meta name="description" content="Check your data breach exposure free — learn what breaches are, how to check yourself safely, and what to do if your data was exposed. No signup.">
+<link rel="canonical" href="https://funtasha.github.io/data-breach-awareness-checker/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Breach Awareness Checker — Has Your Data Been Exposed?">
+<meta property="og:description" content="Learn what a data breach is, how to check yourself safely, and what to do if your data was exposed.">
+<meta property="og:url" content="https://funtasha.github.io/data-breach-awareness-checker/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px}
+.calc input,.calc select{min-height:72px}
+.calc textarea{width:100%;min-height:180px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:14px;margin-top:10px;text-align:left}
+.calc .result{font-size:16px;margin-top:14px}
+.cards{display:grid;gap:12px;margin:14px 0}
+.card{display:block;min-height:90px;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+.card strong{display:block;font-size:17px;color:#be185d}
+.card span{display:block;font-size:15px;color:#334155;margin-top:4px}
+.tick{margin:12px 0}
+.tick label{display:flex;gap:12px;align-items:center;min-height:72px;cursor:pointer;font-weight:700;font-size:16.5px}
+.tick input[type=checkbox]{width:32px;height:32px;flex:0 0 32px;cursor:pointer}
+.tick p{margin:2px 0 0 44px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a data breach?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A data breach happens when private information escapes from a website, app or company that was supposed to keep it safe — names, email addresses, passwords or card details ending up in the wrong hands. The details are often sold or shared in large lists, sometimes years after the breach happened."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this page check my email?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A static page cannot look up whether your email was breached, and this page never asks for your email and never shows a safe or breached verdict. The safe way to check is on the well-known public breach-check service, linked from this page, where you check there and not here."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to check on another site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if it is the well-known public service linked from this page — it is free, run in public, and used by security experts. Never type your password into any checker, and never check on a site you found in an advert or a pop-up, because fake checkers exist to collect email addresses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do I do if I was breached?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Change the password on the breached site and everywhere else you used the same one, starting with your email. Turn on two-factor authentication. Check what else was exposed, watch for scam messages that use the breach, and tell family members who might get messages pretending to be you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is two-factor authentication?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two-factor authentication means that a password alone is not enough to sign in — you also need a second proof, usually a code from your phone. Even if someone learns your password, they still cannot get in without that code. Turn it on for your email first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I change all my passwords?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Change the breached password everywhere you used it, starting with your email, and turn on two-factor authentication. You do not need to change every password you own on the same day — but any password you reused across sites should be replaced with a different one for each site."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Data Breach Awareness Checker</h1>
+<p class="answer">A data breach means someone else got hold of private information from a website or app. This guide explains what a breach is, how to check yourself safely on the public breach-check service, and what to do if your data was exposed.</p>
+<div class="warn">This page cannot check whether your email was breached — no page like this can. It never asks for your email, and it never shows a safe or breached verdict.</div>
+<h2>How to use this guide</h2>
+<p>This page does not check your email for you, and it never asks you to type it in. No page like this one can look up whether your email was caught in a breach, and any page that claims to do so from a little box on the page itself is not telling the truth. What this guide does instead is teach you three things: what a data breach actually is, how to check yourself safely on the well-known public breach-check service, and exactly what to do if your data was exposed. Read it once from top to bottom, then use the self-check at the end to see where you stand. The whole thing takes about ten minutes, and the steps it teaches are the same ones security experts recommend.</p>
+<p>The most important idea on this page is a simple one: the checking happens somewhere else, on a service built for that job, and this page only shows you how. You will type your email address on that service's own website — never here, never into a random checker you found in an advert, and never together with your password. Your password should never be typed into any checker, ever. A real breach check only needs the email address, because it only answers one question: has this address appeared in a known breach? Keep that rule in mind and you will stay safe while checking.</p>
+<h2>What a data breach is</h2>
+<p>A data breach happens when private information escapes from a website, app, or company that was supposed to keep it safe. Attackers break in, or an employee makes a mistake, or a database is left open on the internet — and names, email addresses, passwords, phone numbers, or card details end up in hands they were never meant for. The information is often sold or shared in large lists, sometimes years after the breach happened. That is why you can get a warning about a breach at a site you stopped using long ago: the stolen list may only have surfaced recently.</p>
+<p>A breach does not mean someone is reading your email right now. It means your details are in a stolen list somewhere, and someone could try to use them. The most common thing attackers do with a breached email and password is try the same combination on other sites — a trick called credential stuffing. It works because so many people reuse one password everywhere. If your password for a breached site is also your password for your email, your bank, and your shopping accounts, then one breach opens all of them. That is the real danger, and it is also the reason the fix is so simple: different passwords for different places, and a second lock on the accounts that matter most.</p>
+<p>Not every breach is equally serious. An email address alone is mostly used for spam. An email address plus a password is serious. An email address plus a password plus your full name, phone number, and home address is worse still, because it gives attackers everything they need to pretend to be you. The public breach-check service tells you what kind of data was exposed in each breach, so you can judge how much it matters and what to change first.</p>
+<h2>The safe check, step by step</h2>
+<p>Here is the safe way to check, step by step. First, open the public breach-check service in your browser — the card below this section takes you there. It is a well-known service run in public, used by security experts and written about for years, and it is free for a basic check. Second, type your email address into the box on that site — and only on that site. Third, read the result. The service will tell you whether your address appears in any known breach, and if so, which breaches and what kind of data was exposed. Fourth, if the result is clear, that is good news, but remember it only covers breaches the service knows about. A clear result means "not found in known breaches", not "you will never be breached". Fifth, if the result shows a breach, do not panic — follow the five steps in the next section, in order.</p>
+<div class="cards">
+<a class="card" href="https://haveibeenpwned.com"><strong>Have I Been Pwned</strong><span>The well-known public breach-check service. Check there, not here — this page never asks for your email.</span></a>
+</div>
+<p>A few warnings about checking. Never type your password into a breach checker — no real checker needs it, and any checker that asks for it is a scam. Never check on a site you found in an advert or a pop-up, because fake checkers exist whose whole job is to collect the email addresses people type in. And never pay for a basic breach check — the public service does it free. If a site demands money before showing a result, close it. The check itself takes seconds, and you can check every email address you use, one at a time.</p>
+<p>One more thing the service offers is worth knowing about: you can ask it to tell you if your address appears in a future breach. That means signing up for alerts on that service's own site, with your email address. That is a choice you make there, on their site, under their rules — this page does not sign you up for anything, and it does not collect your address.</p>
+<h2>If you were exposed: the 5 steps, in order</h2>
+<p>Step 1: change the password on the breached site, and on every other site where you used the same password. Start with your email account, because your email can reset the passwords of almost everything else. Pick a new password that is long and unique to that site — a sentence you can remember, with a number and a symbol in it, works better than a short jumble of characters. Do this first, before anything else, because every hour the old password works is an hour someone else could use it.</p>
+<p>Step 2: turn on two-factor authentication on your email account and on any other important account that offers it — your bank, your shopping accounts, your social accounts. Two-factor authentication means that even if someone knows your password, they still need a second proof to get in, usually a code from your phone. It is the single most effective step after changing the password, and it takes only a few minutes per account.</p>
+<p>Step 3: check what else was exposed. If the breach included your phone number, expect scam calls and messages, and be extra careful with any message that asks you to tap a link or share a code. If it included card details, watch your bank statements closely and tell your bank — they can watch for strange spending and replace the card if needed. If it included your home address, be careful with unexpected post or visitors asking for personal details.</p>
+<p>Step 4: watch for scams that use the breach. Attackers often send emails that say "we found your data in a breach — click here to fix it". Those emails are themselves scams, built to scare you into tapping a link or sharing a password. A real warning never asks you to click a link in an email to fix a breach. If you get one, do not tap anything — go to the site yourself by typing its address, and check there.</p>
+<p>Step 5: tell the people close to you, especially family members who share the same accounts or who might get scam messages pretending to be you. If attackers have your name and your contacts, they can send messages that look like they come from you. A quick word — "my details were in a breach, do not trust strange messages from my account" — protects the people around you as well as yourself.</p>
+<h2>The self-check</h2>
+<p>Tick the boxes that are true for you. Your ticks are saved on your own device only, and nobody else can see them. The unticked boxes are your next jobs — each one is a small task, and you can do one a day.</p>
+<div class="tick"><label><input type="checkbox" data-check="1"> I use a different password for my email than for other sites</label><p>Your email account is the key to almost every other account, because password resets go there. If it shares a password with a breached site, one breach can open everything.</p></div>
+<div class="tick"><label><input type="checkbox" data-check="2"> I have two-factor authentication on my email account</label><p>Two-factor authentication means a password alone is not enough to get in. Turn it on for your email first, then for your bank and shopping accounts.</p></div>
+<div class="tick"><label><input type="checkbox" data-check="3"> I have not reused one password everywhere</label><p>Reusing one password is the habit that turns a small breach into a big one. A password manager can remember a different password for every site, so you only need to remember one.</p></div>
+<div class="tick"><label><input type="checkbox" data-check="4"> I know which sites hold my card details</label><p>If you know where your card is saved, you know what to check and what to cancel if a breach hits one of those sites. If you are not sure, check your bank statements for the names.</p></div>
+<div class="tick"><label><input type="checkbox" data-check="5"> I would notice a strange login alert</label><p>Most big services send an alert when someone signs in from a new device or a new place. If you ignore those alerts, you miss the earliest warning that something is wrong.</p></div>
+<div class="tick"><label><input type="checkbox" data-check="6"> I can change my passwords quickly if I need to</label><p>When a breach hits, speed matters. If your passwords live in a password manager, or in a safe written list kept at home, you can change the important ones within the hour.</p></div>
+<p id="checklist-result" aria-live="polite"></p>
+<h2>Common mistakes</h2>
+<p>The worst mistake is typing your password into a random checker. No real breach check needs your password. A checker that asks for it is collecting passwords, and every password typed into it is a password stolen. If you have ever done this, change that password at once, and change it everywhere else you used it too.</p>
+<p>The second mistake is ignoring the warning. People see "your data was in a breach" and think "nothing bad happened, so it does not matter". But stolen details are often used months or years later, when the breach is forgotten. The time to change the password is when you learn about the breach, not when money goes missing. A few minutes now saves a much bigger problem later.</p>
+<p>The third mistake is reusing one password everywhere. It feels convenient — one password to remember — but it means one breach anywhere is a breach everywhere. If you take one habit from this page, make it this one: a different password for your email than for anything else, and two-factor authentication on top. Those two steps alone stop most of the damage a breach can do.</p>
+<p>The fourth mistake is trusting a scare email about the breach. After a big breach makes the news, scam emails follow within days, pretending to warn you and asking you to click a link or download a file. The rule is simple: never fix a breach by clicking a link in an email. Go to the site yourself, or use the public breach-check service, and do the five steps above.</p>
+<h2>What it cannot do</h2>
+<p>This page cannot check whether your email was breached — no page like this can. A real check needs a database of known breaches and a service built to search it, and this page has neither. It never asks for your email, it never shows a safe or breached verdict, and it never pretends otherwise. If a page offers you a verdict from a little box, it is guessing or lying.</p>
+<p>The public breach-check service has limits too, and you should know them. It only knows about breaches that have been found and reported. A breach that nobody has discovered yet will not show up, and a clear result today does not mean you are safe forever. That is why the habits on this page matter more than any single check: different passwords, two-factor authentication, and a calm response when a breach does appear. The check tells you what happened. The habits decide how much it hurts.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is a data breach?</h3><p>A data breach happens when private information escapes from a website, app or company that was supposed to keep it safe — names, email addresses, passwords or card details ending up in the wrong hands. The details are often sold or shared in large lists, sometimes years after the breach happened.</p></div>
+<div class="faq"><h3>Can this page check my email?</h3><p>No. A static page cannot look up whether your email was breached, and this page never asks for your email and never shows a safe or breached verdict. The safe way to check is on the well-known public breach-check service, linked from this page, where you check there and not here.</p></div>
+<div class="faq"><h3>Is it safe to check on another site?</h3><p>Yes, if it is the well-known public service linked from this page — it is free, run in public, and used by security experts. Never type your password into any checker, and never check on a site you found in an advert or a pop-up, because fake checkers exist to collect email addresses.</p></div>
+<div class="faq"><h3>What do I do if I was breached?</h3><p>Change the password on the breached site and everywhere else you used the same one, starting with your email. Turn on two-factor authentication. Check what else was exposed, watch for scam messages that use the breach, and tell family members who might get messages pretending to be you.</p></div>
+<div class="faq"><h3>What is two-factor authentication?</h3><p>Two-factor authentication means that a password alone is not enough to sign in — you also need a second proof, usually a code from your phone. Even if someone learns your password, they still cannot get in without that code. Turn it on for your email first.</p></div>
+<div class="faq"><h3>Should I change all my passwords?</h3><p>Change the breached password everywhere you used it, starting with your email, and turn on two-factor authentication. You do not need to change every password you own on the same day — but any password you reused across sites should be replaced with a different one for each site.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../cookie-consent-generator/">Cookie Consent Generator</a> · <a href="../email-header-analyzer/">Email Header Analyzer</a> · <a href="../online-privacy-education-hub/">Online Privacy Education Hub</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+window.FT = window.FT || {};
+(function () {
+  function checklistSummary(checked, total) {
+    checked = Math.max(0, Math.min(total, checked | 0));
+    if (checked === total) {
+      return "You have ticked all " + total + " checks. Well done — keep the habits going, and check the public breach-check service from time to time.";
+    }
+    if (checked === 0) {
+      return "You have ticked 0 of " + total + " checks. Start with the first one: a different password for your email, and two-factor authentication on top.";
+    }
+    return "You have ticked " + checked + " of " + total + " checks. The unticked ones are your next jobs — one a day is a good pace.";
+  }
+  window.FT.checklistSummary = checklistSummary;
+  if (typeof document !== "undefined" && document.querySelectorAll) {
+    var KEY = "ft-data-breach-awareness-checker-";
+    var boxes = document.querySelectorAll('input[type="checkbox"][data-check]');
+    var result = document.getElementById("checklist-result");
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY + "checks") || "{}"); } catch (e) {}
+    function render() {
+      var done = 0;
+      boxes.forEach(function (b) { if (b.checked) done += 1; });
+      if (result) result.textContent = checklistSummary(done, boxes.length);
+    }
+    boxes.forEach(function (b) {
+      var id = b.getAttribute("data-check");
+      if (saved[id]) b.checked = true;
+      b.addEventListener("change", function () {
+        var state = {};
+        boxes.forEach(function (x) { state[x.getAttribute("data-check")] = !!x.checked; });
+        try { localStorage.setItem(KEY + "checks", JSON.stringify(state)); } catch (e) {}
+        render();
+      });
+    });
+    render();
+  }
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

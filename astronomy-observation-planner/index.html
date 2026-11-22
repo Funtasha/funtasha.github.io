@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Astronomy Observation Planner — Plan Your Night Under the Stars | Funtasha</title>
+<meta name="description" content="Plan a night of stargazing free — what to see, when to look, and how to plan around the Moon and the weather. No signup.">
+<link rel="canonical" href="https://funtasha.github.io/astronomy-observation-planner/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Astronomy Observation Planner — Plan Your Night Under the Stars">
+<meta property="og:description" content="Plan a night of stargazing around the Moon, the weather and how dark your sky is.">
+<meta property="og:url" content="https://funtasha.github.io/astronomy-observation-planner/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:15px}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+canvas{width:100%;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best night to stargaze?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The best night is a clear night near the new Moon, when the sky stays truly dark and faint objects such as the Milky Way and star clusters show well. The days around the first and last quarters are a good middle ground. Avoid full Moon nights for faint objects, though the full Moon itself is a fine target."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a telescope?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Start with your eyes, which can show you the Moon, bright planets, constellations and meteor showers. Binoculars are the best next step, and they are cheap and easy to use. Buy a telescope only when you know what you want to look at and why binoculars can no longer show it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the Moon matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Moon is the brightest object in the night sky, and a full Moon floods the sky with light that washes out faint objects. Near the new Moon the sky stays dark, so dim sights become visible. That is why the Moon phase is the first thing a good plan checks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can I see without equipment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A great deal. The Moon and its dark patches, the bright planets, the constellations, the Milky Way on a dark night, and meteor showers are all visible to the naked eye. Give your eyes about twenty minutes in the dark to reach full night vision before you judge what you can see."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find a dark place?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Get away from street lights and town centres, even a short drive helps. Parks, fields and hilltops outside the city are good, and a spot with trees or hills blocking nearby lights is better still. Check that the place is safe and that you are allowed to be there at night."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this page show live star positions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A static page cannot show live sky positions, and this page never pretends it can. It works out the Moon phase from the real lunar cycle and helps you build a plan. For the live sky, use a star chart or a sky app for your location and date."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Astronomy Observation Planner</h1>
+<p class="answer">This planner helps you prepare a night of stargazing in a few minutes. Pick a date, your equipment and how dark your sky is, and you will get a Moon phase estimate and a simple plan for the night.</p>
+
+<div class="calc">
+<label for="plan-date">Night of</label>
+<input type="date" id="plan-date">
+<label for="plan-equipment">Equipment</label>
+<select id="plan-equipment">
+<option value="eyes">Eyes only</option>
+<option value="binoculars">Binoculars</option>
+<option value="telescope">Telescope</option>
+</select>
+<label for="plan-darkness">How dark is your sky</label>
+<select id="plan-darkness">
+<option value="city">City (bright sky)</option>
+<option value="suburb">Suburb (some lights)</option>
+<option value="dark">Dark countryside</option>
+</select>
+<p>What do you want to see?</p>
+<div class="checkrow"><input type="checkbox" class="target-check" id="t-moon" value="Moon"><label for="t-moon">Moon</label></div>
+<div class="checkrow"><input type="checkbox" class="target-check" id="t-planets" value="planets"><label for="t-planets">Planets</label></div>
+<div class="checkrow"><input type="checkbox" class="target-check" id="t-milky" value="Milky Way"><label for="t-milky">Milky Way</label></div>
+<div class="checkrow"><input type="checkbox" class="target-check" id="t-meteor" value="meteor shower"><label for="t-meteor">Meteor shower</label></div>
+<div class="checkrow"><input type="checkbox" class="target-check" id="t-const" value="constellations"><label for="t-const">Constellations</label></div>
+<div class="checkrow"><input type="checkbox" class="target-check" id="t-clusters" value="star clusters"><label for="t-clusters">Star clusters</label></div>
+<button type="button" id="build-plan-btn">Build my plan</button>
+<div id="moon-out" class="outbox"></div>
+<pre id="plan-out" class="outbox"></pre>
+<button type="button" id="copy-btn" class="copy-btn">Copy plan</button>
+</div>
+
+<div class="warn">This page cannot show live star positions — a static page has no live sky map, and this page never pretends it has one. The Moon phase here is an estimate from the real lunar cycle, so check a Moon calendar for exact times. Use this page to plan, then look up with your own eyes.</div>
+
+<h2>How to use this planner</h2>
+<p>Pick a night, tell the planner what equipment you have and how dark your sky
+is, then tick the things you want to see. Press the button and you will get
+two things: an estimate of the Moon phase for that date, and a short written
+plan for the night. The plan is a worksheet, not a promise. It reminds you
+what to bring, what to expect from your sky, and which targets suit the Moon
+that night. Copy it to your phone and take it outside with you. The whole
+process takes a minute, and it turns a vague idea of going out to look at the
+stars into a night with a purpose. That purpose matters, because the difference
+between a good night and a frustrating one is usually preparation, not
+equipment. A beginner with a plan and a dark sky will see more than an expert
+with a telescope who arrived late, cold and unprepared.</p>
+<h2>The Moon and why it matters</h2>
+<p>The Moon is the single biggest factor in a night of stargazing, and it is
+the one beginners forget most often. A full Moon is beautiful, but it floods
+the sky with light and washes out the faint objects: the Milky Way, dim star
+clusters and most meteors. The best nights for deep-sky watching are the days
+around the new Moon, when the Moon is barely visible and the sky stays truly
+dark. The days around the first and last quarters are a middle ground. The Moon
+lights up part of the night and leaves the rest dark, so you can enjoy the
+Moon itself early on and the fainter sights later. The Moon goes through its
+whole cycle in about twenty-nine and a half days, which means every month
+holds a stretch of dark nights. The planner on this page works out the Moon
+phase for your chosen date from that real cycle, so you can pick a dark night
+on purpose instead of by luck. Remember that the phase is an estimate. It is
+accurate enough for planning, but if you need the exact time of moonrise or
+moonset, check a Moon calendar.</p>
+<h2>What you can see with no equipment</h2>
+<p>You do not need any equipment to start. On a clear dark night, your eyes
+alone can show you a surprising amount. The Moon in all its phases is the
+obvious first target, and even without magnification you can see the dark
+patches on its face, which are old lava plains. The bright planets are easy
+too: they shine steadily, unlike stars, which twinkle. With a dark sky you can
+trace the constellations, the patterns people have named for thousands of
+years, and in the right season you can see the Milky Way as a pale band of
+light across the sky. That band is our own galaxy seen from the inside, and
+seeing it for the first time is a moment most people remember. Meteor showers
+are also an eyes-only pleasure. You need no equipment at all, just a dark sky,
+a reclining chair and patience. Give your eyes about twenty minutes in the
+dark before you judge what you can see, because night vision builds slowly and
+a single glance at a bright phone screen can undo it.</p>
+<h2>Binoculars or a telescope</h2>
+<p>Start with your eyes, then move to binoculars, and only then think about a
+telescope. That order is the honest advice of almost every experienced
+observer, and it saves beginners a great deal of money and frustration.
+Binoculars are cheap, light and easy to use, and they transform the sky. The
+Moon gains craters and mountain ranges, star clusters resolve into dozens of
+individual stars, and the brightest planets show as tiny discs instead of
+points of light. Any ordinary pair of binoculars will do for a first look.
+A telescope shows more, but it also asks more of you. It needs setting up,
+it needs cooling down to the night air, and it shows a small patch of sky, so
+finding things takes practice. A beginner who buys a telescope first often
+spends the first night fighting the equipment instead of enjoying the sky.
+Learn the constellations with your eyes, explore with binoculars, and buy a
+telescope only when you know what you want to look at and why your binoculars
+can no longer show it. The planner lets you pick your equipment so the plan
+matches what you actually own.</p>
+<h2>The planning worksheet</h2>
+<p>A good plan has five parts, and the worksheet on this page covers all of
+them. First, the date. Pick a night near the new Moon if you want faint
+objects, or any clear night if the Moon itself is your target. Second, the
+Moon phase, which the planner works out for you. Third, the weather. No plan
+survives a cloudy sky, so check the forecast on the day and be ready to move
+your night. Fourth, the place. A dark spot away from street lights is worth
+more than any equipment, so the planner asks how dark your sky is and shapes
+its advice around the answer. Fifth, the target list. Pick two or three things
+to look for, not twenty. A short list keeps the night relaxed, and it leaves
+room for the happy accident of spotting something you did not plan. The
+checklist at the end of your plan covers the practical side: check the weather,
+charge your phone, bring warm clothes, bring a red light, and arrive before
+dark so your eyes adjust while the sky is still changing.</p>
+<h2>What is visible in each season</h2>
+<p>The sky changes through the year because the Earth moves around the Sun, so
+different constellations and objects take their turn overhead. In general
+terms, winter nights in the northern hemisphere favour bright constellations
+and brilliant star clusters, while summer nights favour the Milky Way and its
+rich star clouds. Spring and autumn offer a mix, with fewer bright landmarks
+but excellent galaxies for those with a telescope and a dark sky. Meteor
+showers also follow the calendar, with a few strong showers each year and many
+smaller ones. One warning matters here: everything above depends on your
+hemisphere. A constellation that rides high in the north in winter may never
+rise in the far south, and the seasons are reversed below the equator. So use
+the seasons as a rough guide, not a timetable. For exact answers about what is
+up on a given night in your part of the world, check a star chart or a sky
+guide for your location and date. The planner gives you the method and the
+Moon; the chart gives you the map.</p>
+<h2>A worked example: planning a Saturday night</h2>
+<p>Imagine it is Thursday and you want to go out on Saturday. You open this
+page and set the date to Saturday. The planner says the Moon is a waxing
+crescent, about a quarter lit, which is good news: the Moon will set early and
+leave the rest of the night dark. You pick binoculars as your equipment and
+suburb as your sky, and you tick the Moon, star clusters and constellations.
+The plan tells you to look at the Moon first while it is up, then turn to the
+clusters once it has set. You check the weather on Saturday afternoon and the
+forecast is clear. You charge your phone, pack warm clothes and a red light,
+and arrive at a dark corner of a local park before sunset. You spend twenty
+minutes letting your eyes adjust, then find the Moon in your binoculars and
+study its craters. An hour later the Moon is gone, and you spend the rest of
+the night on clusters and constellations. Ten minutes of planning on Thursday
+bought you a relaxed, rewarding Saturday night. That is the whole point of
+this page.</p>
+<h2>Common mistakes to avoid</h2>
+<ul>
+<li>Picking a full Moon night to hunt for faint objects. The Moon will win,
+and the faint objects will lose.</li>
+<li>Staying under city lights and expecting a dark-sky view. Even a short
+drive away from the brightest lights makes a real difference.</li>
+<li>Forgetting warm clothes. Standing still under a clear night sky gets cold
+fast, even in a mild season, and a cold observer goes home early.</li>
+<li>Expecting Hubble photos. Your eyes will see the Moon, planets and clusters
+beautifully, but distant galaxies will be faint grey smudges, not the colourful
+pictures a long camera exposure produces.</li>
+<li>Checking a bright phone screen every few minutes. Each glance resets your
+night vision, so use a red light and keep the screen dim.</li>
+<li>Trying to see everything in one night. A short target list beats a long
+one, every time.</li>
+</ul>
+<h2>What this page cannot do</h2>
+<p>This page cannot show you live star positions, and it never pretends it can.
+A static page has no live sky map, no connection to a telescope and no way to
+know exactly which stars are above you right now. What it does is simpler and
+honest: it works out the Moon phase from the real lunar cycle, and it helps
+you build a plan around your equipment, your sky and your targets. For the
+live sky itself, use a star chart, a printed guide or a sky app on your phone,
+and always check the weather before you go out. The Moon phase here is an
+estimate, good enough for planning, and you should check a Moon calendar for
+exact rise and set times. Used that way, this planner is a genuine help. It
+will not replace looking up, and nothing should.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is the best night to stargaze?</h3><p>The best night is a clear night near the new Moon, when the sky stays truly dark and faint objects such as the Milky Way and star clusters show well. The days around the first and last quarters are a good middle ground. Avoid full Moon nights for faint objects, though the full Moon itself is a fine target.</p></div>
+<div class="faq"><h3>Do I need a telescope?</h3><p>No. Start with your eyes, which can show you the Moon, bright planets, constellations and meteor showers. Binoculars are the best next step, and they are cheap and easy to use. Buy a telescope only when you know what you want to look at and why binoculars can no longer show it.</p></div>
+<div class="faq"><h3>Why does the Moon matter?</h3><p>The Moon is the brightest object in the night sky, and a full Moon floods the sky with light that washes out faint objects. Near the new Moon the sky stays dark, so dim sights become visible. That is why the Moon phase is the first thing a good plan checks.</p></div>
+<div class="faq"><h3>What can I see without equipment?</h3><p>A great deal. The Moon and its dark patches, the bright planets, the constellations, the Milky Way on a dark night, and meteor showers are all visible to the naked eye. Give your eyes about twenty minutes in the dark to reach full night vision before you judge what you can see.</p></div>
+<div class="faq"><h3>How do I find a dark place?</h3><p>Get away from street lights and town centres, even a short drive helps. Parks, fields and hilltops outside the city are good, and a spot with trees or hills blocking nearby lights is better still. Check that the place is safe and that you are allowed to be there at night.</p></div>
+<div class="faq"><h3>Can this page show live star positions?</h3><p>No. A static page cannot show live sky positions, and this page never pretends it can. It works out the Moon phase from the real lunar cycle and helps you build a plan. For the live sky, use a star chart or a sky app for your location and date.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../movie-watchlist-manager/">Movie Watchlist Manager</a> · <a href="../scientific-data-visualizer/">Scientific Data Visualizer</a> · <a href="../3d-model-file-converter/">3D Model File Converter</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = window.FT || {};
+window.FT.moonPhase = function(dateStr){
+  var parts = String(dateStr).split("-");
+  var d = Date.UTC(+parts[0], +parts[1] - 1, +parts[2]);
+  var ref = Date.UTC(2000, 0, 6);
+  var days = (d - ref) / 86400000;
+  var syn = 29.53058867;
+  var frac = ((days / syn) % 1 + 1) % 1;
+  var name;
+  if (frac < 0.0339 || frac >= 0.9661) name = "New Moon";
+  else if (frac < 0.2161) name = "Waxing Crescent";
+  else if (frac < 0.2839) name = "First Quarter";
+  else if (frac < 0.4661) name = "Waxing Gibbous";
+  else if (frac < 0.5339) name = "Full Moon";
+  else if (frac < 0.7161) name = "Waning Gibbous";
+  else if (frac < 0.7839) name = "Last Quarter";
+  else name = "Waning Crescent";
+  var illum = Math.round((1 - Math.cos(2 * Math.PI * frac)) / 2 * 100);
+  return {fraction: frac, name: name, illumination: illum};
+};
+window.FT.buildPlan = function(o){
+  var lines = [];
+  lines.push("Stargazing plan for " + o.date);
+  lines.push("Moon: " + o.phase.name + " (about " + o.phase.illumination + "% lit)");
+  if (o.equipment === "binoculars") {
+    lines.push("Equipment: binoculars — a great step up from eyes alone; steady them on something solid and scan slowly.");
+  } else if (o.equipment === "telescope") {
+    lines.push("Equipment: telescope — set it up before dark, start with a low magnification, and let the telescope cool to the night air.");
+  } else {
+    lines.push("Equipment: eyes only — the best way to start; your eyes need about 20 minutes in the dark to reach full night vision.");
+  }
+  if (o.darkness === "dark") {
+    lines.push("Sky: dark countryside — the Milky Way and faint objects are within reach tonight.");
+  } else if (o.darkness === "suburb") {
+    lines.push("Sky: suburb — bright objects will show well; faint ones will need patience and a spot away from street lights.");
+  } else {
+    lines.push("Sky: city — bright lights will wash out faint objects, so aim for the Moon and the brightest planets.");
+  }
+  if (o.targets && o.targets.length) {
+    lines.push("Targets: " + o.targets.join(", "));
+  } else {
+    lines.push("Targets: none picked yet — choose at least one target above.");
+  }
+  lines.push("Checklist: check the weather; charge your phone; bring warm clothes; bring a red light; arrive before dark.");
+  return lines.join("\n");
+};
+
+function copyText(text, btn){
+  function done(){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+function downloadText(filename, text, type){
+  var blob = new Blob([text], {type: type || "text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+(function(){
+  var dateEl = document.getElementById("plan-date");
+  var eqEl = document.getElementById("plan-equipment");
+  var darkEl = document.getElementById("plan-darkness");
+  var btn = document.getElementById("build-plan-btn");
+  var moonOut = document.getElementById("moon-out");
+  var planOut = document.getElementById("plan-out");
+  var copyBtn = document.getElementById("copy-btn");
+  if (dateEl && !dateEl.value) {
+    var now = new Date();
+    var mm = String(now.getMonth() + 1);
+    var dd = String(now.getDate());
+    if (mm.length < 2) mm = "0" + mm;
+    if (dd.length < 2) dd = "0" + dd;
+    dateEl.value = now.getFullYear() + "-" + mm + "-" + dd;
+  }
+  function build(){
+    if (!dateEl || !dateEl.value || !moonOut || !planOut) return;
+    var phase = window.FT.moonPhase(dateEl.value);
+    moonOut.textContent = "Moon on " + dateEl.value + ": " + phase.name +
+      " (about " + phase.illumination + "% lit). This is an estimate — check a Moon calendar for exact times.";
+    var targets = [];
+    var checks = document.querySelectorAll(".target-check");
+    for (var i = 0; i < checks.length; i++) {
+      if (checks[i].checked) targets.push(checks[i].value);
+    }
+    var plan = window.FT.buildPlan({
+      date: dateEl.value,
+      phase: phase,
+      equipment: eqEl ? eqEl.value : "eyes",
+      darkness: darkEl ? darkEl.value : "city",
+      targets: targets
+    });
+    planOut.textContent = plan;
+  }
+  if (btn) btn.addEventListener("click", build);
+  if (copyBtn) copyBtn.addEventListener("click", function(){
+    var text = "";
+    if (moonOut) text += moonOut.textContent;
+    if (planOut && planOut.textContent) {
+      if (text) text += "\n";
+      text += planOut.textContent;
+    }
+    if (!text) text = "Build your plan first, then copy it.";
+    copyText(text, copyBtn);
+  });
+  build();
+})();
+</script>
+
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

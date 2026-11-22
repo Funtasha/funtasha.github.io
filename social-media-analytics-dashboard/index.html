@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Social Media Analytics Dashboard — Track Your Growth Free | Funtasha</title>
+<meta name="description" content="Track your social media growth free — log followers, views and likes, and see what is actually growing. Manual tracker + guide, no signup.">
+<link rel="canonical" href="https://funtasha.github.io/social-media-analytics-dashboard/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Social Media Analytics Dashboard — Track Your Growth Free">
+<meta property="og:description" content="Track your social media growth free — log followers, views and likes, and see what is actually growing. Manual tracker + guide, no signup.">
+<meta property="og:url" content="https://funtasha.github.io/social-media-analytics-dashboard/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:15px}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+canvas{width:100%;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can this fetch my real numbers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This page cannot connect to Instagram, YouTube, TikTok or Facebook, and it cannot fetch your numbers for you. You type in your weekly followers, views and likes yourself, from each platform's own analytics screen, and the page turns them into a chart, a growth rate and your best week."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which numbers should I track?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three are enough: followers at the end of each week, total views for the week, and total likes for the week. Followers show whether your audience is growing, views show how far your posts reached, and likes divided by views give your engagement rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I log numbers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Once a week, on the same day each week. Daily numbers jump around too much to read, and monthly numbers hide what changed. Pick one day — Sunday evening works well — and log the three numbers for the week that just ended."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is engagement rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is likes divided by views, shown as a percentage. If a week's posts got 200 likes from 2,000 views, the engagement rate is 10 percent. It tells you how much of your audience cared enough to react, and it lets you compare a quiet week with a busy one fairly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did my followers drop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Small drops are normal. Platforms remove inactive or fake accounts, people clean up who they follow, and a post that misses can cost a few followers. One bad week is not a trend — watch the direction over a month before you change anything."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this connected to Instagram?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This page is not connected to Instagram, YouTube, TikTok or Facebook in any way. It is a manual dashboard: your numbers stay in your own browser, nothing is uploaded, and no account or sign-in is needed."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Social Media Analytics Dashboard</h1>
+<p class="answer">This is a manual dashboard: it does not connect to Instagram, YouTube or TikTok, and it cannot fetch your numbers for you. You log your weekly followers, views and likes yourself, and this page turns them into a chart, a growth rate and your best week — free, with no sign-up.</p>
+<div class="calc">
+<p><strong>Log your weekly numbers</strong></p>
+<label for="platform">Platform</label>
+<select id="platform">
+<option value="Instagram">Instagram</option>
+<option value="YouTube">YouTube</option>
+<option value="TikTok">TikTok</option>
+<option value="Facebook">Facebook</option>
+</select>
+<label for="week">Week label</label>
+<input id="week" type="text" placeholder="Week 1">
+<label for="followers">Followers at the end of the week</label>
+<input id="followers" type="number" min="0" inputmode="numeric">
+<label for="views">Views this week</label>
+<input id="views" type="number" min="0" inputmode="numeric">
+<label for="likes">Likes this week</label>
+<input id="likes" type="number" min="0" inputmode="numeric">
+<button id="add-week-btn" type="button">Add week</button>
+<p id="week-msg" class="steps"></p>
+<label for="remove-select">Logged weeks for this platform</label>
+<select id="remove-select"></select>
+<button id="remove-btn" type="button">Remove selected week</button>
+<canvas id="chart-canvas" width="680" height="260"></canvas>
+<div id="dash-out" class="outbox"></div>
+<button id="copy-btn" type="button">Copy my summary</button>
+</div>
+<div class="warn">This page does NOT connect to Instagram, YouTube, TikTok or Facebook. It cannot fetch your real numbers — you type them in yourself each week, from each platform's own analytics screen. Your numbers stay in your own browser; nothing is uploaded or shared.</div>
+<h2>How to use this dashboard</h2>
+<p>Start by picking a platform from the menu at the top of the tool — Instagram, YouTube, TikTok or Facebook. Then type in the numbers for one week: how many followers you had at the end of that week, how many views your posts got during the week, and how many likes they collected. Give the week a label you will recognise later, such as Week 1 or the first week of the month, and press Add week. Do the same for each week you want to track, one platform at a time.</p>
+<p>Your numbers are saved in your own browser, so they are still here the next time you open the page — nothing is uploaded anywhere and nobody else can see them. Switch platforms with the menu and the chart, the summary and the week list all change to that platform. If you typed a week wrong, pick it in the Logged weeks menu and press Remove selected week, then add it again with the right numbers.</p>
+<p>The dashboard shows you four things for the platform you picked: a bar chart of followers and views by week, your growth rate as a percentage, your best week by views, and your average engagement rate. Under the chart you get one plain sentence of advice based on what your own numbers say. When you want to keep a copy, press Copy my summary and paste it into your notes app or a document.</p>
+<h2>The 3 numbers that matter</h2>
+<p>Every platform shows you dozens of numbers, and most of them are noise. This dashboard asks for three, because three are enough to tell you whether you are growing, what your audience likes, and whether your effort is paying off.</p>
+<p>Followers are the slow number. They move a little each week, and they are the only number that shows whether your audience is actually getting bigger. A jump of fifty followers in a week means more than a single post with a thousand views, because followers come back. But followers alone can mislead you: an account can gain followers and still have fewer people watching.</p>
+<p>Views are the fast number. They jump up and down with every post, and they tell you which weeks your content actually reached people. When views rise but followers stay flat, your posts are being seen by people who do not stick around — the content reached them, but it did not convince them to follow. When views fall for two or three weeks in a row, something changed: the topic, the timing, or how often you posted.</p>
+<p>Likes, divided by views, give you the engagement rate — the share of viewers who cared enough to tap the like button. It is the fairest way to compare a quiet week with a loud one, because it does not depend on how many people happened to see the post. A small account with a high engagement rate has a loyal audience; a big account with a low one has a crowd that scrolls past. Track all three together and you stop guessing: the chart shows the trend, the growth rate shows the direction, and the engagement rate shows the quality.</p>
+<h2>Reading your own chart</h2>
+<p>The chart draws two bars for each week: a pink bar for followers and an orange bar for views. Read them as a pair, not one at a time, because the story is in how they move together.</p>
+<p>A rising pink bar with a rising orange bar is the healthy pattern: more people are watching, and some of them are staying. A rising orange bar with a flat pink bar means your posts reach people but do not turn them into followers — the fix is usually in the content itself, not in posting more. A flat orange bar with a rising pink bar is rare and usually means your old posts keep working for you while your new ones are quiet.</p>
+<p>A flat line is the most common thing you will see, and the most misunderstood. One flat week means nothing at all — numbers wobble for reasons that have nothing to do with you, from holidays to the weather. Two or three flat weeks in a row are a message: what you are doing now has reached its limit, and repeating it will not change the result. That is the moment to try one new thing — a different topic, a different time of day, a different kind of post — and then watch the next four weeks, not the next four hours.</p>
+<p>A dip is not a disaster either. Follower counts fall when platforms remove inactive accounts, when people clean up who they follow, or after a post that did not land. What matters is the direction over a month, not the shape of one week. If the line over four weeks still points up, you are growing; if it points down for a month, it is time to change something.</p>
+<h2>A worked example: 4 weeks of numbers</h2>
+<p>Here is a small cooking account on Instagram, logged for four weeks. Week 1: 820 followers, 1,400 views, 96 likes. Week 2: 845 followers, 1,900 views, 150 likes. Week 3: 861 followers, 1,650 views, 118 likes. Week 4: 902 followers, 2,600 views, 240 likes.</p>
+<p>The growth rate over the four weeks is about 10 percent — from 820 to 902 followers. The best week is Week 4, by views and by likes. The engagement rate is about 7 percent in Week 1, 8 percent in Week 2, 7 percent in Week 3 and 9 percent in Week 4 — steady, with the best week also the most engaging.</p>
+<p>What do these numbers actually say? First, the account is growing slowly and steadily, not in jumps — that is normal for a small account, and it is a good sign, because steady growth tends to last. Second, Week 4 did something right: views nearly doubled and the engagement rate went up at the same time, which means the new viewers liked what they saw. The owner should look at what was different in Week 4 — the recipe, the time of posting, the first three seconds of the video — and repeat that before trying anything new.</p>
+<p>Third, Week 3 is the warning hidden in the numbers: views fell and likes fell with them, but followers still rose a little. That is the pattern of an audience that stays loyal while reach dips for a week. If the owner had panicked in Week 3 and changed everything, they might have broken the very thing that made Week 4 work. The lesson of the four weeks is simple: log the numbers, wait for the pattern, and change one thing at a time.</p>
+<h2>Common mistakes that waste your time</h2>
+<p>The first mistake is checking every hour. Numbers that move by the hour are noise, not news, and watching them all day changes nothing about the next post. Once a week is enough — pick a day, log the three numbers, and get on with making something.</p>
+<p>The second mistake is trusting follower count alone. Followers can be bought, borrowed by a viral post, or inflated by people who never watch anything. An account with ten thousand quiet followers is weaker than an account with one thousand people who watch every week. That is why this dashboard always shows views and engagement next to followers.</p>
+<p>The third mistake is comparing yourself to huge accounts. A creator with a million followers plays a different game: they have a team, a budget, and years of old posts still bringing in views. Comparing your Week 4 to their Year 4 is not honest, and it is not useful either — it tells you nothing about what to do next Tuesday. Compare yourself to your own last month. That is the only comparison that can change your decisions.</p>
+<p>The fourth mistake is logging numbers and then never looking at them. A dashboard you never read is a diary you never open. Once a month, read the summary line, look at the chart, and ask one question: what did the best week do that the worst week did not? Then do more of that, and log the result.</p>
+<h2>What to do with what you learn</h2>
+<p>Numbers are only useful if they change what you do next. Here is a simple weekly routine that turns this dashboard into decisions.</p>
+<p>On your logging day, add the week's numbers and read the summary. If the advice says you are growing, look at the best week and write down what was different about it — the topic, the length, the time you posted, the first line. Then plan one post next week that repeats that difference. Do not repeat the whole week; repeat the one thing that worked.</p>
+<p>If the numbers are flat, pick one experiment for the week. One, not five — if you change five things at once, you will never know which one mattered. Try posting at a different time, or opening with a question, or covering a topic your audience has asked about. Log the result next week and keep the experiment if the numbers move.</p>
+<p>If the numbers dipped, do not panic and do not post twice as much to make up for it. Check whether the dip is in views or in followers. A views dip usually means the content or the timing; a followers dip usually means the platform cleaned up inactive accounts or your recent posts did not hold people. In both cases the fix is the same: one good post about something your audience already cares about, then patience.</p>
+<p>Once a month, copy your summary and keep it somewhere — a notes app, a document, a message to yourself. After three months you will have a record that no platform screen gives you: your own growth, in your own words, week by week.</p>
+<h2>Keeping your numbers honest</h2>
+<p>This dashboard only works if the numbers in it are real. It is tempting to round up, to skip a bad week, or to log the best day of the week instead of the whole week — but a dashboard built on kind numbers lies to the one person it is meant to help, which is you.</p>
+<p>Log the numbers the same way every week. Pick one day and one time — Sunday evening, for example — and take the follower count from the same place each time. Count the views and likes for the whole week, not just the best post. If you miss a week, leave it out rather than guessing: a gap in the chart is honest, and a guessed number quietly poisons every average that follows it.</p>
+<p>Be honest about what the numbers cannot tell you, too. This page cannot tell you why a post worked, only that it did. It cannot tell you who your audience is, or what they want next — only your comments and messages can do that. And it cannot fetch your real numbers from any platform, so what you type is what you get: the dashboard is a mirror, not a judge.</p>
+<p>That is also why your numbers stay in your own browser. Nothing leaves your device, nothing is uploaded, and there is no account to sign into. The dashboard is yours in the simplest sense: your numbers, your chart, your decisions.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>Can this fetch my real numbers?</h3><p>No. This page cannot connect to Instagram, YouTube, TikTok or Facebook, and it cannot fetch your numbers for you. You type in your weekly followers, views and likes yourself, from each platform&#x27;s own analytics screen, and the page turns them into a chart, a growth rate and your best week.</p></div>
+<div class="faq"><h3>Which numbers should I track?</h3><p>Three are enough: followers at the end of each week, total views for the week, and total likes for the week. Followers show whether your audience is growing, views show how far your posts reached, and likes divided by views give your engagement rate.</p></div>
+<div class="faq"><h3>How often should I log numbers?</h3><p>Once a week, on the same day each week. Daily numbers jump around too much to read, and monthly numbers hide what changed. Pick one day — Sunday evening works well — and log the three numbers for the week that just ended.</p></div>
+<div class="faq"><h3>What is engagement rate?</h3><p>It is likes divided by views, shown as a percentage. If a week&#x27;s posts got 200 likes from 2,000 views, the engagement rate is 10 percent. It tells you how much of your audience cared enough to react, and it lets you compare a quiet week with a busy one fairly.</p></div>
+<div class="faq"><h3>Why did my followers drop?</h3><p>Small drops are normal. Platforms remove inactive or fake accounts, people clean up who they follow, and a post that misses can cost a few followers. One bad week is not a trend — watch the direction over a month before you change anything.</p></div>
+<div class="faq"><h3>Is this connected to Instagram?</h3><p>No. This page is not connected to Instagram, YouTube, TikTok or Facebook in any way. It is a manual dashboard: your numbers stay in your own browser, nothing is uploaded, and no account or sign-in is needed.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../social-media-post-scheduler/">Social Media Post Scheduler</a> · <a href="../tiktok-content-planner/">TikTok Content Planner</a> · <a href="../influencer-media-kit-builder/">Influencer Media Kit Builder</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = (function () {
+  var PLATFORMS = ["Instagram", "YouTube", "TikTok", "Facebook"];
+  function round1(x) { return Math.round(x * 10) / 10; }
+  function isNum(x) { return typeof x === "number" && isFinite(x); }
+  function addWeek(rows, row) {
+    if (!row || PLATFORMS.indexOf(row.platform) < 0) {
+      return { rows: rows.slice(), error: "Pick a platform first." };
+    }
+    if (!row.week || !String(row.week).trim()) {
+      return { rows: rows.slice(), error: "Give the week a label, like Week 1." };
+    }
+    if (!isNum(row.followers) || row.followers < 0 || !isNum(row.views) || row.views < 0 || !isNum(row.likes) || row.likes < 0) {
+      return { rows: rows.slice(), error: "Followers, views and likes must be numbers of 0 or more." };
+    }
+    var next = rows.slice();
+    next.push({ platform: row.platform, week: String(row.week).trim(), followers: row.followers, views: row.views, likes: row.likes });
+    next.sort(function (a, b) {
+      if (a.platform < b.platform) return -1;
+      if (a.platform > b.platform) return 1;
+      if (a.week < b.week) return -1;
+      if (a.week > b.week) return 1;
+      return 0;
+    });
+    return { rows: next, error: null };
+  }
+  function removeWeek(rows, index) {
+    var next = rows.slice();
+    if (index >= 0 && index < next.length) next.splice(index, 1);
+    return next;
+  }
+  function rowsFor(rows, platform) {
+    return rows.filter(function (r) { return r.platform === platform; });
+  }
+  function growthRate(rows) {
+    if (!rows || rows.length < 2) return null;
+    var first = rows[0].followers;
+    var last = rows[rows.length - 1].followers;
+    if (!first) return null;
+    return round1((last - first) / first * 100);
+  }
+  function bestWeek(rows) {
+    if (!rows || !rows.length) return null;
+    var best = rows[0];
+    for (var i = 1; i < rows.length; i++) {
+      if (rows[i].views > best.views) best = rows[i];
+    }
+    return best;
+  }
+  function engagementRate(row) {
+    if (!row || !isNum(row.views) || row.views <= 0) return null;
+    if (!isNum(row.likes)) return null;
+    return round1(row.likes / row.views * 100);
+  }
+  function chartBars(rows) {
+    var maxF = 0, maxV = 0;
+    rows.forEach(function (r) {
+      if (r.followers > maxF) maxF = r.followers;
+      if (r.views > maxV) maxV = r.views;
+    });
+    return rows.map(function (r) {
+      return {
+        label: r.week,
+        followers: r.followers,
+        views: r.views,
+        likes: r.likes,
+        hF: maxF ? round1(r.followers / maxF * 100) : 0,
+        hV: maxV ? round1(r.views / maxV * 100) : 0
+      };
+    });
+  }
+  function summary(rows, platform) {
+    var pr = rowsFor(rows, platform);
+    var g = growthRate(pr);
+    var best = bestWeek(pr);
+    var engs = pr.map(engagementRate).filter(function (x) { return x !== null; });
+    var avg = engs.length ? round1(engs.reduce(function (a, b) { return a + b; }, 0) / engs.length) : null;
+    var advice;
+    if (pr.length < 2) {
+      advice = "Add at least 2 weeks of numbers to see real growth.";
+    } else if (pr[pr.length - 1].followers > pr[0].followers) {
+      advice = "Your followers are growing — keep doing what the best week did.";
+    } else if (pr[pr.length - 1].followers < pr[0].followers) {
+      advice = "Your followers dipped — check the best week and repeat what worked there.";
+    } else {
+      advice = "Your numbers are flat — try one new idea a week and watch the next 4 weeks.";
+    }
+    return { weeks: pr.length, growthPct: g, bestWeekLabel: best ? best.week : "", avgEngagement: avg, advice: advice };
+  }
+  function dashboardText(rows, platform) {
+    var pr = rowsFor(rows, platform);
+    if (!pr.length) return "No weeks logged yet for " + platform + ".";
+    var s = summary(rows, platform);
+    var lines = [
+      "Social media dashboard — " + platform,
+      "Weeks logged: " + s.weeks,
+      "Growth: " + (s.growthPct === null ? "not enough data yet" : s.growthPct + "%"),
+      "Best week: " + (s.bestWeekLabel || "not enough data yet"),
+      "Average engagement: " + (s.avgEngagement === null ? "no views logged yet" : s.avgEngagement + "%"),
+      "Advice: " + s.advice
+    ];
+    return lines.join("\n");
+  }
+  function drawChart(ctx, bars) {
+    var W = 680, H = 260, base = 220, top = 20;
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = "#db2777";
+    ctx.fillRect(16, 10, 12, 12);
+    ctx.fillStyle = "#334155";
+    ctx.font = "13px Arial, sans-serif";
+    ctx.fillText("Followers", 32, 20);
+    ctx.fillStyle = "#ea580c";
+    ctx.fillRect(120, 10, 12, 12);
+    ctx.fillStyle = "#334155";
+    ctx.fillText("Views", 136, 20);
+    if (!bars || !bars.length) {
+      ctx.fillStyle = "#64748b";
+      ctx.font = "16px Arial, sans-serif";
+      ctx.fillText("Add a week of numbers to see your chart.", 20, 130);
+      return;
+    }
+    var n = bars.length;
+    var slot = W / n;
+    var bw = Math.max(8, Math.min(40, slot / 4));
+    var avail = base - top;
+    bars.forEach(function (b, i) {
+      var x0 = i * slot + (slot - bw * 2 - 6) / 2;
+      var hF = b.hF / 100 * avail;
+      var hV = b.hV / 100 * avail;
+      ctx.fillStyle = "#db2777";
+      ctx.fillRect(x0, base - hF, bw, hF);
+      ctx.fillStyle = "#ea580c";
+      ctx.fillRect(x0 + bw + 6, base - hV, bw, hV);
+      ctx.fillStyle = "#334155";
+      ctx.font = "13px Arial, sans-serif";
+      ctx.fillText(String(b.label), x0, base + 18);
+    });
+  }
+  return { PLATFORMS: PLATFORMS, addWeek: addWeek, removeWeek: removeWeek, rowsFor: rowsFor, growthRate: growthRate, bestWeek: bestWeek, engagementRate: engagementRate, chartBars: chartBars, summary: summary, dashboardText: dashboardText, drawChart: drawChart };
+})();
+
+function copyText(text, btn){
+  function done(){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+function downloadText(filename, text, type){
+  var blob = new Blob([text], {type: type || "text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+if (typeof document !== "undefined") {
+  var LS_KEY = "ft-social-media-analytics-dashboard";
+  function $(id) { return document.getElementById(id); }
+  var rows = [];
+  try { rows = JSON.parse(localStorage.getItem(LS_KEY) || "[]") || []; } catch (e) { rows = []; }
+  function save() {
+    try { localStorage.setItem(LS_KEY, JSON.stringify(rows)); } catch (e) {}
+  }
+  function platform() { return $("platform").value; }
+  function render() {
+    var p = platform();
+    var pr = window.FT.rowsFor(rows, p);
+    var canvas = $("chart-canvas");
+    if (canvas && canvas.getContext) {
+      window.FT.drawChart(canvas.getContext("2d"), window.FT.chartBars(pr));
+    }
+    var sel = $("remove-select");
+    sel.textContent = "";
+    rows.forEach(function (r, i) {
+      if (r.platform !== p) return;
+      var o = document.createElement("option");
+      o.value = String(i);
+      o.textContent = r.week + " — " + r.followers + " followers";
+      sel.appendChild(o);
+    });
+    var out = $("dash-out");
+    out.textContent = "";
+    var sum = document.createElement("p");
+    sum.textContent = window.FT.dashboardText(rows, p);
+    out.appendChild(sum);
+    if (pr.length) {
+      var ul = document.createElement("ul");
+      pr.forEach(function (r) {
+        var li = document.createElement("li");
+        li.textContent = r.week + ": " + r.followers + " followers, " + r.views + " views, " + r.likes + " likes";
+        ul.appendChild(li);
+      });
+      out.appendChild(ul);
+    }
+  }
+  $("platform").addEventListener("change", render);
+  $("add-week-btn").addEventListener("click", function () {
+    var row = {
+      platform: platform(),
+      week: $("week").value.trim(),
+      followers: Number($("followers").value),
+      views: Number($("views").value),
+      likes: Number($("likes").value)
+    };
+    var res = window.FT.addWeek(rows, row);
+    var msg = $("week-msg");
+    if (res.error) { msg.textContent = res.error; return; }
+    rows = res.rows;
+    save();
+    msg.textContent = "Week added.";
+    $("week").value = "";
+    $("followers").value = "";
+    $("views").value = "";
+    $("likes").value = "";
+    render();
+  });
+  $("remove-btn").addEventListener("click", function () {
+    var sel = $("remove-select");
+    if (sel.value === "") return;
+    rows = window.FT.removeWeek(rows, Number(sel.value));
+    save();
+    render();
+  });
+  $("copy-btn").addEventListener("click", function () {
+    copyText(window.FT.dashboardText(rows, platform()), $("copy-btn"));
+  });
+  render();
+}
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

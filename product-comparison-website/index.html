@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product Comparison Website — How to Compare Products Before You Buy | Funtasha</title>
+<meta name="description" content="Compare products the smart way — a free comparison method, checklists and a side-by-side table you can fill in for any product. No signup.">
+<link rel="canonical" href="https://funtasha.github.io/product-comparison-website/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Product Comparison Website — How to Compare Products Before You Buy">
+<meta property="og:description" content="Compare products the smart way with a free side-by-side table you can fill in for any product.">
+<meta property="og:url" content="https://funtasha.github.io/product-comparison-website/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:15px}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+canvas{width:100%;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this page a shop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This page does not sell anything and does not list live prices or live products. It gives you a comparison method and a fill-in table so you can compare products you found yourself, then decide with a clear head."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I compare two phones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick the two phones, then write down the price, the one specification that matters most to you, and the warranty for each. Fill in the table on this page, read the winner on each row, and write your own verdict based on how you will actually use the phone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which spec matters most?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the product and on you. For a phone it is often battery life or camera quality. For a laptop it is often memory or weight. Pick the specification that changes your daily experience, not the one the advertisement shouts about."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I spot a fake review?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Look for reviews that sound like advertisements, with no flaw mentioned and no specific detail. Be suspicious if many five star reviews appear on the same day, or if the reviewer has written only one review ever. The three and four star reviews are usually the most honest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I buy the cheapest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not always. The cheapest product can cost more in the end if it breaks early, has a short warranty, or lacks the feature you need most. Compare the full table, and buy the product that gives you the best value for how you will use it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the most important thing to check?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The warranty and the seller, along with the price. A fair price from a trustworthy seller with a decent warranty beats a rock bottom price from a seller who disappears when something goes wrong."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Product Comparison Website</h1>
+<p class="answer">Compare any three products side by side before you buy. Fill in the price, the key spec and the warranty for each one, and the table will show you the winner on every row.</p>
+
+<div class="calc">
+<h2>Compare three products</h2>
+<p>Type the price as a number, in your own currency. Fill in one, two or three products.</p>
+<p><b>Product 1</b></p>
+<label for="p1-name">Product 1 name</label>
+<input id="p1-name" type="text">
+<label for="p1-price">Product 1 price (number only)</label>
+<input id="p1-price" type="number" min="0">
+<label for="p1-spec">Product 1 key spec</label>
+<input id="p1-spec" type="text">
+<label for="p1-warranty">Product 1 warranty (months)</label>
+<input id="p1-warranty" type="number" min="0">
+<p><b>Product 2</b></p>
+<label for="p2-name">Product 2 name</label>
+<input id="p2-name" type="text">
+<label for="p2-price">Product 2 price (number only)</label>
+<input id="p2-price" type="number" min="0">
+<label for="p2-spec">Product 2 key spec</label>
+<input id="p2-spec" type="text">
+<label for="p2-warranty">Product 2 warranty (months)</label>
+<input id="p2-warranty" type="number" min="0">
+<p><b>Product 3</b></p>
+<label for="p3-name">Product 3 name</label>
+<input id="p3-name" type="text">
+<label for="p3-price">Product 3 price (number only)</label>
+<input id="p3-price" type="number" min="0">
+<label for="p3-spec">Product 3 key spec</label>
+<input id="p3-spec" type="text">
+<label for="p3-warranty">Product 3 warranty (months)</label>
+<input id="p3-warranty" type="number" min="0">
+<button type="button" id="compare-btn">Compare products</button>
+<div id="compare-out"></div>
+<label for="verdict">Your verdict (write it yourself)</label>
+<textarea id="verdict" rows="3"></textarea>
+<button type="button" id="copy-btn" class="copy-btn">Copy comparison</button>
+</div>
+
+<div class="warn">This page does not list live prices or live products, and it is not a shop. You type in the prices you found yourself, and the table helps you compare them fairly.</div>
+
+<h2>How to use the comparison table</h2>
+<p>Start by deciding which three products you are choosing between. They should be close rivals, not wildly different things: three phones at a similar price, or three pairs of running shoes, or three laptops for the same job. Comparing a budget phone with a flagship phone tells you very little, because the flagship will win on nearly every row and you will learn nothing about value. Pick products you could honestly buy, then fill in the table below with the facts for each one.</p>
+<p>Type the price as a plain number, in your own currency. There is no currency symbol on this page, because the tool works the same way wherever you live. Next, write the one key specification that matters most to you in the spec box. For a phone that might be battery life or camera quality. For a laptop it might be memory or screen size. Keep it short, because the table is a summary, not a full review. Then type the warranty in months, as a number. A warranty of twelve months is common, but some products offer twenty four months or more, and that difference is worth real money.</p>
+<p>Press the compare button and the table marks a winner on each row. The lowest price wins the price row, and the longest warranty wins the warranty row. Read the whole table before you decide, because the cheapest product is not always the best buy. The verdict box is yours: write your own decision in your own words, and use the copy button to keep a copy of the comparison.</p>
+<h2>The five things to compare</h2>
+<p>Price is the first thing most people look at, and it matters, but it is only one of five things worth checking. A low price can hide a short warranty, a weak battery, or a seller who will not answer when something goes wrong. Compare the price last, after you know what each product actually gives you. A product that costs a little more but lasts twice as long is often the cheaper choice in the end.</p>
+<p>The second thing is the one specification that matters for how you will use the product. Every product has a long list of numbers, but only one or two of them change your daily experience. For headphones, it might be battery life or comfort. For shoes, it might be grip or cushioning. For a laptop used for study, it might be weight, because you will carry it every day. Pick the specification that matches your real life, not the one the advertisement shouts about.</p>
+<p>The third thing is the warranty. A warranty is a promise from the maker to fix or replace the product if it fails within a set time. Longer is better, but also check what the warranty covers. Some warranties cover only parts, not labour. Some require you to send the product away for weeks. A twelve month warranty from a seller in your own city can be worth more than a twenty four month warranty from a seller on the other side of the world.</p>
+<p>The fourth thing is reviews from real buyers. Read several reviews, not just the top one, and look for patterns. If ten people mention the same fault, believe them. If one person complains about something nobody else mentions, it may be bad luck. The fifth thing is the seller. A trustworthy seller answers questions, states the return policy clearly, and has a real address or contact method. A seller who hides all of that is a warning sign, however low the price.</p>
+<h2>A worked example: two phones compared properly</h2>
+<p>Imagine you are choosing between two phones. Phone A costs 22000 and Phone B costs 26000, as plain numbers in your own currency. Phone A has a battery that lasts two days, and Phone B has a battery that lasts one day. Phone A comes with a twelve month warranty, and Phone B comes with a twenty four month warranty. Phone A has a good camera for daylight photos, while Phone B has a better camera for low light.</p>
+<p>If you compare only the price, Phone A wins. If you compare only the camera, Phone B wins. The right question is which phone fits your life. If you travel often and charge your phone rarely, the two day battery of Phone A may matter more than the low light camera. If you take most of your photos indoors in the evening, the camera of Phone B may be worth the extra cost. The warranty also changes the maths: the longer warranty on Phone B means two years of cover instead of one, which is worth something if the phone ever needs repair.</p>
+<p>Now write down your own verdict. A good verdict is one or two sentences that name the winner and the reason. For example: I choose Phone A because the battery matters more to me than the camera, and the lower price leaves money for a good case. That sentence is more useful than any star rating, because it connects the decision to your own needs. The comparison table on this page is built for exactly this kind of thinking.</p>
+<h2>Buying checklists: phones, laptops, headphones and shoes</h2>
+<p>For a phone, check the battery life, the storage space, the camera quality in the light you actually use, the size in your hand, and the length of the warranty. Ask whether the phone comes with a charger in the box, because many do not now. Check that the phone works on your network, and check the return policy before you pay.</p>
+<p>For a laptop, check the memory, the storage, the weight, the battery life, and the screen size. A laptop for study or office work does not need the most powerful processor, but it does need enough memory to run several programs at once. Check the keyboard by typing on it if you can, because you will use it every day. Check the warranty and whether repairs are done locally.</p>
+<p>For headphones, check comfort first, because headphones you cannot wear for an hour are useless however good they sound. Then check battery life, sound quality, and whether they block outside noise. Check the warranty and the return policy, because headphones are hard to judge from a picture. For shoes, check the fit, the grip, the cushioning, and the material. Walk in them before you buy if you can, and check the return policy, because shoes that feel fine for a minute in a shop can hurt after a day of wear.</p>
+<h2>How to spot a fake review</h2>
+<p>Fake reviews are written to sell a product, not to tell the truth about it. The first warning sign is language that sounds like an advertisement: every sentence is praise, there is no mention of any flaw, and the words could describe any product at all. Real buyers mention small details, like the weight of the box, the colour in daylight, or a button that is hard to reach. Fake reviews rarely mention anything specific.</p>
+<p>The second warning sign is timing. If twenty five star reviews all appear on the same day, be suspicious. Real reviews arrive slowly, over weeks and months, as different people buy and use the product. The third warning sign is a reviewer with only one review ever written. That does not prove the review is fake, but it is one more reason to be careful. Look for reviewers who have written about several products, because they are more likely to be real customers.</p>
+<p>The fourth warning sign is a review that repeats the product name and the selling points word for word, as if it was copied from the product page. Real buyers write in their own words, with their own spelling and their own way of describing things. When you are unsure, read the middle reviews, the ones with three or four stars. They are usually the most honest, because they praise what is good and name what is not.</p>
+<h2>Common mistakes when comparing products</h2>
+<p>The most common mistake is comparing only the price. Price is easy to compare, which is why people start there, but it says nothing about quality, warranty, or how the product feels to use. A product that is ten percent cheaper but breaks in six months is not a bargain. Always compare the full row of facts, not just the price row.</p>
+<p>The second mistake is trusting one review. One review is one person's experience, and it may be unusual. Maybe they received a faulty unit, or maybe they used the product in a way it was not designed for. Read at least five reviews, and look for the pattern across them. The third mistake is ignoring the warranty. People rarely think about the warranty until something breaks, and by then it is too late. A longer warranty is a sign that the maker trusts the product, and it protects you if the product fails.</p>
+<p>The fourth mistake is comparing products that are not really rivals. A cheap phone and an expensive phone are not a fair comparison, and neither are shoes made for running and shoes made for walking. Compare like with like, and the table will give you a clear answer. The fifth mistake is rushing. Take a day to think about a big purchase. The product will still be there tomorrow, and a night of sleep often makes the right choice obvious.</p>
+<h2>What this page cannot do</h2>
+<p>This page does not list live prices or live products, and it does not connect to any shop. The prices you type in are the ones you found yourself, from shops and websites you trust. Prices change often, so a price you saw last week may not be the price today. Always check the current price at the shop before you pay, and check the delivery cost too, because delivery can change which product is really cheapest.</p>
+<p>This page cannot tell you which product is best for everyone, because the best product depends on how you will use it. It gives you a method and a table, and the decision stays yours. It also cannot check stock, delivery times, or whether a seller is honest. Those checks are yours to make, and the checklists above will help you make them. Used honestly, this page turns a confusing choice into a clear one, one row at a time.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>Is this page a shop?</h3><p>No. This page does not sell anything and does not list live prices or live products. It gives you a comparison method and a fill-in table so you can compare products you found yourself, then decide with a clear head.</p></div>
+<div class="faq"><h3>How do I compare two phones?</h3><p>Pick the two phones, then write down the price, the one specification that matters most to you, and the warranty for each. Fill in the table on this page, read the winner on each row, and write your own verdict based on how you will actually use the phone.</p></div>
+<div class="faq"><h3>Which spec matters most?</h3><p>It depends on the product and on you. For a phone it is often battery life or camera quality. For a laptop it is often memory or weight. Pick the specification that changes your daily experience, not the one the advertisement shouts about.</p></div>
+<div class="faq"><h3>How do I spot a fake review?</h3><p>Look for reviews that sound like advertisements, with no flaw mentioned and no specific detail. Be suspicious if many five star reviews appear on the same day, or if the reviewer has written only one review ever. The three and four star reviews are usually the most honest.</p></div>
+<div class="faq"><h3>Should I buy the cheapest?</h3><p>Not always. The cheapest product can cost more in the end if it breaks early, has a short warranty, or lacks the feature you need most. Compare the full table, and buy the product that gives you the best value for how you will use it.</p></div>
+<div class="faq"><h3>What is the most important thing to check?</h3><p>The warranty and the seller, along with the price. A fair price from a trustworthy seller with a decent warranty beats a rock bottom price from a seller who disappears when something goes wrong.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../return-policy-generator/">Return Policy Generator</a> · <a href="../professional-portfolio-builder/">Professional Portfolio Builder</a> · <a href="../scientific-data-visualizer/">Scientific Data Visualizer</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = window.FT || {};
+window.FT.compareProducts = function(products){
+  var cheapest = null, longestWarranty = null, count = 0, bestPrice = null, bestW = null;
+  for(var i = 0; i < products.length; i++){
+    var p = products[i] || {};
+    if(p.name && String(p.name).trim() !== ""){ count++; }
+    var price = Number(p.price);
+    if(p.price !== "" && p.price !== null && p.price !== undefined && !isNaN(price) && price > 0){
+      if(bestPrice === null || price < bestPrice){ bestPrice = price; cheapest = i; }
+    }
+    var w = Number(p.warranty);
+    if(p.warranty !== "" && p.warranty !== null && p.warranty !== undefined && !isNaN(w)){
+      if(bestW === null || w > bestW){ bestW = w; longestWarranty = i; }
+    }
+  }
+  return {cheapest: cheapest, longestWarranty: longestWarranty, count: count};
+};
+window.FT.comparisonText = function(products, verdict){
+  var r = window.FT.compareProducts(products);
+  var lines = ["Product comparison", ""];
+  for(var i = 0; i < products.length; i++){
+    var p = products[i] || {};
+    if(!p.name && !p.price && !p.spec && !p.warranty){ continue; }
+    var line = (p.name || "Product " + (i + 1)) + ": price " + (p.price === "" || p.price === null || p.price === undefined ? "not given" : p.price);
+    line += ", spec: " + (p.spec || "not given");
+    line += ", warranty: " + (p.warranty === "" || p.warranty === null || p.warranty === undefined ? "not given" : p.warranty + " months");
+    if(r.cheapest === i){ line += " (Winner: lowest price)"; }
+    if(r.longestWarranty === i){ line += " (Winner: longest warranty)"; }
+    lines.push(line);
+  }
+  lines.push("");
+  lines.push("My verdict: " + (verdict || "not written yet"));
+  return lines.join("\n");
+};
+
+function copyText(text, btn){
+  function done(){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+function downloadText(filename, text, type){
+  var blob = new Blob([text], {type: type || "text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+(function(){
+  function esc(s){ return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  function readProducts(){
+    var out = [];
+    for(var n = 1; n <= 3; n++){
+      var name = document.getElementById("p" + n + "-name");
+      var price = document.getElementById("p" + n + "-price");
+      var spec = document.getElementById("p" + n + "-spec");
+      var war = document.getElementById("p" + n + "-warranty");
+      out.push({
+        name: name ? name.value.trim() : "",
+        price: price ? price.value.trim() : "",
+        spec: spec ? spec.value.trim() : "",
+        warranty: war ? war.value.trim() : ""
+      });
+    }
+    return out;
+  }
+  function render(){
+    var out = document.getElementById("compare-out");
+    if(!out){ return; }
+    var products = readProducts();
+    var r = window.FT.compareProducts(products);
+    if(r.count === 0){
+      out.innerHTML = "<p>Please type at least one product name first.</p>";
+      return;
+    }
+    var html = "<table><tr><th></th>";
+    for(var i = 0; i < 3; i++){
+      var nm = products[i].name || ("Product " + (i + 1));
+      html += "<th>" + esc(nm) + "</th>";
+    }
+    html += "</tr>";
+    html += "<tr><td>Price</td>";
+    for(var i2 = 0; i2 < 3; i2++){
+      var v = products[i2].price === "" ? "Not given" : esc(products[i2].price);
+      if(r.cheapest === i2){ v += " - Winner"; }
+      html += "<td>" + v + "</td>";
+    }
+    html += "</tr><tr><td>Key spec</td>";
+    for(var i3 = 0; i3 < 3; i3++){
+      html += "<td>" + esc(products[i3].spec === "" ? "Not given" : products[i3].spec) + "</td>";
+    }
+    html += "</tr><tr><td>Warranty (months)</td>";
+    for(var i4 = 0; i4 < 3; i4++){
+      var w = products[i4].warranty === "" ? "Not given" : esc(products[i4].warranty);
+      if(r.longestWarranty === i4){ w += " - Winner"; }
+      html += "<td>" + w + "</td>";
+    }
+    html += "</tr></table>";
+    out.innerHTML = html;
+  }
+  var btn = document.getElementById("compare-btn");
+  if(btn){ btn.addEventListener("click", render); }
+  var copy = document.getElementById("copy-btn");
+  if(copy){
+    copy.addEventListener("click", function(){
+      var v = document.getElementById("verdict");
+      copyText(window.FT.comparisonText(readProducts(), v ? v.value.trim() : ""), copy);
+    });
+  }
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

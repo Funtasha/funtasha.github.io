@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Social Media Post Scheduler — Plan Your Posts for the Whole Week | Funtasha</title>
+<meta name="description" content="Plan your social media posts free — build a week of posts, pick the best times, and never run out of ideas. Planner + templates, no signup.">
+<link rel="canonical" href="https://funtasha.github.io/social-media-post-scheduler/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Social Media Post Scheduler — Plan Your Posts for the Whole Week">
+<meta property="og:description" content="Plan your social media posts free — build a week of posts, pick the best times, and never run out of ideas. Planner + templates, no signup.">
+<meta property="og:url" content="https://funtasha.github.io/social-media-post-scheduler/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can this page post for me?", "acceptedAnswer": {"@type": "Answer", "text": "No. This page only plans your posts. It does not connect to Instagram, YouTube, TikTok or Facebook, and it cannot publish anything on your behalf. You build the week here, copy the plan, and post each item yourself in the app of your choice when its day and time arrive."}}, {"@type": "Question", "name": "What is the best time to post?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single best time for everyone. As a typical starting point, weekday evenings around 7 to 9 in the evening work well for Instagram and TikTok, afternoons work well for YouTube, and mid-mornings work well for Facebook — but your own followers may be online at different hours, so watch which of your posts get the most response and adjust from there."}}, {"@type": "Question", "name": "How many times a week should I post?", "acceptedAnswer": {"@type": "Answer", "text": "For most small accounts, three to five posts a week is a healthy pace you can keep up. One thoughtful post beats five rushed ones, and a steady rhythm matters more than a big burst followed by silence. Start with three a week, and add more only when you can do so without dropping in quality."}}, {"@type": "Question", "name": "Should I post the same thing everywhere?", "acceptedAnswer": {"@type": "Answer", "text": "The same idea can work on several platforms, but the same exact post rarely does. Each platform has its own style, length and audience, so keep the idea and rewrite the caption, the image size and the tone for each place. A few minutes of adapting beats a copy-paste that feels out of place."}}, {"@type": "Question", "name": "What if I run out of ideas?", "acceptedAnswer": {"@type": "Answer", "text": "Use the six templates on this page to start, then keep a running list of ideas in a notebook or on your phone. Questions from customers, behind-the-scenes moments, seasonal events and your own opinions are all reliable sources. When you are stuck, look at your last ten posts and make a follow-up to the one that got the best response."}}, {"@type": "Question", "name": "Do I need to sign up?", "acceptedAnswer": {"@type": "Answer", "text": "No. There is no account, no sign-up and no password. Your plan is saved in your own browser, so it is there when you come back on the same device, and nobody else can see it."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>.calc button,.calc input,.calc select,.calc textarea{min-height:72px}
+.calc textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;font-family:inherit}
+canvas{max-width:100%;height:auto;display:block;margin:14px auto 0}</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Social Media Post Scheduler</h1>
+<p class="answer">Plan a whole week of social media posts in one sitting, with ready templates and best-time guidance for Instagram, YouTube, TikTok and Facebook. This page plans your posts — it does not post to any platform for you, and it never connects to your accounts. You build the plan here, then post each one yourself when its day and time arrive.</p>
+<div class="calc"><label for="idea">Post idea</label><input id="idea" type="text" placeholder="e.g. Show the new summer menu"><label for="caption">Caption (optional)</label><textarea id="caption" rows="3" placeholder="Write the caption now, so posting day is quick"></textarea><label for="platform">Platform</label><select id="platform"><option>Instagram</option><option>YouTube</option><option>TikTok</option><option>Facebook</option></select><p class="steps" id="best-time"></p><label for="day">Day</label><select id="day"><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select><label for="time">Time</label><select id="time"><option value="06:00">06:00</option><option value="07:00">07:00</option><option value="08:00">08:00</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option></select><label for="template">Start from a template</label><select id="template"><option value="0">Behind the scenes</option><option value="1">New product</option><option value="2">Tip of the day</option><option value="3">Customer story</option><option value="4">Question for followers</option><option value="5">Reminder</option></select><button id="use-template-btn" type="button">Use this template</button><button id="add-btn" type="button">Add post to plan</button><p class="steps" id="add-msg"></p><label for="remove-select">Remove a post</label><select id="remove-select"></select><button id="remove-btn" type="button">Remove selected post</button><div class="steps" id="plan-out"></div><div class="steps" id="reminders-out"></div><button id="copy-btn" type="button">Copy my week plan</button><button id="clear-btn" type="button">Clear plan</button></div>
+<div class="warn">This planner does NOT post to Instagram, YouTube or TikTok for you, and it does not connect to those platforms at all. It helps you plan what to post and when — you publish each post yourself, in the app of your choice. Your plan is saved only in your own browser.</div>
+<h2>How to use this planner</h2>
+<p>Start with one post. Type your idea into the box at the top — a sentence is enough, such as sharing a new menu or a tip about watering plants. Add a caption if you have one ready; the caption is the text that will go with the post, and writing it now saves you from staring at a blank screen on posting day. Pick the platform, the day and the time, then press Add post to plan. Your post appears in the plan below, sorted by day and time, and it is saved in your browser straight away.</p>
+<p>If you are short of ideas, open the template list and pick one of the six ready templates. Pressing Use this template fills in the idea and the caption for you — change the words to fit your own voice, pick a day and time, and add it to the plan. The best-time hint under the platform box shows the typical good hours for the platform you picked, so you can aim for a time when your followers are most likely to be online.</p>
+<p>Changed your mind? Pick a post in the Remove list and press Remove selected post. When the week looks right, press Copy my week plan to copy the whole plan as plain text, ready to paste into your notes or share with a teammate. Press Clear plan to start a fresh week. Nothing leaves your browser: there is no account, no sign-up, and no connection to any social platform.</p>
+<h2>The best times to post</h2>
+<p>Every platform has busy hours, and posting when your followers are awake and scrolling gives a new post a better start. As a typical guide, weekday evenings around 7 to 9 work well for Instagram and TikTok, when people are home and relaxing. YouTube viewers often watch in the afternoon and early evening, roughly 3 to 6, while Facebook tends to be busiest in mid-morning and again in the early evening. Weekends are different: late mornings often work well, because people sleep in and scroll over breakfast.</p>
+<p>Treat all of this as a starting point, not a promise. The best time for your account depends on who follows you, where they live, and what you post. A page followed mostly by students will peak at different hours than a page followed by parents or office workers. The only way to know your own best times is to try a few, keep notes, and watch which posts get the most likes, comments and shares.</p>
+<p>One practical method is to post the same kind of content at two different times in two different weeks, then compare the response. If evening posts always do better than morning posts, evenings win for you. Do this for a month and you will have a personal best-time table that beats any general guide — including the one on this page.</p>
+<p>Remember too that timing is only one part of the picture. A good post at an average time will always beat a weak post at the perfect time.</p>
+<h2>Planning a week in 30 minutes</h2>
+<p>Set aside half an hour once a week — Sunday evening works well for many people — and plan the whole week in one sitting. The trick is to do each kind of thinking once, instead of switching back and forth. Spend the first ten minutes on ideas only: write down five to seven post ideas, one per line, without worrying about captions or times. If you run dry, use the templates on this page or look at your notes from the week.</p>
+<p>Spend the next ten minutes writing captions. Keep each one short — two or three sentences, with one clear point. Write them the way you talk, and read each one out loud before moving on; if it sounds stiff, it will read stiff. Add the caption to each post as you go.</p>
+<p>Spend the last ten minutes on the schedule. Spread the posts across the week instead of bunching them together, and leave at least one rest day — a day with no post at all is fine, and often better than forcing a weak one. Match each post to the platform where it fits best, pick a time from the best-time guidance, and add everything to the plan. When the half hour is up, the week is done, and posting day becomes a two-minute job: open the app, paste the caption, post.</p>
+<h2>A small shop's week: a worked example</h2>
+<p>Maya runs a small bakery and posts three to five times a week. On Sunday evening she sits down with a cup of tea and plans the week. She starts with the week ahead: a new loaf coming out on Wednesday, a market stall on Saturday, and a quiet Monday when the shop is closed. Those three facts give her the spine of the week.</p>
+<p>Her plan looks like this. Monday is a rest day — the shop is closed, so she posts nothing. On Tuesday at 7 in the evening she posts a behind-the-scenes photo on Instagram, showing the dough being mixed for the new loaf. On Wednesday at 9 in the morning she announces the new loaf on Facebook, where her regular customers check in over breakfast. On Thursday at 7 in the evening she shares a short tip on TikTok: how to keep bread fresh for three days. On Friday at 6 in the evening she posts a customer story on Instagram — a kind message from a regular, with thanks. On Saturday at 10 in the morning she posts a reminder on Facebook about the market stall, and on Sunday at 5 in the afternoon she shares a photo of the stall on Instagram.</p>
+<p>Seven days, five posts, three platforms, and no day with more than one post. Each post has a job: one shows the work, one announces, one teaches, one thanks, one reminds. Maya wrote all five captions on Sunday evening, so during the week she only has to open the app and post. If something changes — the market is rained off, say — she removes one post from the plan and moves on. The plan is a helper, not a boss.</p>
+<h2>Writing captions people actually read</h2>
+<p>Most people decide in the first line whether to keep reading, so put the interesting part first. Saying the news straight away beats a long build-up: the news comes first, the story can follow. Keep captions short: two or three sentences is enough for most posts, and a wall of text puts readers off before they start.</p>
+<p>Write the way you talk. If you would never say a sentence out loud, do not write it in a caption. Short words and short sentences read well on a phone screen, and one clear point per post is easier to remember than five points crammed together. End with one simple invitation — a question, or a suggestion to save the post — but only one. Two or three invitations in one caption cancel each other out.</p>
+<p>A few labels at the end can help new people find your post, but a long block of them looks untidy and adds nothing. Three to five relevant labels are plenty. And proofread once before you post: a wrong day, a wrong name, or a word spelled wrong is the kind of small mistake that stays visible long after the post goes up.</p>
+<h2>Keeping ideas coming all month</h2>
+<p>The hardest part of posting is not the posting — it is the ideas. The good news is that ideas are everywhere once you start collecting them. Keep a list on your phone and add to it whenever something happens: a question a customer asked, a mistake you fixed, a compliment you received, a change in the seasons. Each one is a post waiting to happen.</p>
+<p>Questions are the best source of all. If one person asked you something, ten more are probably wondering the same thing. Answer one question per post and you will never run dry. Behind-the-scenes moments work well too: people like seeing how things are made, what a workday looks like, and who is behind the account.</p>
+<p>You can also reuse your own best work. A post that did well three months ago can come back in a new form — a tip becomes a short video, a photo becomes a story, a long post becomes three short ones. Your new followers have not seen it, and your old followers will not mind a good idea returning. And when the list is empty, the six templates on this page are a fine place to start.</p>
+<h2>Common mistakes to avoid</h2>
+<p>The most common mistake is the burst-and-silence pattern: five posts in one day, then nothing for a month. Followers get flooded, then forget you exist. A steady three to five posts a week beats any burst, because people learn when to expect you and the habit stays easy to keep.</p>
+<p>The second mistake is posting the same exact thing everywhere. Each platform has its own style — what works as a long Facebook post feels wrong as a short TikTok caption. Keep the idea, rewrite the words for each place. A few minutes of adapting makes the post feel at home instead of copied.</p>
+<p>The third mistake is skipping the caption. A post with no caption leaves the reader guessing what you meant, and it wastes the chance to say something useful. Even one sentence is better than none. Write the caption when you plan the post, not on posting day when you are in a hurry.</p>
+<p>The fourth mistake is ignoring your own results. If evening posts always do better than morning posts, that is your audience telling you something. Check once a month, keep what works, drop what does not, and let the plan change with you.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>Can this page post for me?</h3><p>No. This page only plans your posts. It does not connect to Instagram, YouTube, TikTok or Facebook, and it cannot publish anything on your behalf. You build the week here, copy the plan, and post each item yourself in the app of your choice when its day and time arrive.</p></div>
+<div class="faq"><h3>What is the best time to post?</h3><p>There is no single best time for everyone. As a typical starting point, weekday evenings around 7 to 9 in the evening work well for Instagram and TikTok, afternoons work well for YouTube, and mid-mornings work well for Facebook — but your own followers may be online at different hours, so watch which of your posts get the most response and adjust from there.</p></div>
+<div class="faq"><h3>How many times a week should I post?</h3><p>For most small accounts, three to five posts a week is a healthy pace you can keep up. One thoughtful post beats five rushed ones, and a steady rhythm matters more than a big burst followed by silence. Start with three a week, and add more only when you can do so without dropping in quality.</p></div>
+<div class="faq"><h3>Should I post the same thing everywhere?</h3><p>The same idea can work on several platforms, but the same exact post rarely does. Each platform has its own style, length and audience, so keep the idea and rewrite the caption, the image size and the tone for each place. A few minutes of adapting beats a copy-paste that feels out of place.</p></div>
+<div class="faq"><h3>What if I run out of ideas?</h3><p>Use the six templates on this page to start, then keep a running list of ideas in a notebook or on your phone. Questions from customers, behind-the-scenes moments, seasonal events and your own opinions are all reliable sources. When you are stuck, look at your last ten posts and make a follow-up to the one that got the best response.</p></div>
+<div class="faq"><h3>Do I need to sign up?</h3><p>No. There is no account, no sign-up and no password. Your plan is saved in your own browser, so it is there when you come back on the same device, and nobody else can see it.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../tiktok-content-planner/">TikTok Content Planner</a> · <a href="../social-media-analytics-dashboard/">Social Media Analytics Dashboard</a> · <a href="../influencer-media-kit-builder/">Influencer Media Kit Builder</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+(function () {
+  var DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  var PLATFORMS = ["Instagram", "YouTube", "TikTok", "Facebook"];
+  var BEST_TIMES = {
+    Instagram: "Typically, weekday evenings around 7-9 pm work well for Instagram — but your own audience matters more than any general table.",
+    YouTube: "Typically, weekday afternoons and early evenings around 3-6 pm work well for YouTube — but your own audience matters more than any general table.",
+    TikTok: "Typically, weekday evenings around 7-9 pm and weekend afternoons work well for TikTok — but your own audience matters more than any general table.",
+    Facebook: "Typically, weekday mid-mornings around 9-11 am and early evenings work well for Facebook — but your own audience matters more than any general table."
+  };
+  var TEMPLATES = [
+    { title: "Behind the scenes", idea: "Show how your product is made", caption: "A peek behind the scenes — this is how it all comes together. What would you like to see next?" },
+    { title: "New product", idea: "Announce a new product or service", caption: "Something new is here — take a look and tell us what you think in the comments." },
+    { title: "Tip of the day", idea: "Share one quick useful tip", caption: "Quick tip: one small change that makes a real difference. Save this for later." },
+    { title: "Customer story", idea: "Share a happy customer story", caption: "Thank you for the kind words — stories like this are why we do what we do." },
+    { title: "Question for followers", idea: "Ask your followers a question", caption: "We would love to know — what do you think? Tell us in the comments." },
+    { title: "Reminder", idea: "Remind followers about an offer or event", caption: "A friendly reminder — do not miss out. Details are in our latest post." }
+  ];
+
+  function addPost(plan, post) {
+    if (!post || typeof post.idea !== "string" || !post.idea.trim()) {
+      return { plan: plan, error: "Please write a post idea first." };
+    }
+    if (DAYS.indexOf(post.day) < 0) {
+      return { plan: plan, error: "Please pick a day from Monday to Sunday." };
+    }
+    if (PLATFORMS.indexOf(post.platform) < 0) {
+      return { plan: plan, error: "Please pick a platform." };
+    }
+    if (typeof post.time !== "string" || !/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(post.time)) {
+      return { plan: plan, error: "Please pick a valid time." };
+    }
+    var clean = {
+      idea: post.idea.trim(),
+      caption: typeof post.caption === "string" ? post.caption.trim() : "",
+      platform: post.platform,
+      day: post.day,
+      time: post.time
+    };
+    return { plan: plan.concat([clean]), error: null };
+  }
+
+  function removePost(plan, index) {
+    if (typeof index !== "number" || index < 0 || index >= plan.length) {
+      return plan.slice();
+    }
+    return plan.slice(0, index).concat(plan.slice(index + 1));
+  }
+
+  function sortPlan(plan) {
+    return plan.slice().sort(function (a, b) {
+      var d = DAYS.indexOf(a.day) - DAYS.indexOf(b.day);
+      if (d !== 0) { return d; }
+      if (a.time < b.time) { return -1; }
+      if (a.time > b.time) { return 1; }
+      return 0;
+    });
+  }
+
+  function planText(plan) {
+    var sorted = sortPlan(plan || []);
+    if (!sorted.length) { return "No posts planned yet."; }
+    return sorted.map(function (p) {
+      var line = p.day + " " + p.time + " — " + p.platform + ": " + p.idea;
+      if (p.caption) { line += " — " + p.caption; }
+      return line;
+    }).join("\n");
+  }
+
+  function reminders(plan) {
+    var out = [];
+    var counts = {};
+    var noCaption = 0;
+    DAYS.forEach(function (d) { counts[d] = 0; });
+    (plan || []).forEach(function (p) {
+      if (counts[p.day] !== undefined) { counts[p.day]++; }
+      if (!p.caption || !p.caption.trim()) { noCaption++; }
+    });
+    DAYS.forEach(function (d) {
+      if (counts[d] === 0) {
+        out.push(d + " has no post yet — add one or enjoy the rest day.");
+      } else if (counts[d] >= 3) {
+        out.push(d + " has " + counts[d] + " posts — spread them out so followers are not flooded.");
+      }
+    });
+    if (noCaption === 1) {
+      out.push("1 post has no caption yet — add one so posting day is quick.");
+    } else if (noCaption > 1) {
+      out.push(noCaption + " posts have no caption yet — add one so posting day is quick.");
+    }
+    return out;
+  }
+
+  function bestTimeFor(platform) {
+    return BEST_TIMES[platform] || "Pick a time when your followers are usually online — weekday evenings are a good place to start.";
+  }
+
+  var FT = {
+    DAYS: DAYS, PLATFORMS: PLATFORMS, BEST_TIMES: BEST_TIMES, TEMPLATES: TEMPLATES,
+    addPost: addPost, removePost: removePost, sortPlan: sortPlan,
+    planText: planText, reminders: reminders, bestTimeFor: bestTimeFor
+  };
+  if (typeof window !== "undefined") { window.FT = FT; }
+  if (typeof globalThis !== "undefined") { globalThis.FT = FT; }
+  if (typeof document === "undefined") { return; }
+
+  var KEY = "ft-social-media-post-scheduler-plan";
+  var ideaEl = document.getElementById("idea");
+  var captionEl = document.getElementById("caption");
+  var platformEl = document.getElementById("platform");
+  var dayEl = document.getElementById("day");
+  var timeEl = document.getElementById("time");
+  var templateEl = document.getElementById("template");
+  var planOut = document.getElementById("plan-out");
+  var remOut = document.getElementById("reminders-out");
+  var removeSelect = document.getElementById("remove-select");
+  var msgEl = document.getElementById("add-msg");
+  var bestTimeEl = document.getElementById("best-time");
+
+  function loadPlan() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) { return []; }
+      var parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) { return []; }
+  }
+  function savePlan() {
+    try { localStorage.setItem(KEY, JSON.stringify(plan)); } catch (e) {}
+  }
+  var plan = loadPlan();
+
+  function render() {
+    planOut.textContent = FT.planText(plan);
+    remOut.textContent = FT.reminders(plan).join("\n");
+    while (removeSelect.firstChild) { removeSelect.removeChild(removeSelect.firstChild); }
+    if (!plan.length) {
+      var empty = document.createElement("option");
+      empty.value = "";
+      empty.textContent = "No posts yet";
+      removeSelect.appendChild(empty);
+      return;
+    }
+    plan.forEach(function (p, i) {
+      var opt = document.createElement("option");
+      opt.value = String(i);
+      opt.textContent = p.day + " " + p.time + " — " + p.platform + ": " + p.idea;
+      removeSelect.appendChild(opt);
+    });
+  }
+
+  function showBestTime() {
+    bestTimeEl.textContent = FT.bestTimeFor(platformEl.value);
+  }
+
+  function copyText(text, btn) {
+    var original = btn.textContent;
+    function done() {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  document.getElementById("use-template-btn").addEventListener("click", function () {
+    var t = FT.TEMPLATES[Number(templateEl.value)] || FT.TEMPLATES[0];
+    ideaEl.value = t.idea;
+    captionEl.value = t.caption;
+    msgEl.textContent = "Template loaded — change the words to fit your voice, then add it to the plan.";
+  });
+
+  document.getElementById("add-btn").addEventListener("click", function () {
+    var res = FT.addPost(plan, {
+      idea: ideaEl.value,
+      caption: captionEl.value,
+      platform: platformEl.value,
+      day: dayEl.value,
+      time: timeEl.value
+    });
+    if (res.error) {
+      msgEl.textContent = res.error;
+      return;
+    }
+    plan = res.plan;
+    savePlan();
+    render();
+    ideaEl.value = "";
+    captionEl.value = "";
+    msgEl.textContent = "Post added to your plan.";
+  });
+
+  document.getElementById("remove-btn").addEventListener("click", function () {
+    if (removeSelect.value === "" || removeSelect.value === null) {
+      msgEl.textContent = "There is no post to remove yet.";
+      return;
+    }
+    plan = FT.removePost(plan, Number(removeSelect.value));
+    savePlan();
+    render();
+    msgEl.textContent = "Post removed from your plan.";
+  });
+
+  document.getElementById("copy-btn").addEventListener("click", function () {
+    copyText(FT.planText(plan), document.getElementById("copy-btn"));
+  });
+
+  document.getElementById("clear-btn").addEventListener("click", function () {
+    plan = [];
+    savePlan();
+    render();
+    msgEl.textContent = "Plan cleared — ready for a fresh week.";
+  });
+
+  platformEl.addEventListener("change", showBestTime);
+  showBestTime();
+  render();
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

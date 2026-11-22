@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurant Table Planner — Plan Tables and Seating for Your Restaurant | Funtasha</title>
+<meta name="description" content="Plan restaurant tables free — how many tables fit, how many guests you can seat, and a layout that works on busy nights. No signup.">
+<link rel="canonical" href="https://funtasha.github.io/restaurant-table-planner/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Restaurant Table Planner — Plan Tables and Seating for Your Restaurant">
+<meta property="og:description" content="Plan restaurant tables free — how many tables fit, how many guests you can seat, and a layout that works on busy nights.">
+<meta property="og:url" content="https://funtasha.github.io/restaurant-table-planner/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:15px}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+canvas{width:100%;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many seats fit in my restaurant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the size of your floor and how much space you give each guest. As a rough guide, allow one to one and a half square metres of dining floor per guest, including walkways. Enter your floor size and table counts in the planner and it will place real tables on your real floor and count the seats that actually fit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much space does each guest need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A seated guest needs roughly one to one and a half square metres, including their share of the table and the walkway. The lower end suits a quick-service cafe, and the upper end suits a restaurant where guests stay for a long dinner. Chairs pulled out take about 45 centimetres behind the table, so allow for that as well as the table itself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How wide should walkways be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At least 90 centimetres on any route a waiter walks with a tray. The main path from the kitchen to the far end of the room should be wider if you can spare it, ideally a full metre. Narrower walkways slow service down and lead to spilled drinks and bumped chairs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I mix table sizes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and most restaurants should. Two-seat tables suit couples and can be pushed together for groups, four-seat tables suit families, and six-seat tables suit larger parties. The planner places the biggest tables first, then fills the remaining space with smaller ones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about the entrance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep the entrance clear. Leave at least a metre and a half of open floor in front of the door, and give waiting guests a bench or standing area that does not block the walkway. The planner does not draw the door, so mark it on your copy of the plan and keep that space free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this work on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The planner runs entirely in your browser, and the floor plan drawing scales to fit a phone screen. You can stand in the dining room with your phone, change the numbers, and see the new layout straight away."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Restaurant Table Planner</h1>
+<p class="answer">Tell the planner the size of your dining floor and how many tables of each size you want, and it draws a to-scale floor plan with the total number of seats. It also warns you when a table does not fit or a walkway is too narrow for waiters.</p>
+
+<div class="calc">
+<label for="floor-length">Floor length (metres)</label>
+<input id="floor-length" type="number" min="1" step="0.1" value="10">
+<label for="floor-width">Floor width (metres)</label>
+<input id="floor-width" type="number" min="1" step="0.1" value="6">
+<label for="count-two">Two-seat tables</label>
+<input id="count-two" type="number" min="0" step="1" value="4">
+<label for="count-four">Four-seat tables</label>
+<input id="count-four" type="number" min="0" step="1" value="6">
+<label for="count-six">Six-seat tables</label>
+<input id="count-six" type="number" min="0" step="1" value="1">
+<label for="walkway">Walking space between tables (cm)</label>
+<input id="walkway" type="number" min="0" step="5" value="90">
+<button type="button" id="plan-btn">Plan my tables</button>
+<canvas id="floor-canvas" width="700" height="400"></canvas>
+<div class="outbox" id="plan-out">Enter your floor size and table counts, then tap Plan my tables.</div>
+<button type="button" id="copy-btn" class="copy-btn">Copy plan summary</button>
+</div>
+
+<div class="warn">This planner draws a simple layout for a rectangular floor. It does not know about pillars, doors, the bar or the kitchen pass, so check the plan on the real floor before you buy tables. Walkways under 90 cm are flagged because waiters need room to pass with trays.</div>
+
+<h2>How to use the planner</h2>
+<p>Start by measuring your dining floor. Measure the length and the width in metres, wall to wall, and leave out the kitchen, the bar and the toilets — this planner works on the space where guests sit. If your floor is not a neat rectangle, measure the biggest rectangle that fits inside it and plan for that shape; the leftover corners can hold a plant, a waiting bench or a small drinks station.</p>
+<p>Next, count the tables you already own, or the tables you plan to buy. Enter how many two-seat tables, four-seat tables and six-seat tables you want. The planner knows the size of each table: a two-seat table is 0.75 metres by 0.75 metres, a four-seat table is 1.2 metres by 0.8 metres, and a six-seat table is 1.8 metres by 0.9 metres. Those are the standard sizes most restaurants use, so the plan matches the furniture you can actually buy.</p>
+<p>Then set the walking space. This is the gap between tables and between rows of tables, measured in centimetres. The planner uses that gap for every space between tables, so a wider gap means fewer tables but an easier room to work in. Tap the plan button and the planner draws your floor to scale on the screen, with every table shown as a rectangle labelled with its seat count. Under the drawing you will see the total number of seats, the number of tables placed, and any warnings — for example if a table does not fit, or if the walkway is too narrow for a waiter carrying a tray. Change the numbers and plan again until the layout feels right.</p>
+<h2>How many seats fit in your restaurant</h2>
+<p>The honest answer is that it depends on the size of your floor and how much room each guest needs. A useful rule is that each seated guest needs roughly one to one and a half square metres of dining floor, including their share of the walkways. That is not the size of the chair — it is the chair plus the table space plus the room to pull the chair out and stand up. </p>
+<p>Work it out with a simple sum. Take the floor area in square metres and divide it by the space per guest you want. A floor of 60 square metres divided by one and a half square metres per guest gives 40 seats. The same floor at one square metre per guest gives 60 seats — but those 60 seats would be cramped, noisy and hard to serve, and guests would feel it. The planner does the harder version of this sum for you: instead of dividing an area, it places real tables of real sizes on your real floor, with real gaps between them, and counts the seats that actually fit.</p>
+<h2>Walking space that waiters need</h2>
+<p>Walkways are the part of the plan that owners forget first and regret most. A waiter carrying a tray needs a clear path at least 90 centimetres wide. That is wide enough to walk with a tray held at shoulder height and to pass a seated guest whose chair is pushed back. Narrower than that, trays clip chair backs, drinks spill, and service slows to a shuffle. The planner flags any walkway under 90 centimetres for exactly this reason.</p>
+<p>The main path from the kitchen door to the far end of the room matters most. That is the route every plate travels, several times a night, and it should be the widest path in the room — a full metre if you can spare it. Side paths between tables can be narrower, but never below 90 centimetres on a working route.</p>
+<p>Think about chairs, not just tables. A guest pulling out a chair takes about 45 centimetres behind the table. If two tables face each other across a walkway, the chairs on both sides eat into the gap. That is why the planner measures the gap between table edges: the gap you set is the space the waiter actually walks through, after the chairs are pulled out.</p>
+<h2>Choosing the right mix of table sizes</h2>
+<p>Two-seat tables are the workhorses of most restaurants. They suit couples, solo diners and business lunches, and two of them pushed together make a table for four. A room full of twos is flexible: you can reshape it in a minute for a group of six or eight.</p>
+<p>Four-seat tables are the best all-round choice. They seat the most common group — two adults and two children, or four friends — without wasted chairs. A four-seat table at 1.2 metres by 0.8 metres gives each guest enough elbow room for a full meal with plates, glasses and a shared dish in the middle. If you are unsure where to start, build your plan around fours and add twos at the edges.</p>
+<p>Six-seat tables are for groups, families and celebrations. They are long — 1.8 metres — so they need a long clear wall or a wide open floor. One or two sixes in a small restaurant are usually enough; more than that and the room starts to feel like a banquet hall. A good starting mix for a small restaurant is half fours, a quarter twos and a quarter sixes, then adjust it to match the groups you actually serve. Watch your bookings for a month and the right mix will show itself.</p>
+<h2>Planning the entrance and the queue</h2>
+<p>The entrance is the busiest square metre in your restaurant. Guests arrive, wait to be seated, hang up coats, read the menu board and say goodbye — all in the same small space. If the first table sits right beside the door, every arriving guest walks past a seated diner, and every cold draught from the door lands on the same unlucky table. Leave the entrance clear. The planner does not draw the door, so mark it on your own copy of the plan and keep at least a metre and a half of clear floor in front of it.</p>
+<p>A queue needs somewhere to stand. A bench against the entrance wall works well, and it keeps waiting guests out of the walkway instead of crowded around the door.</p>
+<p>Think about the journey from the door to the furthest table. A guest should be able to reach any table without squeezing past another table's chairs. The main walkway should run from the entrance to the back of the room in a fairly straight line, with tables on either side. If your plan forces guests to zigzag, move a table or widen the gap. A clear route from the door makes the whole room feel calm, even when every seat is full.</p>
+<h2>A worked example: a small restaurant with 40 seats</h2>
+<p>Imagine a small restaurant with a dining floor 10 metres long and 6 metres wide — 60 square metres of seating space. The owner wants 40 seats and owns a mix of tables: four two-seat tables, six four-seat tables and one six-seat table. That is eleven tables and, on paper, 38 seats — close to the target, with room to add one more two-seat table if the floor allows it.</p>
+<p>Set the walkway to 90 centimetres. The planner places the six-seat table first, at the top of the room, because the biggest tables are the hardest to fit. Then it places the six four-seat tables in rows down the room, with a 90 centimetre gap between the rows for the waiters. Finally it places the two-seat tables in the remaining space. The drawing shows all eleven tables placed and 38 seats, with room to spare at the bottom of the floor.</p>
+<p>The owner adds one more two-seat table, making twelve tables in total: five twos, six fours and one six. The planner fits it in the last row, and the total reaches 40 seats exactly, with a 90 centimetre walkway everywhere.</p>
+<h2>Common mistakes when planning tables</h2>
+<p>The most common mistake is planning for the number of tables instead of the number of guests you can serve. A floor packed with tables looks good on paper and terrible on a busy night. Waiters cannot reach the middle tables, guests cannot pull out their chairs, and the kitchen cannot keep up with a room that is full of tables but short of service. Fewer tables, well served, earn more than a crowded room with slow service and unhappy guests.</p>
+<p>The second mistake is forgetting the walkways. A plan drawn with tables touching each other is not a plan — it is a furniture warehouse. Every gap in the drawing is a path someone will walk, carrying food, drinks or a child. If the gap is under 90 centimetres, the planner warns you. Listen to the warning.</p>
+<p>The third mistake is forgetting the entrance queue. Guests waiting for a table need somewhere to stand that is not in the middle of the dining room. A plan with no waiting space means a queue blocking the door and the first tables.</p>
+<h2>What this planner cannot do</h2>
+<p>This planner works with rectangles. It does not know about pillars, curved walls, bay windows, steps or the corner where the bar sticks out. If your floor has any of those, measure the biggest clear rectangle and plan for that, then fit the awkward corners by hand. The planner also does not know where your kitchen door, your toilets or your fire exit are. A table that blocks a fire exit is never acceptable, however well it fits the drawing — check your local fire rules and keep every exit clear.</p>
+<p>The planner cannot tell you how many guests will come, which tables they will choose, or how fast your kitchen can serve them. It counts seats, not bookings. It also cannot judge comfort: a plan that fits on the screen can still feel cramped in real life, especially if your chairs are wider than average or your tables are a different size from the standard sizes used here. Measure your own tables before you buy new ones.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How many seats fit in my restaurant?</h3><p>It depends on the size of your floor and how much space you give each guest. As a rough guide, allow one to one and a half square metres of dining floor per guest, including walkways. Enter your floor size and table counts in the planner and it will place real tables on your real floor and count the seats that actually fit.</p></div>
+<div class="faq"><h3>How much space does each guest need?</h3><p>A seated guest needs roughly one to one and a half square metres, including their share of the table and the walkway. The lower end suits a quick-service cafe, and the upper end suits a restaurant where guests stay for a long dinner. Chairs pulled out take about 45 centimetres behind the table, so allow for that as well as the table itself.</p></div>
+<div class="faq"><h3>How wide should walkways be?</h3><p>At least 90 centimetres on any route a waiter walks with a tray. The main path from the kitchen to the far end of the room should be wider if you can spare it, ideally a full metre. Narrower walkways slow service down and lead to spilled drinks and bumped chairs.</p></div>
+<div class="faq"><h3>Can I mix table sizes?</h3><p>Yes, and most restaurants should. Two-seat tables suit couples and can be pushed together for groups, four-seat tables suit families, and six-seat tables suit larger parties. The planner places the biggest tables first, then fills the remaining space with smaller ones.</p></div>
+<div class="faq"><h3>What about the entrance?</h3><p>Keep the entrance clear. Leave at least a metre and a half of open floor in front of the door, and give waiting guests a bench or standing area that does not block the walkway. The planner does not draw the door, so mark it on your copy of the plan and keep that space free.</p></div>
+<div class="faq"><h3>Does this work on my phone?</h3><p>Yes. The planner runs entirely in your browser, and the floor plan drawing scales to fit a phone screen. You can stand in the dining room with your phone, change the numbers, and see the new layout straight away.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../product-comparison-website/">Product Comparison Website</a> · <a href="../return-policy-generator/">Return Policy Generator</a> · <a href="../professional-portfolio-builder/">Professional Portfolio Builder</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+
+<script>
+window.FT = window.FT || {};
+(function(){
+  function round2(n){ return Math.round(n * 100) / 100; }
+  function tableSize(kind){
+    if(kind === "two") return {w: 0.75, h: 0.75, seats: 2};
+    if(kind === "four") return {w: 1.2, h: 0.8, seats: 4};
+    if(kind === "six") return {w: 1.8, h: 0.9, seats: 6};
+    return null;
+  }
+  function planTables(o){
+    var gap = (o.walkwayCm || 0) / 100;
+    var placed = [];
+    var unplacedCount = {};
+    var warnings = [];
+    var x = 0, y = 0, rowH = 0;
+    var kinds = ["six", "four", "two"];
+    var k, i, p;
+    for(k = 0; k < kinds.length; k++){
+      var kind = kinds[k];
+      var size = tableSize(kind);
+      var count = o[kind] || 0;
+      for(i = 0; i < count; i++){
+        if(size.w > o.length || size.h > o.width){
+          unplacedCount[kind] = (unplacedCount[kind] || 0) + 1;
+          continue;
+        }
+        if(x > 0 && x + size.w > o.length){
+          y += rowH + gap;
+          x = 0;
+          rowH = 0;
+        }
+        if(y + size.h > o.width){
+          unplacedCount[kind] = (unplacedCount[kind] || 0) + 1;
+          continue;
+        }
+        placed.push({kind: kind, x: round2(x), y: round2(y), w: size.w, h: size.h, seats: size.seats});
+        x += size.w + gap;
+        if(size.h > rowH) rowH = size.h;
+      }
+    }
+    var unplaced = [];
+    var totalUnplaced = 0;
+    for(k = 0; k < kinds.length; k++){
+      if(unplacedCount[kinds[k]]){
+        unplaced.push({kind: kinds[k], count: unplacedCount[kinds[k]]});
+        totalUnplaced += unplacedCount[kinds[k]];
+      }
+    }
+    var seats = 0;
+    for(p = 0; p < placed.length; p++) seats += placed[p].seats;
+    if(o.walkwayCm < 90){
+      warnings.push("The walkway is only " + o.walkwayCm + " cm wide, which is narrow for waiters carrying trays. Aim for at least 90 cm.");
+    }
+    if(totalUnplaced > 0){
+      warnings.push(totalUnplaced + (totalUnplaced === 1 ? " table does" : " tables do") + " not fit on this floor. Try fewer tables or a narrower walkway.");
+    }
+    return {placed: placed, unplaced: unplaced, seats: seats, tables: placed.length, warnings: warnings};
+  }
+  window.FT.tableSize = tableSize;
+  window.FT.planTables = planTables;
+})();
+
+function copyText(text, btn){
+  function done(){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+function downloadText(filename, text, type){
+  var blob = new Blob([text], {type: type || "text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+(function(){
+  if(typeof document === "undefined" || !document.getElementById) return;
+  var lengthEl = document.getElementById("floor-length");
+  var widthEl = document.getElementById("floor-width");
+  var twoEl = document.getElementById("count-two");
+  var fourEl = document.getElementById("count-four");
+  var sixEl = document.getElementById("count-six");
+  var walkEl = document.getElementById("walkway");
+  var planBtn = document.getElementById("plan-btn");
+  var canvas = document.getElementById("floor-canvas");
+  var out = document.getElementById("plan-out");
+  var copyBtn = document.getElementById("copy-btn");
+  if(!lengthEl || !widthEl || !twoEl || !fourEl || !sixEl || !walkEl || !planBtn || !canvas || !out) return;
+  var lastPlan = null;
+  var lastInput = null;
+  var kindLabel = {two: "2-seat", four: "4-seat", six: "6-seat"};
+  function num(el, def){ var v = parseFloat(el.value); return isNaN(v) ? def : v; }
+  function countNum(el){ var v = parseInt(el.value, 10); return (isNaN(v) || v < 0) ? 0 : v; }
+  function unplacedText(plan){
+    var u = [];
+    for(var i = 0; i < plan.unplaced.length; i++){
+      u.push(plan.unplaced[i].count + " " + (kindLabel[plan.unplaced[i].kind] || plan.unplaced[i].kind));
+    }
+    return u.join(", ");
+  }
+  function draw(plan, L, W){
+    var ctx = canvas.getContext("2d");
+    if(!ctx) return;
+    var cw = canvas.width, ch = canvas.height;
+    ctx.clearRect(0, 0, cw, ch);
+    var pad = 12;
+    var scale = Math.min((cw - pad * 2) / L, (ch - pad * 2) / W);
+    var fw = L * scale, fh = W * scale;
+    var ox = (cw - fw) / 2, oy = (ch - fh) / 2;
+    ctx.fillStyle = "#fdf2f8";
+    ctx.fillRect(ox, oy, fw, fh);
+    ctx.strokeStyle = "#be185d";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(ox, oy, fw, fh);
+    var colors = {two: "#fbcfe8", four: "#f9a8d4", six: "#f472b6"};
+    ctx.font = "bold 13px Arial, sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    var i, t;
+    for(i = 0; i < plan.placed.length; i++){
+      t = plan.placed[i];
+      var px = ox + t.x * scale, py = oy + t.y * scale;
+      var pw = t.w * scale, ph = t.h * scale;
+      ctx.fillStyle = colors[t.kind] || "#fbcfe8";
+      ctx.fillRect(px, py, pw, ph);
+      ctx.strokeStyle = "#9d174d";
+      ctx.lineWidth = 1;
+      ctx.strokeRect(px, py, pw, ph);
+      ctx.fillStyle = "#500724";
+      ctx.fillText(t.seats + " seats", px + pw / 2, py + ph / 2);
+    }
+    ctx.fillStyle = "#475569";
+    ctx.font = "12px Arial, sans-serif";
+    ctx.textAlign = "left";
+    ctx.fillText(L + " m by " + W + " m", ox + 6, oy + fh - 10);
+  }
+  function runPlan(){
+    var L = num(lengthEl, 0);
+    var W = num(widthEl, 0);
+    if(!(L > 0) || !(W > 0)){
+      out.textContent = "Enter a floor length and width greater than zero, then tap Plan my tables.";
+      return;
+    }
+    var input = {length: L, width: W, two: countNum(twoEl), four: countNum(fourEl), six: countNum(sixEl), walkwayCm: num(walkEl, 90)};
+    var plan = window.FT.planTables(input);
+    lastPlan = plan;
+    lastInput = input;
+    draw(plan, L, W);
+    var lines = [];
+    lines.push("Seats: " + plan.seats);
+    lines.push("Tables placed: " + plan.tables);
+    if(plan.unplaced.length) lines.push("Tables that do not fit: " + unplacedText(plan));
+    for(var w = 0; w < plan.warnings.length; w++) lines.push(plan.warnings[w]);
+    out.textContent = lines.join("\n");
+  }
+  planBtn.addEventListener("click", runPlan);
+  if(copyBtn){
+    copyBtn.addEventListener("click", function(){
+      if(!lastPlan || !lastInput){
+        copyText("No plan yet. Enter your floor size and table counts, then tap Plan my tables.", copyBtn);
+        return;
+      }
+      var lines = [];
+      lines.push("Restaurant table plan");
+      lines.push("Floor: " + lastInput.length + " m by " + lastInput.width + " m");
+      lines.push("Walkway: " + lastInput.walkwayCm + " cm");
+      lines.push("Tables placed: " + lastPlan.tables);
+      lines.push("Seats: " + lastPlan.seats);
+      if(lastPlan.unplaced.length) lines.push("Tables that do not fit: " + unplacedText(lastPlan));
+      for(var w = 0; w < lastPlan.warnings.length; w++) lines.push(lastPlan.warnings[w]);
+      copyText(lines.join("\n"), copyBtn);
+    });
+  }
+  runPlan();
+})();
+</script>
+
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email Header Analyzer — Read Email Headers and Spot Fakes | Funtasha</title>
+<meta name="description" content="Analyze email headers free — paste a header and see who really sent the email, and how to spot a fake. Your header never leaves your device.">
+<link rel="canonical" href="https://funtasha.github.io/email-header-analyzer/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Email Header Analyzer — Read Email Headers and Spot Fakes">
+<meta property="og:description" content="Paste an email header and see who really sent it — the sender domain, the server, and the SPF, DKIM and DMARC results.">
+<meta property="og:url" content="https://funtasha.github.io/email-header-analyzer/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px}
+.calc input,.calc select{min-height:72px}
+.calc textarea{width:100%;min-height:180px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:14px;margin-top:10px;text-align:left}
+.calc .result{font-size:16px;margin-top:14px}
+.cards{display:grid;gap:12px;margin:14px 0}
+.card{display:block;min-height:90px;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+.card strong{display:block;font-size:17px;color:#be185d}
+.card span{display:block;font-size:15px;color:#334155;margin-top:4px}
+.tick{margin:12px 0}
+.tick label{display:flex;gap:12px;align-items:center;min-height:72px;cursor:pointer;font-weight:700;font-size:16.5px}
+.tick input[type=checkbox]{width:32px;height:32px;flex:0 0 32px;cursor:pointer}
+.tick p{margin:2px 0 0 44px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an email header?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An email header is a block of technical lines at the top of every message that records its journey: which server sent it, which servers passed it along, when it was sent, and what checks it passed or failed. The sender name you see is just a label — the header is the part that is hard to fake completely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I copy an email header?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Gmail, open the message, tap the three-dot menu at the top right, and choose Show original. Copy the header text from the top of the page, down to the blank line before the message body. Other email apps have a similar option, usually called View message source or Show headers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is SPF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SPF is a check that asks whether an email came from a server the sender's domain allows to send mail for it. A pass means the server is on the approved list. A fail means the email came from somewhere the domain never approved — a strong warning sign."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is DKIM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DKIM is a check that asks whether an email carries a valid signature from the sender's domain. A pass means the message was really signed by the domain and was not changed on the way. A fail means the signature is broken or missing where one was expected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this prove an email is safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This analyzer reads the header and reports what it finds, but it cannot prove an email is safe. A real-looking header can still carry a scam link, and a message can pass every check and still be a trick. Treat the verdict as one piece of evidence, not the whole answer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my header uploaded anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The header you paste is read in your browser and never sent anywhere. Nothing is stored, and if you close the page, the pasted header is gone. The analysis happens entirely on your own device."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Email Header Analyzer</h1>
+<p class="answer">Every email carries a hidden header that says where it really came from. Paste a header here to see the sender domain, the sending server, and the SPF, DKIM and DMARC results, all read in your browser and never sent anywhere.</p>
+<div class="calc">
+<label for="header-input">Paste the full email header here</label>
+<textarea id="header-input" placeholder="From: ...&#10;Reply-To: ...&#10;Received: ...&#10;Authentication-Results: ..."></textarea>
+<button id="analyze-btn" type="button">Analyze this header</button>
+<button id="sample-btn" type="button">Load a sample header</button>
+<button id="clear-btn" type="button">Clear</button>
+<div class="result" id="analysis-out" aria-live="polite"></div>
+<button id="copy-analysis-btn" type="button" style="display:none">Copy analysis</button>
+<h2>Scam-spotting checklist</h2>
+<ul>
+<li>Check the sender domain, not the display name — anyone can write any name there.</li>
+<li>Check the reply-to address — if it goes to a different domain, be suspicious.</li>
+<li>Look for urgency — "verify now", "account closing today", "act at once".</li>
+<li>Never tap a link in a suspicious email to check it — type the real site address yourself.</li>
+<li>Check for failed SPF, DKIM or DMARC results — a fail is a warning, not a proof.</li>
+<li>When in doubt, contact the company through its official site or phone number, not through the email.</li>
+</ul>
+</div>
+<div class="warn">This analyzer reads the header you paste and never sends it anywhere. It cannot prove an email is safe — a real-looking header can still carry a scam link.</div>
+<h2>How to use this analyzer</h2>
+<p>Paste the full header of an email into the box and tap Analyze. The analyzer reads the header in your browser and shows you four things: the sender domain — the part after the at sign in the From address — the sending server and its address, the SPF, DKIM and DMARC results if the header carries them, and a plain-words verdict. The verdict can be "looks real", "suspicious", or "cannot tell from this header". Nothing you paste is sent anywhere. The header never leaves your device, and nothing is stored. If you close the page, the pasted header is gone.</p>
+<p>If you have never seen a header before, tap "Load a sample header" first. The sample is a made-up fake bank email, built to show what a suspicious header looks like: the sender domain and the reply-to domain do not match, and the authentication checks fail. Analyze it, read the result, and compare it with the worked example further down this page, which walks through the same sample line by line. Then paste a real header from your own inbox and see the difference. A real header from a real sender usually shows passing checks and matching domains — but not always, which is why the verdict "cannot tell" exists.</p>
+<h2>What an email header is (and how to copy one in Gmail)</h2>
+<p>Every email carries a hidden header — a block of technical lines at the top of the message that most people never see. The header records the journey of the email: which server sent it, which servers passed it along, when it was sent, and what checks it passed or failed on the way. The sender name you see in your inbox is just a label anyone can write. The header is the part that is hard to fake completely, which is why reading it is the best way to tell whether an email is what it claims to be.</p>
+<p>To copy a header in Gmail, open the message, tap the three-dot menu at the top right of the message, and choose "Show original". A new page opens with the full header at the top and the message below it. Select all of the header text — from the first line, usually starting with "Delivered-To" or "Received", down to the blank line before the message body — and copy it. Then come back here, paste it into the box, and tap Analyze. Other email apps have a similar option, usually called "View message source", "Show headers", or "View original". The exact menu name differs, but the idea is the same: find the full technical header and copy it whole.</p>
+<p>One warning: copy the header only, not the message body. The body can contain links and images, and you do not need it for this check. The analyzer only reads header lines. If you paste the body as well, the analyzer will still work — it stops reading at the blank line that separates the header from the body — but pasting the header alone keeps things clean and fast.</p>
+<h2>Reading the results: SPF, DKIM and DMARC in plain words</h2>
+<p>SPF, DKIM and DMARC are three checks that email systems run on incoming mail. You do not need to understand how they work inside, but you should know what each one answers. SPF asks: did this email come from a server that the sender's domain allows to send mail for it? If the answer is pass, the sending server is on the domain's approved list. If it is fail, the email came from somewhere the domain never approved — a strong warning sign. DKIM asks: is this email signed with the sender's private key, and is the signature still valid? A pass means the message was really signed by the domain and was not changed on the way. A fail means the signature is broken or missing where one was expected.</p>
+<p>DMARC asks: do the SPF and DKIM results line up with the domain shown in the From address? It is the check that ties the other two to the name the reader actually sees. A DMARC pass means the email really came from the domain it claims to be from, as far as these checks can tell. A DMARC fail means the checks do not line up with the From domain, even if one of the other checks passed. That is why a fail on any of the three is treated as a warning here: each check catches a different kind of forgery.</p>
+<p>Not every header carries all three results. Small senders may have none of them, and some email systems do not record the results in the header at all. When a result is missing, this analyzer shows "unknown" — never a pass, never a fail. An unknown result is not a verdict. It means there is nothing to judge, and the verdict will say "cannot tell from this header" unless something else in the header gives a clear warning. A result of "none" in the header means the check was not run at all, and this analyzer also shows that as unknown, because a check that never ran cannot pass or fail.</p>
+<h2>Spotting a fake</h2>
+<p>The first thing to check is the sender domain, not the display name. The display name is the friendly label — "Fake Bank", "Your Bank", "Support Team" — and anyone can write anything there. The domain is the part after the at sign in the real address, and it is much harder to fake. If an email claims to be from your bank but the sender domain is a jumble of letters you have never seen, that is the first warning. Read the domain slowly, letter by letter: attackers use lookalike domains that differ by one letter, or add an extra word, hoping you will skim past it.</p>
+<p>The second thing to check is the reply-to address. A real message from a company usually has a reply-to address on the same domain as the sender. If the From address says one domain and the reply-to address goes to a completely different one, that is a strong warning — it means replies, and any details you send back, go somewhere else entirely. This analyzer flags that mismatch automatically.</p>
+<p>The third thing is the tone. Fake emails almost always create urgency: "verify now", "your account closes today", "act at once or lose access". Real companies rarely write like that, and they never ask you to fix an urgent problem by tapping a link in an email. If a message makes you feel rushed or scared, slow down — that feeling is the trick working. Close the email, open the company's real site by typing its address yourself, and check there. Never tap a link in a suspicious email to "check" it. Tapping is the action the attacker wants.</p>
+<h2>A worked example: a fake bank email, analyzed line by line</h2>
+<p>Here is the sample header this page loads, with each line explained. The From line reads: "Fake Bank" with the address support at fakebank.example. The display name says "Fake Bank", which sounds official — but the domain is fakebank.example, a made-up domain used for this example. In a real scam, the domain would be a lookalike of a real bank's domain, differing by a letter or two. The lesson is the same: read the domain, not the name.</p>
+<p>The Reply-To line reads: "Fake Bank Help" with the address help at otherbank.test. That is a different domain from the sender — fakebank.example versus otherbank.test. A real bank would not ask you to reply to a different bank's domain. This mismatch alone is enough to call the message suspicious. The Subject line reads "Urgent: verify your account now" — the urgency trick, exactly as described above. Real banks do not close accounts by email ultimatum.</p>
+<p>The Received line shows the mail came from a server called mail.otherbank.test. Notice that the sending server matches the reply-to domain, not the sender domain — another sign that the real sender is otherbank.test, while the From line claims fakebank.example. Finally, the Authentication-Results line shows SPF as fail, DKIM as none, and DMARC as fail. The SPF fail means the sending server is not approved by the sender's domain. The DKIM none means no signature was checked, so the analyzer reports it as unknown. The DMARC fail means the checks do not line up with the From domain. Three warnings, one message — the verdict is suspicious, and the right action is to delete it and never tap anything in it.</p>
+<h2>Common mistakes</h2>
+<p>The most common mistake is trusting the display name. People see "Your Bank" at the top of the message and stop reading. The display name is free text. Anyone can write it. Always read the actual address — the part after the at sign — before you believe who sent a message. The second mistake is tapping the link to check whether it is safe. Tapping a link in a suspicious email is the one action that can turn a suspicious message into a real problem. If you want to check, type the company's real address into your browser yourself.</p>
+<p>The third mistake is ignoring the reply-to address. Most people never look at it, but it is one of the most reliable warning signs. A mismatch between the sender domain and the reply-to domain means your reply goes somewhere the sender does not admit to. The fourth mistake is treating a single passing check as proof. A message can pass SPF and still be a scam — for example, if the attacker owns the domain that sent it. The checks tell you about the sending server and the signature, not about the honesty of the sender. That is why the verdict here is always a guide, never a guarantee.</p>
+<h2>What it cannot do</h2>
+<p>This analyzer cannot prove an email is safe. A real-looking header can still carry a scam link, a fake attachment, or a message designed to trick you. The header checks the envelope, not the letter inside. A message that passes every check and comes from a matching domain can still be a scam if the sender's account was broken into, or if the sender itself is dishonest. Treat the verdict as one piece of evidence, not the whole answer.</p>
+<p>The analyzer also cannot see what is not in the header. If the header carries no authentication results, the honest answer is "unknown", and the verdict will say "cannot tell from this header". That is not a failure — it is the truth. Guessing a verdict from a header with no results would be worse than saying nothing. When the verdict is "cannot tell", use the other signs: the domain, the reply-to address, the tone, and whether you were expecting the message at all. An unexpected email asking for urgent action is suspicious on its own, whatever the header says.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is an email header?</h3><p>An email header is a block of technical lines at the top of every message that records its journey: which server sent it, which servers passed it along, when it was sent, and what checks it passed or failed. The sender name you see is just a label — the header is the part that is hard to fake completely.</p></div>
+<div class="faq"><h3>How do I copy an email header?</h3><p>In Gmail, open the message, tap the three-dot menu at the top right, and choose Show original. Copy the header text from the top of the page, down to the blank line before the message body. Other email apps have a similar option, usually called View message source or Show headers.</p></div>
+<div class="faq"><h3>What is SPF?</h3><p>SPF is a check that asks whether an email came from a server the sender's domain allows to send mail for it. A pass means the server is on the approved list. A fail means the email came from somewhere the domain never approved — a strong warning sign.</p></div>
+<div class="faq"><h3>What is DKIM?</h3><p>DKIM is a check that asks whether an email carries a valid signature from the sender's domain. A pass means the message was really signed by the domain and was not changed on the way. A fail means the signature is broken or missing where one was expected.</p></div>
+<div class="faq"><h3>Can this prove an email is safe?</h3><p>No. This analyzer reads the header and reports what it finds, but it cannot prove an email is safe. A real-looking header can still carry a scam link, and a message can pass every check and still be a trick. Treat the verdict as one piece of evidence, not the whole answer.</p></div>
+<div class="faq"><h3>Is my header uploaded anywhere?</h3><p>No. The header you paste is read in your browser and never sent anywhere. Nothing is stored, and if you close the page, the pasted header is gone. The analysis happens entirely on your own device.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../data-breach-awareness-checker/">Data Breach Awareness Checker</a> · <a href="../cookie-consent-generator/">Cookie Consent Generator</a> · <a href="../online-privacy-education-hub/">Online Privacy Education Hub</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+window.FT = window.FT || {};
+(function () {
+  var SAMPLE_HEADER = [
+    'From: "Fake Bank" <support@fakebank.example>',
+    'Reply-To: "Fake Bank Help" <help@otherbank.test>',
+    'To: you@myemail.invalid',
+    'Subject: Urgent: verify your account now',
+    'Date: Fri, 20 Nov 2026 09:14:00 +0000',
+    'Received: from mail.otherbank.test (203.0.113.45) by mx.example.com',
+    'Authentication-Results: mx.example.com; spf=fail smtp.mailfrom=otherbank.test; dkim=none; dmarc=fail'
+  ].join("\n");
+  function unfold(text) {
+    var lines = (text || "").replace(/\r\n/g, "\n").replace(/\r/g, "\n").split("\n");
+    var out = [];
+    lines.forEach(function (ln) {
+      if ((ln.charAt(0) === " " || ln.charAt(0) === "\t") && out.length) {
+        out[out.length - 1] += " " + ln.trim();
+      } else {
+        out.push(ln);
+      }
+    });
+    return out;
+  }
+  function parseHeader(text) {
+    var fields = {};
+    unfold(text).forEach(function (ln) {
+      if (!ln.trim()) return;
+      var i = ln.indexOf(":");
+      if (i <= 0) return;
+      var name = ln.slice(0, i).trim().toLowerCase();
+      var value = ln.slice(i + 1).trim();
+      if (!fields[name]) fields[name] = [];
+      fields[name].push(value);
+    });
+    function first(name) { return fields[name] ? fields[name][0] : ""; }
+    function emailOf(value) {
+      var m = (value || "").match(/[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}/);
+      return m ? m[0] : "";
+    }
+    function domainOf(addr) {
+      var at = addr.lastIndexOf("@");
+      return at >= 0 ? addr.slice(at + 1).toLowerCase() : "";
+    }
+    var from = emailOf(first("from"));
+    var replyTo = emailOf(first("reply-to"));
+    var received = first("received");
+    var server = "";
+    var sm = received.match(/from\s+([^\s\(\[]+)/i);
+    if (sm) server = sm[1];
+    var ip = "";
+    var im = received.match(/\b(?:\d{1,3}\.){3}\d{1,3}\b/);
+    if (im) ip = im[0];
+    var auth = (fields["authentication-results"] || []).join(" ") + " " + (fields["received-spf"] || []).join(" ");
+    function authResult(kind) {
+      var m = auth.match(new RegExp(kind + "\\s*=\\s*([A-Za-z]+)", "i"));
+      if (!m) {
+        if (kind === "spf") {
+          var rsp = first("received-spf").toLowerCase();
+          if (rsp.indexOf("pass") === 0) return "pass";
+          if (rsp.indexOf("fail") === 0) return "fail";
+        }
+        return "unknown";
+      }
+      var v = m[1].toLowerCase();
+      if (v === "pass") return "pass";
+      if (v === "fail" || v === "softfail") return "fail";
+      return "unknown";
+    }
+    return {
+      from: from, fromDomain: domainOf(from),
+      replyTo: replyTo, replyToDomain: domainOf(replyTo),
+      server: server, ip: ip,
+      subject: first("subject"), date: first("date"),
+      spf: authResult("spf"), dkim: authResult("dkim"), dmarc: authResult("dmarc")
+    };
+  }
+  function analyzeHeader(text) {
+    var r = parseHeader(text);
+    var reasons = [];
+    var verdict;
+    if (!r.fromDomain) {
+      return { parsed: r, verdict: "cannot tell", reasons: ["No sender address was found in this header, so there is nothing to check against."] };
+    }
+    if (r.replyToDomain && r.replyToDomain !== r.fromDomain) {
+      reasons.push("The reply-to address goes to " + r.replyToDomain + ", a different domain from the sender (" + r.fromDomain + ").");
+    }
+    ["spf", "dkim", "dmarc"].forEach(function (k) {
+      if (r[k] === "fail") reasons.push(k.toUpperCase() + " failed its check.");
+    });
+    if (reasons.length) {
+      verdict = "suspicious";
+    } else if (r.spf === "pass" || r.dkim === "pass" || r.dmarc === "pass") {
+      verdict = "looks real";
+      reasons.push("The checks that are present passed, and the reply-to address matches the sender.");
+    } else {
+      verdict = "cannot tell";
+      reasons.push("This header carries no authentication results, so there is nothing to check against.");
+    }
+    return { parsed: r, verdict: verdict, reasons: reasons };
+  }
+  function summaryText(a) {
+    var r = a.parsed;
+    var lines = [];
+    lines.push("Sender domain: " + (r.fromDomain || "not found"));
+    lines.push("Reply-to domain: " + (r.replyToDomain || "not present"));
+    lines.push("Sending server: " + (r.server || "not found") + (r.ip ? " (" + r.ip + ")" : ""));
+    lines.push("SPF: " + r.spf + " | DKIM: " + r.dkim + " | DMARC: " + r.dmarc);
+    lines.push("Verdict: " + a.verdict);
+    a.reasons.forEach(function (x) { lines.push("- " + x); });
+    lines.push("Note: this analyzer cannot prove an email is safe.");
+    return lines.join("\n");
+  }
+  window.FT.SAMPLE_HEADER = SAMPLE_HEADER;
+  window.FT.parseHeader = parseHeader;
+  window.FT.analyzeHeader = analyzeHeader;
+  window.FT.summaryText = summaryText;
+  if (typeof document !== "undefined" && document.getElementById) {
+    var input = document.getElementById("header-input");
+    var out = document.getElementById("analysis-out");
+    var copyBtn = document.getElementById("copy-analysis-btn");
+    var lastSummary = "";
+    function esc(s) {
+      return (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+    document.getElementById("analyze-btn").addEventListener("click", function () {
+      var a = analyzeHeader(input.value);
+      var r = a.parsed;
+      var verdictWords = { "looks real": "Looks real", "suspicious": "Suspicious", "cannot tell": "Cannot tell from this header" };
+      var html = "<p><strong>Sender domain:</strong> " + esc(r.fromDomain || "not found") + "</p>";
+      html += "<p><strong>Reply-to domain:</strong> " + esc(r.replyToDomain || "not present") + "</p>";
+      html += "<p><strong>Sending server:</strong> " + esc(r.server || "not found") + (r.ip ? " (" + esc(r.ip) + ")" : "") + "</p>";
+      html += "<p><strong>SPF:</strong> " + r.spf + " &nbsp; <strong>DKIM:</strong> " + r.dkim + " &nbsp; <strong>DMARC:</strong> " + r.dmarc + "</p>";
+      html += "<p><strong>Verdict:</strong> " + verdictWords[a.verdict] + "</p>";
+      html += "<ul>" + a.reasons.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>";
+      html += "<p>Remember: this analyzer cannot prove an email is safe. A real-looking header can still carry a scam link.</p>";
+      out.innerHTML = html;
+      lastSummary = summaryText(a);
+      copyBtn.style.display = "inline-block";
+    });
+    document.getElementById("sample-btn").addEventListener("click", function () {
+      input.value = SAMPLE_HEADER;
+    });
+    document.getElementById("clear-btn").addEventListener("click", function () {
+      input.value = "";
+      out.innerHTML = "";
+      copyBtn.style.display = "none";
+      lastSummary = "";
+    });
+    copyBtn.addEventListener("click", function () { copyText(lastSummary, copyBtn); });
+  }
+})();
+
+function copyText(text, btn) {
+  function done() {
+    if (btn) { var o = btn.textContent; btn.textContent = "Copied!"; setTimeout(function () { btn.textContent = o; }, 2000); }
+  }
+  function fallback() {
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta); done();
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(function () { fallback(); });
+  } else { fallback(); }
+}
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>
