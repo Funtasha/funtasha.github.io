@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Membership Website Starter | Funtasha</title>
+<meta name="description" content="Start a membership website the simple way — topics, tiers, pricing, content plans, platforms and a launch checklist. Free guide, no signup.">
+<link rel="canonical" href="https://funtasha.github.io/membership-website-starter/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Membership Website Starter">
+<meta property="og:description" content="Start a membership website the simple way — topics, tiers, pricing, content plans, platforms and a launch checklist. Free guide, no signup.">
+<meta property="og:url" content="https://funtasha.github.io/membership-website-starter/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much content do I need before launching a membership?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enough that a new member finds something useful on day one. Ten solid lessons or pieces of content is a reasonable starting library. A schedule of new material matters more than a huge launch library."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I offer a free trial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A short free trial, such as seven days, lets people see the value before paying. It works best when the trial includes the full library, so visitors can judge the real membership. Make cancelling easy, or trials will turn into complaints."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I add new content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As often as your schedule promises, and no less. One lesson a week is a common rhythm. Whatever you choose, keep it steady: members forgive a slow week, but they leave when the site goes quiet for a month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a membership and a course?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A course is a fixed set of lessons with an ending. A membership keeps going, with new material on a schedule, and members pay for ongoing access. If your topic can be fully learned in a weekend, it is a course."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I run a membership on my own?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, many small memberships are run by one person. Keep the promise small: one tier, one lesson a week, and a simple platform. Grow the team and the tiers only when the membership earns enough to pay for them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do I do when members cancel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Let them go gracefully and ask why, with one short optional question. The answers tell you what to fix. Never make cancelling hard: a member who leaves easily is more likely to come back than one who had to fight to leave."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Membership Website Starter</h1>
+<p class="answer">A membership website charges a regular amount for ongoing lessons, templates or a community. This guide covers topics, tiers, pricing, content plans, platforms and launching.</p>
+<div class="warn">This page is a starter guide. It does not run a membership site, it has no signup form, and there is no members area here.</div>
+<h2>What a membership website is</h2>
+<p>A membership website is a site where people pay a regular amount, usually every month, for access to something they cannot get for free: lessons, templates, a community, or new content on a schedule. The member pays for ongoing value, and the owner earns a steadier income than one-off sales can give.</p>
+<p>Memberships work best when the value keeps coming. A single course is a product, but a library that grows every month is a membership. A forum where members help each other is a membership. A newsletter with one new lesson a week is a membership. The promise is not one thing, it is a flow of useful things.</p>
+<h2>Pick a topic people will pay to keep learning</h2>
+<p>The best membership topics are the ones people return to again and again. A skill they practise every week, a hobby with endless variations, a job that keeps changing, or a goal that takes months to reach. If the topic can be fully learned in a weekend, it is a course, not a membership.</p>
+<p>Ask yourself two questions. First, will members still need this in six months? Second, can you keep making new material about it without running dry? If both answers are yes, the topic can carry a membership. If the second answer is no, start with a smaller promise, such as one new lesson a month, and grow from there.</p>
+<p>Narrow topics often beat broad ones. A membership about baking sourdough bread will attract keener members than a membership about cooking in general, because the members know exactly what they are joining. A narrow topic also makes your content plan easier: you always know what to make next.</p>
+<h2>Membership tiers that make sense</h2>
+<p>A tier is a level of membership with its own price and its own benefits. Most small membership sites start with one tier, or with two: a basic tier for the content alone, and a higher tier that adds live sessions, personal feedback, or a private group. Two tiers are easier to manage than five, and easier for a visitor to choose between.</p>
+<p>Make the difference between tiers obvious. If the higher tier only adds a small extra, nobody will pay for it. If the basic tier feels empty, nobody will stay on it. A good basic tier is complete on its own, and a good higher tier adds something personal: your time, your feedback, or a smaller group where members know each other.</p>
+<p>Avoid a free tier that gives away the best material. A free taste is useful, such as one public lesson or a short guide, but the members who pay should always get something the free visitors do not. If the free tier is too generous, there is no reason to join.</p>
+<h2>Pricing in plain numbers</h2>
+<p>Price from the value a member gets in a month, not from the hours you spend making content. A membership that saves a member an hour a week is worth more than one that saves an hour a month. A membership that teaches a skill a member can charge for is worth more than one that is only entertaining.</p>
+<p>For a first membership, a monthly price of 5, 10 or 20 in your own currency is a common starting range, with the lower end for a simple content library and the higher end for a membership that includes your time. A yearly price, usually about ten times the monthly price, rewards members who commit and gives you money up front.</p>
+<p>Do not race to the lowest price. A very cheap membership needs hundreds of members to earn anything, and hundreds of members need support. A fair price with a smaller, happier group is easier to run and easier to grow. You can always lower a price later, but raising one is harder once members are used to it.</p>
+<h2>Planning your content</h2>
+<p>A membership needs a content plan, not just good intentions. Decide how often new material appears and write the dates down: one lesson a week, one template a month, one live session a month. Members stay when they know what is coming, and they leave when the site goes quiet for weeks.</p>
+<p>Build a small library before you launch. Ten solid lessons, ready on day one, are worth more than a promise of fifty lessons someday. New members should find something useful the moment they join, and the regular schedule keeps them coming back. A library also means a slow week does not leave the site empty.</p>
+<p>Mix the formats. Written lessons are quick to make and easy to search. Short videos suit skills that need showing. Live sessions suit questions and discussion. A mix keeps the membership interesting, and it lets members learn in the way that suits them best.</p>
+<h2>Choosing a platform</h2>
+<p>You do not need to build a membership site from scratch. Several platforms handle payments, member accounts and content protection for you. Teachable and Podia are built around courses and memberships, with lessons, student accounts and payment handling in one place. Patreon is built around supporters who pay monthly for a creator's work, and it suits creators with an existing audience.</p>
+<p>If you already have a website, a membership plugin can add paywalled pages to it. WordPress sites use membership plugins for this, and tools such as Memberful add membership billing to a site you already run. This route gives you more control over how the site looks, and more work keeping it running.</p>
+<p>Choose the platform that fits the membership you described, not the one with the longest feature list. A simple library needs very little. A membership with live sessions needs a way to run them. A membership with a community needs a place for members to talk. Start with the simplest platform that covers your plan, and move only when it holds you back.</p>
+<h2>Welcoming new members</h2>
+<p>The first week decides whether a new member stays. Welcome them personally, even if the welcome is a short message sent automatically. Tell them where to start: the first lesson, the newest material, and the place to ask questions. A new member who does not know where to begin will drift away before the first month ends.</p>
+<p>Give new members a quick win. A short first lesson they can finish in one sitting, a template they can use today, or a small challenge with a visible result. A member who has already got something useful from the site is far more likely to stay for a second month than one who has only browsed.</p>
+<h2>Keeping members month after month</h2>
+<p>Members leave for three main reasons: they got what they needed, they forgot the site existed, or they stopped finding new value. You cannot stop the first reason, and you should not try. The second and third are yours to fix. A regular schedule, a short message when new material appears, and a reply when a member asks a question all keep the membership alive in a member's mind.</p>
+<p>Ask members what they want next. A short question once a month, answered by the members themselves, gives you a content plan written by the people who pay for it. Members who see their suggestion turn into a lesson feel like owners of the site, and owners do not cancel.</p>
+<p>Watch for quiet members. A member who has not visited for a month is close to leaving. A short, friendly message asking whether everything is all right, with a link to the newest lesson, brings some of them back. Never guilt a member into staying, but do remind them the membership is there.</p>
+<h2>Your launch checklist</h2>
+<ol><li>Choose the topic and write one sentence describing who the membership is for.</li><li>Decide the tiers and the price, in plain numbers, and write down what each tier includes.</li><li>Build the starting library: at least ten lessons or pieces of content, ready on day one.</li><li>Choose the platform and test the whole journey: join, pay, log in, and open a lesson, on a phone and a computer.</li><li>Write the welcome message and the first-week plan for new members.</li><li>Write the content schedule for the first three months, with dates.</li><li>Tell the first members the site exists, and ask the earliest ones what they thought.</li></ol>
+<h2>Common mistakes to avoid</h2>
+<ul><li>Launching with no library, so new members find an empty site.</li><li>Promising more content than you can make, then going quiet.</li><li>Too many tiers, so visitors cannot decide and leave.</li><li>Pricing so low that the membership cannot pay for its own time.</li><li>Forgetting new members after they join, with no welcome and no first step.</li><li>Never asking members what they want next.</li></ul>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How much content do I need before launching a membership?</h3><p>Enough that a new member finds something useful on day one. Ten solid lessons or pieces of content is a reasonable starting library. A schedule of new material matters more than a huge launch library.</p></div><div class="faq"><h3>Should I offer a free trial?</h3><p>A short free trial, such as seven days, lets people see the value before paying. It works best when the trial includes the full library, so visitors can judge the real membership. Make cancelling easy, or trials will turn into complaints.</p></div><div class="faq"><h3>How often should I add new content?</h3><p>As often as your schedule promises, and no less. One lesson a week is a common rhythm. Whatever you choose, keep it steady: members forgive a slow week, but they leave when the site goes quiet for a month.</p></div><div class="faq"><h3>What is the difference between a membership and a course?</h3><p>A course is a fixed set of lessons with an ending. A membership keeps going, with new material on a schedule, and members pay for ongoing access. If your topic can be fully learned in a weekend, it is a course.</p></div><div class="faq"><h3>Can I run a membership on my own?</h3><p>Yes, many small memberships are run by one person. Keep the promise small: one tier, one lesson a week, and a simple platform. Grow the team and the tiers only when the membership earns enough to pay for them.</p></div><div class="faq"><h3>What do I do when members cancel?</h3><p>Let them go gracefully and ask why, with one short optional question. The answers tell you what to fix. Never make cancelling hard: a member who leaves easily is more likely to come back than one who had to fight to leave.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../digital-product-delivery-platform/">Digital Product Delivery Platform</a> · <a href="../small-business-resource-directory/">Small Business Resource Directory</a> · <a href="../appointment-scheduling-platform/">Appointment Scheduling Platform</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

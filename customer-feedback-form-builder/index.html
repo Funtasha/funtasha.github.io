@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer Feedback Form Builder | Funtasha</title>
+<meta name="description" content="Build a free customer feedback form in your browser — rating, multiple choice and open questions, with a preview and a plain-text copy. No signup.">
+<link rel="canonical" href="https://funtasha.github.io/customer-feedback-form-builder/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Customer Feedback Form Builder">
+<meta property="og:description" content="Build a free customer feedback form in your browser — rating, multiple choice and open questions, with a preview and a plain-text copy. No signup.">
+<meta property="og:url" content="https://funtasha.github.io/customer-feedback-form-builder/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;width:100%}
+.calc input,.calc select,.calc textarea{min-height:72px}
+.qlabel{font-weight:600;margin:14px 0 4px;font-size:14.5px}
+.qtypes{display:grid;gap:8px;margin:6px 0}
+.qtype{background:#fdf2f8 !important;color:#9d174d !important;border:2px solid #fbcfe8 !important}
+.qtype.on{background:#db2777 !important;color:#fff !important;border-color:#db2777 !important}
+.pv-title{font-weight:700;margin:16px 0 6px;font-size:16.5px}
+.pv-q{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px;margin:8px 0}
+.pv-qt{font-weight:600}
+.pv-qa{font-size:14.5px;color:#475569}
+.formtext{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:12px;white-space:pre-wrap;font-size:14.5px;word-wrap:break-word}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many questions should a feedback form have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Five to eight questions is a good size for most forms. One rating question, two or three specific questions and one open question cover the essentials. Longer forms get fewer replies, because people run out of patience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I ask for a name on a feedback form?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Make it optional. Some people will leave their name and contact details so you can reply, and some will only answer honestly if the form is anonymous. An optional name field gives you both kinds of answer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good response rate for a feedback form?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no single good number, because it depends on how you ask. A form sent to recent customers usually does better than a link buried on a website. A short form, sent soon after the experience, with a clear reason to reply, will always do better than a long one sent late."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I send a feedback form?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Soon after the experience, while it is still fresh. For a shop or a meal, the same day works well. For a service that takes longer, wait until the work is done and the customer has had a day or two to use it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should feedback forms be anonymous?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anonymous forms get more honest answers, especially about problems. Forms with names let you follow up and fix a specific issue. Many businesses offer both: anonymous by default, with an optional contact field for people who want a reply."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do I do with negative feedback?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Read it carefully, thank the person, and fix what you can. Negative feedback is the most useful kind, because it points at a real problem. If the same complaint appears more than once, treat it as a job to do, not as bad luck."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Customer Feedback Form Builder</h1>
+<p class="answer">Build a short customer feedback form in your browser with rating, choice and open questions, then copy or download the plain-text version. No data is collected and nothing is sent anywhere.</p>
+<div class="calc">
+<label for="biz-name">Business or product name</label>
+<input id="biz-name" type="text" placeholder="For example: Sunny Bakery" maxlength="80">
+<label for="purpose">What is the form for?</label>
+<select id="purpose">
+<option value="product">Product feedback</option>
+<option value="service">Service feedback</option>
+<option value="event">Event feedback</option>
+<option value="website">Website feedback</option>
+</select>
+<p class="qlabel">Question types to include (tap to choose)</p>
+<div class="qtypes">
+<button type="button" class="qtype on" data-type="rating" aria-pressed="true">Rating scale</button>
+<button type="button" class="qtype on" data-type="choice" aria-pressed="true">Multiple choice</button>
+<button type="button" class="qtype on" data-type="open" aria-pressed="true">Open text</button>
+<button type="button" class="qtype" data-type="yesno" aria-pressed="false">Yes or no</button>
+<button type="button" class="qtype" data-type="recommend" aria-pressed="false">Recommend score</button>
+</div>
+<label for="followup">Follow-up question</label>
+<select id="followup">
+<option value="improve">Ask what we should improve</option>
+<option value="contact">Ask for contact details for a reply</option>
+<option value="none">No follow-up question</option>
+</select>
+<button type="button" id="build-btn">Build my form</button>
+<div id="preview" style="display:none">
+<p class="pv-title">Form preview</p>
+<div id="preview-body"></div>
+<p class="pv-title">Plain-text version (copy or download)</p>
+<pre id="form-text" class="formtext"></pre>
+<button type="button" id="copy-btn">Copy form as text</button>
+<button type="button" id="dl-btn">Download as text</button>
+</div>
+</div><div class="warn">Nothing you type here is collected or sent anywhere. Your form is built in your browser, and it leaves this page only when you copy or download it.</div>
+<h2>What a customer feedback form does</h2>
+<p>A customer feedback form is a short set of questions you put in front of the people who use your product or service. It asks what worked, what did not, and what they wish was different. The answers tell you what to fix first, and they often tell you things you would never have guessed on your own.</p>
+<p>A good form does three jobs at once. It shows customers that their opinion matters, it gives you honest information you can act on, and it creates a record you can look back on. A form that only collects praise is not doing its job. The useful answers are the ones that point at a real problem.</p>
+<h2>Why short forms get more answers</h2>
+<p>Every extra question costs you answers. A person who is happy to answer five questions will often close a form with twenty. Long forms feel like homework, and most people will not do homework for a business they just visited. Short forms respect the time of the person filling them in, and that respect is repaid with more replies.</p>
+<p>Aim for five to eight questions. One rating question gives you a number you can track. Two or three specific questions tell you what to change. One open question catches everything you forgot to ask. If you need more detail, ask it in a follow-up message to the people who said they were happy to talk.</p>
+<h2>Choosing the right question types</h2>
+<p>Different questions need different shapes. A rating question is right when you want a number you can compare over time. A multiple choice question is right when the answers fall into clear groups. An open question is right when you do not know what the answer might be. Mixing two or three types keeps a form interesting and gives you both numbers and words.</p>
+<ul><li>Rating scale: the visitor picks a number, usually from 1 to 5. Easy to answer, easy to track, and the best choice for an overall score.</li><li>Multiple choice: the visitor picks one answer from a short list. Good for finding out which feature, product or reason matters most.</li><li>Open text: the visitor writes in their own words. Harder to count, but this is where the surprising answers live.</li><li>Yes or no: the simplest question of all. Good for facts, such as whether a problem was solved or an order arrived on time.</li><li>Recommend score: the visitor gives a score from 0 to 10 for how likely they are to recommend you. Useful for tracking loyalty over time.</li></ul>
+<h2>Writing questions people actually answer</h2>
+<p>Ask about one thing at a time. A question like whether the food was good and the staff were friendly is really two questions, and the answer cannot tell you which half the person meant. Split it. Short, plain questions get honest answers, and they are easier to answer on a phone.</p>
+<p>Avoid leading questions. Asking whether someone loved your wonderful new service pushes them toward a polite yes. Asking how they would rate the service lets them be honest. If you only ever hear praise, your questions may be the problem, not your customers.</p>
+<p>Use the words your customers use. If they call it a parcel, do not call it a consignment. If they call it a booking, do not call it a reservation. Plain words make a form feel friendly instead of official, and friendly forms get finished.</p>
+<h2>Rating scales: stars, numbers or words</h2>
+<p>A rating scale needs clear ends. Label both sides, so people know what 1 and 5 mean. A scale that only says 1 to 5 leaves everyone guessing, and one person's 3 is another person's 4. Words help: very poor, poor, fair, good, excellent. With words on the scale, two people mean roughly the same thing when they pick the same number.</p>
+<p>Five points is the most common choice, and it works for most forms. Three points is too coarse to show change over time. Ten points gives more detail but takes longer to think about. For a simple feedback form, five points with clear labels is the safe choice, and it is easy to show as stars on a phone screen.</p>
+<h2>The follow-up question that matters most</h2>
+<p>The last question on a form is the one people remember, so make it count. Asking what one thing should improve first forces a choice, and the answers give you a ranked list of fixes. Asking whether you may contact the person turns a form into a conversation, and the people who say yes are often your most useful critics.</p>
+<p>Do not make the follow-up question compulsory. Some people will answer the rating questions and leave, and that is fine. A form that forces an answer to every question loses the people who would have answered most of it. Let people skip what they do not want to answer, and thank them for what they did.</p>
+<h2>What to do with the answers</h2>
+<p>A form is only useful if someone reads the answers and acts on them. Set aside time each week to read every reply, even the short ones. Look for patterns: one complaint about slow delivery is a note, but ten complaints about slow delivery is a job to do. Group the answers by topic so the pattern is easy to see.</p>
+<ol><li>Read every answer, including the short and the angry ones.</li><li>Group the answers by topic, such as delivery, quality, price or service.</li><li>Pick one fix at a time, starting with the topic that comes up most.</li><li>Tell your customers what changed, so they know the form was worth their time.</li></ol>
+<p>Close the loop. If a customer reported a real problem and you fixed it, tell them. A short message saying that their feedback led to a change turns a critic into a loyal customer more often than any discount. People who feel heard come back, and they tell their friends.</p>
+<h2>Testing your form before you send it</h2>
+<p>Never send a form you have not filled in yourself. Open it on your phone, answer every question as a customer would, and watch for anything confusing. A question that made sense when you wrote it may read differently on a small screen, and a button that looks fine on a computer may be hard to tap with a thumb.</p>
+<p>Ask one other person to try it too, ideally someone who does not know your business well. Watch where they pause, because a pause usually means a question is unclear. Fix the questions that made them stop, then test again. Two rounds of testing catch almost every problem, and they take less than half an hour.</p>
+<h2>Paper forms versus online forms</h2>
+<p>A printed form still works in places where people are already standing and waiting, such as a cafe counter or a clinic desk. Paper needs no phone and no signal, and some customers prefer it. The cost is your time: someone has to read the handwriting and count the answers by hand.</p>
+<p>An online form is easier to share, easier to count, and easier to change. You can send the same form by message, by email, or as a printed code on a receipt, and the answers arrive in one place. For most small businesses, an online form with a short link is the better choice, with paper kept for the customers who ask for it.</p>
+<h2>Common mistakes to avoid</h2>
+<ul><li>Asking too many questions, so people give up halfway through.</li><li>Asking two things in one question, so the answer is impossible to read.</li><li>Using jargon your customers do not use, which makes the form feel cold.</li><li>Making every question compulsory, which pushes people away.</li><li>Never reading the answers, which wastes everyone's time.</li><li>Only asking happy customers, which gives you a false picture.</li></ul>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How many questions should a feedback form have?</h3><p>Five to eight questions is a good size for most forms. One rating question, two or three specific questions and one open question cover the essentials. Longer forms get fewer replies, because people run out of patience.</p></div><div class="faq"><h3>Should I ask for a name on a feedback form?</h3><p>Make it optional. Some people will leave their name and contact details so you can reply, and some will only answer honestly if the form is anonymous. An optional name field gives you both kinds of answer.</p></div><div class="faq"><h3>What is a good response rate for a feedback form?</h3><p>There is no single good number, because it depends on how you ask. A form sent to recent customers usually does better than a link buried on a website. A short form, sent soon after the experience, with a clear reason to reply, will always do better than a long one sent late.</p></div><div class="faq"><h3>When should I send a feedback form?</h3><p>Soon after the experience, while it is still fresh. For a shop or a meal, the same day works well. For a service that takes longer, wait until the work is done and the customer has had a day or two to use it.</p></div><div class="faq"><h3>Should feedback forms be anonymous?</h3><p>Anonymous forms get more honest answers, especially about problems. Forms with names let you follow up and fix a specific issue. Many businesses offer both: anonymous by default, with an optional contact field for people who want a reply.</p></div><div class="faq"><h3>What do I do with negative feedback?</h3><p>Read it carefully, thank the person, and fix what you can. Negative feedback is the most useful kind, because it points at a real problem. If the same complaint appears more than once, treat it as a job to do, not as bad luck.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../client-onboarding-form-builder/">Client Onboarding Form Builder</a> · <a href="../business-process-checklist-builder/">Business Process Checklist Builder</a> · <a href="../small-business-resource-directory/">Small Business Resource Directory</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = window.FT || {};
+(function(){
+"use strict";
+var TYPE_LABELS = {rating: "Rating scale", choice: "Multiple choice", open: "Open text", yesno: "Yes or no", recommend: "Recommend score"};
+var TYPE_HINTS = {rating: "Answer: a rating from 1 to 5", choice: "Answer: pick one option", open: "Answer: write in your own words", yesno: "Answer: yes or no", recommend: "Answer: a score from 0 to 10"};
+var PURPOSE_INTRO = {
+  product: "We would love to hear what you think of our product.",
+  service: "We would love to hear how we did.",
+  event: "Thank you for coming. Please tell us how it went.",
+  website: "Please tell us how this website works for you."
+};
+var PURPOSE_QUESTIONS = {
+  product: {rating: "How would you rate the product overall?", choice: "Which feature do you use most?", open: "What should we improve about the product?", yesno: "Did the product meet your expectations?", recommend: "How likely are you to recommend this product to a friend?"},
+  service: {rating: "How would you rate the service you received?", choice: "What did you come to us for today?", open: "What could we have done better?", yesno: "Was your problem solved?", recommend: "How likely are you to recommend us to a friend?"},
+  event: {rating: "How would you rate the event overall?", choice: "Which part of the event did you enjoy most?", open: "What would make the next event better?", yesno: "Would you come to another event like this?", recommend: "How likely are you to recommend this event to a friend?"},
+  website: {rating: "How would you rate this website overall?", choice: "What did you come here to do today?", open: "What should we change about this website?", yesno: "Did you find what you were looking for?", recommend: "How likely are you to recommend this website to a friend?"}
+};
+var FOLLOWUPS = {
+  improve: "What is the one thing we should improve first?",
+  contact: "May we contact you about your answers? If yes, please leave your name and a way to reach you.",
+  none: ""
+};
+function buildQuestions(cfg){
+  var qs = [];
+  var bank = PURPOSE_QUESTIONS[cfg.purpose] || PURPOSE_QUESTIONS.product;
+  var types = cfg.types && cfg.types.length ? cfg.types : ["rating", "choice", "open"];
+  types.forEach(function(t){
+    if (bank[t]) qs.push({text: bank[t], type: t, hint: TYPE_HINTS[t]});
+  });
+  if (cfg.followup && FOLLOWUPS[cfg.followup]) {
+    qs.push({text: FOLLOWUPS[cfg.followup], type: "open", hint: TYPE_HINTS.open});
+  }
+  return qs;
+}
+function countQuestions(cfg){ return buildQuestions(cfg).length; }
+function buildFormText(cfg){
+  var name = (cfg.business || "").trim() || "Our business";
+  var intro = PURPOSE_INTRO[cfg.purpose] || PURPOSE_INTRO.product;
+  var lines = ["Customer Feedback Form - " + name, intro, ""];
+  buildQuestions(cfg).forEach(function(q, i){
+    lines.push((i + 1) + ". " + q.text + " (" + TYPE_LABELS[q.type] + ")");
+  });
+  lines.push("");
+  lines.push("Thank you for your feedback.");
+  return lines.join("\n");
+}
+window.FT.TYPE_LABELS = TYPE_LABELS;
+window.FT.buildQuestions = buildQuestions;
+window.FT.countQuestions = countQuestions;
+window.FT.buildFormText = buildFormText;
+if (typeof document === "undefined") return;
+var buildBtn = document.getElementById("build-btn");
+if (!buildBtn) return;
+var qbtns = document.querySelectorAll(".qtype");
+qbtns.forEach(function(b){
+  b.addEventListener("click", function(){
+    var on = b.classList.toggle("on");
+    b.setAttribute("aria-pressed", on ? "true" : "false");
+  });
+});
+function readConfig(){
+  var types = [];
+  qbtns.forEach(function(b){ if (b.classList.contains("on")) types.push(b.getAttribute("data-type")); });
+  return {
+    business: document.getElementById("biz-name").value,
+    purpose: document.getElementById("purpose").value,
+    types: types,
+    followup: document.getElementById("followup").value
+  };
+}
+function renderPreview(cfg){
+  var body = document.getElementById("preview-body");
+  while (body.firstChild) body.removeChild(body.firstChild);
+  buildQuestions(cfg).forEach(function(q, i){
+    var box = document.createElement("div");
+    box.className = "pv-q";
+    var qt = document.createElement("p");
+    qt.className = "pv-qt";
+    qt.textContent = (i + 1) + ". " + q.text;
+    var qa = document.createElement("p");
+    qa.className = "pv-qa";
+    qa.textContent = q.hint;
+    box.appendChild(qt);
+    box.appendChild(qa);
+    body.appendChild(box);
+  });
+}
+buildBtn.addEventListener("click", function(){
+  var cfg = readConfig();
+  renderPreview(cfg);
+  document.getElementById("form-text").textContent = buildFormText(cfg);
+  document.getElementById("preview").style.display = "block";
+});
+function done(btn){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+document.getElementById("copy-btn").addEventListener("click", function(){
+  var btn = this;
+  var text = document.getElementById("form-text").textContent;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function(){ done(btn); }).catch(function(){ fallbackCopy(text); done(btn); });
+  } else { fallbackCopy(text); done(btn); }
+});
+document.getElementById("dl-btn").addEventListener("click", function(){
+  var text = document.getElementById("form-text").textContent;
+  var blob = new Blob([text], {type: "text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = "feedback-form.txt";
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+});
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

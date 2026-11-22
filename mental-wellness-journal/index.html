@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mental Wellness Journal | Funtasha</title>
+<meta name="description" content="Free mental wellness journal — daily prompts and a mood log, saved privately in your browser. Supportive content only, never therapy. No signup.">
+<link rel="canonical" href="https://funtasha.github.io/mental-wellness-journal/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mental Wellness Journal">
+<meta property="og:description" content="Free mental wellness journal — daily prompts and a mood log, saved privately in your browser. Supportive content only, never therapy. No signup.">
+<meta property="og:url" content="https://funtasha.github.io/mental-wellness-journal/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much should I write each day?", "acceptedAnswer": {"@type": "Answer", "text": "As little as a sentence counts. Two or three honest lines beat a long entry you force yourself to write. The habit matters more than the length, so stop when you have said what mattered today."}}, {"@type": "Question", "name": "What if I do not like the prompt?", "acceptedAnswer": {"@type": "Answer", "text": "Skip it. Tap Show another prompt for a different one, or ignore the prompt entirely and write about whatever is on your mind. The prompts are starting points, not assignments."}}, {"@type": "Question", "name": "Do I have to write every day?", "acceptedAnswer": {"@type": "Answer", "text": "No. Daily writing builds the habit fastest, but three or four days a week still gives you a useful record. Missing a day is not a failure — just pick it up again when you can."}}, {"@type": "Question", "name": "Can other people see my entries?", "acceptedAnswer": {"@type": "Answer", "text": "No. Your entries are saved in your own browser only, on this device. Nothing is uploaded and there is no account. Anyone who picks up this device could open the page, though, so keep that in mind if you share it."}}, {"@type": "Question", "name": "What should I do if writing brings up something difficult?", "acceptedAnswer": {"@type": "Answer", "text": "Pause, and be kind to yourself. You do not have to finish an entry. If a difficult feeling keeps coming back, or grows, talk to a professional or someone you trust. This journal is supportive only and cannot help with things that need a person."}}, {"@type": "Question", "name": "Is this journal a replacement for therapy?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is a private notebook with gentle prompts, nothing more. Therapy is a relationship with a trained professional, and this page is not that. If you need support, please seek it from a professional."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button,.calc input,.calc select{min-height:72px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0;flex:none}
+.calc textarea{width:100%;min-height:120px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;font-family:inherit}
+.calc pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:15px;margin-top:10px;text-align:left;font-family:inherit}
+.msg{font-size:15px;color:#334155;margin-top:10px;min-height:22px}
+table.data{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+table.data th,table.data td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;vertical-align:top}
+table.data th{background:#fdf2f8}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #e2e8f0}
+.row label{margin:0;font-weight:400;font-size:16px}
+.row input[type=checkbox]{width:28px;height:28px}
+.chip{display:inline-block;background:#fdf2f8;border:1px solid #fbcfe8;border-radius:999px;padding:6px 14px;font-size:14.5px;margin:4px 4px 0 0}
+.calc .big{font-size:20px;font-weight:700;margin:8px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Mental Wellness Journal</h1>
+<p class="answer">Write a few lines a day with a gentle prompt, track how you feel, and look back at your week — everything stays on this device. This journal is supportive content only, never therapy, and it never gives a diagnosis.</p>
+<div class="calc">
+<p class="msg">Today's prompt:</p>
+<p class="big" id="prompt-text"></p>
+<button id="new-prompt-btn" type="button">Show another prompt</button>
+<label for="mood">How do you feel today?</label>
+<select id="mood">
+<option value="Very low">Very low</option>
+<option value="Low">Low</option>
+<option value="Okay" selected>Okay</option>
+<option value="Good">Good</option>
+<option value="Great">Great</option>
+</select>
+<label for="note">Write a few lines (optional)</label>
+<textarea id="note" placeholder="Write whatever comes to mind. There is no right answer."></textarea>
+<button id="save-btn" type="button">Save today's entry</button>
+<div class="steps" id="summary"></div>
+<div id="entries"></div>
+<button id="copy-btn" type="button" style="display:none">Copy today's entry</button>
+<button id="clear-btn" type="button">Clear my entries</button>
+<p class="msg" id="msg"></p>
+</div>
+<div class="warn">Supportive content only — this journal is not therapy and never gives a diagnosis. If you are struggling, please reach out to a professional or someone you trust. If you feel you might act on thoughts of harming yourself, contact emergency services or a crisis helpline in your country right away.</div>
+
+<h2>Why journaling helps (and what it does not do)</h2>
+<p>Writing about your day does something simple and useful: it slows your thoughts down enough to look at them. A worry that circles all day often looks smaller once it is written in a sentence. A good moment that would have been forgotten by tomorrow gets kept. Over weeks, a journal becomes a record of what your days are actually like, which is often different from what they feel like in the moment.</p>
+<p>That is all journaling does, and it is enough. It is not therapy, it does not diagnose anything, and it cannot fix a difficult situation on its own. What it can do is give you a clearer view of your own week, a small daily pause, and a place to be honest without an audience. This page is built around that modest idea: a gentle prompt, a few lines, a mood note, and a look back when you want one.</p>
+<p>If you have never kept a journal, start smaller than you think you should. Two sentences a day is a real journal. The people who keep the habit are rarely the ones who write pages; they are the ones who made the daily step so small that skipping it felt sillier than doing it.</p>
+<h2>How to use this journal</h2>
+<p>Each day the page shows you a prompt — a gentle question to start from. Read it, think for a moment, and write whatever comes to mind in the box. Then pick the mood that best matches your day and tap Save today's entry. That is the whole routine. It takes two minutes on a busy day and as long as you like on a slow one.</p>
+<p>If the prompt does not suit you, tap Show another prompt for a different one, or ignore the prompts entirely and write about your day. The prompts rotate, so a prompt you skip today will come around again another day. There is no streak to protect and no score to keep. The only rule is the one you set yourself.</p>
+<p>Your entries appear below the form, newest first, so you can look back over the last week at a glance. The summary line tells you how many entries you have logged in the last seven days and which mood came up most often. It is a simple mirror, not a verdict: a week of low moods is information, not a judgement, and it is often the nudge someone needs to talk to a person rather than a page.</p>
+<h2>Choosing a prompt</h2>
+<p>The prompts on this page are deliberately gentle. They ask about small good things, about what you noticed, about what you would say to a friend in your position. They never ask you to dig into trauma, rate your pain, or analyse your childhood. A journal prompt should open a door, not push you through one.</p>
+<p>Some prompts will suit a good day and others a hard one. On a good day, a prompt about what went well helps you notice it properly instead of rushing past. On a hard day, a prompt about what you would say to a friend can be kinder than one that asks you to list achievements. You are allowed to choose the prompt that fits the day you are actually having.</p>
+<p>If you find a prompt you return to often, that is worth noticing in itself. The questions we keep answering are usually the ones that matter most to us. And if none of the prompts fit, write about the day itself: what happened, who you spoke to, what you are carrying into tomorrow. A plain account of a day is a perfectly good journal entry.</p>
+<h2>The mood log: a small daily check-in</h2>
+<p>Alongside the writing, the journal asks for a mood: very low, low, okay, good, or great. Five words, no numbers, no scale to get wrong. Pick the one that fits best and move on. The point is not precision — it is a daily pause to ask yourself, honestly, how you feel.</p>
+<p>That pause is the useful part. Many people go through a day without ever asking themselves how they are until something goes wrong. A mood log makes the question a habit. Over a week or two, patterns appear: the same low mood on the same kind of day, or a lift after a walk, a call, a good night of sleep. Those patterns are yours to act on in whatever way fits your life.</p>
+<p>Do not use the mood log to grade yourself. A week of low moods is not a failed week, and a great mood is not a prize to chase. Moods rise and fall for reasons that are often outside your control. The log is there so you can see the shape of your week, not so you can judge it.</p>
+<h2>Looking back at your week</h2>
+<p>Once a week, spend a few minutes reading back over your entries. Not to analyse them — just to notice. What kept coming up? What did you enjoy? What drained you? What did you wish for more of? The answers are usually plain once they are written down, and they are much harder to see from inside a busy week.</p>
+<p>Looking back also corrects a common trick of memory: bad days feel like the whole week, and good moments shrink to nothing. A journal keeps the record straight. A week that felt terrible often turns out to have held two or three genuinely good hours, and a week that felt fine often turns out to have held a worry you kept pushing aside. Both are worth knowing.</p>
+<p>If you want a slightly deeper weekly habit, pick one sentence from the week that surprised you and write a few lines about why. That is all the structure a weekly review needs. Keep it light; a review that feels like homework will not survive the month.</p>
+<h2>When journaling is not enough</h2>
+<p>A journal is a notebook, and a notebook cannot do what a person can. If low moods last for weeks, if sleep or appetite change sharply, if you stop enjoying things you used to enjoy, or if difficult thoughts keep returning no matter what you write, those are reasons to talk to a professional — a doctor, a counsellor, or a helpline in your country. Asking for help is not a failure of journaling; it is the sensible next step, and often the one the journal was quietly pointing toward.</p>
+<p>It can also help to tell someone you trust what you have been writing about — not necessarily the details, just that the week has been hard. Saying it out loud to a person is different from writing it alone, and for many people it is the moment things start to change. You do not need to have the right words. Starting with the plain truth is enough.</p>
+<p>If you ever feel you might act on thoughts of harming yourself, do not wait and do not write about it first. Contact emergency services or a crisis helpline in your country right away, or go to someone near you and tell them. That is not a step for later. It is a step for now.</p>
+<h2>Your privacy</h2>
+<p>Your entries are saved in your browser on this device only, using local storage. There is no account, no email address, and nothing is uploaded anywhere. No one at Funtasha can read your journal, because it never leaves your browser. The Clear my entries button removes everything at once.</p>
+<p>One honest limit: anyone who picks up this device and opens this page can read your entries, just as they could read any page you have open. If you share your device, keep that in mind. If your entries feel too private to leave in the browser, write them, read them back, and clear them — or keep the journal on paper instead. The habit is what matters, not the medium.</p>
+<p>That is the whole privacy story: your words stay on your device, under your control, and nowhere else.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How much should I write each day?</h3><p>As little as a sentence counts. Two or three honest lines beat a long entry you force yourself to write. The habit matters more than the length, so stop when you have said what mattered today.</p></div>
+<div class="faq"><h3>What if I do not like the prompt?</h3><p>Skip it. Tap Show another prompt for a different one, or ignore the prompt entirely and write about whatever is on your mind. The prompts are starting points, not assignments.</p></div>
+<div class="faq"><h3>Do I have to write every day?</h3><p>No. Daily writing builds the habit fastest, but three or four days a week still gives you a useful record. Missing a day is not a failure — just pick it up again when you can.</p></div>
+<div class="faq"><h3>Can other people see my entries?</h3><p>No. Your entries are saved in your own browser only, on this device. Nothing is uploaded and there is no account. Anyone who picks up this device could open the page, though, so keep that in mind if you share it.</p></div>
+<div class="faq"><h3>What should I do if writing brings up something difficult?</h3><p>Pause, and be kind to yourself. You do not have to finish an entry. If a difficult feeling keeps coming back, or grows, talk to a professional or someone you trust. This journal is supportive only and cannot help with things that need a person.</p></div>
+<div class="faq"><h3>Is this journal a replacement for therapy?</h3><p>No. It is a private notebook with gentle prompts, nothing more. Therapy is a relationship with a trained professional, and this page is not that. If you need support, please seek it from a professional.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../menstrual-cycle-calendar/">Menstrual Cycle Calendar</a> · <a href="../ergonomic-desk-setup-planner/">Ergonomic Desk Setup Planner</a> · <a href="../appointment-scheduling-platform/">Appointment Scheduling Platform</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+(function () {
+  var FT = window.FT = window.FT || {};
+  var KEY = "ft-mental-wellness-journal-entries";
+  var PROMPTS = [
+    "What is one small thing that went well today?",
+    "What are you carrying right now that you could set down for a while?",
+    "Describe a moment today when you felt most like yourself.",
+    "What is something you are looking forward to, even a small thing?",
+    "Write about a place where you feel calm. What makes it calm?",
+    "What did your body need today, and did it get it?",
+    "Name three things you noticed today that you are glad you noticed.",
+    "What would you say to a friend who felt the way you feel right now?",
+    "Write about something you did recently that took courage, even a little.",
+    "What is one thing you could do tomorrow to be kind to yourself?",
+    "Describe today in one sentence, then explain why you chose those words.",
+    "What is something you have learned about yourself lately?",
+    "Write a short letter to your future self, one month from now.",
+    "What made you smile recently, even briefly?"
+  ];
+  var MOODS = ["Very low", "Low", "Okay", "Good", "Great"];
+  FT.PROMPTS = PROMPTS;
+  FT.MOODS = MOODS;
+
+  function dayOfYear(iso) {
+    var p = iso.split("-");
+    var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+    var start = new Date(Date.UTC(+p[0], 0, 1));
+    return Math.round((d.getTime() - start.getTime()) / 86400000);
+  }
+  function promptForDay(iso) {
+    return PROMPTS[dayOfYear(iso) % PROMPTS.length];
+  }
+  function todayISO() {
+    var d = new Date();
+    var m = d.getMonth() + 1, day = d.getDate();
+    return d.getFullYear() + "-" + (m < 10 ? "0" + m : m) + "-" + (day < 10 ? "0" + day : day);
+  }
+  function entriesSummary(entries) {
+    var dates = Object.keys(entries).sort();
+    var counts = {};
+    var recent = 0;
+    var today = todayISO();
+    dates.forEach(function (iso) {
+      var e = entries[iso];
+      if (e && e.mood) counts[e.mood] = (counts[e.mood] || 0) + 1;
+    });
+    var sevenAgo = new Date(Date.UTC(+today.slice(0, 4), +today.slice(5, 7) - 1, +today.slice(8, 10)));
+    sevenAgo.setUTCDate(sevenAgo.getUTCDate() - 6);
+    var cutoff = sevenAgo.toISOString().slice(0, 10);
+    dates.forEach(function (iso) { if (iso >= cutoff) recent++; });
+    var most = null, mostN = 0;
+    Object.keys(counts).forEach(function (m) {
+      if (counts[m] > mostN) { mostN = counts[m]; most = m; }
+    });
+    return { total: dates.length, recent: recent, counts: counts, mostCommon: most };
+  }
+  function formatEntry(iso, entry) {
+    var lines = ["Wellness journal entry — " + iso];
+    lines.push("Mood: " + entry.mood);
+    if (entry.prompt) lines.push("Prompt: " + entry.prompt);
+    if (entry.note) lines.push("Note: " + entry.note);
+    return lines.join("\n");
+  }
+  FT.dayOfYear = dayOfYear;
+  FT.promptForDay = promptForDay;
+  FT.todayISO = todayISO;
+  FT.entriesSummary = entriesSummary;
+  FT.formatEntry = formatEntry;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var promptIndex = dayOfYear(todayISO()) % PROMPTS.length;
+
+  function loadEntries() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      var obj = raw ? JSON.parse(raw) : {};
+      return obj && typeof obj === "object" ? obj : {};
+    } catch (e) { return {}; }
+  }
+  function saveEntries(obj) {
+    try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+  function showPrompt() {
+    $("prompt-text").textContent = PROMPTS[promptIndex];
+  }
+  function render() {
+    var entries = loadEntries();
+    var dates = Object.keys(entries).sort().reverse();
+    var box = $("entries");
+    box.textContent = "";
+    var s = entriesSummary(entries);
+    if (s.total === 0) {
+      $("summary").textContent = "No entries yet. Your first entry will appear here.";
+    } else {
+      var line = "Entries in the last 7 days: " + s.recent + ". Total entries: " + s.total + ".";
+      if (s.mostCommon) line += " Most common mood: " + s.mostCommon + ".";
+      $("summary").textContent = line;
+    }
+    dates.slice(0, 7).forEach(function (iso) {
+      var e = entries[iso];
+      var row = document.createElement("div");
+      row.className = "row";
+      var span = document.createElement("span");
+      span.style.flex = "1";
+      var text = iso + " — " + e.mood;
+      if (e.note) text += " — " + e.note;
+      span.textContent = text;
+      row.appendChild(span);
+      box.appendChild(row);
+    });
+    var today = loadEntries()[todayISO()];
+    $("copy-btn").style.display = today ? "" : "none";
+  }
+  $("new-prompt-btn").addEventListener("click", function () {
+    promptIndex = (promptIndex + 1) % PROMPTS.length;
+    showPrompt();
+  });
+  $("save-btn").addEventListener("click", function () {
+    var entries = loadEntries();
+    entries[todayISO()] = {
+      mood: $("mood").value,
+      note: $("note").value.trim(),
+      prompt: PROMPTS[promptIndex]
+    };
+    saveEntries(entries);
+    $("msg").textContent = "Saved for today. Come back tomorrow for a new prompt.";
+    render();
+  });
+  $("clear-btn").addEventListener("click", function () {
+    saveEntries({});
+    $("msg").textContent = "Your entries are cleared.";
+    render();
+  });
+  $("copy-btn").addEventListener("click", function () {
+    var entry = loadEntries()[todayISO()];
+    if (entry) copyText(formatEntry(todayISO(), entry), $("copy-btn"));
+  });
+  showPrompt();
+  render();
+
+  function copyText(text, btn) {
+    var original = btn.textContent;
+    function done() {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business Process Checklist Builder | Funtasha</title>
+<meta name="description" content="Free business process checklist builder — opening, closing, orders and onboarding checklists you can edit, save in your browser and export as text. No signup.">
+<link rel="canonical" href="https://funtasha.github.io/business-process-checklist-builder/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Business Process Checklist Builder">
+<meta property="og:description" content="Free business process checklist builder — opening, closing, orders and onboarding checklists you can edit, save in your browser and export as text. No signup.">
+<meta property="og:url" content="https://funtasha.github.io/business-process-checklist-builder/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What makes a good checklist step?", "acceptedAnswer": {"@type": "Answer", "text": "One clear action, written as a verb, that one person can do and check off. Count the till and record the takings is a step. Sort out the money is a worry, not a step. If a step needs explaining, split it into two steps."}}, {"@type": "Question", "name": "How many steps should a checklist have?", "acceptedAnswer": {"@type": "Answer", "text": "As many as the process needs, and no more. Most daily processes run well on six to ten steps. If a checklist grows past fifteen steps, split it into two checklists or turn the routine parts into a habit and keep only the parts people forget."}}, {"@type": "Question", "name": "Should checklists be ticked on paper or on screen?", "acceptedAnswer": {"@type": "Answer", "text": "Whichever the team will actually use. A printed checklist by the till works well for opening and closing. A saved checklist on a phone works well for work done away from the desk. This builder exports text you can print or share either way."}}, {"@type": "Question", "name": "How do I get my team to use a checklist?", "acceptedAnswer": {"@type": "Answer", "text": "Involve them in writing it, keep it short, and use it yourself. A checklist imposed from above gets ignored; a checklist the team helped write gets followed. Review it together every few weeks and cut steps that no longer matter."}}, {"@type": "Question", "name": "What if a step does not apply today?", "acceptedAnswer": {"@type": "Answer", "text": "Leave it unticked and move on, or mark it as not needed in the exported text. A checklist is a guide, not a contract. If the same step is skipped every day, take it off the list — it does not belong there."}}, {"@type": "Question", "name": "Where are my checklists saved?", "acceptedAnswer": {"@type": "Answer", "text": "In your browser on this device only, using local storage. Nothing is uploaded or shared. Export a checklist as text if you want to share it with your team or keep a copy somewhere else."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button,.calc input,.calc select{min-height:72px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0;flex:none}
+.calc textarea{width:100%;min-height:120px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;font-family:inherit}
+.calc pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:15px;margin-top:10px;text-align:left;font-family:inherit}
+.msg{font-size:15px;color:#334155;margin-top:10px;min-height:22px}
+table.data{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+table.data th,table.data td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;vertical-align:top}
+table.data th{background:#fdf2f8}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #e2e8f0}
+.row label{margin:0;font-weight:400;font-size:16px}
+.row input[type=checkbox]{width:28px;height:28px}
+.chip{display:inline-block;background:#fdf2f8;border:1px solid #fbcfe8;border-radius:999px;padding:6px 14px;font-size:14.5px;margin:4px 4px 0 0}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Business Process Checklist Builder</h1>
+<p class="answer">Build a step-by-step checklist for a business process — opening, closing, orders or onboarding — save it in your browser and export it as text to share. Nothing leaves this device unless you export it.</p>
+<div class="calc">
+<label for="process">Choose a process</label>
+<select id="process">
+<option value="opening">Opening</option>
+<option value="closing">Closing</option>
+<option value="orders">Orders</option>
+<option value="onboarding">Onboarding</option>
+</select>
+<button id="load-btn" type="button">Load this checklist</button>
+<div id="steps"></div>
+<label for="new-step">Add a step</label>
+<input type="text" id="new-step" placeholder="Type a step, then tap Add a step">
+<button id="add-btn" type="button">Add a step</button>
+<button id="save-btn" type="button">Save this checklist</button>
+<button id="copy-btn" type="button">Copy as text</button>
+<button id="dl-btn" type="button">Download as text</button>
+<button id="reset-btn" type="button">Reset to the starter list</button>
+<p class="msg" id="msg"></p>
+</div>
+<div class="warn">Your checklists are saved in this browser only — nothing is uploaded or shared. Export a copy as text if you want to share a checklist with your team or keep a copy somewhere safe.</div>
+
+<h2>Why checklists work</h2>
+<p>Checklists work because memory does not. Even people who have done the same job for years forget a step when they are tired, rushed, or interrupted — and the step they forget is usually the important one, because important steps are the ones that feel too obvious to write down. A checklist moves the remembering out of your head and onto a list, where it cannot be crowded out by a busy day.</p>
+<p>Pilots, surgeons and engineers have used checklists for decades, not because they are forgetful but because the work matters too much to leave to memory. A small business is no different: the till count, the locked door, the order packed correctly, the new starter who knows where things are. These are small steps with large consequences when they are missed, and a checklist is the cheapest insurance a business can buy.</p>
+<p>This builder gives you four starter checklists — opening, closing, orders and onboarding — that you can edit, save in your browser, and export as text. Tick steps off as you go, add the steps that fit your business, and remove the ones that do not. The best checklist is the one your team actually uses, and that is usually the one they helped to write.</p>
+<h2>The four starter processes</h2>
+<p>Opening is the morning routine: unlock, check the space, turn on equipment, check the till and the card reader, review the day's bookings and orders, and brief the team. A good opening checklist means the first customer is greeted by a business that is ready, not one that is still waking up.</p>
+<p>Closing is the evening mirror: count the till, secure the cash, turn things off, check the doors and windows, tidy up, and note what needs ordering. Closing checklists matter because tired people at the end of a long day are the most likely to skip a step — and the step skipped at closing is the one discovered the next morning.</p>
+<p>Orders covers the path from a customer's order to a parcel that leaves correctly addressed, correctly packed, and with the customer told what is happening. Onboarding covers a new starter's first day: the welcome, the desk and tools, the introductions, the first tasks, and the end-of-day check-in. Both are processes where a missed step is visible to the customer, which is exactly why they deserve a list.</p>
+<h2>Writing steps people actually follow</h2>
+<p>A good checklist step is one clear action, written as a verb, that one person can do and check off. "Count the till and record the takings" is a step. "Sort out the money" is a worry, not a step. If a step needs explaining, split it into two steps. If a step is really two actions — "pack the order and send the tracking update" — it is two steps wearing one coat.</p>
+<p>Keep each step short enough to read at a glance. A checklist is used in motion, often with a customer waiting or a till to close, and nobody reads a paragraph while standing at a counter. One line per step, plain words, no jargon. If a step needs detail — a code, a phone number, a note about where something lives — put the detail in the step itself rather than in a separate document nobody opens.</p>
+<p>Order the steps the way the work actually happens. A checklist that jumps back and forth between the front of the shop and the back room will be followed out of order or not at all. Walk the process yourself, note the order things happen in, and write the list in that order. The best test of a checklist is to follow it on a real day and notice where you hesitate — the hesitation is where the list needs fixing.</p>
+<h2>Opening and closing without the morning scramble</h2>
+<p>The morning scramble — keys hunted, till uncounted, first customer at the door while the lights are still off — is almost always a checklist problem, not a people problem. When opening depends on whoever remembers what, the result depends on who is on shift. When opening follows a list, the result is the same every morning.</p>
+<p>Put the security steps first in the opening list: doors, windows, alarm. Then the money steps: till float and card reader. Then the day's business: bookings, orders, stock for the day. Then the team: a short briefing on what matters today. The order is deliberate — security and money first, because they are the steps that cause real trouble when missed.</p>
+<p>Closing runs the same logic in reverse. Money first, while the day's numbers are fresh. Then equipment off, doors and windows checked, the space tidied, and a note of anything that needs ordering or fixing. A closing checklist also gives the person locking up a clear end to the day: when the list is done, the day is done, and nothing is left half-remembered for tomorrow.</p>
+<h2>Orders without mistakes</h2>
+<p>Order mistakes are expensive in two ways: the cost of fixing them, and the trust they cost with the customer. Most mistakes happen at the same few points — the wrong item picked, the wrong address on the parcel, the tracking update never sent — and each of those points is a step a checklist can hold.</p>
+<p>The orders checklist in this builder follows the natural path: confirm the details with the customer, check stock and reserve the items, pack the order and add the invoice, label the parcel, book the delivery, tell the customer, and mark the order complete in your records. Each step is a point where an error can be caught before it leaves the building.</p>
+<p>The step teams skip most often is the last one: telling the customer. An order that is packed and posted but never confirmed leaves the customer wondering, and wondering customers send messages, and messages take time to answer. A tracking update sent at the moment of posting is a small step that prevents a large amount of worry — the customer's and yours.</p>
+<h2>Onboarding new starters properly</h2>
+<p>A new starter's first day shapes how they feel about the job for months. A good first day — welcomed, shown around, given real work and someone to ask — builds confidence. A bad first day — no desk ready, no one expecting them, hours of waiting — tells the new person they do not matter yet. The difference is almost always a checklist.</p>
+<p>The onboarding list in this builder covers the day: send the welcome message and start date before the day itself, prepare the desk, tools and accounts, walk through the role and the first tasks, introduce the team and key contacts, share the handbook and safety notes, set the first week's goals together, and check in at the end of day one. None of these steps is difficult; the difficulty is remembering all of them on a busy morning.</p>
+<p>The end-of-day check-in is the step that matters most and the one most often skipped. Five minutes asking how the day went — what was confusing, what was missing, what they need tomorrow — catches problems while they are small and tells the new starter that their experience counts. Put it on the list, and do it.</p>
+<h2>Keeping checklists up to date</h2>
+<p>A checklist is a living document, not a plaque. Processes change: a new till, a different supplier, a step that no longer applies. A checklist that is not updated becomes a list people stop trusting, and a list people do not trust is a list they stop using. Review each checklist every few weeks with the people who use it, and cut or change what no longer fits.</p>
+<p>The best way to keep a checklist honest is to ask the team what they skip. A step that everyone skips is either unnecessary or badly written — either way, it needs changing, not scolding. A step that people do out of order is in the wrong place. The people doing the work know where the list is wrong; the review is the moment to listen to them.</p>
+<p>Share checklists by exporting them as text from this page and printing them or sending them to the team. A printed checklist by the till or on the packing bench is used more than one buried in an app. And when a checklist changes, replace the printed copy the same day — two versions of a checklist are worse than none.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What makes a good checklist step?</h3><p>One clear action, written as a verb, that one person can do and check off. Count the till and record the takings is a step. Sort out the money is a worry, not a step. If a step needs explaining, split it into two steps.</p></div>
+<div class="faq"><h3>How many steps should a checklist have?</h3><p>As many as the process needs, and no more. Most daily processes run well on six to ten steps. If a checklist grows past fifteen steps, split it into two checklists or turn the routine parts into a habit and keep only the parts people forget.</p></div>
+<div class="faq"><h3>Should checklists be ticked on paper or on screen?</h3><p>Whichever the team will actually use. A printed checklist by the till works well for opening and closing. A saved checklist on a phone works well for work done away from the desk. This builder exports text you can print or share either way.</p></div>
+<div class="faq"><h3>How do I get my team to use a checklist?</h3><p>Involve them in writing it, keep it short, and use it yourself. A checklist imposed from above gets ignored; a checklist the team helped write gets followed. Review it together every few weeks and cut steps that no longer matter.</p></div>
+<div class="faq"><h3>What if a step does not apply today?</h3><p>Leave it unticked and move on, or mark it as not needed in the exported text. A checklist is a guide, not a contract. If the same step is skipped every day, take it off the list — it does not belong there.</p></div>
+<div class="faq"><h3>Where are my checklists saved?</h3><p>In your browser on this device only, using local storage. Nothing is uploaded or shared. Export a checklist as text if you want to share it with your team or keep a copy somewhere else.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../client-onboarding-form-builder/">Client Onboarding Form Builder</a> · <a href="../customer-feedback-form-builder/">Customer Feedback Form Builder</a> · <a href="../document-approval-workflow-tool/">Document Approval Workflow Tool</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+(function () {
+  var FT = window.FT = window.FT || {};
+  var TEMPLATES = {
+    opening: [
+      "Unlock and check the front door and windows",
+      "Turn on the lights, tills and equipment",
+      "Check the cash float and card reader",
+      "Review today's bookings and orders",
+      "Check stock levels for the day",
+      "Tidy the counter and customer area",
+      "Brief the team on today's priorities",
+      "Open on time and greet the first customers"
+    ],
+    closing: [
+      "Count the till and record the takings",
+      "Secure cash and lock the safe",
+      "Turn off equipment, lights and heating",
+      "Check the back door and windows are locked",
+      "Tidy the work areas and take out the rubbish",
+      "Note any stock that needs ordering",
+      "Lock up and set the alarm"
+    ],
+    orders: [
+      "Confirm the order details with the customer",
+      "Check stock and reserve the items",
+      "Pack the order and add the invoice",
+      "Label the parcel with the delivery address",
+      "Book the courier or delivery slot",
+      "Send the customer a tracking update",
+      "Mark the order as complete in your records"
+    ],
+    onboarding: [
+      "Send the welcome message and start date",
+      "Prepare the desk, tools and accounts",
+      "Walk through the role and first tasks",
+      "Introduce the team and key contacts",
+      "Share the handbook and safety notes",
+      "Set the first week's goals together",
+      "Check in at the end of day one"
+    ]
+  };
+  FT.TEMPLATES = TEMPLATES;
+  function templateSteps(process) {
+    return (TEMPLATES[process] || []).slice();
+  }
+  function checklistText(name, steps) {
+    var lines = [name + " checklist"];
+    steps.forEach(function (s) {
+      lines.push((s.done ? "[x] " : "[ ] ") + s.text);
+    });
+    return lines.join("\n");
+  }
+  FT.templateSteps = templateSteps;
+  FT.checklistText = checklistText;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var KEY_PREFIX = "ft-business-process-checklist-builder-";
+  var current = "opening";
+  var steps = [];
+
+  function keyFor(p) { return KEY_PREFIX + p; }
+  function loadSaved(p) {
+    try {
+      var raw = localStorage.getItem(keyFor(p));
+      if (!raw) return null;
+      var arr = JSON.parse(raw);
+      if (!Array.isArray(arr)) return null;
+      return arr.filter(function (s) { return s && typeof s.text === "string"; });
+    } catch (e) { return null; }
+  }
+  function saveCurrent() {
+    try { localStorage.setItem(keyFor(current), JSON.stringify(steps)); } catch (e) {}
+  }
+  function processName(p) {
+    return p.charAt(0).toUpperCase() + p.slice(1);
+  }
+  function render() {
+    var box = $("steps");
+    box.textContent = "";
+    steps.forEach(function (s, i) {
+      var row = document.createElement("div");
+      row.className = "row";
+      var cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.checked = !!s.done;
+      cb.setAttribute("aria-label", s.text);
+      cb.addEventListener("change", function () { steps[i].done = cb.checked; });
+      var span = document.createElement("span");
+      span.style.flex = "1";
+      span.textContent = s.text;
+      var rm = document.createElement("button");
+      rm.type = "button";
+      rm.textContent = "Remove";
+      rm.addEventListener("click", function () {
+        steps.splice(i, 1);
+        render();
+      });
+      row.appendChild(cb);
+      row.appendChild(span);
+      row.appendChild(rm);
+      box.appendChild(row);
+    });
+  }
+  function loadProcess(p) {
+    current = p;
+    var saved = loadSaved(p);
+    if (saved) {
+      steps = saved;
+      $("msg").textContent = "Loaded your saved " + processName(p) + " checklist (" + steps.length + " steps).";
+    } else {
+      steps = templateSteps(p).map(function (t) { return { text: t, done: false }; });
+      $("msg").textContent = "Loaded the starter " + processName(p) + " checklist (" + steps.length + " steps). Edit it, then save.";
+    }
+    render();
+  }
+  $("load-btn").addEventListener("click", function () {
+    loadProcess($("process").value);
+  });
+  $("process").addEventListener("change", function () {
+    loadProcess($("process").value);
+  });
+  $("add-btn").addEventListener("click", function () {
+    var t = $("new-step").value.trim();
+    if (!t) { $("msg").textContent = "Type a step first."; return; }
+    steps.push({ text: t, done: false });
+    $("new-step").value = "";
+    $("msg").textContent = "Step added. Tap Save this checklist to keep it.";
+    render();
+  });
+  $("save-btn").addEventListener("click", function () {
+    saveCurrent();
+    $("msg").textContent = "Saved in this browser. Nothing is uploaded.";
+  });
+  $("copy-btn").addEventListener("click", function () {
+    copyText(checklistText(processName(current), steps), $("copy-btn"));
+  });
+  $("dl-btn").addEventListener("click", function () {
+    downloadText(current + "-checklist.txt", checklistText(processName(current), steps));
+  });
+  $("reset-btn").addEventListener("click", function () {
+    try { localStorage.removeItem(keyFor(current)); } catch (e) {}
+    steps = templateSteps(current).map(function (t) { return { text: t, done: false }; });
+    $("msg").textContent = "Reset to the starter list.";
+    render();
+  });
+  loadProcess("opening");
+
+  function copyText(text, btn) {
+    var original = btn.textContent;
+    function done() {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  function downloadText(filename, text) {
+    var blob = new Blob([text], {type: "text/plain"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 100);
+  }
+
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

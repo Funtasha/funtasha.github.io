@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appointment Scheduling Platform | Funtasha</title>
+<meta name="description" content="Free appointment scheduling guide — booking forms, confirmation messages, reminders and cancellation policy templates. A teaching guide: no fake bookings.">
+<link rel="canonical" href="https://funtasha.github.io/appointment-scheduling-platform/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Appointment Scheduling Platform">
+<meta property="og:description" content="Free appointment scheduling guide — booking forms, confirmation messages, reminders and cancellation policy templates. A teaching guide: no fake bookings.">
+<meta property="og:url" content="https://funtasha.github.io/appointment-scheduling-platform/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What should a booking form ask for?", "acceptedAnswer": {"@type": "Answer", "text": "Name, contact details, the service or reason for the visit, and the preferred date and time. That is enough to confirm most appointments. Longer forms lose bookings, so ask for extra detail after the appointment is confirmed, not before."}}, {"@type": "Question", "name": "How many reminders should I send?", "acceptedAnswer": {"@type": "Answer", "text": "Two is a good pattern for most businesses: one the day before and one a few hours before the appointment. More than that starts to feel like nagging. Let clients pick how they want to be reminded, where you can."}}, {"@type": "Question", "name": "What is a fair cancellation policy?", "acceptedAnswer": {"@type": "Answer", "text": "One that is clear before the booking, easy to follow, and kind about genuine emergencies. Ask for a set amount of notice, say what happens if notice is short, and apply the policy the same way to everyone."}}, {"@type": "Question", "name": "Should I charge for no-shows?", "acceptedAnswer": {"@type": "Answer", "text": "That depends on your business and your clients. A fee can cut no-shows, but it can also put off new clients if it feels harsh. If you charge, say so clearly at booking time and keep the amount modest."}}, {"@type": "Question", "name": "How do I handle double bookings?", "acceptedAnswer": {"@type": "Answer", "text": "Prevent them first: use one calendar for all bookings, and never take a booking without checking it. If a clash happens, contact both clients quickly, apologise plainly, and offer the next available time — the client you move should never feel like the less important one."}}, {"@type": "Question", "name": "Do I need special software to schedule appointments?", "acceptedAnswer": {"@type": "Answer", "text": "Not at first. A shared calendar and a simple form are enough for a small number of appointments. Software earns its place when bookings grow, when you need automatic reminders, or when several people share the same calendar."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button,.calc input,.calc select{min-height:72px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0;flex:none}
+.calc textarea{width:100%;min-height:120px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;font-family:inherit}
+.calc pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:15px;margin-top:10px;text-align:left;font-family:inherit}
+.msg{font-size:15px;color:#334155;margin-top:10px;min-height:22px}
+table.data{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+table.data th,table.data td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;vertical-align:top}
+table.data th{background:#fdf2f8}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #e2e8f0}
+.row label{margin:0;font-weight:400;font-size:16px}
+.row input[type=checkbox]{width:28px;height:28px}
+.chip{display:inline-block;background:#fdf2f8;border:1px solid #fbcfe8;border-radius:999px;padding:6px 14px;font-size:14.5px;margin:4px 4px 0 0}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Appointment Scheduling Platform</h1>
+<p class="answer">Learn how to set up appointment scheduling for your business, from the booking form to confirmation messages, reminders and a fair cancellation policy. This page teaches setup — it never takes bookings itself.</p>
+<div class="warn">This page teaches you how to set up appointment scheduling — it does not take bookings itself. You will never see fake availability or fake bookings here, because a teaching page should not pretend to be a booking system.</div>
+
+<h2>What good scheduling looks like</h2>
+<p>Good scheduling is invisible. A client picks a time, gets a clear confirmation, is reminded at the right moment, and turns up. Nobody chases anyone, nobody double-books, and nobody is left wondering whether the appointment is real. When scheduling works, it feels like nothing happened — and that is the point.</p>
+<p>Behind that smooth feeling are four pieces: a booking form that asks for the right things, a confirmation message that removes doubt, reminders that arrive before the appointment rather than after it, and a cancellation policy that is fair to both sides. This page walks through each piece, with templates you can copy and adapt. It teaches setup — it is not a booking system itself, and it never shows fake availability or takes a booking.</p>
+<p>Start small. A shared calendar, a simple form, and a written confirmation message are enough for most small businesses. Add software when the number of bookings, or the number of people sharing the calendar, makes the manual version hard to keep up. The system should fit the business, not the other way round.</p>
+<h2>The booking form: what to ask, what to skip</h2>
+<p>A booking form has one job: to collect enough information to confirm the appointment, and no more. For most businesses that means the client's name, a way to reach them, the service or reason for the visit, and the preferred date and time. Anything beyond that can usually wait until after the booking is confirmed.</p>
+<p>Every extra question on a booking form costs bookings. A client who has to answer ten questions before picking a time is a client who may give up halfway and call someone else. Keep the form short, ask for detail after the appointment is confirmed, and never ask for information you do not need. If you need a detail for the appointment itself — an address, a reference number, a note about access — ask for it in the confirmation message instead.</p>
+<p>Show the client what happens next, right on the form. A line like "We will confirm your appointment by message within a few hours" sets an expectation and removes the worry that the booking vanished into nowhere. If you confirm instantly, say so. If a person checks each booking before confirming, say that too — honesty about the wait is better than silence.</p>
+<h2>Confirmation messages that prevent confusion</h2>
+<p>The confirmation message is the most important message in the whole system. It turns a request into an appointment the client can trust. A good confirmation names the service, the date, the time, the place, and how long the appointment will take. It also says what the client should bring, if anything, and how to change or cancel.</p>
+<p>Here is a template you can adapt: "Thank you — your appointment is confirmed for Tuesday 10 March at 10:30 in the morning, for a 45-minute consultation at our office. Please bring your reference number if you have one. To change or cancel, reply to this message or call us. We look forward to seeing you."</p>
+<p>Notice what the template does not do: it does not assume the client remembers the details, it does not hide the cancellation route, and it does not use jargon. Send the confirmation as soon as the booking is made, through the same channel the client used to book — message, email, or phone. A confirmation that arrives hours late leaves a gap in which the client may book somewhere else as well.</p>
+<h2>Reminders that reduce no-shows</h2>
+<p>Most no-shows are not rude; they are forgotten. A reminder the day before, and another a few hours before the appointment, cuts missed appointments sharply for most businesses. Two reminders is a good pattern: the first gives the client time to rearrange, the second catches the person who forgot entirely.</p>
+<p>Here is a reminder template: "A reminder that you have an appointment tomorrow, Tuesday 10 March at 10:30 in the morning, for a 45-minute consultation. Reply YES to confirm, or reply to this message if you need to change the time."</p>
+<p>Keep reminders short and actionable. The client should be able to confirm or change the appointment from the reminder itself, without hunting for a phone number. Let clients choose how they are reminded where you can — some people read messages and ignore email, others are the opposite. And never send more than two or three reminders for one appointment: beyond that, reminders stop being helpful and start being a nuisance.</p>
+<h2>Cancellation and no-show policies</h2>
+<p>Every business needs a cancellation policy, and the best time to write one is before you need it. A fair policy does three things: it asks for a set amount of notice, it says plainly what happens if notice is short, and it applies the same way to everyone. Write it in plain language and show it at booking time, not after a cancellation has already happened.</p>
+<p>Here is a template: "If you need to change or cancel, please let us know at least 24 hours before your appointment so we can offer the time to someone else. Cancellations with less than 24 hours of notice, or missed appointments, may be charged a fee. Genuine emergencies are always treated with understanding — just let us know."</p>
+<p>Whether to charge for no-shows depends on your business and your clients. A fee can cut missed appointments, but a harsh fee can put off new clients. If you charge, keep the amount modest, say so clearly at booking time, and be consistent. Whatever you decide, the policy should be easy to find and easy to follow — a policy the client never saw is not a policy at all.</p>
+<h2>Choosing your hours, buffers and limits</h2>
+<p>Decide your bookable hours and stick to them. If you offer appointments from nine to five, do not also answer booking requests at midnight unless you mean to. Clients respect clear hours; they test vague ones. Publish the hours where bookings are made, and keep them the same across every channel.</p>
+<p>Leave buffers between appointments. A 45-minute appointment needs more than 45 minutes in the calendar: time to tidy up, write notes, and breathe before the next person. Fifteen minutes between appointments is a common buffer; the right length depends on the work. Without buffers, a single late-running appointment knocks the whole day sideways.</p>
+<p>Set limits that protect the day. A maximum number of appointments per day, a cut-off time for same-day bookings, and a rule that back-to-back long appointments need a break in between — these are not restrictions on clients, they are the things that keep the schedule working. A calendar with no limits fills up until it breaks.</p>
+<h2>Handling changes, late arrivals and double bookings</h2>
+<p>Changes are normal, and a good system makes them easy. Let clients change or cancel through the same channel they booked, without a phone queue or a form that asks for everything again. When a client moves an appointment, confirm the new time in the same way as a new booking — a changed appointment without a confirmation is a missed appointment waiting to happen.</p>
+<p>Late arrivals need a simple rule, decided in advance: how late is still workable, and what happens after that. A common approach is to see the client for the remaining time, or to rebook if the delay is too long to do the work properly. Say so kindly, and apply the rule the same way each time.</p>
+<p>Double bookings are prevented, not fixed. Use one calendar for all bookings, and never take a booking without checking it. If a clash happens anyway, contact both clients quickly, apologise plainly, and offer the next available time. The client you move should never feel like the less important one — a small kindness, like the first choice of new times, goes a long way.</p>
+<h2>Picking a scheduling tool</h2>
+<p>When bookings grow beyond what a shared calendar can handle, a scheduling tool earns its place. Look for the basics first: an online booking page, automatic confirmations and reminders, a single calendar that everyone shares, and a way for clients to change or cancel without calling you. Those four features cover almost everything a small business needs.</p>
+<p>Beyond the basics, match the tool to the business. A business with several staff needs a calendar per person. A business that takes payment at booking needs payment built in. A business with many repeat clients benefits from client records and booking history. Do not pay for features you will not use — a simple tool used well beats a powerful tool nobody understands.</p>
+<p>Try a tool with real bookings before committing to it. Book a test appointment as a client would, check the confirmation and reminders, and try changing and cancelling it. If any step feels confusing to you, it will feel confusing to your clients. The best tool is the one your clients never have to think about.</p>
+<h2>A launch checklist</h2>
+<p>Before you open bookings, run through this list. Each item takes a few minutes, and together they prevent most of the problems new scheduling systems run into.</p>
+<ul>
+<li>Bookable hours are decided and published everywhere bookings are made.</li>
+<li>One calendar holds every booking, and everyone who books can see it.</li>
+<li>The booking form asks only for what is needed to confirm.</li>
+<li>The confirmation message names the service, date, time, place and duration.</li>
+<li>Reminders are set: one the day before, one a few hours before.</li>
+<li>The cancellation policy is written, plain, and shown at booking time.</li>
+<li>Buffers between appointments are in the calendar.</li>
+<li>A test booking has been made, confirmed, reminded, changed and cancelled.</li>
+</ul>
+<p>Once the list is done, open bookings and watch the first week closely. The first few bookings will show you what the checklist missed — a question clients keep asking, a reminder that arrives too late, a gap in the day that nobody uses. Fix those, and the system will settle into the background where it belongs.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What should a booking form ask for?</h3><p>Name, contact details, the service or reason for the visit, and the preferred date and time. That is enough to confirm most appointments. Longer forms lose bookings, so ask for extra detail after the appointment is confirmed, not before.</p></div>
+<div class="faq"><h3>How many reminders should I send?</h3><p>Two is a good pattern for most businesses: one the day before and one a few hours before the appointment. More than that starts to feel like nagging. Let clients pick how they want to be reminded, where you can.</p></div>
+<div class="faq"><h3>What is a fair cancellation policy?</h3><p>One that is clear before the booking, easy to follow, and kind about genuine emergencies. Ask for a set amount of notice, say what happens if notice is short, and apply the policy the same way to everyone.</p></div>
+<div class="faq"><h3>Should I charge for no-shows?</h3><p>That depends on your business and your clients. A fee can cut no-shows, but it can also put off new clients if it feels harsh. If you charge, say so clearly at booking time and keep the amount modest.</p></div>
+<div class="faq"><h3>How do I handle double bookings?</h3><p>Prevent them first: use one calendar for all bookings, and never take a booking without checking it. If a clash happens, contact both clients quickly, apologise plainly, and offer the next available time — the client you move should never feel like the less important one.</p></div>
+<div class="faq"><h3>Do I need special software to schedule appointments?</h3><p>Not at first. A shared calendar and a simple form are enough for a small number of appointments. Software earns its place when bookings grow, when you need automatic reminders, or when several people share the same calendar.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../client-onboarding-form-builder/">Client Onboarding Form Builder</a> · <a href="../business-process-checklist-builder/">Business Process Checklist Builder</a> · <a href="../mental-wellness-journal/">Mental Wellness Journal</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

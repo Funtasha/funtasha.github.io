@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Document Approval Workflow Tool | Funtasha</title>
+<meta name="description" content="Build a document approval workflow in your browser — steps, approvers, deadlines and status tracking, saved on your device. No signup.">
+<link rel="canonical" href="https://funtasha.github.io/document-approval-workflow-tool/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Document Approval Workflow Tool">
+<meta property="og:description" content="Build a document approval workflow in your browser — steps, approvers, deadlines and status tracking, saved on your device. No signup.">
+<meta property="og:url" content="https://funtasha.github.io/document-approval-workflow-tool/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;width:100%}
+.calc input,.calc select,.calc textarea{min-height:72px}
+.qlabel{font-weight:600;margin:14px 0 4px;font-size:14.5px}
+.step{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:12px;margin:10px 0}
+.step-name{font-weight:700}
+.step-meta{font-size:14.5px;color:#475569}
+.step-status{font-weight:700;margin-top:6px}
+.step-status.approved{color:#15803d}
+.step-status.changes{color:#b45309}
+.step-status.overdue{color:#b91c1c}
+.step-actions{display:grid;gap:8px;margin-top:10px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many steps should an approval workflow have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three to five steps cover most documents: a content check, a factual check and a final approval. Every extra step adds time and a chance to stall, so remove any step that adds no real check."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who should approve a document?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The person who can check it, not the most senior person available. Pick approvers by what they know: the person who knows the numbers checks the numbers, and the person who knows the client checks the promises."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if an approver never replies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "First check that they know the document is waiting and when it is due. A short reminder with the date usually works. If delays keep happening, the step may need a different approver or an earlier start."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool create a legally binding approval?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It tracks approval steps in your browser and keeps a working record for your team. It does not create electronic signatures and it makes no legal claims about signatures or approvals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my workflow saved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In your browser on this device only, using local storage. Nothing is sent to a server and there is no account. Clearing your browser data will remove the saved workflow, so copy the text if you need a lasting copy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I change a workflow after it has started?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can add steps, remove steps, change a status back to pending, or clear the whole workflow and start again. The record updates as you go, so the list always shows the current state."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Document Approval Workflow Tool</h1>
+<p class="answer">Build an approval workflow for any document with steps, approvers and deadlines, then track each step as pending, approved or needing changes. Everything is saved in your browser only.</p>
+<div class="calc">
+<label for="doc-title">Document title</label>
+<input id="doc-title" type="text" placeholder="For example: Staff Handbook 2026" maxlength="100">
+<p class="qlabel">Add a step</p>
+<label for="step-name">Step name</label>
+<input id="step-name" type="text" placeholder="For example: Manager review" maxlength="80">
+<label for="step-approver">Approver (name or role)</label>
+<input id="step-approver" type="text" placeholder="For example: Priya, team lead" maxlength="80">
+<label for="step-due">Deadline (optional)</label>
+<input id="step-due" type="date">
+<button type="button" id="add-step-btn">Add step</button>
+<div id="steps-list"></div>
+<p class="out" id="progress"></p>
+<button type="button" id="copy-btn">Copy workflow as text</button>
+<button type="button" id="clear-btn">Clear workflow</button>
+</div><div class="warn">This tool tracks approval steps in your browser only. It does not create electronic signatures, and it makes no legal claims about signatures or approvals.</div>
+<h2>What an approval workflow is</h2>
+<p>An approval workflow is a short, ordered list of people who must look at a document before it goes out. A report goes to a manager, then to a legal reviewer, then to the person who publishes it. Each person checks it, approves it or asks for changes, and the document moves to the next step only when the current one is done.</p>
+<p>The point is not bureaucracy. It is making sure the right eyes see a document before a mistake reaches customers, clients or the public. A workflow turns a vague hope that someone checked it into a visible record of who checked it, when, and what they said.</p>
+<h2>Why approvals get stuck</h2>
+<p>Most approvals stall for the same three reasons. Nobody knows the document is waiting for them, nobody knows what they are supposed to check, or nobody knows when it is due. A document sent with no deadline and no clear request will sit in an inbox until someone remembers to chase it.</p>
+<p>The fix is simple and unglamorous: name the approver, name the step, and set a date. A workflow where each step has a person, a job and a deadline moves on its own, because everyone can see what is waiting for them and what happens next.</p>
+<h2>Designing steps that move</h2>
+<p>Keep the number of steps small. Three to five steps cover most documents: a content check, a factual check, a final approval. Every extra step adds a day and a chance to stall. If a step adds no real check, remove it. If two people check the same thing, pick one.</p>
+<p>Order the steps so the cheap checks come first. A quick read for sense and spelling should come before a careful legal review, because there is no point in a careful review of a draft that is about to change. Put the person with the final say last, so they see the finished version, not a moving target.</p>
+<p>Write each step as a clear job, not a vague hope. Manager review means checking the message and the tone. Legal review means checking claims and risks. A step that only says review tells the approver nothing, and they will either delay it or approve it without reading.</p>
+<h2>Choosing the right approvers</h2>
+<p>Pick approvers by what they can check, not by their title. The person who wrote the numbers should not be the only person who checks them. The person who knows the client should check the promises made to that client. One careful reader who knows the subject beats three senior people who skim.</p>
+<p>Name one approver per step. When two people share a step, each assumes the other will do it, and the document waits. If a step genuinely needs two views, make it two steps, one after the other, so each person knows the document is theirs to check.</p>
+<h2>Deadlines people actually meet</h2>
+<p>A deadline works when it is short and visible. A review due in two days gets done; a review due someday gets forgotten. Set a date for each step, not just for the finished document, and show the dates to everyone in the workflow. A date that nobody sees is not a deadline.</p>
+<p>Match the deadline to the size of the job. A one-page letter does not need a week of review, and a forty-page report cannot be fairly checked in an hour. If an approver misses a date, the answer is usually a shorter document or an earlier start, not a longer deadline.</p>
+<h2>Tracking status without chasing</h2>
+<p>The best tracking is a list anyone can read: which steps are done, which step is waiting, and who holds it now. When the status is visible, approvers chase themselves, because nobody wants to be the name next to the step that has waited longest.</p>
+<p>Update the status the moment a step changes. A list that is a week out of date is worse than no list, because people stop trusting it. The tool on this page keeps the status in your browser, so you can update it in seconds and see the whole workflow at a glance.</p>
+<h2>When a step comes back with changes</h2>
+<p>Changes requested is a normal outcome, not a failure. It means the workflow is working. When a step comes back, the document goes to the person who can fix it, with the requested changes written down. Vague feedback, such as make it better, helps nobody. Specific feedback, such as the second paragraph overstates the discount, can be fixed in minutes.</p>
+<p>After the changes are made, the document returns to the step that asked for them, not to the start. Sending it back to the beginning wastes the approvals it already earned and teaches approvers to ask for changes only when they are sure, which is the wrong lesson.</p>
+<h2>Approving on a phone</h2>
+<p>Most approvals happen away from a desk, so a workflow must work on a phone. An approver should be able to open the document, read it, and mark it approved from wherever they are. If approving needs a computer, a printer, or a special program, the document will wait until the approver is back at their desk.</p>
+<p>Keep the approval itself to one tap: approve, or ask for changes with a short note. An approver who must write a long report to approve a short document will put it off. The decision is the work, not the paperwork around it, so make the decision easy to record.</p>
+<h2>Templates for common documents</h2>
+<p>Most documents a small business approves fall into a few familiar types, and each type has a natural set of steps. A contract usually needs a check of the terms, then a check of the money, then a final sign-off. A report usually needs a check of the facts, then a check of the message, then a final read. A marketing post usually needs a check of the claims, then a check of the tone.</p>
+<p>Write your usual steps down once, as a template, and reuse them instead of inventing a new workflow for every document. A template means nothing is forgotten: the same checks happen every time, in the same order. When a template stops fitting, change the template, not the habit of using one.</p>
+<p>Start with the document type you approve most often. List the checks it really needs, name the person for each check, and set the usual deadline for each step. That template becomes the default for that kind of document, and new team members can follow it without asking how approvals work.</p>
+<h2>What to do when an approver is away</h2>
+<p>Every workflow breaks the first time an approver goes on holiday. Plan for it before it happens. Name a deputy for each step, someone who can check the same things, and write the deputy down next to the approver. When the approver is away, the document goes to the deputy without a meeting or a hunt through old messages.</p>
+<p>If a step has no deputy, the document waits, and waiting is sometimes the right answer. A legal review cannot be done by just anyone, and a rushed approval from the wrong person is worse than a delay. For those steps, the honest answer is to start earlier, so the approval is done before the approver leaves.</p>
+<h2>Keeping a record of approvals</h2>
+<p>A record of who approved what, and when, protects everyone. If a question comes up later about a claim in a document, the record shows who checked it. If a deadline was missed, the record shows where the document waited. Keep the record simple: document title, steps, approvers, dates, and the final status.</p>
+<p>This tool keeps that record in your browser, and the copy button turns it into plain text you can paste into a message or a file. The record is a working note for your team, not a legal document, and it makes no claims about signatures or legal approval.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How many steps should an approval workflow have?</h3><p>Three to five steps cover most documents: a content check, a factual check and a final approval. Every extra step adds time and a chance to stall, so remove any step that adds no real check.</p></div><div class="faq"><h3>Who should approve a document?</h3><p>The person who can check it, not the most senior person available. Pick approvers by what they know: the person who knows the numbers checks the numbers, and the person who knows the client checks the promises.</p></div><div class="faq"><h3>What if an approver never replies?</h3><p>First check that they know the document is waiting and when it is due. A short reminder with the date usually works. If delays keep happening, the step may need a different approver or an earlier start.</p></div><div class="faq"><h3>Does this tool create a legally binding approval?</h3><p>No. It tracks approval steps in your browser and keeps a working record for your team. It does not create electronic signatures and it makes no legal claims about signatures or approvals.</p></div><div class="faq"><h3>Where is my workflow saved?</h3><p>In your browser on this device only, using local storage. Nothing is sent to a server and there is no account. Clearing your browser data will remove the saved workflow, so copy the text if you need a lasting copy.</p></div><div class="faq"><h3>Can I change a workflow after it has started?</h3><p>Yes. You can add steps, remove steps, change a status back to pending, or clear the whole workflow and start again. The record updates as you go, so the list always shows the current state.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../business-process-checklist-builder/">Business Process Checklist Builder</a> · <a href="../client-onboarding-form-builder/">Client Onboarding Form Builder</a> · <a href="../customer-feedback-form-builder/">Customer Feedback Form Builder</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = window.FT || {};
+(function(){
+"use strict";
+var STATUSES = ["Pending", "Approved", "Changes requested"];
+var KEY = "ft-document-approval-workflow-tool-workflow";
+function newWorkflow(title){
+  return {title: (title || "").trim(), steps: []};
+}
+function addStep(wf, step){
+  var name = (step.name || "").trim();
+  if (!name) return "Step name is required.";
+  if (wf.steps.length >= 20) return "A workflow can hold 20 steps at most.";
+  wf.steps.push({name: name, approver: (step.approver || "").trim(), due: step.due || "", status: "Pending"});
+  return null;
+}
+function setStatus(wf, idx, status){
+  if (idx < 0 || idx >= wf.steps.length) return false;
+  if (STATUSES.indexOf(status) < 0) return false;
+  wf.steps[idx].status = status;
+  return true;
+}
+function removeStep(wf, idx){
+  if (idx < 0 || idx >= wf.steps.length) return false;
+  wf.steps.splice(idx, 1);
+  return true;
+}
+function progress(wf){
+  var done = 0;
+  wf.steps.forEach(function(s){ if (s.status === "Approved") done++; });
+  var total = wf.steps.length;
+  return {done: done, total: total, pct: total === 0 ? 0 : Math.round(done * 100 / total)};
+}
+function isOverdue(step, todayISO){
+  if (!step.due || step.status !== "Pending") return false;
+  return step.due < todayISO;
+}
+function workflowText(wf){
+  var lines = ["Approval workflow - " + (wf.title || "Untitled document"), ""];
+  if (wf.steps.length === 0) lines.push("No steps yet.");
+  wf.steps.forEach(function(s, i){
+    var line = (i + 1) + ". " + s.name + " - " + s.status;
+    if (s.approver) line += " - " + s.approver;
+    if (s.due) line += " - due " + s.due;
+    lines.push(line);
+  });
+  var p = progress(wf);
+  lines.push("");
+  lines.push("Progress: " + p.done + " of " + p.total + " steps approved (" + p.pct + "%).");
+  return lines.join("\n");
+}
+window.FT.STATUSES = STATUSES;
+window.FT.newWorkflow = newWorkflow;
+window.FT.addStep = addStep;
+window.FT.setStatus = setStatus;
+window.FT.removeStep = removeStep;
+window.FT.progress = progress;
+window.FT.isOverdue = isOverdue;
+window.FT.workflowText = workflowText;
+if (typeof document === "undefined") return;
+var addBtn = document.getElementById("add-step-btn");
+if (!addBtn) return;
+var wf = newWorkflow("");
+try {
+  var saved = localStorage.getItem(KEY);
+  if (saved) { var parsed = JSON.parse(saved); if (parsed && parsed.steps) wf = parsed; }
+} catch(e) {}
+function todayISO(){
+  var d = new Date();
+  var m = "" + (d.getMonth() + 1), day = "" + d.getDate();
+  return d.getFullYear() + "-" + (m.length < 2 ? "0" + m : m) + "-" + (day.length < 2 ? "0" + day : day);
+}
+function save(){
+  try { localStorage.setItem(KEY, JSON.stringify(wf)); } catch(e) {}
+}
+function render(){
+  var list = document.getElementById("steps-list");
+  while (list.firstChild) list.removeChild(list.firstChild);
+  var today = todayISO();
+  wf.steps.forEach(function(s, idx){
+    var box = document.createElement("div");
+    box.className = "step";
+    var nm = document.createElement("p");
+    nm.className = "step-name";
+    nm.textContent = (idx + 1) + ". " + s.name;
+    var meta = document.createElement("p");
+    meta.className = "step-meta";
+    meta.textContent = (s.approver ? "Approver: " + s.approver : "Approver: not set") + (s.due ? "  |  Due: " + s.due : "");
+    var st = document.createElement("p");
+    st.className = "step-status" + (s.status === "Approved" ? " approved" : s.status === "Changes requested" ? " changes" : "");
+    var label = s.status;
+    if (isOverdue(s, today)) { label += " - overdue"; st.className += " overdue"; }
+    st.textContent = label;
+    var acts = document.createElement("div");
+    acts.className = "step-actions";
+    var ap = document.createElement("button");
+    ap.type = "button"; ap.textContent = "Approve";
+    ap.addEventListener("click", function(){ setStatus(wf, idx, "Approved"); save(); render(); });
+    var ch = document.createElement("button");
+    ch.type = "button"; ch.textContent = "Ask for changes";
+    ch.addEventListener("click", function(){ setStatus(wf, idx, "Changes requested"); save(); render(); });
+    var rm = document.createElement("button");
+    rm.type = "button"; rm.textContent = "Remove step";
+    rm.addEventListener("click", function(){ removeStep(wf, idx); save(); render(); });
+    acts.appendChild(ap); acts.appendChild(ch); acts.appendChild(rm);
+    box.appendChild(nm); box.appendChild(meta); box.appendChild(st); box.appendChild(acts);
+    list.appendChild(box);
+  });
+  var p = progress(wf);
+  document.getElementById("progress").textContent = wf.steps.length === 0 ? "No steps yet. Add the first step above." : p.done + " of " + p.total + " steps approved (" + p.pct + "%).";
+}
+document.getElementById("doc-title").value = wf.title || "";
+document.getElementById("doc-title").addEventListener("input", function(){
+  wf.title = this.value; save();
+});
+addBtn.addEventListener("click", function(){
+  var err = addStep(wf, {
+    name: document.getElementById("step-name").value,
+    approver: document.getElementById("step-approver").value,
+    due: document.getElementById("step-due").value
+  });
+  if (err) { alert(err); return; }
+  document.getElementById("step-name").value = "";
+  document.getElementById("step-approver").value = "";
+  document.getElementById("step-due").value = "";
+  save(); render();
+});
+function done(btn){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+document.getElementById("copy-btn").addEventListener("click", function(){
+  var btn = this;
+  var text = workflowText(wf);
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function(){ done(btn); }).catch(function(){ fallbackCopy(text); done(btn); });
+  } else { fallbackCopy(text); done(btn); }
+});
+document.getElementById("clear-btn").addEventListener("click", function(){
+  wf = newWorkflow(document.getElementById("doc-title").value);
+  save(); render();
+});
+render();
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

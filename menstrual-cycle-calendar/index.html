@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menstrual Cycle Calendar | Funtasha</title>
+<meta name="description" content="Free menstrual cycle calendar — log your period dates and see estimated dates for your next period, fertile window and ovulation. Private: everything stays on your device.">
+<link rel="canonical" href="https://funtasha.github.io/menstrual-cycle-calendar/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Menstrual Cycle Calendar">
+<meta property="og:description" content="Free menstrual cycle calendar — log your period dates and see estimated dates for your next period, fertile window and ovulation. Private: everything stays on your device.">
+<meta property="og:url" content="https://funtasha.github.io/menstrual-cycle-calendar/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How does this calendar predict my next period?", "acceptedAnswer": {"@type": "Answer", "text": "It adds your average cycle length to the first day of your last period. If your cycle is 28 days and your last period started on 1 March, the next one is estimated to start around 29 March. The estimate is only as steady as your cycle, so it is a guide, not a promise."}}, {"@type": "Question", "name": "What is the fertile window, and how is it worked out here?", "acceptedAnswer": {"@type": "Answer", "text": "The fertile window is the few days each cycle when pregnancy is most likely from unprotected sex. This page estimates ovulation as about 14 days before your next period, then marks the five days before ovulation plus the day after as the fertile window. These are estimates from the standard average cycle, not a guarantee."}}, {"@type": "Question", "name": "My cycle is not 28 days. Can I still use this page?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter your own average cycle length, from 21 to 45 days, and the predictions use your number. If you log several period starts, the page works out your average from your own dates, which is usually more useful than the 28-day standard."}}, {"@type": "Question", "name": "Why are the dates called estimates?", "acceptedAnswer": {"@type": "Answer", "text": "Because real cycles change. Stress, illness, travel, exercise and age can all shift a cycle by days, and no calendar can know that in advance. The estimates are a planning aid, not a medical prediction."}}, {"@type": "Question", "name": "Is my information private?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every date you enter is saved in your own browser only, on this device. Nothing is uploaded, there is no account, and nobody else can see your log. Clearing your log removes it completely."}}, {"@type": "Question", "name": "When should I see a professional?", "acceptedAnswer": {"@type": "Answer", "text": "See a professional if your cycles are often much shorter than 21 days or longer than 35 days, if bleeding is very heavy or painful, if you miss periods, or if anything worries you. This page is education only and cannot replace advice about your own health."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button,.calc input,.calc select{min-height:72px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0;flex:none}
+.calc textarea{width:100%;min-height:120px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;font-family:inherit}
+.calc pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:15px;margin-top:10px;text-align:left;font-family:inherit}
+.msg{font-size:15px;color:#334155;margin-top:10px;min-height:22px}
+table.data{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+table.data th,table.data td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;vertical-align:top}
+table.data th{background:#fdf2f8}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #e2e8f0}
+.row label{margin:0;font-weight:400;font-size:16px}
+.row input[type=checkbox]{width:28px;height:28px}
+.chip{display:inline-block;background:#fdf2f8;border:1px solid #fbcfe8;border-radius:999px;padding:6px 14px;font-size:14.5px;margin:4px 4px 0 0}
+.calc #grid table.data td{font-size:13.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Menstrual Cycle Calendar</h1>
+<p class="answer">Log your period start dates and see estimated dates for your next period, fertile window and ovulation, all worked out on your own device. This page is education only, not medical advice, and every prediction is an estimate because real cycles vary from month to month.</p>
+<div class="calc">
+<label for="last-start">First day of your last period</label>
+<input type="date" id="last-start">
+<label for="cycle-len">Your average cycle length, in days</label>
+<input type="number" id="cycle-len" value="28" min="21" max="45" inputmode="numeric">
+<label for="period-len">How many days your period usually lasts</label>
+<input type="number" id="period-len" value="5" min="2" max="10" inputmode="numeric">
+<button id="show-btn" type="button">Show my calendar</button>
+<div class="out" id="out"></div>
+<div class="steps" id="steps"></div>
+<div id="grid"></div>
+<label for="log-date">Log a period start date</label>
+<input type="date" id="log-date">
+<button id="log-btn" type="button">Log this date</button>
+<div class="steps" id="avg-line"></div>
+<button id="use-avg-btn" type="button" style="display:none">Use this average</button>
+<div id="log-list"></div>
+<button id="copy-btn" type="button" style="display:none">Copy my summary</button>
+<button id="clear-log-btn" type="button">Clear my log</button>
+<p class="msg" id="msg"></p>
+</div>
+<div class="warn">Education only — not medical advice. The dates this page shows are estimates from the standard average cycle (ovulation about 14 days before the next period), and real cycles vary from month to month. See a professional for irregular cycles, very heavy bleeding, severe pain, or any worry about your health. Everything you enter stays on this device — nothing is uploaded, no account, no tracking.</div>
+
+<h2>How the calendar works</h2>
+<p>Enter the first day of your last period, your average cycle length, and how many days your period usually lasts, then tap Show my calendar. The page works out three estimates for you: when your next period is likely to start, when your fertile window is likely to fall, and the day ovulation is most likely to happen. It also draws a calendar from your last period through to the end of your next estimated period, so you can see those dates at a glance, with your last period, your next estimated period, your fertile window and your estimated ovulation day each marked in a different way.</p>
+<p>The calendar also keeps a log. Every time a period starts, add the date with the log box below the calendar. After you have logged two or more starts, the page works out your average cycle length from your own dates and shows it to you. That average is usually more useful than the standard 28 days, because it reflects your body rather than an average of everyone else. You can tap the button to use your own average in the calendar, or keep typing in your own number — the choice is yours.</p>
+<p>Nothing here needs an account, a download or a connection to anyone. The calendar is a small program that runs entirely in your browser. Your dates are stored in your browser on this device only, and the page never sends them anywhere. If you clear your log, the dates are gone for good, so keep a note elsewhere if you want a long-term record.</p>
+<h2>What a menstrual cycle actually is</h2>
+<p>A menstrual cycle is counted from the first day of one period to the first day of the next. The first day of bleeding is day one. The average cycle is often quoted as 28 days, but a cycle anywhere from 21 to 35 days is generally considered typical for adults, and cycles are often less regular in the first years after periods start and in the years before they stop. The length of the period itself also varies: most periods last between three and seven days.</p>
+<p>Behind the cycle is a conversation between the brain and the ovaries. Hormones rise and fall in a pattern that prepares the lining of the womb, releases an egg, and then either supports a pregnancy or sheds the lining as a period. Because hormones respond to the rest of your life — stress, illness, sleep, exercise, travel, weight changes — the pattern is never perfectly mechanical. Two cycles in a row can differ by several days without anything being wrong.</p>
+<p>That is why a calendar like this one is a planning aid and not a medical instrument. It takes the pattern you describe and projects it forward. When your body follows its usual pattern, the estimates land close to the real dates. When life intervenes, the estimates move. Keeping a log over several months is the best way to learn what your own usual pattern looks like.</p>
+<h2>The four phases in plain words</h2>
+<p>It helps to know what the calendar is actually marking. The cycle is usually described in four phases. The menstrual phase is the period itself: the womb lining sheds, and bleeding lasts a few days. The follicular phase starts at the same time and runs until ovulation: the body prepares an egg and rebuilds the womb lining. Then comes ovulation, when the egg is released. The final stretch, the luteal phase, runs from ovulation to the start of the next period and is usually the steadiest part of the cycle, lasting about 14 days for many people.</p>
+<p>The fertile window sits around ovulation. Pregnancy is most likely from unprotected sex in the five days before ovulation and on the day of ovulation itself, because sperm can survive in the body for several days while the egg survives for roughly a day. This page marks that window as an estimate. It is not a contraceptive method: the fertile window cannot be predicted precisely enough to prevent pregnancy, and anyone who wants to avoid pregnancy should use a reliable method and talk to a professional about it.</p>
+<p>Some people notice signs around ovulation — a change in discharge, a small rise in body temperature, a twinge on one side — but these signs are subtle and not everyone notices them. The calendar does not track symptoms; it only works with dates. If you want to learn your own signs, a paper notebook alongside the log is a simple way to do it.</p>
+<h2>Why every prediction here is an estimate</h2>
+<p>The predictions on this page rest on one assumption: that your next cycle will look like your average cycle. That assumption is often reasonable, and often wrong by a few days. Ovulation is the least predictable part: the commonly quoted rule that ovulation happens 14 days before the next period describes an average, and real ovulation can happen several days earlier or later. Because the fertile window is built around the ovulation estimate, it moves with it.</p>
+<p>Many ordinary things shift a cycle. A stressful month, a bad cold, a long flight, a change in exercise or a new medicine can all delay ovulation, and a delayed ovulation means a delayed period. That is normal and usually nothing to worry about. What matters is the pattern over months, not any single cycle. If your cycles are usually regular and one arrives a week late, the calendar was not broken — your body simply had a different month.</p>
+<p>Use the estimates the way you would use a weather forecast: helpful for planning, not a promise. Pack supplies a few days before the estimated start, note the fertile window if you are planning or avoiding pregnancy with proper advice, and do not be surprised if the real dates land a little to either side of the estimates.</p>
+<h2>Logging your dates: the habit that makes it useful</h2>
+<p>The single most useful thing you can do with this page is log the first day of each period, every time. One logged date gives the calendar a starting point. Two dates give it a first cycle length. Three or more dates give it an average that starts to mean something. After six months of logging, you will know your own range — your shortest cycle, your longest, and what your usual looks like — and that knowledge is worth more than any single prediction.</p>
+<p>Log the date on the day the period starts, while you remember it. If you forget, add it as soon as you can; a late entry is still useful. If you logged a date by mistake, remove it from the list — the average is recalculated from what remains. The log list shows your dates in order, newest last, so you can check at a glance that everything looks right.</p>
+<p>Keep in mind that the log lives only in this browser, on this device. If you switch phones or clear your browser data, the log goes with it. If your logged history matters to you — for example, if you plan to show it to a professional — copy the summary or write the dates down somewhere safe from time to time.</p>
+<h2>Irregular cycles: when to talk to a professional</h2>
+<p>Cycles are called irregular when they fall outside the usual range or change suddenly. As a rough guide, it is worth talking to a professional if your cycles are often shorter than 21 days or longer than 35 days, if the gap between periods changes a lot from month to month, if you miss periods, or if bleeding is very heavy, lasts much longer than a week, or comes with pain that stops you doing ordinary things. Bleeding between periods or after sex is also worth mentioning. None of these is a diagnosis of anything — they are simply the points where a professional can help you work out what is going on.</p>
+<p>A professional will usually ask about your cycle history, which is another reason a log helps. Being able to say how long your cycles have been, and for how long they have been that way, makes the conversation much easier. Bring your logged dates, or the summary from this page, if you find that helpful.</p>
+<p>This page cannot tell you why a cycle is irregular, and it never tries to. It shows estimates from the numbers you enter and leaves the medical questions to people who can actually answer them. If something about your cycle worries you, that worry alone is a good enough reason to ask a professional.</p>
+<h2>Your privacy: everything stays on this device</h2>
+<p>Period dates are private information, and this page treats them that way. Everything you type is saved in your browser using local storage — a small store on your own device that websites can use to remember things between visits. No account is created, no email address is asked for, and nothing is sent to any server. The page makes no network requests at all for your data.</p>
+<p>There is one honest limit to that privacy: anyone who picks up this device and opens this page can see the log, just as they could see any other page you have open. If you share your device, keep that in mind. The Clear my log button removes every logged date immediately, and the estimates disappear with them. Your browser's own clear-data option does the same thing.</p>
+<p>That is the whole privacy story: your dates live on your device, under your control, and nowhere else. No one at Funtasha can see them, because they never leave your browser.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How does this calendar predict my next period?</h3><p>It adds your average cycle length to the first day of your last period. If your cycle is 28 days and your last period started on 1 March, the next one is estimated to start around 29 March. The estimate is only as steady as your cycle, so it is a guide, not a promise.</p></div>
+<div class="faq"><h3>What is the fertile window, and how is it worked out here?</h3><p>The fertile window is the few days each cycle when pregnancy is most likely from unprotected sex. This page estimates ovulation as about 14 days before your next period, then marks the five days before ovulation plus the day after as the fertile window. These are estimates from the standard average cycle, not a guarantee.</p></div>
+<div class="faq"><h3>My cycle is not 28 days. Can I still use this page?</h3><p>Yes. Enter your own average cycle length, from 21 to 45 days, and the predictions use your number. If you log several period starts, the page works out your average from your own dates, which is usually more useful than the 28-day standard.</p></div>
+<div class="faq"><h3>Why are the dates called estimates?</h3><p>Because real cycles change. Stress, illness, travel, exercise and age can all shift a cycle by days, and no calendar can know that in advance. The estimates are a planning aid, not a medical prediction.</p></div>
+<div class="faq"><h3>Is my information private?</h3><p>Yes. Every date you enter is saved in your own browser only, on this device. Nothing is uploaded, there is no account, and nobody else can see your log. Clearing your log removes it completely.</p></div>
+<div class="faq"><h3>When should I see a professional?</h3><p>See a professional if your cycles are often much shorter than 21 days or longer than 35 days, if bleeding is very heavy or painful, if you miss periods, or if anything worries you. This page is education only and cannot replace advice about your own health.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../mental-wellness-journal/">Mental Wellness Journal</a> · <a href="../ergonomic-desk-setup-planner/">Ergonomic Desk Setup Planner</a> · <a href="../small-business-resource-directory/">Small Business Resource Directory</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+(function () {
+  var FT = window.FT = window.FT || {};
+  var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var KEY = "ft-menstrual-cycle-calendar-log";
+
+  function parseISO(s) {
+    if (!s || !/^\d{4}-\d{2}-\d{2}$/.test(s)) return null;
+    var p = s.split("-");
+    var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+    if (d.getUTCFullYear() !== +p[0] || d.getUTCMonth() !== +p[1] - 1 || d.getUTCDate() !== +p[2]) return null;
+    return d;
+  }
+  function toISO(d) {
+    var m = d.getUTCMonth() + 1, day = d.getUTCDate();
+    return d.getUTCFullYear() + "-" + (m < 10 ? "0" + m : m) + "-" + (day < 10 ? "0" + day : day);
+  }
+  function addDaysISO(iso, n) {
+    var d = parseISO(iso);
+    if (!d) return null;
+    d.setUTCDate(d.getUTCDate() + n);
+    return toISO(d);
+  }
+  function diffDays(aISO, bISO) {
+    var a = parseISO(aISO), b = parseISO(bISO);
+    if (!a || !b) return null;
+    return Math.round((b.getTime() - a.getTime()) / 86400000);
+  }
+  function formatDate(iso) {
+    var d = parseISO(iso);
+    if (!d) return iso;
+    return d.getUTCDate() + " " + MONTHS[d.getUTCMonth()] + " " + d.getUTCFullYear();
+  }
+  function predictWindows(lastStart, cycleLen, periodLen) {
+    var nextStart = addDaysISO(lastStart, cycleLen);
+    var nextEnd = addDaysISO(nextStart, periodLen - 1);
+    var ovulation = addDaysISO(nextStart, -14);
+    var fertileStart = addDaysISO(ovulation, -5);
+    var fertileEnd = addDaysISO(ovulation, 1);
+    return { nextStart: nextStart, nextEnd: nextEnd, ovulation: ovulation,
+             fertileStart: fertileStart, fertileEnd: fertileEnd };
+  }
+  function averageCycle(dates) {
+    if (!dates || dates.length < 2) return null;
+    var sorted = dates.slice().sort();
+    var total = 0, n = 0;
+    for (var i = 1; i < sorted.length; i++) {
+      var g = diffDays(sorted[i - 1], sorted[i]);
+      if (g !== null && g > 0) { total += g; n++; }
+    }
+    if (!n) return null;
+    return Math.round(total / n);
+  }
+  function buildGrid(lastStart, cycleLen, periodLen) {
+    var w = predictWindows(lastStart, cycleLen, periodLen);
+    var total = cycleLen + periodLen;
+    var days = [];
+    for (var i = 0; i < total; i++) {
+      var iso = addDaysISO(lastStart, i);
+      var kind = "";
+      if (i < periodLen) kind = "period";
+      if (iso >= w.nextStart && iso <= w.nextEnd) kind = "predicted";
+      if (iso >= w.fertileStart && iso <= w.fertileEnd) kind = "fertile";
+      if (iso === w.ovulation) kind = "ovulation";
+      days.push({ iso: iso, kind: kind });
+    }
+    return days;
+  }
+  FT.addDaysISO = addDaysISO;
+  FT.diffDays = diffDays;
+  FT.formatDate = formatDate;
+  FT.predictWindows = predictWindows;
+  FT.averageCycle = averageCycle;
+  FT.buildGrid = buildGrid;
+  FT.MONTHS = MONTHS;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var lastText = "";
+
+  function loadLog() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      var arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr.filter(function (s) { return !!parseISO(s); }).sort() : [];
+    } catch (e) { return []; }
+  }
+  function saveLog(arr) {
+    try { localStorage.setItem(KEY, JSON.stringify(arr)); } catch (e) {}
+  }
+  function renderLog() {
+    var log = loadLog();
+    var list = $("log-list");
+    list.textContent = "";
+    var avgLine = $("avg-line");
+    var useBtn = $("use-avg-btn");
+    var avg = averageCycle(log);
+    if (log.length === 0) {
+      avgLine.textContent = "No dates logged yet. Log the first day of your last period to start your log.";
+      useBtn.style.display = "none";
+    } else {
+      var head = document.createElement("p");
+      head.textContent = "Logged period starts (" + log.length + "):";
+      list.appendChild(head);
+      log.forEach(function (iso) {
+        var row = document.createElement("div");
+        row.className = "row";
+        var span = document.createElement("span");
+        span.textContent = formatDate(iso);
+        span.style.flex = "1";
+        var rm = document.createElement("button");
+        rm.type = "button";
+        rm.textContent = "Remove";
+        rm.addEventListener("click", function () {
+          saveLog(loadLog().filter(function (x) { return x !== iso; }));
+          renderLog();
+        });
+        row.appendChild(span);
+        row.appendChild(rm);
+        list.appendChild(row);
+      });
+      if (avg !== null) {
+        avgLine.textContent = "From your " + log.length + " logged starts, your average cycle is " + avg + " days.";
+        if (avg >= 21 && avg <= 45) {
+          useBtn.style.display = "";
+          useBtn.textContent = "Use " + avg + " days as my cycle length";
+          useBtn.onclick = function () { $("cycle-len").value = String(avg); };
+        } else {
+          useBtn.style.display = "none";
+          avgLine.textContent += " That is outside the usual 21 to 45 day range, so check your dates or talk to a professional.";
+        }
+      } else {
+        avgLine.textContent = "Log one more start date and the page can work out your average cycle.";
+        useBtn.style.display = "none";
+      }
+    }
+  }
+  function renderGrid(lastStart, cycleLen, periodLen) {
+    var grid = $("grid");
+    grid.textContent = "";
+    var days = buildGrid(lastStart, cycleLen, periodLen);
+    var table = document.createElement("table");
+    table.className = "data";
+    var headRow = document.createElement("tr");
+    ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach(function (d) {
+      var th = document.createElement("th");
+      th.textContent = d;
+      headRow.appendChild(th);
+    });
+    table.appendChild(headRow);
+    var firstDow = parseISO(lastStart).getUTCDay();
+    var cells = [];
+    for (var i = 0; i < firstDow; i++) cells.push(null);
+    days.forEach(function (d) { cells.push(d); });
+    while (cells.length % 7 !== 0) cells.push(null);
+    for (var r = 0; r < cells.length; r += 7) {
+      var tr = document.createElement("tr");
+      for (var c = 0; c < 7; c++) {
+        var td = document.createElement("td");
+        var cell = cells[r + c];
+        if (cell) {
+          var d = parseISO(cell.iso);
+          var label = d.getUTCDate() + " " + MONTHS[d.getUTCMonth()];
+          if (cell.kind === "period") label += " — period";
+          else if (cell.kind === "predicted") label += " — next period (estimate)";
+          else if (cell.kind === "fertile") label += " — fertile window (estimate)";
+          else if (cell.kind === "ovulation") label += " — ovulation (estimate)";
+          td.textContent = label;
+          if (cell.kind) td.style.background = cell.kind === "period" ? "#fce7f3" : cell.kind === "predicted" ? "#fef3c7" : cell.kind === "fertile" ? "#dbeafe" : "#ede9fe";
+        }
+        tr.appendChild(td);
+      }
+      table.appendChild(tr);
+    }
+    grid.appendChild(table);
+  }
+  $("show-btn").addEventListener("click", function () {
+    var last = $("last-start").value;
+    var cycle = parseInt($("cycle-len").value, 10);
+    var plen = parseInt($("period-len").value, 10);
+    var msg = $("msg");
+    if (!parseISO(last)) { msg.textContent = "Please pick the first day of your last period."; return; }
+    if (!(cycle >= 21 && cycle <= 45)) { msg.textContent = "Cycle length must be between 21 and 45 days."; return; }
+    if (!(plen >= 2 && plen <= 10)) { msg.textContent = "Period length must be between 2 and 10 days."; return; }
+    msg.textContent = "";
+    var w = predictWindows(last, cycle, plen);
+    $("out").textContent = "Next period estimated: " + formatDate(w.nextStart) + " to " + formatDate(w.nextEnd) + ".";
+    $("steps").textContent = "Fertile window (estimate): " + formatDate(w.fertileStart) + " to " + formatDate(w.fertileEnd) + ". Ovulation (estimate): " + formatDate(w.ovulation) + ". These are estimates from the standard average cycle.";
+    renderGrid(last, cycle, plen);
+    lastText = "Menstrual cycle summary (estimates only — not medical advice)\n" +
+      "Last period started: " + formatDate(last) + "\n" +
+      "Average cycle length: " + cycle + " days\n" +
+      "Next period estimated: " + formatDate(w.nextStart) + " to " + formatDate(w.nextEnd) + "\n" +
+      "Fertile window (estimate): " + formatDate(w.fertileStart) + " to " + formatDate(w.fertileEnd) + "\n" +
+      "Ovulation (estimate): " + formatDate(w.ovulation);
+    $("copy-btn").style.display = "";
+  });
+  $("log-btn").addEventListener("click", function () {
+    var d = $("log-date").value;
+    if (!parseISO(d)) { $("msg").textContent = "Please pick a date to log."; return; }
+    var log = loadLog();
+    if (log.indexOf(d) === -1) { log.push(d); log.sort(); saveLog(log); }
+    $("msg").textContent = "Logged " + formatDate(d) + ".";
+    renderLog();
+  });
+  $("clear-log-btn").addEventListener("click", function () {
+    saveLog([]);
+    $("msg").textContent = "Your log is cleared.";
+    renderLog();
+  });
+  $("copy-btn").addEventListener("click", function () {
+    if (lastText) copyText(lastText, $("copy-btn"));
+  });
+  renderLog();
+
+  function copyText(text, btn) {
+    var original = btn.textContent;
+    function done() {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

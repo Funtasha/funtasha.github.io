@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client Onboarding Form Builder | Funtasha</title>
+<meta name="description" content="Free client onboarding form builder — pick the sections you need, add your own questions, then copy or download the finished form. No data collected, no signup.">
+<link rel="canonical" href="https://funtasha.github.io/client-onboarding-form-builder/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Client Onboarding Form Builder">
+<meta property="og:description" content="Free client onboarding form builder — pick the sections you need, add your own questions, then copy or download the finished form. No data collected, no signup.">
+<meta property="og:url" content="https://funtasha.github.io/client-onboarding-form-builder/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What should an onboarding form ask first?", "acceptedAnswer": {"@type": "Answer", "text": "Start with the essentials: what the client needs, who the contact is, and when they need it. Save detailed questions about files, access and brand for later in the form, after the client is already answering."}}, {"@type": "Question", "name": "How long should an onboarding form be?", "acceptedAnswer": {"@type": "Answer", "text": "Short enough to finish in ten minutes. Ten to fifteen questions is a good target for most projects. If your form is longer, split it: the essentials first, and the detail once the project is confirmed."}}, {"@type": "Question", "name": "Should I ask about budget in the form?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, if budget shapes what you can offer. A range question is friendlier than an exact figure, and it saves both sides time when expectations are far apart. Keep it optional if your clients are shy about money."}}, {"@type": "Question", "name": "What if a client leaves questions blank?", "acceptedAnswer": {"@type": "Answer", "text": "That is normal. Follow up with a short message asking only about the missing answers, and say why you need them. Most clients answer quickly when they know a blank answer is holding up their project."}}, {"@type": "Question", "name": "Is any client data stored on this page?", "acceptedAnswer": {"@type": "Answer", "text": "No. This builder makes a questionnaire you copy and send yourself. Nothing is collected, stored or sent anywhere by this page, and there is no signup."}}, {"@type": "Question", "name": "How do I send the finished form?", "acceptedAnswer": {"@type": "Answer", "text": "Copy the text and paste it into an email or a document, or download it as a text file. For a neater result, paste the questions into your usual form tool and send the link — the wording is yours to reuse however you like."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button,.calc input,.calc select{min-height:72px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0;flex:none}
+.calc textarea{width:100%;min-height:120px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;font-family:inherit}
+.calc pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:15px;margin-top:10px;text-align:left;font-family:inherit}
+.msg{font-size:15px;color:#334155;margin-top:10px;min-height:22px}
+table.data{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+table.data th,table.data td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;vertical-align:top}
+table.data th{background:#fdf2f8}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #e2e8f0}
+.row label{margin:0;font-weight:400;font-size:16px}
+.row input[type=checkbox]{width:28px;height:28px}
+.chip{display:inline-block;background:#fdf2f8;border:1px solid #fbcfe8;border-radius:999px;padding:6px 14px;font-size:14.5px;margin:4px 4px 0 0}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Client Onboarding Form Builder</h1>
+<p class="answer">Build a clear onboarding questionnaire for a new client — pick the sections you need, add your own questions, then copy or download the finished form. Nothing is collected or sent anywhere by this page.</p>
+<div class="calc">
+<label for="biz">Your business name (optional)</label>
+<input type="text" id="biz" placeholder="Your business name">
+<p class="msg">Tick the sections you want in your form:</p>
+<div class="row"><input type="checkbox" id="sec-services" checked><label for="sec-services">Services needed</label></div>
+<div class="row"><input type="checkbox" id="sec-goals" checked><label for="sec-goals">Goals and success</label></div>
+<div class="row"><input type="checkbox" id="sec-contacts" checked><label for="sec-contacts">Contacts</label></div>
+<div class="row"><input type="checkbox" id="sec-files" checked><label for="sec-files">Files needed</label></div>
+<div class="row"><input type="checkbox" id="sec-budget"><label for="sec-budget">Budget range</label></div>
+<div class="row"><input type="checkbox" id="sec-timeline"><label for="sec-timeline">Timeline</label></div>
+<div class="row"><input type="checkbox" id="sec-brand"><label for="sec-brand">Brand details</label></div>
+<div class="row"><input type="checkbox" id="sec-access"><label for="sec-access">Access and logins</label></div>
+<label for="custom-q">Add your own question (optional)</label>
+<input type="text" id="custom-q" placeholder="Type a question, then tap Add my question">
+<button id="add-q-btn" type="button">Add my question</button>
+<div id="custom-list"></div>
+<button id="build-btn" type="button">Build my form</button>
+<pre id="preview"></pre>
+<button id="copy-btn" type="button" style="display:none">Copy my form</button>
+<button id="dl-btn" type="button" style="display:none">Download as text</button>
+<p class="msg" id="msg"></p>
+</div>
+<div class="warn">This builder creates a questionnaire you send to a client yourself — it collects nothing. No data is stored or sent anywhere; the form text is made in your browser and you copy it. Never ask a client to send passwords in a form.</div>
+
+<h2>Why onboarding matters</h2>
+<p>The first form a client fills in sets the tone for the whole project. A clear, friendly onboarding form tells the client you are organised, that you know what you need, and that you respect their time. A messy one — or no form at all — means the same questions asked three times by email, missing files discovered halfway through, and a project that starts late because nobody asked about the deadline.</p>
+<p>Onboarding is not paperwork for its own sake. It is the moment you learn what the client actually wants, who you will be working with, what already exists, and what success looks like. Every answer you collect up front is an email you do not have to send later and a misunderstanding you do not have to fix. The hour you spend building a good form pays for itself on the first project that uses it.</p>
+<p>This builder gives you that form in minutes. Pick the sections that fit the project, add any questions of your own, and copy the finished questionnaire. There is no account and nothing is collected — the form text is made in your browser, and you send it however you like.</p>
+<h2>What a good form asks</h2>
+<p>A good onboarding form asks four kinds of things. First, the basics: who the client is, who your contact will be, and how to reach them. Second, the work itself: what they need, what success looks like, and when they need it. Third, the materials: files, brand details, and anything you need before you can start. Fourth, the practicalities: budget range, timeline, and access to the tools or accounts the work touches.</p>
+<p>The order matters. Put the easy questions first — name, contact, what they need — and save the harder ones, like budget and access, for later in the form. A client who has already answered five questions is much more likely to answer the sixth than a client who meets a budget question first. Keep the whole form short enough to finish in about ten minutes; ten to fifteen questions is a good target for most projects.</p>
+<p>Every question should earn its place. If you would not act on the answer, cut the question. Clients can tell when a form is fishing rather than asking, and a long form full of questions nobody reads teaches them to answer carelessly. A short form full of questions that clearly matter gets careful answers.</p>
+<h2>The sections, explained</h2>
+<p>Services needed covers what the client wants you to do and what a good result looks like. Goals and success goes a step further: who the work is for, and how the client will judge whether it worked. These two sections together are the heart of the form — if you only include two sections, include these.</p>
+<p>Contacts is the section people skip and then regret skipping. Knowing the main contact, a phone number, and the best email address to reach them sounds trivial until the one person who can approve something is on holiday and nobody knows who stands in for them. Ask for a second contact if the project is large.</p>
+<p>Files needed asks what the client can share: documents, brand files, photographs, previous work. Budget range asks what they have planned, in broad terms. Timeline asks when the work should start and whether there is a fixed date. Brand details asks how the client describes their own brand. Access and logins asks which accounts or tools you will need — and reminds you never to ask for passwords in a form. Passwords should be shared through a proper password manager, never in plain text.</p>
+<h2>Writing questions clients actually answer</h2>
+<p>The best onboarding questions are specific, short, and easy to answer without thinking too hard. "What does success look like for this project?" gets a better answer than "Please describe your objectives in detail." "When would you like the work to start?" beats "What is your ideal timeline?" One asks for a date; the other asks for an essay.</p>
+<p>Avoid jargon the client may not share. If you ask about "deliverables" or "stakeholders", some clients will guess rather than ask what you mean, and a guessed answer is worse than a blank one. Plain words — "What do you want us to make?" and "Who needs to approve it?" — get honest answers from everyone.</p>
+<p>Give examples where a question could be read two ways. After "Who is the audience for this work?", add a hint like "for example, new customers, existing clients, or your own team". A short example shows the kind of answer you want without putting words in the client's mouth. And keep the tone friendly: a form that reads like a tax return gets tax-return answers.</p>
+<h2>Files and access: the part everyone forgets</h2>
+<p>More projects stall on missing files than on anything else. The client meant to send the logo, the photographs are on someone else's computer, the brand colours live in a file nobody can find. Asking for files in the onboarding form — with a list of what you need — moves that problem to the start of the project, where it belongs, instead of the middle, where it costs days.</p>
+<p>Be specific about what you need. "Your logo" is vague; "your logo as a high-resolution file, and the colours and fonts you use" is a request the client can act on. If you need access to accounts — a website, a social account, a shared drive — ask which accounts and who can approve access. Never ask for a password in a form, in an email, or in a chat message. Use a password manager or an invite link, and say so in the form so the client knows what to expect.</p>
+<p>When the files arrive, check them straight away. A low-resolution logo or a missing font found on day one is a quick message; found on the day of delivery, it is a crisis. The onboarding form is only useful if someone reads the answers and acts on them.</p>
+<h2>Sending the form and following up</h2>
+<p>Copy the finished form from this page and paste it into an email or a document, or download it as a text file. For a neater result, paste the questions into your usual form tool and send the link — the wording is yours to reuse however you like. Send it with a short message saying what it is for and when you need it back. A deadline, even a soft one, roughly doubles the speed of replies.</p>
+<p>When the form comes back with blanks, follow up on the blanks only. A short message — "Thanks, this is really helpful; two things are still missing, and I need them before I can start" — gets a faster answer than sending the whole form again. Say why you need each missing answer; clients answer faster when they know a blank is holding up their own project.</p>
+<p>Keep the completed form where the project lives. When a question comes up mid-project — what did the client actually ask for, who approves this, what was the deadline — the onboarding form is the record that settles it. A form that is filled in and then lost is barely better than no form at all.</p>
+<h2>Keeping client information safe</h2>
+<p>An onboarding form collects personal information: names, phone numbers, email addresses, sometimes business details. That information deserves care. Store completed forms where only the people working on the project can reach them, and do not forward them around more widely than the work needs.</p>
+<p>Ask only for what the project needs, and say what you will do with it. A line in your message — "I will only use these details for your project" — costs nothing and builds trust. Delete details you no longer need when a project ends, and keep passwords out of forms entirely, always.</p>
+<p>This builder itself collects nothing: the form text is made in your browser, and nothing is stored or sent anywhere. The safety of the answers, once a client sends them back to you, is your responsibility — and a good onboarding process treats it as part of the job, not an afterthought.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What should an onboarding form ask first?</h3><p>Start with the essentials: what the client needs, who the contact is, and when they need it. Save detailed questions about files, access and brand for later in the form, after the client is already answering.</p></div>
+<div class="faq"><h3>How long should an onboarding form be?</h3><p>Short enough to finish in ten minutes. Ten to fifteen questions is a good target for most projects. If your form is longer, split it: the essentials first, and the detail once the project is confirmed.</p></div>
+<div class="faq"><h3>Should I ask about budget in the form?</h3><p>Yes, if budget shapes what you can offer. A range question is friendlier than an exact figure, and it saves both sides time when expectations are far apart. Keep it optional if your clients are shy about money.</p></div>
+<div class="faq"><h3>What if a client leaves questions blank?</h3><p>That is normal. Follow up with a short message asking only about the missing answers, and say why you need them. Most clients answer quickly when they know a blank answer is holding up their project.</p></div>
+<div class="faq"><h3>Is any client data stored on this page?</h3><p>No. This builder makes a questionnaire you copy and send yourself. Nothing is collected, stored or sent anywhere by this page, and there is no signup.</p></div>
+<div class="faq"><h3>How do I send the finished form?</h3><p>Copy the text and paste it into an email or a document, or download it as a text file. For a neater result, paste the questions into your usual form tool and send the link — the wording is yours to reuse however you like.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../customer-feedback-form-builder/">Customer Feedback Form Builder</a> · <a href="../business-process-checklist-builder/">Business Process Checklist Builder</a> · <a href="../document-approval-workflow-tool/">Document Approval Workflow Tool</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+
+(function () {
+  var FT = window.FT = window.FT || {};
+  var SECTIONS = [
+    { id: "services", label: "Services needed", questions: [
+      "What services do you need from us?",
+      "What does success look like for this project?",
+      "Is there a deadline we should know about?"
+    ]},
+    { id: "goals", label: "Goals and success", questions: [
+      "What is the main goal of this project?",
+      "Who is the audience or customer for this work?",
+      "How will you measure whether it worked?"
+    ]},
+    { id: "contacts", label: "Contacts", questions: [
+      "Who is our main point of contact?",
+      "What is the best phone number to reach them?",
+      "What is the best email address to reach them?",
+      "Is there a second contact if the main contact is away?"
+    ]},
+    { id: "files", label: "Files needed", questions: [
+      "Which files or documents can you share with us?",
+      "Do you have brand files (logo, colours, fonts) to share?",
+      "Are there any documents we should read before we start?"
+    ]},
+    { id: "budget", label: "Budget range", questions: [
+      "What budget range have you planned for this work?",
+      "Is the budget fixed, or is there room to adjust the scope?"
+    ]},
+    { id: "timeline", label: "Timeline", questions: [
+      "When would you like the work to start?",
+      "Is there a fixed launch or event date?"
+    ]},
+    { id: "brand", label: "Brand details", questions: [
+      "How would you describe your brand in a few words?",
+      "Are there brands or styles you like or dislike?"
+    ]},
+    { id: "access", label: "Access and logins", questions: [
+      "Which accounts or tools will we need access to?",
+      "Who can approve access requests on your side?",
+      "Please do not share passwords in this form — we will send a secure invite."
+    ]}
+  ];
+  FT.SECTIONS = SECTIONS;
+  function buildForm(selectedIds, customQs, businessName) {
+    var lines = ["Client Onboarding Form"];
+    if (businessName) lines.push("Business: " + businessName);
+    lines.push("");
+    var n = 0;
+    SECTIONS.forEach(function (sec) {
+      if (selectedIds.indexOf(sec.id) === -1) return;
+      lines.push(sec.label);
+      sec.questions.forEach(function (q) {
+        n++;
+        lines.push(n + ". " + q);
+      });
+      lines.push("");
+    });
+    if (customQs && customQs.length) {
+      lines.push("Your questions");
+      customQs.forEach(function (q) {
+        n++;
+        lines.push(n + ". " + q);
+      });
+      lines.push("");
+    }
+    lines.push("Thank you — please send this form back when you can, and let us know if any question is unclear.");
+    return lines.join("\n");
+  }
+  FT.buildForm = buildForm;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var customQs = [];
+  var lastText = "";
+
+  function renderCustom() {
+    var box = $("custom-list");
+    box.textContent = "";
+    customQs.forEach(function (q, i) {
+      var row = document.createElement("div");
+      row.className = "row";
+      var span = document.createElement("span");
+      span.style.flex = "1";
+      span.textContent = q;
+      var rm = document.createElement("button");
+      rm.type = "button";
+      rm.textContent = "Remove";
+      rm.addEventListener("click", function () {
+        customQs.splice(i, 1);
+        renderCustom();
+      });
+      row.appendChild(span);
+      row.appendChild(rm);
+      box.appendChild(row);
+    });
+  }
+  $("add-q-btn").addEventListener("click", function () {
+    var q = $("custom-q").value.trim();
+    if (!q) { $("msg").textContent = "Type a question first."; return; }
+    customQs.push(q);
+    $("custom-q").value = "";
+    $("msg").textContent = "Question added.";
+    renderCustom();
+  });
+  $("build-btn").addEventListener("click", function () {
+    var selected = SECTIONS.filter(function (s) {
+      return $("sec-" + s.id).checked;
+    }).map(function (s) { return s.id; });
+    if (!selected.length && !customQs.length) {
+      $("msg").textContent = "Tick at least one section or add a question first.";
+      return;
+    }
+    lastText = buildForm(selected, customQs, $("biz").value.trim());
+    $("preview").textContent = lastText;
+    $("copy-btn").style.display = "";
+    $("dl-btn").style.display = "";
+    $("msg").textContent = "Your form is ready below. Copy it or download it as a text file.";
+  });
+  $("copy-btn").addEventListener("click", function () {
+    if (lastText) copyText(lastText, $("copy-btn"));
+  });
+  $("dl-btn").addEventListener("click", function () {
+    if (lastText) downloadText("client-onboarding-form.txt", lastText);
+  });
+
+  function copyText(text, btn) {
+    var original = btn.textContent;
+    function done() {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  function downloadText(filename, text) {
+    var blob = new Blob([text], {type: "text/plain"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 100);
+  }
+
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>
