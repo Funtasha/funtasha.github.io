@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Music Practice Tracker | Funtasha</title>
+<meta name="description" content="Log your music practice sessions, watch your streak grow, and see your progress over time. Your log stays in this browser only. Free, no sign-up.">
+<link rel="canonical" href="https://funtasha.github.io/music-practice-tracker/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Music Practice Tracker">
+<meta property="og:description" content="Log your music practice sessions, watch your streak grow, and see your progress over time. Your log stays in this browser only. Free, no sign-up.">
+<meta property="og:url" content="https://funtasha.github.io/music-practice-tracker/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is the streak counted?", "acceptedAnswer": {"@type": "Answer", "text": "A streak is a run of consecutive days with at least one logged session. The current streak counts back from today, or from yesterday if you have not practised yet today. The longest streak is the best run in your whole log, and it stays as your record even after a break."}}, {"@type": "Question", "name": "What if I forget to log a session?", "acceptedAnswer": {"@type": "Answer", "text": "Log it late with the right date. The date field lets you pick any day, so a session from yesterday or last week still counts in the right place. The streak and the weekly total are computed from the dates you enter, not from the day you log them."}}, {"@type": "Question", "name": "Can I track more than one instrument?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Pick the instrument for each session when you log it. The totals cover all your instruments together, and the session list shows which instrument each entry belongs to, so you can see where your time actually goes."}}, {"@type": "Question", "name": "Where is my log saved?", "acceptedAnswer": {"@type": "Answer", "text": "In this browser only, using the browser's own storage. Nothing is uploaded anywhere and there is no account, so your log never leaves your device. A different browser or a cleared history will not have it."}}, {"@type": "Question", "name": "How do I back up my log?", "acceptedAnswer": {"@type": "Answer", "text": "Use the copy button to copy a text summary of your totals, streaks and weekly minutes, and paste it somewhere safe. The full session list lives in this browser only, so a monthly copy is a good habit if your record matters to you."}}, {"@type": "Question", "name": "Does a short session count?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Any focused practice counts, however short. Five honest minutes beat none, and they keep a streak alive. The tracker is built for real life, where some days only have five minutes to give."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button,.calc input,.calc select,.calc textarea{min-height:72px}
+table{width:100%;border-collapse:collapse;margin:10px 0}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;font-size:15px}
+th{background:#fdf2f8}
+.calc pre{white-space:pre-wrap;word-wrap:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:14px;max-height:420px;overflow:auto;margin-top:14px}
+.calc .rowline{margin:8px 0}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Music Practice Tracker</h1>
+<p class="answer">This tracker logs your practice sessions and shows your totals, your current streak, and your progress over time. Everything is saved in this browser only, so your log never leaves your device.</p>
+<div class="calc">
+<label for="sess-date">Date</label>
+<input id="sess-date" type="date">
+<label for="sess-instrument">Instrument</label>
+<select id="sess-instrument"><option>Piano</option><option>Guitar</option><option>Violin</option><option>Voice</option><option>Drums</option><option>Flute</option><option>Other</option></select>
+<label for="sess-minutes">Minutes practised</label>
+<input id="sess-minutes" type="number" min="1" step="1" value="30">
+<label for="sess-notes">What did you work on? (optional)</label>
+<input id="sess-notes" type="text" placeholder="Scales, a piece, a hard passage">
+<button id="log-btn" type="button">Log this session</button>
+<div class="out" id="stats-out">No sessions logged yet. Log your first session above.</div>
+<div id="session-list"></div>
+<button id="copy-btn" type="button">Copy my summary</button>
+<button id="clear-btn" type="button">Clear all sessions</button>
+</div>
+<div class="warn">Your practice log is saved in this browser only and is never uploaded anywhere. If you clear your browser data or switch devices, your log will not follow you, so copy your summary somewhere safe if you want a backup.</div>
+<h2>Why track your practice</h2>
+<p>Practice is easy to overestimate and hard to remember. Ask yourself on a Sunday how much you played this week, and the honest answer is usually a guess. A tracker replaces the guess with a record: every session logged with its date, its instrument, and its minutes. Over a month, that record shows patterns you cannot feel from inside a single day. You see which days you actually practise, which instrument gets the time, and whether the total is growing or shrinking.</p>
+<p>Tracking also feeds motivation in a quiet way. A streak of days is satisfying to keep alive, and a rising total is proof that small sessions add up. The tracker is not a judge: it does not scold a missed day, and it does not grade your playing. It simply shows you what happened, so you can decide what happens next. That is all a good practice log needs to do.</p>
+<p>The monthly view is where the record really pays off. A single week can be misleading: a holiday, an illness, or a busy few days can make a good habit look broken. A month shows the truth, because one bad week sits beside three good ones. Look at your totals at the end of each month and compare them with the month before. Even a small rise is real progress, and a flat month is information, not failure: it tells you the goal needs adjusting, or the time of day needs changing.</p>
+<h2>What counts as a session</h2>
+<p>Any focused practice counts as a session, however short. Ten minutes of slow, careful work on a hard passage counts. Five minutes of scales before breakfast counts. Warm-up counts, because it is part of playing. What does not count is listening to music, watching someone else play, or leaving the instrument out while you do something else. The rule is simple: if your hands were on the instrument and your attention was on the music, log it.</p>
+<p>Be honest with yourself about the minutes. Rounding a seven-minute session up to thirty does not help anyone, and it makes the totals meaningless. The tracker works best when the numbers are true, because true numbers show real progress. A week of honest fifteen-minute sessions is worth more than a week of generous guesses, and it feels better too, because you know you earned it.</p>
+<h2>Streaks: how they work here</h2>
+<p>A streak is a run of consecutive days with at least one logged session. The current streak counts back from today, or from yesterday if you have not practised yet today, and it grows by one each day you log a session. The longest streak is your record: the best run you have ever had, kept even after a break. Both numbers are shown in the summary, and both are computed from your log, never made up.</p>
+<p>Streaks are a tool, not a test. A broken streak is not a failure; it is a normal week with a busy day in it. The right response to a broken streak is to start a new one, not to give up on tracking. Some players find streaks motivating, and some find them stressful. If the streak stresses you, ignore it and watch the weekly total instead. The tracker shows both, and you choose which one to care about.</p>
+<p>Rebuilding after a break is easier than it feels. The first session back is the hard one, because the gap makes the instrument feel unfamiliar and the streak reads zero. Make that session short and easy: ten minutes of something you already know, logged and done. The second day is easier than the first, and by the third day the habit is moving again. A streak of three days after a break is worth more than a streak of thirty before it, because it proves you can start again.</p>
+<h2>Setting a weekly goal</h2>
+<p>A weekly goal turns practice from a vague intention into a number you can see. Start small: ninety minutes a week is six sessions of fifteen minutes, and it is a solid goal for a busy beginner. When ninety feels easy for a few weeks, raise it to two hours, then to whatever fits your life. The tracker shows your minutes for this week, so you can see at a glance how close you are.</p>
+<p>Goals work best when they are about time, not about finishing pieces, because time is in your control and finishing is not always. A piece can resist you for weeks; fifteen minutes a day is always possible. Set the goal, log the sessions, and let the totals do the encouraging. If a week goes badly, the goal is still there next week, unchanged and unjudging.</p>
+<h2>Practising well, not just long</h2>
+<p>Twenty focused minutes beat an hour of distracted playing. Focus means one thing at a time: one passage, one scale, one problem, worked slowly until it improves. Break practice into parts, and give each part its own minutes, rather than playing through everything once and calling it done. Slow practice is the fastest way to fix mistakes, because playing slowly enough to be accurate teaches your hands the right shape the first time.</p>
+<p>Rest matters too. Short breaks inside a long session help more than pushing through tired hands, and a rest day each week helps learning settle. If a passage will not improve today, leave it and sleep on it: hands often know in the morning what they could not do at night. The tracker records the time, but the quality of the time is yours to protect.</p>
+<p>Starting is the hardest part of most sessions, so make starting easy. Keep the instrument out and ready, not packed away in a case in a cupboard. Begin every session the same way, with a warm-up you know by heart, so the first two minutes need no decisions at all. Tell yourself you only have to play for five minutes: once you have started, you will usually keep going, and on the days you do not, five minutes still counts as a session.</p>
+<h2>Instruments and focus notes</h2>
+<p>Each session logs an instrument, because many players keep more than one going. The totals cover all your instruments together, and the session list shows which instrument each entry belongs to, so you can see at a glance whether the guitar is getting all the time while the piano waits. If you play one instrument, pick it once and the tracker remembers your choice in the list.</p>
+<p>The notes field is for what you worked on: a piece name, a scale, a problem spot. Notes take seconds to write and save minutes later, because they tell future-you where past-you stopped. Read your notes once a week and you will see which problems keep returning and which pieces are nearly done. A log with notes is a practice diary; a log without them is only a clock.</p>
+<h2>Your data stays yours</h2>
+<p>Your practice log is saved in this browser only, using the browser's own storage. Nothing is uploaded, there is no account, and nobody else can see it. That privacy has one trade-off: if you clear your browser data, switch devices, or use a different browser, your log will not follow you. The copy button gives you a text summary of your totals and streaks, which you can paste somewhere safe as a backup. Copy it once a month, and your record survives even if the browser does not.</p>
+<p>Reviewing the log is part of using it. Once a month, read through your session notes and ask two questions: what did I work on most, and what did I avoid? The answers show where your practice actually goes, which is often different from where you think it goes. If one piece has taken all the time for a month, it may be time to set it aside. If scales have had no entries at all, the log has told you something useful, and next month can be different.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>How is the streak counted?</h3>
+<p>A streak is a run of consecutive days with at least one logged session. The current streak counts back from today, or from yesterday if you have not practised yet today. The longest streak is the best run in your whole log, and it stays as your record even after a break.</p>
+</div>
+<div class="faq">
+<h3>What if I forget to log a session?</h3>
+<p>Log it late with the right date. The date field lets you pick any day, so a session from yesterday or last week still counts in the right place. The streak and the weekly total are computed from the dates you enter, not from the day you log them.</p>
+</div>
+<div class="faq">
+<h3>Can I track more than one instrument?</h3>
+<p>Yes. Pick the instrument for each session when you log it. The totals cover all your instruments together, and the session list shows which instrument each entry belongs to, so you can see where your time actually goes.</p>
+</div>
+<div class="faq">
+<h3>Where is my log saved?</h3>
+<p>In this browser only, using the browser's own storage. Nothing is uploaded anywhere and there is no account, so your log never leaves your device. A different browser or a cleared history will not have it.</p>
+</div>
+<div class="faq">
+<h3>How do I back up my log?</h3>
+<p>Use the copy button to copy a text summary of your totals, streaks and weekly minutes, and paste it somewhere safe. The full session list lives in this browser only, so a monthly copy is a good habit if your record matters to you.</p>
+</div>
+<div class="faq">
+<h3>Does a short session count?</h3>
+<p>Yes. Any focused practice counts, however short. Five honest minutes beat none, and they keep a streak alive. The tracker is built for real life, where some days only have five minutes to give.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../piano-practice-planner/">Piano Practice Planner</a> · <a href="../drawing-practice-challenge/">Drawing Practice Challenge</a> · <a href="../freelance-contract-builder/">Freelance Contract Builder</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+</div>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+<script>
+(function () {
+  var KEY = "ft-music-practice-tracker-sessions";
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function isoDate(d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
+  function todayISO() { return isoDate(new Date()); }
+  function dayNum(iso) {
+    var p = iso.split("-");
+    return Math.floor(Date.UTC(+p[0], +p[1] - 1, +p[2]) / 86400000);
+  }
+  function addSession(list, session) {
+    var next = list.slice();
+    next.push(session);
+    return next;
+  }
+  function computeStats(list, todayISOVal) {
+    var totalMinutes = 0;
+    var dates = {};
+    list.forEach(function (s) {
+      totalMinutes += (+s.minutes || 0);
+      dates[s.date] = true;
+    });
+    var days = Object.keys(dates).map(dayNum).sort(function (a, b) { return a - b; });
+    var today = dayNum(todayISOVal);
+    var set = {};
+    days.forEach(function (n) { set[n] = true; });
+    var start = dates[todayISOVal] ? today : today - 1;
+    var current = 0, d = start;
+    while (set[d]) { current++; d--; }
+    var longest = 0, run = 0, prev = null;
+    days.forEach(function (n) {
+      if (prev !== null && n === prev + 1) { run++; } else { run = 1; }
+      if (run > longest) longest = run;
+      prev = n;
+    });
+    var dt = new Date(todayISOVal + "T12:00:00");
+    var mondayOffset = (dt.getDay() + 6) % 7;
+    var monday = today - mondayOffset;
+    var weekMinutes = 0;
+    list.forEach(function (s) {
+      if (dayNum(s.date) >= monday) weekMinutes += (+s.minutes || 0);
+    });
+    return { totalMinutes: totalMinutes, totalSessions: list.length,
+             currentStreak: current, longestStreak: longest, weekMinutes: weekMinutes };
+  }
+  function summaryText(list, stats) {
+    var lines = [];
+    lines.push("Music practice summary");
+    lines.push("Sessions logged: " + stats.totalSessions);
+    lines.push("Total minutes: " + stats.totalMinutes);
+    lines.push("Minutes this week: " + stats.weekMinutes);
+    lines.push("Current streak: " + stats.currentStreak + " days");
+    lines.push("Longest streak: " + stats.longestStreak + " days");
+    return lines.join("\n");
+  }
+  window.FT = { addSession: addSession, computeStats: computeStats,
+                summaryText: summaryText, todayISO: todayISO, isoDate: isoDate,
+                dayNum: dayNum, KEY: KEY };
+  var statsEl = document.getElementById("stats-out");
+  var listEl = document.getElementById("session-list");
+  var sessions = [];
+  function load() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      sessions = raw ? JSON.parse(raw) : [];
+    } catch (e) { sessions = []; }
+  }
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(sessions)); } catch (e) {}
+  }
+  function render() {
+    var stats = computeStats(sessions, todayISO());
+    if (sessions.length === 0) {
+      statsEl.textContent = "No sessions logged yet. Log your first session above.";
+    } else {
+      statsEl.textContent = "Sessions: " + stats.totalSessions + ". Total minutes: " + stats.totalMinutes +
+        ". This week: " + stats.weekMinutes + " minutes. Current streak: " + stats.currentStreak +
+        " days. Longest streak: " + stats.longestStreak + " days.";
+    }
+    while (listEl.firstChild) listEl.removeChild(listEl.firstChild);
+    var ordered = sessions.slice().reverse();
+    ordered.forEach(function (s) {
+      var row = document.createElement("p");
+      row.className = "rowline";
+      var text = s.date + " - " + s.instrument + ", " + s.minutes + " minutes";
+      if (s.notes) text += " (" + s.notes + ")";
+      row.textContent = text;
+      listEl.appendChild(row);
+      var del = document.createElement("button");
+      del.type = "button";
+      del.textContent = "Delete this session";
+      del.setAttribute("data-id", String(s.id));
+      del.addEventListener("click", function () {
+        sessions = sessions.filter(function (x) { return String(x.id) !== String(s.id); });
+        save();
+        render();
+      });
+      listEl.appendChild(del);
+    });
+  }
+  var dateEl = document.getElementById("sess-date");
+  if (dateEl && !dateEl.value) dateEl.value = todayISO();
+  var logBtn = document.getElementById("log-btn");
+  if (logBtn) logBtn.addEventListener("click", function () {
+    var date = document.getElementById("sess-date").value;
+    var instrument = document.getElementById("sess-instrument").value;
+    var minutes = parseInt(document.getElementById("sess-minutes").value, 10);
+    var notes = document.getElementById("sess-notes").value.trim();
+    if (!date) {
+      statsEl.textContent = "Pick a date for the session first.";
+      return;
+    }
+    if (!minutes || minutes < 1) {
+      statsEl.textContent = "Enter how many minutes you practised (at least 1).";
+      return;
+    }
+    sessions = addSession(sessions, { id: Date.now(), date: date, instrument: instrument, minutes: minutes, notes: notes });
+    save();
+    document.getElementById("sess-notes").value = "";
+    render();
+  });
+  function copyText(text, btn) {
+    var original = btn.textContent;
+    function done() {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+  var copyBtn = document.getElementById("copy-btn");
+  if (copyBtn) copyBtn.addEventListener("click", function () {
+    copyText(summaryText(sessions, computeStats(sessions, todayISO())), copyBtn);
+  });
+  var clearBtn = document.getElementById("clear-btn");
+  if (clearBtn) clearBtn.addEventListener("click", function () {
+    sessions = [];
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    render();
+  });
+  load();
+  render();
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fashion Color Matching Tool | Funtasha</title>
+<meta name="description" content="Pick a colour and get matching and contrast palettes, computed from the colour wheel: complementary, analogous, triadic and split complementary, with skin-tone notes.">
+<link rel="canonical" href="https://funtasha.github.io/fashion-color-matching-tool/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fashion Color Matching Tool">
+<meta property="og:description" content="Pick a colour and get matching and contrast palettes, computed from the colour wheel: complementary, analogous, triadic and split complementary, with skin-tone notes.">
+<meta property="og:url" content="https://funtasha.github.io/fashion-color-matching-tool/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a complementary colour?", "acceptedAnswer": {"@type": "Answer", "text": "The colour directly opposite yours on the colour wheel, 180 degrees away. Red pairs with cyan, blue with orange, yellow with purple. Complementary pairs make each other look brighter, so let one colour lead and the other appear in small amounts, such as an accessory."}}, {"@type": "Question", "name": "What is the difference between analogous and triadic palettes?", "acceptedAnswer": {"@type": "Answer", "text": "Analogous colours sit next to each other on the wheel and feel calm and harmonious — blue, teal, and green, for example. Triadic colours sit 120 degrees apart, three of them evenly spaced, and feel balanced and lively. Analogous is the safer choice; triadic is the bolder one."}}, {"@type": "Question", "name": "How do I know my skin undertone?", "acceptedAnswer": {"@type": "Answer", "text": "Look at the veins on the inside of your wrist in daylight. Greenish veins usually mean a warm undertone; bluish or purple veins usually mean a cool undertone; if you cannot tell, it is probably neutral. The test is a guide — if a colour makes your skin look healthy in daylight, it suits you."}}, {"@type": "Question", "name": "Can I wear two bold colours together?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, if one leads and the other supports. A mostly blue outfit with an orange accessory works; equal amounts of two bold colours can fight each other. A neutral between them — a white shirt, dark jeans — calms the pair and makes it wearable."}}, {"@type": "Question", "name": "Do the palettes work for home and craft projects too?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The colour wheel works the same way everywhere: complementary pairs for bold contrast, analogous neighbours for calm harmony, triadic sets for lively balance. The same palettes that dress an outfit can dress a room, a quilt, or a poster."}}, {"@type": "Question", "name": "Why does a colour look different in the shop and at home?", "acceptedAnswer": {"@type": "Answer", "text": "Shop lighting is usually bright and cool, while home light is often warmer and dimmer, and both change how a colour looks. Check colours in daylight before deciding, and if you can, hold the item near a window. Screens add their own shift, which is why this tool is a starting point, not a promise."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button,.calc input,.calc select{min-height:72px}
+.calc textarea{width:100%;min-height:120px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;font-family:inherit}
+.calc pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:15px;margin-top:10px;text-align:left;font-family:inherit}
+.msg{font-size:15px;color:#334155;margin-top:10px;min-height:22px}
+table.data{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+table.data th,table.data td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;vertical-align:top}
+table.data th{background:#fdf2f8}
+.pal{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0}
+.sw{width:86px;text-align:center}
+.sw i{display:block;width:72px;height:72px;border-radius:12px;border:1px solid #e2e8f0;margin:0 auto}
+.sw b{display:block;font-size:13px;margin-top:4px}
+.sw s{display:block;font-size:12px;color:#64748b;text-decoration:none}
+.saved{list-style:none;margin:12px 0 0;padding:0}
+.saved li{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px;margin:8px 0}
+.saved li .del{background:#fff;color:#be185d;border:1px solid #fbcfe8;margin-top:8px}
+.palname{font-size:17px;font-weight:700;margin:14px 0 2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Fashion Color Matching Tool</h1>
+<p class="answer">Matching colours is a skill, not a mystery. Pick a colour and this tool computes real palettes from the colour wheel — complementary, analogous, triadic and split complementary — with guidance on skin tone and how to wear each palette.</p>
+<div class="calc"><label for="color-name">Pick a colour</label>
+<select id="color-name"><option value="#ff0000">Red</option><option value="#ff6f61">Coral</option><option value="#ff8000">Orange</option><option value="#eab308">Mustard</option><option value="#16a34a">Green</option><option value="#0d9488">Teal</option><option value="#0284c7">Sky blue</option><option value="#1e3a8a">Navy</option><option value="#7c3aed">Purple</option><option value="#db2777">Pink</option><option value="#92400e">Brown</option><option value="#334155">Charcoal</option><option value="custom">Custom colour (use the picker below)</option></select>
+<label for="color-pick">Or choose your own shade</label>
+<input id="color-pick" type="color" value="#db2777">
+<button type="button" id="build-btn">Build my palettes</button>
+<button type="button" id="example-btn">Load the red example</button>
+<button type="button" id="copy-btn">Copy palettes</button>
+<p class="msg" id="color-msg"></p>
+<p class="out" id="color-out">Pick a colour, then tap Build my palettes.</p>
+<div id="palettes-out"></div></div>
+<div class="warn">Colours on a screen are a guide, not a promise: every screen shows colour a little differently. Check a colour in daylight before you buy, and treat these palettes as starting points for your own eye.</div>
+<h2>How the colour wheel works</h2>
+<p>The colour wheel is a circle of the colours of the rainbow, arranged so that neighbours blend into each other: red flows into orange, orange into yellow, yellow into green, green into blue, blue into purple, and purple back into red. Every colour has a place on the wheel, measured in degrees — red at zero, green at one hundred and twenty, blue at two hundred and forty — and the palettes on this page are computed from those positions, not guessed.</p><p>Two things about a colour matter besides its place on the wheel: how strong it is, and how light or dark it is. A strong colour is vivid and pure; a weak colour is muted and greyish. A light colour has white in it; a dark colour has black in it. The same hue can be a bright red, a soft pink, or a deep burgundy, and all three behave differently in an outfit. The tool keeps your colour's strength and lightness the same while it moves around the wheel, so the palettes stay true to the colour you picked.</p><p>The wheel also explains why some combinations feel calm and others feel exciting. Colours that sit near each other feel harmonious, because the eye moves between them easily. Colours that sit opposite each other feel electric, because the eye jumps between them. Neither feeling is better — they are tools, and the rest of this page explains when to reach for each one.</p>
+<h2>Complementary colours: the bold pair</h2>
+<p>Complementary colours sit opposite each other on the wheel, one hundred and eighty degrees apart: red and cyan, blue and orange, yellow and purple. Put together, they make each other look brighter and stronger, which is why the combination feels bold. A red dress with teal shoes, a navy suit with an orange tie, a yellow top with purple earrings — the contrast is the point.</p><p>The boldness needs handling. Two complementary colours at full strength, in equal amounts, can fight each other and tire the eye. The usual advice is to let one colour lead and the other support: a mostly blue outfit with an orange accessory, or a mostly red outfit with a small teal detail. The supporting colour gets the eye's attention precisely because there is so little of it.</p><p>Complementary pairs also work well when one of the colours is softened. A bright red with a muted teal, or a deep navy with a soft peach, keeps the energy of the contrast without the shout. The tool gives you the pure complementary colour; your eye and your closet decide how strong a version of it to wear.</p>
+<h2>Analogous colours: the easy harmony</h2>
+<p>Analogous colours sit next to each other on the wheel — within about sixty degrees — and they are the easiest palette to wear well. Blue, teal, and green together. Red, orange, and warm pink together. Yellow, gold, and soft orange together. Because the colours are neighbours, they blend into each other, and the outfit feels calm, natural, and put together without effort.</p><p>Analogous palettes are the safest choice when you are unsure. They rarely clash, they flatter most skin tones, and they look deliberate even when the pieces are simple. A blue top with teal trousers and green shoes sounds adventurous until you see it — and then it looks like the most natural thing in the world.</p><p>The risk with analogous colours is dullness: neighbours can blend into each other so well that the outfit has no focal point. Fix it with a contrast in lightness or texture — a dark blue with a pale teal, a matte green with a shiny teal — or add one neutral in a different tone to break the run. The tool gives you four neighbours; you rarely need all four at once.</p>
+<h2>Triadic and split-complementary: three-way balance</h2>
+<p>Triadic palettes use three colours spaced evenly around the wheel, one hundred and twenty degrees apart: red, yellow, and blue, or green, orange, and purple. The result is balanced and lively, with enough contrast to be interesting and enough structure to hold together. Triadic palettes suit people who like colour and want more than a single pair.</p><p>Split-complementary palettes are the gentler cousin: instead of the colour directly opposite yours, they use the two colours on either side of it. Red's split partners are a blue-green and a yellow-green, rather than plain cyan. The contrast is still there, but it is softer and easier to wear, which makes split-complementary the most forgiving of the bold palettes.</p><p>With three colours, the balance rule matters more: let one colour lead, let the second support, and let the third appear only in small amounts — an accessory, a detail, a hint. Three colours in equal amounts compete; three colours in a clear hierarchy cooperate. The tool shows you all three; the outfit decides how much of each to use.</p>
+<h2>Neutrals: the colours that go with everything</h2>
+<p>Neutrals — black, white, grey, beige, cream, navy, and brown — sit outside the wheel's arguments, and they go with almost everything. They are the peacemakers of colour: a neutral calms a bold pair, grounds a bright palette, and gives the eye somewhere to rest. Every palette on this page works better with a neutral nearby.</p><p>Neutrals have undertones too, and matching them matters. A warm beige with a cool grey can look muddy; a warm cream with a warm camel looks rich. As a rule, keep your neutrals in the same family — warm with warm, cool with cool — and the outfit will hold together even when the colours are bold.</p><p>When in doubt, add a neutral. A bold complementary pair with a white shirt between them, a triadic palette grounded by dark jeans, an analogous outfit finished with a neutral bag — the neutral does not steal the show, it makes the show possible. The most colourful dressers are often the ones who use neutrals most deliberately.</p>
+<h2>Skin tone and colour</h2>
+<p>Skin tone changes how a colour looks on you, because the colour sits next to your skin all day. The usual guide is undertone: warm, cool, or neutral. Warm undertones — skin with a golden or yellow cast — glow in warm colours: warm reds, oranges, golden yellows, olive greens, and warm browns. Cool undertones — skin with a pink or blue cast — shine in cool colours: blues, emerald greens, cool pinks, and purples. Neutral undertones can wear most colours, and should choose by lightness rather than warmth.</p><p>A simple test is the vein test, done in daylight: look at the veins on the inside of your wrist. If they look greenish, your undertone is probably warm. If they look bluish or purple, it is probably cool. If you cannot tell, it is probably neutral. The test is a guide, not a rule — if a colour makes your eyes brighten and your skin look healthy, it suits you whatever the test says.</p><p>Lightness matters as much as warmth. Very light skin can be washed out by very pale colours and flattered by clear, medium tones. Very dark skin carries bright, saturated colours beautifully and can be dulled by muddy, greyish ones. Between the extremes, most people look best in colours with some clarity — neither washed out nor muddy. Hold a colour near your face in daylight and look at your skin, not at the colour: if your skin looks healthy, the colour works.</p>
+<h2>Building an outfit from a palette</h2>
+<p>Start with the colour you love most in the palette and make it the largest piece — the dress, the coat, the trousers. Then add the second colour as a smaller piece — a top, a skirt, a jacket. Then add the third colour, if there is one, as an accessory: shoes, a bag, a scarf, jewellery. That order — large, medium, small — is the simplest way to build a balanced outfit from any palette.</p><p>Then add a neutral. A white shirt, dark jeans, a black shoe, a beige bag — the neutral frames the colours and keeps the outfit grounded. Without it, even a good palette can feel like too much; with it, the same palette feels deliberate and wearable.</p><p>Finally, check the outfit in daylight and in a full-length mirror, and move around in it. Colours change with light and with movement, and an outfit that looks good standing still in a bedroom can look different walking down a street. If something feels wrong, change the smallest piece first — the accessory, the shoe, the layer — because small changes fix most colour problems.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is a complementary colour?</h3><p>The colour directly opposite yours on the colour wheel, 180 degrees away. Red pairs with cyan, blue with orange, yellow with purple. Complementary pairs make each other look brighter, so let one colour lead and the other appear in small amounts, such as an accessory.</p></div>
+<div class="faq"><h3>What is the difference between analogous and triadic palettes?</h3><p>Analogous colours sit next to each other on the wheel and feel calm and harmonious — blue, teal, and green, for example. Triadic colours sit 120 degrees apart, three of them evenly spaced, and feel balanced and lively. Analogous is the safer choice; triadic is the bolder one.</p></div>
+<div class="faq"><h3>How do I know my skin undertone?</h3><p>Look at the veins on the inside of your wrist in daylight. Greenish veins usually mean a warm undertone; bluish or purple veins usually mean a cool undertone; if you cannot tell, it is probably neutral. The test is a guide — if a colour makes your skin look healthy in daylight, it suits you.</p></div>
+<div class="faq"><h3>Can I wear two bold colours together?</h3><p>Yes, if one leads and the other supports. A mostly blue outfit with an orange accessory works; equal amounts of two bold colours can fight each other. A neutral between them — a white shirt, dark jeans — calms the pair and makes it wearable.</p></div>
+<div class="faq"><h3>Do the palettes work for home and craft projects too?</h3><p>Yes. The colour wheel works the same way everywhere: complementary pairs for bold contrast, analogous neighbours for calm harmony, triadic sets for lively balance. The same palettes that dress an outfit can dress a room, a quilt, or a poster.</p></div>
+<div class="faq"><h3>Why does a colour look different in the shop and at home?</h3><p>Shop lighting is usually bright and cool, while home light is often warmer and dimmer, and both change how a colour looks. Check colours in daylight before deciding, and if you can, hold the item near a window. Screens add their own shift, which is why this tool is a starting point, not a promise.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../outfit-planner/">Outfit Planner</a> · <a href="../fashion-trend-directory/">Fashion Trend Directory</a> · <a href="../personal-style-inspiration-hub/">Personal Style Inspiration Hub</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+(function () {
+  var NAMED_COLORS = [
+    { name: "Red", hex: "#ff0000" }, { name: "Coral", hex: "#ff6f61" },
+    { name: "Orange", hex: "#ff8000" }, { name: "Mustard", hex: "#eab308" },
+    { name: "Green", hex: "#16a34a" }, { name: "Teal", hex: "#0d9488" },
+    { name: "Sky blue", hex: "#0284c7" }, { name: "Navy", hex: "#1e3a8a" },
+    { name: "Purple", hex: "#7c3aed" }, { name: "Pink", hex: "#db2777" },
+    { name: "Brown", hex: "#92400e" }, { name: "Charcoal", hex: "#334155" }
+  ];
+
+  function isValidHex(hex) {
+    return typeof hex === "string" && /^#[0-9a-fA-F]{6}$/.test(hex);
+  }
+
+  function hexToHsl(hex) {
+    var h = hex.replace("#", "");
+    var r = parseInt(h.slice(0, 2), 16) / 255;
+    var g = parseInt(h.slice(2, 4), 16) / 255;
+    var b = parseInt(h.slice(4, 6), 16) / 255;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var l = (max + min) / 2, s = 0, hue = 0;
+    if (max !== min) {
+      var d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      if (max === r) { hue = (g - b) / d + (g < b ? 6 : 0); }
+      else if (max === g) { hue = (b - r) / d + 2; }
+      else { hue = (r - g) / d + 4; }
+      hue *= 60;
+    }
+    return { h: hue, s: s * 100, l: l * 100 };
+  }
+
+  function hslToHex(h, s, l) {
+    h = ((h % 360) + 360) % 360;
+    s = s / 100; l = l / 100;
+    var c = (1 - Math.abs(2 * l - 1)) * s;
+    var x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+    var m = l - c / 2, r = 0, g = 0, b = 0;
+    if (h < 60) { r = c; g = x; }
+    else if (h < 120) { r = x; g = c; }
+    else if (h < 180) { g = c; b = x; }
+    else if (h < 240) { g = x; b = c; }
+    else if (h < 300) { r = x; b = c; }
+    else { r = c; b = x; }
+    function toHex(v) {
+      var n = Math.round((v + m) * 255);
+      if (n < 0) { n = 0; }
+      if (n > 255) { n = 255; }
+      return (n < 16 ? "0" : "") + n.toString(16);
+    }
+    return "#" + toHex(r) + toHex(g) + toHex(b);
+  }
+
+  function shiftHue(hex, deg) {
+    var hsl = hexToHsl(hex);
+    return hslToHex(hsl.h + deg, hsl.s, hsl.l);
+  }
+
+  function complementary(hex) { return shiftHue(hex, 180); }
+  function analogous(hex) {
+    return [shiftHue(hex, -60), shiftHue(hex, -30), shiftHue(hex, 30), shiftHue(hex, 60)];
+  }
+  function triadic(hex) { return [shiftHue(hex, 120), shiftHue(hex, 240)]; }
+  function splitComplementary(hex) { return [shiftHue(hex, 150), shiftHue(hex, 210)]; }
+
+  function buildPalettes(hex) {
+    if (!isValidHex(hex)) {
+      return { error: "That is not a valid colour. Pick a colour from the list or the picker." };
+    }
+    var base = hex.toLowerCase();
+    var comp = complementary(base);
+    var ana = analogous(base);
+    var tri = triadic(base);
+    var spl = splitComplementary(base);
+    var lines = [];
+    lines.push("COLOUR PALETTES FOR " + base.toUpperCase());
+    lines.push("Complementary: " + comp);
+    lines.push("Analogous: " + ana.join(", "));
+    lines.push("Triadic: " + tri.join(", "));
+    lines.push("Split complementary: " + spl.join(", "));
+    return { base: base, complementary: comp, analogous: ana, triadic: tri,
+             split: spl, text: lines.join("\n"), error: null };
+  }
+
+  var FT = { NAMED_COLORS: NAMED_COLORS, isValidHex: isValidHex,
+             hexToHsl: hexToHsl, hslToHex: hslToHex, shiftHue: shiftHue,
+             complementary: complementary, analogous: analogous,
+             triadic: triadic, splitComplementary: splitComplementary,
+             buildPalettes: buildPalettes };
+  if (typeof window !== "undefined") { window.FT = FT; }
+  if (typeof globalThis !== "undefined") { globalThis.FT = FT; }
+  if (typeof document === "undefined") { return; }
+
+  var nameEl = document.getElementById("color-name");
+  var pickEl = document.getElementById("color-pick");
+  var msgEl = document.getElementById("color-msg");
+  var outEl = document.getElementById("color-out");
+  var palEl = document.getElementById("palettes-out");
+  var lastText = "";
+
+  function chosenHex() {
+    if (nameEl.value === "custom") { return pickEl.value; }
+    return nameEl.value;
+  }
+
+  function makeSwatch(hex, label) {
+    var wrap = document.createElement("div");
+    wrap.className = "sw";
+    var block = document.createElement("i");
+    block.style.backgroundColor = hex;
+    block.setAttribute("aria-label", label + " " + hex);
+    var name = document.createElement("b");
+    name.textContent = label;
+    var code = document.createElement("s");
+    code.textContent = hex;
+    wrap.appendChild(block);
+    wrap.appendChild(name);
+    wrap.appendChild(code);
+    return wrap;
+  }
+
+  function makeGroup(title, pairs) {
+    var head = document.createElement("p");
+    head.className = "palname";
+    head.textContent = title;
+    palEl.appendChild(head);
+    var row = document.createElement("div");
+    row.className = "pal";
+    pairs.forEach(function (p) { row.appendChild(makeSwatch(p[0], p[1])); });
+    palEl.appendChild(row);
+  }
+
+  function render(hex) {
+    var res = buildPalettes(hex);
+    while (palEl.firstChild) { palEl.removeChild(palEl.firstChild); }
+    if (res.error) {
+      outEl.textContent = "Pick a colour, then tap Build my palettes.";
+      msgEl.textContent = res.error;
+      lastText = "";
+      return;
+    }
+    lastText = res.text;
+    outEl.textContent = "Palettes for " + res.base + " — tap Copy palettes to save the list as text.";
+    msgEl.textContent = "Four palettes, computed from the colour wheel. Check colours in daylight before buying.";
+    makeGroup("Your colour", [[res.base, "Base"]]);
+    makeGroup("Complementary — the bold pair", [[res.complementary, "Opposite"]]);
+    makeGroup("Analogous — neighbours on the wheel",
+      [[res.analogous[0], "Near 1"], [res.analogous[1], "Near 2"],
+       [res.analogous[2], "Near 3"], [res.analogous[3], "Near 4"]]);
+    makeGroup("Triadic — three-way balance",
+      [[res.triadic[0], "Third 1"], [res.triadic[1], "Third 2"]]);
+    makeGroup("Split complementary — bold but softer",
+      [[res.split[0], "Split 1"], [res.split[1], "Split 2"]]);
+  }
+
+  function copyText(text, btn) {
+    var original = btn.textContent;
+    function done() {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  nameEl.addEventListener("change", function () {
+    if (nameEl.value !== "custom") { pickEl.value = nameEl.value; }
+  });
+  document.getElementById("build-btn").addEventListener("click", function () {
+    render(chosenHex());
+  });
+  document.getElementById("example-btn").addEventListener("click", function () {
+    nameEl.value = "#ff0000";
+    pickEl.value = "#ff0000";
+    render("#ff0000");
+    msgEl.textContent = "Red example loaded. Its complementary colour is cyan, its triadic partners are green and blue.";
+  });
+  document.getElementById("copy-btn").addEventListener("click", function () {
+    if (!lastText) {
+      msgEl.textContent = "Build your palettes first, then copy them.";
+      return;
+    }
+    copyText(lastText, document.getElementById("copy-btn"));
+  });
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

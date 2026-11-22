@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Freelance Contract Builder | Funtasha</title>
+<meta name="description" content="Build a plain-text freelance contract draft from your scope, payment and deadlines, then copy it. A template only, not legal advice. Free, no sign-up.">
+<link rel="canonical" href="https://funtasha.github.io/freelance-contract-builder/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Freelance Contract Builder">
+<meta property="og:description" content="Build a plain-text freelance contract draft from your scope, payment and deadlines, then copy it. A template only, not legal advice. Free, no sign-up.">
+<meta property="og:url" content="https://funtasha.github.io/freelance-contract-builder/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this draft legally binding?", "acceptedAnswer": {"@type": "Answer", "text": "This builder makes a template only, not legal advice, and it guarantees no legal outcome. Whether any agreement is binding depends on your country's law and on both parties agreeing and signing. For high-value or complex work, get professional legal advice."}}, {"@type": "Question", "name": "What is the difference between a proposal and a contract?", "acceptedAnswer": {"@type": "Answer", "text": "A proposal sells the work: it describes the idea, the approach, and the price. A contract sets the terms: it describes the scope, the payment, the deadlines, and what happens when things change. Send the proposal first, then the contract before you start work."}}, {"@type": "Question", "name": "How many revisions should I include?", "acceptedAnswer": {"@type": "Answer", "text": "Two rounds is a common starting point. A revision round means a set of changes requested together, and it covers changes to the agreed work, not new work. Agree what happens after the included rounds run out, so extra work is paid work."}}, {"@type": "Question", "name": "What payment schedule is safest?", "acceptedAnswer": {"@type": "Answer", "text": "Part upfront is the commonest safe shape: half before you start and half on delivery. It shows the client is serious and covers your early time. Avoid doing all the work before any payment on a first job with a new client."}}, {"@type": "Question", "name": "What if the client cancels?", "acceptedAnswer": {"@type": "Answer", "text": "The draft covers cancellation with a notice period and payment for work already done. Agree the notice period before starting: fourteen days is a usual starting point. A clear cancellation term turns an ending into a business decision, not a dispute."}}, {"@type": "Question", "name": "Can I change the draft after copying it?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The draft is plain text, and you should adapt every line to your work before you use it. Change the scope, the payment, the deadlines, and the revision terms until the draft describes your actual job, and get advice when in doubt."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button,.calc input,.calc select,.calc textarea{min-height:72px}
+table{width:100%;border-collapse:collapse;margin:10px 0}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;font-size:15px}
+th{background:#fdf2f8}
+.calc pre{white-space:pre-wrap;word-wrap:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:14px;max-height:420px;overflow:auto;margin-top:14px}
+.calc .rowline{margin:8px 0}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Freelance Contract Builder</h1>
+<p class="answer">This builder turns your project details into a plain-text freelance contract draft you can copy and adapt. Fill in the scope, the payment, the deadlines and the revisions, and it writes the draft for you.</p>
+<div class="calc">
+<label for="cb-freelancer">Your name (freelancer)</label>
+<input id="cb-freelancer" type="text" placeholder="Your full name">
+<label for="cb-client">Client name</label>
+<input id="cb-client" type="text" placeholder="Client or company name">
+<label for="cb-project">Project title</label>
+<input id="cb-project" type="text" placeholder="What is the project called?">
+<label for="cb-scope">Scope of work</label>
+<textarea id="cb-scope" rows="4" placeholder="Describe the work in plain words: what you will do, and what is not included."></textarea>
+<label for="cb-deliverables">Deliverables (optional)</label>
+<textarea id="cb-deliverables" rows="3" placeholder="What the client receives, and in what form."></textarea>
+<label for="cb-fee">Total fee (numbers only, in your own currency)</label>
+<input id="cb-fee" type="number" min="0" step="1" placeholder="5000">
+<label for="cb-schedule">Payment schedule</label>
+<select id="cb-schedule"><option>50% upfront, 50% on delivery</option><option>100% on delivery</option><option>Monthly</option></select>
+<label for="cb-start">Start date</label>
+<input id="cb-start" type="date">
+<label for="cb-deadline">Deadline</label>
+<input id="cb-deadline" type="date">
+<label for="cb-revisions">Revision rounds included</label>
+<input id="cb-revisions" type="number" min="0" step="1" value="2">
+<label for="cb-notice">Cancellation notice (days)</label>
+<input id="cb-notice" type="number" min="0" step="1" value="14">
+<button id="build-btn" type="button">Generate my draft</button>
+<div class="out" id="draft-out">Fill in the fields above, then tap Generate my draft.</div>
+<pre id="draft-text" style="display:none"></pre>
+<button id="copy-btn" type="button">Copy my draft</button>
+<button id="download-btn" type="button">Download my draft</button>
+</div>
+<div class="warn">This builder makes a template only. It is not legal advice, it does not replace a lawyer, and it guarantees no legal outcome. Read every line before you use it, and get professional advice for high-value or complex work.</div>
+<h2>Why freelancers need a written agreement</h2>
+<p>Most freelance trouble starts with a friendly conversation and no written record. The client remembers one price, the freelancer remembers another. The scope grows quietly: one extra page becomes five, one revision becomes ten, and nobody agreed when the extra work started being paid work. A written agreement stops that drift, not by being unfriendly, but by being clear. Both sides read the same words before the work starts, so both sides know what is included, what it costs, and when it is due.</p>
+<p>A contract also protects the client, which is worth saying out loud when you send one. It tells the client what they will receive, when they will receive it, and what happens if things change. Clients who take your work seriously expect a written agreement, and the ones who resist one are often the ones who need it most. This builder makes a plain-text draft you can copy and adapt, so the paperwork takes minutes instead of an afternoon.</p>
+<h2>Proposals and contracts are different documents</h2>
+<p>A proposal sells the work. It describes the idea, the approach, and the price, and its job is to win the job. A contract sets the terms. It describes the scope, the payment, the deadlines, and what happens when things change, and its job is to protect both sides once the work is agreed. They are different documents with different jobs, and one cannot replace the other.</p>
+<p>Send the proposal first, agree the work, and then send the contract before you start. If the client signed a proposal that already covers scope and price, the contract still adds value, because it covers the things a proposal never mentions: revisions, cancellation, late payment, and who owns the work. A freelance proposal generator and a contract builder are companions, not competitors, and a careful freelancer uses both.</p>
+<h2>What goes in a freelance contract</h2>
+<p>A good freelance contract covers eight things. The parties: who the freelancer is and who the client is, with full names. The scope: what work will be done, in plain words. The deliverables: what the client actually receives, and in what form. The payment: the total fee, the schedule, and what happens if payment is late. The timeline: the start date and the deadline. The revisions: how many rounds are included, and what counts as a revision. The cancellation terms: how either side can end the agreement, and what is paid for work already done. And ownership: when the rights to the work pass to the client, which is usually on full payment.</p>
+<p>This builder covers the first seven of those in the draft it generates, and it includes a short ownership line as well. Read every line before you use the draft, and change anything that does not fit your work. A template is a starting point, not a finished contract, and the lines you change are often the most important ones.</p>
+<p>Ownership deserves a word of its own. Until the fee is paid in full, the work is yours, and the draft says so. That protects you if a client uses the work without paying, and it protects the client too, because it tells them exactly when the rights pass to them. Credit is separate from ownership: if you want to show the work in your portfolio or put your name on it, agree that in writing as well, because some clients prefer no credit line and it is better to know that before you start.</p>
+<h2>Writing a clear scope</h2>
+<p>A clear scope names the work in words a stranger could understand. Instead of writing website, write five-page website: home, about, services, gallery, and contact, with text supplied by the client and images chosen by the freelancer. Instead of writing logo, write logo in three versions: colour, black, and white, supplied as print and web files. The more specific the scope, the less room for argument later, and the easier it is to say that a new request is extra work with its own price.</p>
+<p>Say what is not included too. If hosting is not included, say so. If photography is not included, say so. If the client supplies the text, say so, and say when it is due, because late text is one of the commonest reasons freelance deadlines slip. A scope that names its edges is kinder to both sides than a scope that pretends there are none.</p>
+<h2>Payment terms that protect you</h2>
+<p>Agree the total fee in numbers before the work starts, and write it in the contract in your own currency. A payment schedule splits the fee into stages, and the commonest shape is half upfront and half on delivery: the upfront half shows the client is serious, and the final half is paid when the work is delivered. For small jobs, full payment on delivery can work. For long jobs, monthly payments keep the cash flow steady. This builder lets you pick the shape that fits, and it writes the schedule into the draft.</p>
+<p>Late payment deserves a line of its own. Agree what happens if payment is late: a reminder after seven days, a pause on further work after fourteen, and a late fee if your local practice allows one. Keep the tone professional rather than threatening; the point is to agree the rule before it is needed, not to start an argument. And agree expenses separately: if the work needs travel, stock images, or paid tools, say who pays for them before you spend anything.</p>
+<h2>Revisions and cancellation</h2>
+<p>Revisions are where freelance projects most often go wrong, because one person's small tweak is another person's full rewrite. The draft includes a number of revision rounds, and two rounds is a common starting point. A revision round means a set of changes requested together, not one change at a time over weeks, and it covers changes to the agreed work, not new work. Say what happens after the included rounds run out: extra rounds are charged, at an agreed rate or as a new quote.</p>
+<p>Cancellation needs the same clarity. Either side should be able to end the agreement with written notice, and the draft includes a notice period you can set, with fourteen days as the usual starting point. Work completed before cancellation is paid for, and any upfront payment covers work already done. Agreeing this before the work starts means a cancellation is a business decision, not a personal falling-out.</p>
+<h2>Using your draft</h2>
+<p>When the draft is generated, read it through from top to bottom before you send it. Check the names, the dates, and the numbers, and change any line that does not fit your work. Add anything the template missed: a confidentiality line, a credit line, a note about who supplies what. Then send it to the client and ask them to read it too, and keep a signed copy each once you both agree. A contract nobody signed is a draft, not an agreement.</p>
+<p>Remember what this builder is and is not. It makes a template only. It is not legal advice, it does not replace a lawyer, and it guarantees no legal outcome. For high-value work, for work across borders, or for anything that feels complex or risky, get professional legal advice before you sign. A short conversation with a lawyer costs less than a dispute, and a template plus advice is stronger than either one alone.</p>
+<p>Keep records of everything once the work starts. Save the signed agreement, the emails where the scope was agreed, and the messages where changes were requested. If a disagreement ever comes up, those records are worth more than memory, and they make a short conversation possible where a long argument would otherwise follow. And if a client refuses to sign anything at all, take that as information: a client who will not agree terms in writing is a client who may not honour them later.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>Is this draft legally binding?</h3>
+<p>This builder makes a template only, not legal advice, and it guarantees no legal outcome. Whether any agreement is binding depends on your country's law and on both parties agreeing and signing. For high-value or complex work, get professional legal advice.</p>
+</div>
+<div class="faq">
+<h3>What is the difference between a proposal and a contract?</h3>
+<p>A proposal sells the work: it describes the idea, the approach, and the price. A contract sets the terms: it describes the scope, the payment, the deadlines, and what happens when things change. Send the proposal first, then the contract before you start work.</p>
+</div>
+<div class="faq">
+<h3>How many revisions should I include?</h3>
+<p>Two rounds is a common starting point. A revision round means a set of changes requested together, and it covers changes to the agreed work, not new work. Agree what happens after the included rounds run out, so extra work is paid work.</p>
+</div>
+<div class="faq">
+<h3>What payment schedule is safest?</h3>
+<p>Part upfront is the commonest safe shape: half before you start and half on delivery. It shows the client is serious and covers your early time. Avoid doing all the work before any payment on a first job with a new client.</p>
+</div>
+<div class="faq">
+<h3>What if the client cancels?</h3>
+<p>The draft covers cancellation with a notice period and payment for work already done. Agree the notice period before starting: fourteen days is a usual starting point. A clear cancellation term turns an ending into a business decision, not a dispute.</p>
+</div>
+<div class="faq">
+<h3>Can I change the draft after copying it?</h3>
+<p>Yes. The draft is plain text, and you should adapt every line to your work before you use it. Change the scope, the payment, the deadlines, and the revision terms until the draft describes your actual job, and get advice when in doubt.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../music-practice-tracker/">Music Practice Tracker</a> · <a href="../soap-making-recipe-calculator/">Soap Making Recipe Calculator</a> · <a href="../sewing-pattern-planner/">Sewing Pattern Planner</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+</div>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+<script>
+(function () {
+  function contractText(f) {
+    var lines = [];
+    lines.push("FREELANCE SERVICES AGREEMENT (DRAFT TEMPLATE)");
+    lines.push("This is a template only and is not legal advice.");
+    lines.push("");
+    lines.push("1. PARTIES");
+    lines.push("Freelancer: " + f.freelancer);
+    lines.push("Client: " + f.client);
+    lines.push("");
+    lines.push("2. PROJECT");
+    lines.push("Project: " + f.project);
+    lines.push("");
+    lines.push("3. SCOPE OF WORK");
+    lines.push(f.scope);
+    lines.push("");
+    lines.push("4. DELIVERABLES");
+    lines.push(f.deliverables || "As described in the scope of work above.");
+    lines.push("");
+    lines.push("5. PAYMENT");
+    lines.push("Total fee: " + f.fee + " (in the currency agreed by both parties)");
+    lines.push("Payment schedule: " + f.schedule);
+    lines.push("");
+    lines.push("6. TIMELINE");
+    lines.push("Start date: " + (f.start || "To be agreed"));
+    lines.push("Deadline: " + f.deadline);
+    lines.push("");
+    lines.push("7. REVISIONS");
+    lines.push("This agreement includes " + f.revisions + " rounds of revisions. A round means a set of changes requested together, covering the agreed work. Further rounds are charged separately.");
+    lines.push("");
+    lines.push("8. CANCELLATION");
+    lines.push("Either party may cancel this agreement by giving " + f.notice + " days written notice. Work completed before cancellation is paid for.");
+    lines.push("");
+    lines.push("9. OWNERSHIP");
+    lines.push("Ownership of the finished work passes to the client when the total fee is paid in full.");
+    lines.push("");
+    lines.push("10. AGREEMENT");
+    lines.push("By signing below, both parties agree to these terms.");
+    lines.push("");
+    lines.push("Freelancer signature: ____________________  Date: ____________");
+    lines.push("Client signature: ____________________  Date: ____________");
+    return lines.join("\n");
+  }
+  function buildContract(f) {
+    if (!f.freelancer) return { ok: false, error: "Enter your name (freelancer) first." };
+    if (!f.client) return { ok: false, error: "Enter the client name first." };
+    if (!f.project) return { ok: false, error: "Enter the project title first." };
+    if (!f.scope) return { ok: false, error: "Describe the scope of work first." };
+    if (!f.fee || Number(f.fee) <= 0) return { ok: false, error: "Enter the total fee (a number above zero) first." };
+    if (!f.deadline) return { ok: false, error: "Pick the deadline date first." };
+    return { ok: true, text: contractText(f) };
+  }
+  window.FT = { buildContract: buildContract, contractText: contractText };
+  var outEl = document.getElementById("draft-out");
+  var preEl = document.getElementById("draft-text");
+  var lastDraft = "";
+  function readFields() {
+    return {
+      freelancer: document.getElementById("cb-freelancer").value.trim(),
+      client: document.getElementById("cb-client").value.trim(),
+      project: document.getElementById("cb-project").value.trim(),
+      scope: document.getElementById("cb-scope").value.trim(),
+      deliverables: document.getElementById("cb-deliverables").value.trim(),
+      fee: document.getElementById("cb-fee").value.trim(),
+      schedule: document.getElementById("cb-schedule").value,
+      start: document.getElementById("cb-start").value,
+      deadline: document.getElementById("cb-deadline").value,
+      revisions: document.getElementById("cb-revisions").value.trim() || "2",
+      notice: document.getElementById("cb-notice").value.trim() || "14"
+    };
+  }
+  function generate() {
+    var res = buildContract(readFields());
+    if (!res.ok) {
+      outEl.textContent = res.error;
+      preEl.style.display = "none";
+      preEl.textContent = "";
+      lastDraft = "";
+      return;
+    }
+    lastDraft = res.text;
+    outEl.textContent = "Draft ready. Read it through, change anything that does not fit, and keep a signed copy once you both agree.";
+    preEl.textContent = res.text;
+    preEl.style.display = "block";
+  }
+  var buildBtn = document.getElementById("build-btn");
+  if (buildBtn) buildBtn.addEventListener("click", generate);
+  function copyText(text, btn) {
+    var original = btn.textContent;
+    function done() {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+  var copyBtn = document.getElementById("copy-btn");
+  if (copyBtn) copyBtn.addEventListener("click", function () {
+    if (!lastDraft) generate();
+    if (lastDraft) copyText(lastDraft, copyBtn);
+  });
+  var dlBtn = document.getElementById("download-btn");
+  if (dlBtn) dlBtn.addEventListener("click", function () {
+    if (!lastDraft) generate();
+    if (!lastDraft) return;
+    var blob = new Blob([lastDraft], { type: "text/plain" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "freelance-contract-draft.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

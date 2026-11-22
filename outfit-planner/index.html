@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outfit Planner | Funtasha</title>
+<meta name="description" content="Plan outfits by occasion and weather, save them in your browser, and build a capsule wardrobe that works harder. Free, private, and made for your phone.">
+<link rel="canonical" href="https://funtasha.github.io/outfit-planner/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Outfit Planner">
+<meta property="og:description" content="Plan outfits by occasion and weather, save them in your browser, and build a capsule wardrobe that works harder. Free, private, and made for your phone.">
+<meta property="og:url" content="https://funtasha.github.io/outfit-planner/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Where are my saved outfits stored?", "acceptedAnswer": {"@type": "Answer", "text": "In this browser only, on your own device. Nothing is uploaded, there is no account, and nobody else can see your outfits. Clearing your browser data will clear your saved outfits too, so use the Copy button to keep a text backup if you want one."}}, {"@type": "Question", "name": "What if my occasion is not in the list?", "acceptedAnswer": {"@type": "Answer", "text": "Pick the closest one. A job interview is close to Work or Formal event; a family lunch is close to Casual day out. The occasion sets the tone of the outfit, and the note box is there for the detail that makes your day specific."}}, {"@type": "Question", "name": "How many outfits can I save?", "acceptedAnswer": {"@type": "Answer", "text": "As many as you like — the list grows with your plans. If it gets long, delete the outfits you have already worn, or use the Clear button to start fresh. A short list of outfits you actually wear beats a long list you never look at."}}, {"@type": "Question", "name": "What is a capsule wardrobe?", "acceptedAnswer": {"@type": "Answer", "text": "A small set of pieces that all work together, so a few clothes make many outfits. The capsule on this page has twelve pieces in quiet colours and simple shapes. Start with what you own, add the missing pieces slowly, and swap in pieces your life actually needs."}}, {"@type": "Question", "name": "Can I use the planner for packing?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Save one outfit per day of your trip, checking the weather for each day, then copy the list as plain text and use it as a packing checklist. Pack in outfits rather than in separate pieces, and leave room for one spare top and an extra layer."}}, {"@type": "Question", "name": "Do I have to fill in every box?", "acceptedAnswer": {"@type": "Answer", "text": "No. You need an occasion, the weather, and at least one item — a top, a bottom, shoes, or a layer. The layer and the note are optional. An outfit with just a top and shoes is fine if that is all the day needs."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button,.calc input,.calc select{min-height:72px}
+.calc textarea{width:100%;min-height:120px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;font-family:inherit}
+.calc pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:15px;margin-top:10px;text-align:left;font-family:inherit}
+.msg{font-size:15px;color:#334155;margin-top:10px;min-height:22px}
+table.data{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+table.data th,table.data td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;vertical-align:top}
+table.data th{background:#fdf2f8}
+.pal{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0}
+.sw{width:86px;text-align:center}
+.sw i{display:block;width:72px;height:72px;border-radius:12px;border:1px solid #e2e8f0;margin:0 auto}
+.sw b{display:block;font-size:13px;margin-top:4px}
+.sw s{display:block;font-size:12px;color:#64748b;text-decoration:none}
+.saved{list-style:none;margin:12px 0 0;padding:0}
+.saved li{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px;margin:8px 0}
+.saved li .del{background:#fff;color:#be185d;border:1px solid #fbcfe8;margin-top:8px}
+.palname{font-size:17px;font-weight:700;margin:14px 0 2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Outfit Planner</h1>
+<p class="answer">Deciding what to wear is easier with a plan. This planner lets you build outfits by occasion and weather, save them in your browser, and borrow ideas from a small capsule wardrobe that mixes and matches.</p>
+<div class="calc"><label for="occasion">Occasion</label>
+<select id="occasion"><option value="">Choose an occasion</option><option>Work</option><option>Casual day out</option><option>Formal event</option><option>Sport and active</option><option>Evening out</option><option>Travel</option></select>
+<label for="weather">Weather</label>
+<select id="weather"><option value="">Choose the weather</option><option>Hot</option><option>Warm</option><option>Cool</option><option>Cold</option><option>Rainy</option></select>
+<label for="top">Top</label>
+<input id="top" type="text" placeholder="e.g. white shirt and blazer">
+<label for="bottom">Bottom</label>
+<input id="bottom" type="text" placeholder="e.g. navy trousers">
+<label for="shoes">Shoes</label>
+<input id="shoes" type="text" placeholder="e.g. black loafers">
+<label for="layer">Layer (optional)</label>
+<input id="layer" type="text" placeholder="e.g. light coat">
+<label for="note">Note (optional)</label>
+<input id="note" type="text" placeholder="e.g. meeting at 10">
+<button type="button" id="save-btn">Save this outfit</button>
+<button type="button" id="example-btn">Load an example</button>
+<button type="button" id="copy-btn">Copy saved outfits</button>
+<button type="button" id="clear-btn">Clear saved outfits</button>
+<p class="msg" id="plan-msg"></p>
+<p class="out" id="plan-out">Fill in the occasion and weather, add at least one item, then tap Save this outfit.</p>
+<ul class="saved" id="saved-list"></ul></div>
+<div class="warn">Your saved outfits stay in this browser only — nothing leaves your device, there is no account, and clearing your browser data will clear your saved outfits too.</div>
+<h2>How the planner works</h2>
+<p>Pick the occasion and the weather, then type in the pieces: a top, a bottom, shoes, and an optional layer, plus a short note if the day has something special in it. Tap Save this outfit and it joins your saved list below the planner, where it stays until you delete it. Your outfits are stored in this browser only, so they are private and they are yours — nobody else can see them, and they travel with this device.</p><p>The planner also gives you a layer tip for the weather you picked. The tip is general guidance, not a forecast: it reminds you what a cool day or a rainy day usually asks for, so you can check your outfit against it before you leave. If the tip says a waterproof layer and your outfit has none, add one — that small check is the whole point of planning.</p><p>Use the Copy button to copy all your saved outfits as plain text, for a packing list, a note to yourself, or a message to a friend. Use the example button to see how a finished outfit looks, then change the boxes to your own clothes. The planner works the same on a phone and on a desktop, and it needs no account and no download.</p>
+<h2>Planning by occasion</h2>
+<p>Occasion is the first decision, because it sets the rules for everything else. Work usually asks for something neat and comfortable enough to sit in all day. A formal event asks for your smartest pieces and your best shoes. A casual day out asks for comfort first, with one piece that makes the outfit feel deliberate. Sport and active days ask for clothes that move and shoes that support. An evening out asks for a step up from your daytime self. Travel asks for layers, comfort, and clothes that survive a long day.</p><p>Planning by occasion also stops the morning panic. When you know the day holds a meeting at ten and dinner at eight, you can plan one outfit that covers both, or plan the change in advance. Write the detail in the note box — meeting at ten, dinner at eight, long walk after lunch — and the outfit stops being a guess and becomes a plan.</p><p>One useful habit is planning the next day's outfit the evening before. It takes two minutes, it makes the morning calmer, and it lets you notice problems — a missing button, a stained shirt, shoes that need a clean — while there is still time to fix them. The saved list makes this easy: plan a few days at once, and the week dresses itself.</p>
+<h2>Planning by weather</h2>
+<p>Weather is the second decision, and the one people forget most often. A beautiful outfit that ignores the weather is an uncomfortable outfit, and an uncomfortable outfit is one you will not enjoy wearing. Hot weather asks for light, loose fabrics and as little layering as possible. Warm weather asks for one light layer you can carry. Cool weather asks for a proper layer you can button up. Cold weather asks for real layering: a warm base, a knit, and a coat. Rainy weather asks for a waterproof outer layer above all else.</p><p>Check the forecast the evening before, not just in the morning. A day that starts cool and turns hot needs layers you can remove; a day that starts dry and turns wet needs a waterproof layer in your bag. The planner's weather box is there to make you ask the question, because the question is the habit that matters.</p><p>Shoes deserve their own weather thought. Rain ruins suede and light canvas, heat makes heavy boots miserable, and a long wet walk in the wrong shoes can spoil a whole day. When you plan the outfit, plan the shoes for the weather too — and keep a spare pair at work or in the car if your days are unpredictable.</p>
+<h2>Capsule wardrobe ideas</h2>
+<p>A capsule wardrobe is a small set of pieces that all work together, so that a few clothes make many outfits. The list below is a starting capsule of twelve pieces — enough for weeks of outfits without a crowded closet. You do not need to buy them all at once; start with what you own and add the missing pieces slowly.</p><ul><li>white shirt</li><li>plain black top</li><li>dark jeans</li><li>navy trousers</li><li>neutral knit sweater</li><li>blazer in navy or black</li><li>simple dress in a dark colour</li><li>white trainers</li><li>black loafers</li><li>light jacket or coat</li><li>scarf in a favourite colour</li><li>everyday bag</li></ul><p>The capsule works because the colours are quiet and the shapes are simple: almost any top goes with almost any bottom, and the blazer, the knit, and the jacket layer over all of them. The scarf is the one piece allowed to be loud — it adds your colour and your personality to an otherwise calm set. If your life needs different pieces — work boots instead of loafers, a warm coat instead of a light jacket — swap them in. A capsule is a pattern, not a fixed list.</p><p>Twelve pieces, mixed freely, make far more outfits than twelve. Two tops, two bottoms, and two layers already make eight combinations, and the shoes and the scarf double that again. That is the capsule's promise: fewer decisions, more outfits, and a closet where everything earns its place.</p>
+<h2>Outfits that work twice</h2>
+<p>The best outfits are the ones you can wear twice in a week without anyone noticing — or without you caring. A dress that works for work with a blazer and for dinner without one. Trousers that look smart with a shirt and relaxed with a knit. A top that goes under a jacket on Monday and stands alone on Friday. Planning for rewear is planning for a smaller, calmer closet.</p><p>The trick is changing one visible thing. The same top and trousers with different shoes and a different layer read as a different outfit. The same dress with a scarf one day and a jacket the next does the same. People notice the outer layer and the shoes far more than the pieces underneath, so change those and the outfit changes with them.</p><p>Rewear is also kinder to your clothes and your time. Fewer washes, fewer decisions, fewer mornings spent staring at a full closet with nothing to wear. Save the outfits that work twice in the planner, and they become your reliable set — the outfits you reach for when the day is busy and the decision needs to be quick.</p>
+<h2>Packing with the planner</h2>
+<p>The planner is a packing tool too. Before a trip, save one outfit per day of the trip, checking the weather for each day as you go. Then look at the saved list as a whole: how many tops, how many bottoms, how many pairs of shoes? If the list is long, look for pieces that appear in several outfits and pack those first — they are doing the most work.</p><p>Pack in outfits, not in pieces. Fold or roll each day's outfit together, and you will never stand in a hotel room wondering what goes with what. The copy button gives you the whole list as plain text, which works as a packing checklist: tick each piece off as it goes into the bag.</p><p>Leave room for the trip itself. A spare top, one extra layer, and comfortable walking shoes cover most surprises, from a spilled coffee to a sudden cold evening. And pack one outfit that makes you feel good — travel days are long, and feeling good in your clothes makes them shorter.</p>
+<h2>Common outfit mistakes</h2>
+<p>The most common mistake is planning for the occasion and forgetting the weather — or the other way round. A smart outfit in the wrong weather is an uncomfortable outfit, and a weather-proof outfit in the wrong setting feels out of place. The planner asks for both on purpose: occasion first, weather second, every time.</p><p>The second mistake is the outfit that almost works: the top that needs adjusting all day, the shoes that pinch after an hour, the layer that is too warm indoors and too thin outdoors. If a piece needs constant attention, it is not part of a good outfit, however good it looks in the mirror. Comfort is not the opposite of style — it is part of it.</p><p>The third mistake is saving outfits and never looking at them again. The saved list is only useful if you read it: before the week starts, before a trip, before a big day. A two-minute look at your saved outfits on a Sunday evening can make five weekday mornings easier. Planning is a habit, and habits pay off in small, daily ways.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>Where are my saved outfits stored?</h3><p>In this browser only, on your own device. Nothing is uploaded, there is no account, and nobody else can see your outfits. Clearing your browser data will clear your saved outfits too, so use the Copy button to keep a text backup if you want one.</p></div>
+<div class="faq"><h3>What if my occasion is not in the list?</h3><p>Pick the closest one. A job interview is close to Work or Formal event; a family lunch is close to Casual day out. The occasion sets the tone of the outfit, and the note box is there for the detail that makes your day specific.</p></div>
+<div class="faq"><h3>How many outfits can I save?</h3><p>As many as you like — the list grows with your plans. If it gets long, delete the outfits you have already worn, or use the Clear button to start fresh. A short list of outfits you actually wear beats a long list you never look at.</p></div>
+<div class="faq"><h3>What is a capsule wardrobe?</h3><p>A small set of pieces that all work together, so a few clothes make many outfits. The capsule on this page has twelve pieces in quiet colours and simple shapes. Start with what you own, add the missing pieces slowly, and swap in pieces your life actually needs.</p></div>
+<div class="faq"><h3>Can I use the planner for packing?</h3><p>Yes. Save one outfit per day of your trip, checking the weather for each day, then copy the list as plain text and use it as a packing checklist. Pack in outfits rather than in separate pieces, and leave room for one spare top and an extra layer.</p></div>
+<div class="faq"><h3>Do I have to fill in every box?</h3><p>No. You need an occasion, the weather, and at least one item — a top, a bottom, shoes, or a layer. The layer and the note are optional. An outfit with just a top and shoes is fine if that is all the day needs.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../fashion-color-matching-tool/">Fashion Color Matching Tool</a> · <a href="../personal-style-inspiration-hub/">Personal Style Inspiration Hub</a> · <a href="../fashion-trend-directory/">Fashion Trend Directory</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+(function () {
+  var OCCASIONS = ["Work", "Casual day out", "Formal event", "Sport and active", "Evening out", "Travel"];
+  var WEATHERS = ["Hot", "Warm", "Cool", "Cold", "Rainy"];
+  var CAPSULE = ["white shirt", "plain black top", "dark jeans", "navy trousers", "neutral knit sweater", "blazer in navy or black", "simple dress in a dark colour", "white trainers", "black loafers", "light jacket or coat", "scarf in a favourite colour", "everyday bag"];
+  var LAYER_ADVICE = {
+    "Hot": "Skip the layer. Choose light, loose fabrics and a hat for the sun.",
+    "Warm": "A light layer you can carry is enough, such as a thin cardigan or an open shirt.",
+    "Cool": "Add a proper layer: a jacket, a knit, or a coat you can button up.",
+    "Cold": "Layer up: a warm base, a knit, and a coat, plus a scarf and gloves.",
+    "Rainy": "A waterproof outer layer is essential. Avoid suede and light canvas shoes."
+  };
+
+  function trim(v) { return String(v == null ? "" : v).replace(/^\s+|\s+$/g, ""); }
+
+  function buildOutfit(input) {
+    var occasion = trim(input.occasion);
+    var weather = trim(input.weather);
+    var top = trim(input.top);
+    var bottom = trim(input.bottom);
+    var shoes = trim(input.shoes);
+    var layer = trim(input.layer);
+    var note = trim(input.note);
+    if (OCCASIONS.indexOf(occasion) < 0) {
+      return { error: "Pick an occasion from the list first." };
+    }
+    if (WEATHERS.indexOf(weather) < 0) {
+      return { error: "Pick the weather from the list first." };
+    }
+    if (!top && !bottom && !shoes && !layer) {
+      return { error: "Add at least one item: a top, bottom, shoes, or a layer." };
+    }
+    var outfit = { occasion: occasion, weather: weather, top: top, bottom: bottom,
+                   shoes: shoes, layer: layer, note: note };
+    return { outfit: outfit, text: formatOutfit(outfit), tip: LAYER_ADVICE[weather], error: null };
+  }
+
+  function formatOutfit(o) {
+    var items = [];
+    if (o.top) { items.push(o.top); }
+    if (o.bottom) { items.push(o.bottom); }
+    if (o.shoes) { items.push(o.shoes); }
+    if (o.layer) { items.push(o.layer); }
+    var s = o.occasion + " — " + o.weather + ": " + items.join(", ") + ".";
+    if (o.note) { s += " Note: " + o.note; }
+    return s;
+  }
+
+  function formatSaved(list) {
+    if (!list.length) { return "No saved outfits yet."; }
+    var lines = ["SAVED OUTFITS"];
+    list.forEach(function (o, i) { lines.push((i + 1) + ". " + formatOutfit(o)); });
+    return lines.join("\n");
+  }
+
+  function exampleOutfit() {
+    return { occasion: "Work", weather: "Cool", top: "White shirt and blazer",
+             bottom: "Navy trousers", shoes: "Black loafers", layer: "Light coat",
+             note: "Meeting at 10" };
+  }
+
+  var FT = { OCCASIONS: OCCASIONS, WEATHERS: WEATHERS, CAPSULE: CAPSULE,
+             LAYER_ADVICE: LAYER_ADVICE, buildOutfit: buildOutfit,
+             formatOutfit: formatOutfit, formatSaved: formatSaved,
+             exampleOutfit: exampleOutfit };
+  if (typeof window !== "undefined") { window.FT = FT; }
+  if (typeof globalThis !== "undefined") { globalThis.FT = FT; }
+  if (typeof document === "undefined") { return; }
+
+  var KEY = "ft-outfit-planner-outfits";
+  var els = {};
+  ["occasion", "weather", "top", "bottom", "shoes", "layer", "note"].forEach(function (id) {
+    els[id] = document.getElementById(id);
+  });
+  var msgEl = document.getElementById("plan-msg");
+  var outEl = document.getElementById("plan-out");
+  var listEl = document.getElementById("saved-list");
+
+  function loadSaved() {
+    try {
+      var raw = window.localStorage.getItem(KEY);
+      var list = raw ? JSON.parse(raw) : [];
+      return Array.isArray(list) ? list : [];
+    } catch (e) { return []; }
+  }
+  function storeSaved(list) {
+    try { window.localStorage.setItem(KEY, JSON.stringify(list)); } catch (e) {}
+  }
+
+  function renderSaved() {
+    var list = loadSaved();
+    while (listEl.firstChild) { listEl.removeChild(listEl.firstChild); }
+    if (!list.length) {
+      var empty = document.createElement("li");
+      empty.textContent = "No saved outfits yet. Your saved outfits appear here and stay on this device only.";
+      listEl.appendChild(empty);
+      return;
+    }
+    list.forEach(function (o, idx) {
+      var li = document.createElement("li");
+      var span = document.createElement("span");
+      span.textContent = formatOutfit(o);
+      li.appendChild(span);
+      var del = document.createElement("button");
+      del.type = "button";
+      del.className = "del";
+      del.textContent = "Delete";
+      del.setAttribute("aria-label", "Delete outfit " + (idx + 1));
+      del.addEventListener("click", function () {
+        var cur = loadSaved();
+        cur.splice(idx, 1);
+        storeSaved(cur);
+        renderSaved();
+        msgEl.textContent = "Outfit deleted.";
+      });
+      li.appendChild(del);
+      listEl.appendChild(li);
+    });
+  }
+
+  function readInputs() {
+    var input = {};
+    Object.keys(els).forEach(function (k) { input[k] = els[k].value; });
+    return input;
+  }
+
+  function copyText(text, btn) {
+    var original = btn.textContent;
+    function done() {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  document.getElementById("save-btn").addEventListener("click", function () {
+    var res = buildOutfit(readInputs());
+    if (res.error) {
+      msgEl.textContent = res.error;
+      outEl.textContent = "Fill in the occasion and weather, add at least one item, then tap Save this outfit.";
+      return;
+    }
+    var list = loadSaved();
+    list.push(res.outfit);
+    storeSaved(list);
+    outEl.textContent = res.text + " Layer tip: " + res.tip;
+    msgEl.textContent = "Outfit saved on this device. You have " + list.length + " saved outfit" + (list.length === 1 ? "" : "s") + ".";
+    renderSaved();
+  });
+  document.getElementById("example-btn").addEventListener("click", function () {
+    var ex = exampleOutfit();
+    Object.keys(els).forEach(function (k) { els[k].value = ex[k]; });
+    var res = buildOutfit(ex);
+    outEl.textContent = res.text + " Layer tip: " + res.tip;
+    msgEl.textContent = "Example loaded. Change any box to your own outfit, then save it.";
+  });
+  document.getElementById("copy-btn").addEventListener("click", function () {
+    copyText(formatSaved(loadSaved()), document.getElementById("copy-btn"));
+  });
+  document.getElementById("clear-btn").addEventListener("click", function () {
+    storeSaved([]);
+    renderSaved();
+    msgEl.textContent = "All saved outfits cleared from this device.";
+  });
+  renderSaved();
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piano Practice Planner | Funtasha</title>
+<meta name="description" content="Build a weekly piano practice plan from your level and the time you have, save it in your browser, and keep your practice steady. Free, no sign-up.">
+<link rel="canonical" href="https://funtasha.github.io/piano-practice-planner/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Piano Practice Planner">
+<meta property="og:description" content="Build a weekly piano practice plan from your level and the time you have, save it in your browser, and keep your practice steady. Free, no sign-up.">
+<meta property="og:url" content="https://funtasha.github.io/piano-practice-planner/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long should I practise each day?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your level. Fifteen to twenty minutes a day suits a beginner, thirty to forty-five suits an intermediate player, and forty-five to sixty suits an advanced player. Regular short sessions beat rare long ones, so pick a length you can keep every day."}}, {"@type": "Question", "name": "Should I practise every day?", "acceptedAnswer": {"@type": "Answer", "text": "Most days is enough. Five days a week is a good target, with rest days built in. Rest helps learning settle, and a plan with rest days is easier to keep than a plan that demands perfection. The planner spreads your days across the week for you."}}, {"@type": "Question", "name": "What if I miss a day?", "acceptedAnswer": {"@type": "Answer", "text": "Just continue the next day. A missed day is normal, and the plan still works if you pick it up where you left off. Never double a session to make up for a missed one: a doubled session feels like a punishment and makes the next day harder to start."}}, {"@type": "Question", "name": "Does this page play piano?", "acceptedAnswer": {"@type": "Answer", "text": "No. This page plans practice only: it does not play piano and it cannot hear you play. You practise on your own instrument, and this page organises your time, saves your plan, and shows you what to work on each day."}}, {"@type": "Question", "name": "Where is my plan saved?", "acceptedAnswer": {"@type": "Answer", "text": "In this browser only, using the browser's own storage. Nothing is uploaded and there is no account, so your plan never leaves your device. A different browser, or a cleared history, will not have your plan, so copy it somewhere safe if you want a backup."}}, {"@type": "Question", "name": "How often should I change my plan?", "acceptedAnswer": {"@type": "Answer", "text": "Review it monthly, or whenever your level changes. If the minutes feel too long or too short, or the focus no longer matches what you need, rebuild the plan with new settings. A plan that fits your life is a plan you will keep."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button,.calc input,.calc select,.calc textarea{min-height:72px}
+table{width:100%;border-collapse:collapse;margin:10px 0}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;font-size:15px}
+th{background:#fdf2f8}
+.calc pre{white-space:pre-wrap;word-wrap:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:14px;max-height:420px;overflow:auto;margin-top:14px}
+.calc .rowline{margin:8px 0}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Piano Practice Planner</h1>
+<p class="answer">This planner builds a weekly piano practice plan from your level and the minutes you can practise each day. It splits every session into warm-up, scales, pieces and reading, and saves your plan in this browser only.</p>
+<div class="calc">
+<label for="level">Your level</label>
+<select id="level"><option value="beginner">Beginner</option><option value="intermediate" selected>Intermediate</option><option value="advanced">Advanced</option></select>
+<label for="minutes">Minutes per practice day</label>
+<select id="minutes"><option value="15">15 minutes</option><option value="20">20 minutes</option><option value="30" selected>30 minutes</option><option value="45">45 minutes</option><option value="60">60 minutes</option></select>
+<label for="days">Practice days per week</label>
+<select id="days"><option value="3">3 days</option><option value="4">4 days</option><option value="5" selected>5 days</option><option value="6">6 days</option><option value="7">7 days</option></select>
+<label for="focus">Main focus</label>
+<select id="focus"><option value="balanced" selected>Balanced</option><option value="pieces">Pieces</option><option value="technique">Technique</option><option value="reading">Sight-reading</option></select>
+<button id="build-btn" type="button">Build my weekly plan</button>
+<div class="out" id="plan-out">Pick your level and time, then tap Build my weekly plan.</div>
+<div id="plan-list"></div>
+<button id="save-btn" type="button">Save my plan</button>
+<button id="clear-btn" type="button">Clear saved plan</button>
+<button id="copy-btn" type="button">Copy my plan</button>
+</div>
+<div class="warn">This page plans practice only: it does not play piano and it cannot hear you play. Your plan is saved in this browser only and never leaves your device, so a different browser or a cleared history will not have it.</div>
+<h2>Why a plan beats random practice</h2>
+<p>Most people sit down at the piano, play the pieces they already like, skip the hard parts, and stop when they feel done. It feels like practice, but the same easy bars get all the attention while the weak spots stay weak. A plan changes that by giving every minute a job before you sit down. You know what to warm up with, which scales to play, which piece needs slow work, and when the session ends. The decision is already made, so the willpower goes into playing instead of choosing.</p>
+<p>A plan also makes progress visible. When you practise the same structure for a few weeks, you can hear the difference: the scale that was uneven is even, the passage that tripped you is smooth, the piece that was shaky holds together. Random practice rarely shows that, because nothing is repeated on purpose. And a plan tells you when to stop, which matters as much as starting. A focused thirty minutes beats a distracted hour, and a plan that ends on time is a plan you will come back to tomorrow.</p>
+<h2>How the planner splits your time</h2>
+<p>This planner splits each session into parts by level, because a beginner and an advanced player need different things from the same thirty minutes. Beginners spend most of the time on warm-up and pieces, with a little sight-reading to build reading skill early. Intermediate players add technique work and read more. Advanced players spend half the session on pieces and keep technique ticking over. The table shows the split for each level.</p>
+<ul>
+<li><strong>Beginner:</strong> warm-up 15%, scales 20%, pieces 45%, reading 20%, no separate technique work yet.</li>
+<li><strong>Intermediate:</strong> warm-up 10%, scales 20%, pieces 45%, reading 15%, technique 10%.</li>
+<li><strong>Advanced:</strong> warm-up 10%, scales 15%, pieces 50%, reading 10%, technique 15%.</li>
+</ul>
+<p>The focus option shifts the split toward what you need most right now. Choosing pieces moves time from reading and scales into your repertoire. Choosing technique adds focused technical work. Choosing reading moves time into sight-reading. The planner also spreads your practice days across the week and marks rest days plainly, because rest is part of the plan, not a failure of it. A week with five planned days and two rest days is a full week, not a broken one.</p>
+<h2>The parts of a practice session</h2>
+<p>Warm-up comes first, and it is short on purpose: a few minutes of loose, easy playing to wake the hands up. Five-finger patterns, gentle scales, or a familiar easy piece all work. The point is to arrive at the piano, not to impress it. Scales and arpeggios come next. They build evenness, finger strength, and fluency in each key, and they pay off in every piece you play, because most pieces are built from the same patterns.</p>
+<p>Pieces take the biggest share, and they deserve the slowest work. New material should be practised slowly enough to play without mistakes, in small sections, hands separately where needed. Polishing work is different: play through, notice what breaks, and go back to those bars only. Sight-reading is a little every day rather than a lot once a week: one short new piece, played through without stopping, builds reading faster than any other habit. Technique work, for intermediate and advanced players, means studies, arpeggios, octaves, and the specific skills your pieces demand.</p>
+<h2>Beginner plans</h2>
+<p>A beginner plan is fifteen to twenty minutes a day, five days a week. That is enough to build a habit without building dread. Start with one piece at a time, and finish it before adding another: a shelf of half-learned pieces teaches you to start things and drop them. Five-finger patterns come before full scales, and reading simple lines comes before reading chords. Small wins matter more than big leaps at this stage, so the planner keeps sessions short and the mix simple.</p>
+<p>If you are learning with a teacher, bring the plan to your lesson and let the teacher adjust it. If you are learning alone, be patient with the first month: the habit is the achievement, and the playing follows it. The planner saves your plan in this browser, so you can open it each day and see exactly what to do without deciding again.</p>
+<p>Choose your first pieces with your teacher or from a beginner book rather than from recordings you love: the pieces you love are often harder than they sound, and a piece far above your level teaches frustration, not playing. Work on one new piece and one review piece at a time, and play the review piece from memory once a week to keep it alive. When a piece is finished, record it, even roughly, so you have a record of what you could do and when.</p>
+<h2>Intermediate plans</h2>
+<p>An intermediate plan is thirty to forty-five minutes a day. At this level you can hold two pieces at once: one new piece being learned slowly, and one older piece being polished. The planner's pieces share covers both, and you can split it yourself between the two. Scales move into more keys, and sight-reading becomes a daily habit rather than an occasional extra. Technique work appears as its own part for the first time, because the pieces you want to play now ask for skills that pieces alone do not build.</p>
+<p>This is also the stage to start keeping a list of finished pieces. Write down every piece you can play from start to finish, and revisit the list monthly. It grows faster than you expect, and on a bad week it reminds you how far you have come. The planner's weekly total helps here too: seeing 150 minutes a week in black and white is encouraging in a way that a vague feeling of having practised is not.</p>
+<h2>Advanced plans</h2>
+<p>An advanced plan is forty-five to sixty minutes a day, with half the session on pieces. Repertoire needs rotation at this level: keep three or four pieces alive at once, and let the planner's pieces share cover the ones that need work today. Technique becomes maintenance rather than building, which means shorter, sharper work on the specific skills your repertoire demands. Scales stay, but they shrink to a smaller share because the foundation is already there.</p>
+<p>Performance practice matters now too. Once a week, play a piece through without stopping, as if someone were listening. Do not fix mistakes mid-flight; note them and fix them afterwards. Recording yourself, even on a phone, is the fastest way to hear what a listener hears. The planner cannot do any of this for you, but it can hold the shape of the week steady while you do it.</p>
+<p>At this level, listening matters as much as playing. Listen to two or three recordings of each piece you study, and notice how different players shape the same phrases. Your own interpretation grows from that listening, and the planner's reading share can cover score study as well as sight-reading when a performance is near.</p>
+<h2>Keeping the habit</h2>
+<p>The best time to practise is the time you will actually do it, and the same time each day beats a better time you keep missing. Tie practice to something that already happens: after breakfast, after school, before dinner. Keep the piano clear and the plan open, so starting takes seconds rather than decisions. Rest days are part of the plan, so take them without guilt; a rested player learns faster than a tired one.</p>
+<p>When you miss a day, and everyone does, just continue the next day. Never double up to punish yourself: a doubled session is a chore, and chores kill habits. If the plan feels stale after a month, change the focus or the minutes rather than abandoning the habit. Review your plan monthly, or whenever your level changes, and remember the plan is a servant, not a master. It exists to get you to the piano; the music is yours.</p>
+<p>If your schedule changes, change the plan instead of dropping it. Fifteen minutes on a busy week is still practice, and the planner rebuilds in seconds with new settings. Tell someone about your plan if it helps: a teacher, a friend, or a family member who asks how it went adds a gentle accountability that costs nothing. The habit grows stronger each week you keep it, and after a month it starts to carry itself.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>How long should I practise each day?</h3>
+<p>It depends on your level. Fifteen to twenty minutes a day suits a beginner, thirty to forty-five suits an intermediate player, and forty-five to sixty suits an advanced player. Regular short sessions beat rare long ones, so pick a length you can keep every day.</p>
+</div>
+<div class="faq">
+<h3>Should I practise every day?</h3>
+<p>Most days is enough. Five days a week is a good target, with rest days built in. Rest helps learning settle, and a plan with rest days is easier to keep than a plan that demands perfection. The planner spreads your days across the week for you.</p>
+</div>
+<div class="faq">
+<h3>What if I miss a day?</h3>
+<p>Just continue the next day. A missed day is normal, and the plan still works if you pick it up where you left off. Never double a session to make up for a missed one: a doubled session feels like a punishment and makes the next day harder to start.</p>
+</div>
+<div class="faq">
+<h3>Does this page play piano?</h3>
+<p>No. This page plans practice only: it does not play piano and it cannot hear you play. You practise on your own instrument, and this page organises your time, saves your plan, and shows you what to work on each day.</p>
+</div>
+<div class="faq">
+<h3>Where is my plan saved?</h3>
+<p>In this browser only, using the browser's own storage. Nothing is uploaded and there is no account, so your plan never leaves your device. A different browser, or a cleared history, will not have your plan, so copy it somewhere safe if you want a backup.</p>
+</div>
+<div class="faq">
+<h3>How often should I change my plan?</h3>
+<p>Review it monthly, or whenever your level changes. If the minutes feel too long or too short, or the focus no longer matches what you need, rebuild the plan with new settings. A plan that fits your life is a plan you will keep.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../music-practice-tracker/">Music Practice Tracker</a> · <a href="../drawing-practice-challenge/">Drawing Practice Challenge</a> · <a href="../soap-making-recipe-calculator/">Soap Making Recipe Calculator</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+</div>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+<script>
+(function () {
+  var SPLITS = {
+    beginner: { "Warm-up": 15, "Scales": 20, "Pieces": 45, "Reading": 20 },
+    intermediate: { "Warm-up": 10, "Scales": 20, "Pieces": 45, "Reading": 15, "Technique": 10 },
+    advanced: { "Warm-up": 10, "Scales": 15, "Pieces": 50, "Reading": 10, "Technique": 15 }
+  };
+  var DAY_NAMES = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  var DAY_PATTERNS = { 3: [0, 2, 4], 4: [0, 1, 3, 5], 5: [0, 1, 2, 3, 4], 6: [0, 1, 2, 3, 4, 5], 7: [0, 1, 2, 3, 4, 5, 6] };
+  var KEY = "ft-piano-practice-planner-plan";
+  function splitMinutes(total, weights) {
+    var keys = Object.keys(weights);
+    var sum = 0;
+    keys.forEach(function (k) { sum += weights[k]; });
+    var out = {}, acc = 0;
+    keys.forEach(function (k, i) {
+      if (i === keys.length - 1) { out[k] = total - acc; }
+      else { var m = Math.round(total * weights[k] / sum); out[k] = m; acc += m; }
+    });
+    return out;
+  }
+  function weightsFor(level, focus) {
+    var w = {};
+    Object.keys(SPLITS[level]).forEach(function (k) { w[k] = SPLITS[level][k]; });
+    if (focus === "pieces") { w["Pieces"] += 10; w["Reading"] -= 5; w["Scales"] -= 5; }
+    if (focus === "technique") {
+      if (!w["Technique"]) w["Technique"] = 0;
+      w["Technique"] += 10; w["Scales"] -= 5; w["Reading"] -= 5;
+    }
+    if (focus === "reading") { w["Reading"] += 10; w["Pieces"] -= 10; }
+    return w;
+  }
+  function buildPlan(level, minutes, days, focus) {
+    var parts = splitMinutes(minutes, weightsFor(level, focus));
+    var activities = Object.keys(parts).map(function (k) { return { name: k, minutes: parts[k] }; });
+    var pattern = DAY_PATTERNS[days] || DAY_PATTERNS[5];
+    var week = DAY_NAMES.map(function (name, i) {
+      if (pattern.indexOf(i) >= 0) {
+        return { day: name, rest: false, minutes: minutes, activities: activities };
+      }
+      return { day: name, rest: true, minutes: 0, activities: [] };
+    });
+    return { level: level, minutes: minutes, days: days, focus: focus,
+             week: week, totalMinutes: minutes * days };
+  }
+  function planText(plan) {
+    var lines = [];
+    lines.push("Weekly piano practice plan (" + plan.level + ", " + plan.minutes + " minutes a day, " + plan.days + " days a week, focus: " + plan.focus + ")");
+    plan.week.forEach(function (d) {
+      if (d.rest) { lines.push(d.day + " - Rest day."); return; }
+      var parts = d.activities.map(function (a) { return a.name + " " + a.minutes + " min"; }).join(", ");
+      lines.push(d.day + " - " + d.minutes + " minutes: " + parts + ".");
+    });
+    lines.push("Total: " + plan.totalMinutes + " minutes a week.");
+    return lines.join("\n");
+  }
+  window.FT = { SPLITS: SPLITS, splitMinutes: splitMinutes, weightsFor: weightsFor,
+                buildPlan: buildPlan, planText: planText, KEY: KEY };
+  var outEl = document.getElementById("plan-out");
+  var listEl = document.getElementById("plan-list");
+  var lastPlan = null;
+  function render(plan) {
+    lastPlan = plan;
+    outEl.textContent = "Your week: " + plan.days + " practice days, " + plan.totalMinutes + " minutes in total.";
+    while (listEl.firstChild) listEl.removeChild(listEl.firstChild);
+    plan.week.forEach(function (d) {
+      var p = document.createElement("p");
+      p.className = "rowline";
+      if (d.rest) {
+        p.textContent = d.day + " - Rest day.";
+      } else {
+        var parts = d.activities.map(function (a) { return a.name + " " + a.minutes + " min"; }).join(", ");
+        p.textContent = d.day + " - " + d.minutes + " minutes: " + parts + ".";
+      }
+      listEl.appendChild(p);
+    });
+  }
+  function readInputs() {
+    return {
+      level: document.getElementById("level").value,
+      minutes: parseInt(document.getElementById("minutes").value, 10),
+      days: parseInt(document.getElementById("days").value, 10),
+      focus: document.getElementById("focus").value
+    };
+  }
+  function build() {
+    var inp = readInputs();
+    render(buildPlan(inp.level, inp.minutes, inp.days, inp.focus));
+  }
+  function loadSaved() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return;
+      var saved = JSON.parse(raw);
+      document.getElementById("level").value = saved.level;
+      document.getElementById("minutes").value = String(saved.minutes);
+      document.getElementById("days").value = String(saved.days);
+      document.getElementById("focus").value = saved.focus;
+      render(buildPlan(saved.level, saved.minutes, saved.days, saved.focus));
+    } catch (e) {}
+  }
+  var buildBtn = document.getElementById("build-btn");
+  if (buildBtn) buildBtn.addEventListener("click", build);
+  var saveBtn = document.getElementById("save-btn");
+  if (saveBtn) saveBtn.addEventListener("click", function () {
+    if (!lastPlan) build();
+    if (lastPlan) {
+      try { localStorage.setItem(KEY, JSON.stringify({ level: lastPlan.level, minutes: lastPlan.minutes, days: lastPlan.days, focus: lastPlan.focus })); } catch (e) {}
+      outEl.textContent = "Plan saved in this browser. " + lastPlan.days + " practice days, " + lastPlan.totalMinutes + " minutes in total.";
+    }
+  });
+  var clearBtn = document.getElementById("clear-btn");
+  if (clearBtn) clearBtn.addEventListener("click", function () {
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    lastPlan = null;
+    while (listEl.firstChild) listEl.removeChild(listEl.firstChild);
+    outEl.textContent = "Saved plan cleared. Build a new plan when you are ready.";
+  });
+  function copyText(text, btn) {
+    var original = btn.textContent;
+    function done() {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+  var copyBtn = document.getElementById("copy-btn");
+  if (copyBtn) copyBtn.addEventListener("click", function () {
+    if (!lastPlan) build();
+    if (lastPlan) copyText(planText(lastPlan), copyBtn);
+  });
+  loadSaved();
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

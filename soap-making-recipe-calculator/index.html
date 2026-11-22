@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soap Making Recipe Calculator | Funtasha</title>
+<meta name="description" content="Work out the lye and water for a cold-process soap recipe from your oils, with the working shown and safety first. Free, in your browser, no sign-up.">
+<link rel="canonical" href="https://funtasha.github.io/soap-making-recipe-calculator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Soap Making Recipe Calculator">
+<meta property="og:description" content="Work out the lye and water for a cold-process soap recipe from your oils, with the working shown and safety first. Free, in your browser, no sign-up.">
+<meta property="og:url" content="https://funtasha.github.io/soap-making-recipe-calculator/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is superfat in soap making?", "acceptedAnswer": {"@type": "Answer", "text": "Superfat is the share of oil left unsaponified on purpose. A 5 percent superfat means the recipe uses 5 percent less lye than the full amount, so 5 percent of the oils stay free in the finished bar. That makes the soap milder and more conditioning. Most everyday recipes use 5 percent, and laundry soap often uses none."}}, {"@type": "Question", "name": "How long does cold-process soap need to cure?", "acceptedAnswer": {"@type": "Answer", "text": "Four to six weeks is the usual cure time. During curing the water evaporates, the bar hardens, and the soap becomes milder. A bar used too early feels soft and disappears fast in the shower. Bars heavy in olive oil benefit from the longer end of the range."}}, {"@type": "Question", "name": "Can I use an oil that is not in the calculator?", "acceptedAnswer": {"@type": "Answer", "text": "Not with this calculator alone. Every oil has its own SAP value, and the calculator only knows the six listed here. For another oil you need its published SAP value from a reliable soap-making table, and you should check your numbers twice. Never guess a SAP value."}}, {"@type": "Question", "name": "What happens if I add too much lye?", "acceptedAnswer": {"@type": "Answer", "text": "Too much lye leaves free alkali in the bar, which can sting or burn skin. A lye-heavy bar often feels dry and crumbly and may develop white ash or cracks. If you suspect a batch is lye-heavy, do not use it on skin. Test with pH strips and, when in doubt, throw the batch out."}}, {"@type": "Question", "name": "Do I need a scale for soap making?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Soap recipes are worked in grams because lye amounts are small and exact. Cups and spoons are not accurate enough: a spoon of lye can vary by several grams, which is enough to change a recipe. A cheap kitchen scale that reads to one gram is all you need."}}, {"@type": "Question", "name": "Is cold-process soap safe to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, when the recipe is calculated correctly and the soap is fully cured. The lye is used up in saponification, so a finished bar contains soap and glycerin, not lye. That is why the numbers matter: a correct recipe and a full cure are what make the soap safe and mild."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button,.calc input,.calc select,.calc textarea{min-height:72px}
+table{width:100%;border-collapse:collapse;margin:10px 0}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;font-size:15px}
+th{background:#fdf2f8}
+.calc pre{white-space:pre-wrap;word-wrap:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:14px;max-height:420px;overflow:auto;margin-top:14px}
+.calc .rowline{margin:8px 0}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Soap Making Recipe Calculator</h1>
+<p class="answer">This calculator works out how much lye and water your cold-process soap recipe needs, from the oils you plan to use. Enter each oil in grams, pick a superfat level, and it shows the lye, the water, and the working behind every number.</p>
+<div class="calc">
+<label for="oil-olive">Olive oil (grams)</label>
+<input id="oil-olive" type="number" min="0" step="1" value="500">
+<label for="oil-coconut">Coconut oil (grams)</label>
+<input id="oil-coconut" type="number" min="0" step="1" value="300">
+<label for="oil-palm">Palm oil (grams)</label>
+<input id="oil-palm" type="number" min="0" step="1" value="0">
+<label for="oil-shea">Shea butter (grams)</label>
+<input id="oil-shea" type="number" min="0" step="1" value="0">
+<label for="oil-cocoa">Cocoa butter (grams)</label>
+<input id="oil-cocoa" type="number" min="0" step="1" value="0">
+<label for="oil-castor">Castor oil (grams)</label>
+<input id="oil-castor" type="number" min="0" step="1" value="0">
+<label for="superfat">Superfat</label>
+<select id="superfat"><option value="0">0% (laundry soap)</option><option value="3">3%</option><option value="5" selected>5% (usual starting point)</option><option value="8">8%</option><option value="10">10% (dry skin)</option></select>
+<label for="waterpct">Water, as a percentage of total oil weight</label>
+<select id="waterpct"><option value="33">33% (faster trace)</option><option value="38" selected>38% (usual starting point)</option><option value="45">45% (more working time)</option></select>
+<button id="calc-btn" type="button">Calculate my recipe</button>
+<div class="out" id="soap-out">Enter your oils, then tap Calculate my recipe.</div>
+<div class="steps" id="soap-steps"></div>
+<button id="copy-btn" type="button">Copy my recipe</button>
+</div>
+<div class="warn">Safety first: lye (sodium hydroxide) is caustic and can burn skin and eyes. Always wear goggles, gloves and long sleeves, work with the windows open or a fan running, and keep children and pets out of the room. Never skip the safety steps in this guide, and never use a recipe you have not checked.</div>
+<h2>How cold-process soap works</h2>
+<p>Cold-process soap is made by mixing oils with a lye solution. The chemical reaction that follows is called saponification: the lye breaks the oils apart and rebuilds them as soap and glycerin. When the recipe is right, no free lye is left at the end, and the finished bar is mild soap with glycerin still in it. That glycerin is one reason handmade soap feels different from many shop-bought bars, where the glycerin is often removed and sold separately.</p>
+<p>The name cold process means no outside heat is used after mixing. The reaction makes its own warmth, and the soap is poured into a mould, left to set, cut into bars, and then cured for several weeks. It sounds simple, and the steps are simple, but the numbers are not optional. Too little lye leaves a soft, greasy bar that never firms up properly. Too much lye leaves free alkali in the bar, which can sting or burn skin. Guessing the lye is never safe, which is why every recipe starts with a calculator and a scale.</p>
+<h2>What the calculator does</h2>
+<p>Every oil needs a different amount of lye, because every oil is made of different fatty acids. The number that captures this is the SAP value: the grams of sodium hydroxide needed to turn one gram of that oil into soap. This calculator knows the published SAP values for six common soap-making oils, and it shows them in the table below so you can check the working yourself.</p>
+<table><tr><th>Oil or butter</th><th>SAP value (NaOH)</th></tr><tr><td>Olive oil</td><td>0.134</td></tr><tr><td>Coconut oil</td><td>0.183</td></tr><tr><td>Palm oil</td><td>0.141</td></tr><tr><td>Shea butter</td><td>0.128</td></tr><tr><td>Cocoa butter</td><td>0.137</td></tr><tr><td>Castor oil</td><td>0.128</td></tr></table>
+<p>The calculator multiplies each oil by its SAP value and adds the results to get the full lye amount. Then it applies your superfat discount, which is the share of oil you want left unsaponified on purpose. Finally it works out the water as a percentage of the total oil weight. Here is the worked example the calculator uses as its starting point: 500 grams of olive oil and 300 grams of coconut oil. Olive oil gives 500 times 0.134, which is 67.0 grams of lye. Coconut oil gives 300 times 0.183, which is 54.9 grams. The full lye is 121.9 grams. With a 5 percent superfat, the lye becomes 121.9 times 0.95, which is 115.8 grams. The water at 38 percent of 800 grams of oils is 304 grams. Every number in the result is shown with its working, so nothing is hidden.</p>
+<p>Use the result as a starting recipe, and always check it a second time before you make soap. If you change any oil, change the numbers too. A recipe is only as good as the weights that went into it, and a scale that reads to one gram is the most important tool in soap making after the calculator itself.</p>
+<h2>The oils in the calculator</h2>
+<p>Olive oil is the gentle backbone of many recipes. It makes a mild, conditioning bar, but it is slow to harden and slow to lather, and a bar heavy in olive oil needs the full cure and then some. Coconut oil is the opposite: it gives big bubbles and strong cleansing, and it hardens fast. Over about 30 percent of a recipe it can feel drying, so it is usually balanced with a conditioning oil. Palm oil gives a hard, long-lasting bar with a stable, creamy lather, and it helps a recipe unmould cleanly. If you use palm oil, look for sustainably sourced stock and buy from a supplier you trust.</p>
+<p>Shea butter is a soft butter that adds conditioning and creaminess, usually at 5 to 15 percent of a recipe. Cocoa butter is harder and adds firmness and a stable lather, and it brings a faint chocolate scent that mostly fades during curing. Castor oil is used in small amounts, usually under 10 percent, because it boosts bubbles and lather. Over that share a bar can feel sticky. Most good recipes blend three to five oils so that each one covers another's weakness. A single-oil soap is possible, and olive-oil-only soap has a long history, but every oil alone has a weakness that blending smooths out.</p>
+<h2>Superfat explained</h2>
+<p>Superfat is the share of oil left unsaponified on purpose. A 5 percent superfat means the recipe uses 5 percent less lye than the full amount, so 5 percent of the oils stay free in the finished bar. Those free oils make the soap milder and more conditioning, and they give a small margin of safety if your scale is slightly out. Five percent is the usual starting point for an everyday bar, and it is the default in the calculator.</p>
+<p>Zero percent superfat is used for laundry soap and cleaning soap, where mildness does not matter and every bit of oil should become soap. Eight to 10 percent superfat suits dry or sensitive skin, because more free oil stays in the bar. But more superfat is not always better. A high superfat makes a softer bar, shortens shelf life, and raises the chance of the bar going rancid or developing orange spots. For a first batch, stay with 5 percent and change it only when you know what you want to change and why.</p>
+<h2>Water: how much and why</h2>
+<p>Water has one job in soap making: it dissolves the lye so the lye can reach the oils. Most of the water evaporates during curing, so the amount you start with mostly affects how the soap behaves while you work it, not how the finished bar feels. The calculator offers water as a percentage of the total oil weight, and 38 percent is the usual starting point for a first batch.</p>
+<p>Less water, around 33 percent, makes the soap trace faster, which means it thickens sooner, and the bars unmould sooner and cure a little faster. That suits simple recipes where you do not need much working time. More water, around 45 percent, slows everything down and gives you more time to pour swirls or work with a slow-moving recipe. The trade-off is a longer wait before unmoulding and a longer cure. Use distilled water if your tap water is hard, because minerals in hard water can leave spots on the finished bars. Never reduce the water below the calculator's range on a first batch: very low water makes a fast, hot, hard-to-control batch.</p>
+<h2>Safety: working with lye</h2>
+<p>Lye, sodium hydroxide, is caustic. It burns skin, and it can blind eyes, so safety gear is not optional. Wear safety goggles, not ordinary glasses, gloves that cover your wrists, long sleeves, and closed shoes. Work with the windows open or a fan running, because the fumes when lye dissolves in water are unpleasant and should not be breathed in. Keep children and pets out of the room, and keep the work area clear of anything you do not need.</p>
+<p>Always add lye to water, never water to lye. Adding water to dry lye can cause a violent reaction and splashing. Pour the lye slowly into the water, stir until it is dissolved, and remember the solution gets hot on its own. Use stainless steel, heat-safe plastic, silicone, or tempered glass for mixing. Never use aluminium containers or utensils with lye, because lye reacts with aluminium and gives off gas. Keep a jug of clean water nearby for rinsing, and store lye locked away, labelled, dry, and out of reach of children.</p>
+<p>If lye touches your skin, rinse with plenty of running water for several minutes and remove any clothing it splashed on. If it gets in your eyes, rinse with running water for at least fifteen minutes and get medical help straight away. Do not use vinegar on skin: the old advice to neutralise lye with vinegar is wrong for skin contact, because the reaction makes heat and can make the burn worse. Water, plenty of it, is the right first step. Clean spills with water and paper towels, and wash your soap-making equipment separately from kitchen dishes.</p>
+<h2>Curing and testing your soap</h2>
+<p>After pouring, the soap sets in the mould. Unmould after 24 to 48 hours, when the bar is firm but still easy to cut, and cut it into bars while it is firm rather than brittle. Then cure the bars for four to six weeks on a rack with air moving around each bar, turning them once a week. During curing the water evaporates, the bar hardens, and the soap becomes milder. Saponification itself finishes in the first days; curing is mostly drying, and it is what turns a soft fresh bar into a hard, long-lasting one.</p>
+<p>To test a cured bar, look and feel first: it should be hard, dry, and mild on the skin, not slippery or stinging. The old zap test, touching a bar to the tongue to feel a tingle, is unpleasant and unreliable. pH strips are kinder and easier to read, and patience is the most reliable test of all: a well-made bar that has cured for six weeks and feels mild is ready. Store cured soap in a cool, dry, airy place and use it within a year for the best scent. If a bar smells rancid or develops orange spots, do not use it on your skin.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>What is superfat in soap making?</h3>
+<p>Superfat is the share of oil left unsaponified on purpose. A 5 percent superfat means the recipe uses 5 percent less lye than the full amount, so 5 percent of the oils stay free in the finished bar. That makes the soap milder and more conditioning. Most everyday recipes use 5 percent, and laundry soap often uses none.</p>
+</div>
+<div class="faq">
+<h3>How long does cold-process soap need to cure?</h3>
+<p>Four to six weeks is the usual cure time. During curing the water evaporates, the bar hardens, and the soap becomes milder. A bar used too early feels soft and disappears fast in the shower. Bars heavy in olive oil benefit from the longer end of the range.</p>
+</div>
+<div class="faq">
+<h3>Can I use an oil that is not in the calculator?</h3>
+<p>Not with this calculator alone. Every oil has its own SAP value, and the calculator only knows the six listed here. For another oil you need its published SAP value from a reliable soap-making table, and you should check your numbers twice. Never guess a SAP value.</p>
+</div>
+<div class="faq">
+<h3>What happens if I add too much lye?</h3>
+<p>Too much lye leaves free alkali in the bar, which can sting or burn skin. A lye-heavy bar often feels dry and crumbly and may develop white ash or cracks. If you suspect a batch is lye-heavy, do not use it on skin. Test with pH strips and, when in doubt, throw the batch out.</p>
+</div>
+<div class="faq">
+<h3>Do I need a scale for soap making?</h3>
+<p>Yes. Soap recipes are worked in grams because lye amounts are small and exact. Cups and spoons are not accurate enough: a spoon of lye can vary by several grams, which is enough to change a recipe. A cheap kitchen scale that reads to one gram is all you need.</p>
+</div>
+<div class="faq">
+<h3>Is cold-process soap safe to use?</h3>
+<p>Yes, when the recipe is calculated correctly and the soap is fully cured. The lye is used up in saponification, so a finished bar contains soap and glycerin, not lye. That is why the numbers matter: a correct recipe and a full cure are what make the soap safe and mild.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../sewing-pattern-planner/">Sewing Pattern Planner</a> · <a href="../drawing-practice-challenge/">Drawing Practice Challenge</a> · <a href="../piano-practice-planner/">Piano Practice Planner</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+</div>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+<script>
+(function () {
+  var SAP = { olive: 0.134, coconut: 0.183, palm: 0.141, shea: 0.128, cocoa: 0.137, castor: 0.128 };
+  var OILS = [
+    { key: "olive", name: "Olive oil" },
+    { key: "coconut", name: "Coconut oil" },
+    { key: "palm", name: "Palm oil" },
+    { key: "shea", name: "Shea butter" },
+    { key: "cocoa", name: "Cocoa butter" },
+    { key: "castor", name: "Castor oil" }
+  ];
+  function round1(x) { return Math.round(x * 10) / 10; }
+  function calcRecipe(oils, superfatPct, waterPct) {
+    var totalOil = 0, lyeFull = 0, lines = [];
+    OILS.forEach(function (o) {
+      var g = Number(oils[o.key]) || 0;
+      if (g > 0) {
+        totalOil += g;
+        var l = g * SAP[o.key];
+        lyeFull += l;
+        lines.push({ oil: o.name, grams: g, lye: round1(l), sap: SAP[o.key] });
+      }
+    });
+    var lye = round1(lyeFull * (1 - superfatPct / 100));
+    var water = round1(totalOil * waterPct / 100);
+    return { totalOil: round1(totalOil), lyeFull: round1(lyeFull), lye: lye,
+             water: water, superfat: superfatPct, waterPct: waterPct, lines: lines };
+  }
+  function recipeText(r) {
+    var out = [];
+    out.push("Cold-process soap recipe");
+    r.lines.forEach(function (ln) {
+      out.push(ln.oil + ": " + ln.grams + " g (lye " + ln.lye + " g)");
+    });
+    out.push("Total oils: " + r.totalOil + " g");
+    out.push("Full lye: " + r.lyeFull + " g");
+    out.push("Lye after " + r.superfat + "% superfat: " + r.lye + " g");
+    out.push("Water (" + r.waterPct + "% of oils): " + r.water + " g");
+    out.push("Safety: wear goggles, gloves and long sleeves. Add lye to water, never water to lye. Cure 4 to 6 weeks.");
+    return out.join("\n");
+  }
+  window.FT = { SAP: SAP, OILS: OILS, calcRecipe: calcRecipe, recipeText: recipeText };
+  var outEl = document.getElementById("soap-out");
+  var stepsEl = document.getElementById("soap-steps");
+  var lastRecipe = null;
+  function readOils() {
+    var oils = {};
+    OILS.forEach(function (o) {
+      var el = document.getElementById("oil-" + o.key);
+      oils[o.key] = el ? (parseFloat(el.value) || 0) : 0;
+    });
+    return oils;
+  }
+  function calculate() {
+    var oils = readOils();
+    var sf = parseFloat(document.getElementById("superfat").value) || 0;
+    var wp = parseFloat(document.getElementById("waterpct").value) || 0;
+    var r = calcRecipe(oils, sf, wp);
+    if (r.totalOil <= 0) {
+      outEl.textContent = "Enter at least one oil amount first.";
+      stepsEl.textContent = "";
+      lastRecipe = null;
+      return;
+    }
+    lastRecipe = r;
+    outEl.textContent = "Lye (sodium hydroxide): " + r.lye + " g. Water: " + r.water + " g. Total oils: " + r.totalOil + " g.";
+    var steps = [];
+    r.lines.forEach(function (ln) {
+      steps.push(ln.oil + ": " + ln.grams + " g x " + ln.sap + " = " + ln.lye + " g lye");
+    });
+    steps.push("Full lye: " + r.lyeFull + " g");
+    steps.push("Superfat " + r.superfat + "%: " + r.lyeFull + " x " + (1 - r.superfat / 100).toFixed(2) + " = " + r.lye + " g lye");
+    steps.push("Water (" + r.waterPct + "% of " + r.totalOil + " g oils): " + r.water + " g");
+    steps.push("Always add lye to water, never water to lye. Cure 4 to 6 weeks.");
+    stepsEl.textContent = steps.join("\n");
+  }
+  var calcBtn = document.getElementById("calc-btn");
+  if (calcBtn) calcBtn.addEventListener("click", calculate);
+  function copyText(text, btn) {
+    var original = btn.textContent;
+    function done() {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+  var copyBtn = document.getElementById("copy-btn");
+  if (copyBtn) copyBtn.addEventListener("click", function () {
+    if (!lastRecipe) { calculate(); }
+    if (lastRecipe) copyText(recipeText(lastRecipe), copyBtn);
+  });
+})();
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>
