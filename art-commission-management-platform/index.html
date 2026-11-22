@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Art Commission Management Platform — Manage Art Commissions in Order | Funtasha</title>
+<meta name="description" content="Manage art commissions free — track requests, deposits and deadlines in one tidy place. A local tracker in your browser, no signup.">
+<link rel="canonical" href="https://funtasha.github.io/art-commission-management-platform/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Art Commission Management Platform — Manage Art Commissions in Order">
+<meta property="og:description" content="Manage art commissions free — track requests, deposits and deadlines in one tidy place. A local tracker in your browser, no signup.">
+<meta property="og:url" content="https://funtasha.github.io/art-commission-management-platform/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do art commissions work?", "acceptedAnswer": {"@type": "Answer", "text": "An art commission is a piece of artwork made to order: the buyer describes what they want, the artist agrees a price and a deadline, and the work is made for that buyer. A deposit is usually paid before the work starts."}}, {"@type": "Question", "name": "Should I take a deposit?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — a deposit protects both sides. It shows the buyer is serious, and it gives the artist a real job rather than a maybe. Agree the deposit in writing, and say plainly what happens if the commission is cancelled."}}, {"@type": "Question", "name": "How do I price a commission?", "acceptedAnswer": {"@type": "Answer", "text": "Start with your costs — materials and your time — then add a margin for your skill and experience. Set prices by size and complexity, write them down, and keep them consistent, so two buyers never find different prices for the same work."}}, {"@type": "Question", "name": "What should the brief say?", "acceptedAnswer": {"@type": "Answer", "text": "The brief should cover the subject, the size, the medium, the colours or mood, the deadline, the price, and the deposit. Ask for reference photographs where they help, and agree how many revisions are included."}}, {"@type": "Question", "name": "How do I track deadlines?", "acceptedAnswer": {"@type": "Answer", "text": "Enter each commission in the tracker with its status and deadline, and update the status as the work moves along. The tracker shows your totals and flags overdue deadlines, so nothing slips through the cracks."}}, {"@type": "Question", "name": "Is my data uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No — everything you enter stays in this browser only. Nothing is uploaded or shared, so use the copy button to keep a record of your list outside the browser."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc input,.calc select,.calc textarea{min-height:72px}
+.calc button{min-height:72px}
+.calc input[type=checkbox]{min-height:0;width:28px;height:28px;min-width:28px;flex:none}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px;padding:10px 0;border-bottom:1px solid #f1f5f9;font-size:16px}
+.group{font-weight:700;font-size:17px;margin:18px 0 4px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px}
+th,td{border:1px solid #e2e8f0;padding:8px;text-align:left;vertical-align:top;overflow-wrap:anywhere}
+th{background:#fdf2f8}
+.progress{height:18px;background:#fce7f3;border-radius:999px;overflow:hidden;margin:8px 0}
+.progress>i{display:block;height:100%;background:#db2777}
+.rowline{display:flex;gap:8px;flex-wrap:wrap}
+.rowline button{flex:1}
+.item{border-bottom:1px solid #f1f5f9;padding:12px 0;font-size:15.5px}
+.item .del{margin-top:8px}
+.hint{font-size:14px;color:#64748b;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Art Commission Management Platform</h1>
+<p class="answer">A commission is a promise between an artist and a buyer, and promises need keeping track of. This page gives you a local tracker for requests, deposits and deadlines, so no commission slips through the cracks.</p>
+<div class="calc">
+<p>Add each commission as it is agreed. Enter amounts in your own currency, as plain numbers.</p>
+<label for="cm-name">Client or project name</label>
+<input id="cm-name" type="text" placeholder="Who is it for?">
+<label for="cm-subject">Artwork or subject</label>
+<input id="cm-subject" type="text" placeholder="What are you making?">
+<label for="cm-status">Status</label>
+<select id="cm-status"><option>Enquiry</option><option>Brief agreed</option><option>In progress</option><option>Delivered</option><option>Paid</option></select>
+<label for="cm-total">Total price</label>
+<input id="cm-total" type="number" min="0" step="any" placeholder="0">
+<label for="cm-deposit">Deposit received</label>
+<input id="cm-deposit" type="number" min="0" step="any" placeholder="0">
+<label for="cm-deadline">Deadline</label>
+<input id="cm-deadline" type="date">
+<button type="button" id="cm-add">Add commission</button>
+<p class="out" id="cm-totals">No commissions yet.</p>
+<div id="cm-list"></div>
+<div class="rowline"><button type="button" id="cm-copy">Copy my summary</button><button type="button" id="cm-clear">Clear all</button></div>
+<p class="hint">Everything is stored in this browser only — nothing is uploaded anywhere.</p>
+</div>
+<div class="warn">This tracker organises your commissions — it is not legal or financial advice, and it does not replace a written agreement. Prices and deposits are your own numbers, entered in your own currency, and every total here is a record of what you entered, not a valuation.</div>
+<h2>How to use the tracker</h2>
+<p>Commissions pile up faster than you expect. A portrait here, a pet painting there, a wedding gift promised for spring — and suddenly you are not sure who paid what, whose deadline is next, or which piece is still at the sketch stage. This tracker keeps all of it in one tidy place, in your browser, with no account and no signup.</p>
+<p>Add each commission as it comes in: the client or project name, what the artwork is, the status, the total price, the deposit received, and the deadline. The tracker shows your totals at a glance — how many commissions are open, how much is still owed, and which deadlines are overdue. Tap a commission to change its status as the work moves along, and delete it when the piece is delivered and paid for.</p>
+<p>Everything you enter stays in this browser only. Nothing is uploaded, nothing is shared, and nothing leaves your device — so copy your summary regularly if you want a record outside the browser. Use the copy button to get a plain-text list you can paste into your own notes. And remember: the tracker organises your commissions, but the written agreement with your buyer is what protects you both.</p>
+<h2>The commission process</h2>
+<p>A commission follows the same path almost every time, and knowing the path keeps both sides calm. It starts with the enquiry: a buyer asks whether you take commissions, and what you charge. Answer promptly, even if the answer is no — a polite no today is a yes next year. If the answer is yes, the next step is the brief: what the buyer wants, how big, by when, and for what purpose.</p>
+<p>Once the brief is agreed, confirm it in writing and take a deposit. Then comes the work itself, in stages the buyer can follow: a sketch or study for approval, the main painting, and the finishing. Show progress at agreed points — a photograph of the work in progress does more for trust than any number of emails. When the piece is finished, the buyer approves it, pays the balance, and the work is delivered.</p>
+<p>The process breaks down when a step is skipped. No written brief means a buyer who expected something else. No deposit means a buyer who can walk away without a thought. No progress updates mean a buyer who worries. Follow the steps, and most commissions run smoothly from enquiry to delivery.</p>
+<h2>Deposits</h2>
+<p>Always take a deposit. A deposit is not about money — it is about commitment. A buyer who has paid part of the price has thought about the commission seriously, and an artist who has taken a deposit has a real job, not a maybe. Without a deposit, you are working on a promise, and promises are easily forgotten.</p>
+<p>How much is up to you, and it varies by the size of the work and the customs of your field. What matters is that the deposit is agreed in writing, that the buyer knows what it covers, and that both sides know what happens if the commission is cancelled. Say plainly whether the deposit is refundable, and under what conditions. The time to agree that is before the work starts, not after it stops.</p>
+<p>Record every deposit in the tracker as soon as it arrives, and record the balance when it is paid. The totals line shows you at a glance how much is still owed across all your open commissions, so you are never guessing about money. And never start the final work before the deposit has cleared — a promise of payment is not a payment.</p>
+<h2>The brief that prevents rework</h2>
+<p>Most rework comes from a brief that was never really agreed. The buyer imagined one thing, the artist imagined another, and nobody noticed until the painting was finished. A good brief prevents that, and it does not need to be long — it needs to be specific.</p>
+<p>Cover the basics in writing: the subject, the size, the medium, the colours or mood, the deadline, the price, and the deposit. Ask for reference photographs if the subject is a person or a pet, and agree how many revisions are included — one round of small changes is normal, endless rounds are not. Agree what happens if the buyer wants something outside the brief: it is a new agreement, not a free extra.</p>
+<p>Show the brief back to the buyer before you start, in their own words where you can. If they correct it, thank them — a correction now saves a repaint later. And keep the brief with the commission in the tracker, so that when you pick the work up after a week away, you know exactly what was agreed.</p>
+<h2>Pricing basics</h2>
+<p>Pricing a commission is the part most artists dread, and the part that matters most. Price too low and you resent the work; price too high and you lose the buyer. Start with your costs: materials, your time, and the time the commission takes away from other work. Then add a margin for the skill you bring — the years of practice that make the work possible in the first place.</p>
+<p>Be consistent. Two buyers who compare notes and find different prices for the same work will both feel cheated. Set your prices by size and complexity, write them down, and stick to them. If a buyer asks for a discount, offer less — a smaller piece, a simpler brief — rather than the same work for less money. Your price is part of your reputation.</p>
+<p>Enter your prices in the tracker in your own currency, as plain numbers, and let the totals do the arithmetic. The tracker shows you what you are owed across all open commissions, which is the number that matters when you plan your month. And remember: a price agreed in writing, with a deposit paid, is a real commission. A price discussed and never confirmed is just a conversation.</p>
+<h2>Contract points</h2>
+<p>You do not need a lawyer to write a fair commission agreement, but you do need one in writing. A short written agreement protects both sides, and it need not be formal — an email that both sides confirm can be enough. This page is not legal advice, and for high-value work you should seek professional advice, but the points below cover what most commissions need.</p>
+<p>Agree the work: subject, size, medium, and deadline. Agree the price: total, deposit, when the balance is due, and what happens on cancellation. Agree the revisions: how many rounds are included, and what counts as a revision versus a new piece. Agree the delivery: who pays for shipping, who carries the risk in transit, and what happens if the work is damaged.</p>
+<p>Agree the rights: the buyer owns the physical artwork, but the artist usually keeps the right to show it, photograph it, and use it in a portfolio, unless agreed otherwise. Say so in writing. And agree what happens if either side wants to stop: the deposit position, the ownership of unfinished work, and a calm way to part. A good agreement is one you never need to read again — but you will be glad it exists if you do.</p>
+<h2>Common mistakes</h2>
+<p>The first mistake is no deposit taken. Work started on a promise is work that can be abandoned without a thought. Take a deposit, agree it in writing, and start when it has cleared.</p>
+<p>The second is no deadline in writing. A deadline agreed in conversation is a deadline that slips. Write it down, enter it in the tracker, and tell the buyer if it moves.</p>
+<p>The third is a vague brief. A brief that says a nice portrait can mean ten different paintings. Be specific, show it back to the buyer, and agree the revisions before you start.</p>
+<p>The fourth is pricing by guesswork. A price pulled from the air is a price you will regret. Cost your time and materials, write your prices down, and stick to them.</p>
+<p>The fifth is losing track. Three open commissions feel manageable; six do not. Enter every commission in the tracker the day it is agreed, update its status as it moves, and check your overdue list every week.</p>
+<h2>Questions people ask</h2>
+<div class="faq">
+<h3>How do art commissions work?</h3>
+<p>An art commission is a piece of artwork made to order: the buyer describes what they want, the artist agrees a price and a deadline, and the work is made for that buyer. A deposit is usually paid before the work starts.</p>
+</div>
+<div class="faq">
+<h3>Should I take a deposit?</h3>
+<p>Yes — a deposit protects both sides. It shows the buyer is serious, and it gives the artist a real job rather than a maybe. Agree the deposit in writing, and say plainly what happens if the commission is cancelled.</p>
+</div>
+<div class="faq">
+<h3>How do I price a commission?</h3>
+<p>Start with your costs — materials and your time — then add a margin for your skill and experience. Set prices by size and complexity, write them down, and keep them consistent, so two buyers never find different prices for the same work.</p>
+</div>
+<div class="faq">
+<h3>What should the brief say?</h3>
+<p>The brief should cover the subject, the size, the medium, the colours or mood, the deadline, the price, and the deposit. Ask for reference photographs where they help, and agree how many revisions are included.</p>
+</div>
+<div class="faq">
+<h3>How do I track deadlines?</h3>
+<p>Enter each commission in the tracker with its status and deadline, and update the status as the work moves along. The tracker shows your totals and flags overdue deadlines, so nothing slips through the cracks.</p>
+</div>
+<div class="faq">
+<h3>Is my data uploaded anywhere?</h3>
+<p>No — everything you enter stays in this browser only. Nothing is uploaded or shared, so use the copy button to keep a record of your list outside the browser.</p>
+</div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../art-exhibition-submission-directory/">Art Exhibition Submission Directory</a> · <a href="../digital-craft-pattern-marketplace/">Digital Craft Pattern Marketplace</a> · <a href="../creative-workshop-booking-portal/">Creative Workshop Booking Portal</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = window.FT || {};
+window.FT.isOverdue = function(deadlineISO, todayISO){
+  if (!deadlineISO) return false;
+  return deadlineISO < todayISO;
+};
+window.FT.totals = function(list, todayISO){
+  var t = {count: list.length, totalValue: 0, deposits: 0, outstanding: 0, overdue: 0};
+  for (var i = 0; i < list.length; i++){
+    var c = list[i];
+    var total = Number(c.total) || 0;
+    var dep = Number(c.deposit) || 0;
+    t.totalValue += total;
+    t.deposits += dep;
+    t.outstanding += (total - dep);
+    var done = (c.status === 'Delivered' || c.status === 'Paid');
+    if (!done && window.FT.isOverdue(c.deadline, todayISO)) t.overdue++;
+  }
+  return t;
+};
+window.FT.summaryText = function(list, todayISO){
+  var lines = ['Art commissions'];
+  for (var i = 0; i < list.length; i++){
+    var c = list[i];
+    var done = (c.status === 'Delivered' || c.status === 'Paid');
+    var flag = (!done && window.FT.isOverdue(c.deadline, todayISO)) ? ' OVERDUE' : '';
+    lines.push('- ' + c.name + ' — ' + c.subject + ' — ' + c.status + ' — total ' + (Number(c.total) || 0) + ', deposit ' + (Number(c.deposit) || 0) + ', due ' + (c.deadline || 'no date') + flag);
+  }
+  var t = window.FT.totals(list, todayISO);
+  lines.push('Total: ' + t.count + ' commissions, value ' + t.totalValue + ', deposits ' + t.deposits + ', outstanding ' + t.outstanding + ', overdue ' + t.overdue);
+  return lines.join('\n');
+};
+if (typeof document !== 'undefined'){
+  (function(){
+    var KEY = 'ft-art-commissions';
+    function todayISO(){ var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+    function load(){ try { var v = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? v : []; } catch(e){ return []; } }
+    function save(list){ try { localStorage.setItem(KEY, JSON.stringify(list)); } catch(e){} }
+    function el(id){ return document.getElementById(id); }
+    function render(){
+      var list = load();
+      var t = window.FT.totals(list, todayISO());
+      var tot = el('cm-totals');
+      if (list.length === 0){
+        if (tot) tot.textContent = 'No commissions yet.';
+      } else {
+        if (tot) tot.textContent = t.count + ' commissions — value ' + t.totalValue + ', deposits ' + t.deposits + ', outstanding ' + t.outstanding + ', overdue ' + t.overdue;
+      }
+      var box = el('cm-list');
+      while (box.firstChild) box.removeChild(box.firstChild);
+      list.forEach(function(c, idx){
+        var done = (c.status === 'Delivered' || c.status === 'Paid');
+        var over = (!done && window.FT.isOverdue(c.deadline, todayISO()));
+        var div = document.createElement('div');
+        div.className = 'item';
+        var head = document.createElement('div');
+        head.textContent = c.name + ' — ' + c.subject + (over ? ' — OVERDUE' : '');
+        var meta = document.createElement('div');
+        meta.textContent = c.status + ' — total ' + (Number(c.total) || 0) + ', deposit ' + (Number(c.deposit) || 0) + ', due ' + (c.deadline || 'no date');
+        var sel = document.createElement('select');
+        ['Enquiry', 'Brief agreed', 'In progress', 'Delivered', 'Paid'].forEach(function(s){
+          var o = document.createElement('option');
+          o.textContent = s;
+          if (s === c.status) o.selected = true;
+          sel.appendChild(o);
+        });
+        sel.addEventListener('change', function(){
+          var l2 = load();
+          l2[idx].status = sel.value;
+          save(l2);
+          render();
+        });
+        var del = document.createElement('button');
+        del.type = 'button';
+        del.className = 'del';
+        del.textContent = 'Delete';
+        del.addEventListener('click', function(){
+          var l2 = load();
+          l2.splice(idx, 1);
+          save(l2);
+          render();
+        });
+        div.appendChild(head);
+        div.appendChild(meta);
+        div.appendChild(sel);
+        div.appendChild(del);
+        box.appendChild(div);
+      });
+    }
+    var addBtn = el('cm-add');
+    if (addBtn) addBtn.addEventListener('click', function(){
+      var name = el('cm-name').value.trim();
+      var subject = el('cm-subject').value.trim();
+      if (!name || !subject) return;
+      var list = load();
+      list.push({name: name, subject: subject, status: el('cm-status').value,
+                 total: el('cm-total').value, deposit: el('cm-deposit').value,
+                 deadline: el('cm-deadline').value});
+      save(list);
+      el('cm-name').value = '';
+      el('cm-subject').value = '';
+      el('cm-total').value = '';
+      el('cm-deposit').value = '';
+      el('cm-deadline').value = '';
+      render();
+    });
+    var clearBtn = el('cm-clear');
+    if (clearBtn) clearBtn.addEventListener('click', function(){ save([]); render(); });
+    var copyBtn = el('cm-copy');
+    if (copyBtn) copyBtn.addEventListener('click', function(){
+      var text = window.FT.summaryText(load(), todayISO());
+      function done(){ var old = copyBtn.textContent; copyBtn.textContent = 'Copied!'; setTimeout(function(){ copyBtn.textContent = old; }, 2000); }
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallback(); });
+      } else { fallback(); }
+      function fallback(){
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch(e){}
+        document.body.removeChild(ta);
+        done();
+      }
+    });
+    render();
+  })();
+}
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

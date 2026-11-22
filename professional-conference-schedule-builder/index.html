@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Professional Conference Schedule Builder — Build Your Conference Schedule Free | Funtasha</title>
+<meta name="description" content="Build a conference schedule free — sessions, rooms and breaks in a clear timetable. A working builder in your browser, no signup.">
+<link rel="canonical" href="https://funtasha.github.io/professional-conference-schedule-builder/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Professional Conference Schedule Builder — Build Your Conference Schedule Free">
+<meta property="og:description" content="Build a conference schedule free — sessions, rooms and breaks in a clear timetable. A working builder in your browser, no signup.">
+<meta property="og:url" content="https://funtasha.github.io/professional-conference-schedule-builder/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style><style>
+.calc input,.calc select,.calc textarea{min-height:72px;padding:14px 12px;font-size:16px}
+.calc button{min-height:72px;padding:14px 22px}
+.calc textarea{width:100%;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-family:inherit}
+.calc .log{list-style:none;margin:12px 0 0 0}
+.calc .log li{margin:10px 0}
+.calc .msg{font-size:15px;color:#334155;margin-top:10px;min-height:22px}
+.calc pre{white-space:pre-wrap;word-wrap:break-word;background:#fdf2f8;border:1px solid #fbcfe8;border-radius:8px;padding:12px;font-size:14.5px;font-family:inherit;margin-top:12px}
+.calc .item{border:1px solid #e2e8f0;border-radius:8px;padding:12px;margin:10px 0;background:#fff}
+.calc .item .t{font-weight:700;font-size:16px}
+.calc .item .d{font-size:14.5px;color:#334155;margin-top:4px}
+.calc .item .flag{font-weight:700;color:#b91c1c}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:10px 0}
+th,td{border:1px solid #e2e8f0;padding:8px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+.tablewrap{overflow-x:auto}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I build a conference schedule?", "acceptedAnswer": {"@type": "Answer", "text": "Start with the fixed points — the keynote, lunch and any session whose time cannot move — then add the rest of the sessions around them. Use the builder on this page to add each session with its time, room and speaker, and watch for clash warnings as you go. Read the finished timetable as if you were an attendee, checking for impossible choices, missing breaks and rooms that do not fit, before you share it."}}, {"@type": "Question", "name": "How long should sessions be?", "acceptedAnswer": {"@type": "Answer", "text": "Most conference sessions run between thirty and ninety minutes, with sixty minutes a common middle ground. A keynote may run longer, and a lightning talk much shorter. The right length depends on the format and the audience, but one rule holds everywhere: a session should end before the audience's attention does. It is better to end a session with the audience wanting more than with the audience watching the clock."}}, {"@type": "Question", "name": "How do I avoid clashes?", "acceptedAnswer": {"@type": "Answer", "text": "A clash is two sessions in one room at one time, and the builder on this page warns you about them automatically — add sessions one at a time and watch for the warnings. Also watch for people clashes: the same speaker or chair in two places at once. Read the finished timetable down the times and check that no name appears twice in the same slot."}}, {"@type": "Question", "name": "How many breaks do I need?", "acceptedAnswer": {"@type": "Answer", "text": "Put a break after every ninety minutes of sessions at most, with twenty to thirty minutes for a coffee break and at least an hour for lunch. Breaks are not empty time — they are when people meet, talk and rest, and a day without breaks is a day of falling attention. Protect the breaks: a session that overruns into the break steals from every session after it."}}, {"@type": "Question", "name": "Can I print the schedule?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use the copy button to copy the timetable as plain text, then paste it into a document and print it from there. The copied text lists every session in time order, with its room and speaker, and notes any clash warnings. Keep a printed copy with you on the day — phones run out of charge, and paper does not."}}, {"@type": "Question", "name": "Is my data uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Your schedule is stored only on this device, in your browser, and nothing is uploaded, shared or sent anywhere. If you clear your browser data, the schedule is gone, so copy the timetable as text if you want a copy that survives. No account and no sign-up are needed, and the page never asks for your email address."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Professional Conference Schedule Builder</h1>
+<p class="answer">This page gives you a working schedule builder that sorts your sessions into a clear timetable and warns you about clashes, all in your browser. Your schedule is stored only on this device, and it is never uploaded anywhere.</p>
+<div class="calc">
+<label for="s-title">Session title</label>
+<input id="s-title" type="text" placeholder="For example, Opening keynote">
+<label for="s-start">Start time</label>
+<input id="s-start" type="time" value="09:00">
+<label for="s-end">End time</label>
+<input id="s-end" type="time" value="10:00">
+<label for="s-room">Room</label>
+<input id="s-room" type="text" placeholder="For example, Main hall">
+<label for="s-speaker">Speaker (optional)</label>
+<input id="s-speaker" type="text" placeholder="For example, the keynote speaker">
+<button id="s-add" type="button">Add this session</button>
+<div class="out" id="s-out"></div>
+<div class="steps" id="s-steps"></div>
+<ul class="log" id="s-list"></ul>
+<button id="s-copy" type="button">Copy my timetable</button>
+<button id="s-clear" type="button">Clear all sessions</button>
+<div class="msg" id="s-msg"></div>
+</div><div class="warn">Your schedule is stored only on this device, in your browser. This page does not book rooms or speakers and cannot check the venue's availability — always confirm rooms and times with the venue directly.</div>
+<h2>How to use the builder</h2><p>This page gives you a working conference schedule builder that runs entirely in your browser. Add each session with its title, start and end time, room and speaker, and the builder sorts everything into a clear timetable, warns you about clashes — two sessions in one room at one time — and lets you copy the finished timetable as plain text. Your schedule is stored only on this device, in your browser, so it is there when you come back, and it is never uploaded anywhere.</p><p>Start by adding the fixed points of the day: the keynote, the lunch break, and any session whose time cannot move. Then add the rest of the sessions around them, watching for clash warnings as you go. A clash warning means two sessions overlap in the same room, which cannot happen in real life — move one of them, or give it a different room, and the warning clears.</p><p>The rest of this page teaches the craft behind the tool: the shape of a good schedule, how keynotes and breaks work, how to avoid clashes, and the mistakes that turn a good programme into a tiring day. Read it before you build, use the builder while you plan, and print or copy the timetable when it is done.</p><h2>The shape of a good schedule</h2><p>A good conference schedule has a shape the audience can feel: a strong start, a steady middle, and a clear finish. The day usually opens with a keynote or a welcome that sets the theme, then moves into sessions, with breaks placed where energy naturally dips — mid-morning, lunch, and mid-afternoon. The last session should end on something worth staying for, not on the talk nobody wanted.</p><p>Think of the day in blocks rather than in individual sessions. A block is a run of sessions between two breaks, usually ninety minutes to two hours long. Within a block, sessions can run in parallel tracks, but the block itself should feel coherent: sessions on related themes, at a similar level, so the audience can choose without regret. A block that mixes a beginner workshop with an advanced research talk forces half the audience to choose wrong.</p><p>Leave room for the parts of a conference that are not sessions. Registration, coffee, lunch, and the gaps between sessions are where people meet, talk and rest — and they are often what attendees remember best. A schedule packed edge to edge with talks looks efficient on paper and feels exhausting in person. The white space is part of the programme, not a waste of it.</p><h2>Keynotes, breaks and tracks</h2><p>Keynotes anchor the day. They are the talks everyone attends together, usually first thing in the morning or after lunch, and they set the tone for everything that follows. Give a keynote the best slot and the biggest room, and give the speaker a proper introduction — the audience takes its cue for the day from the first talk, so make it count.</p><p>Breaks are not empty time. A break of twenty to thirty minutes lets people use the facilities, get a drink, talk to each other, and arrive at the next session ready to listen. Shorter breaks leave people rushing and late; longer breaks lose momentum. Put a break after every ninety minutes of sessions at most, and protect the break time — a session that overruns into the break steals from every session after it.</p><p>Parallel tracks let a conference cover more ground, but they create choices, and choices create regret. Keep the number of tracks small — two or three is enough for most events — and group sessions so that the talks a single person most wants to see are not at the same time. If two popular talks must run in parallel, accept that some people will be disappointed, and consider recording one of them so nobody misses out entirely.</p><h2>Avoiding clashes</h2><p>A clash is two sessions in one room at one time, and it is the one scheduling error that cannot be fixed on the day. The builder warns you about clashes automatically: when you add a session that overlaps another session in the same room, both sessions are flagged, and the warning stays until you move one of them or change its room.</p><p>Clashes usually happen for two reasons. The first is a simple slip — a session entered with the wrong time or room. The builder catches these as you type, which is why it is worth adding sessions one at a time and watching for warnings. The second is a real conflict: two sessions that both need the same room at the same time because the room is the only one of its kind. That conflict is a planning problem, not a typing problem, and it is solved by moving a session, swapping rooms, or changing the shape of the block.</p><p>Beyond room clashes, watch for people clashes: the same speaker in two places at once, or the same chair running two sessions at the same time. The builder flags room clashes; people clashes are yours to spot, and the timetable view makes them visible — read down the times and check that no name appears twice in the same slot. A printed timetable, read once with fresh eyes, catches what a screen full of entries hides.</p><h2>The break rule</h2><p>The break rule is simple: never run more than ninety minutes of sessions without a break, and never let a session eat into the break that follows it. Audiences listen in waves — attention is high at the start of a session, dips in the middle, and rises again near the end — and a break resets the wave. A day without breaks is a day of falling attention, however good the speakers are.</p><p>Protecting breaks means protecting start times. Sessions must start when the timetable says they start, which means the previous session must end on time, the room must be ready, and the speaker must be there. The chair of each session is the person who makes this happen: they introduce the speaker briefly, watch the clock, and end the session on time even when the discussion is lively. Brief your chairs on this before the event, and give them a visible clock.</p><p>Lunch deserves more time than other breaks — at least an hour, and longer if people must leave the building to eat. A rushed lunch is a tired afternoon. If the venue serves food on site, check the serving time and the queue: a hundred people through one serving counter takes longer than the timetable assumes, and the last people served may miss the start of the afternoon.</p><h2>Common mistakes</h2><p>The mistakes that spoil conference schedules are few, and they all come from the same root: treating the timetable as a packing problem instead of a day people must live through. A schedule that looks full on paper and feels impossible in person is a schedule that forgot the audience.</p><ul><li>No break between sessions — back-to-back talks with no time to move, think or talk, leaving everyone exhausted by lunch.</li><li>Two popular talks at the same time — the talks the audience most wants to see, scheduled against each other.</li><li>Sessions that overrun — one long session pushes every session after it late, and the day unravels from there.</li><li>Rooms too small or too large — a popular talk in a tiny room turns people away, and a small session in a huge hall feels empty.</li><li>No time to move between rooms — sessions in different buildings with no gap between them, so half the audience arrives late.</li><li>A keynote nobody can hear — the biggest session in a room with poor sound, or a speaker without a working microphone.</li><li>Forgetting the end — a day that fizzles out with no closing session, so people drift away instead of leaving together.</li></ul><p>The cure for most of these is a single habit: read the finished timetable as if you were an attendee, from the first session to the last, and ask at each step whether you would enjoy the day. Would you have time to eat, to talk, to rest? Would you face an impossible choice between two talks? Would you be sitting in the same chair for three hours? If the answer to any of these is no, change the timetable before you publish it.</p><h2>Printing and sharing your schedule</h2><p>When the timetable is finished, copy it with the copy button and paste it into whatever you use to share it — a document, a message to the team, or the event page. The copied text lists every session in time order, with its room and speaker, and notes any clash warnings still showing. It is plain text, so it pastes cleanly anywhere.</p><p>Before you share the timetable widely, check it once more: read it top to bottom, check every time and room, and confirm every speaker knows their slot. Then share it with the people who need it — speakers, chairs, the venue team, and the registration desk — and keep a printed copy with you on the day. Phones run out of charge; paper does not.</p><p>On the day, the timetable is a plan, not a prison. Small delays happen, and a good organizer adapts without panic: a session that starts five minutes late can still end on time if the chair trims the discussion. What matters is protecting the breaks and the end of the day, because those are the parts the audience feels most. Keep the timetable visible, keep the chairs briefed, and the day will run itself.</p><h2>Questions people ask</h2>
+<div class="faq"><h3>How do I build a conference schedule?</h3><p>Start with the fixed points — the keynote, lunch and any session whose time cannot move — then add the rest of the sessions around them. Use the builder on this page to add each session with its time, room and speaker, and watch for clash warnings as you go. Read the finished timetable as if you were an attendee, checking for impossible choices, missing breaks and rooms that do not fit, before you share it.</p></div><div class="faq"><h3>How long should sessions be?</h3><p>Most conference sessions run between thirty and ninety minutes, with sixty minutes a common middle ground. A keynote may run longer, and a lightning talk much shorter. The right length depends on the format and the audience, but one rule holds everywhere: a session should end before the audience's attention does. It is better to end a session with the audience wanting more than with the audience watching the clock.</p></div><div class="faq"><h3>How do I avoid clashes?</h3><p>A clash is two sessions in one room at one time, and the builder on this page warns you about them automatically — add sessions one at a time and watch for the warnings. Also watch for people clashes: the same speaker or chair in two places at once. Read the finished timetable down the times and check that no name appears twice in the same slot.</p></div><div class="faq"><h3>How many breaks do I need?</h3><p>Put a break after every ninety minutes of sessions at most, with twenty to thirty minutes for a coffee break and at least an hour for lunch. Breaks are not empty time — they are when people meet, talk and rest, and a day without breaks is a day of falling attention. Protect the breaks: a session that overruns into the break steals from every session after it.</p></div><div class="faq"><h3>Can I print the schedule?</h3><p>Yes. Use the copy button to copy the timetable as plain text, then paste it into a document and print it from there. The copied text lists every session in time order, with its room and speaker, and notes any clash warnings. Keep a printed copy with you on the day — phones run out of charge, and paper does not.</p></div><div class="faq"><h3>Is my data uploaded anywhere?</h3><p>No. Your schedule is stored only on this device, in your browser, and nothing is uploaded, shared or sent anywhere. If you clear your browser data, the schedule is gone, so copy the timetable as text if you want a copy that survives. No account and no sign-up are needed, and the page never asks for your email address.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../conference-speaker-directory/">Conference Speaker Directory</a> · <a href="../conference-abstract-submission-platform/">Conference Abstract Submission Platform</a> · <a href="../webinar-registration-management-system/">Webinar Registration Management System</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+<script>
+
+window.FT = window.FT || {};
+(function () {
+  function parseTime(v) {
+    if (!v) return null;
+    var parts = String(v).split(":");
+    if (parts.length !== 2) return null;
+    var h = Number(parts[0]);
+    var m = Number(parts[1]);
+    if (!isFinite(h) || !isFinite(m)) return null;
+    if (Math.floor(h) !== h || Math.floor(m) !== m) return null;
+    if (h < 0 || h > 23 || m < 0 || m > 59) return null;
+    return h * 60 + m;
+  }
+  function sessionsOverlap(a, b) {
+    if (a.room.trim().toLowerCase() !== b.room.trim().toLowerCase()) return false;
+    var as = parseTime(a.start);
+    var ae = parseTime(a.end);
+    var bs = parseTime(b.start);
+    var be = parseTime(b.end);
+    if (as === null || ae === null || bs === null || be === null) return false;
+    return as < be && bs < ae;
+  }
+  function sortSessions(list) {
+    return list.slice().sort(function (x, y) {
+      var xs = parseTime(x.start);
+      var ys = parseTime(y.start);
+      if (xs === null) xs = 0;
+      if (ys === null) ys = 0;
+      if (xs !== ys) return xs - ys;
+      if (x.room < y.room) return -1;
+      if (x.room > y.room) return 1;
+      return 0;
+    });
+  }
+  function findClashes(list) {
+    var pairs = [];
+    for (var i = 0; i < list.length; i++) {
+      for (var j = i + 1; j < list.length; j++) {
+        if (sessionsOverlap(list[i], list[j])) pairs.push([i, j]);
+      }
+    }
+    return pairs;
+  }
+  function formatTimetable(list) {
+    var sorted = sortSessions(list);
+    var lines = ["Conference timetable"];
+    for (var i = 0; i < sorted.length; i++) {
+      var s = sorted[i];
+      var line = s.start + " - " + s.end + " | " + s.room + " | " + s.title;
+      if (s.speaker) line += " | " + s.speaker;
+      lines.push(line);
+    }
+    return lines.join("\n");
+  }
+  window.FT.parseTime = parseTime;
+  window.FT.sessionsOverlap = sessionsOverlap;
+  window.FT.sortSessions = sortSessions;
+  window.FT.findClashes = findClashes;
+  window.FT.formatTimetable = formatTimetable;
+
+  var KEY = "ft-schedule-sessions";
+  var sessions = [];
+  try {
+    var raw = localStorage.getItem(KEY);
+    if (raw) sessions = JSON.parse(raw) || [];
+  } catch (e) { sessions = []; }
+  var titleEl = document.getElementById("s-title");
+  var startEl = document.getElementById("s-start");
+  var endEl = document.getElementById("s-end");
+  var roomEl = document.getElementById("s-room");
+  var speakerEl = document.getElementById("s-speaker");
+  var outEl = document.getElementById("s-out");
+  var stepsEl = document.getElementById("s-steps");
+  var listEl = document.getElementById("s-list");
+  var msgEl = document.getElementById("s-msg");
+  var copyBtn = document.getElementById("s-copy");
+
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(sessions)); } catch (e) {}
+  }
+  function showMsg(m) { msgEl.textContent = m; }
+  function render() {
+    var sorted = sortSessions(sessions);
+    var clashes = findClashes(sessions);
+    outEl.textContent = sessions.length === 0 ? "No sessions yet." :
+      sessions.length + (sessions.length === 1 ? " session" : " sessions") +
+      (clashes.length === 0 ? " — no clashes." :
+        " — " + clashes.length + (clashes.length === 1 ? " clash" : " clashes") + " to fix.");
+    stepsEl.textContent = clashes.length === 0 ?
+      "A clash means two sessions in one room at one time." :
+      "Clash: two sessions overlap in the same room. Move one or change its room.";
+    while (listEl.firstChild) listEl.removeChild(listEl.firstChild);
+    for (var i = 0; i < sorted.length; i++) {
+      var s = sorted[i];
+      var li = document.createElement("li");
+      var box = document.createElement("div");
+      box.className = "item";
+      var t = document.createElement("div");
+      t.className = "t";
+      t.textContent = s.start + " - " + s.end + " | " + s.title;
+      box.appendChild(t);
+      var d = document.createElement("div");
+      d.className = "d";
+      d.textContent = "Room: " + s.room + (s.speaker ? " | Speaker: " + s.speaker : "");
+      box.appendChild(d);
+      var idx = sessions.indexOf(s);
+      var clash = false;
+      for (var c = 0; c < clashes.length; c++) {
+        if (clashes[c][0] === idx || clashes[c][1] === idx) clash = true;
+      }
+      if (clash) {
+        var f = document.createElement("div");
+        f.className = "flag";
+        f.textContent = "Clash: this session overlaps another session in this room.";
+        box.appendChild(f);
+      }
+      var del = document.createElement("button");
+      del.type = "button";
+      del.textContent = "Delete this session";
+      del.setAttribute("data-index", String(idx));
+      del.addEventListener("click", function (ev) {
+        var n = Number(ev.currentTarget.getAttribute("data-index"));
+        sessions.splice(n, 1);
+        save();
+        render();
+        showMsg("Session deleted.");
+      });
+      box.appendChild(del);
+      li.appendChild(box);
+      listEl.appendChild(li);
+    }
+  }
+  document.getElementById("s-add").addEventListener("click", function () {
+    var title = titleEl.value.trim();
+    var room = roomEl.value.trim();
+    var start = startEl.value;
+    var end = endEl.value;
+    var ps = parseTime(start);
+    var pe = parseTime(end);
+    if (!title) { showMsg("Enter a session title first."); return; }
+    if (!room) { showMsg("Enter a room first."); return; }
+    if (ps === null || pe === null) { showMsg("Enter a valid start and end time."); return; }
+    if (pe <= ps) { showMsg("The end time must be after the start time."); return; }
+    sessions.push({ title: title, start: start, end: end, room: room,
+      speaker: speakerEl.value.trim() });
+    save();
+    render();
+    titleEl.value = "";
+    speakerEl.value = "";
+    showMsg("Session added. Add the next one, or copy the timetable.");
+  });
+  document.getElementById("s-clear").addEventListener("click", function () {
+    sessions = [];
+    save();
+    render();
+    showMsg("All sessions cleared.");
+  });
+  copyBtn.addEventListener("click", function () {
+    var text = formatTimetable(sessions);
+    function done(ok) {
+      copyBtn.textContent = ok ? "Copied!" : "Copy failed";
+      setTimeout(function () { copyBtn.textContent = "Copy my timetable"; }, 2000);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); },
+        function () { fallbackCopy(text, done); });
+    } else { fallbackCopy(text, done); }
+  });
+  function fallbackCopy(text, done) {
+    try {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      done(ok);
+    } catch (e) { done(false); }
+  }
+  render();
+})();
+
+</script></div>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>
