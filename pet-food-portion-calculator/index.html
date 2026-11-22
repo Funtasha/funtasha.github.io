@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pet Food Portion Calculator — How Much Should Your Pet Eat? | Funtasha</title>
+<meta name="description" content="Free pet food portion calculator — work out the right daily food amount for your dog or cat by weight and activity. No signup, phone friendly.">
+<link rel="canonical" href="https://funtasha.github.io/pet-food-portion-calculator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pet Food Portion Calculator — How Much Should Your Pet Eat?">
+<meta property="og:description" content="Free pet food portion calculator — work out the right daily food amount for your dog or cat by weight and activity. No signup, phone friendly.">
+<meta property="og:url" content="https://funtasha.github.io/pet-food-portion-calculator/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:15px}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+canvas{width:100%;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+.row{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px;margin:10px 0}
+.row b{font-size:17px}
+.row .meta{font-size:14.5px;color:#475569;margin-top:2px}
+.row .tags{font-size:14px;color:#334155;margin-top:6px}
+.row button{margin-top:10px}
+.pill{display:inline-block;background:#fdf2f8;border:1px solid #fbcfe8;border-radius:999px;padding:2px 10px;font-size:13.5px;margin:2px 4px 2px 0}
+.count{font-size:14.5px;color:#475569;margin-top:8px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much should my dog eat each day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on weight, age and activity. A 10 kilo adult dog with moderate activity needs about 630 calories a day, which is about 180 grams of a typical dry food. Use the calculator with your dog's weight and your food's calories per 100 grams, then weigh the food with kitchen scales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much should my cat eat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 4 kilo adult cat with moderate activity needs about 238 calories a day, which is about 63 grams of a typical dry food. Indoor cats with low activity need less, and kittens need much more. Use the calculator with your cat's weight and your food's calories, and split the day's food into two meals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does an indoor pet eat less?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually yes, because indoor pets move less and burn fewer calories. An indoor cat with low activity needs about a sixth less than the same cat with moderate activity. That is why the calculator asks about activity: the same pet can need quite different amounts of food depending on how much it moves."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many meals a day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Puppies and kittens under four months old need four meals a day, young pets of four to twelve months need three, and adults and seniors do well on two. One meal a day is not ideal for most pets. Treats count as part of the daily total, not extra."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my pet is overweight?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Look from above for a visible waist behind the ribs, and feel the ribs with your hands: you should feel them easily under a thin layer of fat. If you cannot feel the ribs, or the waist has disappeared, the pet is overweight. Heavy breathing after light exercise and reluctance to play are other signs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should puppies eat more than adult dogs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, much more for their size. A puppy under four months old needs about three times its resting energy, and a young dog of four to twelve months needs about twice. That is because puppies are growing fast. Adult dogs need about 1.6 times resting energy. Never keep a puppy thin on purpose."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Pet Food Portion Calculator</h1>
+<p class="answer">This calculator works out how many calories your dog or cat needs each day, and how many grams of food that means, from your pet's weight, age and activity. It uses the standard resting energy formula vets use, and splits the day's food into meals.</p>
+<div class="calc">
+<label for="pet">Pet type</label>
+<select id="pet">
+<option value="dog">Dog</option>
+<option value="cat">Cat</option>
+</select>
+<label for="weight">Weight in kilograms</label>
+<input id="weight" type="number" min="0.5" max="120" step="0.1" value="10">
+<label for="stage">Age stage</label>
+<select id="stage">
+<option value="young">Puppy or kitten under 4 months</option>
+<option value="junior">Young, 4 to 12 months</option>
+<option value="adult" selected>Adult</option>
+<option value="senior">Senior, 7 years and older</option>
+</select>
+<label for="activity">Activity level</label>
+<select id="activity">
+<option value="low">Low — mostly resting, short walks</option>
+<option value="moderate" selected>Moderate — daily walks and play</option>
+<option value="high">High — very active, long walks or work</option>
+</select>
+<label for="kcal">Food calories per 100 grams</label>
+<input id="kcal" type="number" min="20" max="600" step="1" value="350">
+<div class="steps">Typical values: dry dog food about 350, wet dog food about 80 to 100, dry cat food about 380, wet cat food about 70 to 90 calories per 100 grams. Check your own packet for the exact number.</div>
+<button type="button" id="calc-btn">Calculate my pet's portion</button>
+<div class="out" id="out" style="display:none"></div>
+<div class="steps" id="steps" style="display:none"></div>
+<button type="button" id="copy-btn" style="display:none">Copy this feeding plan</button>
+</div>
+<div class="warn">This result is a starting point from standard feeding formulas. The food packet and your vet win over any calculator. If your pet gains or loses weight, or seems unwell, ask your vet.</div>
+
+<h2>What this calculator is for</h2>
+<p>Most pets are fed by eye, and most owners guess the portion. That is how pets slowly gain weight: a little extra each day adds up over months, and the change is so gradual that nobody notices until the vet points it out. This calculator takes the guesswork out of the bowl. It works out how many calories your dog or cat needs each day from its weight, age stage and activity, then turns that number into grams of your own food, split into meals. You weigh the food once, and the guesswork is gone.</p>
+<p>The calculator uses the standard resting energy formula that vets use. Resting energy is the energy a resting animal burns just to stay alive: to keep warm, breathe, digest and repair. It is calculated from body weight, and then multiplied by a factor for age and activity, because a growing puppy needs far more energy per kilo than a quiet senior cat. The result is a daily calorie need, and the grams follow from the calories printed on your food packet. Nothing here is a guess. The formula is published, the factors are standard, and the page shows its working so you can check it.</p>
+<h2>How the formula works</h2>
+<p>Resting energy, often written as RER, is 70 times the body weight in kilograms raised to the power of 0.75. That power is the key part: energy needs grow more slowly than weight, so a dog that is twice as heavy does not need twice the food. A 10 kilo dog has a resting energy of about 394 calories a day. A 40 kilo dog, four times heavier, has a resting energy of about 1,114 calories, not four times as much. The formula handles that for you.</p>
+<p>Daily energy, often written as MER, is resting energy times a factor. The factor depends on the animal's stage of life and how active it is. A puppy under four months old needs about three times its resting energy, because it is growing fast. A young dog of four to twelve months needs about twice. An adult dog needs about 1.6 times, and a senior dog about 1.2 times. Cats are similar, with slightly lower adult factors: about 1.2 for an adult cat and 1.0 for a senior. Activity moves the adult factor up or down: a very active dog needs about a quarter more than a quiet one, and a very quiet pet needs about a sixth less.</p>
+<p>Once you have the daily calories, the grams are simple division. Divide the daily calories by the calories per 100 grams on your packet, and multiply by 100. A dog needing 630 calories a day, eating a dry food with 350 calories per 100 grams, needs 180 grams a day. The same dog eating a wet food with 90 calories per 100 grams would need 700 grams a day, because wet food is mostly water. That is why the calculator asks for your food's calories: the same calories can mean very different weights of food.</p>
+<h2>How to use the calculator</h2>
+<p>Pick your pet type, then enter the weight in kilograms. If you do not know the weight, weigh yourself holding the pet and then weigh yourself alone, and subtract. A vet visit will give you an exact weight, and it is worth getting one if you are unsure, because the whole result depends on it. Then pick the age stage and the activity level that best match your pet. Activity means real daily movement: a dog that walks for half an hour and rests the rest of the day is low activity, even if it is lively for ten minutes in the evening.</p>
+<p>Finally, enter the calories per 100 grams from your food packet. The packet usually prints it as energy per 100 grams, or as kilocalories. If your packet only gives calories per cup or per pouch, divide by the weight of the cup or pouch to get calories per 100 grams. If you cannot find the number at all, use the typical values listed under the box: dry dog food about 350, wet dog food about 80 to 100, dry cat food about 380, wet cat food about 70 to 90. Those are averages, and your own packet is always better.</p>
+<p>Tap Calculate, and the page shows the daily calories, the daily grams, and the split into meals. Copy the feeding plan to keep it on your phone, or write it on the food container. Weigh the food with kitchen scales for the first week. A measuring cup is easy to get wrong, and a small error every day becomes a large error over a month.</p>
+<h2>Worked examples</h2>
+<p>First, a small dog. A 6 kilo adult dog with moderate activity has a resting energy of about 269 calories a day. Times the adult factor of 1.6, that is about 430 calories a day. On a dry food with 350 calories per 100 grams, that is about 123 grams a day, split into two meals of about 61 grams each. The owner was previously filling the bowl by eye and giving about twice that. The dog lost the extra weight over four months and had more energy on walks.</p>
+<p>Second, a large dog. A 35 kilo adult dog with high activity has a resting energy of about 1,007 calories a day. Times the adult factor of 1.6 and the high activity multiplier of 1.25, that is about 2,015 calories a day. On the same dry food, that is about 576 grams a day in two meals of about 288 grams each. The owner is a runner and the dog runs with him, so the high activity factor is right. A large dog with low activity would need far less, which is why the activity question matters so much.</p>
+<p>Third, an indoor cat. A 4 kilo adult cat with low activity has a resting energy of about 198 calories a day. Times the adult cat factor of 1.2 and the low activity multiplier of 0.85, that is about 202 calories a day. On a dry cat food with 380 calories per 100 grams, that is about 53 grams a day in two meals of about 27 grams each. The owner had been leaving the bowl full all day, and the cat was steadily gaining weight. Measured meals fixed it.</p>
+<h2>How many meals a day</h2>
+<p>Puppies and kittens under four months old need four meals a day, because their stomachs are small and their energy needs are high. From four to twelve months, three meals a day is right. Adults do well on two meals a day, morning and evening, and seniors also do well on two. One meal a day is not ideal for most pets: it leaves a long gap, and some dogs eat too fast and feel sick. Two meals spread the food and the energy more evenly.</p>
+<p>Treats count. The calories in treats, chews and table scraps are part of the daily total, not extra. A good rule is that treats should be no more than one tenth of the daily calories. If you train with treats, take the same amount out of the meals. A handful of treats through the day can easily add a tenth or more to a small dog's daily food, which is enough to cause weight gain over time.</p>
+<h2>Warning signs of overfeeding and underfeeding</h2>
+<p>Overfeeding shows first in the waist. Look at your pet from above: there should be a visible waist behind the ribs. Run your hands along the ribs: you should feel them easily under a thin layer of fat, without pressing hard. If you cannot feel the ribs, or the waist has disappeared, the pet is overweight. Other signs are heavy breathing after light exercise, reluctance to play or walk, and a round belly. Overweight pets live shorter lives on average, so this matters more than it looks.</p>
+<p>Underfeeding shows in the opposite way. If the ribs, spine and hip bones are easy to see, not just to feel, the pet is too thin. A dull coat, low energy and constant hunger are other signs. Puppies and kittens should never be kept thin on purpose: they need plenty of food to grow. If you are unsure whether your pet is at a healthy weight, ask your vet to show you. Vets check body condition at every visit, and most will happily show you how to do it at home.</p>
+<h2>What this page cannot do</h2>
+<p>This page cannot replace your vet. The formula gives a good starting point for a healthy pet, but it does not know your pet's health, its breed, whether it is neutered, or whether it has a condition that changes its needs. Pregnant and nursing animals need far more food. Pets with kidney, liver or thyroid problems need special diets. Pets recovering from surgery or illness need a vet's plan, not a calculator. If your pet has any health condition, or is gaining or losing weight despite measured meals, ask your vet.</p>
+<p>The page also cannot know how your pet responds to the portion. The right portion is the one that keeps your pet at a healthy weight with good energy and a shiny coat. Weigh your pet every month or two, watch the waist and ribs, and adjust the portion up or down by a small amount if the weight drifts. The calculator gives you the starting point. Your eyes and your vet give you the corrections.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How much should my dog eat each day?</h3><p>It depends on weight, age and activity. A 10 kilo adult dog with moderate activity needs about 630 calories a day, which is about 180 grams of a typical dry food. Use the calculator with your dog&#x27;s weight and your food&#x27;s calories per 100 grams, then weigh the food with kitchen scales.</p></div>
+<div class="faq"><h3>How much should my cat eat?</h3><p>A 4 kilo adult cat with moderate activity needs about 238 calories a day, which is about 63 grams of a typical dry food. Indoor cats with low activity need less, and kittens need much more. Use the calculator with your cat&#x27;s weight and your food&#x27;s calories, and split the day&#x27;s food into two meals.</p></div>
+<div class="faq"><h3>Does an indoor pet eat less?</h3><p>Usually yes, because indoor pets move less and burn fewer calories. An indoor cat with low activity needs about a sixth less than the same cat with moderate activity. That is why the calculator asks about activity: the same pet can need quite different amounts of food depending on how much it moves.</p></div>
+<div class="faq"><h3>How many meals a day?</h3><p>Puppies and kittens under four months old need four meals a day, young pets of four to twelve months need three, and adults and seniors do well on two. One meal a day is not ideal for most pets. Treats count as part of the daily total, not extra.</p></div>
+<div class="faq"><h3>How do I know if my pet is overweight?</h3><p>Look from above for a visible waist behind the ribs, and feel the ribs with your hands: you should feel them easily under a thin layer of fat. If you cannot feel the ribs, or the waist has disappeared, the pet is overweight. Heavy breathing after light exercise and reluctance to play are other signs.</p></div>
+<div class="faq"><h3>Should puppies eat more than adult dogs?</h3><p>Yes, much more for their size. A puppy under four months old needs about three times its resting energy, and a young dog of four to twelve months needs about twice. That is because puppies are growing fast. Adult dogs need about 1.6 times resting energy. Never keep a puppy thin on purpose.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../dog-breed-explorer/">Dog Breed Explorer</a> · <a href="../cat-breed-explorer/">Cat Breed Explorer</a> · <a href="../pet-vaccination-reminder/">Pet Vaccination Reminder</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = window.FT || {};
+(function(){
+  var FACTORS = {
+    dog: {young: 3.0, junior: 2.0, adult: 1.6, senior: 1.2},
+    cat: {young: 3.0, junior: 2.5, adult: 1.2, senior: 1.0}
+  };
+  var ACTIVITY_MULT = {low: 0.85, moderate: 1.0, high: 1.25};
+  var MEALS = {young: 4, junior: 3, adult: 2, senior: 2};
+  function rer(weightKg){
+    return 70 * Math.pow(weightKg, 0.75);
+  }
+  function factorFor(pet, stage, activity){
+    var base = FACTORS[pet][stage];
+    if (stage === "adult" || stage === "senior"){
+      return base * ACTIVITY_MULT[activity];
+    }
+    return base;
+  }
+  function dailyCalories(pet, weightKg, stage, activity){
+    var r = rer(weightKg);
+    var f = factorFor(pet, stage, activity);
+    return {rer: r, factor: f, mer: r * f};
+  }
+  function dailyGrams(mer, kcalPer100g){
+    return mer / kcalPer100g * 100;
+  }
+  function mealsFor(stage){
+    return MEALS[stage];
+  }
+  function plan(pet, weightKg, stage, activity, kcalPer100g){
+    var d = dailyCalories(pet, weightKg, stage, activity);
+    var grams = dailyGrams(d.mer, kcalPer100g);
+    var meals = mealsFor(stage);
+    return {
+      rer: d.rer, factor: d.factor, mer: d.mer,
+      grams: grams, meals: meals, perMeal: grams / meals
+    };
+  }
+  window.FT.FACTORS = FACTORS;
+  window.FT.rer = rer;
+  window.FT.factorFor = factorFor;
+  window.FT.dailyCalories = dailyCalories;
+  window.FT.dailyGrams = dailyGrams;
+  window.FT.mealsFor = mealsFor;
+  window.FT.plan = plan;
+  if (typeof document === "undefined") return;
+  var calcBtn = document.getElementById("calc-btn");
+  var outEl = document.getElementById("out");
+  var stepsEl = document.getElementById("steps");
+  var copyBtn = document.getElementById("copy-btn");
+  var lastText = "";
+  calcBtn.addEventListener("click", function(){
+    var pet = document.getElementById("pet").value;
+    var weight = parseFloat(document.getElementById("weight").value);
+    var stage = document.getElementById("stage").value;
+    var activity = document.getElementById("activity").value;
+    var kcal = parseFloat(document.getElementById("kcal").value);
+    if (!weight || weight <= 0 || !kcal || kcal <= 0){
+      outEl.style.display = "";
+      outEl.textContent = "Please enter a weight above zero and calories per 100 grams above zero.";
+      stepsEl.style.display = "none";
+      copyBtn.style.display = "none";
+      return;
+    }
+    var p = plan(pet, weight, stage, activity, kcal);
+    var petWord = pet === "dog" ? "dog" : "cat";
+    outEl.style.display = "";
+    outEl.textContent = "About " + Math.round(p.mer) + " calories a day — about " +
+      Math.round(p.grams) + " grams of this food.";
+    var lines = [];
+    lines.push("Resting energy: about " + Math.round(p.rer) + " calories a day.");
+    lines.push("Daily need: resting energy x " + p.factor.toFixed(2) + " = about " + Math.round(p.mer) + " calories.");
+    lines.push("Split into " + p.meals + " meals: about " + Math.round(p.perMeal) + " grams per meal.");
+    lines.push("Weigh the food with kitchen scales — a cup or a scoop is easy to get wrong.");
+    lines.push("This is a starting point. The food packet and your vet win over any calculator. If your " + petWord + " gains or loses weight, adjust the portion a little and ask your vet.");
+    stepsEl.style.display = "";
+    stepsEl.textContent = lines.join("\n");
+    lastText = "Feeding plan for my " + petWord + " (" + weight + " kg, " + stage + ", " + activity + " activity): about " +
+      Math.round(p.mer) + " calories a day, about " + Math.round(p.grams) + " grams of food at " + kcal +
+      " calories per 100 grams, split into " + p.meals + " meals of about " + Math.round(p.perMeal) + " grams each.";
+    copyBtn.style.display = "";
+  });
+  copyBtn.addEventListener("click", function(){
+    if (lastText) copyText(lastText, copyBtn);
+  });
+})();
+
+function copyText(text, btn){
+  function done(){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+function downloadText(filename, text, type){
+  var blob = new Blob([text], {type: type || "text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

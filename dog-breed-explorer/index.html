@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dog Breed Explorer — Find the Dog That Fits Your Life | Funtasha</title>
+<meta name="description" content="Free dog breed explorer — compare popular dog breeds by size, energy, care needs and temperament. No signup, phone friendly.">
+<link rel="canonical" href="https://funtasha.github.io/dog-breed-explorer/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dog Breed Explorer — Find the Dog That Fits Your Life">
+<meta property="og:description" content="Free dog breed explorer — compare popular dog breeds by size, energy, care needs and temperament. No signup, phone friendly.">
+<meta property="og:url" content="https://funtasha.github.io/dog-breed-explorer/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:15px}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+canvas{width:100%;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+.row{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px;margin:10px 0}
+.row b{font-size:17px}
+.row .meta{font-size:14.5px;color:#475569;margin-top:2px}
+.row .tags{font-size:14px;color:#334155;margin-top:6px}
+.row button{margin-top:10px}
+.pill{display:inline-block;background:#fdf2f8;border:1px solid #fbcfe8;border-radius:999px;padding:2px 10px;font-size:13.5px;margin:2px 4px 2px 0}
+.count{font-size:14.5px;color:#475569;margin-top:8px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best dog for a first-time owner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A calm, forgiving breed that is easy to train, such as a Labrador Retriever, a Golden Retriever, a French Bulldog or a Bichon Frise. First-time owners do best with a breed that is patient, not too large, and happy with moderate exercise. An adult rescue dog can be even easier than a puppy, because it is often already trained."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much exercise does a dog need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the breed. Low-energy breeds are usually happy with about 30 minutes a day, medium breeds need 45 to 60 minutes, and high-energy breeds need 90 minutes or more. Puppies need shorter, gentler exercise. The figures on this page are daily minimums, and most dogs are happier with a little more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are big dogs harder to keep?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not always. Some large breeds, like Greyhounds and Great Danes, are calm indoors and need less exercise than a small, busy terrier. Big dogs do eat more, cost more at the vet, and need more space in the car and the home. The harder question is energy, not size: a calm large dog is easier than a restless small one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a dog cost each month?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It varies a lot by country and by the size of the dog. Every month brings food, and through the year there are vet visits, vaccines, flea and worm treatment, grooming and the odd toy or bed. Large dogs eat more and their vet bills are often higher. Ask your local vet and pet shop for the monthly cost in your area before you decide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I adopt or buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both can work well. Adoption gives a home to a dog that needs one, and shelter staff can tell you about the dog's character. Buying from a good breeder lets you meet the mother and learn the puppy's background. Whichever you choose, meet the dog first, ask questions, and walk away from any seller who will not let you see where the dog lives."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if a breed fits my home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Match the breed's energy to your daily life, not just its size to your rooms. A calm breed suits a flat, and a high-energy breed suits an active household with time for long walks. Use the picker on this page, then meet the dog. If the dog's needs fit the hours and space you honestly have, the match is a good one."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Dog Breed Explorer</h1>
+<p class="answer">This explorer compares 32 popular dog breeds by size, energy, grooming, exercise and temperament, so you can find one that fits your home and your life. Filter the list, or answer three questions and get three breeds to look at first.</p>
+<div class="calc">
+<label for="size">Filter by size</label>
+<select id="size">
+<option value="">All sizes</option>
+<option>Small</option>
+<option>Medium</option>
+<option>Large</option>
+</select>
+<label for="energy">Filter by energy</label>
+<select id="energy">
+<option value="">All energy levels</option>
+<option>Low</option>
+<option>Medium</option>
+<option>High</option>
+</select>
+<div class="count" id="count"></div>
+<div id="breed-list"></div>
+<label for="home">Which breed fits me? Your home</label>
+<select id="home">
+<option value="flat">Flat, no garden</option>
+<option value="small">Small house, small garden</option>
+<option value="large">Large house with a garden</option>
+</select>
+<label for="activity">Your activity level</label>
+<select id="activity">
+<option value="low">Low — short walks, quiet days</option>
+<option value="moderate">Moderate — a good walk each day</option>
+<option value="high">High — long walks, runs, outdoor life</option>
+</select>
+<label for="experience">Your experience with dogs</label>
+<select id="experience">
+<option value="first">First-time owner</option>
+<option value="some">Some experience</option>
+<option value="experienced">Experienced owner</option>
+</select>
+<button type="button" id="pick-btn">Find my breeds</button>
+<div class="outbox" id="pick-out" style="display:none"></div>
+<button type="button" id="copy-btn" style="display:none">Copy my three breeds</button>
+</div>
+<div class="warn">These descriptions are general breed traits. Every individual dog is different — two dogs of the same breed can have very different characters. Meet the dog, and the breeder or shelter, before you decide.</div>
+
+<h2>What this explorer is for</h2>
+<p>Choosing a dog is a decision that lasts ten to fifteen years, so it deserves more thought than a photo. A breed that looks perfect in a picture may need two hours of exercise a day, or shed hair all over the house, or struggle in a small flat. This explorer exists to help you match the dog to your real life before you fall in love with a face. It compares 32 popular breeds on the things that matter day to day: size, energy, grooming, how they usually are with children, how much exercise they need, and their general temperament. You can filter the list by size and energy, or answer three questions about your home, your activity and your experience and get three breeds to look at first.</p>
+<p>The explorer is a starting point, not a final answer. Breed descriptions are averages across thousands of dogs, and every individual dog has its own character. A calm breed can produce a bouncy puppy, and a high-energy breed can produce a dog that loves an afternoon nap. The traits here tell you what is typical, so you can narrow the list and then meet real dogs with a clearer idea of what you are looking for. The best next step after this page is always the same: visit a shelter or a good breeder, spend time with the dog, and ask questions.</p>
+<h2>How to use the explorer</h2>
+<p>Start with the two filters near the top of the page. Pick a size and an energy level, and the list narrows at once. If you live in a flat, try small size and low energy first and see what comes up. If you run every morning, try high energy and see which breeds can keep up with you. Each breed entry shows the key facts in one line: size, energy, grooming needs, how the breed usually is with children, the exercise it needs each day, and a short note on temperament. Read through a few entries and you will start to see the pattern of what suits you.</p>
+<p>The picker below the list does the matching for you. Choose your home, your activity level and your experience, then tap Find my breeds. The picker scores all 32 breeds against your answers and shows the top three, with a short reason for each. You can copy the three suggestions to keep them. Try changing one answer at a time and watch how the suggestions change. That alone teaches you a lot about what matters most: a small home pushes toward smaller, calmer breeds, while a very active life pushes toward breeds that need a job to do.</p>
+<p>Everything works by touch on a phone and by keyboard and mouse on a desktop. Nothing needs an account, and nothing is uploaded. The breed list lives in the page itself, and your answers never leave your device.</p>
+<h2>How to choose a breed</h2>
+<p>Size is the first thing most people think about, and it matters, but it is not the whole story. A large dog in a flat can be happy if it gets enough exercise and has a quiet place to rest, while a small dog in a big house can be miserable if it never goes out. What matters more is the match between the dog's energy and your daily life. A high-energy breed in a quiet home will invent its own entertainment, usually by chewing something you like. A low-energy breed with a very active owner will be happy to come along for a walk and then sleep the rest of the day. Energy is the trait that causes most mismatches, so weigh it more heavily than size.</p>
+<p>Grooming is the second thing people underestimate. A long-coated breed needs brushing several times a week, and a breed with a coat that grows constantly needs regular clipping. If you do not enjoy grooming, or you do not want to pay a groomer often, choose a low-grooming breed and be honest about it. Shedding is a separate question: almost all dogs shed something, and a low-grooming breed can still leave hair on the sofa. If anyone in the home has allergies, spend time with the breed before you commit, because no breed is truly free of allergens.</p>
+<p>Children change the picture too. Some breeds are famously patient with children, and others are better with older children or with adults only. The entries here say how each breed usually is with children, but supervision matters with every breed and every child. A dog of any size can knock a small child over by accident, and a child can hurt a small dog without meaning to. Teach children to be calm around the dog, and teach the dog that children are friends, and most breeds do well.</p>
+<h2>What to check before getting a dog</h2>
+<p>Cost is the first practical check. A dog costs money every month for food, and more for vet care, vaccines, flea and worm treatment, grooming, toys, a bed and insurance if you choose it. Large dogs eat more and their vet bills are often higher. Some breeds need regular grooming, which adds a steady cost. Before you choose, ask your local vet and your local pet shop what the monthly costs look like in your area, because prices vary a lot by country and city. A dog is a long commitment, so the monthly cost matters more than the price of the puppy.</p>
+<p>Time is the second check. A dog needs feeding, walking, training, play and company every day, for years. Puppies need far more: toilet training, short walks, and someone nearby most of the day. If everyone in the home works long hours away from home, a dog may be lonely, and a lonely dog often becomes a noisy or destructive dog. Be honest about the hours you can give. If the answer is not many, an older rescue dog that is already trained may suit you better than a puppy.</p>
+<p>Local rules are the third check. Some landlords and housing rules limit the size or breed of dog you can keep, and some cities have rules about certain breeds, about leashes in public places, and about cleaning up after your dog. Check your lease, your building rules and your local council before you bring a dog home. A quick check now saves a painful decision later.</p>
+<h2>Worked examples</h2>
+<p>First, a first-time owner in a flat. She works from home, walks for half an hour a day, and has never owned a dog. The picker suggests a French Bulldog, a Pug and a Shih Tzu. All three are small, need modest exercise, and are known for being good company indoors. She reads the grooming notes, sees that the Shih Tzu needs regular brushing, and leans toward the French Bulldog. She visits a shelter, meets two adult French Bulldogs, and takes home the calmer one. The match works because the dog's energy fits her life.</p>
+<p>Second, an active family with a garden and two children aged eight and eleven. They walk every day, go hiking at weekends, and have owned dogs before. The picker suggests a Labrador Retriever, a Golden Retriever and a Boxer. All three are large, high-energy, famously good with children, and happy with long walks. They choose a Labrador from a rescue, and the children help with feeding and training. The dog gets the exercise it needs, and the children get a patient playmate.</p>
+<p>Third, an older owner in a small house who wants company and a reason to walk. He is not very active and has some experience with dogs. The picker suggests a Basset Hound, a Greyhound and a Bulldog. All three are calm, need moderate exercise, and are happy to rest for much of the day. He is surprised by the Greyhound, which many people think of as a racing dog, but the entry explains that Greyhounds are famously lazy indoors. He adopts one and walks it twice a day.</p>
+<h2>Common mistakes</h2>
+<p>The biggest mistake is choosing by looks alone. A beautiful dog that needs two hours of exercise a day is a poor match for a quiet home, and a cute puppy grows into an adult dog with adult needs. Looks fade as a reason within the first week. Energy, size and grooming needs do not. Choose for the life you actually live, not for the photo.</p>
+<p>The second mistake is ignoring exercise needs. Almost every behaviour problem in dogs — chewing, barking, digging, restlessness — is worse when the dog is under-exercised. The exercise figures on this page are daily minimums, not targets to hit sometimes. If you cannot give a breed its daily exercise, choose a calmer breed rather than hoping the dog will adapt.</p>
+<p>The third mistake is buying a puppy on impulse, from the first seller you find, without meeting the mother dog or checking how the puppies were raised. Puppies from poor conditions often carry health and behaviour problems that last for years. Take your time, ask questions, and walk away from any seller who will not let you meet the mother or see where the puppies live.</p>
+<h2>What this page cannot do</h2>
+<p>This page cannot tell you which individual dog to take home. It compares breeds, not dogs, and the dog you meet will have its own character, its own history and its own needs. A breed entry that says good with children does not guarantee that a particular dog likes your particular child. Meeting the dog, watching how it behaves, and asking the shelter or breeder about its history are steps no page can replace.</p>
+<p>The page also cannot keep up with every breed. There are hundreds of recognised breeds and countless mixed-breed dogs, and this explorer covers 32 of the most popular. A mixed-breed dog can be a wonderful companion, and its traits will be a blend of its parents. If you fall for a breed that is not listed here, use the same questions this page asks: how big, how much energy, how much grooming, how is it with children, and how much exercise does it need each day. Those five questions will guide you well for any dog.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is the best dog for a first-time owner?</h3><p>A calm, forgiving breed that is easy to train, such as a Labrador Retriever, a Golden Retriever, a French Bulldog or a Bichon Frise. First-time owners do best with a breed that is patient, not too large, and happy with moderate exercise. An adult rescue dog can be even easier than a puppy, because it is often already trained.</p></div>
+<div class="faq"><h3>How much exercise does a dog need?</h3><p>It depends on the breed. Low-energy breeds are usually happy with about 30 minutes a day, medium breeds need 45 to 60 minutes, and high-energy breeds need 90 minutes or more. Puppies need shorter, gentler exercise. The figures on this page are daily minimums, and most dogs are happier with a little more.</p></div>
+<div class="faq"><h3>Are big dogs harder to keep?</h3><p>Not always. Some large breeds, like Greyhounds and Great Danes, are calm indoors and need less exercise than a small, busy terrier. Big dogs do eat more, cost more at the vet, and need more space in the car and the home. The harder question is energy, not size: a calm large dog is easier than a restless small one.</p></div>
+<div class="faq"><h3>What does a dog cost each month?</h3><p>It varies a lot by country and by the size of the dog. Every month brings food, and through the year there are vet visits, vaccines, flea and worm treatment, grooming and the odd toy or bed. Large dogs eat more and their vet bills are often higher. Ask your local vet and pet shop for the monthly cost in your area before you decide.</p></div>
+<div class="faq"><h3>Should I adopt or buy?</h3><p>Both can work well. Adoption gives a home to a dog that needs one, and shelter staff can tell you about the dog&#x27;s character. Buying from a good breeder lets you meet the mother and learn the puppy&#x27;s background. Whichever you choose, meet the dog first, ask questions, and walk away from any seller who will not let you see where the dog lives.</p></div>
+<div class="faq"><h3>How do I know if a breed fits my home?</h3><p>Match the breed&#x27;s energy to your daily life, not just its size to your rooms. A calm breed suits a flat, and a high-energy breed suits an active household with time for long walks. Use the picker on this page, then meet the dog. If the dog&#x27;s needs fit the hours and space you honestly have, the match is a good one.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../cat-breed-explorer/">Cat Breed Explorer</a> · <a href="../pet-food-portion-calculator/">Pet Food Portion Calculator</a> · <a href="../pet-vaccination-reminder/">Pet Vaccination Reminder</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = window.FT || {};
+(function(){
+  var BREEDS = [
+  {n: "Labrador Retriever", size: "Large", energy: "High", groom: "Low", kids: "Yes", ex: 60, temp: "Friendly and eager to please", easy: true, hard: false},
+  {n: "Golden Retriever", size: "Large", energy: "High", groom: "Medium", kids: "Yes", ex: 60, temp: "Gentle and loyal", easy: true, hard: false},
+  {n: "German Shepherd", size: "Large", energy: "High", groom: "Medium", kids: "Mostly", ex: 90, temp: "Loyal and watchful", easy: false, hard: true},
+  {n: "French Bulldog", size: "Small", energy: "Low", groom: "Low", kids: "Yes", ex: 30, temp: "Playful and calm indoors", easy: true, hard: false},
+  {n: "Poodle", size: "Medium", energy: "High", groom: "High", kids: "Yes", ex: 60, temp: "Clever and lively", easy: true, hard: false},
+  {n: "Beagle", size: "Medium", energy: "High", groom: "Low", kids: "Yes", ex: 60, temp: "Cheerful and curious", easy: true, hard: false},
+  {n: "Bulldog", size: "Medium", energy: "Low", groom: "Low", kids: "Yes", ex: 30, temp: "Calm and steady", easy: true, hard: false},
+  {n: "Rottweiler", size: "Large", energy: "Medium", groom: "Low", kids: "Supervised", ex: 60, temp: "Confident and loyal", easy: false, hard: true},
+  {n: "Boxer", size: "Large", energy: "High", groom: "Low", kids: "Yes", ex: 60, temp: "Bouncy and fun loving", easy: false, hard: false},
+  {n: "Dachshund", size: "Small", energy: "Medium", groom: "Low", kids: "Mostly", ex: 30, temp: "Bold and lively", easy: false, hard: false},
+  {n: "Siberian Husky", size: "Large", energy: "High", groom: "Medium", kids: "Mostly", ex: 90, temp: "Friendly and independent", easy: false, hard: true},
+  {n: "Great Dane", size: "Large", energy: "Low", groom: "Low", kids: "Mostly", ex: 45, temp: "Gentle giant", easy: false, hard: false},
+  {n: "Border Collie", size: "Medium", energy: "High", groom: "Medium", kids: "Mostly", ex: 90, temp: "Extremely clever and busy", easy: false, hard: true},
+  {n: "Australian Shepherd", size: "Medium", energy: "High", groom: "Medium", kids: "Mostly", ex: 90, temp: "Energetic and loyal", easy: false, hard: false},
+  {n: "Cocker Spaniel", size: "Medium", energy: "High", groom: "High", kids: "Yes", ex: 60, temp: "Sweet and merry", easy: true, hard: false},
+  {n: "Shih Tzu", size: "Small", energy: "Low", groom: "High", kids: "Yes", ex: 30, temp: "Affectionate and calm", easy: true, hard: false},
+  {n: "Pomeranian", size: "Small", energy: "Medium", groom: "High", kids: "Mostly", ex: 30, temp: "Bold and lively", easy: false, hard: false},
+  {n: "Chihuahua", size: "Small", energy: "Medium", groom: "Low", kids: "Supervised", ex: 30, temp: "Alert and devoted", easy: false, hard: false},
+  {n: "Pug", size: "Small", energy: "Medium", groom: "Low", kids: "Yes", ex: 30, temp: "Funny and affectionate", easy: true, hard: false},
+  {n: "Dalmatian", size: "Large", energy: "High", groom: "Low", kids: "Mostly", ex: 90, temp: "Energetic and playful", easy: false, hard: true},
+  {n: "Doberman", size: "Large", energy: "High", groom: "Low", kids: "Mostly", ex: 90, temp: "Loyal and alert", easy: false, hard: true},
+  {n: "Akita", size: "Large", energy: "Medium", groom: "Medium", kids: "Supervised", ex: 60, temp: "Dignified and loyal", easy: false, hard: true},
+  {n: "Shiba Inu", size: "Medium", energy: "Medium", groom: "Medium", kids: "Mostly", ex: 60, temp: "Independent and clean", easy: false, hard: false},
+  {n: "Pembroke Welsh Corgi", size: "Medium", energy: "High", groom: "Medium", kids: "Yes", ex: 45, temp: "Clever and cheerful", easy: true, hard: false},
+  {n: "Maltese", size: "Small", energy: "Low", groom: "High", kids: "Mostly", ex: 30, temp: "Gentle and playful", easy: true, hard: false},
+  {n: "Yorkshire Terrier", size: "Small", energy: "Medium", groom: "High", kids: "Mostly", ex: 30, temp: "Bold and lively", easy: false, hard: false},
+  {n: "Basset Hound", size: "Medium", energy: "Low", groom: "Low", kids: "Yes", ex: 45, temp: "Easy going and gentle", easy: true, hard: false},
+  {n: "Bernese Mountain Dog", size: "Large", energy: "Medium", groom: "High", kids: "Yes", ex: 60, temp: "Calm and affectionate", easy: true, hard: false},
+  {n: "Jack Russell Terrier", size: "Small", energy: "High", groom: "Low", kids: "Mostly", ex: 60, temp: "Fearless and busy", easy: false, hard: true},
+  {n: "Greyhound", size: "Large", energy: "Low", groom: "Low", kids: "Mostly", ex: 45, temp: "Gentle and surprisingly lazy indoors", easy: true, hard: false},
+  {n: "Saint Bernard", size: "Large", energy: "Low", groom: "Medium", kids: "Yes", ex: 45, temp: "Patient and kind", easy: true, hard: false},
+  {n: "Bichon Frise", size: "Small", energy: "Medium", groom: "High", kids: "Yes", ex: 30, temp: "Happy and gentle", easy: true, hard: false}
+  ];
+  function filterBreeds(size, energy){
+    return BREEDS.filter(function(b){
+      var okS = !size || b.size === size;
+      var okE = !energy || b.energy === energy;
+      return okS && okE;
+    });
+  }
+  function scoreBreed(b, home, activity, experience){
+    var s = 0;
+    if (home === "flat"){
+      if (b.size === "Small") s += 3;
+      else if (b.size === "Medium") s += 1;
+      else s -= 2;
+      if (b.energy === "Low") s += 2;
+      else if (b.energy === "High") s -= 1;
+    } else if (home === "small"){
+      if (b.size === "Small") s += 2;
+      else if (b.size === "Medium") s += 2;
+      if (b.energy === "High") s -= 1;
+    } else if (home === "large"){
+      if (b.size === "Large") s += 2;
+      else if (b.size === "Medium") s += 1;
+    }
+    if (activity === "low"){
+      if (b.energy === "Low") s += 3;
+      else if (b.energy === "Medium") s += 1;
+      else s -= 2;
+    } else if (activity === "moderate"){
+      if (b.energy === "Medium") s += 2;
+      else if (b.energy === "Low") s += 1;
+      else s += 1;
+    } else if (activity === "high"){
+      if (b.energy === "High") s += 3;
+      else if (b.energy === "Medium") s += 1;
+      else s -= 1;
+    }
+    if (experience === "first"){
+      if (b.easy) s += 3;
+      if (b.hard) s -= 2;
+    } else if (experience === "experienced"){
+      if (b.hard) s += 1;
+    }
+    return s;
+  }
+  function pickBreeds(home, activity, experience){
+    var scored = BREEDS.map(function(b, i){
+      return {b: b, s: scoreBreed(b, home, activity, experience), i: i};
+    });
+    scored.sort(function(a, c){ return (c.s - a.s) || (a.i - c.i); });
+    return scored.slice(0, 3).map(function(x){ return x.b; });
+  }
+  window.FT.BREEDS = BREEDS;
+  window.FT.filterBreeds = filterBreeds;
+  window.FT.scoreBreed = scoreBreed;
+  window.FT.pickBreeds = pickBreeds;
+  if (typeof document === "undefined") return;
+  var sizeEl = document.getElementById("size");
+  var energyEl = document.getElementById("energy");
+  var listEl = document.getElementById("breed-list");
+  var countEl = document.getElementById("count");
+  var pickBtn = document.getElementById("pick-btn");
+  var pickOut = document.getElementById("pick-out");
+  var copyBtn = document.getElementById("copy-btn");
+  var lastPick = [];
+  function rowText(b){
+    return b.size + " — Energy: " + b.energy + " — Grooming: " + b.groom +
+      " — Good with children: " + b.kids + " — Exercise: about " + b.ex +
+      " minutes a day — " + b.temp + ".";
+  }
+  function render(){
+    var rows = filterBreeds(sizeEl.value, energyEl.value);
+    countEl.textContent = rows.length + " breed" + (rows.length === 1 ? "" : "s") + " shown";
+    listEl.innerHTML = "";
+    rows.forEach(function(b){
+      var d = document.createElement("div");
+      d.className = "row";
+      var name = document.createElement("b");
+      name.textContent = b.n;
+      var tags = document.createElement("div");
+      tags.className = "tags";
+      tags.textContent = rowText(b);
+      d.appendChild(name);
+      d.appendChild(tags);
+      listEl.appendChild(d);
+    });
+    if (rows.length === 0){
+      var none = document.createElement("div");
+      none.className = "row";
+      none.textContent = "No breed matches those filters. Try another size or energy level.";
+      listEl.appendChild(none);
+    }
+  }
+  sizeEl.addEventListener("change", render);
+  energyEl.addEventListener("change", render);
+  pickBtn.addEventListener("click", function(){
+    var home = document.getElementById("home").value;
+    var activity = document.getElementById("activity").value;
+    var experience = document.getElementById("experience").value;
+    lastPick = pickBreeds(home, activity, experience);
+    var lines = ["Three breeds to look at first:"];
+    lastPick.forEach(function(b, i){
+      lines.push((i + 1) + ". " + b.n + " — " + rowText(b));
+    });
+    lines.push("These are starting points from general breed traits. Meet the dog before you decide.");
+    pickOut.style.display = "";
+    pickOut.textContent = lines.join("\n");
+    copyBtn.style.display = "";
+  });
+  copyBtn.addEventListener("click", function(){
+    if (lastPick.length) copyText(pickOut.textContent, copyBtn);
+  });
+  render();
+})();
+
+function copyText(text, btn){
+  function done(){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+function downloadText(filename, text, type){
+  var blob = new Blob([text], {type: type || "text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

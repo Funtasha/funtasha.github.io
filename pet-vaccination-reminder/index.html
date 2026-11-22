@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pet Vaccination Reminder — Never Miss Your Pet's Next Vaccine | Funtasha</title>
+<meta name="description" content="Free pet vaccination reminder — build your pet&#x27;s vaccine schedule and see what is due next. No signup, phone friendly.">
+<link rel="canonical" href="https://funtasha.github.io/pet-vaccination-reminder/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pet Vaccination Reminder — Never Miss Your Pet's Next Vaccine">
+<meta property="og:description" content="Free pet vaccination reminder — build your pet&#x27;s vaccine schedule and see what is due next. No signup, phone friendly.">
+<meta property="og:url" content="https://funtasha.github.io/pet-vaccination-reminder/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:15px}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+canvas{width:100%;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+.row{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px;margin:10px 0}
+.row b{font-size:17px}
+.row .meta{font-size:14.5px;color:#475569;margin-top:2px}
+.row .tags{font-size:14px;color:#334155;margin-top:6px}
+.row button{margin-top:10px}
+.pill{display:inline-block;background:#fdf2f8;border:1px solid #fbcfe8;border-radius:999px;padding:2px 10px;font-size:13.5px;margin:2px 4px 2px 0}
+.count{font-size:14.5px;color:#475569;margin-top:8px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which vaccines does my pet need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every dog needs the core combined shot (DAPP, covering distemper, adenovirus, parvovirus and parainfluenza) plus rabies. Every cat needs the core combined shot (FVRCP, covering panleukopenia, calicivirus and herpesvirus) plus rabies. Other vaccines depend on where you live and how your pet lives — ask your vet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often are boosters needed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Puppies and kittens get three rounds of core shots, then a booster one year later. After that, the core shots are often given every three years in adult pets. Rabies follows local law, which varies from every year to every three years. Your vet will know the rule where you live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I miss a vaccine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Do not panic, and do not restart the whole course on your own. Call your vet and say which shot was missed and when it was due. In most cases the vet will give the missed shot and adjust the dates. A missed booster weakens protection over time, so book the catch-up visit soon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should a puppy get its first vaccine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The first core shots are usually given at six to eight weeks old, with two more rounds four weeks apart. The exact timing depends on the puppy's health and history. If you adopt an older puppy, the vet will start the course from the first visit and set the dates from there."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do indoor cats need vaccines?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Indoor cats still need the core vaccines, because viruses can travel into the home on shoes, clothes and other animals, and because a cat may escape or need a vet visit. Rabies is required by law in many places even for indoor cats. Ask your vet about the non-core vaccines, which indoor cats often do not need."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I ask my vet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ask which vaccines your pet needs beyond the core ones, how often boosters are needed where you live, what to expect after the shots, and what would be a reason to call back. Also ask about flea and worm treatment, neutering and microchipping. Bring the schedule from this page and ask the vet to check it."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Pet Vaccination Reminder</h1>
+<p class="answer">This reminder builds your pet's core vaccine schedule from its birth date, shows what is due next, and saves your ticked-off shots in this browser. It covers the core vaccines for dogs and cats, with boosters included.</p>
+<div class="calc">
+<label for="pet">Pet type</label>
+<select id="pet">
+<option value="dog">Dog</option>
+<option value="cat">Cat</option>
+</select>
+<label for="name">Pet's name (optional)</label>
+<input id="name" type="text" placeholder="For example, Milo" autocomplete="off">
+<label for="birth">Pet's birth date</label>
+<input id="birth" type="date">
+<label for="last">Last vaccine date (optional — if your pet has had shots already)</label>
+<input id="last" type="date">
+<button type="button" id="build-btn">Build my pet's schedule</button>
+<div class="out" id="next-due" style="display:none"></div>
+<div id="schedule"></div>
+<div class="steps" id="browser-note" style="display:none">Reminders live in this browser only. Also note the dates in your phone calendar, so you have them even if you change phones.</div>
+<button type="button" id="copy-btn" style="display:none">Copy this schedule</button>
+</div>
+<div class="warn">These schedules are general guidance. Your vet sets the real dates for your pet, and local law sets the rabies rules where you live. This page never replaces your vet.</div>
+
+<h2>What this reminder is for</h2>
+<p>Vaccines are easy to forget and hard to catch up on. A puppy's first year needs several rounds of shots at set ages, and then boosters at one year and every few years after that. Miss one, and the protection weakens. This reminder builds your pet's core vaccine schedule from its birth date, shows what is due next, and lets you tick off each shot as it happens. The ticks save in your browser, so you can come back weeks later and see exactly where you are. It covers the core vaccines for dogs and cats: the ones vets recommend for every pet, not the optional extras that depend on where you live and how your pet lives.</p>
+<p>The reminder is a planning aid, not a medical record. Your vet keeps the official record, and your vet sets the real dates. What this page gives you is a clear view of the shape of the schedule — when the first shots fall, when the boosters come, and what is due next — so you can book appointments in good time and never wonder whether you missed something. If the page and your vet ever disagree, your vet is right.</p>
+<h2>Which vaccines are core for dogs and cats</h2>
+<p>For dogs, the core vaccine is usually given as one combined shot, often called DAPP or DHPP. It covers four diseases: distemper, adenovirus, parvovirus and parainfluenza. Distemper attacks the lungs, gut and brain and is often fatal. Parvovirus causes severe vomiting and diarrhoea, especially in puppies, and can kill within days. Adenovirus affects the liver. Parainfluenza is one of the causes of kennel cough. Puppies get three rounds of this combined shot, because a mother's protection fades gradually and the shots need to catch the moment the puppy's own immune system can respond. Rabies is the other core vaccine for dogs, given as a separate shot, and in many places it is required by law.</p>
+<p>For cats, the core vaccine is also a combined shot, usually called FVRCP. It covers three diseases: feline panleukopenia, feline calicivirus and feline herpesvirus. Panleukopenia is a fast, often fatal disease of kittens. Calicivirus and herpesvirus cause flu-like illness, sore mouths and eye problems, and herpesvirus can stay in the cat for life and flare up when the cat is stressed. Kittens get three rounds, just like puppies. Rabies is core for cats too, and in many places it is required by law for cats as well as dogs.</p>
+<p>Other vaccines exist — for kennel cough, for feline leukaemia, for Lyme disease — but they are not core for every pet. Your vet will recommend them only if your pet's life makes them worthwhile. A dog that stays in kennels may need the kennel cough vaccine. A cat that goes outdoors and meets other cats may need the leukaemia vaccine. An indoor-only cat usually does not. The schedule on this page sticks to the core vaccines, because those are the ones every pet needs.</p>
+<h2>Why boosters matter</h2>
+<p>A vaccine does not protect forever. The first rounds teach the immune system what the disease looks like, and the protection is strong for a while, then fades. The one-year booster refreshes it, and later boosters keep it topped up. Without boosters, a pet that was fully protected as a puppy can become vulnerable again as an adult. That is why the schedule does not stop after the puppy rounds: the one-year booster is as important as the first shots.</p>
+<p>How often boosters are needed depends on the vaccine and on local rules. The core combined shots are now often given every three years in adult pets, because studies showed the protection lasts longer than once thought. Rabies follows local law, which varies: in some places it is every year, in others every three years. Your vet will know the rule where you live, and the schedule on this page shows the general pattern with that note attached. If your vet gives a different interval, follow your vet.</p>
+<h2>How to use the schedule builder</h2>
+<p>Pick your pet type, then enter the birth date. If you do not know the exact birth date, use your best guess from the shelter or breeder, or the date on the adoption papers. The schedule is built from that date, so a rough date gives a rough schedule, and your vet will firm it up. If your pet has already had some shots, enter the date of the most recent one as well, and the page will add a next-booster line based on it. You can also add your pet's name, so the schedule reads more personally.</p>
+<p>Tap Build my pet's schedule, and the page shows the full list with due dates, starting with the first shots at six weeks and running through the one-year booster and the three-year booster. The next due item is shown at the top, so you can see at a glance what to book. Tick each shot off after the vet visit, and the ticks save in your browser. Copy the schedule to keep it on your phone, and also note the dates in your phone calendar, because browser reminders only live on this device.</p>
+<p>Everything works by touch on a phone and by keyboard and mouse on a desktop. Nothing needs an account, and nothing is uploaded. The schedule is built in your browser from the dates you enter, and your pet's details never leave your device.</p>
+<h2>Worked example: a puppy's first year</h2>
+<p>Take a puppy born on the first of January. Its first core shots fall due in mid-February, at six weeks old. The second round follows four weeks later, in mid-March, at ten weeks. The third round comes in early April, at fourteen weeks. The first rabies vaccine is due in late April, at sixteen weeks, with the exact timing confirmed by the vet and the local rules. That is four vet visits in the first four months, and each one also includes a health check, a weight check and a chance to ask questions.</p>
+<p>The one-year booster falls due in early April the following year, one year after the third core shots. After that, the core shots move to a three-year cycle, with the next booster three years later. The rabies booster follows local law. In total, the puppy's first year has five vaccine dates, and the owner who books each one when the previous visit happens never has to remember anything. That is the habit this page is built to support: book the next date while you are still at the vet.</p>
+<h2>What to ask your vet</h2>
+<p>Your first visit is the best time to ask questions, and vets expect them. Ask which vaccines your pet needs beyond the core ones, given where you live and how your pet lives. Ask how often boosters are needed where you are, because the rabies rule varies. Ask what to expect after the shots: most pets are a little sleepy or sore for a day, and a small lump at the injection site is common and usually harmless. Ask what would be a reason to call back, such as swelling of the face, vomiting, or a pet that will not eat the next day.</p>
+<p>Also ask about the rest of the first-year plan: flea and worm treatment, neutering, microchipping, and feeding. Vets would rather answer ten questions at a routine visit than see a pet that missed its vaccines. Bring the schedule from this page, on your phone or printed, and ask the vet to check it against their own plan. That takes a minute and leaves you with dates you can trust.</p>
+<h2>What this page cannot do</h2>
+<p>This page cannot set your pet's real vaccine dates. The schedule is built from general guidance — first shots at six weeks, rounds four weeks apart, a one-year booster, then a three-year cycle — and real dates depend on your pet's health, its history, the vaccines your vet uses, and the law where you live. A sick puppy may need its shots delayed. A rescue pet with an unknown history may need a different plan. Your vet decides all of that, and this page says so on every schedule it builds.</p>
+<p>The page also cannot remind you on its own. The ticks and the schedule live in this browser only, on this device. There is no account, no email and no alarm, because this page does not collect anything about you. That is deliberate: it keeps your pet's details private, but it means you must also note the dates somewhere that will actually remind you, such as your phone calendar. The page tells you to do that every time it builds a schedule, and it is worth doing before you close the tab.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>Which vaccines does my pet need?</h3><p>Every dog needs the core combined shot (DAPP, covering distemper, adenovirus, parvovirus and parainfluenza) plus rabies. Every cat needs the core combined shot (FVRCP, covering panleukopenia, calicivirus and herpesvirus) plus rabies. Other vaccines depend on where you live and how your pet lives — ask your vet.</p></div>
+<div class="faq"><h3>How often are boosters needed?</h3><p>Puppies and kittens get three rounds of core shots, then a booster one year later. After that, the core shots are often given every three years in adult pets. Rabies follows local law, which varies from every year to every three years. Your vet will know the rule where you live.</p></div>
+<div class="faq"><h3>What happens if I miss a vaccine?</h3><p>Do not panic, and do not restart the whole course on your own. Call your vet and say which shot was missed and when it was due. In most cases the vet will give the missed shot and adjust the dates. A missed booster weakens protection over time, so book the catch-up visit soon.</p></div>
+<div class="faq"><h3>When should a puppy get its first vaccine?</h3><p>The first core shots are usually given at six to eight weeks old, with two more rounds four weeks apart. The exact timing depends on the puppy&#x27;s health and history. If you adopt an older puppy, the vet will start the course from the first visit and set the dates from there.</p></div>
+<div class="faq"><h3>Do indoor cats need vaccines?</h3><p>Yes. Indoor cats still need the core vaccines, because viruses can travel into the home on shoes, clothes and other animals, and because a cat may escape or need a vet visit. Rabies is required by law in many places even for indoor cats. Ask your vet about the non-core vaccines, which indoor cats often do not need.</p></div>
+<div class="faq"><h3>What should I ask my vet?</h3><p>Ask which vaccines your pet needs beyond the core ones, how often boosters are needed where you live, what to expect after the shots, and what would be a reason to call back. Also ask about flea and worm treatment, neutering and microchipping. Bring the schedule from this page and ask the vet to check it.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../dog-breed-explorer/">Dog Breed Explorer</a> · <a href="../cat-breed-explorer/">Cat Breed Explorer</a> · <a href="../pet-food-portion-calculator/">Pet Food Portion Calculator</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = window.FT || {};
+(function(){
+  var CORE = {
+    dog: "Core shots (DAPP: distemper, adenovirus, parvovirus, parainfluenza)",
+    cat: "Core shots (FVRCP: panleukopenia, calicivirus, herpesvirus)"
+  };
+  function parseISO(iso){
+    var p = (iso || "").split("-");
+    if (p.length !== 3) return null;
+    var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+    if (isNaN(d.getTime())) return null;
+    return d;
+  }
+  function formatISO(d){
+    var y = d.getUTCFullYear();
+    var m = ("0" + (d.getUTCMonth() + 1)).slice(-2);
+    var day = ("0" + d.getUTCDate()).slice(-2);
+    return y + "-" + m + "-" + day;
+  }
+  function addDays(d, n){
+    return new Date(d.getTime() + n * 86400000);
+  }
+  function addMonths(d, n){
+    var y = d.getUTCFullYear();
+    var m = d.getUTCMonth() + n;
+    var day = d.getUTCDate();
+    var last = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+    return new Date(Date.UTC(y, m, Math.min(day, last)));
+  }
+  function ageWeeks(birthISO, todayISO){
+    var b = parseISO(birthISO);
+    var t = todayISO ? parseISO(todayISO) : new Date();
+    if (!b || !t) return null;
+    return Math.floor((t.getTime() - b.getTime()) / 604800000);
+  }
+  function buildSchedule(pet, birthISO, lastVaxISO, todayISO){
+    var b = parseISO(birthISO);
+    if (!b) return [];
+    var core = CORE[pet] || CORE.dog;
+    var items = [];
+    items.push({vaccine: "First " + core, due: formatISO(addDays(b, 42)), note: "At 6 weeks old"});
+    items.push({vaccine: "Second " + core, due: formatISO(addDays(b, 70)), note: "At 10 weeks old"});
+    items.push({vaccine: "Third " + core, due: formatISO(addDays(b, 98)), note: "At 14 weeks old"});
+    items.push({vaccine: "First rabies vaccine", due: formatISO(addDays(b, 112)), note: "At 16 weeks old — the vet confirms the exact timing and local rules"});
+    var third = addDays(b, 98);
+    items.push({vaccine: "One-year booster (" + (pet === "cat" ? "FVRCP" : "DAPP") + " and rabies)", due: formatISO(addMonths(third, 12)), note: "One year after the third core shots"});
+    items.push({vaccine: "Three-year booster (" + (pet === "cat" ? "FVRCP" : "DAPP") + ")", due: formatISO(addMonths(third, 48)), note: "Three years after the one-year booster — rabies follows local law"});
+    if (lastVaxISO){
+      var last = parseISO(lastVaxISO);
+      if (last){
+        var weeks = ageWeeks(birthISO, todayISO);
+        var months = (weeks !== null && weeks < 78) ? 12 : 36;
+        items.push({vaccine: "Next booster after your last vaccine", due: formatISO(addMonths(last, months)), note: months === 12 ? "One year after the last vaccine, because your pet is still young" : "Three years after the last vaccine, on the adult cycle"});
+      }
+    }
+    return items;
+  }
+  function nextDue(items, todayISO){
+    var t = todayISO ? parseISO(todayISO) : new Date();
+    var today = formatISO(new Date(Date.UTC(t.getUTCFullYear(), t.getUTCMonth(), t.getUTCDate())));
+    var upcoming = items.filter(function(x){ return x.due >= today; });
+    upcoming.sort(function(a, c){ return a.due < c.due ? -1 : (a.due > c.due ? 1 : 0); });
+    return upcoming.length ? upcoming[0] : null;
+  }
+  window.FT.CORE = CORE;
+  window.FT.parseISO = parseISO;
+  window.FT.formatISO = formatISO;
+  window.FT.addDays = addDays;
+  window.FT.addMonths = addMonths;
+  window.FT.ageWeeks = ageWeeks;
+  window.FT.buildSchedule = buildSchedule;
+  window.FT.nextDue = nextDue;
+  if (typeof document === "undefined") return;
+  var KEY = "ft-pet-vaccination-reminder-ticks";
+  function loadTicks(){
+    try { return JSON.parse(localStorage.getItem(KEY) || "{}"); }
+    catch(e){ return {}; }
+  }
+  function saveTicks(ticks){
+    try { localStorage.setItem(KEY, JSON.stringify(ticks)); } catch(e){}
+  }
+  var buildBtn = document.getElementById("build-btn");
+  var nextEl = document.getElementById("next-due");
+  var schedEl = document.getElementById("schedule");
+  var noteEl = document.getElementById("browser-note");
+  var copyBtn = document.getElementById("copy-btn");
+  var lastText = "";
+  buildBtn.addEventListener("click", function(){
+    var pet = document.getElementById("pet").value;
+    var name = document.getElementById("name").value.trim();
+    var birth = document.getElementById("birth").value;
+    var last = document.getElementById("last").value;
+    var items = buildSchedule(pet, birth, last, null);
+    if (!items.length){
+      nextEl.style.display = "";
+      nextEl.textContent = "Please enter your pet's birth date first.";
+      schedEl.innerHTML = "";
+      noteEl.style.display = "none";
+      copyBtn.style.display = "none";
+      return;
+    }
+    var ticks = loadTicks();
+    var who = name ? name : "Your pet";
+    var nd = nextDue(items, null);
+    nextEl.style.display = "";
+    nextEl.textContent = nd ? ("Next due for " + who + ": " + nd.vaccine + " on " + nd.due + ".")
+      : ("All listed shots for " + who + " are past their due dates — ask your vet about the next booster.");
+    schedEl.innerHTML = "";
+    items.forEach(function(x, i){
+      var row = document.createElement("div");
+      row.className = "checkrow";
+      var cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.id = "shot-" + i;
+      var key = pet + "|" + x.vaccine + "|" + x.due;
+      cb.checked = !!ticks[key];
+      cb.addEventListener("change", function(){
+        var t = loadTicks();
+        if (cb.checked) t[key] = true; else delete t[key];
+        saveTicks(t);
+      });
+      var lab = document.createElement("label");
+      lab.setAttribute("for", "shot-" + i);
+      lab.textContent = x.vaccine + " — due " + x.due + " (" + x.note + ")";
+      row.appendChild(cb);
+      row.appendChild(lab);
+      schedEl.appendChild(row);
+    });
+    noteEl.style.display = "";
+    var lines = ["Vaccine schedule for " + who + " (" + pet + ", born " + birth + "):"];
+    items.forEach(function(x){ lines.push("- " + x.vaccine + " — due " + x.due + " (" + x.note + ")"); });
+    lines.push("General guidance only — the vet sets the real dates. Also note these dates in your phone calendar.");
+    lastText = lines.join("\n");
+    copyBtn.style.display = "";
+  });
+  copyBtn.addEventListener("click", function(){
+    if (lastText) copyText(lastText, copyBtn);
+  });
+})();
+
+function copyText(text, btn){
+  function done(){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+function downloadText(filename, text, type){
+  var blob = new Blob([text], {type: type || "text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conversation Practice Generator — Never Run Out of Things to Say | Funtasha</title>
+<meta name="description" content="Free conversation practice generator — get a topic, starter questions and follow-ups for real English practice. No signup, phone friendly.">
+<link rel="canonical" href="https://funtasha.github.io/conversation-practice-generator/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Conversation Practice Generator — Never Run Out of Things to Say">
+<meta property="og:description" content="Free conversation practice generator — get a topic, starter questions and follow-ups for real English practice. No signup, phone friendly.">
+<meta property="og:url" content="https://funtasha.github.io/conversation-practice-generator/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I start a conversation in English?", "acceptedAnswer": {"@type": "Answer", "text": "With a greeting and one simple question: 'Hello! How are you?' or 'Have you been here before?' You do not need a clever opening — a friendly greeting and a question about the other person is enough. The generator's opening lines give you a ready-made start for each topic."}}, {"@type": "Question", "name": "What if I do not understand the other person?", "acceptedAnswer": {"@type": "Answer", "text": "Say so, plainly: 'Sorry, could you say that again, slowly?' or 'I did not catch that — could you repeat it?' Native speakers ask this all the time, and nobody minds. Pretending to understand is far worse than asking — it leads to wrong answers and confusion for both sides."}}, {"@type": "Question", "name": "How do I keep a conversation going?", "acceptedAnswer": {"@type": "Answer", "text": "Use the rhythm: ask, answer, ask back. Answer the question, add one detail, then return a question of your own. Learn five follow-up questions by heart — 'Tell me more', 'What happened next?', 'Would you do it again?' — and you will rarely be stuck."}}, {"@type": "Question", "name": "Is it okay to make mistakes?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — mistakes are how speaking improves. A conversation partner cares about understanding you, not about perfect grammar. Correct the big mistakes that cause confusion, let the small ones go, and finish your sentences. Fluency grows from finishing sentences, not from perfecting them."}}, {"@type": "Question", "name": "What topics are safe for small talk?", "acceptedAnswer": {"@type": "Answer", "text": "Weather, food, travel, weekend plans, films, and sports are safe almost everywhere. Avoid money, politics, religion, and personal health with people you have just met. When in doubt, ask about the other person's interests — people enjoy talking about what they like."}}, {"@type": "Question", "name": "How can I practise alone?", "acceptedAnswer": {"@type": "Answer", "text": "Speak both sides of a conversation out loud: ask the question, then answer it as yourself, for at least thirty seconds each. Record yourself once a week and listen for one pattern to fix. It feels strange at first, but it trains the same muscles as real conversation — and it is far better than silent study."}}]}</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button,.calc input,.calc select{min-height:72px}
+.calc textarea{width:100%;min-height:120px;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;font-family:inherit}
+.calc pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-size:15px;margin-top:10px;text-align:left;font-family:inherit}
+.cards{display:grid;gap:12px;margin:14px 0}
+.card{display:block;min-height:90px;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+.card strong{display:block;font-size:17px;color:#be185d}
+.card span{display:block;font-size:15px;color:#334155;margin-top:4px}
+.optbtn{display:block;width:100%;text-align:left;margin-top:10px}
+.pill{display:inline-block;background:#fdf2f8;border:1px solid #fbcfe8;border-radius:999px;padding:6px 14px;font-size:14.5px;margin:4px 4px 0 0}
+.msg{font-size:15px;color:#334155;margin-top:10px;min-height:22px}
+.big{font-size:20px;font-weight:700}
+table.data{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+table.data th,table.data td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;vertical-align:top}
+table.data th{background:#fdf2f8}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Conversation Practice Generator</h1>
+<p class="answer">Never run out of things to say. Pick a level and a situation and get a topic with an opening line, five starter questions, follow-ups and useful phrases — ready to copy.</p>
+<div class="calc"><label for="level">Your level</label>
+<select id="level"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select>
+<label for="situation">Situation</label>
+<select id="situation"><option value="meeting">Meeting someone</option><option value="work">Work</option><option value="travel">Travel</option><option value="smalltalk">Small talk</option></select>
+<button type="button" id="new-btn">New topic</button>
+<button type="button" id="copy-btn">Copy practice plan</button>
+<p class="msg" id="topic-msg"></p>
+<pre id="topic-out">Pick a level and a situation, then tap New topic.</pre></div>
+<div class="warn">This generator gives you topics, questions and phrases to practise with — it is not a conversation partner. The real practice happens when you speak the words aloud, with a partner or on your own.</div>
+<h2>What this generator does — and how to use it</h2>
+<p>Every learner knows the moment: you want to speak English, but you cannot think of anything to say. This generator fixes that one problem. Pick your level and a situation, and it gives you a conversation topic with an opening line, five starter questions, follow-up questions, and useful phrases — a complete practice plan you can copy and use.</p>
+<p>Use it with a partner or alone. With a partner, take turns asking and answering; the follow-up questions keep the conversation going past the first minute, which is where most practice conversations die. Alone, speak both sides out loud: ask the question, then answer it as yourself. It feels strange at first and works surprisingly well.</p>
+<p>Tap "New topic" whenever you want a fresh one. The generator cycles through two topics for every level and situation, so you will not get the same topic twice in a row. When a topic feels too easy, move up a level; when it feels impossible, move down one. The right level is the one where you can say most of what you want, with a little effort.</p>
+<h2>How to practise a conversation (alone or with a partner)</h2>
+<p>With a partner, set a timer for five minutes and talk about one topic only. One person asks, the other answers, then swap roles. Do not stop to correct every mistake — note one or two and discuss them afterwards. Stopping mid-sentence to fix grammar kills the flow you are trying to build.</p>
+<p>Alone, the method is almost the same. Read the opening line aloud, then answer it as yourself, out loud, for at least thirty seconds. Then ask yourself the next starter question and answer that. Speaking aloud matters: thinking the answers in your head trains reading, not speaking. Your mouth needs the practice as much as your brain.</p>
+<p>Record yourself once a week. Play it back and listen for one thing only — not every mistake, just one pattern. Maybe you always answer in one word. Maybe you never ask a follow-up. Fix one pattern for a week, then find the next. Small, steady fixes add up faster than trying to fix everything at once.</p>
+<p>If you practise alone, give yourself a role to play. Pretend you are meeting a new colleague, or catching up with an old friend, and answer as that person would. Role-play sounds childish and works brilliantly, because it gives your answers a reason to exist. A question answered to an imaginary person is still a question answered — and your mouth cannot tell the difference.</p>
+<h2>How to keep a conversation going (ask, answer, ask back)</h2>
+<p>Most conversations die for one reason: someone answers and stops. "Where are you from?" — "Bangladesh." Silence. The fix is a simple rhythm: ask, answer, ask back. Answer the question, add one detail, and return a question of your own. "I am from Bangladesh — from Dhaka. Have you ever been there?" Three moves, and the conversation is alive again.</p>
+<p>The follow-up questions in each practice plan are built for this rhythm. They are the questions a good listener asks: "Tell me more about that", "What surprised you?", "Would you do it again?" Learn five of these by heart and you will never be stuck. They work in almost any conversation, about almost any topic.</p>
+<p>Also learn the phrases that buy you time: "That is a good question", "Let me think", "How do I say this in English?" These are not signs of weakness — native speakers use them constantly. They keep the conversation warm while your brain catches up, and they sound far more natural than silence.</p>
+<h2>Worked example: a full short conversation</h2>
+<p>Here is a beginner conversation about home towns, using the plan this generator gives. A: "Hello! I am glad to meet you. Where are you from?" B: "I am from Chittagong, in Bangladesh. It is a port city by the sea. What about you?" A: "I am from Manchester. What is your home town like?" B: "It is busy and green, with hills all around. I miss the sea most. How long have you lived here?"</p>
+<p>Notice the pattern: every answer adds one detail and asks something back. Nobody gives a one-word answer, and nobody gives a speech. The conversation moves because both people are working at it — asking is half the job, and answering with a detail plus a question is the other half.</p>
+<p>Try the same conversation yourself, out loud, with your own home town. Then try it with a different topic from the generator. The words change; the rhythm stays the same. Once the rhythm feels natural, you can talk about anything — because conversation is a skill, not a list of topics.</p>
+<h2>Levels: what beginner, intermediate and advanced mean here</h2>
+<p>Beginner topics use simple questions about facts: where, when, who, what. The sentences are short, the vocabulary is everyday, and the answers can be short too. If you can handle these comfortably, you are ready for intermediate.</p>
+<p>Intermediate topics ask for opinions and stories: why, how, what happened, what would you do. The questions are longer, the answers need more than one sentence, and the phrases help you organise your thoughts — "on the one hand", "the best thing was", "looking back".</p>
+<p>Advanced topics ask for judgement and reflection: what changed you, what you believe, what the future holds. There is no single right answer, which is the point — advanced conversation is about thinking out loud in English, not reciting prepared lines. If these feel hard, that is normal; they are meant to stretch you.</p>
+<p>Levels are a guide, not a fence. A beginner topic can still challenge an advanced speaker if they push themselves to answer at length, and an advanced topic can help a beginner who is willing to struggle through it with simple words. Move between levels freely, and choose by how the topic makes you feel: interested and slightly stretched is exactly right.</p>
+<h2>Common mistakes (and how to fix them)</h2>
+<p>The most common mistake is answering yes or no and stopping. "Do you like your job?" — "Yes." The conversation has nowhere to go. The fix is mechanical: every answer gets one extra sentence. "Yes, I like it — the people are friendly, and I learn something new every week." One sentence changes everything.</p>
+<p>The second mistake is memorising scripts. Learners sometimes prepare perfect answers to expected questions, then freeze when the real question is slightly different. Scripts feel safe and teach nothing. Use the questions here as practice, not as lines to memorise — the goal is to handle any question, not to perform one answer.</p>
+<p>The third mistake is worrying about mistakes in the middle of speaking. Stopping to fix a verb tense breaks the flow and teaches your brain that speaking is dangerous. Let the mistake go, finish the sentence, and note it for later. Fluency grows from finishing sentences, not from perfecting them.</p>
+<h2>What this generator cannot do</h2>
+<p>This generator cannot be your conversation partner. It gives you the material — topics, questions, phrases — but it cannot listen, react, or surprise you the way a real person does. Real conversation is unpredictable, and that unpredictability is exactly what you need to practise. Find a partner: a classmate, a colleague, a language exchange, or a friend who is also learning.</p>
+<p>It also cannot judge your speaking. It cannot hear your pronunciation, your rhythm, or your confidence. For that, record yourself, or ask a partner for one honest observation after each practice session: "What one thing should I work on?" One observation, acted on, beats a page of corrections.</p>
+<p>Finally, it cannot make you speak. The topics will sit on the screen until you say them aloud. Five minutes of speaking a day — one topic, out loud, every day — will change your English more in a month than any amount of reading about conversation. Start with one topic now.</p>
+<p>A good routine is one topic a day, five minutes, out loud, at the same time each day — after breakfast, on the bus, before bed. The routine matters more than the topic: a small daily habit beats a heroic weekly session, because speaking is a muscle, and muscles grow from regular use, not from occasional effort.</p>
+<h2>Questions people ask</h2>
+<div class="faq"><h3>How do I start a conversation in English?</h3><p>With a greeting and one simple question: 'Hello! How are you?' or 'Have you been here before?' You do not need a clever opening — a friendly greeting and a question about the other person is enough. The generator's opening lines give you a ready-made start for each topic.</p></div>
+<div class="faq"><h3>What if I do not understand the other person?</h3><p>Say so, plainly: 'Sorry, could you say that again, slowly?' or 'I did not catch that — could you repeat it?' Native speakers ask this all the time, and nobody minds. Pretending to understand is far worse than asking — it leads to wrong answers and confusion for both sides.</p></div>
+<div class="faq"><h3>How do I keep a conversation going?</h3><p>Use the rhythm: ask, answer, ask back. Answer the question, add one detail, then return a question of your own. Learn five follow-up questions by heart — 'Tell me more', 'What happened next?', 'Would you do it again?' — and you will rarely be stuck.</p></div>
+<div class="faq"><h3>Is it okay to make mistakes?</h3><p>Yes — mistakes are how speaking improves. A conversation partner cares about understanding you, not about perfect grammar. Correct the big mistakes that cause confusion, let the small ones go, and finish your sentences. Fluency grows from finishing sentences, not from perfecting them.</p></div>
+<div class="faq"><h3>What topics are safe for small talk?</h3><p>Weather, food, travel, weekend plans, films, and sports are safe almost everywhere. Avoid money, politics, religion, and personal health with people you have just met. When in doubt, ask about the other person's interests — people enjoy talking about what they like.</p></div>
+<div class="faq"><h3>How can I practise alone?</h3><p>Speak both sides of a conversation out loud: ask the question, then answer it as yourself, for at least thirty seconds each. Record yourself once a week and listen for one pattern to fix. It feels strange at first, but it trains the same muscles as real conversation — and it is far better than silent study.</p></div>
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../pronunciation-practice/">Pronunciation Practice</a> · <a href="../english-listening-practice/">English Listening Practice</a> · <a href="../name-pronunciation-guide/">Name Pronunciation Guide</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+(function () {
+  var TOPICS = [
+    { level: "beginner", situation: "meeting", topic: "Your home town", opening: "Hello! I am glad to meet you. Where are you from?",
+      starters: ["What is your home town like?", "How long have you lived here?", "What do you like most about your town?", "Is it a big city or a small town?", "What is the weather like there?"],
+      followups: ["Tell me more about that.", "What do people do for fun there?", "Would you like to live there again one day?"],
+      phrases: ["I am from...", "Nice to meet you.", "What about you?"] },
+    { level: "beginner", situation: "meeting", topic: "Hobbies and free time", opening: "What do you like to do in your free time?",
+      starters: ["What is your favourite hobby?", "How often do you do it?", "Did you do it as a child?", "Do you do it alone or with friends?", "What hobby would you like to try?"],
+      followups: ["How did you start?", "What do you enjoy most about it?", "Is it expensive to start?"],
+      phrases: ["I enjoy...", "I am interested in...", "That sounds fun."] },
+    { level: "beginner", situation: "work", topic: "Your job", opening: "What do you do for work?",
+      starters: ["What is your job?", "Where do you work?", "How long have you worked there?", "What do you like about your job?", "What time do you start work?"],
+      followups: ["What is a normal day like?", "Do you work with a big team?", "What did you do before this job?"],
+      phrases: ["I work as a...", "I work for...", "My job is..."] },
+    { level: "beginner", situation: "work", topic: "A normal work day", opening: "What does a normal day at work look like for you?",
+      starters: ["What time do you wake up?", "How do you get to work?", "What do you do first?", "When do you have lunch?", "What time do you finish?"],
+      followups: ["Which part of the day is busiest?", "Do you work from home sometimes?", "What do you do after work?"],
+      phrases: ["First, I...", "Then I...", "After that, I..."] },
+    { level: "beginner", situation: "travel", topic: "A trip you enjoyed", opening: "Have you been on any good trips lately?",
+      starters: ["Where did you go?", "When did you go there?", "Who did you go with?", "What did you see?", "What was the best part?"],
+      followups: ["Would you go again?", "What surprised you?", "What should a visitor not miss?"],
+      phrases: ["I went to...", "It was amazing.", "I would love to go back."] },
+    { level: "beginner", situation: "travel", topic: "Planning a holiday", opening: "Are you planning a holiday this year?",
+      starters: ["Where would you like to go?", "When would you like to travel?", "How long would you stay?", "Would you travel alone or with family?", "What would you like to see?"],
+      followups: ["Why that place?", "Have you been there before?", "What is your budget like?"],
+      phrases: ["I would like to...", "I am thinking about...", "That sounds wonderful."] },
+    { level: "beginner", situation: "smalltalk", topic: "The weather", opening: "Beautiful day, is it not?",
+      starters: ["Do you like this weather?", "What is the weather like in your country?", "Do you prefer summer or winter?", "What do you do on rainy days?", "Is it always this hot here?"],
+      followups: ["What is your favourite season?", "Does it snow where you live?", "How do you stay cool in summer?"],
+      phrases: ["It is lovely today.", "It is so hot.", "I hope it stays like this."] },
+    { level: "beginner", situation: "smalltalk", topic: "Food and cooking", opening: "Do you like cooking?",
+      starters: ["What is your favourite food?", "Can you cook well?", "What did you eat yesterday?", "Do you eat out often?", "What is a famous dish from your country?"],
+      followups: ["Can you teach me that recipe?", "Where is a good restaurant near here?", "Do you prefer spicy food?"],
+      phrases: ["I love...", "That sounds delicious.", "I am hungry."] },
+    { level: "intermediate", situation: "meeting", topic: "Moving to a new city", opening: "I moved here last year — have you lived here long?",
+      starters: ["What brought you to this city?", "What was hardest about moving?", "What do you miss most about home?", "How did you make friends here?", "What advice would you give a newcomer?"],
+      followups: ["Would you move again?", "What surprised you about this place?", "How is life different here?"],
+      phrases: ["It took me a while to...", "I was surprised by...", "One thing I miss is..."] },
+    { level: "intermediate", situation: "meeting", topic: "Learning a language", opening: "How long have you been learning English?",
+      starters: ["Why did you start learning English?", "What is the hardest part for you?", "How do you practise every day?", "Have you tried speaking with native speakers?", "What helps you remember new words?"],
+      followups: ["What is your goal this year?", "Which skill is strongest for you?", "What would you do differently?"],
+      phrases: ["I find it hard to...", "What works for me is...", "I am getting better at..."] },
+    { level: "intermediate", situation: "work", topic: "Working from home", opening: "Do you work from home or in an office?",
+      starters: ["What do you like about working from home?", "What is the hardest part?", "How do you stay focused?", "Do you miss your colleagues?", "Would you go back to the office full time?"],
+      followups: ["What does your workspace look like?", "How do you separate work and home life?", "Do you think remote work will stay?"],
+      phrases: ["On the one hand...", "The main advantage is...", "The downside is..."] },
+    { level: "intermediate", situation: "work", topic: "A project at work", opening: "What are you working on at the moment?",
+      starters: ["What is the project about?", "Who is on your team?", "When is the deadline?", "What has gone well so far?", "What is the biggest challenge?"],
+      followups: ["How did you solve that problem?", "What would you change next time?", "Who do you report to?"],
+      phrases: ["We are working on...", "The tricky part is...", "We are on track to..."] },
+    { level: "intermediate", situation: "travel", topic: "Travel mistakes", opening: "Have you ever had a trip go wrong?",
+      starters: ["What happened?", "Where were you?", "How did you fix it?", "What did you learn from it?", "Would you laugh about it now?"],
+      followups: ["What would you do differently?", "Did anyone help you?", "Has it happened since?"],
+      phrases: ["It was a disaster at the time.", "Looking back, it is funny.", "I learned my lesson."] },
+    { level: "intermediate", situation: "travel", topic: "Travelling alone", opening: "Have you ever travelled alone?",
+      starters: ["Where did you go alone?", "What did you enjoy most?", "Did you ever feel lonely?", "How did you meet people?", "Would you do it again?"],
+      followups: ["Is it safe, in your experience?", "What do you pack differently?", "What advice would you give a first-timer?"],
+      phrases: ["The best thing was...", "I was nervous at first, but...", "I would recommend..."] },
+    { level: "intermediate", situation: "smalltalk", topic: "Films and shows", opening: "Have you watched anything good lately?",
+      starters: ["What kind of films do you like?", "What was the last film you watched?", "Do you prefer films or series?", "Who is your favourite actor?", "Do you watch with subtitles?"],
+      followups: ["What was it about?", "Would you recommend it?", "What are you watching next?"],
+      phrases: ["It is about...", "I could not stop watching.", "You should watch it."] },
+    { level: "intermediate", situation: "smalltalk", topic: "Weekend plans", opening: "Do you have plans for the weekend?",
+      starters: ["What do you usually do at weekends?", "Are you going anywhere this weekend?", "Do you prefer busy weekends or quiet ones?", "Who do you spend weekends with?", "What is your ideal weekend?"],
+      followups: ["How often do you do that?", "What did you do last weekend?", "Any plans for the holidays?"],
+      phrases: ["I am planning to...", "Nothing special, just...", "That sounds relaxing."] },
+    { level: "advanced", situation: "meeting", topic: "Changing careers", opening: "I changed careers a few years ago — have you ever thought about it?",
+      starters: ["What made you consider a change?", "What held you back?", "How did you prepare?", "What did you have to learn?", "Was it worth it?"],
+      followups: ["What advice would you give someone starting now?", "What surprised you most?", "Would you do it again?"],
+      phrases: ["The turning point was...", "It was a risk, but...", "In hindsight..."] },
+    { level: "advanced", situation: "meeting", topic: "Growing up", opening: "Where did you grow up, and what was it like?",
+      starters: ["What was your childhood home like?", "What did you want to be when you grew up?", "Who influenced you most?", "What has changed most since then?", "What would you tell your younger self?"],
+      followups: ["Do you still visit often?", "What traditions did your family have?", "How has the place changed?"],
+      phrases: ["Looking back...", "I had no idea that...", "It shaped who I am."] },
+    { level: "advanced", situation: "work", topic: "Leading a team", opening: "What is the hardest part of leading a team, in your experience?",
+      starters: ["How do you motivate people?", "How do you handle disagreement?", "What makes a good manager?", "How do you give difficult feedback?", "What did you learn from your first team?"],
+      followups: ["Can leadership be learned?", "What is your management style?", "How do you build trust?"],
+      phrases: ["In my experience...", "The key is...", "What I have found is..."] },
+    { level: "advanced", situation: "work", topic: "The future of work", opening: "How do you think work will change in the next ten years?",
+      starters: ["Which jobs will disappear?", "What skills will matter most?", "Will offices still exist?", "How will technology change your field?", "Should the working week be shorter?"],
+      followups: ["Are you worried or excited?", "How are you preparing?", "What would you change about work today?"],
+      phrases: ["I believe that...", "On balance...", "It depends on..."] },
+    { level: "advanced", situation: "travel", topic: "Living abroad", opening: "Have you ever lived in another country?",
+      starters: ["What made you move?", "What was the biggest culture shock?", "How did you learn the language?", "What did you miss most?", "Did it change how you see your own country?"],
+      followups: ["Would you live abroad again?", "What advice would you give?", "Where would you go next?"],
+      phrases: ["It opened my eyes to...", "I had to adapt to...", "It gave me a new perspective on..."] },
+    { level: "advanced", situation: "travel", topic: "Sustainable travel", opening: "Do you think about the environment when you travel?",
+      starters: ["How do you choose where to go?", "Do you fly less than you used to?", "What is responsible tourism to you?", "Should tourists pay more to protect places?", "Can travel ever be truly green?"],
+      followups: ["What have you changed already?", "What is hardest to give up?", "Do you think it makes a difference?"],
+      phrases: ["I try to...", "The trouble is...", "It is a trade-off between..."] },
+    { level: "advanced", situation: "smalltalk", topic: "News and current events", opening: "Have you been following the news lately?",
+      starters: ["What story caught your attention?", "How do you get your news?", "Do you trust the news?", "What do you think about the way it was reported?", "Does it affect your daily life?"],
+      followups: ["What do most people miss about this story?", "How do opinions differ where you are from?", "What happens next, do you think?"],
+      phrases: ["From what I have read...", "It is hard to know what to believe.", "The way I see it..."] },
+    { level: "advanced", situation: "smalltalk", topic: "Books that changed you", opening: "Is there a book that changed the way you think?",
+      starters: ["What is it about?", "When did you read it?", "What stayed with you?", "Who would you recommend it to?", "Do you re-read books?"],
+      followups: ["What are you reading now?", "Do you prefer fiction or non-fiction?", "Has a book ever disappointed you?"],
+      phrases: ["It made me realise...", "I could not put it down.", "It is not for everyone, but..."] }
+  ];
+
+  function topicsFor(level, situation) {
+    return TOPICS.filter(function (t) { return t.level === level && t.situation === situation; });
+  }
+  function pickTopic(level, situation, index) {
+    var list = topicsFor(level, situation);
+    if (!list.length) { return null; }
+    return list[((index % list.length) + list.length) % list.length];
+  }
+  function nextIndex(current, total) {
+    if (total <= 0) { return 0; }
+    return (current + 1) % total;
+  }
+  function topicText(t) {
+    if (!t) { return "No topic found for that level and situation."; }
+    var lines = [];
+    lines.push("Topic: " + t.topic);
+    lines.push("Opening line: " + t.opening);
+    lines.push("");
+    lines.push("Starter questions:");
+    t.starters.forEach(function (s, i) { lines.push("  " + (i + 1) + ". " + s); });
+    lines.push("");
+    lines.push("Follow-up questions:");
+    t.followups.forEach(function (s, i) { lines.push("  " + (i + 1) + ". " + s); });
+    lines.push("");
+    lines.push("Useful phrases:");
+    t.phrases.forEach(function (s) { lines.push("  - " + s); });
+    return lines.join("\n");
+  }
+
+  var FT = { TOPICS: TOPICS, topicsFor: topicsFor, pickTopic: pickTopic, nextIndex: nextIndex, topicText: topicText };
+  if (typeof window !== "undefined") { window.FT = FT; }
+  if (typeof globalThis !== "undefined") { globalThis.FT = FT; }
+  if (typeof document === "undefined") { return; }
+
+  var levelEl = document.getElementById("level");
+  var sitEl = document.getElementById("situation");
+  var outEl = document.getElementById("topic-out");
+  var msgEl = document.getElementById("topic-msg");
+  var index = 0;
+
+  function showTopic() {
+    var list = FT.topicsFor(levelEl.value, sitEl.value);
+    var t = FT.pickTopic(levelEl.value, sitEl.value, index);
+    outEl.textContent = FT.topicText(t);
+    msgEl.textContent = "Topic " + (index + 1) + " of " + list.length + " for this level and situation. Speak for five minutes, then tap New topic.";
+  }
+  document.getElementById("new-btn").addEventListener("click", function () {
+    var list = FT.topicsFor(levelEl.value, sitEl.value);
+    index = FT.nextIndex(index, list.length);
+    showTopic();
+  });
+  document.getElementById("copy-btn").addEventListener("click", function () {
+    copyText(outEl.textContent, document.getElementById("copy-btn"));
+  });
+  levelEl.addEventListener("change", function () { index = 0; showTopic(); });
+  sitEl.addEventListener("change", function () { index = 0; showTopic(); });
+  showTopic();
+
+  function copyText(text, btn) {
+    var original = btn.textContent;
+    function done() {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+})();
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>

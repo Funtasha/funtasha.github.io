@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cat Breed Explorer — Find the Cat That Fits Your Life | Funtasha</title>
+<meta name="description" content="Free cat breed explorer — compare popular cat breeds by size, energy, grooming and temperament. No signup, phone friendly.">
+<link rel="canonical" href="https://funtasha.github.io/cat-breed-explorer/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cat Breed Explorer — Find the Cat That Fits Your Life">
+<meta property="og:description" content="Free cat breed explorer — compare popular cat breeds by size, energy, grooming and temperament. No signup, phone friendly.">
+<meta property="og:url" content="https://funtasha.github.io/cat-breed-explorer/">
+<style>*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#fef3c7,#fce7f3 45%,#dbeafe) fixed;color:#1e293b;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+.brand{font-weight:800;font-size:15px;letter-spacing:.4px}
+.brand a{text-decoration:none}
+.brand .f{color:#db2777}.brand .u{color:#ea580c}
+h1{font-size:28px;line-height:1.3;margin:14px 0 10px;text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.answer{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;font-size:16.5px;margin:14px 0}
+h2{font-size:21px;margin:26px 0 8px}
+ol,ul{margin:8px 0 8px 22px}
+li{margin:5px 0}
+.faq{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:14px 16px;margin:10px 0}
+.faq h3{font-size:16.5px;margin-bottom:4px}
+.note{font-size:14px;color:#64748b}
+.links a{color:#be185d}
+footer{margin-top:36px;font-size:13.5px;color:#64748b}
+.calc{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(30,41,59,.12),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;margin:14px 0}
+.calc label{display:block;font-weight:600;margin:10px 0 4px;font-size:14.5px}
+.calc input,.calc select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff}
+.calc button{margin-top:14px;padding:11px 20px;border:0;border-radius:999px;font-size:16px;font-weight:700;background:#db2777;color:#fff;cursor:pointer}
+.calc .out{font-size:19px;font-weight:700;margin-top:14px}
+.calc .steps{font-size:15px;color:#334155;margin-top:6px;white-space:pre-line}
+.warn{background:rgba(255,251,235,.9);border:1px solid #fde68a;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:15px}
+code{background:#fdf2f8;padding:1px 5px;border-radius:5px}
+</style>
+<style>
+.calc button{min-height:72px;padding:14px 24px}
+.calc input,.calc select,.calc textarea{width:100%;min-height:72px;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:#fff;margin:4px 0}
+.calc textarea{min-height:120px}
+.calc input[type=checkbox]{width:28px;height:28px;min-height:28px;margin:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:15px}
+th,td{border:1px solid #cbd5e1;padding:8px;text-align:left;vertical-align:top}
+th{background:#fdf2f8}
+canvas{width:100%;height:auto;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+.cards{display:grid;gap:12px;margin:14px 0}
+a.card{display:block;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.85);border-radius:12px;padding:16px;text-decoration:none;color:#1e293b;min-height:90px;box-shadow:0 12px 26px rgba(30,41,59,.12)}
+a.card b{font-size:17px;color:#be185d}
+a.card span{display:block;font-size:14.5px;color:#475569;margin-top:4px}
+.checkrow{display:flex;align-items:center;gap:12px;min-height:72px}
+.checkrow label{margin:0;font-weight:400}
+.outbox{background:#fff;border:1px solid #cbd5e1;border-radius:8px;padding:12px;margin-top:12px;white-space:pre-line;font-size:15.5px}
+pre.outbox{white-space:pre-wrap;word-wrap:break-word;font-family:inherit}
+.row{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px;margin:10px 0}
+.row b{font-size:17px}
+.row .meta{font-size:14.5px;color:#475569;margin-top:2px}
+.row .tags{font-size:14px;color:#334155;margin-top:6px}
+.row button{margin-top:10px}
+.pill{display:inline-block;background:#fdf2f8;border:1px solid #fbcfe8;border-radius:999px;padding:2px 10px;font-size:13.5px;margin:2px 4px 2px 0}
+.count{font-size:14.5px;color:#475569;margin-top:8px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best cat for a first-time owner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A calm, forgiving breed that is easy to live with, such as a British Shorthair, a Ragdoll, a Domestic Shorthair or an American Shorthair. First-time owners do best with a breed that is patient, not too demanding, and happy indoors. An adult rescue cat can be even easier than a kitten, because its character is already clear."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do cats need much exercise?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cats do not need walks, but they do need daily play. Ten to fifteen minutes of play, twice a day, keeps most cats happy and healthy. High-energy breeds want more, plus climbing space and puzzle toys. A cat that never plays often becomes overweight or bored, and a bored cat finds its own entertainment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which breeds need the most grooming?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Long-haired breeds such as the Persian, the Maine Coon, the Norwegian Forest Cat and the Himalayan need brushing several times a week, and some need it daily. Short-haired breeds mostly manage on their own with a weekly brush. If you will not brush the cat often, choose a low-grooming breed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are cats good with children?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many breeds are, especially Ragdolls, Maine Coons, British Shorthairs and Burmese cats. Children should still be taught to be gentle and calm around any cat, and a cat should always have a quiet place to escape to. Supervision matters with every breed, and small children should never be left alone with a kitten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a cat cost each month?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It varies a lot by country. Every month brings food and litter, and through the year there are vet visits, vaccines, flea and worm treatment, and the odd toy or scratching post. Long-haired breeds add grooming costs. Ask your local vet and pet shop for the monthly cost in your area before you decide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I adopt or buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both can work well. Adoption gives a home to a cat that needs one, and shelter staff can tell you about the cat's character. Buying from a good breeder lets you learn the kitten's background. Whichever you choose, meet the cat first, ask questions, and walk away from any seller who will not let you see where the cat lives."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><a href="../"><span class="f">Fun</span><span class="u">tasha</span></a></div>
+<h1>Cat Breed Explorer</h1>
+<p class="answer">This explorer compares 26 popular cat breeds by size, energy, grooming, indoor life and temperament, so you can find one that fits your home and your life. Filter the list, or answer three questions and get three breeds to look at first.</p>
+<div class="calc">
+<label for="groom">Filter by grooming</label>
+<select id="groom">
+<option value="">All grooming levels</option>
+<option>Low</option>
+<option>Medium</option>
+<option>High</option>
+</select>
+<label for="energy">Filter by energy</label>
+<select id="energy">
+<option value="">All energy levels</option>
+<option>Low</option>
+<option>Medium</option>
+<option>High</option>
+</select>
+<div class="count" id="count"></div>
+<div id="breed-list"></div>
+<label for="home">Which breed fits me? Your home</label>
+<select id="home">
+<option value="flat">Flat, indoor only</option>
+<option value="small">Small house, small garden</option>
+<option value="large">Large house with a garden</option>
+</select>
+<label for="activity">How much play and company can you give?</label>
+<select id="activity">
+<option value="low">Low — quiet days, some play</option>
+<option value="moderate">Moderate — daily play sessions</option>
+<option value="high">High — lots of play, always around</option>
+</select>
+<label for="experience">Your experience with cats</label>
+<select id="experience">
+<option value="first">First-time owner</option>
+<option value="some">Some experience</option>
+<option value="experienced">Experienced owner</option>
+</select>
+<button type="button" id="pick-btn">Find my breeds</button>
+<div class="outbox" id="pick-out" style="display:none"></div>
+<button type="button" id="copy-btn" style="display:none">Copy my three breeds</button>
+</div>
+<div class="warn">These descriptions are general breed traits. Every individual cat is different — two cats of the same breed can have very different characters. Meet the cat, and the breeder or shelter, before you decide.</div>
+
+<h2>What this explorer is for</h2>
+<p>Cats look low maintenance from a distance, and many of them are, but breeds differ far more than people expect. One breed will talk to you all day and follow you from room to room. Another will sleep for eighteen hours and ask for affection only on its own terms. One needs brushing every day, another needs almost none. This explorer compares 26 popular cat breeds on the things that shape daily life with a cat: size, energy, grooming, how the breed usually is with children, whether it suits indoor life or wants outdoor access, and its general temperament. Filter the list by grooming and energy, or answer three questions about your home, your time and your experience and get three breeds to look at first.</p>
+<p>As with dogs, these are general breed traits, not promises about any one cat. A breed known for being quiet can produce a loud individual, and a breed known for being independent can produce a cat that sits on your lap every evening. The traits here help you narrow the list so you can meet real cats with a clearer idea of what suits you. The next step after this page is the same for every breed: visit a shelter or a good breeder, spend time with the cat, and ask about its character and history.</p>
+<h2>How to use the explorer</h2>
+<p>Start with the two filters near the top of the page. Grooming is the filter most people should use first, because it is the daily chore that surprises new owners. Pick low grooming if you want a cat that mostly looks after its own coat, and pick high grooming only if you enjoy brushing or are happy to pay a groomer. Then pick an energy level: low for a calm companion, high for a cat that will want games and climbing space every day. Each breed entry shows the key facts in one line, so you can compare breeds quickly.</p>
+<p>The picker below the list matches breeds to your answers. Choose your home, how much play and company you can give, and your experience with cats, then tap Find my breeds. The picker scores all 26 breeds and shows the top three with a short reason for each. Copy the suggestions to keep them. Try changing one answer and watch the list change: an indoor-only flat pushes toward calm indoor breeds, while a house with a garden opens the list to breeds that enjoy going out.</p>
+<p>Everything works by touch on a phone and by keyboard and mouse on a desktop. Nothing needs an account, and nothing is uploaded. The breed list lives in the page itself, and your answers never leave your device.</p>
+<h2>How to choose a breed</h2>
+<p>Energy is the trait that matters most, and it is the one people get wrong most often. A high-energy cat in a quiet home will climb the curtains, knock things off shelves, and wake you at three in the morning. That is not bad behaviour; it is a busy cat with nothing to do. A low-energy cat with an owner who wants a playmate may seem dull by comparison, sleeping through the games you offer. Match the energy to your own. If you are out all day and want a calm evening companion, a low-energy breed is the right call. If you are home a lot and enjoy playing, a high-energy breed will be more fun.</p>
+<p>Grooming is the second decision. Long-haired breeds need brushing several times a week, and some need daily brushing to stop mats forming. If you skip it, the coat tangles, the cat is uncomfortable, and the fix is a stressful trip to the groomer. Short-haired breeds mostly manage on their own, with a weekly brush to reduce shedding. Be honest about whether you will actually brush the cat. If the answer is no, choose a low-grooming breed and enjoy the cat instead of fighting its coat.</p>
+<p>Indoor or outdoor is the third decision. Some breeds are happy indoors all their lives, and some want safe outdoor access. Indoor cats live longer on average, because they avoid traffic, fights and disease, but they need more play and climbing space inside to stay happy. If your cat will live indoors, plan for a tall scratching post, a window to watch, and daily play. If your cat will go out, make sure it is neutered, vaccinated and microchipped, and that your area is safe for roaming.</p>
+<h2>What to check before getting a cat</h2>
+<p>Cost is the first practical check. A cat costs money every month for food and litter, and more through the year for vet visits, vaccines, flea and worm treatment, and the odd toy or scratching post. Long-haired breeds add grooming costs. Ask your local vet and pet shop what the monthly costs look like in your area, because prices vary a lot by country and city. A cat can live fifteen years or more, so the steady monthly cost matters far more than the price of the kitten.</p>
+<p>Allergies are the second check, and they surprise many people. Cat allergy is usually a reaction to a protein in the cat's saliva and skin, not to the fur itself, so no breed is truly free of allergens. Some breeds produce less of the protein and some people react less to them, but the only real test is spending time with the cat. If anyone in the home has asthma or allergies, visit the breed several times before you commit, and talk to your doctor.</p>
+<p>Local rules are the third check. Some landlords and housing rules limit pets, and some cities have rules about how many cats you can keep and whether they must be neutered. Check your lease, your building rules and your local council before you bring a cat home. A quick check now saves a painful decision later.</p>
+<h2>Worked examples</h2>
+<p>First, a first-time owner in a flat who works from home. She wants a calm companion and has never owned a cat. The picker suggests a British Shorthair, a Ragdoll and an Exotic Shorthair. All three are calm, suit indoor life, and are known for being gentle. She reads the grooming notes, sees that the Ragdoll needs regular brushing, and leans toward the British Shorthair. She visits a shelter, meets an adult British Shorthair, and takes it home. The cat sleeps beside her desk and asks for a short play session each evening.</p>
+<p>Second, a family with two children and a house with a garden. They want a playful cat that enjoys company and can cope with children. The picker suggests a Maine Coon, a Burmese and a Domestic Shorthair. All three are social and good with children. They visit a shelter and fall for a young Domestic Shorthair that climbs into the children's laps. The cat gets a tall scratching post, a garden to explore, and two children who play with it every day.</p>
+<p>Third, an experienced owner who works long hours and wants a cat that is happy alone during the day. He has owned cats before and likes an independent character. The picker suggests a Russian Blue, an American Shorthair and a Manx. All three are steady, manage well on their own, and are happy with a quiet home. He adopts a Russian Blue, which greets him at the door each evening and then settles beside him for the night.</p>
+<h2>Common mistakes</h2>
+<p>The biggest mistake is choosing by looks alone. A beautiful long-haired cat that needs daily brushing is a poor match for an owner who will not brush it, and a striking wild-looking breed may need far more play than a quiet household can give. Looks fade as a reason within the first week. Grooming and energy needs do not. Choose for the life you actually live.</p>
+<p>The second mistake is ignoring grooming. Long coats mat quickly, and a matted coat pulls at the skin and hurts. Owners who skip brushing often end up with a stressed cat and a large grooming bill. If you will not brush the cat several times a week, do not choose a high-grooming breed. There is no shame in that. It is better for the cat.</p>
+<p>The third mistake is getting a kitten without preparing the home. Kittens climb, chew cables, knock things over and need a litter tray, food, water, a scratching post and a safe place to sleep from the first hour. Prepare the home before the kitten arrives, and keep the kitten in one quiet room for the first day or two so it can settle. A calm start makes the whole first week easier.</p>
+<h2>What this page cannot do</h2>
+<p>This page cannot tell you which individual cat to take home. It compares breeds, not cats, and the cat you meet will have its own character, its own history and its own needs. A breed entry that says good with children does not guarantee that a particular cat likes your particular child. Meeting the cat, watching how it behaves, and asking the shelter or breeder about its history are steps no page can replace.</p>
+<p>The page also cannot cover every breed or every mixed-breed cat. There are many recognised breeds and far more mixed-breed cats, and this explorer covers 26 of the most popular. A mixed-breed cat can be a wonderful companion, and its traits will be a blend of its parents. If you fall for a breed that is not listed here, use the same questions this page asks: how big, how much energy, how much grooming, how is it with children, and does it suit indoor life. Those five questions will guide you well for any cat.</p>
+
+<h2>Questions people ask</h2>
+<div class="faq"><h3>What is the best cat for a first-time owner?</h3><p>A calm, forgiving breed that is easy to live with, such as a British Shorthair, a Ragdoll, a Domestic Shorthair or an American Shorthair. First-time owners do best with a breed that is patient, not too demanding, and happy indoors. An adult rescue cat can be even easier than a kitten, because its character is already clear.</p></div>
+<div class="faq"><h3>Do cats need much exercise?</h3><p>Cats do not need walks, but they do need daily play. Ten to fifteen minutes of play, twice a day, keeps most cats happy and healthy. High-energy breeds want more, plus climbing space and puzzle toys. A cat that never plays often becomes overweight or bored, and a bored cat finds its own entertainment.</p></div>
+<div class="faq"><h3>Which breeds need the most grooming?</h3><p>Long-haired breeds such as the Persian, the Maine Coon, the Norwegian Forest Cat and the Himalayan need brushing several times a week, and some need it daily. Short-haired breeds mostly manage on their own with a weekly brush. If you will not brush the cat often, choose a low-grooming breed.</p></div>
+<div class="faq"><h3>Are cats good with children?</h3><p>Many breeds are, especially Ragdolls, Maine Coons, British Shorthairs and Burmese cats. Children should still be taught to be gentle and calm around any cat, and a cat should always have a quiet place to escape to. Supervision matters with every breed, and small children should never be left alone with a kitten.</p></div>
+<div class="faq"><h3>What does a cat cost each month?</h3><p>It varies a lot by country. Every month brings food and litter, and through the year there are vet visits, vaccines, flea and worm treatment, and the odd toy or scratching post. Long-haired breeds add grooming costs. Ask your local vet and pet shop for the monthly cost in your area before you decide.</p></div>
+<div class="faq"><h3>Should I adopt or buy?</h3><p>Both can work well. Adoption gives a home to a cat that needs one, and shelter staff can tell you about the cat&#x27;s character. Buying from a good breeder lets you learn the kitten&#x27;s background. Whichever you choose, meet the cat first, ask questions, and walk away from any seller who will not let you see where the cat lives.</p></div>
+
+<h2>More fun on Funtasha</h2>
+<div class="links"><a href="../dog-breed-explorer/">Dog Breed Explorer</a> · <a href="../pet-food-portion-calculator/">Pet Food Portion Calculator</a> · <a href="../pet-vaccination-reminder/">Pet Vaccination Reminder</a></div>
+<p class="note">Funtasha is a free hub for birthday frames, wishes, and everyday fun tools — everything works in your browser with no sign-up.</p>
+<div id="funtasha-ad-slot"></div>
+<footer>© Funtasha — <a href="https://funtasha.github.io/">funtasha.github.io</a></footer>
+</div>
+<script>
+window.FT = window.FT || {};
+(function(){
+  var BREEDS = [
+  {n: "Domestic Shorthair", size: "Medium", energy: "Medium", groom: "Low", kids: "Yes", home: "Either", temp: "Easy going and varied", easy: true, hard: false},
+  {n: "Persian", size: "Medium", energy: "Low", groom: "High", kids: "Mostly", home: "Indoor only", temp: "Calm and gentle", easy: true, hard: false},
+  {n: "Maine Coon", size: "Large", energy: "Medium", groom: "High", kids: "Yes", home: "Either", temp: "Friendly and dog-like", easy: true, hard: false},
+  {n: "Siamese", size: "Medium", energy: "High", groom: "Low", kids: "Mostly", home: "Indoor only", temp: "Chatty and devoted", easy: false, hard: true},
+  {n: "British Shorthair", size: "Medium", energy: "Low", groom: "Low", kids: "Yes", home: "Indoor only", temp: "Calm and steady", easy: true, hard: false},
+  {n: "Ragdoll", size: "Large", energy: "Low", groom: "Medium", kids: "Yes", home: "Indoor only", temp: "Relaxed and floppy", easy: true, hard: false},
+  {n: "Bengal", size: "Medium", energy: "High", groom: "Low", kids: "Mostly", home: "Indoor with outdoor access", temp: "Wild looking and very active", easy: false, hard: true},
+  {n: "Abyssinian", size: "Medium", energy: "High", groom: "Low", kids: "Mostly", home: "Indoor with outdoor access", temp: "Curious and busy", easy: false, hard: true},
+  {n: "Sphynx", size: "Medium", energy: "High", groom: "Medium", kids: "Yes", home: "Indoor only", temp: "Warm, bold and affectionate", easy: false, hard: false},
+  {n: "Scottish Fold", size: "Medium", energy: "Low", groom: "Medium", kids: "Yes", home: "Indoor only", temp: "Sweet and quiet", easy: true, hard: false},
+  {n: "Russian Blue", size: "Medium", energy: "Medium", groom: "Low", kids: "Mostly", home: "Indoor only", temp: "Shy at first, then loyal", easy: true, hard: false},
+  {n: "Norwegian Forest Cat", size: "Large", energy: "Medium", groom: "High", kids: "Yes", home: "Either", temp: "Gentle and hardy", easy: false, hard: false},
+  {n: "Birman", size: "Medium", energy: "Low", groom: "Medium", kids: "Yes", home: "Indoor only", temp: "Soft and people loving", easy: true, hard: false},
+  {n: "Oriental Shorthair", size: "Medium", energy: "High", groom: "Low", kids: "Mostly", home: "Indoor only", temp: "Chatty and playful", easy: false, hard: true},
+  {n: "Devon Rex", size: "Small", energy: "High", groom: "Low", kids: "Yes", home: "Indoor only", temp: "Mischievous and warm", easy: false, hard: false},
+  {n: "Cornish Rex", size: "Small", energy: "High", groom: "Low", kids: "Yes", home: "Indoor only", temp: "Active and affectionate", easy: false, hard: false},
+  {n: "Burmese", size: "Medium", energy: "High", groom: "Low", kids: "Yes", home: "Indoor only", temp: "Playful and people loving", easy: false, hard: false},
+  {n: "Tonkinese", size: "Medium", energy: "High", groom: "Low", kids: "Yes", home: "Indoor only", temp: "Social and lively", easy: false, hard: false},
+  {n: "Turkish Angora", size: "Medium", energy: "High", groom: "Medium", kids: "Mostly", home: "Indoor only", temp: "Graceful and clever", easy: false, hard: true},
+  {n: "Manx", size: "Medium", energy: "Medium", groom: "Low", kids: "Yes", home: "Either", temp: "Playful and loyal, no tail", easy: true, hard: false},
+  {n: "Egyptian Mau", size: "Medium", energy: "High", groom: "Low", kids: "Mostly", home: "Indoor only", temp: "Spotted, fast and loyal", easy: false, hard: true},
+  {n: "Himalayan", size: "Medium", energy: "Low", groom: "High", kids: "Mostly", home: "Indoor only", temp: "Calm and sweet", easy: false, hard: false},
+  {n: "Exotic Shorthair", size: "Medium", energy: "Low", groom: "Low", kids: "Yes", home: "Indoor only", temp: "Quiet and affectionate", easy: true, hard: false},
+  {n: "Savannah", size: "Large", energy: "High", groom: "Low", kids: "Supervised", home: "Indoor with outdoor access", temp: "Tall, active and dog-like", easy: false, hard: true},
+  {n: "Bombay", size: "Medium", energy: "Medium", groom: "Low", kids: "Yes", home: "Indoor only", temp: "Black, sleek and social", easy: true, hard: false},
+  {n: "American Shorthair", size: "Medium", energy: "Low", groom: "Low", kids: "Yes", home: "Either", temp: "Easy going and sturdy", easy: true, hard: false}
+  ];
+  function filterBreeds(groom, energy){
+    return BREEDS.filter(function(b){
+      var okG = !groom || b.groom === groom;
+      var okE = !energy || b.energy === energy;
+      return okG && okE;
+    });
+  }
+  function scoreBreed(b, home, activity, experience){
+    var s = 0;
+    if (home === "flat"){
+      if (b.home === "Indoor only") s += 3;
+      else if (b.home === "Either") s += 1;
+      if (b.size === "Large") s -= 1;
+      if (b.energy === "High") s -= 1;
+    } else if (home === "small"){
+      if (b.home === "Indoor only") s += 2;
+      else if (b.home === "Either") s += 2;
+      else s += 1;
+    } else if (home === "large"){
+      if (b.home === "Either") s += 2;
+      else if (b.home === "Indoor with outdoor access") s += 2;
+      else s += 1;
+      if (b.size === "Large") s += 1;
+    }
+    if (activity === "low"){
+      if (b.energy === "Low") s += 3;
+      else if (b.energy === "Medium") s += 1;
+      else s -= 2;
+    } else if (activity === "moderate"){
+      if (b.energy === "Medium") s += 2;
+      else if (b.energy === "Low") s += 1;
+      else s += 1;
+    } else if (activity === "high"){
+      if (b.energy === "High") s += 3;
+      else if (b.energy === "Medium") s += 1;
+      else s -= 1;
+    }
+    if (experience === "first"){
+      if (b.easy) s += 3;
+      if (b.hard) s -= 2;
+    } else if (experience === "experienced"){
+      if (b.hard) s += 1;
+    }
+    return s;
+  }
+  function pickBreeds(home, activity, experience){
+    var scored = BREEDS.map(function(b, i){
+      return {b: b, s: scoreBreed(b, home, activity, experience), i: i};
+    });
+    scored.sort(function(a, c){ return (c.s - a.s) || (a.i - c.i); });
+    return scored.slice(0, 3).map(function(x){ return x.b; });
+  }
+  window.FT.BREEDS = BREEDS;
+  window.FT.filterBreeds = filterBreeds;
+  window.FT.scoreBreed = scoreBreed;
+  window.FT.pickBreeds = pickBreeds;
+  if (typeof document === "undefined") return;
+  var groomEl = document.getElementById("groom");
+  var energyEl = document.getElementById("energy");
+  var listEl = document.getElementById("breed-list");
+  var countEl = document.getElementById("count");
+  var pickBtn = document.getElementById("pick-btn");
+  var pickOut = document.getElementById("pick-out");
+  var copyBtn = document.getElementById("copy-btn");
+  var lastPick = [];
+  function rowText(b){
+    return b.size + " — Energy: " + b.energy + " — Grooming: " + b.groom +
+      " — Good with children: " + b.kids + " — Home: " + b.home + " — " + b.temp + ".";
+  }
+  function render(){
+    var rows = filterBreeds(groomEl.value, energyEl.value);
+    countEl.textContent = rows.length + " breed" + (rows.length === 1 ? "" : "s") + " shown";
+    listEl.innerHTML = "";
+    rows.forEach(function(b){
+      var d = document.createElement("div");
+      d.className = "row";
+      var name = document.createElement("b");
+      name.textContent = b.n;
+      var tags = document.createElement("div");
+      tags.className = "tags";
+      tags.textContent = rowText(b);
+      d.appendChild(name);
+      d.appendChild(tags);
+      listEl.appendChild(d);
+    });
+    if (rows.length === 0){
+      var none = document.createElement("div");
+      none.className = "row";
+      none.textContent = "No breed matches those filters. Try another grooming or energy level.";
+      listEl.appendChild(none);
+    }
+  }
+  groomEl.addEventListener("change", render);
+  energyEl.addEventListener("change", render);
+  pickBtn.addEventListener("click", function(){
+    var home = document.getElementById("home").value;
+    var activity = document.getElementById("activity").value;
+    var experience = document.getElementById("experience").value;
+    lastPick = pickBreeds(home, activity, experience);
+    var lines = ["Three breeds to look at first:"];
+    lastPick.forEach(function(b, i){
+      lines.push((i + 1) + ". " + b.n + " — " + rowText(b));
+    });
+    lines.push("These are starting points from general breed traits. Meet the cat before you decide.");
+    pickOut.style.display = "";
+    pickOut.textContent = lines.join("\n");
+    copyBtn.style.display = "";
+  });
+  copyBtn.addEventListener("click", function(){
+    if (lastPick.length) copyText(pickOut.textContent, copyBtn);
+  });
+  render();
+})();
+
+function copyText(text, btn){
+  function done(){ if(btn){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 2000); } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch(e) {}
+  document.body.removeChild(ta);
+}
+function downloadText(filename, text, type){
+  var blob = new Blob([text], {type: type || "text/plain"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+</script>
+<script src="/funtasha-ads.js" defer></script>
+</body>
+</html>
